@@ -4,15 +4,24 @@
   "htmlCount": 516,
   "markdownCount": 518,
   "categories": {
-    "其他阅读": 285,
-    "历史与文明": 92,
-    "哲学与思想": 21,
-    "商业与决策": 5,
-    "宗教与修行": 26,
-    "心理与自我": 29,
-    "文学与故事": 23,
-    "社会与政治": 32,
-    "科学与方法": 7
+    "人类学与民族志": 13,
+    "传记与回忆录": 8,
+    "健康与生活": 4,
+    "历史与文明": 100,
+    "古典文献与国学": 4,
+    "哲学与思想": 33,
+    "宗教与灵性": 61,
+    "实用与技能": 12,
+    "心理学与自我": 37,
+    "性文化与身体": 19,
+    "文学与小说": 98,
+    "社会与政治": 64,
+    "神话与民俗": 11,
+    "科幻与悬疑": 19,
+    "科普与科学": 10,
+    "经济与商业": 10,
+    "艺术与文化": 14,
+    "诗歌与词赋": 3
   },
   "entries": [
     {
@@ -27,7 +36,7 @@
     {
       "title": "经济大师的回响",
       "date": "2026-08-02",
-      "category": "社会与政治",
+      "category": "宗教与灵性",
       "html": "readings/%E7%BB%8F%E6%B5%8E%E5%A4%A7%E5%B8%88%E7%9A%84%E5%9B%9E%E5%93%8D_2026-08-02.html",
       "markdown": "markdown/%E7%BB%8F%E6%B5%8E%E5%A4%A7%E5%B8%88%E7%9A%84%E5%9B%9E%E5%93%8D_2026-08-02.md",
       "htmlBytes": 21217,
@@ -36,7 +45,7 @@
     {
       "title": "究竟真实",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E7%A9%B6%E7%AB%9F%E7%9C%9F%E5%AE%9E_2026-08-02.html",
       "markdown": "markdown/%E7%A9%B6%E7%AB%9F%E7%9C%9F%E5%AE%9E_2026-08-02.md",
       "htmlBytes": 30081,
@@ -81,7 +90,7 @@
     {
       "title": "我不是耶稣的粉丝",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E6%88%91%E4%B8%8D%E6%98%AF%E8%80%B6%E7%A8%A3%E7%9A%84%E7%B2%89%E4%B8%9D_2026-08-02.html",
       "markdown": "markdown/%E6%88%91%E4%B8%8D%E6%98%AF%E8%80%B6%E7%A8%A3%E7%9A%84%E7%B2%89%E4%B8%9D_2026-08-02.md",
       "htmlBytes": 36565,
@@ -90,7 +99,7 @@
     {
       "title": "成瘾的大脑",
       "date": "2026-08-02",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E6%88%90%E7%98%BE%E7%9A%84%E5%A4%A7%E8%84%91_2026-08-02.html",
       "markdown": "markdown/%E6%88%90%E7%98%BE%E7%9A%84%E5%A4%A7%E8%84%91_2026-08-02.md",
       "htmlBytes": 37934,
@@ -99,7 +108,7 @@
     {
       "title": "康乃尔最经典的思考逻辑课",
       "date": "2026-08-02",
-      "category": "心理与自我",
+      "category": "宗教与灵性",
       "html": "readings/%E5%BA%B7%E4%B9%83%E5%B0%94%E6%9C%80%E7%BB%8F%E5%85%B8%E7%9A%84%E6%80%9D%E8%80%83%E9%80%BB%E8%BE%91%E8%AF%BE_2026-08-02.html",
       "markdown": "markdown/%E5%BA%B7%E4%B9%83%E5%B0%94%E6%9C%80%E7%BB%8F%E5%85%B8%E7%9A%84%E6%80%9D%E8%80%83%E9%80%BB%E8%BE%91%E8%AF%BE_2026-08-02.md",
       "htmlBytes": 36189,
@@ -117,7 +126,7 @@
     {
       "title": "崩坏国文",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%B4%A9%E5%9D%8F%E5%9B%BD%E6%96%87_2026-08-02.html",
       "markdown": "markdown/%E5%B4%A9%E5%9D%8F%E5%9B%BD%E6%96%87_2026-08-02.md",
       "htmlBytes": 17314,
@@ -126,7 +135,7 @@
     {
       "title": "向人生提问的艺术",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%90%91%E4%BA%BA%E7%94%9F%E6%8F%90%E9%97%AE%E7%9A%84%E8%89%BA%E6%9C%AF_2026-08-02.html",
       "markdown": "markdown/%E5%90%91%E4%BA%BA%E7%94%9F%E6%8F%90%E9%97%AE%E7%9A%84%E8%89%BA%E6%9C%AF_2026-08-02.md",
       "htmlBytes": 15740,
@@ -153,7 +162,7 @@
     {
       "title": "博学者与他们的时代",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E5%8D%9A%E5%AD%A6%E8%80%85%E4%B8%8E%E4%BB%96%E4%BB%AC%E7%9A%84%E6%97%B6%E4%BB%A3_2026-08-02.html",
       "markdown": "markdown/%E5%8D%9A%E5%AD%A6%E8%80%85%E4%B8%8E%E4%BB%96%E4%BB%AC%E7%9A%84%E6%97%B6%E4%BB%A3_2026-08-02.md",
       "htmlBytes": 22537,
@@ -162,7 +171,7 @@
     {
       "title": "令人着迷的生与死",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E4%BB%A4%E4%BA%BA%E7%9D%80%E8%BF%B7%E7%9A%84%E7%94%9F%E4%B8%8E%E6%AD%BB_2026-08-02.html",
       "markdown": "markdown/%E4%BB%A4%E4%BA%BA%E7%9D%80%E8%BF%B7%E7%9A%84%E7%94%9F%E4%B8%8E%E6%AD%BB_2026-08-02.md",
       "htmlBytes": 36654,
@@ -171,7 +180,7 @@
     {
       "title": "一百年的一千本书",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E4%B8%80%E7%99%BE%E5%B9%B4%E7%9A%84%E4%B8%80%E5%8D%83%E6%9C%AC%E4%B9%A6_2026-08-02.html",
       "markdown": "markdown/%E4%B8%80%E7%99%BE%E5%B9%B4%E7%9A%84%E4%B8%80%E5%8D%83%E6%9C%AC%E4%B9%A6_2026-08-02.md",
       "htmlBytes": 17583,
@@ -180,7 +189,7 @@
     {
       "title": "55个刺激提问",
       "date": "2026-08-02",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/55%E4%B8%AA%E5%88%BA%E6%BF%80%E6%8F%90%E9%97%AE_2026-08-02.html",
       "markdown": "markdown/55%E4%B8%AA%E5%88%BA%E6%BF%80%E6%8F%90%E9%97%AE_2026-08-02.md",
       "htmlBytes": 33199,
@@ -189,7 +198,7 @@
     {
       "title": "10分钟入禅休息法",
       "date": "2026-08-02",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/10%E5%88%86%E9%92%9F%E5%85%A5%E7%A6%85%E4%BC%91%E6%81%AF%E6%B3%95_2026-08-02.html",
       "markdown": "markdown/10%E5%88%86%E9%92%9F%E5%85%A5%E7%A6%85%E4%BC%91%E6%81%AF%E6%B3%95_2026-08-02.md",
       "htmlBytes": 33817,
@@ -198,7 +207,7 @@
     {
       "title": "跟各国人都可以聊得来",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E8%B7%9F%E5%90%84%E5%9B%BD%E4%BA%BA%E9%83%BD%E5%8F%AF%E4%BB%A5%E8%81%8A%E5%BE%97%E6%9D%A5_2026-08-01.html",
       "markdown": "markdown/%E8%B7%9F%E5%90%84%E5%9B%BD%E4%BA%BA%E9%83%BD%E5%8F%AF%E4%BB%A5%E8%81%8A%E5%BE%97%E6%9D%A5_2026-08-01.md",
       "htmlBytes": 38887,
@@ -207,7 +216,7 @@
     {
       "title": "西印度毁灭述略",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E8%A5%BF%E5%8D%B0%E5%BA%A6%E6%AF%81%E7%81%AD%E8%BF%B0%E7%95%A5_2026-08-01.html",
       "markdown": "markdown/%E8%A5%BF%E5%8D%B0%E5%BA%A6%E6%AF%81%E7%81%AD%E8%BF%B0%E7%95%A5_2026-08-01.md",
       "htmlBytes": 46549,
@@ -225,7 +234,7 @@
     {
       "title": "树上的男爵",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%A0%91%E4%B8%8A%E7%9A%84%E7%94%B7%E7%88%B5_2026-08-01.html",
       "markdown": "markdown/%E6%A0%91%E4%B8%8A%E7%9A%84%E7%94%B7%E7%88%B5_2026-08-01.md",
       "htmlBytes": 43060,
@@ -234,7 +243,7 @@
     {
       "title": "是谁决定我们的薪水？为什么不可能人人均富？",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%98%AF%E8%B0%81%E5%86%B3%E5%AE%9A%E6%88%91%E4%BB%AC%E7%9A%84%E8%96%AA%E6%B0%B4_2026-08-01.html",
       "markdown": "markdown/%E6%98%AF%E8%B0%81%E5%86%B3%E5%AE%9A%E6%88%91%E4%BB%AC%E7%9A%84%E8%96%AA%E6%B0%B4_2026-08-01.md",
       "htmlBytes": 39398,
@@ -243,7 +252,7 @@
     {
       "title": "昨日之前的世界",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E6%98%A8%E6%97%A5%E4%B9%8B%E5%89%8D%E7%9A%84%E4%B8%96%E7%95%8C_2026-08-01.html",
       "markdown": "markdown/%E6%98%A8%E6%97%A5%E4%B9%8B%E5%89%8D%E7%9A%84%E4%B8%96%E7%95%8C_2026-08-01.md",
       "htmlBytes": 45916,
@@ -261,7 +270,7 @@
     {
       "title": "技术与文明",
       "date": "2026-08-01",
-      "category": "历史与文明",
+      "category": "科普与科学",
       "html": "readings/%E6%8A%80%E6%9C%AF%E4%B8%8E%E6%96%87%E6%98%8E_2026-08-01.html",
       "markdown": "markdown/%E6%8A%80%E6%9C%AF%E4%B8%8E%E6%96%87%E6%98%8E_2026-08-01.md",
       "htmlBytes": 46894,
@@ -270,7 +279,7 @@
     {
       "title": "崩溃",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%B4%A9%E6%BA%83_2026-08-01.html",
       "markdown": "markdown/%E5%B4%A9%E6%BA%83_2026-08-01.md",
       "htmlBytes": 47541,
@@ -279,7 +288,7 @@
     {
       "title": "宗教怎么来的？为什么人会相信看不见的神？",
       "date": "2026-08-01",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E5%AE%97%E6%95%99%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84_2026-08-01.html",
       "markdown": "markdown/%E5%AE%97%E6%95%99%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84_2026-08-01.md",
       "htmlBytes": 39881,
@@ -288,7 +297,7 @@
     {
       "title": "单向度的人",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%8D%95%E5%90%91%E5%BA%A6%E7%9A%84%E4%BA%BA_2026-08-01.html",
       "markdown": "markdown/%E5%8D%95%E5%90%91%E5%BA%A6%E7%9A%84%E4%BA%BA_2026-08-01.md",
       "htmlBytes": 47892,
@@ -297,7 +306,7 @@
     {
       "title": "剧变",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%89%A7%E5%8F%98_2026-08-01.html",
       "markdown": "markdown/%E5%89%A7%E5%8F%98_2026-08-01.md",
       "htmlBytes": 44975,
@@ -315,7 +324,7 @@
     {
       "title": "假新闻时代下的媒体素养",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%81%87%E6%96%B0%E9%97%BB%E6%97%B6%E4%BB%A3%E4%B8%8B%E7%9A%84%E5%AA%92%E4%BD%93%E7%B4%A0%E5%85%BB_2026-08-01.html",
       "markdown": "markdown/%E5%81%87%E6%96%B0%E9%97%BB%E6%97%B6%E4%BB%A3%E4%B8%8B%E7%9A%84%E5%AA%92%E4%BD%93%E7%B4%A0%E5%85%BB_2026-08-01.md",
       "htmlBytes": 38177,
@@ -324,7 +333,7 @@
     {
       "title": "你只是单纯活着，还是有在动脑？",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%BD%A0%E5%8F%AA%E6%98%AF%E5%8D%95%E7%BA%AF%E6%B4%BB%E7%9D%80%E8%BF%98%E6%98%AF%E6%9C%89%E5%9C%A8%E5%8A%A8%E8%84%91_2026-08-01.html",
       "markdown": "markdown/%E4%BD%A0%E5%8F%AA%E6%98%AF%E5%8D%95%E7%BA%AF%E6%B4%BB%E7%9D%80%E8%BF%98%E6%98%AF%E6%9C%89%E5%9C%A8%E5%8A%A8%E8%84%91_2026-08-01.md",
       "htmlBytes": 40782,
@@ -333,7 +342,7 @@
     {
       "title": "什么是难民、族群融合、庇护政策或仇外心理？",
       "date": "2026-08-01",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E7%9C%8B%E8%A7%81%E4%BB%96%E4%BA%BA%E5%9B%B0%E5%A2%83%E7%9A%84%E7%90%86%E8%A7%A3%E8%83%BD%E5%8A%9B_2026-08-01.html",
       "markdown": "markdown/%E7%9C%8B%E8%A7%81%E4%BB%96%E4%BA%BA%E5%9B%B0%E5%A2%83%E7%9A%84%E7%90%86%E8%A7%A3%E8%83%BD%E5%8A%9B_2026-08-01.md",
       "htmlBytes": 39441,
@@ -351,7 +360,7 @@
     {
       "title": "一般系统论原理",
       "date": "2026-08-01",
-      "category": "科学与方法",
+      "category": "科普与科学",
       "html": "readings/%E4%B8%80%E8%88%AC%E7%B3%BB%E7%BB%9F%E8%AE%BA%E5%8E%9F%E7%90%86_2026-08-01.html",
       "markdown": "markdown/%E4%B8%80%E8%88%AC%E7%B3%BB%E7%BB%9F%E8%AE%BA%E5%8E%9F%E7%90%86_2026-08-01.md",
       "htmlBytes": 49517,
@@ -360,7 +369,7 @@
     {
       "title": "一种体系　两个系统",
       "date": "2026-08-01",
-      "category": "科学与方法",
+      "category": "科普与科学",
       "html": "readings/%E4%B8%80%E7%A7%8D%E4%BD%93%E7%B3%BB%E4%B8%A4%E4%B8%AA%E7%B3%BB%E7%BB%9F_2026-08-01.html",
       "markdown": "markdown/%E4%B8%80%E7%A7%8D%E4%BD%93%E7%B3%BB%E4%B8%A4%E4%B8%AA%E7%B3%BB%E7%BB%9F_2026-08-01.md",
       "htmlBytes": 38934,
@@ -369,7 +378,7 @@
     {
       "title": "一个人值多少钱，谁是现代奴隶？",
       "date": "2026-08-01",
-      "category": "其他阅读",
+      "category": "经济与商业",
       "html": "readings/%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%80%BC%E5%A4%9A%E5%B0%91%E9%92%B1_2026-08-01.html",
       "markdown": "markdown/%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%80%BC%E5%A4%9A%E5%B0%91%E9%92%B1_2026-08-01.md",
       "htmlBytes": 38670,
@@ -378,7 +387,7 @@
     {
       "title": "美的历程",
       "date": "2026-07-31",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E7%BE%8E%E7%9A%84%E5%8E%86%E7%A8%8B_2026-07-31.html",
       "markdown": "markdown/%E7%BE%8E%E7%9A%84%E5%8E%86%E7%A8%8B_2026-07-31.md",
       "htmlBytes": 33962,
@@ -387,7 +396,7 @@
     {
       "title": "看不见的城市",
       "date": "2026-07-31",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E5%9F%8E%E5%B8%82_2026-07-31.html",
       "markdown": "markdown/%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E5%9F%8E%E5%B8%82_2026-07-31.md",
       "htmlBytes": 50055,
@@ -396,7 +405,7 @@
     {
       "title": "增长的极限",
       "date": "2026-07-31",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%A2%9E%E9%95%BF%E7%9A%84%E6%9E%81%E9%99%90_2026-07-31.html",
       "markdown": "markdown/%E5%A2%9E%E9%95%BF%E7%9A%84%E6%9E%81%E9%99%90_2026-07-31.md",
       "htmlBytes": 20815,
@@ -405,7 +414,7 @@
     {
       "title": "西印度毁灭述略 · 深度解读",
       "date": "2026-07-30",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E8%A5%BF%E5%8D%B0%E5%BA%A6%E6%AF%81%E7%81%AD%E8%BF%B0%E7%95%A5_2026-07-30.html",
       "markdown": "markdown/%E8%A5%BF%E5%8D%B0%E5%BA%A6%E6%AF%81%E7%81%AD%E8%BF%B0%E7%95%A5_2026-07-30.md",
       "htmlBytes": 34411,
@@ -414,7 +423,7 @@
     {
       "title": "失落的世界 · 深度解读",
       "date": "2026-07-30",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%A4%B1%E8%90%BD%E7%9A%84%E4%B8%96%E7%95%8C_2026-07-30.html",
       "markdown": "markdown/%E5%A4%B1%E8%90%BD%E7%9A%84%E4%B8%96%E7%95%8C_2026-07-30.md",
       "htmlBytes": 34630,
@@ -432,7 +441,7 @@
     {
       "title": "基督教的本质",
       "date": "2026-07-29",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E5%9F%BA%E7%9D%A3%E6%95%99%E7%9A%84%E6%9C%AC%E8%B4%A8_2026-07-29.html",
       "markdown": "markdown/%E5%9F%BA%E7%9D%A3%E6%95%99%E7%9A%84%E6%9C%AC%E8%B4%A8_2026-07-29.md",
       "htmlBytes": 55719,
@@ -441,7 +450,7 @@
     {
       "title": "东南亚的贸易时代（第一卷）",
       "date": "2026-07-29",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E4%B8%9C%E5%8D%97%E4%BA%9A%E7%9A%84%E8%B4%B8%E6%98%93%E6%97%B6%E4%BB%A3_2026-07-29.html",
       "markdown": "markdown/%E4%B8%9C%E5%8D%97%E4%BA%9A%E7%9A%84%E8%B4%B8%E6%98%93%E6%97%B6%E4%BB%A3_2026-07-29.md",
       "htmlBytes": 46873,
@@ -450,7 +459,7 @@
     {
       "title": "重口味心理学",
       "date": "2026-07-27",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E9%87%8D%E5%8F%A3%E5%91%B3%E5%BF%83%E7%90%86%E5%AD%A6_2026-07-27.html",
       "markdown": "markdown/%E9%87%8D%E5%8F%A3%E5%91%B3%E5%BF%83%E7%90%86%E5%AD%A6_2026-07-27.md",
       "htmlBytes": 12690,
@@ -459,7 +468,7 @@
     {
       "title": "逻辑思考的100个关键",
       "date": "2026-07-27",
-      "category": "心理与自我",
+      "category": "科普与科学",
       "html": "readings/%E9%80%BB%E8%BE%91%E6%80%9D%E8%80%83%E7%9A%84100%E4%B8%AA%E5%85%B3%E9%94%AE_2026-07-27.html",
       "markdown": "markdown/%E9%80%BB%E8%BE%91%E6%80%9D%E8%80%83%E7%9A%84100%E4%B8%AA%E5%85%B3%E9%94%AE_2026-07-27.md",
       "htmlBytes": 13411,
@@ -468,7 +477,7 @@
     {
       "title": "起床后的黄金1小时",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "健康与生活",
       "html": "readings/%E8%B5%B7%E5%BA%8A%E5%90%8E%E7%9A%84%E9%BB%84%E9%87%911%E5%B0%8F%E6%97%B6_2026-07-27.html",
       "markdown": "markdown/%E8%B5%B7%E5%BA%8A%E5%90%8E%E7%9A%84%E9%BB%84%E9%87%911%E5%B0%8F%E6%97%B6_2026-07-27.md",
       "htmlBytes": 13175,
@@ -486,7 +495,7 @@
     {
       "title": "沃顿商学院最受欢迎的思维课",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E6%B2%83%E9%A1%BF%E5%95%86%E5%AD%A6%E9%99%A2%E6%9C%80%E5%8F%97%E6%AC%A2%E8%BF%8E%E7%9A%84%E6%80%9D%E7%BB%B4%E8%AF%BE_2026-07-27.html",
       "markdown": "markdown/%E6%B2%83%E9%A1%BF%E5%95%86%E5%AD%A6%E9%99%A2%E6%9C%80%E5%8F%97%E6%AC%A2%E8%BF%8E%E7%9A%84%E6%80%9D%E7%BB%B4%E8%AF%BE_2026-07-27.md",
       "htmlBytes": 13119,
@@ -504,7 +513,7 @@
     {
       "title": "成吉思汗",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%88%90%E5%90%89%E6%80%9D%E6%B1%97_2026-07-27.html",
       "markdown": "markdown/%E6%88%90%E5%90%89%E6%80%9D%E6%B1%97_2026-07-27.md",
       "htmlBytes": 19041,
@@ -513,7 +522,7 @@
     {
       "title": "情绪是什么",
       "date": "2026-07-27",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E6%83%85%E7%BB%AA%E6%98%AF%E4%BB%80%E4%B9%88_2026-07-27.html",
       "markdown": "markdown/%E6%83%85%E7%BB%AA%E6%98%AF%E4%BB%80%E4%B9%88_2026-07-27.md",
       "htmlBytes": 12224,
@@ -522,7 +531,7 @@
     {
       "title": "应对冲突的第三种思维",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E5%BA%94%E5%AF%B9%E5%86%B2%E7%AA%81%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E6%80%9D%E7%BB%B4_2026-07-27.html",
       "markdown": "markdown/%E5%BA%94%E5%AF%B9%E5%86%B2%E7%AA%81%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E6%80%9D%E7%BB%B4_2026-07-27.md",
       "htmlBytes": 13427,
@@ -531,7 +540,7 @@
     {
       "title": "如何有效阅读一本书",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "传记与回忆录",
       "html": "readings/%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6_2026-07-27.html",
       "markdown": "markdown/%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6_2026-07-27.md",
       "htmlBytes": 17451,
@@ -549,7 +558,7 @@
     {
       "title": "可塑的我",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E5%8F%AF%E5%A1%91%E7%9A%84%E6%88%91_2026-07-27.html",
       "markdown": "markdown/%E5%8F%AF%E5%A1%91%E7%9A%84%E6%88%91_2026-07-27.md",
       "htmlBytes": 13077,
@@ -558,7 +567,7 @@
     {
       "title": "华夏之心",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%8D%8E%E5%A4%8F%E4%B9%8B%E5%BF%83_2026-07-27.html",
       "markdown": "markdown/%E5%8D%8E%E5%A4%8F%E4%B9%8B%E5%BF%83_2026-07-27.md",
       "htmlBytes": 16908,
@@ -567,7 +576,7 @@
     {
       "title": "人人都在说谎",
       "date": "2026-07-27",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E4%BA%BA%E4%BA%BA%E9%83%BD%E5%9C%A8%E8%AF%B4%E8%B0%8E_2026-07-27.html",
       "markdown": "markdown/%E4%BA%BA%E4%BA%BA%E9%83%BD%E5%9C%A8%E8%AF%B4%E8%B0%8E_2026-07-27.md",
       "htmlBytes": 12509,
@@ -576,7 +585,7 @@
     {
       "title": "亲密关系",
       "date": "2026-07-27",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB_2026-07-27.html",
       "markdown": "markdown/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB_2026-07-27.md",
       "htmlBytes": 12945,
@@ -585,7 +594,7 @@
     {
       "title": "了解人类行为的50个心理学实验",
       "date": "2026-07-27",
-      "category": "社会与政治",
+      "category": "心理学与自我",
       "html": "readings/%E4%BA%86%E8%A7%A3%E4%BA%BA%E7%B1%BB%E8%A1%8C%E4%B8%BA%E7%9A%8450%E4%B8%AA%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C_2026-07-27.html",
       "markdown": "markdown/%E4%BA%86%E8%A7%A3%E4%BA%BA%E7%B1%BB%E8%A1%8C%E4%B8%BA%E7%9A%8450%E4%B8%AA%E5%BF%83%E7%90%86%E5%AD%A6%E5%AE%9E%E9%AA%8C_2026-07-27.md",
       "htmlBytes": 12813,
@@ -594,7 +603,7 @@
     {
       "title": "世界的逻辑",
       "date": "2026-07-27",
-      "category": "科学与方法",
+      "category": "科普与科学",
       "html": "readings/%E4%B8%96%E7%95%8C%E7%9A%84%E9%80%BB%E8%BE%91_2026-07-27.html",
       "markdown": "markdown/%E4%B8%96%E7%95%8C%E7%9A%84%E9%80%BB%E8%BE%91_2026-07-27.md",
       "htmlBytes": 12741,
@@ -603,7 +612,7 @@
     {
       "title": "麦田里的守望者",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%BA%A6%E7%94%B0%E9%87%8C%E7%9A%84%E5%AE%88%E6%9C%9B%E8%80%85_2026-07-25.html",
       "markdown": "markdown/%E9%BA%A6%E7%94%B0%E9%87%8C%E7%9A%84%E5%AE%88%E6%9C%9B%E8%80%85_2026-07-25.md",
       "htmlBytes": 34093,
@@ -612,7 +621,7 @@
     {
       "title": "雾都孤儿",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%9B%BE%E9%83%BD%E5%AD%A4%E5%84%BF_2026-07-25.html",
       "markdown": "markdown/%E9%9B%BE%E9%83%BD%E5%AD%A4%E5%84%BF_2026-07-25.md",
       "htmlBytes": 42285,
@@ -630,7 +639,7 @@
     {
       "title": "茶馆",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E8%8C%B6%E9%A6%86_2026-07-25.html",
       "markdown": "markdown/%E8%8C%B6%E9%A6%86_2026-07-25.md",
       "htmlBytes": 44185,
@@ -639,7 +648,7 @@
     {
       "title": "猎人笔记",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%8C%8E%E4%BA%BA%E7%AC%94%E8%AE%B0_2026-07-25.html",
       "markdown": "markdown/%E7%8C%8E%E4%BA%BA%E7%AC%94%E8%AE%B0_2026-07-25.md",
       "htmlBytes": 45593,
@@ -648,7 +657,7 @@
     {
       "title": "正是橙黄橘绿时",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%AD%A3%E6%98%AF%E6%A9%99%E9%BB%84%E6%A9%98%E7%BB%BF%E6%97%B6_2026-07-25.html",
       "markdown": "markdown/%E6%AD%A3%E6%98%AF%E6%A9%99%E9%BB%84%E6%A9%98%E7%BB%BF%E6%97%B6_2026-07-25.md",
       "htmlBytes": 16742,
@@ -657,7 +666,7 @@
     {
       "title": "我是猫",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%88%91%E6%98%AF%E7%8C%AB_2026-07-25.html",
       "markdown": "markdown/%E6%88%91%E6%98%AF%E7%8C%AB_2026-07-25.md",
       "htmlBytes": 24691,
@@ -666,7 +675,7 @@
     {
       "title": "忏悔录",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%BF%8F%E6%82%94%E5%BD%95_2026-07-25.html",
       "markdown": "markdown/%E5%BF%8F%E6%82%94%E5%BD%95_2026-07-25.md",
       "htmlBytes": 44887,
@@ -675,7 +684,7 @@
     {
       "title": "大雪将至",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%A4%A7%E9%9B%AA%E5%B0%86%E8%87%B3_2026-07-25.html",
       "markdown": "markdown/%E5%A4%A7%E9%9B%AA%E5%B0%86%E8%87%B3_2026-07-25.md",
       "htmlBytes": 41029,
@@ -684,7 +693,7 @@
     {
       "title": "十一月的此刻",
       "date": "2026-07-25",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%8D%81%E4%B8%80%E6%9C%88%E7%9A%84%E6%AD%A4%E5%88%BB_2026-07-25.html",
       "markdown": "markdown/%E5%8D%81%E4%B8%80%E6%9C%88%E7%9A%84%E6%AD%A4%E5%88%BB_2026-07-25.md",
       "htmlBytes": 24735,
@@ -693,7 +702,7 @@
     {
       "title": "鲜衣怒马少年时",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%B2%9C%E8%A1%A3%E6%80%92%E9%A9%AC%E5%B0%91%E5%B9%B4%E6%97%B6_2026-07-21.html",
       "markdown": "markdown/%E9%B2%9C%E8%A1%A3%E6%80%92%E9%A9%AC%E5%B0%91%E5%B9%B4%E6%97%B6_2026-07-21.md",
       "htmlBytes": 24836,
@@ -702,7 +711,7 @@
     {
       "title": "沉默的大多数",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%B2%89%E9%BB%98%E7%9A%84%E5%A4%A7%E5%A4%9A%E6%95%B0_2026-07-21.html",
       "markdown": "markdown/%E6%B2%89%E9%BB%98%E7%9A%84%E5%A4%A7%E5%A4%9A%E6%95%B0_2026-07-21.md",
       "htmlBytes": 18128,
@@ -711,7 +720,7 @@
     {
       "title": "植物比你想的更聪明",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "科普与科学",
       "html": "readings/%E6%A4%8D%E7%89%A9%E6%AF%94%E4%BD%A0%E6%83%B3%E7%9A%84%E6%9B%B4%E8%81%AA%E6%98%8E_2026-07-21.html",
       "markdown": "markdown/%E6%A4%8D%E7%89%A9%E6%AF%94%E4%BD%A0%E6%83%B3%E7%9A%84%E6%9B%B4%E8%81%AA%E6%98%8E_2026-07-21.md",
       "htmlBytes": 33172,
@@ -720,7 +729,7 @@
     {
       "title": "显微镜下的大明",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%98%BE%E5%BE%AE%E9%95%9C%E4%B8%8B%E7%9A%84%E5%A4%A7%E6%98%8E_2026-07-21.html",
       "markdown": "markdown/%E6%98%BE%E5%BE%AE%E9%95%9C%E4%B8%8B%E7%9A%84%E5%A4%A7%E6%98%8E_2026-07-21.md",
       "htmlBytes": 30930,
@@ -729,7 +738,7 @@
     {
       "title": "我们为什么要睡觉",
       "date": "2026-07-21",
-      "category": "心理与自我",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%9D%A1%E8%A7%89_2026-07-21.html",
       "markdown": "markdown/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%9D%A1%E8%A7%89_2026-07-21.md",
       "htmlBytes": 30575,
@@ -738,7 +747,7 @@
     {
       "title": "心安即是归处",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%BF%83%E5%AE%89%E5%8D%B3%E6%98%AF%E5%BD%92%E5%A4%84_2026-07-21.html",
       "markdown": "markdown/%E5%BF%83%E5%AE%89%E5%8D%B3%E6%98%AF%E5%BD%92%E5%A4%84_2026-07-21.md",
       "htmlBytes": 24898,
@@ -747,7 +756,7 @@
     {
       "title": "微积分的力量",
       "date": "2026-07-21",
-      "category": "科学与方法",
+      "category": "科普与科学",
       "html": "readings/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9A%84%E5%8A%9B%E9%87%8F_2026-07-21.html",
       "markdown": "markdown/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9A%84%E5%8A%9B%E9%87%8F_2026-07-21.md",
       "htmlBytes": 34662,
@@ -756,7 +765,7 @@
     {
       "title": "唐诗里的烟火人间",
       "date": "2026-07-21",
-      "category": "历史与文明",
+      "category": "文学与小说",
       "html": "readings/%E5%94%90%E8%AF%97%E9%87%8C%E7%9A%84%E7%83%9F%E7%81%AB%E4%BA%BA%E9%97%B4_2026-07-21.html",
       "markdown": "markdown/%E5%94%90%E8%AF%97%E9%87%8C%E7%9A%84%E7%83%9F%E7%81%AB%E4%BA%BA%E9%97%B4_2026-07-21.md",
       "htmlBytes": 21995,
@@ -810,7 +819,7 @@
     {
       "title": "冷门知识大全集",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E5%86%B7%E9%97%A8%E7%9F%A5%E8%AF%86%E5%A4%A7%E5%85%A8%E9%9B%86_2026-07-21.html",
       "markdown": "markdown/%E5%86%B7%E9%97%A8%E7%9F%A5%E8%AF%86%E5%A4%A7%E5%85%A8%E9%9B%86_2026-07-21.md",
       "htmlBytes": 16318,
@@ -837,7 +846,7 @@
     {
       "title": "人生五味：蒙曼品最美唐诗",
       "date": "2026-07-21",
-      "category": "历史与文明",
+      "category": "文学与小说",
       "html": "readings/%E4%BA%BA%E7%94%9F%E4%BA%94%E5%91%B3_2026-07-21.html",
       "markdown": "markdown/%E4%BA%BA%E7%94%9F%E4%BA%94%E5%91%B3_2026-07-21.md",
       "htmlBytes": 17455,
@@ -846,7 +855,7 @@
     {
       "title": "丰乳肥臀",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%B8%B0%E4%B9%B3%E8%82%A5%E8%87%80_2026-07-21.html",
       "markdown": "markdown/%E4%B8%B0%E4%B9%B3%E8%82%A5%E8%87%80_2026-07-21.md",
       "htmlBytes": 30577,
@@ -855,7 +864,7 @@
     {
       "title": "中国妖怪大全",
       "date": "2026-07-21",
-      "category": "历史与文明",
+      "category": "神话与民俗",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E5%A6%96%E6%80%AA%E5%A4%A7%E5%85%A8_2026-07-21.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E5%A6%96%E6%80%AA%E5%A4%A7%E5%85%A8_2026-07-21.md",
       "htmlBytes": 17251,
@@ -864,7 +873,7 @@
     {
       "title": "两京十五日",
       "date": "2026-07-21",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E4%B8%A4%E4%BA%AC%E5%8D%81%E4%BA%94%E6%97%A5_2026-07-21.html",
       "markdown": "markdown/%E4%B8%A4%E4%BA%AC%E5%8D%81%E4%BA%94%E6%97%A5_2026-07-21.md",
       "htmlBytes": 22231,
@@ -891,7 +900,7 @@
     {
       "title": "六祖坛经",
       "date": "2026-07-20",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E5%85%AD%E7%A5%96%E5%9D%9B%E7%BB%8F_2026-07-20.html",
       "markdown": "markdown/%E5%85%AD%E7%A5%96%E5%9D%9B%E7%BB%8F_2026-07-20.md",
       "htmlBytes": 37515,
@@ -900,7 +909,7 @@
     {
       "title": "高级迷信",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E9%AB%98%E7%BA%A7%E8%BF%B7%E4%BF%A1_2026-07-18.html",
       "markdown": "markdown/%E9%AB%98%E7%BA%A7%E8%BF%B7%E4%BF%A1_2026-07-18.md",
       "htmlBytes": 16439,
@@ -909,7 +918,7 @@
     {
       "title": "音乐的极境",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E9%9F%B3%E4%B9%90%E7%9A%84%E6%9E%81%E5%A2%83_2026-07-18.html",
       "markdown": "markdown/%E9%9F%B3%E4%B9%90%E7%9A%84%E6%9E%81%E5%A2%83_2026-07-18.md",
       "htmlBytes": 14861,
@@ -918,7 +927,7 @@
     {
       "title": "难民革命",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E9%9A%BE%E6%B0%91%E9%9D%A9%E5%91%BD_2026-07-18.html",
       "markdown": "markdown/%E9%9A%BE%E6%B0%91%E9%9D%A9%E5%91%BD_2026-07-18.md",
       "htmlBytes": 17162,
@@ -927,7 +936,7 @@
     {
       "title": "随园食单",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "古典文献与国学",
       "html": "readings/%E9%9A%8F%E5%9B%AD%E9%A3%9F%E5%8D%95_2026-07-18.html",
       "markdown": "markdown/%E9%9A%8F%E5%9B%AD%E9%A3%9F%E5%8D%95_2026-07-18.md",
       "htmlBytes": 27105,
@@ -936,7 +945,7 @@
     {
       "title": "谣言心理学",
       "date": "2026-07-18",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E8%B0%A3%E8%A8%80%E5%BF%83%E7%90%86%E5%AD%A6_2026-07-18.html",
       "markdown": "markdown/%E8%B0%A3%E8%A8%80%E5%BF%83%E7%90%86%E5%AD%A6_2026-07-18.md",
       "htmlBytes": 28554,
@@ -945,7 +954,7 @@
     {
       "title": "谁是中国人",
       "date": "2026-07-18",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E8%B0%81%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA_2026-07-18.html",
       "markdown": "markdown/%E8%B0%81%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA_2026-07-18.md",
       "htmlBytes": 15749,
@@ -954,7 +963,7 @@
     {
       "title": "绘图鲁班经",
       "date": "2026-07-18",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%BB%98%E5%9B%BE%E9%B2%81%E7%8F%AD%E7%BB%8F_2026-07-18.html",
       "markdown": "markdown/%E7%BB%98%E5%9B%BE%E9%B2%81%E7%8F%AD%E7%BB%8F_2026-07-18.md",
       "htmlBytes": 27528,
@@ -963,7 +972,7 @@
     {
       "title": "特工训练手册",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E7%89%B9%E5%B7%A5%E8%AE%AD%E7%BB%83%E6%89%8B%E5%86%8C_2026-07-18.html",
       "markdown": "markdown/%E7%89%B9%E5%B7%A5%E8%AE%AD%E7%BB%83%E6%89%8B%E5%86%8C_2026-07-18.md",
       "htmlBytes": 14483,
@@ -972,7 +981,7 @@
     {
       "title": "焦虑的人",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E7%84%A6%E8%99%91%E7%9A%84%E4%BA%BA_2026-07-18.html",
       "markdown": "markdown/%E7%84%A6%E8%99%91%E7%9A%84%E4%BA%BA_2026-07-18.md",
       "htmlBytes": 33894,
@@ -990,7 +999,7 @@
     {
       "title": "梦梁录",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%A2%A6%E6%A2%81%E5%BD%95_2026-07-18.html",
       "markdown": "markdown/%E6%A2%A6%E6%A2%81%E5%BD%95_2026-07-18.md",
       "htmlBytes": 27164,
@@ -999,7 +1008,7 @@
     {
       "title": "构图决定一切",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E6%9E%84%E5%9B%BE%E5%86%B3%E5%AE%9A%E4%B8%80%E5%88%87_2026-07-18.html",
       "markdown": "markdown/%E6%9E%84%E5%9B%BE%E5%86%B3%E5%AE%9A%E4%B8%80%E5%88%87_2026-07-18.md",
       "htmlBytes": 19622,
@@ -1008,7 +1017,7 @@
     {
       "title": "李善注昭明文选",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%9D%8E%E5%96%84%E6%B3%A8%E6%98%AD%E6%98%8E%E6%96%87%E9%80%89_2026-07-18.html",
       "markdown": "markdown/%E6%9D%8E%E5%96%84%E6%B3%A8%E6%98%AD%E6%98%8E%E6%96%87%E9%80%89_2026-07-18.md",
       "htmlBytes": 29530,
@@ -1017,7 +1026,7 @@
     {
       "title": "新摄影笔记",
       "date": "2026-07-18",
-      "category": "科学与方法",
+      "category": "艺术与文化",
       "html": "readings/%E6%96%B0%E6%91%84%E5%BD%B1%E7%AC%94%E8%AE%B0_2026-07-18.html",
       "markdown": "markdown/%E6%96%B0%E6%91%84%E5%BD%B1%E7%AC%94%E8%AE%B0_2026-07-18.md",
       "htmlBytes": 20876,
@@ -1026,7 +1035,7 @@
     {
       "title": "教父三部曲",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%95%99%E7%88%B6%E4%B8%89%E9%83%A8%E6%9B%B2_2026-07-18.html",
       "markdown": "markdown/%E6%95%99%E7%88%B6%E4%B8%89%E9%83%A8%E6%9B%B2_2026-07-18.md",
       "htmlBytes": 31114,
@@ -1035,7 +1044,7 @@
     {
       "title": "报道伊斯兰",
       "date": "2026-07-18",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E6%8A%A5%E9%81%93%E4%BC%8A%E6%96%AF%E5%85%B0_2026-07-18.html",
       "markdown": "markdown/%E6%8A%A5%E9%81%93%E4%BC%8A%E6%96%AF%E5%85%B0_2026-07-18.md",
       "htmlBytes": 17754,
@@ -1044,7 +1053,7 @@
     {
       "title": "我的西域你的东土",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E6%88%91%E7%9A%84%E8%A5%BF%E5%9F%9F%E4%BD%A0%E7%9A%84%E4%B8%9C%E5%9C%9F_2026-07-18.html",
       "markdown": "markdown/%E6%88%91%E7%9A%84%E8%A5%BF%E5%9F%9F%E4%BD%A0%E7%9A%84%E4%B8%9C%E5%9C%9F_2026-07-18.md",
       "htmlBytes": 32693,
@@ -1053,7 +1062,7 @@
     {
       "title": "我们",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%88%91%E4%BB%AC_2026-07-18.html",
       "markdown": "markdown/%E6%88%91%E4%BB%AC_2026-07-18.md",
       "htmlBytes": 30355,
@@ -1062,7 +1071,7 @@
     {
       "title": "影响力 全新升级版",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E5%BD%B1%E5%93%8D%E5%8A%9B_2026-07-18.html",
       "markdown": "markdown/%E5%BD%B1%E5%93%8D%E5%8A%9B_2026-07-18.md",
       "htmlBytes": 25920,
@@ -1071,7 +1080,7 @@
     {
       "title": "弗洛姆三部曲",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%BC%97%E6%B4%9B%E5%A7%86%E4%B8%89%E9%83%A8%E6%9B%B2_2026-07-18.html",
       "markdown": "markdown/%E5%BC%97%E6%B4%9B%E5%A7%86%E4%B8%89%E9%83%A8%E6%9B%B2_2026-07-18.md",
       "htmlBytes": 20586,
@@ -1080,7 +1089,7 @@
     {
       "title": "完美的独裁",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%AE%8C%E7%BE%8E%E7%9A%84%E7%8B%AC%E8%A3%81_2026-07-18.html",
       "markdown": "markdown/%E5%AE%8C%E7%BE%8E%E7%9A%84%E7%8B%AC%E8%A3%81_2026-07-18.md",
       "htmlBytes": 17979,
@@ -1089,7 +1098,7 @@
     {
       "title": "子不语",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%AD%90%E4%B8%8D%E8%AF%AD_2026-07-18.html",
       "markdown": "markdown/%E5%AD%90%E4%B8%8D%E8%AF%AD_2026-07-18.md",
       "htmlBytes": 30313,
@@ -1098,7 +1107,7 @@
     {
       "title": "太平御览",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%A4%AA%E5%B9%B3%E5%BE%A1%E8%A7%88_2026-07-18.html",
       "markdown": "markdown/%E5%A4%AA%E5%B9%B3%E5%BE%A1%E8%A7%88_2026-07-18.md",
       "htmlBytes": 25163,
@@ -1107,7 +1116,7 @@
     {
       "title": "太平广记",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%A4%AA%E5%B9%B3%E5%B9%BF%E8%AE%B0_2026-07-18.html",
       "markdown": "markdown/%E5%A4%AA%E5%B9%B3%E5%B9%BF%E8%AE%B0_2026-07-18.md",
       "htmlBytes": 25015,
@@ -1116,7 +1125,7 @@
     {
       "title": "唐诗宋词元曲古文鉴赏辞典（六册）",
       "date": "2026-07-18",
-      "category": "历史与文明",
+      "category": "文学与小说",
       "html": "readings/%E5%94%90%E8%AF%97%E5%AE%8B%E8%AF%8D%E5%85%83%E6%9B%B2%E5%8F%A4%E6%96%87%E9%89%B4%E8%B5%8F%E8%BE%9E%E5%85%B8_2026-07-18.html",
       "markdown": "markdown/%E5%94%90%E8%AF%97%E5%AE%8B%E8%AF%8D%E5%85%83%E6%9B%B2%E5%8F%A4%E6%96%87%E9%89%B4%E8%B5%8F%E8%BE%9E%E5%85%B8_2026-07-18.md",
       "htmlBytes": 15111,
@@ -1125,7 +1134,7 @@
     {
       "title": "后汉书",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%90%8E%E6%B1%89%E4%B9%A6_2026-07-18.html",
       "markdown": "markdown/%E5%90%8E%E6%B1%89%E4%B9%A6_2026-07-18.md",
       "htmlBytes": 30908,
@@ -1134,7 +1143,7 @@
     {
       "title": "古老的罪恶",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E5%8F%A4%E8%80%81%E7%9A%84%E7%BD%AA%E6%81%B6_2026-07-18.html",
       "markdown": "markdown/%E5%8F%A4%E8%80%81%E7%9A%84%E7%BD%AA%E6%81%B6_2026-07-18.md",
       "htmlBytes": 15497,
@@ -1143,7 +1152,7 @@
     {
       "title": "古文观止译注",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%8F%A4%E6%96%87%E8%A7%82%E6%AD%A2%E8%AF%91%E6%B3%A8_2026-07-18.html",
       "markdown": "markdown/%E5%8F%A4%E6%96%87%E8%A7%82%E6%AD%A2%E8%AF%91%E6%B3%A8_2026-07-18.md",
       "htmlBytes": 33757,
@@ -1152,7 +1161,7 @@
     {
       "title": "古代狂想曲",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%8F%A4%E4%BB%A3%E7%8B%82%E6%83%B3%E6%9B%B2_2026-07-18.html",
       "markdown": "markdown/%E5%8F%A4%E4%BB%A3%E7%8B%82%E6%83%B3%E6%9B%B2_2026-07-18.md",
       "htmlBytes": 14108,
@@ -1161,7 +1170,7 @@
     {
       "title": "六韬",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%85%AD%E9%9F%AC_2026-07-18.html",
       "markdown": "markdown/%E5%85%AD%E9%9F%AC_2026-07-18.md",
       "htmlBytes": 36122,
@@ -1170,7 +1179,7 @@
     {
       "title": "克莱因壶",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E5%85%8B%E8%8E%B1%E5%9B%A0%E5%A3%B6_2026-07-18.html",
       "markdown": "markdown/%E5%85%8B%E8%8E%B1%E5%9B%A0%E5%A3%B6_2026-07-18.md",
       "htmlBytes": 50764,
@@ -1179,7 +1188,7 @@
     {
       "title": "光线决定一切",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E5%85%89%E7%BA%BF%E5%86%B3%E5%AE%9A%E4%B8%80%E5%88%87_2026-07-18.html",
       "markdown": "markdown/%E5%85%89%E7%BA%BF%E5%86%B3%E5%AE%9A%E4%B8%80%E5%88%87_2026-07-18.md",
       "htmlBytes": 19750,
@@ -1188,7 +1197,7 @@
     {
       "title": "你一生的故事",
       "date": "2026-07-18",
-      "category": "文学与故事",
+      "category": "科幻与悬疑",
       "html": "readings/%E4%BD%A0%E4%B8%80%E7%94%9F%E7%9A%84%E6%95%85%E4%BA%8B_2026-07-18.html",
       "markdown": "markdown/%E4%BD%A0%E4%B8%80%E7%94%9F%E7%9A%84%E6%95%85%E4%BA%8B_2026-07-18.md",
       "htmlBytes": 19367,
@@ -1197,7 +1206,7 @@
     {
       "title": "人像摄影进行时：完美构图",
       "date": "2026-07-18",
-      "category": "科学与方法",
+      "category": "艺术与文化",
       "html": "readings/%E4%BA%BA%E5%83%8F%E6%91%84%E5%BD%B1%E8%BF%9B%E8%A1%8C%E6%97%B6%E5%AE%8C%E7%BE%8E%E6%9E%84%E5%9B%BE_2026-07-18.html",
       "markdown": "markdown/%E4%BA%BA%E5%83%8F%E6%91%84%E5%BD%B1%E8%BF%9B%E8%A1%8C%E6%97%B6%E5%AE%8C%E7%BE%8E%E6%9E%84%E5%9B%BE_2026-07-18.md",
       "htmlBytes": 14652,
@@ -1206,7 +1215,7 @@
     {
       "title": "亲密关系管理",
       "date": "2026-07-18",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB%E7%AE%A1%E7%90%86_2026-07-18.html",
       "markdown": "markdown/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB%E7%AE%A1%E7%90%86_2026-07-18.md",
       "htmlBytes": 24905,
@@ -1215,7 +1224,7 @@
     {
       "title": "世说新语",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%B8%96%E8%AF%B4%E6%96%B0%E8%AF%AD_2026-07-18.html",
       "markdown": "markdown/%E4%B8%96%E8%AF%B4%E6%96%B0%E8%AF%AD_2026-07-18.md",
       "htmlBytes": 27068,
@@ -1224,7 +1233,7 @@
     {
       "title": "与神对话",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E4%B8%8E%E7%A5%9E%E5%AF%B9%E8%AF%9D_2026-07-18.html",
       "markdown": "markdown/%E4%B8%8E%E7%A5%9E%E5%AF%B9%E8%AF%9D_2026-07-18.md",
       "htmlBytes": 21819,
@@ -1233,7 +1242,7 @@
     {
       "title": "不让岁月空流逝",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E4%B8%8D%E8%AE%A9%E5%B2%81%E6%9C%88%E7%A9%BA%E6%B5%81%E9%80%9D_2026-07-18.html",
       "markdown": "markdown/%E4%B8%8D%E8%AE%A9%E5%B2%81%E6%9C%88%E7%A9%BA%E6%B5%81%E9%80%9D_2026-07-18.md",
       "htmlBytes": 36662,
@@ -1242,7 +1251,7 @@
     {
       "title": "不可能的艺术",
       "date": "2026-07-18",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E4%B8%8D%E5%8F%AF%E8%83%BD%E7%9A%84%E8%89%BA%E6%9C%AF_2026-07-18.html",
       "markdown": "markdown/%E4%B8%8D%E5%8F%AF%E8%83%BD%E7%9A%84%E8%89%BA%E6%9C%AF_2026-07-18.md",
       "htmlBytes": 19101,
@@ -1251,7 +1260,7 @@
     {
       "title": "一眼识破真相的思考力",
       "date": "2026-07-18",
-      "category": "心理与自我",
+      "category": "实用与技能",
       "html": "readings/%E4%B8%80%E7%9C%BC%E8%AF%86%E7%A0%B4%E7%9C%9F%E7%9B%B8%E7%9A%84%E6%80%9D%E8%80%83%E5%8A%9B_2026-07-18.html",
       "markdown": "markdown/%E4%B8%80%E7%9C%BC%E8%AF%86%E7%A0%B4%E7%9C%9F%E7%9B%B8%E7%9A%84%E6%80%9D%E8%80%83%E5%8A%9B_2026-07-18.md",
       "htmlBytes": 30968,
@@ -1269,7 +1278,7 @@
     {
       "title": "说文解字 · 深度解读",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "古典文献与国学",
       "html": "readings/%E8%AF%B4%E6%96%87%E8%A7%A3%E5%AD%97_2026-07-17.html",
       "markdown": "markdown/%E8%AF%B4%E6%96%87%E8%A7%A3%E5%AD%97_2026-07-17.md",
       "htmlBytes": 21408,
@@ -1278,7 +1287,7 @@
     {
       "title": "诗经译注 · 深度解读",
       "date": "2026-07-17",
-      "category": "文学与故事",
+      "category": "宗教与灵性",
       "html": "readings/%E8%AF%97%E7%BB%8F%E8%AF%91%E6%B3%A8_2026-07-17.html",
       "markdown": "markdown/%E8%AF%97%E7%BB%8F%E8%AF%91%E6%B3%A8_2026-07-17.md",
       "htmlBytes": 25454,
@@ -1287,7 +1296,7 @@
     {
       "title": "西线无战事",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B_2026-07-17.html",
       "markdown": "markdown/%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B_2026-07-17.md",
       "htmlBytes": 33205,
@@ -1296,7 +1305,7 @@
     {
       "title": "耳语者",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E8%80%B3%E8%AF%AD%E8%80%85_2026-07-17.html",
       "markdown": "markdown/%E8%80%B3%E8%AF%AD%E8%80%85_2026-07-17.md",
       "htmlBytes": 27806,
@@ -1305,7 +1314,7 @@
     {
       "title": "维京人的世界",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E7%BB%B4%E4%BA%AC%E4%BA%BA%E7%9A%84%E4%B8%96%E7%95%8C_2026-07-17.html",
       "markdown": "markdown/%E7%BB%B4%E4%BA%AC%E4%BA%BA%E7%9A%84%E4%B8%96%E7%95%8C_2026-07-17.md",
       "htmlBytes": 33517,
@@ -1314,7 +1323,7 @@
     {
       "title": "秦制两千年",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E7%A7%A6%E5%88%B6%E4%B8%A4%E5%8D%83%E5%B9%B4_2026-07-17.html",
       "markdown": "markdown/%E7%A7%A6%E5%88%B6%E4%B8%A4%E5%8D%83%E5%B9%B4_2026-07-17.md",
       "htmlBytes": 36216,
@@ -1323,7 +1332,7 @@
     {
       "title": "神风特攻队、樱花与民族主义",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E7%A5%9E%E9%A3%8E%E7%89%B9%E6%94%BB%E9%98%9F_2026-07-17.html",
       "markdown": "markdown/%E7%A5%9E%E9%A3%8E%E7%89%B9%E6%94%BB%E9%98%9F_2026-07-17.md",
       "htmlBytes": 34452,
@@ -1332,7 +1341,7 @@
     {
       "title": "牆國誌：中國如何控制網路 · 深度解读",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E7%89%86%E5%9C%8B%E8%AA%8C_2026-07-17.html",
       "markdown": "markdown/%E7%89%86%E5%9C%8B%E8%AA%8C_2026-07-17.md",
       "htmlBytes": 29908,
@@ -1341,7 +1350,7 @@
     {
       "title": "活在洪武时代：朱元璋治下小人物的命运",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%B4%BB%E5%9C%A8%E6%B4%AA%E6%AD%A6%E6%97%B6%E4%BB%A3_2026-07-17.html",
       "markdown": "markdown/%E6%B4%BB%E5%9C%A8%E6%B4%AA%E6%AD%A6%E6%97%B6%E4%BB%A3_2026-07-17.md",
       "htmlBytes": 36699,
@@ -1350,7 +1359,7 @@
     {
       "title": "沧浪诗话",
       "date": "2026-07-17",
-      "category": "文学与故事",
+      "category": "诗歌与词赋",
       "html": "readings/%E6%B2%A7%E6%B5%AA%E8%AF%97%E8%AF%9D_2026-07-17.html",
       "markdown": "markdown/%E6%B2%A7%E6%B5%AA%E8%AF%97%E8%AF%9D_2026-07-17.md",
       "htmlBytes": 40513,
@@ -1359,7 +1368,7 @@
     {
       "title": "水浒传",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%B0%B4%E6%B5%92%E4%BC%A0_2026-07-17.html",
       "markdown": "markdown/%E6%B0%B4%E6%B5%92%E4%BC%A0_2026-07-17.md",
       "htmlBytes": 29586,
@@ -1368,7 +1377,7 @@
     {
       "title": "楚辞",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%A5%9A%E8%BE%9E_2026-07-17.html",
       "markdown": "markdown/%E6%A5%9A%E8%BE%9E_2026-07-17.md",
       "htmlBytes": 28881,
@@ -1377,7 +1386,7 @@
     {
       "title": "最后的\"天朝\" · 深度解读",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E6%9C%80%E5%90%8E%E7%9A%84%E5%A4%A9%E6%9C%9D_2026-07-17.html",
       "markdown": "markdown/%E6%9C%80%E5%90%8E%E7%9A%84%E5%A4%A9%E6%9C%9D_2026-07-17.md",
       "htmlBytes": 44095,
@@ -1386,7 +1395,7 @@
     {
       "title": "春秋公羊传",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "传记与回忆录",
       "html": "readings/%E6%98%A5%E7%A7%8B%E5%85%AC%E7%BE%8A%E4%BC%A0_2026-07-17.html",
       "markdown": "markdown/%E6%98%A5%E7%A7%8B%E5%85%AC%E7%BE%8A%E4%BC%A0_2026-07-17.md",
       "htmlBytes": 43857,
@@ -1395,7 +1404,7 @@
     {
       "title": "文艺复兴时期欧洲社会生活",
       "date": "2026-07-17",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E6%96%87%E8%89%BA%E5%A4%8D%E5%85%B4%E6%97%B6%E6%9C%9F%E6%AC%A7%E6%B4%B2%E7%A4%BE%E4%BC%9A%E7%94%9F%E6%B4%BB_2026-07-17.html",
       "markdown": "markdown/%E6%96%87%E8%89%BA%E5%A4%8D%E5%85%B4%E6%97%B6%E6%9C%9F%E6%AC%A7%E6%B4%B2%E7%A4%BE%E4%BC%9A%E7%94%9F%E6%B4%BB_2026-07-17.md",
       "htmlBytes": 22012,
@@ -1404,7 +1413,7 @@
     {
       "title": "文心雕龙今译 · 深度解读",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%96%87%E5%BF%83%E9%9B%95%E9%BE%99%E4%BB%8A%E8%AF%91_2026-07-17.html",
       "markdown": "markdown/%E6%96%87%E5%BF%83%E9%9B%95%E9%BE%99%E4%BB%8A%E8%AF%91_2026-07-17.md",
       "htmlBytes": 33834,
@@ -1413,7 +1422,7 @@
     {
       "title": "政治经济学的特征与逻辑方法",
       "date": "2026-07-17",
-      "category": "社会与政治",
+      "category": "宗教与灵性",
       "html": "readings/%E6%94%BF%E6%B2%BB%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9A%84%E7%89%B9%E5%BE%81%E4%B8%8E%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95_2026-07-17.html",
       "markdown": "markdown/%E6%94%BF%E6%B2%BB%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9A%84%E7%89%B9%E5%BE%81%E4%B8%8E%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95_2026-07-17.md",
       "htmlBytes": 30513,
@@ -1422,7 +1431,7 @@
     {
       "title": "怎样观察一棵树",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E6%80%8E%E6%A0%B7%E8%A7%82%E5%AF%9F%E4%B8%80%E6%A3%B5%E6%A0%91_2026-07-17.html",
       "markdown": "markdown/%E6%80%8E%E6%A0%B7%E8%A7%82%E5%AF%9F%E4%B8%80%E6%A3%B5%E6%A0%91_2026-07-17.md",
       "htmlBytes": 19124,
@@ -1449,7 +1458,7 @@
     {
       "title": "左传（第一册）",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%B7%A6%E4%BC%A0%E7%AC%AC%E4%B8%80%E5%86%8C_2026-07-17.html",
       "markdown": "markdown/%E5%B7%A6%E4%BC%A0%E7%AC%AC%E4%B8%80%E5%86%8C_2026-07-17.md",
       "htmlBytes": 35806,
@@ -1458,7 +1467,7 @@
     {
       "title": "尚书",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%B0%9A%E4%B9%A6_2026-07-17.html",
       "markdown": "markdown/%E5%B0%9A%E4%B9%A6_2026-07-17.md",
       "htmlBytes": 46339,
@@ -1476,7 +1485,7 @@
     {
       "title": "国学概论",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "古典文献与国学",
       "html": "readings/%E5%9B%BD%E5%AD%A6%E6%A6%82%E8%AE%BA_2026-07-17.html",
       "markdown": "markdown/%E5%9B%BD%E5%AD%A6%E6%A6%82%E8%AE%BA_2026-07-17.md",
       "htmlBytes": 42653,
@@ -1485,7 +1494,7 @@
     {
       "title": "吕氏春秋",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "古典文献与国学",
       "html": "readings/%E5%90%95%E6%B0%8F%E6%98%A5%E7%A7%8B_2026-07-17.html",
       "markdown": "markdown/%E5%90%95%E6%B0%8F%E6%98%A5%E7%A7%8B_2026-07-17.md",
       "htmlBytes": 43075,
@@ -1503,7 +1512,7 @@
     {
       "title": "人生十论",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%BA%BA%E7%94%9F%E5%8D%81%E8%AE%BA_2026-07-17.html",
       "markdown": "markdown/%E4%BA%BA%E7%94%9F%E5%8D%81%E8%AE%BA_2026-07-17.md",
       "htmlBytes": 51228,
@@ -1512,7 +1521,7 @@
     {
       "title": "中国最美诗词典评（全六册）",
       "date": "2026-07-17",
-      "category": "历史与文明",
+      "category": "诗歌与词赋",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E6%9C%80%E7%BE%8E%E8%AF%97%E8%AF%8D%E5%85%B8%E8%AF%84_2026-07-17.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E6%9C%80%E7%BE%8E%E8%AF%97%E8%AF%8D%E5%85%B8%E8%AF%84_2026-07-17.md",
       "htmlBytes": 43262,
@@ -1530,7 +1539,7 @@
     {
       "title": "中国思想史",
       "date": "2026-07-17",
-      "category": "哲学与思想",
+      "category": "历史与文明",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E6%80%9D%E6%83%B3%E5%8F%B2_2026-07-17.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E6%80%9D%E6%83%B3%E5%8F%B2_2026-07-17.md",
       "htmlBytes": 44712,
@@ -1557,7 +1566,7 @@
     {
       "title": "中华文化十二讲",
       "date": "2026-07-17",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E4%B8%AD%E5%8D%8E%E6%96%87%E5%8C%96%E5%8D%81%E4%BA%8C%E8%AE%B2_2026-07-17.html",
       "markdown": "markdown/%E4%B8%AD%E5%8D%8E%E6%96%87%E5%8C%96%E5%8D%81%E4%BA%8C%E8%AE%B2_2026-07-17.md",
       "htmlBytes": 43855,
@@ -1575,7 +1584,7 @@
     {
       "title": "论法的精神 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E8%AE%BA%E6%B3%95%E7%9A%84%E7%B2%BE%E7%A5%9E_2026-07-16.html",
       "markdown": null,
       "htmlBytes": 27852,
@@ -1584,7 +1593,7 @@
     {
       "title": "解忧杂货店 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E8%A7%A3%E5%BF%A7%E6%9D%82%E8%B4%A7%E5%BA%97_2026-07-16.html",
       "markdown": "markdown/%E8%A7%A3%E5%BF%A7%E6%9D%82%E8%B4%A7%E5%BA%97_2026-07-16.md",
       "htmlBytes": 17709,
@@ -1593,7 +1602,7 @@
     {
       "title": "薄伽梵歌",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E8%96%84%E4%BC%BD%E6%A2%B5%E6%AD%8C_2026-07-16.html",
       "markdown": "markdown/%E8%96%84%E4%BC%BD%E6%A2%B5%E6%AD%8C_2026-07-16.md",
       "htmlBytes": 37383,
@@ -1602,7 +1611,7 @@
     {
       "title": "荒原：艾略特诗集 · 深度解读",
       "date": "2026-07-16",
-      "category": "文学与故事",
+      "category": "诗歌与词赋",
       "html": "readings/%E8%8D%92%E5%8E%9F%E8%89%BE%E7%95%A5%E7%89%B9%E8%AF%97%E9%9B%86_2026-07-16.html",
       "markdown": "markdown/%E8%8D%92%E5%8E%9F%E8%89%BE%E7%95%A5%E7%89%B9%E8%AF%97%E9%9B%86_2026-07-16.md",
       "htmlBytes": 15947,
@@ -1611,7 +1620,7 @@
     {
       "title": "红与黑 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%BA%A2%E4%B8%8E%E9%BB%91_2026-07-16.html",
       "markdown": "markdown/%E7%BA%A2%E4%B8%8E%E9%BB%91_2026-07-16.md",
       "htmlBytes": 23969,
@@ -1620,7 +1629,7 @@
     {
       "title": "瑜伽经",
       "date": "2026-07-16",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%91%9C%E4%BC%BD%E7%BB%8F_2026-07-16.html",
       "markdown": "markdown/%E7%91%9C%E4%BC%BD%E7%BB%8F_2026-07-16.md",
       "htmlBytes": 29048,
@@ -1647,7 +1656,7 @@
     {
       "title": "欲望之石 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E6%AC%B2%E6%9C%9B%E4%B9%8B%E7%9F%B3_2026-07-16.html",
       "markdown": "markdown/%E6%AC%B2%E6%9C%9B%E4%B9%8B%E7%9F%B3_2026-07-16.md",
       "htmlBytes": 20599,
@@ -1656,7 +1665,7 @@
     {
       "title": "新世界：灵性的觉醒 · 深度解读",
       "date": "2026-07-16",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E6%96%B0%E4%B8%96%E7%95%8C%E7%81%B5%E6%80%A7%E7%9A%84%E8%A7%89%E9%86%92_2026-07-16.html",
       "markdown": "markdown/%E6%96%B0%E4%B8%96%E7%95%8C%E7%81%B5%E6%80%A7%E7%9A%84%E8%A7%89%E9%86%92_2026-07-16.md",
       "htmlBytes": 26325,
@@ -1665,7 +1674,7 @@
     {
       "title": "文化苦旅",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%96%87%E5%8C%96%E8%8B%A6%E6%97%85_2026-07-16.html",
       "markdown": "markdown/%E6%96%87%E5%8C%96%E8%8B%A6%E6%97%85_2026-07-16.md",
       "htmlBytes": 21523,
@@ -1674,7 +1683,7 @@
     {
       "title": "拉丁美洲被切开的血管 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E6%8B%89%E4%B8%81%E7%BE%8E%E6%B4%B2%E8%A2%AB%E5%88%87%E5%BC%80%E7%9A%84%E8%A1%80%E7%AE%A1_2026-07-16.html",
       "markdown": "markdown/%E6%8B%89%E4%B8%81%E7%BE%8E%E6%B4%B2%E8%A2%AB%E5%88%87%E5%BC%80%E7%9A%84%E8%A1%80%E7%AE%A1_2026-07-16.md",
       "htmlBytes": 28672,
@@ -1683,7 +1692,7 @@
     {
       "title": "我们时代的神经症人格 · 深度解读",
       "date": "2026-07-16",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E6%88%91%E4%BB%AC%E6%97%B6%E4%BB%A3%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%97%87%E4%BA%BA%E6%A0%BC_2026-07-16.html",
       "markdown": "markdown/%E6%88%91%E4%BB%AC%E6%97%B6%E4%BB%A3%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%97%87%E4%BA%BA%E6%A0%BC_2026-07-16.md",
       "htmlBytes": 27733,
@@ -1692,7 +1701,7 @@
     {
       "title": "悉达多 · 解书",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%82%89%E8%BE%BE%E5%A4%9A_2026-07-16.html",
       "markdown": "markdown/%E6%82%89%E8%BE%BE%E5%A4%9A_2026-07-16.md",
       "htmlBytes": 33444,
@@ -1701,7 +1710,7 @@
     {
       "title": "性心理学",
       "date": "2026-07-16",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": null,
       "markdown": "markdown/%E6%80%A7%E5%BF%83%E7%90%86%E5%AD%A6_2026-07-16.md",
       "htmlBytes": 0,
@@ -1710,7 +1719,7 @@
     {
       "title": "思考的框架 · 深度解读",
       "date": "2026-07-16",
-      "category": "心理与自我",
+      "category": "实用与技能",
       "html": "readings/%E6%80%9D%E8%80%83%E7%9A%84%E6%A1%86%E6%9E%B6_2026-07-16.html",
       "markdown": "markdown/%E6%80%9D%E8%80%83%E7%9A%84%E6%A1%86%E6%9E%B6_2026-07-16.md",
       "htmlBytes": 16904,
@@ -1719,7 +1728,7 @@
     {
       "title": "德川家康",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%BE%B7%E5%B7%9D%E5%AE%B6%E5%BA%B7_2026-07-16.html",
       "markdown": "markdown/%E5%BE%B7%E5%B7%9D%E5%AE%B6%E5%BA%B7_2026-07-16.md",
       "htmlBytes": 30005,
@@ -1728,7 +1737,7 @@
     {
       "title": "当下的力量 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E5%BD%93%E4%B8%8B%E7%9A%84%E5%8A%9B%E9%87%8F_2026-07-16.html",
       "markdown": "markdown/%E5%BD%93%E4%B8%8B%E7%9A%84%E5%8A%9B%E9%87%8F_2026-07-16.md",
       "htmlBytes": 21683,
@@ -1737,7 +1746,7 @@
     {
       "title": "工作、消费主义和新穷人 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%B7%A5%E4%BD%9C%E3%80%81%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89%E5%92%8C%E6%96%B0%E7%A9%B7%E4%BA%BA_2026-07-16.html",
       "markdown": "markdown/%E5%B7%A5%E4%BD%9C%E3%80%81%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89%E5%92%8C%E6%96%B0%E7%A9%B7%E4%BA%BA_2026-07-16.md",
       "htmlBytes": 34449,
@@ -1755,7 +1764,7 @@
     {
       "title": "奥义书",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E5%A5%A5%E4%B9%89%E4%B9%A6_2026-07-16.html",
       "markdown": "markdown/%E5%A5%A5%E4%B9%89%E4%B9%A6_2026-07-16.md",
       "htmlBytes": 33142,
@@ -1764,7 +1773,7 @@
     {
       "title": "几乎消失的偷闲艺术 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E5%87%A0%E4%B9%8E%E6%B6%88%E5%A4%B1%E7%9A%84%E5%81%B7%E9%97%B2%E8%89%BA%E6%9C%AF_2026-07-16.html",
       "markdown": "markdown/%E5%87%A0%E4%B9%8E%E6%B6%88%E5%A4%B1%E7%9A%84%E5%81%B7%E9%97%B2%E8%89%BA%E6%9C%AF_2026-07-16.md",
       "htmlBytes": 19402,
@@ -1773,7 +1782,7 @@
     {
       "title": "佛教的见地与修道 · 深度解读",
       "date": "2026-07-16",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E4%BD%9B%E6%95%99%E7%9A%84%E8%A7%81%E5%9C%B0%E4%B8%8E%E4%BF%AE%E9%81%93_2026-07-16.html",
       "markdown": "markdown/%E4%BD%9B%E6%95%99%E7%9A%84%E8%A7%81%E5%9C%B0%E4%B8%8E%E4%BF%AE%E9%81%93_2026-07-16.md",
       "htmlBytes": 43733,
@@ -1782,7 +1791,7 @@
     {
       "title": "何为封建主义",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E4%BD%95%E4%B8%BA%E5%B0%81%E5%BB%BA%E4%B8%BB%E4%B9%89_2026-07-16.html",
       "markdown": "markdown/%E4%BD%95%E4%B8%BA%E5%B0%81%E5%BB%BA%E4%B8%BB%E4%B9%89_2026-07-16.md",
       "htmlBytes": 40842,
@@ -1791,7 +1800,7 @@
     {
       "title": "从川端到三岛",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": null,
       "markdown": "markdown/%E4%BB%8E%E5%B7%9D%E7%AB%AF%E5%88%B0%E4%B8%89%E5%B2%9B_2026-07-16.md",
       "htmlBytes": 0,
@@ -1800,7 +1809,7 @@
     {
       "title": "人性的弱点 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9_2026-07-16.html",
       "markdown": "markdown/%E4%BA%BA%E6%80%A7%E7%9A%84%E5%BC%B1%E7%82%B9_2026-07-16.md",
       "htmlBytes": 23084,
@@ -1809,7 +1818,7 @@
     {
       "title": "中阴闻解脱法门",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E4%B8%AD%E9%98%B4%E9%97%BB%E8%A7%A3%E8%84%B1%E6%B3%95%E9%97%A8_2026-07-16.html",
       "markdown": "markdown/%E4%B8%AD%E9%98%B4%E9%97%BB%E8%A7%A3%E8%84%B1%E6%B3%95%E9%97%A8_2026-07-16.md",
       "htmlBytes": 28393,
@@ -1827,7 +1836,7 @@
     {
       "title": "东京贫困女子 · 深度解读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E4%B8%9C%E4%BA%AC%E8%B4%AB%E5%9B%B0%E5%A5%B3%E5%AD%90_2026-07-16.html",
       "markdown": "markdown/%E4%B8%9C%E4%BA%AC%E8%B4%AB%E5%9B%B0%E5%A5%B3%E5%AD%90_2026-07-16.md",
       "htmlBytes": 26903,
@@ -1836,7 +1845,7 @@
     {
       "title": "不只是厌女",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": null,
       "markdown": "markdown/%E4%B8%8D%E5%8F%AA%E6%98%AF%E5%8E%8C%E5%A5%B3_2026-07-16.md",
       "htmlBytes": 0,
@@ -1845,7 +1854,7 @@
     {
       "title": "《梨俱吠陀》精读",
       "date": "2026-07-16",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E6%A2%A8%E4%BF%B1%E5%90%A0%E9%99%80%E7%B2%BE%E8%AF%BB_2026-07-16.html",
       "markdown": "markdown/%E6%A2%A8%E4%BF%B1%E5%90%A0%E9%99%80%E7%B2%BE%E8%AF%BB_2026-07-16.md",
       "htmlBytes": 39686,
@@ -1854,7 +1863,7 @@
     {
       "title": "面纱",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%9D%A2%E7%BA%B1_2026-07-15.html",
       "markdown": "markdown/%E9%9D%A2%E7%BA%B1_2026-07-15.md",
       "htmlBytes": 23903,
@@ -1863,7 +1872,7 @@
     {
       "title": "银河系漫游指南",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E9%93%B6%E6%B2%B3%E7%B3%BB%E6%BC%AB%E6%B8%B8%E6%8C%87%E5%8D%97_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E9%93%B6%E6%B2%B3%E7%B3%BB%E6%BC%AB%E6%B8%B8%E6%8C%87%E5%8D%97_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 37639,
@@ -1872,7 +1881,7 @@
     {
       "title": "遗落的南境三部曲",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E9%81%97%E8%90%BD%E7%9A%84%E5%8D%97%E5%A2%83%E4%B8%89%E9%83%A8%E6%9B%B2_2026-07-15.html",
       "markdown": "markdown/%E9%81%97%E8%90%BD%E7%9A%84%E5%8D%97%E5%A2%83%E4%B8%89%E9%83%A8%E6%9B%B2_2026-07-15.md",
       "htmlBytes": 41295,
@@ -1881,7 +1890,7 @@
     {
       "title": "追风筝的人",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E8%BF%BD%E9%A3%8E%E7%AD%9D%E7%9A%84%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E8%BF%BD%E9%A3%8E%E7%AD%9D%E7%9A%84%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 21043,
@@ -1890,7 +1899,7 @@
     {
       "title": "超越生死：李连杰寻找李连杰 · 深度解读",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E8%B6%85%E8%B6%8A%E7%94%9F%E6%AD%BB_2026-07-15.html",
       "markdown": "markdown/%E8%B6%85%E8%B6%8A%E7%94%9F%E6%AD%BB_2026-07-15.md",
       "htmlBytes": 38642,
@@ -1899,7 +1908,7 @@
     {
       "title": "西藏生死书 · 深度解读",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E8%A5%BF%E8%97%8F%E7%94%9F%E6%AD%BB%E4%B9%A6_2026-07-15.html",
       "markdown": "markdown/%E8%A5%BF%E8%97%8F%E7%94%9F%E6%AD%BB%E4%B9%A6_2026-07-15.md",
       "htmlBytes": 43919,
@@ -1908,7 +1917,7 @@
     {
       "title": "荒原狼",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E8%8D%92%E5%8E%9F%E7%8B%BC_2026-07-15.html",
       "markdown": "markdown/%E8%8D%92%E5%8E%9F%E7%8B%BC_2026-07-15.md",
       "htmlBytes": 44804,
@@ -1917,7 +1926,7 @@
     {
       "title": "翦商",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E7%BF%A6%E5%95%86_2026-07-15.html",
       "markdown": "markdown/%E7%BF%A6%E5%95%86_2026-07-15.md",
       "htmlBytes": 43026,
@@ -1926,7 +1935,7 @@
     {
       "title": "罪与罚",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%BD%AA%E4%B8%8E%E7%BD%9A-2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E7%BD%AA%E4%B8%8E%E7%BD%9A-2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 46516,
@@ -1935,7 +1944,7 @@
     {
       "title": "罪与罚",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": null,
       "markdown": "markdown/%E7%BD%AA%E4%B8%8E%E7%BD%9A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 0,
@@ -1944,7 +1953,7 @@
     {
       "title": "缠中说禅全集",
       "date": "2026-07-15",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%85%A8%E9%9B%86-2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%85%A8%E9%9B%86-2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 40896,
@@ -1953,7 +1962,7 @@
     {
       "title": "缠中说禅《论语》详解",
       "date": "2026-07-15",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E8%AE%BA%E8%AF%AD%E8%AF%A6%E8%A7%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E8%AE%BA%E8%AF%AD%E8%AF%A6%E8%A7%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 22708,
@@ -1962,7 +1971,7 @@
     {
       "title": "永恒的终结",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%B0%B8%E6%81%92%E7%9A%84%E7%BB%88%E7%BB%93_2026-07-15.html",
       "markdown": "markdown/%E6%B0%B8%E6%81%92%E7%9A%84%E7%BB%88%E7%BB%93_2026-07-15.md",
       "htmlBytes": 42875,
@@ -1971,7 +1980,7 @@
     {
       "title": "极品家丁",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%9E%81%E5%93%81%E5%AE%B6%E4%B8%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%9E%81%E5%93%81%E5%AE%B6%E4%B8%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 24002,
@@ -1980,7 +1989,7 @@
     {
       "title": "月亮和六便士",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 23475,
@@ -1989,7 +1998,7 @@
     {
       "title": "最佳男性描写辞典",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E6%9C%80%E4%BD%B3%E7%94%B7%E6%80%A7%E6%8F%8F%E5%86%99%E8%BE%9E%E5%85%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%9C%80%E4%BD%B3%E7%94%B7%E6%80%A7%E6%8F%8F%E5%86%99%E8%BE%9E%E5%85%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 34880,
@@ -1998,7 +2007,7 @@
     {
       "title": "最佳心理描写词典",
       "date": "2026-07-15",
-      "category": "文学与故事",
+      "category": "心理学与自我",
       "html": "readings/%E6%9C%80%E4%BD%B3%E5%BF%83%E7%90%86%E6%8F%8F%E5%86%99%E8%AF%8D%E5%85%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%9C%80%E4%BD%B3%E5%BF%83%E7%90%86%E6%8F%8F%E5%86%99%E8%AF%8D%E5%85%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 25001,
@@ -2007,7 +2016,7 @@
     {
       "title": "晋末长剑",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%99%8B%E6%9C%AB%E9%95%BF%E5%89%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%99%8B%E6%9C%AB%E9%95%BF%E5%89%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 18540,
@@ -2016,7 +2025,7 @@
     {
       "title": "文明的冲突与世界秩序的重建",
       "date": "2026-07-15",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E6%96%87%E6%98%8E%E7%9A%84%E5%86%B2%E7%AA%81%E4%B8%8E%E4%B8%96%E7%95%8C%E7%A7%A9%E5%BA%8F%E7%9A%84%E9%87%8D%E5%BB%BA-2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%96%87%E6%98%8E%E7%9A%84%E5%86%B2%E7%AA%81%E4%B8%8E%E4%B8%96%E7%95%8C%E7%A7%A9%E5%BA%8F%E7%9A%84%E9%87%8D%E5%BB%BA-2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 47551,
@@ -2025,7 +2034,7 @@
     {
       "title": "文明的冲突与世界秩序的重建",
       "date": "2026-07-15",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E6%96%87%E6%98%8E%E7%9A%84%E5%86%B2%E7%AA%81%E4%B8%8E%E4%B8%96%E7%95%8C%E7%A7%A9%E5%BA%8F%E7%9A%84%E9%87%8D%E5%BB%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%96%87%E6%98%8E%E7%9A%84%E5%86%B2%E7%AA%81%E4%B8%8E%E4%B8%96%E7%95%8C%E7%A7%A9%E5%BA%8F%E7%9A%84%E9%87%8D%E5%BB%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 43093,
@@ -2034,7 +2043,7 @@
     {
       "title": "心理控制术",
       "date": "2026-07-15",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E5%BF%83%E7%90%86%E6%8E%A7%E5%88%B6%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E5%BF%83%E7%90%86%E6%8E%A7%E5%88%B6%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 33776,
@@ -2043,7 +2052,7 @@
     {
       "title": "张爱玲作品集",
       "date": "2026-07-15",
-      "category": "心理与自我",
+      "category": "文学与小说",
       "html": "readings/%E5%BC%A0%E7%88%B1%E7%8E%B2%E4%BD%9C%E5%93%81%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E5%BC%A0%E7%88%B1%E7%8E%B2%E4%BD%9C%E5%93%81%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 28182,
@@ -2052,7 +2061,7 @@
     {
       "title": "巴黎圣母院",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2_2026-07-15.html",
       "markdown": "markdown/%E5%B7%B4%E9%BB%8E%E5%9C%A3%E6%AF%8D%E9%99%A2_2026-07-15.md",
       "htmlBytes": 41132,
@@ -2061,7 +2070,7 @@
     {
       "title": "宗萨仁波切文集 · 深度解读",
       "date": "2026-07-15",
-      "category": "文学与故事",
+      "category": "宗教与灵性",
       "html": "readings/%E5%AE%97%E8%90%A8%E4%BB%81%E6%B3%A2%E5%88%87%E6%96%87%E9%9B%86_2026-07-15.html",
       "markdown": "markdown/%E5%AE%97%E8%90%A8%E4%BB%81%E6%B3%A2%E5%88%87%E6%96%87%E9%9B%86_2026-07-15.md",
       "htmlBytes": 46230,
@@ -2070,7 +2079,7 @@
     {
       "title": "安娜·卡列尼娜",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%AE%89%E5%A8%9C%C2%B7%E5%8D%A1%E5%88%97%E5%B0%BC%E5%A8%9C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E5%AE%89%E5%A8%9C%C2%B7%E5%8D%A1%E5%88%97%E5%B0%BC%E5%A8%9C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 23304,
@@ -2079,7 +2088,7 @@
     {
       "title": "学会提问",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E5%AD%A6%E4%BC%9A%E6%8F%90%E9%97%AE_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 26947,
@@ -2088,7 +2097,7 @@
     {
       "title": "嫌疑人X的献身",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E5%AB%8C%E7%96%91%E4%BA%BAX%E7%9A%84%E7%8C%AE%E8%BA%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E5%AB%8C%E7%96%91%E4%BA%BAX%E7%9A%84%E7%8C%AE%E8%BA%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 23884,
@@ -2097,7 +2106,7 @@
     {
       "title": "天朝的崩溃：鸦片战争再研究",
       "date": "2026-07-15",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E5%A4%A9%E6%9C%9D%E7%9A%84%E5%B4%A9%E6%BA%83-%E9%B8%A6%E7%89%87%E6%88%98%E4%BA%89%E5%86%8D%E7%A0%94%E7%A9%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E5%A4%A9%E6%9C%9D%E7%9A%84%E5%B4%A9%E6%BA%83-%E9%B8%A6%E7%89%87%E6%88%98%E4%BA%89%E5%86%8D%E7%A0%94%E7%A9%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 15486,
@@ -2106,7 +2115,7 @@
     {
       "title": "呐喊",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%91%90%E5%96%8A_2026-07-15.html",
       "markdown": "markdown/%E5%91%90%E5%96%8A_2026-07-15.md",
       "htmlBytes": 41558,
@@ -2115,7 +2124,7 @@
     {
       "title": "北洋裂变：军阀与五四",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%8C%97%E6%B4%8B%E8%A3%82%E5%8F%98%EF%BC%9A%E5%86%9B%E9%98%80%E4%B8%8E%E4%BA%94%E5%9B%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E5%8C%97%E6%B4%8B%E8%A3%82%E5%8F%98%EF%BC%9A%E5%86%9B%E9%98%80%E4%B8%8E%E4%BA%94%E5%9B%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 25892,
@@ -2142,7 +2151,7 @@
     {
       "title": "八万四千问 · 深度解读",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E5%85%AB%E4%B8%87%E5%9B%9B%E5%8D%83%E9%97%AE_2026-07-15.html",
       "markdown": "markdown/%E5%85%AB%E4%B8%87%E5%9B%9B%E5%8D%83%E9%97%AE_2026-07-15.md",
       "htmlBytes": 45073,
@@ -2151,7 +2160,7 @@
     {
       "title": "价格行为交易：反转篇",
       "date": "2026-07-15",
-      "category": "商业与决策",
+      "category": "经济与商业",
       "html": "readings/Al-Brooks-%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E4%BA%A4%E6%98%93-%E5%8F%8D%E8%BD%AC%E7%AF%87_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/Al-Brooks-%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E4%BA%A4%E6%98%93-%E5%8F%8D%E8%BD%AC%E7%AF%87_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 29620,
@@ -2160,7 +2169,7 @@
     {
       "title": "人生海海",
       "date": "2026-07-15",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%BA%BA%E7%94%9F%E6%B5%B7%E6%B5%B7_2026-07-15.html",
       "markdown": "markdown/%E4%BA%BA%E7%94%9F%E6%B5%B7%E6%B5%B7_2026-07-15.md",
       "htmlBytes": 25972,
@@ -2169,7 +2178,7 @@
     {
       "title": "中国古代房中养生秘笈",
       "date": "2026-07-15",
-      "category": "历史与文明",
+      "category": "性文化与身体",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E6%88%BF%E4%B8%AD%E5%85%BB%E7%94%9F%E7%A7%98%E7%AC%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E6%88%BF%E4%B8%AD%E5%85%BB%E7%94%9F%E7%A7%98%E7%AC%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 21961,
@@ -2178,7 +2187,7 @@
     {
       "title": "三国演义",
       "date": "2026-07-15",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89_2026-07-15.html",
       "markdown": "markdown/%E4%B8%89%E5%9B%BD%E6%BC%94%E4%B9%89_2026-07-15.md",
       "htmlBytes": 27288,
@@ -2187,7 +2196,7 @@
     {
       "title": "《人间词话》",
       "date": "2026-07-15",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E4%BA%BA%E9%97%B4%E8%AF%8D%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E4%BA%BA%E9%97%B4%E8%AF%8D%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 50533,
@@ -2196,7 +2205,7 @@
     {
       "title": "《中西方思想必修课》——九层解书",
       "date": "2026-07-15",
-      "category": "哲学与思想",
+      "category": "历史与文明",
       "html": "readings/%E4%B8%AD%E8%A5%BF%E6%96%B9%E6%80%9D%E6%83%B3%E5%BF%85%E4%BF%AE%E8%AF%BE_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E4%B8%AD%E8%A5%BF%E6%96%B9%E6%80%9D%E6%83%B3%E5%BF%85%E4%BF%AE%E8%AF%BE_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 40490,
@@ -2205,7 +2214,7 @@
     {
       "title": "Al Brooks 价格行为交易：趋势篇",
       "date": "2026-07-15",
-      "category": "商业与决策",
+      "category": "经济与商业",
       "html": "readings/Al-Brooks-%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E4%BA%A4%E6%98%93-%E8%B6%8B%E5%8A%BF%E7%AF%87_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/Al-Brooks-%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E4%BA%A4%E6%98%93-%E8%B6%8B%E5%8A%BF%E7%AF%87_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 27908,
@@ -2214,7 +2223,7 @@
     {
       "title": "Al Brooks 价格行为交易（区间篇）",
       "date": "2026-07-15",
-      "category": "商业与决策",
+      "category": "经济与商业",
       "html": "readings/Al-Brooks-%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E4%BA%A4%E6%98%93-%E5%8C%BA%E9%97%B4%E7%AF%87_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/Al-Brooks-%E4%BB%B7%E6%A0%BC%E8%A1%8C%E4%B8%BA%E4%BA%A4%E6%98%93-%E5%8C%BA%E9%97%B4%E7%AF%87_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 35069,
@@ -2232,7 +2241,7 @@
     {
       "title": "黄金时代",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41978,
@@ -2241,7 +2250,7 @@
     {
       "title": "骑士团九百年",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E9%AA%91%E5%A3%AB%E5%9B%A2%E4%B9%9D%E7%99%BE%E5%B9%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%AA%91%E5%A3%AB%E5%9B%A2%E4%B9%9D%E7%99%BE%E5%B9%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43486,
@@ -2250,7 +2259,7 @@
     {
       "title": "额尔古纳河右岸",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%A2%9D%E5%B0%94%E5%8F%A4%E7%BA%B3%E6%B2%B3%E5%8F%B3%E5%B2%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%A2%9D%E5%B0%94%E5%8F%A4%E7%BA%B3%E6%B2%B3%E5%8F%B3%E5%B2%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39831,
@@ -2259,7 +2268,7 @@
     {
       "title": "鞑靼人沙漠",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%9E%91%E9%9D%BC%E4%BA%BA%E6%B2%99%E6%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%9E%91%E9%9D%BC%E4%BA%BA%E6%B2%99%E6%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41231,
@@ -2268,7 +2277,7 @@
     {
       "title": "霍乱时期的爱情",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "文学与小说",
       "html": "readings/%E9%9C%8D%E4%B9%B1%E6%97%B6%E6%9C%9F%E7%9A%84%E7%88%B1%E6%83%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%9C%8D%E4%B9%B1%E6%97%B6%E6%9C%9F%E7%9A%84%E7%88%B1%E6%83%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44316,
@@ -2277,7 +2286,7 @@
     {
       "title": "雪国",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%9B%AA%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%9B%AA%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40389,
@@ -2286,7 +2295,7 @@
     {
       "title": "開天眼神通秘法",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E9%96%8B%E5%A4%A9%E7%9C%BC%E7%A5%9E%E9%80%9A%E7%A7%98%E6%B3%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%96%8B%E5%A4%A9%E7%9C%BC%E7%A5%9E%E9%80%9A%E7%A7%98%E6%B3%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 18598,
@@ -2295,7 +2304,7 @@
     {
       "title": "金鸡",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%87%91%E9%B8%A1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%87%91%E9%B8%A1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40924,
@@ -2304,7 +2313,7 @@
     {
       "title": "金赛性学报告",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E9%87%91%E8%B5%9B%E6%80%A7%E5%AD%A6%E6%8A%A5%E5%91%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%87%91%E8%B5%9B%E6%80%A7%E5%AD%A6%E6%8A%A5%E5%91%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 50275,
@@ -2313,7 +2322,7 @@
     {
       "title": "金花的秘密",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E9%87%91%E8%8A%B1%E7%9A%84%E7%A7%98%E5%AF%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%87%91%E8%8A%B1%E7%9A%84%E7%A7%98%E5%AF%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 53962,
@@ -2322,7 +2331,7 @@
     {
       "title": "金瓶梅",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E9%87%91%E7%93%B6%E6%A2%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%87%91%E7%93%B6%E6%A2%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48499,
@@ -2331,7 +2340,7 @@
     {
       "title": "金与铁",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E9%87%91%E4%B8%8E%E9%93%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%87%91%E4%B8%8E%E9%93%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37656,
@@ -2349,7 +2358,7 @@
     {
       "title": "通往奴役之路",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E9%80%9A%E5%BE%80%E5%A5%B4%E5%BD%B9%E4%B9%8B%E8%B7%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E9%80%9A%E5%BE%80%E5%A5%B4%E5%BD%B9%E4%B9%8B%E8%B7%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43406,
@@ -2376,7 +2385,7 @@
     {
       "title": "走出帝制",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E8%B5%B0%E5%87%BA%E5%B8%9D%E5%88%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%B5%B0%E5%87%BA%E5%B8%9D%E5%88%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49233,
@@ -2394,7 +2403,7 @@
     {
       "title": "调情学 · 深度解读",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E8%B0%83%E6%83%85%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%B0%83%E6%83%85%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 38857,
@@ -2412,7 +2421,7 @@
     {
       "title": "西藏密教史",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "宗教与灵性",
       "html": "readings/%E8%A5%BF%E8%97%8F%E5%AF%86%E6%95%99%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%A5%BF%E8%97%8F%E5%AF%86%E6%95%99%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41216,
@@ -2421,7 +2430,7 @@
     {
       "title": "被讨厌的勇气",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%A2%AB%E8%AE%A8%E5%8E%8C%E7%9A%84%E5%8B%87%E6%B0%94_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 34173,
@@ -2439,7 +2448,7 @@
     {
       "title": "虹",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E8%99%B9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%99%B9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41696,
@@ -2448,7 +2457,7 @@
     {
       "title": "藏地密码",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E8%97%8F%E5%9C%B0%E5%AF%86%E7%A0%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%97%8F%E5%9C%B0%E5%AF%86%E7%A0%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 35797,
@@ -2457,7 +2466,7 @@
     {
       "title": "菊与刀",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E8%8F%8A%E4%B8%8E%E5%88%80_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%8F%8A%E4%B8%8E%E5%88%80_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43598,
@@ -2466,7 +2475,7 @@
     {
       "title": "莎士比亚百科",
       "date": "2026-07-14",
-      "category": "科学与方法",
+      "category": "科普与科学",
       "html": "readings/%E8%8E%8E%E5%A3%AB%E6%AF%94%E4%BA%9A%E7%99%BE%E7%A7%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%8E%8E%E5%A3%AB%E6%AF%94%E4%BA%9A%E7%99%BE%E7%A7%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 35653,
@@ -2475,7 +2484,7 @@
     {
       "title": "苏菲的世界",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E8%8B%8F%E8%8F%B2%E7%9A%84%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%8B%8F%E8%8F%B2%E7%9A%84%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43582,
@@ -2484,7 +2493,7 @@
     {
       "title": "苏联大清洗内幕",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E8%8B%8F%E8%81%94%E5%A4%A7%E6%B8%85%E6%B4%97%E5%86%85%E5%B9%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%8B%8F%E8%81%94%E5%A4%A7%E6%B8%85%E6%B4%97%E5%86%85%E5%B9%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41638,
@@ -2502,7 +2511,7 @@
     {
       "title": "艺术的故事",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "艺术与文化",
       "html": "readings/%E8%89%BA%E6%9C%AF%E7%9A%84%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%89%BA%E6%9C%AF%E7%9A%84%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41180,
@@ -2511,7 +2520,7 @@
     {
       "title": "耶路撒冷三千年",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E8%80%B6%E8%B7%AF%E6%92%92%E5%86%B7%E4%B8%89%E5%8D%83%E5%B9%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E8%80%B6%E8%B7%AF%E6%92%92%E5%86%B7%E4%B8%89%E5%8D%83%E5%B9%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43460,
@@ -2520,7 +2529,7 @@
     {
       "title": "美学散步",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E7%BE%8E%E5%AD%A6%E6%95%A3%E6%AD%A5_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BE%8E%E5%AD%A6%E6%95%A3%E6%AD%A5_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42945,
@@ -2529,7 +2538,7 @@
     {
       "title": "美丽新世界",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E7%BE%8E%E4%B8%BD%E6%96%B0%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BE%8E%E4%B8%BD%E6%96%B0%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 38918,
@@ -2538,7 +2547,7 @@
     {
       "title": "羌在汉藏之间：川西羌族的历史人类学研究",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "人类学与民族志",
       "html": "readings/%E7%BE%8C%E5%9C%A8%E6%B1%89%E8%97%8F%E4%B9%8B%E9%97%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BE%8C%E5%9C%A8%E6%B1%89%E8%97%8F%E4%B9%8B%E9%97%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42111,
@@ -2565,7 +2574,7 @@
     {
       "title": "罗织经",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%BD%97%E7%BB%87%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BD%97%E7%BB%87%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49487,
@@ -2601,7 +2610,7 @@
     {
       "title": "红楼梦",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E7%BA%A2%E6%A5%BC%E6%A2%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BA%A2%E6%A5%BC%E6%A2%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48450,
@@ -2610,7 +2619,7 @@
     {
       "title": "红星照耀中国 —— 九层解书",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E7%BA%A2%E6%98%9F%E7%85%A7%E8%80%80%E4%B8%AD%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BA%A2%E6%98%9F%E7%85%A7%E8%80%80%E4%B8%AD%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 28684,
@@ -2619,7 +2628,7 @@
     {
       "title": "窄门",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%AA%84%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%AA%84%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 24255,
@@ -2628,7 +2637,7 @@
     {
       "title": "空行母",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E7%A9%BA%E8%A1%8C%E6%AF%8D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A9%BA%E8%A1%8C%E6%AF%8D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42616,
@@ -2637,7 +2646,7 @@
     {
       "title": "禅定入门",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%A6%85%E5%AE%9A%E5%85%A5%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A6%85%E5%AE%9A%E5%85%A5%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42764,
@@ -2646,7 +2655,7 @@
     {
       "title": "禅宗花园 · 深度解读",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%A6%85%E5%AE%97%E8%8A%B1%E5%9B%AD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A6%85%E5%AE%97%E8%8A%B1%E5%9B%AD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37201,
@@ -2664,7 +2673,7 @@
     {
       "title": "社会心理学",
       "date": "2026-07-14",
-      "category": "社会与政治",
+      "category": "心理学与自我",
       "html": "readings/%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A4%BE%E4%BC%9A%E5%BF%83%E7%90%86%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43767,
@@ -2682,7 +2691,7 @@
     {
       "title": "社会契约论",
       "date": "2026-07-14",
-      "category": "社会与政治",
+      "category": "哲学与思想",
       "html": "readings/%E7%A4%BE%E4%BC%9A%E5%A5%91%E7%BA%A6%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A4%BE%E4%BC%9A%E5%A5%91%E7%BA%A6%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40981,
@@ -2691,7 +2700,7 @@
     {
       "title": "目送",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%9B%AE%E9%80%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%9B%AE%E9%80%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41531,
@@ -2709,7 +2718,7 @@
     {
       "title": "男人一本书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%94%B7%E4%BA%BA%E4%B8%80%E6%9C%AC%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%94%B7%E4%BA%BA%E4%B8%80%E6%9C%AC%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41823,
@@ -2718,7 +2727,7 @@
     {
       "title": "生命之书：365天的静心冥想",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "宗教与灵性",
       "html": "readings/%E7%94%9F%E5%91%BD%E4%B9%8B%E4%B9%A6365%E5%A4%A9%E7%9A%84%E9%9D%99%E5%BF%83%E5%86%A5%E6%83%B3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%94%9F%E5%91%BD%E4%B9%8B%E4%B9%A6365%E5%A4%A9%E7%9A%84%E9%9D%99%E5%BF%83%E5%86%A5%E6%83%B3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 51912,
@@ -2727,7 +2736,7 @@
     {
       "title": "瓦尔登湖",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%93%A6%E5%B0%94%E7%99%BB%E6%B9%96_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%93%A6%E5%B0%94%E7%99%BB%E6%B9%96_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 64173,
@@ -2736,7 +2745,7 @@
     {
       "title": "犹太文明 —— 九层深读",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "宗教与灵性",
       "html": "readings/%E7%8A%B9%E5%A4%AA%E6%96%87%E6%98%8E0619_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%8A%B9%E5%A4%AA%E6%96%87%E6%98%8E0619_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49025,
@@ -2745,7 +2754,7 @@
     {
       "title": "犹太文明",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "宗教与灵性",
       "html": "readings/%E7%8A%B9%E5%A4%AA%E6%96%87%E6%98%8E_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%8A%B9%E5%A4%AA%E6%96%87%E6%98%8E_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 45223,
@@ -2754,7 +2763,7 @@
     {
       "title": "爱欲之死",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "性文化与身体",
       "html": "readings/%E7%88%B1%E6%AC%B2%E4%B9%8B%E6%AD%BB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%88%B1%E6%AC%B2%E4%B9%8B%E6%AD%BB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44646,
@@ -2763,7 +2772,7 @@
     {
       "title": "燃烧的原野",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E7%87%83%E7%83%A7%E7%9A%84%E5%8E%9F%E9%87%8E_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%87%83%E7%83%A7%E7%9A%84%E5%8E%9F%E9%87%8E_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39664,
@@ -2772,7 +2781,7 @@
     {
       "title": "炁体源流",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "健康与生活",
       "html": "readings/%E7%82%81%E4%BD%93%E6%BA%90%E6%B5%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%82%81%E4%BD%93%E6%BA%90%E6%B5%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 54056,
@@ -2781,7 +2790,7 @@
     {
       "title": "灵魂转生的奥秘",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E7%81%B5%E9%AD%82%E8%BD%AC%E7%94%9F%E7%9A%84%E5%A5%A5%E7%A7%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%81%B5%E9%AD%82%E8%BD%AC%E7%94%9F%E7%9A%84%E5%A5%A5%E7%A7%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 50991,
@@ -2790,7 +2799,7 @@
     {
       "title": "源氏物语",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%BA%90%E6%B0%8F%E7%89%A9%E8%AF%AD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%BA%90%E6%B0%8F%E7%89%A9%E8%AF%AD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41793,
@@ -2799,7 +2808,7 @@
     {
       "title": "混乱的猴子 · 深度解读",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "经济与商业",
       "html": "readings/%E6%B7%B7%E4%B9%B1%E7%9A%84%E7%8C%B4%E5%AD%90_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B7%B7%E4%B9%B1%E7%9A%84%E7%8C%B4%E5%AD%90_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 35693,
@@ -2808,7 +2817,7 @@
     {
       "title": "深度休息",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E6%B7%B1%E5%BA%A6%E4%BC%91%E6%81%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B7%B1%E5%BA%A6%E4%BC%91%E6%81%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43830,
@@ -2817,7 +2826,7 @@
     {
       "title": "深井效应",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E6%B7%B1%E4%BA%95%E6%95%88%E5%BA%94_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B7%B1%E4%BA%95%E6%95%88%E5%BA%94_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 36852,
@@ -2835,7 +2844,7 @@
     {
       "title": "浮士德",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%B5%AE%E5%A3%AB%E5%BE%B7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B5%AE%E5%A3%AB%E5%BE%B7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40488,
@@ -2844,7 +2853,7 @@
     {
       "title": "浮世绘",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E6%B5%AE%E4%B8%96%E7%BB%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B5%AE%E4%B8%96%E7%BB%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48973,
@@ -2853,7 +2862,7 @@
     {
       "title": "沧浪之水",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%B2%A7%E6%B5%AA%E4%B9%8B%E6%B0%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B2%A7%E6%B5%AA%E4%B9%8B%E6%B0%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 27291,
@@ -2862,7 +2871,7 @@
     {
       "title": "沉思录 —— 九层解书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E6%B2%89%E6%80%9D%E5%BD%950619_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B2%89%E6%80%9D%E5%BD%950619_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40421,
@@ -2871,7 +2880,7 @@
     {
       "title": "沉思录",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E6%B2%89%E6%80%9D%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B2%89%E6%80%9D%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 51881,
@@ -2880,7 +2889,7 @@
     {
       "title": "汤姆叔叔的小屋",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%B1%A4%E5%A7%86%E5%8F%94%E5%8F%94%E7%9A%84%E5%B0%8F%E5%B1%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B1%A4%E5%A7%86%E5%8F%94%E5%8F%94%E7%9A%84%E5%B0%8F%E5%B1%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43241,
@@ -2889,7 +2898,7 @@
     {
       "title": "民间失传绝技民间秘术大全",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "传记与回忆录",
       "html": "readings/%E6%B0%91%E9%97%B4%E5%A4%B1%E4%BC%A0%E7%BB%9D%E6%8A%80%E6%B0%91%E9%97%B4%E7%A7%98%E6%9C%AF%E5%A4%A7%E5%85%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B0%91%E9%97%B4%E5%A4%B1%E4%BC%A0%E7%BB%9D%E6%8A%80%E6%B0%91%E9%97%B4%E7%A7%98%E6%9C%AF%E5%A4%A7%E5%85%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 15593,
@@ -2898,7 +2907,7 @@
     {
       "title": "民兵军事训练手册",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E6%B0%91%E5%85%B5%E5%86%9B%E4%BA%8B%E8%AE%AD%E7%BB%83%E6%89%8B%E5%86%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B0%91%E5%85%B5%E5%86%9B%E4%BA%8B%E8%AE%AD%E7%BB%83%E6%89%8B%E5%86%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 20526,
@@ -2916,7 +2925,7 @@
     {
       "title": "毛泽东选集（1—5 卷）",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E9%80%89%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 50997,
@@ -2925,7 +2934,7 @@
     {
       "title": "毛泽东传",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0-%E7%89%B9%E9%87%8C%E5%B0%94_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0-%E7%89%B9%E9%87%8C%E5%B0%94_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 36694,
@@ -2934,7 +2943,7 @@
     {
       "title": "毛泽东传",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%AF%9B%E6%B3%BD%E4%B8%9C%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48145,
@@ -2943,7 +2952,7 @@
     {
       "title": "每天懂一点色彩心理学",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E6%AF%8F%E5%A4%A9%E6%87%82%E4%B8%80%E7%82%B9%E8%89%B2%E5%BD%A9%E5%BF%83%E7%90%86%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%AF%8F%E5%A4%A9%E6%87%82%E4%B8%80%E7%82%B9%E8%89%B2%E5%BD%A9%E5%BF%83%E7%90%86%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41384,
@@ -2961,7 +2970,7 @@
     {
       "title": "欧洲与没有历史的人",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "人类学与民族志",
       "html": "readings/%E6%AC%A7%E6%B4%B2%E4%B8%8E%E6%B2%A1%E6%9C%89%E5%8E%86%E5%8F%B2%E7%9A%84%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%AC%A7%E6%B4%B2%E4%B8%8E%E6%B2%A1%E6%9C%89%E5%8E%86%E5%8F%B2%E7%9A%84%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41721,
@@ -2970,7 +2979,7 @@
     {
       "title": "欢喜佛与双修法",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E6%AC%A2%E5%96%9C%E4%BD%9B%E4%B8%8E%E5%8F%8C%E4%BF%AE%E6%B3%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%AC%A2%E5%96%9C%E4%BD%9B%E4%B8%8E%E5%8F%8C%E4%BF%AE%E6%B3%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43803,
@@ -2988,7 +2997,7 @@
     {
       "title": "查第格",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%9F%A5%E7%AC%AC%E6%A0%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9F%A5%E7%AC%AC%E6%A0%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 34745,
@@ -2997,7 +3006,7 @@
     {
       "title": "查泰莱夫人的情人",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E6%9F%A5%E6%B3%B0%E8%8E%B1%E5%A4%AB%E4%BA%BA%E7%9A%84%E6%83%85%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9F%A5%E6%B3%B0%E8%8E%B1%E5%A4%AB%E4%BA%BA%E7%9A%84%E6%83%85%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44148,
@@ -3006,7 +3015,7 @@
     {
       "title": "查拉图斯特拉如是说",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E6%9F%A5%E6%8B%89%E5%9B%BE%E6%96%AF%E7%89%B9%E6%8B%89%E5%A6%82%E6%98%AF%E8%AF%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9F%A5%E6%8B%89%E5%9B%BE%E6%96%AF%E7%89%B9%E6%8B%89%E5%A6%82%E6%98%AF%E8%AF%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42212,
@@ -3015,7 +3024,7 @@
     {
       "title": "枪炮、病菌与钢铁",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E6%9E%AA%E7%82%AE%E7%97%85%E8%8F%8C%E4%B8%8E%E9%92%A2%E9%93%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9E%AA%E7%82%AE%E7%97%85%E8%8F%8C%E4%B8%8E%E9%92%A2%E9%93%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48607,
@@ -3024,7 +3033,7 @@
     {
       "title": "来自纳粹地狱的报告",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%9D%A5%E8%87%AA%E7%BA%B3%E7%B2%B9%E5%9C%B0%E7%8B%B1%E7%9A%84%E6%8A%A5%E5%91%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9D%A5%E8%87%AA%E7%BA%B3%E7%B2%B9%E5%9C%B0%E7%8B%B1%E7%9A%84%E6%8A%A5%E5%91%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40418,
@@ -3033,7 +3042,7 @@
     {
       "title": "杜甫：中国最伟大的诗人",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "传记与回忆录",
       "html": "readings/%E6%9D%9C%E7%94%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9D%9C%E7%94%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44934,
@@ -3042,7 +3051,7 @@
     {
       "title": "杜甫中国最伟大的诗人",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "传记与回忆录",
       "html": "readings/%E6%9D%9C%E7%94%AB%E4%B8%AD%E5%9B%BD%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E8%AF%97%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9D%9C%E7%94%AB%E4%B8%AD%E5%9B%BD%E6%9C%80%E4%BC%9F%E5%A4%A7%E7%9A%84%E8%AF%97%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 33539,
@@ -3051,7 +3060,7 @@
     {
       "title": "李鸿章传 —— 九层解书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%9D%8E%E9%B8%BF%E7%AB%A0%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9D%8E%E9%B8%BF%E7%AB%A0%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 29429,
@@ -3060,7 +3069,7 @@
     {
       "title": "杀死一只知更鸟",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%9D%80%E6%AD%BB%E4%B8%80%E5%8F%AA%E7%9F%A5%E6%9B%B4%E9%B8%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9D%80%E6%AD%BB%E4%B8%80%E5%8F%AA%E7%9F%A5%E6%9B%B4%E9%B8%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39662,
@@ -3069,7 +3078,7 @@
     {
       "title": "曾国藩传",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%9B%BE%E5%9B%BD%E8%97%A9%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%9B%BE%E5%9B%BD%E8%97%A9%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42341,
@@ -3087,7 +3096,7 @@
     {
       "title": "时间游戏",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%97%B6%E9%97%B4%E6%B8%B8%E6%88%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%97%B6%E9%97%B4%E6%B8%B8%E6%88%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 47329,
@@ -3096,7 +3105,7 @@
     {
       "title": "日本神道研究",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%97%A5%E6%9C%AC%E7%A5%9E%E9%81%93%E7%A0%94%E7%A9%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%97%A5%E6%9C%AC%E7%A5%9E%E9%81%93%E7%A0%94%E7%A9%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40658,
@@ -3105,7 +3114,7 @@
     {
       "title": "日本的佛教与神祇信仰",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E6%97%A5%E6%9C%AC%E7%9A%84%E4%BD%9B%E6%95%99%E4%B8%8E%E7%A5%9E%E7%A5%87%E4%BF%A1%E4%BB%B0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%97%A5%E6%9C%AC%E7%9A%84%E4%BD%9B%E6%95%99%E4%B8%8E%E7%A5%9E%E7%A5%87%E4%BF%A1%E4%BB%B0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 50116,
@@ -3114,7 +3123,7 @@
     {
       "title": "日本侘寂",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E6%97%A5%E6%9C%AC%E4%BE%98%E5%AF%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%97%A5%E6%9C%AC%E4%BE%98%E5%AF%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 47982,
@@ -3123,7 +3132,7 @@
     {
       "title": "旅行的艺术",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E6%97%85%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%97%85%E8%A1%8C%E7%9A%84%E8%89%BA%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39360,
@@ -3132,7 +3141,7 @@
     {
       "title": "文革笑料集",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%96%87%E9%9D%A9%E7%AC%91%E6%96%99%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%96%87%E9%9D%A9%E7%AC%91%E6%96%99%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49545,
@@ -3186,7 +3195,7 @@
     {
       "title": "撒哈拉的故事",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E6%92%92%E5%93%88%E6%8B%89%E7%9A%84%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%92%92%E5%93%88%E6%8B%89%E7%9A%84%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 27159,
@@ -3204,7 +3213,7 @@
     {
       "title": "拍卖楼梯",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E6%8B%8D%E5%8D%96%E6%A5%BC%E6%A2%AFK%20Beast%E8%AE%A2%E5%8D%95%E6%B5%81%E6%96%B9%E6%B3%95%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%8B%8D%E5%8D%96%E6%A5%BC%E6%A2%AFK%20Beast%E8%AE%A2%E5%8D%95%E6%B5%81%E6%96%B9%E6%B3%95%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40831,
@@ -3213,7 +3222,7 @@
     {
       "title": "拉萨及西藏中部旅行记",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E6%8B%89%E8%90%A8%E5%8F%8A%E8%A5%BF%E8%97%8F%E4%B8%AD%E9%83%A8%E6%97%85%E8%A1%8C%E8%AE%B0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%8B%89%E8%90%A8%E5%8F%8A%E8%A5%BF%E8%97%8F%E4%B8%AD%E9%83%A8%E6%97%85%E8%A1%8C%E8%AE%B0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39696,
@@ -3222,7 +3231,7 @@
     {
       "title": "扎根",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "实用与技能",
       "html": "readings/%E6%89%8E%E6%A0%B9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%89%8E%E6%A0%B9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42682,
@@ -3231,7 +3240,7 @@
     {
       "title": "我身上有个不可战胜的夏天",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%88%91%E8%BA%AB%E4%B8%8A%E6%9C%89%E4%B8%AA%E4%B8%8D%E5%8F%AF%E6%88%98%E8%83%9C%E7%9A%84%E5%A4%8F%E5%A4%A9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%88%91%E8%BA%AB%E4%B8%8A%E6%9C%89%E4%B8%AA%E4%B8%8D%E5%8F%AF%E6%88%98%E8%83%9C%E7%9A%84%E5%A4%8F%E5%A4%A9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 32054,
@@ -3240,7 +3249,7 @@
     {
       "title": "我的奋斗",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "传记与回忆录",
       "html": "readings/%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97-%E7%BD%97%E6%B0%B8%E6%B5%A9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%88%91%E7%9A%84%E5%A5%8B%E6%96%97-%E7%BD%97%E6%B0%B8%E6%B5%A9_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40530,
@@ -3249,7 +3258,7 @@
     {
       "title": "我是谁，或什么",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E6%88%91%E6%98%AF%E8%B0%81%E6%88%96%E4%BB%80%E4%B9%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%88%91%E6%98%AF%E8%B0%81%E6%88%96%E4%BB%80%E4%B9%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 52264,
@@ -3267,7 +3276,7 @@
     {
       "title": "我们仨 —— 九层解书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%88%91%E4%BB%AC%E4%BB%A8-%E6%9D%A8%E7%BB%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%88%91%E4%BB%AC%E4%BB%A8-%E6%9D%A8%E7%BB%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 31762,
@@ -3276,7 +3285,7 @@
     {
       "title": "我们仨",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E6%88%91%E4%BB%AC%E4%BB%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%88%91%E4%BB%AC%E4%BB%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39279,
@@ -3294,7 +3303,7 @@
     {
       "title": "我与地坛",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48977,
@@ -3303,7 +3312,7 @@
     {
       "title": "意识与脑",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E6%84%8F%E8%AF%86%E4%B8%8E%E8%84%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%84%8F%E8%AF%86%E4%B8%8E%E8%84%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 52178,
@@ -3312,7 +3321,7 @@
     {
       "title": "悲惨世界",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E6%82%B2%E6%83%A8%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%82%B2%E6%83%A8%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41177,
@@ -3321,7 +3330,7 @@
     {
       "title": "悲剧的诞生",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E6%82%B2%E5%89%A7%E7%9A%84%E8%AF%9E%E7%94%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%82%B2%E5%89%A7%E7%9A%84%E8%AF%9E%E7%94%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44531,
@@ -3330,7 +3339,7 @@
     {
       "title": "恋爱中的女人",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "文学与小说",
       "html": "readings/%E6%81%8B%E7%88%B1%E4%B8%AD%E7%9A%84%E5%A5%B3%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%81%8B%E7%88%B1%E4%B8%AD%E7%9A%84%E5%A5%B3%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43190,
@@ -3339,7 +3348,7 @@
     {
       "title": "怪癖心理学",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E6%80%AA%E7%99%96%E5%BF%83%E7%90%86%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%80%AA%E7%99%96%E5%BF%83%E7%90%86%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37236,
@@ -3348,7 +3357,7 @@
     {
       "title": "性心情",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E6%80%A7%E5%BF%83%E6%83%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%80%A7%E5%BF%83%E6%83%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 50309,
@@ -3357,7 +3366,7 @@
     {
       "title": "思维与语言",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "科普与科学",
       "html": "readings/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AF%AD%E8%A8%80_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%AF%AD%E8%A8%80_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 46947,
@@ -3366,7 +3375,7 @@
     {
       "title": "张居正大传 —— 九层解书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%BC%A0%E5%B1%85%E6%AD%A3%E5%A4%A7%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%BC%A0%E5%B1%85%E6%AD%A3%E5%A4%A7%E4%BC%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39144,
@@ -3375,7 +3384,7 @@
     {
       "title": "庐山会议实录",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%BA%90%E5%B1%B1%E4%BC%9A%E8%AE%AE%E5%AE%9E%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%BA%90%E5%B1%B1%E4%BC%9A%E8%AE%AE%E5%AE%9E%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 52987,
@@ -3393,7 +3402,7 @@
     {
       "title": "帷幕",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%B8%B7%E5%B9%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B8%B7%E5%B9%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41672,
@@ -3402,7 +3411,7 @@
     {
       "title": "帝国的崩塌：从甲午海战到辛亥革命",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E5%B8%9D%E5%9B%BD%E7%9A%84%E5%B4%A9%E5%A1%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B8%9D%E5%9B%BD%E7%9A%84%E5%B4%A9%E5%A1%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41640,
@@ -3420,7 +3429,7 @@
     {
       "title": "希腊神话故事",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "神话与民俗",
       "html": "readings/%E5%B8%8C%E8%85%8A%E7%A5%9E%E8%AF%9D%E6%95%85%E4%BA%8B-%E6%96%BD%E7%93%A6%E5%B8%83_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B8%8C%E8%85%8A%E7%A5%9E%E8%AF%9D%E6%95%85%E4%BA%8B-%E6%96%BD%E7%93%A6%E5%B8%83_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37261,
@@ -3429,7 +3438,7 @@
     {
       "title": "希腊神话故事",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "神话与民俗",
       "html": "readings/%E5%B8%8C%E8%85%8A%E7%A5%9E%E8%AF%9D%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B8%8C%E8%85%8A%E7%A5%9E%E8%AF%9D%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43814,
@@ -3447,7 +3456,7 @@
     {
       "title": "巫师、巫术、秘境",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "神话与民俗",
       "html": "readings/%E5%B7%AB%E5%B8%88%E5%B7%AB%E6%9C%AF%E7%A7%98%E5%A2%83_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B7%AB%E5%B8%88%E5%B7%AB%E6%9C%AF%E7%A7%98%E5%A2%83_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 24130,
@@ -3456,7 +3465,7 @@
     {
       "title": "巨乳研究室",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E5%B7%A8%E4%B9%B3%E7%A0%94%E7%A9%B6%E5%AE%A4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B7%A8%E4%B9%B3%E7%A0%94%E7%A9%B6%E5%AE%A4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39392,
@@ -3465,7 +3474,7 @@
     {
       "title": "山海经全译",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E5%B1%B1%E6%B5%B7%E7%BB%8F%E5%85%A8%E8%AF%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B1%B1%E6%B5%B7%E7%BB%8F%E5%85%A8%E8%AF%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 69486,
@@ -3474,7 +3483,7 @@
     {
       "title": "局外人",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E5%B1%80%E5%A4%96%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B1%80%E5%A4%96%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 20652,
@@ -3483,7 +3492,7 @@
     {
       "title": "尘埃落定",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%B0%98%E5%9F%83%E8%90%BD%E5%AE%9A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B0%98%E5%9F%83%E8%90%BD%E5%AE%9A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 46814,
@@ -3492,7 +3501,7 @@
     {
       "title": "少年维特的烦恼",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E7%9A%84%E7%83%A6%E6%81%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E7%9A%84%E7%83%A6%E6%81%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40507,
@@ -3501,7 +3510,7 @@
     {
       "title": "寻找人吃人见证 · 深度解读",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E5%AF%BB%E6%89%BE%E4%BA%BA%E5%90%83%E4%BA%BA%E8%A7%81%E8%AF%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%AF%BB%E6%89%BE%E4%BA%BA%E5%90%83%E4%BA%BA%E8%A7%81%E8%AF%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 35039,
@@ -3519,7 +3528,7 @@
     {
       "title": "女性的奥秘",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%A5%B3%E6%80%A7%E7%9A%84%E5%A5%A5%E7%A7%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A5%B3%E6%80%A7%E7%9A%84%E5%A5%A5%E7%A7%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44463,
@@ -3546,7 +3555,7 @@
     {
       "title": "奥德赛",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%A5%A5%E5%BE%B7%E8%B5%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A5%A5%E5%BE%B7%E8%B5%9B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40475,
@@ -3555,7 +3564,7 @@
     {
       "title": "奇功异术中国秘功法四十三种",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "健康与生活",
       "html": "readings/%E5%A5%87%E5%8A%9F%E5%BC%82%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A5%87%E5%8A%9F%E5%BC%82%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39705,
@@ -3564,7 +3573,7 @@
     {
       "title": "太平天国",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%A4%AA%E5%B9%B3%E5%A4%A9%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A4%AA%E5%B9%B3%E5%A4%A9%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44290,
@@ -3573,7 +3582,7 @@
     {
       "title": "天女临凡",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%A4%A9%E5%A5%B3%E4%B8%B4%E5%87%A1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A4%A9%E5%A5%B3%E4%B8%B4%E5%87%A1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 47067,
@@ -3582,7 +3591,7 @@
     {
       "title": "大断裂",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%A4%A7%E6%96%AD%E8%A3%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A4%A7%E6%96%AD%E8%A3%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 46859,
@@ -3591,7 +3600,7 @@
     {
       "title": "外婆的道歉信",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%A4%96%E5%A9%86%E7%9A%84%E9%81%93%E6%AD%89%E4%BF%A1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A4%96%E5%A9%86%E7%9A%84%E9%81%93%E6%AD%89%E4%BF%A1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 38605,
@@ -3600,7 +3609,7 @@
     {
       "title": "夏天、烟火和我的尸体",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%A4%8F%E5%A4%A9%E7%83%9F%E7%81%AB%E5%92%8C%E6%88%91%E7%9A%84%E5%B0%B8%E4%BD%93_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%A4%8F%E5%A4%A9%E7%83%9F%E7%81%AB%E5%92%8C%E6%88%91%E7%9A%84%E5%B0%B8%E4%BD%93_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43608,
@@ -3609,7 +3618,7 @@
     {
       "title": "埃及神话",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "神话与民俗",
       "html": "readings/%E7%A5%9E%E8%AF%9D%E6%97%B6%E4%BB%A3%C2%B7%E5%9F%83%E5%8F%8A%E7%A5%9E%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A5%9E%E8%AF%9D%E6%97%B6%E4%BB%A3%C2%B7%E5%9F%83%E5%8F%8A%E7%A5%9E%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 45172,
@@ -3618,7 +3627,7 @@
     {
       "title": "在路上",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%9C%A8%E8%B7%AF%E4%B8%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%9C%A8%E8%B7%AF%E4%B8%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37819,
@@ -3627,7 +3636,7 @@
     {
       "title": "在细雨中呼喊",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%9C%A8%E7%BB%86%E9%9B%A8%E4%B8%AD%E5%91%BC%E5%96%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%9C%A8%E7%BB%86%E9%9B%A8%E4%B8%AD%E5%91%BC%E5%96%8A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 24432,
@@ -3636,7 +3645,7 @@
     {
       "title": "圣经与利剑",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E5%9C%A3%E7%BB%8F%E4%B8%8E%E5%88%A9%E5%89%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%9C%A3%E7%BB%8F%E4%B8%8E%E5%88%A9%E5%89%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37249,
@@ -3672,7 +3681,7 @@
     {
       "title": "哥德尔、艾舍尔、巴赫",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E5%93%A5%E5%BE%B7%E5%B0%94%E8%89%BE%E8%88%8D%E5%B0%94%E5%B7%B4%E8%B5%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%93%A5%E5%BE%B7%E5%B0%94%E8%89%BE%E8%88%8D%E5%B0%94%E5%B7%B4%E8%B5%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42650,
@@ -3690,7 +3699,7 @@
     {
       "title": "发现东亚 —— 九层解书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E5%8F%91%E7%8E%B0%E4%B8%9C%E4%BA%9A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8F%91%E7%8E%B0%E4%B8%9C%E4%BA%9A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 61082,
@@ -3717,7 +3726,7 @@
     {
       "title": "印度，漂浮的次大陆",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E5%8D%B0%E5%BA%A6%E6%BC%82%E6%B5%AE%E7%9A%84%E6%AC%A1%E5%A4%A7%E9%99%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8D%B0%E5%BA%A6%E6%BC%82%E6%B5%AE%E7%9A%84%E6%AC%A1%E5%A4%A7%E9%99%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42127,
@@ -3726,7 +3735,7 @@
     {
       "title": "卡拉马佐夫兄弟",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%8D%A1%E6%8B%89%E9%A9%AC%E4%BD%90%E5%A4%AB%E5%85%84%E5%BC%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8D%A1%E6%8B%89%E9%A9%AC%E4%BD%90%E5%A4%AB%E5%85%84%E5%BC%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 45093,
@@ -3735,7 +3744,7 @@
     {
       "title": "博物馆窜行记",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E5%8D%9A%E7%89%A9%E9%A6%86%E7%AA%9C%E8%A1%8C%E8%AE%B0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8D%9A%E7%89%A9%E9%A6%86%E7%AA%9C%E8%A1%8C%E8%AE%B0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49068,
@@ -3753,7 +3762,7 @@
     {
       "title": "十日谈",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%8D%81%E6%97%A5%E8%B0%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8D%81%E6%97%A5%E8%B0%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40694,
@@ -3771,7 +3780,7 @@
     {
       "title": "匪徒 · 深度解读",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%8C%AA%E5%BE%92_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8C%AA%E5%BE%92_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 36344,
@@ -3780,7 +3789,7 @@
     {
       "title": "北欧神话",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "神话与民俗",
       "html": "readings/%E7%A5%9E%E8%AF%9D%E6%97%B6%E4%BB%A3%C2%B7%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A5%9E%E8%AF%9D%E6%97%B6%E4%BB%A3%C2%B7%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 45772,
@@ -3789,7 +3798,7 @@
     {
       "title": "北京的城墙与城门",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E5%8C%97%E4%BA%AC%E7%9A%84%E5%9F%8E%E5%A2%99%E4%B8%8E%E5%9F%8E%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8C%97%E4%BA%AC%E7%9A%84%E5%9F%8E%E5%A2%99%E4%B8%8E%E5%9F%8E%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37593,
@@ -3798,7 +3807,7 @@
     {
       "title": "包法利夫人",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E5%8C%85%E6%B3%95%E5%88%A9%E5%A4%AB%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%8C%85%E6%B3%95%E5%88%A9%E5%A4%AB%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40349,
@@ -3816,7 +3825,7 @@
     {
       "title": "凯尔特神话",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "神话与民俗",
       "html": "readings/%E7%A5%9E%E8%AF%9D%E6%97%B6%E4%BB%A3%C2%B7%E5%87%AF%E5%B0%94%E7%89%B9%E7%A5%9E%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%A5%9E%E8%AF%9D%E6%97%B6%E4%BB%A3%C2%B7%E5%87%AF%E5%B0%94%E7%89%B9%E7%A5%9E%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 46825,
@@ -3825,7 +3834,7 @@
     {
       "title": "冥想",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "宗教与灵性",
       "html": "readings/%E5%86%A5%E6%83%B3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%86%A5%E6%83%B3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43898,
@@ -3834,7 +3843,7 @@
     {
       "title": "内观",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E5%86%85%E8%A7%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%86%85%E8%A7%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 45187,
@@ -3843,7 +3852,7 @@
     {
       "title": "八月炮火",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E5%85%AB%E6%9C%88%E7%82%AE%E7%81%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%85%AB%E6%9C%88%E7%82%AE%E7%81%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42177,
@@ -3861,7 +3870,7 @@
     {
       "title": "傲慢与偏见",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E5%82%B2%E6%85%A2%E4%B8%8E%E5%81%8F%E8%A7%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%82%B2%E6%85%A2%E4%B8%8E%E5%81%8F%E8%A7%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 50305,
@@ -3870,7 +3879,7 @@
     {
       "title": "信任",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E4%BF%A1%E4%BB%BB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BF%A1%E4%BB%BB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49371,
@@ -3879,7 +3888,7 @@
     {
       "title": "佩德罗·巴拉莫",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%BD%A9%E5%BE%B7%E7%BD%97%C2%B7%E5%B7%B4%E6%8B%89%E8%8E%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BD%A9%E5%BE%B7%E7%BD%97%C2%B7%E5%B7%B4%E6%8B%89%E8%8E%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40438,
@@ -3888,7 +3897,7 @@
     {
       "title": "你当像鸟飞往你的山",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%BD%A0%E5%BD%93%E5%83%8F%E9%B8%9F%E9%A3%9E%E5%BE%80%E4%BD%A0%E7%9A%84%E5%B1%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BD%A0%E5%BD%93%E5%83%8F%E9%B8%9F%E9%A3%9E%E5%BE%80%E4%BD%A0%E7%9A%84%E5%B1%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 35266,
@@ -3897,7 +3906,7 @@
     {
       "title": "作为意志和表象的世界",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "哲学与思想",
       "html": "readings/%E4%BD%9C%E4%B8%BA%E6%84%8F%E5%BF%97%E5%92%8C%E8%A1%A8%E8%B1%A1%E7%9A%84%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BD%9C%E4%B8%BA%E6%84%8F%E5%BF%97%E5%92%8C%E8%A1%A8%E8%B1%A1%E7%9A%84%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40677,
@@ -3906,7 +3915,7 @@
     {
       "title": "佛祖都说了些什么",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E4%BD%9B%E7%A5%96%E9%83%BD%E8%AF%B4%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BD%9B%E7%A5%96%E9%83%BD%E8%AF%B4%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 45526,
@@ -3924,7 +3933,7 @@
     {
       "title": "仙境与游历：神仙世界的想象",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "神话与民俗",
       "html": "readings/%E4%BB%99%E5%A2%83%E4%B8%8E%E6%B8%B8%E5%8E%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BB%99%E5%A2%83%E4%B8%8E%E6%B8%B8%E5%8E%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44284,
@@ -3933,7 +3942,7 @@
     {
       "title": "从一到无穷大",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "科普与科学",
       "html": "readings/%E4%BB%8E%E4%B8%80%E5%88%B0%E6%97%A0%E7%A9%B7%E5%A4%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BB%8E%E4%B8%80%E5%88%B0%E6%97%A0%E7%A9%B7%E5%A4%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41481,
@@ -3951,7 +3960,7 @@
     {
       "title": "人间失格",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%BA%BA%E9%97%B4%E5%A4%B1%E6%A0%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BA%BA%E9%97%B4%E5%A4%B1%E6%A0%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 45231,
@@ -3960,7 +3969,7 @@
     {
       "title": "人性的枷锁",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E4%BA%BA%E6%80%A7%E7%9A%84%E6%9E%B7%E9%94%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BA%BA%E6%80%A7%E7%9A%84%E6%9E%B7%E9%94%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 46587,
@@ -3969,7 +3978,7 @@
     {
       "title": "人性中的善良天使 · 深度解读",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E4%BA%BA%E6%80%A7%E4%B8%AD%E7%9A%84%E5%96%84%E8%89%AF%E5%A4%A9%E4%BD%BF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BA%BA%E6%80%A7%E4%B8%AD%E7%9A%84%E5%96%84%E8%89%AF%E5%A4%A9%E4%BD%BF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 39198,
@@ -3978,7 +3987,7 @@
     {
       "title": "亲密关系的转变",
       "date": "2026-07-14",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB%E7%9A%84%E8%BD%AC%E5%8F%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB%E7%9A%84%E8%BD%AC%E5%8F%98_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49566,
@@ -3987,7 +3996,7 @@
     {
       "title": "亦近亦远的东南亚",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "人类学与民族志",
       "html": "readings/%E4%BA%A6%E8%BF%91%E4%BA%A6%E8%BF%9C%E7%9A%84%E4%B8%9C%E5%8D%97%E4%BA%9A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BA%A6%E8%BF%91%E4%BA%A6%E8%BF%9C%E7%9A%84%E4%B8%9C%E5%8D%97%E4%BA%9A_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 35895,
@@ -4014,7 +4023,7 @@
     {
       "title": "云边有个小卖部",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%BA%91%E8%BE%B9%E6%9C%89%E4%B8%AA%E5%B0%8F%E5%8D%96%E9%83%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BA%91%E8%BE%B9%E6%9C%89%E4%B8%AA%E5%B0%8F%E5%8D%96%E9%83%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37926,
@@ -4023,7 +4032,7 @@
     {
       "title": "乡土中国",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E4%B9%A1%E5%9C%9F%E4%B8%AD%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B9%A1%E5%9C%9F%E4%B8%AD%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44926,
@@ -4032,7 +4041,7 @@
     {
       "title": "乌合之众",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E4%B9%8C%E5%90%88%E4%B9%8B%E4%BC%97_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B9%8C%E5%90%88%E4%B9%8B%E4%BC%97_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 53982,
@@ -4050,7 +4059,7 @@
     {
       "title": "中国风水研究",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "神话与民俗",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E9%A3%8E%E6%B0%B4%E7%A0%94%E7%A9%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E9%A3%8E%E6%B0%B4%E7%A0%94%E7%A9%B6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 36302,
@@ -4059,7 +4068,7 @@
     {
       "title": "中国道家养气全书九层解书",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "健康与生活",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E9%81%93%E5%AE%B6%E5%85%BB%E6%B0%94%E5%85%A8%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E9%81%93%E5%AE%B6%E5%85%BB%E6%B0%94%E5%85%A8%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 61334,
@@ -4068,7 +4077,7 @@
     {
       "title": "中国符咒文化大观",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "神话与民俗",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E7%AC%A6%E5%92%92%E6%96%87%E5%8C%96%E5%A4%A7%E8%A7%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E7%AC%A6%E5%92%92%E6%96%87%E5%8C%96%E5%A4%A7%E8%A7%82_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 27731,
@@ -4077,7 +4086,7 @@
     {
       "title": "中国秘密社会·清代教门 · 讲书课（修订版）",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E6%B8%85%E4%BB%A3%E6%95%99%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%B8%85%E4%BB%A3%E6%95%99%E9%97%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 46417,
@@ -4095,7 +4104,7 @@
     {
       "title": "中国历代政治得失",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E5%8E%86%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%BE%97%E5%A4%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E5%8E%86%E4%BB%A3%E6%94%BF%E6%B2%BB%E5%BE%97%E5%A4%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 51128,
@@ -4104,7 +4113,7 @@
     {
       "title": "中国人的性格",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "性文化与身体",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E7%9A%84%E6%80%A7%E6%A0%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E7%9A%84%E6%80%A7%E6%A0%BC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 44468,
@@ -4113,7 +4122,7 @@
     {
       "title": "中国为何反日",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E4%B8%BA%E4%BD%95%E5%8F%8D%E6%97%A5_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E4%B8%BA%E4%BD%95%E5%8F%8D%E6%97%A5_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43620,
@@ -4122,7 +4131,7 @@
     {
       "title": "中共官员情妇新录",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E4%B8%AD%E5%85%B1%E5%AE%98%E5%91%98%E6%83%85%E5%A6%87%E6%96%B0%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%AD%E5%85%B1%E5%AE%98%E5%91%98%E6%83%85%E5%A6%87%E6%96%B0%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40084,
@@ -4131,7 +4140,7 @@
     {
       "title": "两个世界的战争",
       "date": "2026-07-14",
-      "category": "历史与文明",
+      "category": "社会与政治",
       "html": "readings/%E4%B8%A4%E4%B8%AA%E4%B8%96%E7%95%8C%E7%9A%84%E6%88%98%E4%BA%89_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%A4%E4%B8%AA%E4%B8%96%E7%95%8C%E7%9A%84%E6%88%98%E4%BA%89_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42194,
@@ -4149,7 +4158,7 @@
     {
       "title": "世界奇幻地图",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "艺术与文化",
       "html": "readings/%E4%B8%96%E7%95%8C%E5%A5%87%E5%B9%BB%E5%9C%B0%E5%9B%BE_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%96%E7%95%8C%E5%A5%87%E5%B9%BB%E5%9C%B0%E5%9B%BE_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 43895,
@@ -4167,7 +4176,7 @@
     {
       "title": "上帝掷骰子吗 —— 九层解书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E4%B8%8A%E5%B8%9D%E6%8E%B7%E9%AA%B0%E5%AD%90%E5%90%97%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E5%8F%B2%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%8A%E5%B8%9D%E6%8E%B7%E9%AA%B0%E5%AD%90%E5%90%97%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E5%8F%B2%E8%AF%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 35983,
@@ -4176,7 +4185,7 @@
     {
       "title": "三体全集",
       "date": "2026-07-14",
-      "category": "文学与故事",
+      "category": "科幻与悬疑",
       "html": "readings/%E4%B8%89%E4%BD%93%E5%85%A8%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%89%E4%BD%93%E5%85%A8%E9%9B%86_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41835,
@@ -4185,7 +4194,7 @@
     {
       "title": "万水千山走遍",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/%E4%B8%87%E6%B0%B4%E5%8D%83%E5%B1%B1%E8%B5%B0%E9%81%8D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%87%E6%B0%B4%E5%8D%83%E5%B1%B1%E8%B5%B0%E9%81%8D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40341,
@@ -4194,7 +4203,7 @@
     {
       "title": "万历十五年",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E4%B8%87%E5%8E%86%E5%8D%81%E4%BA%94%E5%B9%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%B8%87%E5%8E%86%E5%8D%81%E4%BA%94%E5%B9%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48812,
@@ -4203,7 +4212,7 @@
     {
       "title": "《缠中说禅实战理论》",
       "date": "2026-07-14",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%AE%9E%E6%88%98%E7%90%86%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%AE%9E%E6%88%98%E7%90%86%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 70713,
@@ -4212,7 +4221,7 @@
     {
       "title": "《王鼎钧回忆录四部曲》——讲书课（修订版）",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "传记与回忆录",
       "html": "readings/%E7%8E%8B%E9%BC%8E%E9%92%A7%E5%9B%9E%E5%BF%86%E5%BD%95%E5%9B%9B%E9%83%A8%E6%9B%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%8E%8B%E9%BC%8E%E9%92%A7%E5%9B%9E%E5%BF%86%E5%BD%95%E5%9B%9B%E9%83%A8%E6%9B%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 24520,
@@ -4230,7 +4239,7 @@
     {
       "title": "AV春秋",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/AV%E6%98%A5%E7%A7%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/AV%E6%98%A5%E7%A7%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 37448,
@@ -4239,7 +4248,7 @@
     {
       "title": "1Q84",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "文学与小说",
       "html": "readings/1Q84_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/1Q84_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 48058,
@@ -4248,7 +4257,7 @@
     {
       "title": "\"真相\"与自白戈尔巴乔夫回忆录",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "传记与回忆录",
       "html": "readings/%E6%88%88%E5%B0%94%E5%B7%B4%E4%B9%94%E5%A4%AB%E5%9B%9E%E5%BF%86%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E6%88%88%E5%B0%94%E5%B7%B4%E4%B9%94%E5%A4%AB%E5%9B%9E%E5%BF%86%E5%BD%95_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 40941,
@@ -4257,7 +4266,7 @@
     {
       "title": "\"六四\"事件民间白皮书",
       "date": "2026-07-14",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%85%AD%E5%9B%9B%E4%BA%8B%E4%BB%B6%E6%B0%91%E9%97%B4%E7%99%BD%E7%9A%AE%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%85%AD%E5%9B%9B%E4%BA%8B%E4%BB%B6%E6%B0%91%E9%97%B4%E7%99%BD%E7%9A%AE%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 41620,
@@ -4266,7 +4275,7 @@
     {
       "title": "黑色上帝",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E9%BB%91%E8%89%B2%E4%B8%8A%E5%B8%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E9%BB%91%E8%89%B2%E4%B8%8A%E5%B8%9D_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 46673,
@@ -4275,7 +4284,7 @@
     {
       "title": "韦伯作品集 XI古犹太教",
       "date": "2026-07-13",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E9%9F%A6%E4%BC%AF%E5%8F%A4%E7%8A%B9%E5%A4%AA%E6%95%99_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E9%9F%A6%E4%BC%AF%E5%8F%A4%E7%8A%B9%E5%A4%AA%E6%95%99_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 41486,
@@ -4284,7 +4293,7 @@
     {
       "title": "韦伯作品集 V中国的宗教·宗教与世界",
       "date": "2026-07-13",
-      "category": "历史与文明",
+      "category": "宗教与灵性",
       "html": "readings/%E9%9F%A6%E4%BC%AF%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%AE%97%E6%95%99%E5%AE%97%E6%95%99%E4%B8%8E%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E9%9F%A6%E4%BC%AF%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%AE%97%E6%95%99%E5%AE%97%E6%95%99%E4%B8%8E%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 51623,
@@ -4293,7 +4302,7 @@
     {
       "title": "锡安长老会纪要",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E9%94%A1%E5%AE%89%E9%95%BF%E8%80%81%E4%BC%9A%E7%BA%AA%E8%A6%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E9%94%A1%E5%AE%89%E9%95%BF%E8%80%81%E4%BC%9A%E7%BA%AA%E8%A6%81_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 41193,
@@ -4311,7 +4320,7 @@
     {
       "title": "让我们灵魂激荡身体欢愉",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "科幻与悬疑",
       "html": "readings/%E8%AE%A9%E6%88%91%E4%BB%AC%E7%81%B5%E9%AD%82%E6%BF%80%E8%8D%A1%E8%BA%AB%E4%BD%93%E6%AC%A2%E6%84%89_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E8%AE%A9%E6%88%91%E4%BB%AC%E7%81%B5%E9%AD%82%E6%BF%80%E8%8D%A1%E8%BA%AB%E4%BD%93%E6%AC%A2%E6%84%89_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 49103,
@@ -4329,7 +4338,7 @@
     {
       "title": "聪明的投资者",
       "date": "2026-07-13",
-      "category": "商业与决策",
+      "category": "经济与商业",
       "html": "readings/%E8%81%AA%E6%98%8E%E7%9A%84%E6%8A%95%E8%B5%84%E8%80%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E8%81%AA%E6%98%8E%E7%9A%84%E6%8A%95%E8%B5%84%E8%80%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 38941,
@@ -4338,7 +4347,7 @@
     {
       "title": "绳缚本事",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E7%BB%B3%E7%BC%9A%E6%9C%AC%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%BB%B3%E7%BC%9A%E6%9C%AC%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 38191,
@@ -4347,7 +4356,7 @@
     {
       "title": "红书",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E7%BA%A2%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%BA%A2%E4%B9%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 37727,
@@ -4356,7 +4365,7 @@
     {
       "title": "精神分析引论",
       "date": "2026-07-13",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%E5%BC%95%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%E5%BC%95%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 37518,
@@ -4365,7 +4374,7 @@
     {
       "title": "精神分析与灵魂治疗",
       "date": "2026-07-13",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%E4%B8%8E%E7%81%B5%E9%AD%82%E6%B2%BB%E7%96%97_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%E4%B8%8E%E7%81%B5%E9%AD%82%E6%B2%BB%E7%96%97_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 37534,
@@ -4383,7 +4392,7 @@
     {
       "title": "穷查理宝典",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "经济与商业",
       "html": "readings/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%A9%B7%E6%9F%A5%E7%90%86%E5%AE%9D%E5%85%B8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 50883,
@@ -4392,7 +4401,7 @@
     {
       "title": "禁忌与惰性",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E7%A6%81%E5%BF%8C%E4%B8%8E%E6%83%B0%E6%80%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%A6%81%E5%BF%8C%E4%B8%8E%E6%83%B0%E6%80%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 40073,
@@ -4401,7 +4410,7 @@
     {
       "title": "硅谷钢铁侠",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "经济与商业",
       "html": "readings/%E7%A1%85%E8%B0%B7%E9%92%A2%E9%93%81%E4%BE%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%A1%85%E8%B0%B7%E9%92%A2%E9%93%81%E4%BE%A0_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 36860,
@@ -4410,7 +4419,7 @@
     {
       "title": "看人的艺术",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E7%9C%8B%E4%BA%BA%E7%9A%84%E8%89%BA%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%9C%8B%E4%BA%BA%E7%9A%84%E8%89%BA%E6%9C%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 45570,
@@ -4419,7 +4428,7 @@
     {
       "title": "犹太教的本质",
       "date": "2026-07-13",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%8A%B9%E5%A4%AA%E6%95%99%E7%9A%84%E6%9C%AC%E8%B4%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%8A%B9%E5%A4%AA%E6%95%99%E7%9A%84%E6%9C%AC%E8%B4%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 40352,
@@ -4428,7 +4437,7 @@
     {
       "title": "爱经",
       "date": "2026-07-13",
-      "category": "心理与自我",
+      "category": "宗教与灵性",
       "html": "readings/%E7%88%B1%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%88%B1%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 51403,
@@ -4437,7 +4446,7 @@
     {
       "title": "潜意识与心灵成长",
       "date": "2026-07-13",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E6%BD%9C%E6%84%8F%E8%AF%86%E4%B8%8E%E5%BF%83%E7%81%B5%E6%88%90%E9%95%BF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%BD%9C%E6%84%8F%E8%AF%86%E4%B8%8E%E5%BF%83%E7%81%B5%E6%88%90%E9%95%BF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 39233,
@@ -4446,7 +4455,7 @@
     {
       "title": "汴京之围 · 深度解读",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "历史与文明",
       "html": "readings/%E6%B1%B4%E4%BA%AC%E4%B9%8B%E5%9B%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%B1%B4%E4%BA%AC%E4%B9%8B%E5%9B%B4_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 33372,
@@ -4455,7 +4464,7 @@
     {
       "title": "春药",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E6%98%A5%E8%8D%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%98%A5%E8%8D%AF_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 43409,
@@ -4464,7 +4473,7 @@
     {
       "title": "日本人的色道",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E6%97%A5%E6%9C%AC%E4%BA%BA%E7%9A%84%E8%89%B2%E9%81%93_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%97%A5%E6%9C%AC%E4%BA%BA%E7%9A%84%E8%89%B2%E9%81%93_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 44769,
@@ -4482,7 +4491,7 @@
     {
       "title": "打開男性 · 深度解书",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E6%89%93%E9%96%8B%E7%94%B7%E6%80%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%89%93%E9%96%8B%E7%94%B7%E6%80%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 41801,
@@ -4491,7 +4500,7 @@
     {
       "title": "我的身体，我的心",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "性文化与身体",
       "html": "readings/%E6%88%91%E7%9A%84%E8%BA%AB%E4%BD%93%E6%88%91%E7%9A%84%E5%BF%83_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%88%91%E7%9A%84%E8%BA%AB%E4%BD%93%E6%88%91%E7%9A%84%E5%BF%83_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 32901,
@@ -4509,7 +4518,7 @@
     {
       "title": "性与宗教 · 深度解书",
       "date": "2026-07-13",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E6%80%A7%E4%B8%8E%E5%AE%97%E6%95%99_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%80%A7%E4%B8%8E%E5%AE%97%E6%95%99_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 43831,
@@ -4518,7 +4527,7 @@
     {
       "title": "思考，快与慢",
       "date": "2026-07-13",
-      "category": "心理与自我",
+      "category": "心理学与自我",
       "html": "readings/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 50250,
@@ -4527,7 +4536,7 @@
     {
       "title": "征服与革命中的阿拉伯人",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "社会与政治",
       "html": "readings/%E5%BE%81%E6%9C%8D%E4%B8%8E%E9%9D%A9%E5%91%BD%E4%B8%AD%E7%9A%84%E9%98%BF%E6%8B%89%E4%BC%AF%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%BE%81%E6%9C%8D%E4%B8%8E%E9%9D%A9%E5%91%BD%E4%B8%AD%E7%9A%84%E9%98%BF%E6%8B%89%E4%BC%AF%E4%BA%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 37566,
@@ -4536,7 +4545,7 @@
     {
       "title": "巨婴国",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E5%B7%A8%E5%A9%B4%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%B7%A8%E5%A9%B4%E5%9B%BD_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 47841,
@@ -4545,7 +4554,7 @@
     {
       "title": "小岛经济学",
       "date": "2026-07-13",
-      "category": "社会与政治",
+      "category": "宗教与灵性",
       "html": "readings/%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 50041,
@@ -4554,7 +4563,7 @@
     {
       "title": "宗教的本质",
       "date": "2026-07-13",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E5%AE%97%E6%95%99%E7%9A%84%E6%9C%AC%E8%B4%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%AE%97%E6%95%99%E7%9A%84%E6%9C%AC%E8%B4%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 43175,
@@ -4563,7 +4572,7 @@
     {
       "title": "女性的性爱动机",
       "date": "2026-07-13",
-      "category": "心理与自我",
+      "category": "性文化与身体",
       "html": "readings/%E5%A5%B3%E6%80%A7%E7%9A%84%E6%80%A7%E7%88%B1%E5%8A%A8%E6%9C%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%A5%B3%E6%80%A7%E7%9A%84%E6%80%A7%E7%88%B1%E5%8A%A8%E6%9C%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 47693,
@@ -4572,7 +4581,7 @@
     {
       "title": "夫妻双修功 · 深度解书",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E5%A4%AB%E5%A6%BB%E5%8F%8C%E4%BF%AE%E5%8A%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%A4%AB%E5%A6%BB%E5%8F%8C%E4%BF%AE%E5%8A%9F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 43994,
@@ -4581,7 +4590,7 @@
     {
       "title": "图腾与禁忌",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E5%9B%BE%E8%85%BE%E4%B8%8E%E7%A6%81%E5%BF%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%9B%BE%E8%85%BE%E4%B8%8E%E7%A6%81%E5%BF%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 38490,
@@ -4590,7 +4599,7 @@
     {
       "title": "国富论",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "经济与商业",
       "html": "readings/%E5%9B%BD%E5%AF%8C%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%9B%BD%E5%AF%8C%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 59282,
@@ -4599,7 +4608,7 @@
     {
       "title": "古兰经故事",
       "date": "2026-07-13",
-      "category": "文学与故事",
+      "category": "宗教与灵性",
       "html": "readings/%E5%8F%A4%E5%85%B0%E7%BB%8F%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%8F%A4%E5%85%B0%E7%BB%8F%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 34480,
@@ -4608,7 +4617,7 @@
     {
       "title": "反脆弱",
       "date": "2026-07-13",
-      "category": "商业与决策",
+      "category": "经济与商业",
       "html": "readings/%E5%8F%8D%E8%84%86%E5%BC%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%8F%8D%E8%84%86%E5%BC%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 50589,
@@ -4617,7 +4626,7 @@
     {
       "title": "伊斯兰宗教哲学史",
       "date": "2026-07-13",
-      "category": "哲学与思想",
+      "category": "宗教与灵性",
       "html": "readings/%E4%BC%8A%E6%96%AF%E5%85%B0%E5%AE%97%E6%95%99%E5%93%B2%E5%AD%A6%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E4%BC%8A%E6%96%AF%E5%85%B0%E5%AE%97%E6%95%99%E5%93%B2%E5%AD%A6%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 38095,
@@ -4626,7 +4635,7 @@
     {
       "title": "云缕心衣",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "神话与民俗",
       "html": "readings/%E4%BA%91%E7%BC%95%E5%BF%83%E8%A1%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E4%BA%91%E7%BC%95%E5%BF%83%E8%A1%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 38301,
@@ -4635,7 +4644,7 @@
     {
       "title": "乱伦禁忌及其起源",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "心理学与自我",
       "html": "readings/%E4%B9%B1%E4%BC%A6%E7%A6%81%E5%BF%8C%E5%8F%8A%E5%85%B6%E8%B5%B7%E6%BA%90_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E4%B9%B1%E4%BC%A6%E7%A6%81%E5%BF%8C%E5%8F%8A%E5%85%B6%E8%B5%B7%E6%BA%90_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 47658,
@@ -4662,7 +4671,7 @@
     {
       "title": "两本书里的亚伯拉罕信仰",
       "date": "2026-07-13",
-      "category": "其他阅读",
+      "category": "宗教与灵性",
       "html": "readings/%E4%BA%9A%E4%BC%AF%E6%8B%89%E7%BD%95%E7%B3%BB%E5%AF%B9%E7%85%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E4%BA%9A%E4%BC%AF%E6%8B%89%E7%BD%95%E7%B3%BB%E5%AF%B9%E7%85%A7_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 33800,
@@ -4671,7 +4680,7 @@
     {
       "title": "世界宗教简史",
       "date": "2026-07-13",
-      "category": "历史与文明",
+      "category": "宗教与灵性",
       "html": "readings/%E4%B8%96%E7%95%8C%E5%AE%97%E6%95%99%E7%AE%80%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E4%B8%96%E7%95%8C%E5%AE%97%E6%95%99%E7%AE%80%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 45350,
@@ -4680,7 +4689,7 @@
     {
       "title": "缠中说禅全集",
       "date": "2026-05-30",
-      "category": "宗教与修行",
+      "category": "宗教与灵性",
       "html": "readings/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%85%A8%E9%9B%86_2026-05-30_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%85%A8%E9%9B%86_2026-05-30_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
       "htmlBytes": 29598,
@@ -4689,7 +4698,7 @@
     {
       "title": "王朔文集",
       "date": "2026-05-29",
-      "category": "文学与故事",
+      "category": "文学与小说",
       "html": "readings/%E7%8E%8B%E6%9C%94%E6%96%87%E9%9B%86_2026-05-29_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88.html",
       "markdown": "markdown/%E7%8E%8B%E6%9C%94%E6%96%87%E9%9B%86_2026-05-29_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88.md",
       "htmlBytes": 43691,
