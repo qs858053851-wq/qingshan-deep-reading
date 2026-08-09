@@ -714,8 +714,8 @@
       "category": "其他阅读",
       "html": "readings/%E6%A4%8D%E7%89%A9%E6%AF%94%E4%BD%A0%E6%83%B3%E7%9A%84%E6%9B%B4%E8%81%AA%E6%98%8E_2026-07-21.html",
       "markdown": "markdown/%E6%A4%8D%E7%89%A9%E6%AF%94%E4%BD%A0%E6%83%B3%E7%9A%84%E6%9B%B4%E8%81%AA%E6%98%8E_2026-07-21.md",
-      "htmlBytes": 33169,
-      "markdownBytes": 27939
+      "htmlBytes": 33172,
+      "markdownBytes": 27942
     },
     {
       "title": "显微镜下的大明",
@@ -732,8 +732,8 @@
       "category": "心理与自我",
       "html": "readings/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%9D%A1%E8%A7%89_2026-07-21.html",
       "markdown": "markdown/%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%9D%A1%E8%A7%89_2026-07-21.md",
-      "htmlBytes": 30595,
-      "markdownBytes": 25075
+      "htmlBytes": 30575,
+      "markdownBytes": 25055
     },
     {
       "title": "心安即是归处",
@@ -750,8 +750,8 @@
       "category": "科学与方法",
       "html": "readings/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9A%84%E5%8A%9B%E9%87%8F_2026-07-21.html",
       "markdown": "markdown/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9A%84%E5%8A%9B%E9%87%8F_2026-07-21.md",
-      "htmlBytes": 34659,
-      "markdownBytes": 29109
+      "htmlBytes": 34662,
+      "markdownBytes": 29112
     },
     {
       "title": "唐诗里的烟火人间",
@@ -1470,8 +1470,8 @@
       "category": "历史与文明",
       "html": "readings/%E5%AE%8B%E6%98%8E%E7%90%86%E5%AD%A6%E6%A6%82%E8%BF%B0_2026-07-17.html",
       "markdown": "markdown/%E5%AE%8B%E6%98%8E%E7%90%86%E5%AD%A6%E6%A6%82%E8%BF%B0_2026-07-17.md",
-      "htmlBytes": 44522,
-      "markdownBytes": 28420
+      "htmlBytes": 44502,
+      "markdownBytes": 28400
     },
     {
       "title": "国学概论",
@@ -1479,8 +1479,8 @@
       "category": "其他阅读",
       "html": "readings/%E5%9B%BD%E5%AD%A6%E6%A6%82%E8%AE%BA_2026-07-17.html",
       "markdown": "markdown/%E5%9B%BD%E5%AD%A6%E6%A6%82%E8%AE%BA_2026-07-17.md",
-      "htmlBytes": 42673,
-      "markdownBytes": 27657
+      "htmlBytes": 42653,
+      "markdownBytes": 27637
     },
     {
       "title": "吕氏春秋",
@@ -1524,8 +1524,8 @@
       "category": "历史与文明",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E6%96%87%E5%8C%96%E5%8F%B2%E5%AF%BC%E8%AE%BA_2026-07-17.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E6%96%87%E5%8C%96%E5%8F%B2%E5%AF%BC%E8%AE%BA_2026-07-17.md",
-      "htmlBytes": 45448,
-      "markdownBytes": 30644
+      "htmlBytes": 45428,
+      "markdownBytes": 30624
     },
     {
       "title": "中国思想史",
@@ -1533,8 +1533,8 @@
       "category": "哲学与思想",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E6%80%9D%E6%83%B3%E5%8F%B2_2026-07-17.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E6%80%9D%E6%83%B3%E5%8F%B2_2026-07-17.md",
-      "htmlBytes": 44732,
-      "markdownBytes": 29652
+      "htmlBytes": 44712,
+      "markdownBytes": 29632
     },
     {
       "title": "中国史学名著",
@@ -1542,8 +1542,8 @@
       "category": "历史与文明",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E5%8F%B2%E5%AD%A6%E5%90%8D%E8%91%97_2026-07-17.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E5%8F%B2%E5%AD%A6%E5%90%8D%E8%91%97_2026-07-17.md",
-      "htmlBytes": 42249,
-      "markdownBytes": 26703
+      "htmlBytes": 42229,
+      "markdownBytes": 26683
     },
     {
       "title": "中国历史精神",
@@ -2028,7 +2028,7 @@
       "category": "历史与文明",
       "html": "readings/%E6%96%87%E6%98%8E%E7%9A%84%E5%86%B2%E7%AA%81%E4%B8%8E%E4%B8%96%E7%95%8C%E7%A7%A9%E5%BA%8F%E7%9A%84%E9%87%8D%E5%BB%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.html",
       "markdown": "markdown/%E6%96%87%E6%98%8E%E7%9A%84%E5%86%B2%E7%AA%81%E4%B8%8E%E4%B8%96%E7%95%8C%E7%A7%A9%E5%BA%8F%E7%9A%84%E9%87%8D%E5%BB%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-15.md",
-      "htmlBytes": 43096,
+      "htmlBytes": 43093,
       "markdownBytes": 23256
     },
     {
@@ -3891,7 +3891,7 @@
       "category": "其他阅读",
       "html": "readings/%E4%BD%A0%E5%BD%93%E5%83%8F%E9%B8%9F%E9%A3%9E%E5%BE%80%E4%BD%A0%E7%9A%84%E5%B1%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E4%BD%A0%E5%BD%93%E5%83%8F%E9%B8%9F%E9%A3%9E%E5%BE%80%E4%BD%A0%E7%9A%84%E5%B1%B1_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
-      "htmlBytes": 35269,
+      "htmlBytes": 35266,
       "markdownBytes": 29449
     },
     {
@@ -4206,8 +4206,8 @@
       "category": "宗教与修行",
       "html": "readings/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%AE%9E%E6%88%98%E7%90%86%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%AE%9E%E6%88%98%E7%90%86%E8%AE%BA_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
-      "htmlBytes": 70719,
-      "markdownBytes": 37548
+      "htmlBytes": 70713,
+      "markdownBytes": 37545
     },
     {
       "title": "《王鼎钧回忆录四部曲》——讲书课（修订版）",
@@ -4341,8 +4341,8 @@
       "category": "其他阅读",
       "html": "readings/%E7%BB%B3%E7%BC%9A%E6%9C%AC%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%BB%B3%E7%BC%9A%E6%9C%AC%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
-      "htmlBytes": 38197,
-      "markdownBytes": 30401
+      "htmlBytes": 38191,
+      "markdownBytes": 30395
     },
     {
       "title": "红书",
@@ -4503,8 +4503,8 @@
       "category": "历史与文明",
       "html": "readings/%E6%80%A7%E5%AE%A1%E5%88%A4%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%80%A7%E5%AE%A1%E5%88%A4%E5%8F%B2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
-      "htmlBytes": 40430,
-      "markdownBytes": 32200
+      "htmlBytes": 40424,
+      "markdownBytes": 32194
     },
     {
       "title": "性与宗教 · 深度解书",
@@ -4629,8 +4629,8 @@
       "category": "其他阅读",
       "html": "readings/%E4%BA%91%E7%BC%95%E5%BF%83%E8%A1%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E4%BA%91%E7%BC%95%E5%BF%83%E8%A1%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
-      "htmlBytes": 38307,
-      "markdownBytes": 30193
+      "htmlBytes": 38301,
+      "markdownBytes": 30187
     },
     {
       "title": "乱伦禁忌及其起源",
@@ -4692,7 +4692,7 @@
       "category": "文学与故事",
       "html": "readings/%E7%8E%8B%E6%9C%94%E6%96%87%E9%9B%86_2026-05-29_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88.html",
       "markdown": "markdown/%E7%8E%8B%E6%9C%94%E6%96%87%E9%9B%86_2026-05-29_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88.md",
-      "htmlBytes": 43699,
+      "htmlBytes": 43691,
       "markdownBytes": 25639
     }
   ]

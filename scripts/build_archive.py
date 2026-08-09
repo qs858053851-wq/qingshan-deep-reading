@@ -225,6 +225,32 @@ def rewrite_markdown_html_link(text: str, html_name: str | None) -> tuple[str, i
     return text, rewritten
 
 
+def remove_production_meta(text: str) -> tuple[str, int]:
+    """Remove internal tool and collaborator labels while keeping research limits."""
+    literal = [
+        ("索菲娅协作", "共同整理"),
+        ("解书：索菲娅", "解读：青山"),
+        ("索菲娅解书", "青山解读"),
+        ("九层解书 · 索菲娅 🦉", "九层解书 · 青山"),
+        ("九层解书 · 索菲娅", "九层解书 · 青山"),
+        ("解书于 MyAgents", "青山深度阅读"),
+        ("deep-reading-extractor 子代理", "辅助索引"),
+        ("deep-reading-extractor 轻索引", "辅助索引"),
+        ("deep-reading-extractor", "辅助索引工具"),
+        ("子代理对原文的定点精读", "辅助工具对原文的定点精读"),
+        ("子代理轻索引", "辅助索引"),
+        ("子代理", "辅助工具"),
+        ("九层解书工作流", "九层深度解读"),
+    ]
+    changed = 0
+    for old, new in literal:
+        count = text.count(old)
+        if count:
+            text = text.replace(old, new)
+            changed += count
+    return text, changed
+
+
 def remove_internal_workflow_notes(text: str) -> tuple[str, int]:
     """Drop drafting instructions that are not part of the public essay."""
     patterns = [
@@ -247,6 +273,9 @@ def remove_internal_workflow_notes(text: str) -> tuple[str, int]:
 def copy_clean(path: Path, destination: Path, html_name: str | None = None) -> tuple[str, Counter[str]]:
     original = path.read_text(encoding="utf-8", errors="strict")
     cleaned, changes = normalize_text(original)
+    cleaned, production_edits = remove_production_meta(cleaned)
+    if production_edits:
+        changes["removed production metadata"] += production_edits
     cleaned, removed_notes = remove_internal_workflow_notes(cleaned)
     if removed_notes:
         changes["removed internal drafting notes"] += removed_notes
