@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>亲密关系管理 · 青山解书</title>
+<style>
+
+:root {
+  --accent: #C2410C; --black: #1a1a1a;
+  --mid: #6b6b6b; --border: #e0ddd6; --bg: #faf8f3; --paper: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, 'Helvetica Neue', 'PingFang SC', 'Noto Sans SC', sans-serif;
+       background: var(--bg); color: var(--black); font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  body { font-size: 16px; }
+  .hero-title { font-size: 40px !important; letter-spacing: -2px !important; }
+  .layer-title { font-size: 26px !important; }
+  .napkin-formula { font-size: 20px !important; letter-spacing: 0 !important; }
+  .quote-final { font-size: 19px !important; }
+}
+.hero { padding: 96px 0 64px; border-bottom: 1px solid var(--black); }
+.hero-kicker { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; }
+.hero-title { font-size: 64px; font-weight: 900; letter-spacing: -3px; line-height: 1.1; }
+.hero-author { margin-top: 18px; font-size: 15px; color: var(--mid); }
+.hero-meta { margin-top: 8px; font-size: 13px; color: var(--mid); }
+.hero-lede { margin-top: 28px; font-size: 17px; max-width: 720px; }
+.layer { padding: 72px 0 56px; border-bottom: 1px solid var(--border); }
+.layer-num { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; }
+.layer-title { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin-bottom: 28px; line-height: 1.25; }
+.layer p { margin-bottom: 18px; max-width: 760px; }
+.marker { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--accent); margin: 36px 0 14px; }
+.interlude { border-left: 2px solid var(--accent); padding: 4px 0 4px 20px; margin: 32px 0; }
+.interlude p { margin-bottom: 14px; }
+.qa { margin: 36px 0; }
+.qa-q { font-weight: 700; color: var(--accent); margin-bottom: 12px; max-width: 760px; }
+.qa-a { margin-left: 24px; margin-bottom: 8px; max-width: 736px; }
+.qa-label { font-weight: 700; }
+.napkin { border: 1px solid var(--black); padding: 40px 32px; text-align: center; margin: 36px 0; }
+.napkin-formula { font-size: 26px; font-weight: 900; letter-spacing: -1px; line-height: 1.5; }
+.napkin-note { margin-top: 16px; font-size: 13px; color: var(--mid); }
+.ascii { background: var(--paper); border: 1px solid var(--border); padding: 28px 24px; overflow-x: auto; margin: 28px 0;
+         font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.6; white-space: pre; }
+.fact-boundary { font-size: 13px; color: var(--mid); border-top: 1px solid var(--border); padding: 24px 0; margin-top: 16px; }
+.fact-boundary .fb-title { font-weight: 700; color: var(--black); margin-bottom: 10px; font-size: 13px; letter-spacing: 1px; }
+.fact-boundary p { margin-bottom: 8px; font-size: 13px; max-width: 760px; }
+.final-quote { border-top: 2px solid var(--black); padding: 48px 0; margin-top: 24px; }
+.quote-final { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; font-style: italic; max-width: 820px; line-height: 1.6; }
+.quote-sign { margin-top: 20px; font-size: 13px; color: var(--mid); text-align: right; }
+footer { font-size: 12px; color: var(--mid); border-top: 1px solid var(--border); padding: 24px 0; margin-top: 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="hero">
+  <div class="hero-kicker">青山解书</div>
+  <h1 class="hero-title">亲密关系管理</h1>
+  <div class="hero-author">陈历杰 著 · 中信出版集团</div>
+  <div class="hero-meta">2021 年 · 中国 · 方法论（副题：如何理性应对亲密关系中的冲突）</div>
+  <p class="hero-lede">一个前法官在法庭上看了太多夫妻反目，跑去海外读了个 MBA，回来开了个情感咨询工作室。他把公司管理那套工具，目标四象限、SWOT、期望值管理、底线管理、博弈策略，整套搬进了婚姻。这本书回答的问题很硬：爱情到底能不能、该不该，用管理的方式来经营？</p>
+</header>
+
+<section class="layer">
+  <div class="layer-num">第一层</div>
+  <h2 class="layer-title">这本书到底在讲什么</h2>
+
+  <p><strong>核心问题：</strong>为什么那么多相爱的人，最后却过不下去？作者的答案：缺的不是爱，是管理亲密关系的智慧。</p>
+  <p><strong>核心答案：</strong>把管理学工具翻译成亲密关系的语言，一整套"风险管理 + 冲突管理"的打法。全书分两大块，30 讲，每一块都由"一个工具 + 一堆咨询案例"构成。</p>
+
+  <div class="marker">第一部分 · 管理学工具（婚前与相处）</div>
+  <p>这块讲的是怎么在关系的前段就布好局。核心几讲：</p>
+  <p><strong>目标四象限。</strong>先弄清你要什么。很多婚姻死于没搞清核心需求。比如一个妻子抱怨"不公平"，丈夫以为她要不公平的分工，其实她要的是被感激和欣赏。工具是把需求按"重要/紧急"分四格，逼你区分"燃眉之急"和"真正重要的事"。</p>
+  <p><strong>SWOT 分析。</strong>让你喜欢的人也喜欢你。先盘清自己的优势劣势和对方的需求，然后"扬长补短"。案例里那个出身农村、长相一般的男人，靠"会照顾人"这个优势追到了女神。撒手锏是"恰到好处的赞美"：夸对方最引以为傲、又恰好被你看中的那一点。</p>
+  <p><strong>期望值管理。</strong>爱情保鲜的法门。幸福度取决于主观感受，而感受取决于期望。工具是双向调节：调整自己的期望（别指望暖男变雄狮），也管理对方的期望（核心需求上超出预期，非核心需求上循序渐进，遵守峰终定律）。</p>
+  <p><strong>出轨博弈策略。</strong>全书最硬的一章。借沃顿商学院的研究：最佳博弈是"对合作心怀善意，对背叛针锋相对，对求和慷慨包容"。翻译成出轨：事前建规则、明后果；事中抓迹象（说谎、性欲减退、改密码）；确认后必须让对方付出代价（净身出户条款、随时查手机），然后才有可能原谅和修复。</p>
+  <p><strong>底线管理。</strong>应对家暴。讨好型人格最容易被家暴，因为施暴者会一步步侵入没有底线的人。工具是先想清楚最坏情况（尊严、生命、自由、健康，排个序），确定绝不让步的线，然后死守。</p>
+
+  <div class="marker">第二部分 · 冲突管理（吵架与修复）</div>
+  <p>这块讲的是怎么吵不散。核心是戈特曼的"末日四骑士"：指责、辩解、冷战、鄙视，其中鄙视是"头号杀手"。作者由此展开一套对话技术：简明对话（说事实不评价）、积极倾听（引导对方说出深层需要）、情绪抽离的识别（冷战也是一种攻击）、性别差异管理（她想求抱抱，他想讲道理），以及修复方法（一个憨笑比一万句辩解管用）。</p>
+
+  <div class="interlude">
+    <p><strong>这本书在说什么。</strong>它不谈"爱"，谈"经营"。作者的底色是个法官，他在法庭上看到的，是无数本可以避免的崩盘。所以他的姿态很务实：别跟我谈灵魂伴侣，先学会别把一手好牌打烂。写作的口吻像咨询室里的前辈，案例比道理多，步骤比感慨多。</p>
+    <p><strong>论证结构：</strong>案例型 + 工具型。每一讲用一个真实咨询案例带出工具，再拆步骤。它的力量不在理论深度，在可操作性——读完你能立刻拿去用的东西，比多数情感书都多。</p>
+  </div>
+</section>
+
+<section class="layer">
+  <div class="layer-num">第二层</div>
+  <h2 class="layer-title">他这套"管理爱情"的法子，站得住吗</h2>
+  <p>这本书的论证链不复杂，但每一步都要验。<strong>前提一：</strong>亲密关系的破裂，多半不在感情上，在技术和方法的缺位；<strong>前提二：</strong>技术和方法可以学，可以练；<strong>前提三：</strong>管理学那套工具，经过翻译，恰好能补上大多数人缺的那块；<strong>结论：</strong>所以，爱情可以也应该被管理。这条链的关键证据有三个。</p>
+  <p><strong>证据一：四象限分清"要苹果还是要梨"。</strong>那个抱怨不公平的妻子，丈夫提出"雇保姆""做全职太太"两个看似公平的方案都被否了。后来才明白，她要的哪里是公平，是感激和欣赏。这个案例很硬，因为它点破了一个普遍的错觉：我们吵架时用的词（公平、尊重、钱），往往不是心里真正要的那个词（被看见、被感激、被心疼）。工具的价值不在分类，在逼你把"要什么"问到底。</p>
+  <p><strong>证据二：出轨博弈策略的"针锋相对"。</strong>这是全书最有争议也最有力的设计。那对夫妻，男方孕期出轨，女方抓到后情绪崩溃。作者没有劝和，他先把代价摆上桌面：净身出户条款、随时查手机、解释不清的异性好友一律删除。他的逻辑很冷：只有让对方真切感到背叛的成本，原谅才有意义，信任才能重建。这个证据硬在，它说穿了"原谅就是算了"的温情幻想。原谅没有成本，背叛就没有成本。</p>
+  <p><strong>证据三：鄙视是婚姻的"头号杀手"。</strong>戈特曼 40 年研究几千对夫妻，5 分钟观察就能以 96% 的准确率预测离婚。四骑士里，鄙视最致命，因为鄙视直接摧毁一个人的自尊，让修复变得不可能。那个被丈夫贬到重度抑郁的女来访者，最后是靠"确定边界、学会爱自己"翻过来的，分开后状态反而好了。这个证据是全书的分水岭：它说明作者不认为所有关系都该救，有些关系，底线管理比冲突管理更重要。</p>
+  <p>这套论证底下压着一个<strong>隐形假设</strong>：亲密关系的双方，大体上是理性的、可沟通的、愿意改善的。书里几乎所有方法都预设了这个前提：你愿意分析，对方愿意配合，工具才有用。可现实中，很多关系的一方既不理性也不想改（比如那个鄙视妻子的丈夫，直到妻子离开才"不嚣张"）。作者不是不知道，他专门用底线管理和"该不该救"的判断来兜底，但全书的主体仍是在"两个好人怎么过好日子"的范围内展开。这是它的边界，也是它的诚实。</p>
+  <p><strong>边界条件：</strong>这套方法在两类情况下会失灵。一是权力严重不对等的关系，当一方有绝对控制欲或施暴倾向，工具会变成被利用的说明书（你学 SWOT，他学怎么更好地 PUA 你）。二是当"问题"本身就是答案，有时候争吵、冷淡、出轨，是这段关系该结束的信号，而不是需要管理的对象。作者在底线管理和鄙视那两章里承认了这一点，但整本书的基调仍是"管理能解决的，别轻易放弃"。</p>
+</section>
+
+<section class="layer">
+  <div class="layer-num">第五层</div>
+  <h2 class="layer-title">七个问题，把这本书的骨架走一遍</h2>
+
+  <div class="qa">
+    <div class="qa-q">Q1：为什么很多夫妻不是不爱，却过不下去？</div>
+    <p class="qa-a"><span class="qa-label">结论：</span>因为他们用错了词。吵架时说的"不公平""你不尊重我""钱"，常常不是心里真正要的那个：被看见、被感激、被心疼。</p>
+    <p class="qa-a"><span class="qa-label">怎么想到的：</span>那个抱怨不公平的妻子，丈夫给的两个"公平"方案都被否了，因为她要的从来不是公平。工具（四象限）的真正作用，是逼你把"你要什么"从口号问成画面：是"他帮我倒水"，还是"他说句辛苦了"？词错了，给得越多，错得越远。</p>
+    <p class="qa-a"><span class="qa-label">边界：</span>这个方法只对"愿意诚实面对自己需求"的人有效。很多人不愿意承认自己要的是"被哄"这种看起来不光彩的东西，工具也就探不到底。</p>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Q2：让你喜欢的人也喜欢你，有方法吗？</div>
+    <p class="qa-a"><span class="qa-label">结论：</span>有，而且书里给得很具体：先盘清你的优势和对方的需求，然后让优势变得不可替代。</p>
+    <p class="qa-a"><span class="qa-label">怎么想到的：</span>那个农村出身、长相一般的男人，没有跟别人比帅比钱，他比的是"会照顾人"：对方一紧张就胃痛，他就一直陪着、备热水、点好消化的菜。这个优势恰好命中对方"缺乏安全感"的核心需求。撒手锏是"恰到好处的赞美"：夸对方最引以为傲、又恰好被你看中的那一点。</p>
+    <p class="qa-a"><span class="qa-label">边界：</span>如果你的优势不是对方在意的点，越努力越尴尬。作者也承认这个前提：先确认"有戏"再投入，否则就是在错误的人身上练手。</p>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Q3：爱情怎么才能保鲜？</div>
+    <p class="qa-a"><span class="qa-label">结论：</span>靠管理期望值，不是靠激情。幸福度是主观的，主观感受取决于期望和现实的差。</p>
+    <p class="qa-a"><span class="qa-label">怎么想到的：</span>书里两种婚姻的对比很说明问题：起点太高、"我的眼里只有你"的，激情一退就崩；起点一般、彼此经营的，反而越来越幸福。方法是双向的：自己别指望暖男变雄狮（调整期望），在对方的核心需求上超出预期、在非核心需求上循序渐进（管理对方期望）。</p>
+    <p class="qa-a"><span class="qa-label">边界：</span>期望值不是越低越好。期望是动力，全没了是厌倦。合理的期望是"引导对方做能做到的，接受对方不能改变的"。</p>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Q4：伴侣出轨了，该不该原谅？</div>
+    <p class="qa-a"><span class="qa-label">结论：</span>原谅可以，但必须先让对方付出代价——全书最冷也最对的判断。</p>
+    <p class="qa-a"><span class="qa-label">怎么想到的：</span>借博弈论的"针锋相对"策略：对合作善意，对背叛报复，对求和包容。那对孕期出轨的夫妻，作者没有劝女方"想开点"，而是先立规矩：净身出户条款、随时查手机、异性好友解释不清就删。逻辑是：只有让对方真切感到背叛的成本，原谅才有意义。无代价的原谅等于默许。</p>
+    <p class="qa-a"><span class="qa-label">边界：</span>这个策略的前提是双方都想继续。如果一方已经不想过了，代价条款就只是分手协议的前奏。作者也承认：不是所有的婚姻都该救。</p>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Q5：怎么判断一个人会不会家暴？</div>
+    <p class="qa-a"><span class="qa-label">结论：</span>看他是不是在一步步试探你的底线，这比看他现在动不动手更要紧。</p>
+    <p class="qa-a"><span class="qa-label">怎么想到的：</span>书里那个女博士，先是断绝男同事往来，再是借钱给老公创业，再是忍受夜不归宿，最后挨打。施暴者不会见谁打谁，专"拣软柿子捏"。所以工具叫底线管理：先把最坏情况排个序，划出绝不让步的那条线，然后死守。</p>
+    <p class="qa-a"><span class="qa-label">边界：</span>很多人没有底线，不是不懂道理，是"怕失去"。书里那个被贬到抑郁的妻子，直到发现女儿也受害才下决心。底线管理的前提，是你有离开的资本和勇气，这恰恰是讨好型人格最缺的。</p>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Q6：为什么"鄙视"比吵架更伤婚姻？</div>
+    <p class="qa-a"><span class="qa-label">结论：</span>吵架还承认你是对手，鄙视把你当废物。它摧毁的不是关系，是那个人。</p>
+    <p class="qa-a"><span class="qa-label">怎么想到的：</span>戈特曼的四骑士里，鄙视最致命，因为鄙视直接拆地基。那个被丈夫贬到重度抑郁的女来访者，优秀、漂亮、高学历，却觉得自己一无是处。修复的方法不是改造对方，是先救自己：学会爱自己，活出力量感，然后才敢谈边界。好伴侣是夸出来的，不是贬出来的。</p>
+    <p class="qa-a"><span class="qa-label">边界：</span>这本书对"鄙视者"的劝导相对无力。作者也明白，喜欢鄙视别人的人，根源是自卑，但自卑不是你能替他治的。所以他给出的最终答案常是：离开。</p>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">Q7：把公司那套搬到婚姻里，到底哪儿对、哪儿错？</div>
+    <p class="qa-a"><span class="qa-label">结论：</span>对了一半。它对在把"爱"从感觉还原成可学习的行为；错在把"关系"从生命还原成可优化的项目。</p>
+    <p class="qa-a"><span class="qa-label">怎么想到的：</span>这本书最大的价值，是戳破"真爱无敌"的幻想，很多破裂真的只是技术问题，学学就会好。但它最大的风险也在这里：当你把伴侣当"合伙人"、把婚姻当"项目"、把忠诚当"违约条款"，你得到的可能是秩序，失去的是那种"不为什么"的亲密。书里 Emma 是作者的妻子，也是这套方法的受益者，但通读全书，你会发现最动人的段落恰恰是那些"重拍婚纱照""睡前聊半小时"的、不那么高效的用心。</p>
+    <p class="qa-a"><span class="qa-label">边界：</span>这个批评对作者不完全公平，他自己反复强调，管理只是手段，爱才是目的。但整本书的语言系统（目标、成本、策略、底线、博弈）本身就会塑造读者看关系的眼光。工具用久了，看人的眼光会被工具改造。这是所有"方法论"共同的陷阱，这本书也没能完全避开。</p>
+  </div>
+</section>
+
+<section class="layer">
+  <div class="layer-num">第七层</div>
+  <h2 class="layer-title">压到一张餐巾纸上</h2>
+  <div class="napkin">
+    <div class="napkin-formula">过得下去的爱 = 知道要什么 × 会管风险 × 吵不散</div>
+    <div class="napkin-note">三个因子对应全书三块：四象限（要苹果还是要梨）、底线与博弈（出轨家暴怎么防）、冲突管理（怎么吵不散）。缺第一项，给得越多错得越远；缺第二项，哪怕俩好人，也会被拖垮；缺第三项，小事会熬成绝症。<br>小注：运气和初心是底色，不进公式，这本书假设你还有爱，只是缺方法。</div>
+  </div>
+  <p><strong>一句话：</strong>一个前法官把法庭上看来的婚姻崩盘案例，翻译成一整套管理学工具，教你别把一手好牌打烂。</p>
+  <p><strong>一张图：</strong></p>
+  <div class="ascii">        出问题的地方                这本书给的工具
+ ┌─────────────────────────┐  ┌──────────────────────────┐
+ │ 要什么搞不清（要苹果给梨）  │→│ 目标四象限：分清重要/紧急    │
+ │ 期望对不上（暖男变雄狮）   │→│ 期望值管理：双向调节        │
+ │ 风险来了没准备（出轨家暴） │→│ 博弈策略 + 底线管理         │
+ │ 吵架吵到散（指责冷战鄙视） │→│ 末日四骑士识别 + 修复技术   │
+ └─────────────────────────┘  └──────────────────────────┘
+              共同的病根：以为"有爱"就够了
+              作者的回答：有爱，还得会经营</div>
+</section>
+
+<section class="layer">
+  <div class="layer-num">第八层</div>
+  <h2 class="layer-title">合上书，最想跟你掰开的那件事</h2>
+  <p>前面几层，我一直把一件最根本的事压着没展开：这本书的核心动作，把公司那套，搬进婚姻。现在该说透了。</p>
+  <p>先看它对的地方，因为很扎实。作者在法庭上看了太多"爱还在，日子却过不下去"的夫妻。他发现这些人缺的其实不是感情，是一些很具体的东西：搞不清自己要什么，认不准对方要什么，管不住自己的期望，受不了冲突，守不住底线。这些恰恰是管理学练了一百年的事。所以他搬，而且搬得理直气壮：既然你能学怎么管一个团队、管一个项目，为什么不能学怎么管一段婚姻？</p>
+  <p>这个动作对在哪儿？对在把"爱"从一个神秘的感觉，还原成一组可学习的行为。书里那些工具，四象限、SWOT、期望值、底线、博弈，每一个都在做同一件事：把"我以为"变成"我看看"。你以为你要的是公平，其实你要的是被看见；你以为你在付出，其实对方要的是苹果不是梨；你以为原谅就是算了，其实没代价的原谅是默许。这些还原，很多是真能救命的。那个被贬到抑郁的妻子，就是靠"底线管理"这四个字，从"再忍忍"变成了"我走了"。</p>
+  <p>但说透了，就得往深里走一层。问题不在工具，在眼光。当你开始用"目标、成本、策略、底线、博弈"这套词去看你的伴侣，你看到的还是那个人吗？</p>
+  <p>书里有个细节，作者说他和妻子 Emma 每年结婚纪念日会重拍婚纱照，每天睡前聊半小时，每周有一次"咖啡分享时光"。这些是全书最动人的地方，可它们恰恰是那个前法官在工具之外，保有的那点"不为什么"的用心。工具能教你怎么不吵架，教不会你为什么想跟这个人过一辈子。</p>
+  <p>这就是这本书最深的那个悖论：它教你的所有方法，都是为了守住一种它自己无法生产的东西。它能防止你把爱弄丢，不能替你找到爱。它能让一段还有火的关系不熄灭，不能让一段已经冷的关系重新热起来，那需要别的东西，需要书里 Emma 那样的、工具之外的笨拙和真心。</p>
+  <p>所以这本书正确的用法，是把它当地图，别当答案。地图能告诉你哪有坑、哪条路好走，但它不能替你走，更不能告诉你为什么要去那个地方。书里那些真正得救的人，没有一个是单靠工具翻盘的。那个追女神的男人，赢的哪里是 SWOT 分析，是他真的愿意为对方熬夜、真的记得她胃不好；那个原谅出轨的妻子，靠的哪里是净身出户条款，是她还想跟这个人过。工具是护栏，不是发动机。</p>
+  <p>反过来，只有发动机、没有护栏的人呢？这本书的存在本身，就是答案。多少爱得死去活来的人，最后死在"我以为他会改""我以为她会懂""我以为只要爱着就够了"上。作者是个法官，他见过太多发动机爆缸的现场。所以他写这本书，说到底，恰恰是太信爱了，信到不忍心看着那么多人因为不会开，把一辆好车开进沟里。</p>
+  <p>合上书，我记住的，是他前言里那句很不起眼的话：很多婚姻都终结在结婚后的两三年，留下的往往是破碎的家庭、杀红眼的双方和无辜的孩子。一个法官说出这句话，分量不一样。他哪里是在卖方法，分明是在挡子弹。这本书，是他站在法庭和咨询室之间，替那些还没来得及学会怎么爱的人，先挡一挡。</p>
+</section>
+
+<section class="fact-boundary">
+  <div class="fb-title">事实边界</div>
+  <p>本篇所述工具（目标四象限、SWOT、期望值管理、底线管理、博弈策略、末日四骑士）、案例与引文均出自陈历杰《亲密关系管理》原文；戈特曼的研究（5 分钟预测离婚、96% 准确率、四骑士、爱情储蓄账户）出自原书转述。</p>
+  <p>作者陈历杰的背景（前法官、海外 MBA、情感咨询师、妻子 Emma）出自原书前言；出轨率、家暴率等统计数据为原书引用，本篇沿用未另核。</p>
+  <p>第八层对"管理能否生产爱"的辨析、第七层公式归纳，为解书者的判断，非作者原文。</p>
+</section>
+
+<section class="final-quote">
+  <p class="quote-final">好的爱情不是找到对的人，是把两个会犯错的人，用对的方法，留在同一张桌子上。</p>
+  <div class="quote-sign">青山 · 2026-07-18</div>
+</section>
+
+<footer>青山 · 2026-07-18</footer>
+</div>
+</body>
+</html>

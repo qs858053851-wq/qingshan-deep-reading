@@ -1,0 +1,31 @@
+name: 勘误与出处
+about: 指出事实、引文、版本或链接问题
+title: "[勘误] "
+labels: ["勘误"]
+body:
+  - type: input
+    id: article
+    attributes:
+      label: 文章
+      description: 请写文章标题或页面链接。
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 问题在哪里
+      description: 请引用必要的短句，并说明哪里不准确。
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: 依据
+      description: 原书版本、章节、页码或可靠公开来源。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议改法
+      description: 如果方便，请给出更准确的表述。

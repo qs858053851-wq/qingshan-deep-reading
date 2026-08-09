@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国历代政治得失 · 九层解书</title>
+<style>
+
+:root {
+  --accent: #C2410C;
+  --black: #1a1a1a;
+  --mid: #6b6b6b;
+  --border: #e0ddd6;
+  --bg: #faf8f3;
+  --paper: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, 'Helvetica Neue', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* Hero */
+.hero {
+  padding: 120px 0 80px;
+  border-bottom: 1px solid var(--black);
+}
+.hero h1 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero .author {
+  font-size: 18px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+/* Layer section */
+.layer {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+.layer:first-of-type {
+  border-bottom: 1px solid var(--black);
+}
+.layer-number {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.layer-title {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+/* Prose */
+.prose p {
+  margin-bottom: 16px;
+  line-height: 1.85;
+}
+.prose strong {
+  font-weight: 700;
+}
+.prose ul, .prose ol {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+.prose li {
+  margin-bottom: 10px;
+  line-height: 1.75;
+}
+.prose blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 8px 0 8px 20px;
+  margin: 20px 0;
+  color: var(--mid);
+  font-size: 15px;
+}
+.prose code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+/* Inline logic chain */
+.logic-chain {
+  background: #f5f5f5;
+  border-left: 3px solid var(--black);
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* Subheading within layer */
+.sub-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  letter-spacing: -0.3px;
+}
+
+/* Dynasty list */
+.dynasty-item {
+  margin-bottom: 12px;
+  line-height: 1.75;
+}
+.dynasty-item strong {
+  color: var(--accent);
+}
+
+/* Marker */
+.marker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin: 28px 0 12px;
+  display: block;
+}
+
+/* Q-A blocks */
+.qa-block {
+  margin-bottom: 48px;
+}
+.qa-question {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.qa-section {
+  margin-bottom: 12px;
+  padding-left: 24px;
+}
+.qa-section-label {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 4px;
+}
+.qa-section p, .qa-section .formalized {
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.formalized {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13px;
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 3px;
+  display: block;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* Napkin formula */
+.napkin-formula {
+  border: 1px solid var(--black);
+  padding: 32px;
+  margin: 32px 0;
+  text-align: center;
+}
+.napkin-formula pre {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: pre;
+  display: inline-block;
+  text-align: left;
+}
+
+/* ASCII diagram */
+.ascii-diagram {
+  margin: 24px 0;
+  overflow-x: auto;
+}
+.ascii-diagram pre {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  background: #f5f5f5;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* Fact boundary */
+.fact-boundary {
+  font-size: 13px;
+  color: var(--mid);
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  margin-top: 32px;
+}
+.fact-boundary strong {
+  color: var(--black);
+}
+
+/* Gold quote (layer 9) */
+.gold-quote {
+  border-top: 2px solid var(--black);
+  padding: 48px 0;
+}
+.gold-quote .quote-text {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.gold-quote .quote-sig {
+  text-align: right;
+  font-size: 14px;
+  color: var(--mid);
+}
+
+/* Footer */
+.site-footer {
+  font-size: 12px;
+  color: var(--mid);
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  margin-top: 0;
+}
+
+/* One-liner */
+.one-liner {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 24px 0;
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  body { font-size: 16px; }
+  .hero h1 { font-size: 42px; letter-spacing: -2px; }
+  .layer-title { font-size: 28px; }
+}
+
+.revision-note{max-width:1104px;margin:18px auto 0;padding:14px 20px;border:1px solid var(--border);background:var(--paper);color:var(--mid);font-size:13px;line-height:1.7;}
+.fact-box{margin:28px 0;padding:18px 20px;border:1px solid var(--border);background:var(--paper);color:var(--mid);font-size:13px;line-height:1.75;}
+.narrative-eyebrow{display:flex;align-items:center;gap:10px;margin:34px 0 14px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:1.6px;}
+.narrative-eyebrow::after{content:"";height:1px;flex:1;background:var(--border);}
+.case-note{margin:16px 0 24px;padding:10px 14px;border-left:3px solid var(--accent);background:#f7f3eb;color:var(--mid);font-size:13px;line-height:1.7;}
+
+</style>
+</head>
+<body>
+
+<div class="revision-note"><strong>版本</strong>：06-04 初稿 · 07-14 修订<br><strong>修订原则</strong>：案例各归唯一主场；前七层不透支第八层；第七层公式逐项对齐第三层；长叙事增加眉批；跨域映射分别落到民宿、乡村、交易与健康。</div>
+
+
+<div class="container">
+
+<!-- HERO -->
+<div class="hero">
+  <h1>中国历代政治得失</h1>
+  <div class="author">钱穆 著｜1952 年讲演，1955 年增订｜三联书店「钱穆作品系列」<br>九层解书 · 修订版</div>
+</div>
+
+<!-- 第一层 -->
+<section class="layer" id="layer-1">
+  <div class="layer-number">第一层</div>
+  <div class="layer-title">这本书到底在讲什么</div>
+  <div class="prose">
+    <p><strong>核心问题</strong>：中国两千年传统政治，能不能用「专制黑暗」四个字一笔勾销？</p>
+    <p><strong>核心答案</strong>：不能。钱穆说，每一项制度都自根自生、与人事相配合，有它当时的需要与用意，有得也有失，积久才成弊。要评判它，得用「历史意见」，不能拿今天的「时代意见」一笔抹杀。</p>
+    <p>这本书的来历，得先说清楚，因为它决定了书的形状。1952 年春，何敬之请钱穆讲「中国历代政治得失」，只给五次、每次两小时。钱穆没法把一部《中国政治制度史》的宏愿塞进十小时，就退而求其次：只挑汉、唐、宋、明、清五个最重要的朝代，每代只讲四件事：政府组织、考试选举、财政经济、国防兵役。一个朝代两小时，四个切面横切下去，再纵向把五代摆在一起比。这是一本讲稿，不是著作，所以它口语、好读、有锋芒，钱穆讲到激动处会直接拍桌子骂当时的学界风尚。</p>
+
+    <div class="sub-heading">五讲骨架</div>
+    <p>每讲一句话拎出钱穆的判断：</p>
+    <ul>
+      <li class="dynasty-item"><strong>汉代</strong>：平民政府的奠基。宰相是「真宰相」，领导整个政府；皇室与政府分开，权在相不在君。这是中国政治的健康起点。</li>
+      <li class="dynasty-item"><strong>唐代</strong>：制度的成熟与精密。相权由汉代的独相，变成三省（中书、门下、尚书）分工的委员制；科举制度让政权向全社会敞开。组织比汉代更完密。</li>
+      <li class="dynasty-item"><strong>宋代</strong>：积贫积弱，因循失势。中央把相权、财权、兵权一层层收上来，结果是中央臃肿、地方枯竭，「有事无政」，一个想振作却处处掣肘的朝代。钱穆给分最低。</li>
+      <li class="dynasty-item"><strong>明代</strong>：皇权的转折点。朱元璋废宰相，皇帝亲领六部，内阁名为辅佐实为秘书。中国政治从「君相分权」滑向「君主独裁」，这是两千年里最大的一道坎。</li>
+      <li class="dynasty-item"><strong>清代</strong>：部族政权，已不是制度。钱穆下了最重的判语：清代很多「制度」其实是满洲一族维护私利的「法术」，藏着不可告人的私心，不能与汉唐宋明的公制度并列。</li>
+    </ul>
+
+    <p><strong>论证结构</strong>：对比型为主，案例型为辅。钱穆不抽象立论，他把五个朝代的同一件事（比如选官、收税、养兵）摆成一排，让你看它怎么一步步流变、怎么从良法积成弊政，制度的「得」与「失」在纵向对照里自己显形。</p>
+    <p><strong>写作姿态</strong>：他在对辛亥之后「自谴其历史」的中国人说话。那一代人把秦以后的政治用「专制黑暗」四字抹掉，连带轻贱了整个传统文化。钱穆的语气，是史家替沉默的古人辩护：冷静，克制，偶尔动气，底色是他自己说的「对其本国已往历史之温情与敬意」。他不是要你复古，是要你别糊里糊涂地自卑。</p>
+
+    <div class="sub-heading">全书的四根切面</div>
+    <p>钱穆每次讲一个朝代，都按同一个筐子往里装：政府组织、考试选举、财政经济、国防兵役。这个筐子不是随便编的，它对应的是一个政权能不能好好运转的四个基本问题：权力怎么分、人才怎么来、钱怎么收、仗怎么打。把这四个问题横切到五个朝代，制度的流变就清楚了。</p>
+    <p>政府组织，看的是权力结构。汉代君相分立，唐代三省制衡，宋代相权被削，明代废相独裁，清代军机处架空内阁：这一条线，就是中国皇权逐步上升的轨迹。考试选举，看的是政权向谁开放。汉代察举、唐代科举、宋代扩招、明代八股、清代部族垄断：开放度在这条线上先升后降，到清代变成了种族门槛。财政经济，看的是国家怎么从社会里抽血。汉代轻徭薄赋、唐代租庸调、宋代冗费、明代一条鞭、清代永不加赋却暗中摊派：财政最能暴露一个政权的真实处境。国防兵役，看的是武力怎么组织。汉代全民兵役、唐代府兵、宋代募兵、明代卫所、清代八旗绿营：兵制背后是国家与社会的契约关系。</p>
+    <p>四根切面交叉起来，五代的政治面貌就立体了。钱穆不是给你一个朝代一个朝代的流水账，而是让你同时看横切面和纵切面：横切面看一个朝代内部四个系统怎么配合，纵切面看同一个系统在五百年里怎么变形。这种结构，是这本小书能在十小时里讲完两千年政治的关键。</p>
+  </div>
+</section>
+
+<!-- 第二层 -->
+<section class="layer" id="layer-2">
+  <div class="layer-number">第二层</div>
+  <div class="layer-title">作者凭什么这么说</div>
+  <div class="prose">
+    <div class="sub-heading">核心论证链</div>
+    <p>前言里钱穆摆了七条治学原则，看着零散，其实是一根逻辑链，可以这样串起来：</p>
+    <div class="logic-chain">制度必自根自生、与人事相配合 → 故评判制度要用「历史意见」（当时人的切身感受），不能用「时代意见」（后人的事后裁断） → 任何制度都有利有弊、积久成弊，没有一项能行之百世而无弊 → 所以「专制黑暗」这四个字，是今人的时代意见对历史的粗暴抹杀；至少在明代以前，君权与相权分立、政权向社会开放，根本不成其为「专制」</div>
+    <p>压成一行：</p>
+    <div class="logic-chain">传统政治 = 历史意见下的「有得有失」，≠ 时代意见下的「专制黑暗」</div>
+    <p>这条链的要害在「历史意见 vs 时代意见」这对区分。钱穆打了个比方：一个壮年人不睡摇篮，不等于婴儿睡摇篮就是错的。今天我们要民主、不要皇帝，这是对的；但不能反过来说从有历史以来就不该有皇帝、凡有皇帝就是坏政治。拿当下的尺子去量两千年前的衣裳，量出来的不合身，错的是尺子。</p>
+
+    <p><strong>第二层只承担证据索引，不展开故事。</strong>汉代「六尚—十三曹」证明皇室与政府曾有组织分界；唐代「中书拟旨—门下封驳」证明皇帝命令要经过制度审核；科举则证明政权存在向社会开放的入口。三组证据在这里各说一次，到第五层只引用结论，不再复述细节；清代「制度—法术」与唐代府兵制的完整叙事留给第八层。</p>
+
+    <div class="sub-heading">隐形假设</div>
+    <p>钱穆默认「制度」和「法术」可以两刀切开：为公的、能公开的、自根自生的，叫制度；为私的、藏私心的、硬移植来的，叫法术。靠这把刀，他才能把清代整个踢出「制度」的范畴。但「私心」由谁认定、「为公」按谁的标准，这把刀其实握在他自己手里。</p>
+    <p>他还把「君权相权分立」直接等同于「非专制」。可相权终究是皇帝授予的，理论上皇帝随时能收：明代朱元璋一道命令就废了宰相，证明这权力的根扎在皇帝那头。所以这套辩护有个软肋：它证明的是「明以前皇帝事实上没独裁」，没能证明「皇帝制度本身不专制」。事实与法理，他打的是事实牌。</p>
+
+    <div class="sub-heading">边界条件</div>
+    <p>钱穆自己划了线：辩护的主力在汉、唐、宋，到明代废相、清代部族政权，他承认君权日重，「专制」之说越来越站得住。这本书替前半段历史辩护，对后半段其实是控诉：越往后讲，火气越大。另一条边界是：制度设计得好，不等于运行得好。他反复念叨「制度是死的，人事是活的」，再好的制度配上烂人事照样溃烂（唐代府兵制毁于边将拥兵，两税制毁于层层附加税）。所以他评的「得失」，是制度本身的用意与设计，不替历史现实里它兑现了多少打包票。</p>
+  </div>
+</section>
+
+<!-- 第三层 -->
+<section class="layer" id="layer-3">
+  <div class="layer-number">第三层</div>
+  <div class="layer-title">真正牵动全书的那几根线</div>
+  <div class="prose">
+    <p>这本书横看五个朝代、纵切四个切面，二十个格子填满了，看着千头万绪。但拆到底，真正在牵动全局的，只有三根线。抓住这三根，钱穆对每一代的褒贬，都能从里头反推出来。</p>
+
+    <p><strong>第一根线，是权力的集中度</strong>。这根线有两个方向：横向是君权与相权的分合，纵向是中央与地方的分合。钱穆的隐藏判断是：权力适度分散、彼此制衡，政府才有机能；权力越往皇帝一人、中央一点上收，制度就越僵硬，越容易「有事无政」。</p>
+    <p><strong>第二根线，是政权的开放度</strong>。政权向谁敞开？是向全社会的读书人（察举、科举），还是攥在某一个家族、阶级、部族手里？这根线决定一个政权的「身份」：它是士人政府，还是贵族政权、部族政权。</p>
+    <p><strong>第三根线，是制度的公共性与生长性</strong>。一项安排是不是从本国人事土壤里长出来，真实用意能不能公开，服务的是公共秩序还是一族一家？这是钱穆区分「制度」与「法术」的判准。</p>
+
+    <p>用这三根线，五代的评语全能推回来：</p>
+    <ul>
+      <li class="dynasty-item"><strong>汉</strong>：君相分立 + 地方有实权 + 察举开放 + 规则公共且自生。三线全绿，所以是平民政府的健康奠基。</li>
+      <li class="dynasty-item"><strong>唐</strong>：三省分权制衡 + 科举大开 + 规则公共且自生，唯独藩镇坐大埋下纵向失控的雷。所以钱穆给「最成熟」，又点出府兵崩坏、藩镇割据是它的死穴。</li>
+      <li class="dynasty-item"><strong>宋</strong>：相权被削、财权兵权全收归中央 + 科举更盛却冗滥 + 公共性尚存但生长性转弱。权力上收到中央却养不出力量，地方被抽干血，于是「积贫积弱」「有事无政」。</li>
+      <li class="dynasty-item"><strong>明</strong>：废宰相、皇帝亲领六部 + 八股取士 + 公共性尚存。是君主独裁的转折点，但仍属于制度得失。</li>
+      <li class="dynasty-item"><strong>清</strong>：君权集中 + 关键权位存在部族门槛 + 部分规则的公共性与可审视性崩解。第三根线断裂，于是钱穆将其定性为部族政权。</li>
+    </ul>
+
+    <p><strong>三根线彼此不能替代。</strong>明、清的权力集中度都高，但钱穆给出不同定性，差别主要落在第三根线：规则是否公开服务公共秩序、是否仍有可审视的生长过程。少了这一项，就无法解释明清分野。</p>
+
+    <p>宋代则提供了独立性检验：权力集中度急剧收紧，相权被削；政权开放度却同时提高，科举录取扩张。一收一放，说明两根线不是同义反复。</p>
+
+    <p>三根线还会互相牵动：权力过度集中，会倾向压窄选官标准；服从型官僚增多，又会降低规则公开讨论和自我更新的能力。明清之间的变化，不只是三个毛病并列，而是一台机器逐步卡死。</p>
+
+    <p>中央与地方的纵向分权在宋代尤其明显。为矫正唐末藩镇之弊，宋把财权、兵权更多收归中央，地方响应能力随之下降。「积贫积弱」在这个模型里，不只是钱少兵少，更是资源集中后难以及时调动。</p>
+
+    <p>反过来做删项检验：去掉「公共生长」，明清会被归成同类；去掉「权力集中度」，宋代困局无法解释；去掉「开放度」，察举、科举与部族门槛之间的差异就会消失。三根线由此构成最小解释组。</p>
+  </div>
+</section>
+
+<!-- 第四层 -->
+<section class="layer" id="layer-4">
+  <div class="layer-number">第四层</div>
+  <div class="layer-title">顺着最深那根线，一路挖到底</div>
+  <div class="prose">
+    <p>第四层只追问判准，不复述清代案例。钱穆把「制度」与「法术」分开：前者的真实用意可以公开审视，后者必须靠隐匿真实目的才能成立。继续往下追，问题便从「为公还是为私」落到一个更可检验的标准：<strong>规则能否接受公开审视</strong>。</p>
+    <p>这不是价值中立的尺子。它预设权力需要说明理由，也承认「公开」存在程度差异：暂缓披露、策略保密与不可告人的暗规则，并非同一件事。因此，制度与法术更像光谱，而不是楚河汉界。</p>
+    <p>触底后，钱穆的洞见可以压成一句话：权力若不能被审视，就只能靠既成事实或强制维持。可审视性不是制度的装饰，而是制度的呼吸。</p>
+  </div>
+</section>
+
+<!-- 第五层 -->
+<section class="layer" id="layer-5">
+  <div class="layer-number">第五层</div>
+  <div class="layer-title">顺着问答，把作者的推理走一遍</div>
+  <div class="prose">
+
+    <!-- Q1 -->
+    <div class="qa-block">
+      <div class="qa-question">Q1：中国传统政治真的是「皇帝专制」吗？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+        <p>明以前不是，明以后越来越是，清代最极端。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">汉唐: 皇权 ≠ 政权，皇权 ∩ 相权 → 分权格局 → 非专制 / 明清: 皇权 ≈ 政权 → 接近专制</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>证据主场在第二层：汉代皇室与相府分工、唐代门下封驳、明代废相，三点连成「分权存在—审核存在—纠错消失」的结构变化。这里保留推理，不重讲案例。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>钱穆的辩护只证明了「事实上没有独裁」，却没有证明「皇帝制度在法理上不能独裁」。皇帝终究握有随时收回相权的终极权力：朱元璋一纸令便废了宰相，这说明分权是事实惯例，不是刚性宪制。</p>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="qa-block">
+      <div class="qa-question">Q2：「历史意见」与「时代意见」的区分，有多大的方法论效力？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+        <p>它提供了一把必要但不充分的防伪检测尺。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">评判标准 = max(历史意见, 时代意见) ≠ only(时代意见)</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>钱穆举摇篮比喻：壮年人不睡摇篮，不等于婴儿睡摇篮就是错。今天我们不要皇帝，不等于汉唐有皇帝就是黑暗。他主张先听当时人怎么说（历史意见），再拿今天的标准去衡量（时代意见），两层参照才不会偏。这一方法最大的贡献是破除了「拿今天的结论直接判古人对错」的懒惰习惯。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>但「当时人的意见」本身也不是真空的。能留下来的「历代名臣奏议」，大多是精英阶层的声音，农民、胥吏、士兵的声音几乎听不到。所以历史意见也有偏听的风险。钱穆没有回答这个问题。</p>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="qa-block">
+      <div class="qa-question">Q3：科举为什么既是中国政治最伟大的发明，又成了它最慢性的毒药？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+        <p>科举解决了政权开放的问题，却制造了政权臃肿的新病。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">旧问题(政权垄断) → 科举 → 解(政权开放) + 新问题(求官者十于士，士十于官)</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>汉代察举还带着推荐的弹性，到唐代变成「怀牒自列」：任何人凭本事报考，政权向全社会敞开。这一步比西方早了近千年。但开放的门一旦打开，就收不住：读书人只有做官一条路，全涌向科举。官职有限而应考无限，录取名额只好放宽，于是冗官日甚。这是政权开放的结构性代价：你不能只打开入口而不拓宽出口。钱穆自己说得犀利：西方是先有工商中产阶级，再来开放政权；中国是先开放了政权，却同时压制工商资本，结果知识分子除做官外无路可走，政治成了唯一的赛道。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>若把这一判断搬到今天，则意味着任何「开放准入」的制度，如果没有配套的「退出通道」和「替代赛道」，迟早会臃肿。这在现代公务员制度中仍可看到影子。</p>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="qa-block">
+      <div class="qa-question">Q4：唐代府兵制为什么从最好的兵制垮成最坏的局面？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+    <p>制度崩坏不只来自设计错误，也来自维持制度的激励与人事条件逐步变化。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">制度设计(优) + 人事精神(逐年衰减) → 制度实际效果(由优 → 劣) → 最终崩溃</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>府兵制是第八层「积久成弊」叙事的唯一主场。本问只保留因果链：荣誉与短期服役的激励逐步消失，执行偏差累积，替代方案又引入新的边防风险。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>但「人事松懈」几乎是所有长期制度的宿命。钱穆反复说「制度是死的，人事是活的」，这意味着再精妙的设计也有保质期。问题是：有没有一种制度能把「自我更新」内建在结构里？钱穆没有给出答案。</p>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="qa-block">
+      <div class="qa-question">Q5：宋代为什么是五代中最弱的一环？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+        <p>宋的弱不在外患强，在内部把权力收得太狠，把自己的手脚捆住了。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">矫唐之弊(藩镇割据) → 过度集权(军权+财权+人事全收中央) → 地方空虚 → 中央一溃则全国瓦解</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>唐亡于藩镇割据（地方太强），宋太祖杯酒释兵权、派文臣知州、设转运使收财权：全是在矫唐之弊。但矫枉过正：地方不留一兵一粮，全靠中央调度，而中央调度又慢又僵。唐代安史之乱两京俱失，各州郡凭自己的储蓄可以各自为战，最终收复失地；宋代金兵南下，汴京一破，全国瓦解，再无抵抗的本钱。钱穆给宋代的评语最尖刻：「有事无政」：有事情发生，却拿不出政策来应对。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>宋代的问题在今天依然有镜像：任何高度中央集权的组织，末端响应力都是它的软肋。</p>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="qa-block">
+      <div class="qa-question">Q6：明代废宰相，到底坏在哪里？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+        <p>坏在把一个制度性的纠错机制消灭了，换成了一个纯粹依赖个人品质的结构。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">有宰相: 皇帝 + 宰相 → 互相制衡 → 制度性纠错 / 无宰相: 皇帝 → 独裁 → 纠错靠皇帝个人品质 → 不稳定</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>汉唐的格局是皇帝出了问题还有宰相兜底，宰相出了问题可以换宰相而不动皇帝。明废相后，一切归皇帝独断，而内阁大学士只是五品秘书，名不正言不顺。皇帝勤政如太祖成祖，尚可维持；皇帝偷懒如万历，二十几年不上朝，公文堆积，无人能管。更毒的后果是：皇帝和大臣之间多出了太监这个中介：司礼监「批红」变成实际最高权力，皇帝的私人秘书变成了没有合法性的真宰相。黄梨洲说得对：将来只有恢复宰相，才是正路。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>这一判断的前提是「宰相制度本身是好的」。但宰相也可能被架空（东汉的外戚大将军就架空了宰相），所以关键不在有没有宰相这个职位，而在权力结构里有没有制度性的对冲力量。</p>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qa-block">
+      <div class="qa-question">Q7：清代的问题为什么比明代更根本？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+        <p>明代是制度坏了但仍是制度，清代则连制度的资格都失去了：它变成了法术。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">明: 制度(设计失误) → 可修 / 清: 法术(根基为私) → 不可修，只可推翻</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>清代案例留给第八层完整展开。本问只保留判断：当规则以公共制度之名运行，却必须隐藏服务一族利益的真实目的时，问题就不只是设计失误，而是正当性结构发生了变化。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>这一判断带有强烈的价值立场。从满洲统治者的角度看，他们的安排也有其「合理性」：少数民族维持统治的安全焦虑。钱穆拒绝给这种焦虑任何正当性，这是他的立场，不是纯粹的事实判断。</p>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qa-block">
+      <div class="qa-question">Q8：制度为什么「不能历久而不变」？钱穆的制度观到底是什么？</div>
+      <div class="qa-section">
+        <div class="qa-section-label">结论</div>
+        <p>制度是活的：它有出生、成长、衰老和死亡，没有一项能永远好下去。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">形式化</div>
+        <span class="formalized">制度 = f(时代需要, 人事配合, 历史渊源) → 三者任一变 → 制度必变</span>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">论证步</div>
+        <p>这是贯穿全书的母命题。钱穆反复举证：汉代察举制初设时合理，积久成门阀垄断；唐代府兵制精妙，太平久了就松懈崩溃；宋代免役法在南方好用，到北方就水土不服。他的制度观有三条支柱：第一，制度必自根自生，移植的不会长久；第二，制度必与人事配合，「徒法不能以自行」；第三，制度有利必有弊，有利无弊的制度不存在。三条合在一起，推出一个结论：好制度不是设计出来就完事的，它需要持续的人事精神来供养，需要随时代变化而更新，一旦僵化就会变成束缚。</p>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-label">边界</div>
+        <p>这一观点最大的盲区是：它解释了制度为什么会衰败，却没有给出「如何让制度自我更新」的方案。钱穆只是在历史的后视镜里指出每一代的病因，却没有开出让制度获得「自我修复能力」的药方。这或许正是他这本书的边界：它是一面锋利的镜子，不是一张蓝图。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 第六层 -->
+<section class="layer" id="layer-6">
+  <div class="layer-number">第六层</div>
+  <div class="layer-title">跳出这本书，它还能怎么用</div>
+  <div class="prose">
+    <div class="sub-heading">作者动机：不写不行的那股劲儿</div>
+    <p>1952 年，钱穆在台中养病。五次讲演，十个小时。为什么一个病中的人会用仅有的精力去做这件事？</p>
+    <p>他看见的具体痛苦是：一整代中国知识分子在全盘否定自身历史的同时，也丧失了理解传统文化的能力。在钱穆看来，这已经不只是批判传统，而是一种历史认知上的自我切断。</p>
+    <p>钱穆的愤怒不是「传统不可改」，而是「没看清就扔掉」。他要阻止的不是变革，而是用四个字替代两千年的具体判断。</p>
+
+    <div class="sub-heading">作者盲点</div>
+    <p>钱穆有一个结构性的盲区：他主要从精英材料理解制度。「历史意见」多来自名臣奏议、政府文件与士大夫言论，农民、胥吏、士兵和商人的声音极少出现。这不是简单的忽略，而是材料与方法决定的听觉范围。</p>
+    <p>第二个盲区是他对「为什么好制度一定会变坏」的解释太弱。他反复说「人事松懈」「积久成弊」，但这只是描述，不是解释。为什么人事一定会松懈？为什么两三百年就到极限？有没有可能设计一种制度让它自己修复？这些问题他不碰，让他的制度观停留在「诊断」层面，到不了「处方」层面。</p>
+
+    <div class="sub-heading">跨域映射：四个场景，四种落点</div>
+    <p><strong>民宿｜分权。</strong>老板、店长、管家与运营不能只靠「谁嗓门大谁决定」。把房价权限、客诉补偿、采购额度和紧急处置写清楚，既防止老板成为单点瓶颈，也让一线在客人面前能立即响应。</p>
+    <p><strong>乡村｜开放。</strong>村庄项目若只让熟人、头部户或既有干部进入决策，资源会被关系网锁住。公开报名、透明评选、轮值议事的价值，不是形式好看，而是让新农人、妇女、年轻人和普通经营户真正有入口。</p>
+    <p><strong>交易｜自生。</strong>别把别人的参数当成自己的制度。交易规则要从自身品种、周期、资金规模和回撤承受力里长出来；每次复盘都问：这条规则原本在防什么风险？市场状态变了，它是否已经从保护变成束缚？</p>
+    <p><strong>健康｜可审视。</strong>饮食、睡眠、运动计划不能靠口号维持。把目标、证据、身体反馈和停止条件摊开看：若一套方法只能靠「大师说」「不许质疑」维持，它更接近法术；能根据指标与感受修订，才是会呼吸的制度。</p>
+
+    <div class="sub-heading">行动触发</div>
+    <p>把三根线变成一次检查：权力是否有清楚边界？入口是否对合适的人开放？规则是否来自真实问题，并能公开说明与定期修订？这三个问题，足以把抽象的制度史落到今天的工作与生活。</p>
+  </div>
+</section>
+
+<!-- 第七层 -->
+<section class="layer" id="layer-7">
+  <div class="layer-number">第七层</div>
+  <div class="layer-title">把它压缩到一张餐巾纸上</div>
+  <div class="prose">
+
+    <div class="sub-heading">餐巾纸公式</div>
+    <div class="napkin-formula">
+      <pre>制度得失 = 分权 × 开放 × 公共生长
+
+分权失衡 → 失灵；开放封闭 → 垄断；公共生长崩解 → 法术</pre>
+    </div>
+    <p>三个因子逐项对应第三层：分权对应「权力集中度」，开放对应「政权开放度」，公共生长对应「制度的公共性与生长性」。公式只压缩第三层，不新增结论。</p>
+
+    <div class="sub-heading">一句话</div>
+    <p class="one-liner">好制度是活的：自根自生、与人事相配合、有利必有弊、积久必成变。不存在设计一次就永远好下去的制度，也不存在用「专制黑暗」四个字就能概括两千年历史的真相。</p>
+
+    <div class="sub-heading">结构图</div>
+    <div class="ascii-diagram">
+      <pre><code>                  ┌──────────────────────────────────────┐
+                  │          中国历代政治得失               │
+                  └─────────────────┬────────────────────┘
+                                    │
+          ┌─────────────────────────┼─────────────────────────┐
+          │                         │                         │
+    分权（权力集中度）        开放（政权开放度）     公共生长（公共性与生长性）
+    (君/相·央/地)             (谁能做官)               (为公/可审视/自生)
+          │                         │                         │
+    汉：分权 ✓                汉：察举 ✓                汉：自生 ✓
+    唐：三省制衡 ✓            唐：科举大开 ✓            唐：自生 ✓
+    宋：过度集中 ✗            宋：科举冗滥 △            宋：因循 △
+    明：独裁 ✗✗               明：八股窄化 △            明：尚公 ✓
+    清：极端集权 ✗✗✗          清：部族垄断 ✗            清：法术 ✗✗
+          │                         │                         │
+          └─────────────────────────┴─────────────────────────┘
+                                    │
+                        汉唐 = 上升段（三线皆正）
+                        宋   = 转折（过度集中）
+                        明   = 定型（集中加深，公共性尚存）
+                        清   = 变质（公共生长崩解 → 法术）</code></pre>
+    </div>
+
+  </div>
+</section>
+
+<!-- 第八层 -->
+<section class="layer" id="layer-8">
+  <div class="layer-number">第八层</div>
+  <div class="layer-title">合上书后最想讲的那一点</div>
+  <div class="prose">
+    <div class="narrative-eyebrow">第一幕 · 从一个词进入：制度还是法术</div>
+    <p>钱穆在 1952 年讲了一个词，叫「法术」。不是道士画符，而是与「制度」相对的政治安排。他说，汉、唐、宋、明即使有弊，仍可放在制度得失里讨论；清代部分安排却服务一族之私，真实用意不能摆到台面上。</p>
+    <p>这个区分乍一听有点像在骂清朝。很多人确实也这样读他：钱穆是个汉族中心主义者，不喜欢满人，所以把清朝说得特别难听。这个读法不算全错，但太浅了。如果只是为了骂清朝，随便一个民族主义者就能骂，用不着一个史学家花十个小时讲五个朝代。</p>
+    <p>要紧的不是他在骂谁，而是他用什么标准判断。</p>
+    <div class="case-note"><strong>案例主场</strong>：从这里开始，汉代两套班子、唐代诏书审核与清代满汉安排只在第八层承担传播叙事；前文只保留索引或结论。</div>
+    <div class="narrative-eyebrow">第二幕 · 判断的刀口：真实用意能否见光</div>
+    <p>他的标准是什么？你得从他讲汉代的地方倒推。他说汉代宰相掌十三曹，管的是国家行政：官吏任免、祭祀农桑、邮驿交通、罪案审判、军事后勤、货币盐铁……十三个部门，全在相府。皇帝身边呢？六尚：管衣服、管吃饭、管帽子、管坐垫、管洗澡、管文书。一对比就明白：管国家大事的在宰相那边，管皇帝私人生活的在皇宫里。两套班子各管各的，权力结构公开透明，谁管什么一目了然。</p>
+    <p>到唐代更精密。一道诏书，中书省起草，门下省审核，不同意可以涂改退回。武则天时有句话：「不经凤阁鸾台，何名为敕？」：没经过这两个机构的命令就不算合法。皇帝要下一道命令，得穿过一道制度性的闸门。这个闸门是公开的，谁都知道它在那里，谁都知道它的规则是什么。</p>
+    <p>这些安排有一个共同特征：它们的用意是可以公开讨论的。你可以说汉代的相权太大，可以说唐代的三省分权有这样那样的缺陷，但你不会说它们「藏着不可告人的用意」。它们的设计目的：分权、制衡、选贤、开放：全都摆在明处，写在制度文件里，经得起当时人和后来人的检视。</p>
+    <p>清代有些安排就不一样了。各省的督抚，满人和汉人搭配着用，表面说是「满汉一家」，实际是用满人盯着汉人。驻防旗营分布各省战略要地，名义是国防，实际是监视。关键权位先考虑满人，汉人想上去得走一条更窄更长的路。这些安排的「真实用意」，在当时是不能公开讨论的：你一讨论，就等于说皇帝不信任他的汉人臣民，这话没法在朝堂上讲。</p>
+    <p>钱穆的刀法就在这儿：他不问这些安排是好是坏，不问它们有没有效果，他只问一个形式上的问题：你这套安排的真实用意，能不能拿出来公开讨论？能的，是制度。不能的，是法术。</p>
+    <p>这个区分很有力量，因为它不依赖评判者的价值立场。你不需要先决定「满人统治汉人对不对」「民族融合好不好」这些价值争论，你只需要做一个事实判断：这条规则的真实目的，摆到阳光下站不站得住？站得住的就是制度，站不住的就是法术。</p>
+    <div class="narrative-eyebrow">第三幕 · 边界：这把刀不是绝对中立</div>
+    <p>等等，这个标准真的那么中立吗？</p>
+    <p>仔细想一想，其实不那么中立。因为「能不能公开讨论」这件事本身就预设了一个价值判断：权力的正当性应该来自公开审视。如果你相信权力可以来自征服、来自武力、来自「反正我赢了你能怎样」，那「公不公开」就不重要。钱穆的这把刀，隐含着一个他没有明说的前提：统治需要讲道理，讲不出道理的统治就不正当。这其实是一个非常现代的观念。</p>
+    <p>但他不是从西方借来的。他是从中国自己两千年的制度实践里提炼出来的。汉代皇帝和宰相的分权，唐代诏书的审核流程，宋代「不出中书是为乱政」的坚持：这些实践里一直有一个方向：权力要过审。过谁的审不重要，重要的是不能不过审。一旦不过审，就叫「乱政」。</p>
+    <p>所以「制度与法术」的区分，骨子里是关于「权力能不能呼吸」。</p>
+    <p>制度是透气的。它的规则、用意、好处坏处，全暴露在空气里，被人看着、被人讨论、被人批评，也被人改进。它活着，因为它在呼吸。</p>
+    <p>法术是密封的。它的真实用意包裹在一层不能碰的外壳里。你不能问，不能讨论，甚至不能承认它存在。它看上去可能运行得很好：清代的满汉搭配确实维持了两百多年的稳定：但它没有在呼吸。一个不呼吸的东西，不管看上去多结实，总有一天会从里面烂掉。</p>
+    <p>这把刀拿过来用一下，你会发现它的切割力远远超出清代政治。</p>
+    <p>一家公司，老板说「我们是扁平化管理」，但实际上所有关键决策都得经过老板的小舅子。扁平化是台面上的制度，小舅子是桌子下面的法术。这条暗规则不能公开讨论：谁提谁走人。它不呼吸。</p>
+    <p>一个行业标准，表面上说是「保护消费者安全」，但制定标准的委员会全是头部企业的人，标准的真实用意是抬高准入门槛、把小企业挡在外面。如果这个真实用意可以公开讨论，它就是一种明确的竞争策略；如果不能公开，还得包装成「为了安全」，那它就是法术。</p>
+    <p>一段关系里，一方说「我这样做是为你好」，但真实动机是控制。「为你好」是制度，控制是法术。你怎么区分？就看他敢不敢把真实动机摊开来说。</p>
+    <p>这个检测器的可怕之处在于它太简单了。它不需要你懂政治学、组织理论或博弈论。它只需要你问一个问题：这条规则的真实用意，能不能拿出来公开说？</p>
+    <p>当然，简单不等于好用。现实中的「公开」有程度差异：有些事不方便说，不等于不敢说；暂缓披露也可能只是策略。钱穆的清汉对比过于整齐，明太祖废相和唐代「斜封墨敕」都说明，公开制度内部也会出现法术式操作。制度与法术更像光谱，而非楚河汉界。</p>
+    <p>但光谱的存在不妨碍这把刀的锋利。它至少给了你一个方向：往「可公开」的方向走，制度就健康；往「不可说」的方向走，就在靠近法术。任何组织、制度、规则、关系，只要沿着这个方向定期检查一遍，就等于做了一次体检。</p>
+    <p>钱穆在 1952 年病中讲出这把刀。他大概不知道它能用这么远。</p>
+    <div class="narrative-eyebrow">第四幕 · 第二把刀：制度如何积久成弊</div>
+    <p>钱穆这本书里还藏着第二把刀，没有第一把那么显眼，但同样锋利。他反复讲一句话：「任何一制度，绝不能有利而无弊。任何一制度，亦绝不能历久而不变。」</p>
+    <div class="case-note"><strong>时间眉批｜盛唐至天宝</strong>：府兵制的变化不是一夜崩坏，而是从荣誉服役、役期拉长、劳役化、兵源枯竭到边镇募兵，跨越数十年的连续滑坡。</div>
+    <p>府兵制。设计的时候是个天才方案：从殷实之家选兵，自备武装，农隙操练，战时出征，国家不花钱养兵。唐太宗时期，府兵宿卫中央，皇帝亲自和他们练射，士兵觉得光荣，制度运行得漂亮。然后太平了。太平了，就没有仗打。没有仗打，权贵就拿府兵去修花园造宅第。士兵从保家卫国变成了给达官贵人搬砖。下次再叫他们上番宿卫，谁还肯来？逃亡的越来越多。边防需要人，后方派不出，只好雇外族兵：安禄山就是这么上来的。</p>
+    <p>每一步都「合理」。太平了自然不紧张，不紧张自然有人偷懒，偷懒自然有人钻空子，钻空子的人多了制度就空了，空了就只能找替代方案，替代方案又带来新的风险。从天才方案到安史之乱，中间没有一步是「突然变坏」的，全是润物细无声地滑下去的。</p>
+    <div class="case-note"><strong>时间眉批｜隋唐至明清</strong>：科举从打破门阀、扩大准入，逐步转向标准化与形式化；变化跨越多个朝代，不能压成一次制度转折。</div>
+    <p>科举也一样。开始是为了打破门阀垄断，让天下读书人凭本事做官，这是何等开阔的气象。后来考生越来越多，标准越来越形式化：从考策论变成考诗赋，从考诗赋变成考经义，从考经义变成考八股。每一步都有当时的道理：策论没法打分，诗赋有格律好判高下，经义比诗赋更切实际，八股比自由经义更好统一标准……每一步都在「合理化」，结果合到最后，一个为了选拔真才设计的制度，变成了一台专门制造应试机器的流水线。</p>
+    <p>好制度通常不是被一个坏人突然搞垮，而是在时间里被许多个局部合理的决定一点点蛀空。单个决定未必严重，累积起来却会造成制度的慢性死亡。</p>
+    <p>而且这种死亡有一个特征：越是好制度，死得越慢，因此积累的惰性也越深，最后崩塌时的冲击也越大。汉代的察举制运行了四百年才变成门阀垄断，唐代的府兵制运行了一百多年才变成藩镇割据。如果它们一开始就不好用，早就被替换了，不会等到积重难返。</p>
+    <p>这第二把刀的切割力也远超历史。任何一个人、一个团队、一个公司，找到一个好方法，用了几年效果很好，就会不自觉地把它变成默认：不再检查它还有没有效，不再问它还适不适合当下的情况。等到有一天发现不行了，回头看，才发现它早就不行了，只是惯性太大，谁也没去碰它。</p>
+    <p>钱穆给这个现象起了一个非常朴素的名字：积久成弊。</p>
+    <p>积久成弊不是道德问题，不是说谁偷懒了谁腐败了，虽然偷懒和腐败确实会加速它。它是一个结构问题：任何规则被创造出来时，都是为了解决一个具体的痛苦。时间过了，那个具体的痛苦消失了或者变形了，规则却还在，而且因为运行太久已经变成了「就该这样」的本能。它从工具变成了习惯，从习惯变成了信仰。到了信仰的阶段，你就碰不动它了：谁碰谁是异端。</p>
+    <p>王安石碰了，被打成异端。张居正碰了，死后被抄家。钱穆自己碰了「专制黑暗」这个二十世纪的信仰，也被不少人打成了保守派。</p>
+    <p>这本书最深处的东西，不只是替哪个朝代辩护，而是提醒我们区分两件事：一条规则是否仍在解决真实问题，以及它是否已经被惯性保存成好看的标本。</p>
+    <div class="narrative-eyebrow">尾声 · 让规则保持呼吸</div>
+    <p>制度是活的，所以它会死。法术是密封的，所以它会烂。唯一的出路是让规则持续呼吸：承认它有保质期，到期了就打开来重新检视。钱穆没有给出「怎么让制度自我更新」的药方，但他用五个朝代的兴亡，把「制度会过期」这件事刻进了你的骨头里。</p>
+    <p>这已经够了。</p>
+  </div>
+</section>
+
+<!-- 事实边界 -->
+<section class="fact-boundary">
+  <strong>事实边界</strong><br>
+  本篇关于汉唐宋明清的制度描述，主要依据钱穆《中国历代政治得失》原书讲稿；钱穆的生平、讲演年份、成书背景出自该书前言及通行版本资料。<br>
+  书中具体史事（如洪武十三年废相、唐代门下封驳、宋代转运使收财权等）为原书所举，属作者基于史实的解读；部分历史细节若与原书有出入，建议核对原书或权威史籍。<br>
+  哈贝马斯、罗尔斯等西方思想家的引述，用于与钱穆观点作结构性比较，并非钱穆原话。
+</section>
+
+<!-- 第九层：金句区 -->
+<section class="gold-quote" id="layer-9">
+  <div class="layer-number">第九层</div>
+  <div class="layer-title" style="margin-bottom: 32px;">一句话封印这本书</div>
+  <div class="quote-text">制度是活的，所以它一定会死；唯一比它死得更快的，是那些从一开始就不敢公开呼吸的规则。</div>
+  <div class="quote-sig">青山 · 06-04 初稿 · 07-14 修订</div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  青山 · 06-04 初稿 · 07-14 修订
+</footer>
+
+</div><!-- /.container -->
+
+</body>
+</html>

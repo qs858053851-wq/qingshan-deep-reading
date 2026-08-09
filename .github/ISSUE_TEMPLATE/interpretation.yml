@@ -1,0 +1,33 @@
+name: 不同理解
+about: 提交一套有论据的另一种读法
+title: "[异议] "
+labels: ["讨论"]
+body:
+  - type: input
+    id: article
+    attributes:
+      label: 文章
+      description: 请写文章标题或页面链接。
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: 你不同意哪一个判断
+      description: 请尽量准确复述原判断，不把它弱化后再反驳。
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: 你的解释
+      description: 请把另一套解释和推理过程说完整。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 依据与边界
+      description: 哪些文本或事实支持它？它又可能在哪里失效？
+    validations:
+      required: true

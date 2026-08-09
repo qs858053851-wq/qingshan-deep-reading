@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>晋末长剑 —— 九层解书</title>
+<style>
+:root {
+  --accent: #D4532B;
+  --black: #111111;
+  --mid: #666666;
+  --border: #d0d0d0;
+  --bg: #fafafa;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--black);
+}
+.hero h1 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero .author {
+  font-size: 18px;
+  color: var(--mid);
+  font-weight: 400;
+}
+.hero .meta {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--mid);
+}
+
+/* Layer */
+.layer {
+  padding: 48px 0;
+  border-bottom: 1px solid var(--border);
+}
+.layer:first-of-type {
+  border-bottom: 1px solid var(--black);
+}
+.layer-header {
+  margin-bottom: 32px;
+}
+.layer-num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.layer-title {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+/* Content */
+.layer-content p {
+  margin-bottom: 16px;
+  text-align: justify;
+}
+.layer-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 32px 0 16px;
+  letter-spacing: -0.5px;
+}
+.layer-content h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: var(--mid);
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th {
+  font-weight: 700;
+  color: var(--mid);
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 24px;
+  margin: 24px 0;
+  font-style: italic;
+  color: var(--mid);
+}
+
+/* QA Block */
+.qa-block {
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.qa-q {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+.qa-a {
+  padding-left: 24px;
+}
+.qa-a p {
+  margin-bottom: 12px;
+}
+.qa-a .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--mid);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Napkin */
+.napkin {
+  border: 1px solid var(--black);
+  padding: 32px;
+  margin: 32px 0;
+  text-align: center;
+}
+.napkin-formula {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.napkin-sub {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.8;
+}
+
+/* ASCII Art */
+.ascii-art {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre;
+  overflow-x: auto;
+  padding: 24px;
+  background: #f0f0f0;
+  margin: 24px 0;
+}
+
+/* Essay */
+.essay {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.essay p {
+  margin-bottom: 20px;
+  text-indent: 0;
+}
+
+/* Golden Line */
+.golden-line {
+  border-top: 2px solid var(--black);
+  padding: 48px 0;
+  margin-top: 48px;
+}
+.golden-line-text {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-style: italic;
+  line-height: 1.4;
+}
+.golden-line-author {
+  text-align: right;
+  font-size: 12px;
+  color: var(--mid);
+  margin-top: 24px;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  margin-top: 48px;
+  font-size: 12px;
+  color: var(--mid);
+}
+
+/* List */
+ul, ol {
+  margin: 16px 0 16px 24px;
+}
+li {
+  margin-bottom: 8px;
+}
+
+/* Highlight */
+.highlight {
+  background: #fff3cd;
+  padding: 2px 4px;
+}
+
+/* Marker (时间眉批) */
+.marker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin: 20px 0 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .hero h1 { font-size: 40px; }
+  .layer-title { font-size: 28px; }
+  .napkin-formula { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <h1>晋末长剑</h1>
+  <div class="author">孤独麦客 · 509万字 · 历史穿越</div>
+  <div class="meta">九层解书 · 青山 · 05-24 初稿 · 07-15 修订</div>
+</div>
+
+<!-- Layer 1 -->
+<div class="layer">
+  <div class="layer-header">
+    <div class="layer-num">Layer 01</div>
+    <div class="layer-title">骨架扫描</div>
+  </div>
+  <div class="layer-content">
+    <h3>这本书在说什么？</h3>
+
+    <p><strong>核心问题：</strong>西晋末年，秩序崩溃，一个穿越者能做什么？（作者试图回答什么）</p>
+
+    <p><strong>核心答案：</strong>先活下来。然后造"自己人"。然后让"自己人"去复制更多"自己人"。最终用新制度替换旧制度。</p>
+
+    <h3>章节骨架</h3>
+    <table>
+      <tr><th>卷</th><th>标题</th><th>核心事件</th></tr>
+      <tr><td>第一卷</td><td>世胄蹑高位，英俊沉下僚</td><td>邵勋入洛阳，投靠东海王司马越，从底层军户起步</td></tr>
+      <tr><td>第二卷</td><td>草木悉枯人作食，衣冠南渡各驱侵</td><td>永嘉之乱，洛阳陷落，邵勋率部突围，建立根据地</td></tr>
+      <tr><td>第三卷</td><td>男儿宁当格斗死，何能怫郁筑长城</td><td>中原逐鹿，与石勒、刘曜等胡人势力交锋</td></tr>
+      <tr><td>第四卷</td><td>北上太行山，艰哉何巍巍</td><td>经营河北，建立军镇体系，吸纳流民</td></tr>
+      <tr><td>第五卷</td><td>野云万里无城郭，雨雪纷纷连大漠</td><td>北伐与扩张，与鲜卑、匈奴等势力博弈</td></tr>
+      <tr><td>第六卷</td><td>莫问江南事，江南事可凭</td><td>南下经略，与东晋政权对峙</td></tr>
+      <tr><td>第七卷</td><td>东风不与周郎便，铜雀春深锁二乔</td><td>统一战争，最终消灭对手</td></tr>
+      <tr><td>第八卷</td><td>莫道桑榆晚，为霞尚满天</td><td>开国称帝，制度重建，权力结算</td></tr>
+    </table>
+
+    <h3>论证结构</h3>
+    <p><strong>螺旋上升型：</strong>每一卷都是"生存危机 → 制度创新 → 势力扩张 → 新的生存危机"的循环。每一轮循环的"制度创新"都在更高维度上重复。</p>
+
+    <h3>写作姿态</h3>
+    <p>作者在对"懂历史的读者"说话。大量官职、地名、史实细节不经解释直接抛出，默认读者有一定魏晋史基础。叙事冷峻，不煽情，战争场面写实，政治博弈细密。</p>
+  </div>
+</div>
+
+<!-- Layer 2 -->
+<div class="layer">
+  <div class="layer-header">
+    <div class="layer-num">Layer 02</div>
+    <div class="layer-title">血肉解剖</div>
+  </div>
+  <div class="layer-content">
+    <h3>凭什么这么说？</h3>
+
+    <h4>核心叙事链</h4>
+    <p>底层军户 → 获得小部队指挥权 → 用"学师+队主"双重身份绑定少年兵 → 建立私人部曲 → 吸纳流民 → 军镇屯田 → 地方政权 → 割据势力 → 开国称帝</p>
+
+    <h4>关键证据（陈列，细说见第八层）</h4>
+    <p><strong>证据一 · 潘园识字：</strong>邵勋在潘园教少年兵识字，用《千字文》做教材，不合格者鞭笞。（组织建设的起点，第八层细说）</p>
+
+    <p><strong>证据二 · 石桥防：</strong>军戍＋屯田＋府兵，士兵有地种、有粮吃、有仗打，一个微型社会的完整闭环。（第八层细说）</p>
+
+    <p><strong>证据三 · 德胜乡：</strong>对卢水胡部落不直接打散，设乡长、里正、保长层层分划，让部落首领当乡长却架空其实权。（渐进式编户齐民，第八层细说）</p>
+
+    <h4>隐形假设</h4>
+    <ul>
+      <li><strong>知识即权力：</strong>邵勋反复教部下识字、读兵书，因为他知道在这个时代，知识垄断是门阀统治的核心。</li>
+      <li><strong>时间站在会种地的人这边：</strong>胡人骑兵虽强，但不能种地就不能持久。邵勋的军镇体系本质是"用空间换时间"。</li>
+      <li><strong>忠诚是可以设计的：</strong>不是等部下自然忠诚，而是通过学师关系、土地绑定、婚姻联姻、共同战斗经历，系统性制造忠诚。</li>
+    </ul>
+
+    <h4>边界条件</h4>
+    <ul>
+      <li>如果邵勋没有穿越者的历史知识，他会在哪一步死？（可能在洛阳陷落时）</li>
+      <li>如果司马越没有死那么早，邵勋还能独立吗？（大概率不能，所以司马越的死是叙事转折点）</li>
+      <li>如果石勒没有统一羯人部落，邵勋的扩张会更容易吗？（会，但也会缺乏外部压力来倒逼内部整合）</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Layer 3 -->
+<div class="layer">
+  <div class="layer-header">
+    <div class="layer-num">Layer 03</div>
+    <div class="layer-title">叙事结构分析</div>
+  </div>
+  <div class="layer-content">
+    <h3>叙事动力</h3>
+    <p><strong>权力真空 + 生存焦虑</strong></p>
+    <p>西晋末年，中央权威崩溃，地方割据，胡人南下。每个人都在问：谁能保护我？邵勋的答案是：我能，但你要先成为"我的人"。</p>
+
+    <h3>核心张力</h3>
+    <p><strong>旧秩序已死，新秩序未生</strong></p>
+    <p>门阀士族垄断一切资源，但他们的制度无法应对乱世。邵勋的解决方案是：绕过门阀，直接从底层重建一套平行的组织体系。</p>
+
+    <h3>人物弧线</h3>
+    <p><strong>邵勋的内在转变：</strong></p>
+    <ul>
+      <li><strong>早期：</strong>一个想活命的穿越者，对这个世界充满疏离感（"老天爷让我穿越到这时候，玩我呢？"）</li>
+      <li><strong>中期：</strong>一个务实的军阀，明白乱世中只有组织能救命</li>
+      <li><strong>晚期：</strong>一个制度设计者，关心的是如何让新秩序自我运转</li>
+    </ul>
+    <p><strong>关键转变节点：</strong>潘园时期——他第一次从旁观者变成参与者。（这一幕，第八层细说）</p>
+
+    <h3>历史逻辑</h3>
+    <p>作者想通过这段叙事说明什么道理？</p>
+    <p><strong>制度 > 英雄</strong></p>
+    <p>邵勋不是最勇猛的将领（刘曷柱比他更能打），不是最聪明的谋士（张宾比他更有谋略），不是最有魅力的领袖（王衍比他更会说话）。但他是最会"造制度"的人。</p>
+  </div>
+</div>
+
+<!-- Layer 6 -->
+<div class="layer">
+  <div class="layer-header">
+    <div class="layer-num">Layer 06</div>
+    <div class="layer-title">灵魂提取 —— 超越作者</div>
+  </div>
+  <div class="layer-content">
+    <h3>作者盲点</h3>
+    <p>作者对"制度生成"的描写极其精彩，但对"制度衰败"的预设不足。邵勋设计了一套完美的制度，但所有制度最终都会僵化。作者没有回答：邵勋的王朝，两百年后会怎样？</p>
+
+    <h3>跨域映射</h3>
+    <table>
+      <tr><th>书中概念</th><th>其他领域对应</th></tr>
+      <tr><td>军镇屯田</td><td>【公司】创业公司早期"全员持股＋共同奋斗"，用共同投入换死忠</td></tr>
+      <tr><td>学师关系</td><td>【家庭】父母带孩子不是先教技能，是先传递归属与价值——归属感先于能力</td></tr>
+      <tr><td>编户齐民</td><td>【国家】基层治理把游离人口纳入可管理单元，登记即掌控</td></tr>
+      <tr><td>度田分地</td><td>【谈判】用未来的长期分成，绑定对方当下的让步</td></tr>
+      <tr><td>部落渐进同化</td><td>【身体】改习惯像温水煮青蛙，硬戒会反弹，渐进替换才留得住</td></tr>
+    </table>
+
+    <h3>行动触发</h3>
+    <p>读完这本书，你可以：</p>
+    <ul>
+      <li><strong>如果你经营民宿、带乡村团队：</strong>找到你的"潘园"——有没有一个场景，让本地村民和员工一起干活、一起分利、一起成长，把"雇来的人"变成"自己人"？</li>
+      <li><strong>如果你做组织：</strong>识别你的"军镇"闭环是否完整——成员有没有地种（利益）、有没有仗打（目标）、有没有学上（成长）？</li>
+      <li><strong>如果你做交易：</strong>看一个标的或对手，不看单仗输赢，看它有没有在造可复制的体系——它的"邵勋指数"高不高？</li>
+      <li><strong>如果你学历史：</strong>把"五胡乱华"重新框定为"制度竞争"——不是胡人太强，是晋人的制度太烂。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Layer 7 -->
+<div class="layer">
+  <div class="layer-header">
+    <div class="layer-num">Layer 07</div>
+    <div class="layer-title">餐巾纸压缩</div>
+  </div>
+  <div class="layer-content">
+    <div class="napkin">
+      <div class="napkin-formula">乱世生存 = 自己人 × 制度闭环 × 时间</div>
+      <div class="napkin-sub">
+        自己人 = 共同经历 + 知识传授 + 利益绑定 + 情感联结<br>
+        制度闭环 = 有地种(生存) + 有仗打(目标) + 有学上(成长)<br>
+        时间 = 胡人不能种地 → 不能持久 → 空间换时间
+      </div>
+    </div>
+
+    <h3>一句话</h3>
+    <p style="font-size: 20px; font-weight: 700; text-align: center; margin: 32px 0;">先造自己人，再造制度，时间就会站在你这边。</p>
+
+    <h3>结构图</h3>
+    <div class="ascii-art">
++----------------------------------------------------------+
+|                                                          |
+|   邵勋公式：乱世生存 = 自己人 × 制度闭环 × 时间          |
+|                                                          |
+|   自己人 = 共同经历 + 知识传授 + 利益绑定 + 情感联结     |
+|                                                          |
+|   制度闭环 = 有地种(生存) + 有仗打(目标) + 有学上(成长)  |
+|                                                          |
+|   时间 = 胡人不能种地 → 不能持久 → 空间换时间            |
+|                                                          |
++----------------------------------------------------------+
+    </div>
+  </div>
+</div>
+
+<!-- Layer 8 -->
+<div class="layer">
+  <div class="layer-header">
+    <div class="layer-num">Layer 08</div>
+    <div class="layer-title">可传播短文</div>
+  </div>
+  <div class="layer-content essay">
+    <p>前面几层按下不表的东西，现在摊开。</p>
+
+    <p>邵勋最厉害的本事不是打仗，是"造自己人"。</p>
+
+    <p>潘园里，一个十五六岁的军户少年，带着四十多个更小的少年兵，在荒草萋萋的废弃庄园里种地、练兵、识字。</p>
+
+    <p>少年兵毛二割草时伤了脚踝，邵勋让他去树下休息，派两个人照料。其他少年说："还要割草呢。"邵勋说："一人匀一点，很容易就完成了。"</p>
+
+    <p>然后他说了一句很重要的话："战场之上，刀枪无眼，谁都不希望自己被抛弃。一起割草，一起杀敌，一起吃肉，谁都不能落下。"</p>
+
+    <p>这不是鸡汤。这是组织建设的底层代码。</p>
+
+    <p>邵勋的处境是什么？他是一个穿越者，没有系统，没有金手指，没有高贵的门第。他只有"诸般武艺、骑术倒是不错，但也仅仅是经验和见识罢了"。</p>
+
+    <p>他凭什么在乱世中崛起？</p>
+
+    <p>凭他比所有人都更早明白一个道理：<strong>在秩序崩溃的时代，最稀缺的资源不是粮食、不是武器、不是地盘，而是"自己人"——那些愿意为你死、为你战、为你种地的人。</strong></p>
+
+    <p>门阀士族有"自己人"吗？有。但他们的"自己人"是血缘绑定的，是封闭的，是有限的。琅琊王氏再厉害，能有多少个王敦、王导？</p>
+
+    <p>邵勋的"自己人"是制造的。他在潘园教少年兵识字，用《千字文》做教材，不合格者鞭笞。这不是慈善，是生产线——他在批量制造"能听懂命令、能理解意图、能独立思考"的基层军官。</p>
+
+    <p>他在石桥防建军戍，给士兵分地，让他们有家可归、有田可种。这不是简单的屯田，是绑定——你把地种好了，你才能活；你活下来了，你就是我的人。</p>
+
+    <p>他在德胜乡对卢水胡部落不直接打散，而是设乡长、里正、保长，让部落首领当乡长但架空其实权。这不是软弱，是渐进——硬来会反，温水煮青蛙才能真消化。</p>
+
+    <p><strong>邵勋的本质，是一个制度工程师。</strong></p>
+
+    <p>他不是在打天下，他是在造一个能自我复制的组织。每到一个新地方，他就复制一遍"军镇+屯田+识字"的模板。模板复制得越多，他的"自己人"就越多。"自己人"越多，他能控制的地盘就越大。地盘越大，模板复制得就越快。</p>
+
+    <p>这是一个正反馈循环。</p>
+
+    <p>石勒为什么最终败给邵勋？因为石勒的"自己人"是羯人部落，是有限的、封闭的、排他的。邵勋的"自己人"是开放的、可制造的、可扩展的。</p>
+
+    <p><strong>这就是制度的力量。</strong></p>
+
+    <p>不是邵勋比石勒更勇猛、更聪明、更有魅力。是邵勋的制度比石勒的制度更能自我复制。</p>
+
+    <p>读完这本书，我一直在想：如果把我放到邵勋的位置上，我能做到哪一步？</p>
+
+    <p>大概率，我在洛阳陷落时就死了。</p>
+
+    <p>不是因为我不够聪明，是因为我没有邵勋那种"从第一天就开始造自己人"的自觉。</p>
+
+    <p>大多数人，包括大多数领导者，都是在需要人的时候才想起来找人。邵勋不是。他在只有四十多个少年兵的时候，就开始系统性制造"自己人"了。</p>
+
+    <p><strong>这才是真正的远见。</strong></p>
+
+    <p>不是看到未来会发生什么，而是看到未来需要什么，然后从今天开始准备。</p>
+  </div>
+</div>
+
+<!-- Layer 9 -->
+<div class="golden-line">
+  <div class="golden-line-text">乱世里，最先死的不是弱者，是孤单的人。</div>
+  <div class="golden-line-author">青山 · 2026-05-24</div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    青山 · 05-24 初稿 · 07-15 修订 · 《晋末长剑》九层解书
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>

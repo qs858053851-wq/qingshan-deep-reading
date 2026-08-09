@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="青山的开放书房：520 份关于历史、文学、哲学、宗教与社会的深度阅读。">
+  <meta name="theme-color" content="#f3efe5">
+  <title>青山深度阅读 · 一间开放的书房</title>
+  <style>
+    :root {
+      --ink: #23231f;
+      --muted: #69685f;
+      --paper: #fffdf7;
+      --ground: #f3efe5;
+      --line: #d9d2c3;
+      --rust: #a4472b;
+      --moss: #4f6651;
+      --shadow: 0 18px 52px rgba(45, 38, 25, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 6%, rgba(164, 71, 43, .07), transparent 28rem),
+        radial-gradient(circle at 92% 24%, rgba(79, 102, 81, .08), transparent 24rem),
+        var(--ground);
+      font-family: "Songti SC", "STSong", "Noto Serif SC", Georgia, serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .masthead { padding: 84px 0 54px; border-bottom: 1px solid var(--line); }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      color: var(--rust);
+      font: 700 12px/1.2 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 42px; height: 1px; background: currentColor; }
+    h1 { max-width: 900px; margin: 0; font-size: clamp(46px, 8vw, 94px); line-height: 1.02; letter-spacing: -.055em; font-weight: 700; }
+    .lead { max-width: 730px; margin: 28px 0 0; color: #4e4d46; font-size: clamp(18px, 2vw, 22px); line-height: 1.9; }
+    .lead strong { color: var(--ink); font-weight: 700; }
+    .top-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 34px; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; font-size: 14px; }
+    .top-links a { color: var(--moss); text-decoration: none; border-bottom: 1px solid rgba(79, 102, 81, .35); }
+    .numbers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: 54px; background: var(--line); border: 1px solid var(--line); }
+    .number { padding: 22px 24px; background: rgba(255, 253, 247, .75); }
+    .number b { display: block; font: 650 clamp(24px, 4vw, 38px)/1.1 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; letter-spacing: -.04em; }
+    .number span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; }
+    .reading-room { padding: 54px 0 100px; }
+    .room-head { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: end; }
+    .room-head h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); letter-spacing: -.04em; line-height: 1.2; }
+    .room-head p { margin: 10px 0 0; color: var(--muted); }
+    .random-link { color: var(--rust); background: transparent; border: 0; padding: 8px 0; cursor: pointer; border-bottom: 1px solid rgba(164, 71, 43, .35); }
+    .tools { position: sticky; top: 0; z-index: 10; margin: 28px 0 24px; padding: 15px; background: rgba(243, 239, 229, .91); border: 1px solid var(--line); backdrop-filter: blur(14px); box-shadow: 0 10px 34px rgba(45, 38, 25, .04); }
+    .search-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+    .search {
+      width: 100%; border: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); padding: 14px 16px; outline: none;
+    }
+    .search:focus { border-color: var(--rust); box-shadow: 0 0 0 3px rgba(164, 71, 43, .08); }
+    .count { min-width: 106px; display: grid; place-items: center; color: var(--muted); border: 1px solid var(--line); background: var(--paper); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; font-size: 13px; }
+    .filters { display: flex; gap: 8px; margin-top: 12px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: thin; }
+    .filter { flex: 0 0 auto; border: 1px solid var(--line); background: transparent; color: var(--muted); padding: 7px 12px; cursor: pointer; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; font-size: 12px; }
+    .filter:hover, .filter.active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+    .books { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .book { min-height: 204px; padding: 22px; background: rgba(255, 253, 247, .8); border: 1px solid var(--line); box-shadow: var(--shadow); display: flex; flex-direction: column; transition: transform .18s ease, border-color .18s ease; }
+    .book:hover { transform: translateY(-3px); border-color: #b9ae9a; }
+    .book-meta { display: flex; gap: 10px; justify-content: space-between; color: var(--muted); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; font-size: 11px; letter-spacing: .04em; }
+    .book h3 { margin: 22px 0 12px; font-size: 24px; line-height: 1.35; letter-spacing: -.025em; }
+    .formats { display: flex; gap: 16px; margin-top: auto; padding-top: 20px; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif; font-size: 13px; }
+    .formats a { color: var(--moss); text-decoration: none; }
+    .formats a:first-child { color: var(--rust); }
+    .empty { grid-column: 1 / -1; padding: 70px 20px; text-align: center; border: 1px dashed var(--line); color: var(--muted); background: rgba(255, 253, 247, .45); }
+    .load-more { display: block; margin: 28px auto 0; min-width: 180px; border: 1px solid var(--ink); background: transparent; color: var(--ink); padding: 12px 20px; cursor: pointer; }
+    .load-more:hover { background: var(--ink); color: var(--paper); }
+    .load-more[hidden] { display: none; }
+    .note { margin-top: 70px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+    .note article { padding: 30px; background: var(--paper); }
+    .note h3 { margin: 0 0 12px; font-size: 22px; }
+    .note p { margin: 0; color: var(--muted); }
+    footer { padding: 32px 0 54px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    footer .shell { display: flex; justify-content: space-between; gap: 24px; }
+    footer a { color: var(--moss); text-decoration: none; }
+    @media (max-width: 900px) { .books { grid-template-columns: repeat(2, minmax(0, 1fr)); } .numbers { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      .masthead { padding-top: 58px; }
+      .room-head { grid-template-columns: 1fr; align-items: start; }
+      .random-link { justify-self: start; }
+      .books { grid-template-columns: 1fr; }
+      .book { min-height: 184px; }
+      .note { grid-template-columns: 1fr; }
+      footer .shell { display: block; }
+      footer p + p { margin-top: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .book { transition: none; } }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell">
+      <p class="eyebrow">Qingshan · Open Reading Room</p>
+      <h1>读书，是把别人的问题，带回自己的生命。</h1>
+      <p class="lead">这里不是“几分钟读完一本书”的捷径，而是一份持续生长的理解史。<strong>每篇解读都保留判断，也保留判断可能被改写的余地。</strong></p>
+      <nav class="top-links" aria-label="项目说明">
+        <a href="README.md">为什么开放</a>
+        <a href="CONTRIBUTING.md">一起勘误与讨论</a>
+        <a href="LICENSE.zh-CN.md">如何转载</a>
+        <a href="SANITIZATION.md">公开版清理说明</a>
+        <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 仓库</a>
+      </nav>
+      <div class="numbers" aria-label="馆藏统计">
+        <div class="number"><b id="totalCount">520</b><span>个阅读条目</span></div>
+        <div class="number"><b id="htmlCount">516</b><span>篇可视化长文</span></div>
+        <div class="number"><b id="mdCount">518</b><span>份 Markdown 文本</span></div>
+        <div class="number"><b id="categoryCount">9</b><span>条宽泛找书路径</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="reading-room">
+    <div class="shell">
+      <div class="room-head">
+        <div>
+          <h2>在书架间慢慢走</h2>
+          <p>搜书名，或者沿着一个主题随手翻。分类只是路标，不是边界。</p>
+        </div>
+        <button class="random-link" id="randomBook" type="button">替我随手抽一本</button>
+      </div>
+
+      <div class="tools">
+        <div class="search-row">
+          <label>
+            <span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">搜索书名</span>
+            <input id="search" class="search" type="search" placeholder="输入书名，例如：庄子、乡土中国、反脆弱……" autocomplete="off">
+          </label>
+          <div class="count" id="resultCount" aria-live="polite">正在开门…</div>
+        </div>
+        <div class="filters" id="filters" aria-label="主题筛选"></div>
+      </div>
+
+      <section class="books" id="books" aria-label="阅读条目"></section>
+      <button class="load-more" id="loadMore" type="button" hidden>再看一些</button>
+
+      <section class="note" aria-label="阅读边界">
+        <article>
+          <h3>解读不是原书</h3>
+          <p>这些文章是一扇门，不是一条绕开原作的近路。最好的结果，不是让你觉得“我已经读过”，而是让你带着一个更好的问题重新走向原书。</p>
+        </article>
+        <article>
+          <h3>判断不是定论</h3>
+          <p>这里有事实，也有理解、推断与偏爱。欢迎用出处纠正事实，用完整论证提出异议。阅读的公共意义，不是大家得出同一个答案。</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <p>青山深度阅读 · 一间仍在生长的开放书房</p>
+      <p><a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0</a> · 部分内容涉及成人、政治、宗教、战争与创伤，请按自身处境选择阅读。</p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const books = document.querySelector('#books');
+      const search = document.querySelector('#search');
+      const filters = document.querySelector('#filters');
+      const count = document.querySelector('#resultCount');
+      const loadMore = document.querySelector('#loadMore');
+      const randomBook = document.querySelector('#randomBook');
+      const pageSize = 36;
+      let data = [];
+      let selected = '全部';
+      let visible = pageSize;
+
+      const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+      })[char]);
+
+      function currentEntries() {
+        const query = search.value.trim().toLocaleLowerCase('zh-CN');
+        return data.filter(entry => {
+          const inCategory = selected === '全部' || entry.category === selected;
+          const inSearch = !query || `${entry.title} ${entry.category} ${entry.date}`.toLocaleLowerCase('zh-CN').includes(query);
+          return inCategory && inSearch;
+        });
+      }
+
+      function render() {
+        const entries = currentEntries();
+        const shown = entries.slice(0, visible);
+        count.textContent = `${entries.length} 本`;
+        if (!shown.length) {
+          books.innerHTML = '<div class="empty">这条路上暂时没有书。换一个词，或者清空筛选再走走。</div>';
+        } else {
+          books.innerHTML = shown.map(entry => {
+            const links = [];
+            if (entry.html) links.push(`<a href="${escapeHtml(entry.html)}">打开阅读</a>`);
+            if (entry.markdown) links.push(`<a href="${escapeHtml(entry.markdown)}">Markdown</a>`);
+            return `<article class="book">
+              <div class="book-meta"><span>${escapeHtml(entry.category)}</span><time>${escapeHtml(entry.date)}</time></div>
+              <h3>${escapeHtml(entry.title)}</h3>
+              <div class="formats">${links.join('')}</div>
+            </article>`;
+          }).join('');
+        }
+        loadMore.hidden = visible >= entries.length;
+      }
+
+      function setCategory(category) {
+        selected = category;
+        visible = pageSize;
+        filters.querySelectorAll('button').forEach(button => {
+          const active = button.dataset.category === category;
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        render();
+      }
+
+      fetch('readings.json')
+        .then(response => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then(payload => {
+          data = payload.entries || [];
+          document.querySelector('#totalCount').textContent = payload.count;
+          document.querySelector('#htmlCount').textContent = payload.htmlCount;
+          document.querySelector('#mdCount').textContent = payload.markdownCount;
+          document.querySelector('#categoryCount').textContent = Object.keys(payload.categories || {}).length;
+          const categories = ['全部', ...Object.keys(payload.categories || {}).filter(name => name !== '其他阅读'), '其他阅读'];
+          filters.innerHTML = categories.map(category => `<button class="filter${category === '全部' ? ' active' : ''}" type="button" data-category="${escapeHtml(category)}" aria-pressed="${category === '全部'}">${escapeHtml(category)}</button>`).join('');
+          filters.addEventListener('click', event => {
+            const button = event.target.closest('button[data-category]');
+            if (button) setCategory(button.dataset.category);
+          });
+          render();
+        })
+        .catch(() => {
+          count.textContent = '书架未载入';
+          books.innerHTML = '<div class="empty">书房索引暂时没有打开。你仍可从 GitHub 仓库进入 readings 与 markdown 目录阅读。</div>';
+        });
+
+      search.addEventListener('input', () => { visible = pageSize; render(); });
+      loadMore.addEventListener('click', () => { visible += pageSize; render(); });
+      randomBook.addEventListener('click', () => {
+        const entries = currentEntries();
+        if (!entries.length) return;
+        const entry = entries[Math.floor(Math.random() * entries.length)];
+        window.location.href = entry.html || entry.markdown;
+      });
+    })();
+  </script>
+</body>
+</html>

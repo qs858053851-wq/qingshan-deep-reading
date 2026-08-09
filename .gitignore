@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor and temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.bak
+.fuse_hidden*
+.write-test.txt
+
+# Private sanitization rules
+.qingshan-public-rules.json
+*public-rules*.json
+
+# Local runtime output
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+
+# Local preview and audit output
+.preview/
+.audit/
