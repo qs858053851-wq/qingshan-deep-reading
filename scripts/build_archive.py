@@ -385,7 +385,11 @@ def build(source: Path) -> int:
         digest.update(path.relative_to(REPO_ROOT).as_posix().encode())
         digest.update(path.read_bytes())
 
-    change_total = sum(changes.values())
+    identity_keys = {"literal identity edit", "contextual identity edit"}
+    identity_total = sum(changes[key] for key in identity_keys)
+    publishing_cleanup_total = sum(
+        count for label, count in changes.items() if label not in identity_keys
+    )
     report = f"""# 公开版清理说明
 
 这份仓库由私人阅读档案生成。原始文件保留在本地，公开版只复制正式的 HTML 与 Markdown，并在发布前做身份与安全清理。
@@ -395,7 +399,8 @@ def build(source: Path) -> int:
 - 阅读条目：{len(entries)}
 - HTML：{sum(bool(entry.html_name) for entry in entries)}
 - Markdown：{sum(bool(entry.md_name) for entry in entries)}
-- 身份化措辞转换：{change_total} 处
+- 身份化措辞转换：{identity_total} 处
+- 其他发布清理（远程字体、内部草稿提示、链接等）：{publishing_cleanup_total} 处
 - 仅有 HTML 的条目：{len(html_only)}
 - 仅有 Markdown 的条目：{len(md_only)}
 - 安全扫描：通过
@@ -417,7 +422,8 @@ def build(source: Path) -> int:
 
     print(
         f"Built {len(entries)} entries: {payload['htmlCount']} HTML, "
-        f"{payload['markdownCount']} Markdown; {change_total} identity edits."
+        f"{payload['markdownCount']} Markdown; {identity_total} identity edits, "
+        f"{publishing_cleanup_total} publishing cleanups."
     )
     return 0
 
