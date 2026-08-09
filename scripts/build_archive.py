@@ -137,11 +137,11 @@ def normalize_text(text: str) -> tuple[str, Counter[str]]:
         count = text.count(old)
         if count:
             text = text.replace(old, new)
-            changes["literal identity edit"] += count
+            changes["private text edit"] += count
     for pattern, replacement in regex_replacements:
         text, count = pattern.subn(replacement, text)
         if count:
-            changes["contextual identity edit"] += count
+            changes["private contextual edit"] += count
     return text, changes
 
 
@@ -225,32 +225,6 @@ def rewrite_markdown_html_link(text: str, html_name: str | None) -> tuple[str, i
     return text, rewritten
 
 
-def remove_production_meta(text: str) -> tuple[str, int]:
-    """Remove internal tool and collaborator labels while keeping research limits."""
-    literal = [
-        ("索菲娅协作", "共同整理"),
-        ("解书：索菲娅", "解读：青山"),
-        ("索菲娅解书", "青山解读"),
-        ("九层解书 · 索菲娅 🦉", "九层解书 · 青山"),
-        ("九层解书 · 索菲娅", "九层解书 · 青山"),
-        ("解书于 MyAgents", "青山深度阅读"),
-        ("deep-reading-extractor 子代理", "辅助索引"),
-        ("deep-reading-extractor 轻索引", "辅助索引"),
-        ("deep-reading-extractor", "辅助索引工具"),
-        ("子代理对原文的定点精读", "辅助工具对原文的定点精读"),
-        ("子代理轻索引", "辅助索引"),
-        ("子代理", "辅助工具"),
-        ("九层解书工作流", "九层深度解读"),
-    ]
-    changed = 0
-    for old, new in literal:
-        count = text.count(old)
-        if count:
-            text = text.replace(old, new)
-            changed += count
-    return text, changed
-
-
 def remove_internal_workflow_notes(text: str) -> tuple[str, int]:
     """Drop drafting instructions that are not part of the public essay."""
     patterns = [
@@ -273,9 +247,6 @@ def remove_internal_workflow_notes(text: str) -> tuple[str, int]:
 def copy_clean(path: Path, destination: Path, html_name: str | None = None) -> tuple[str, Counter[str]]:
     original = path.read_text(encoding="utf-8", errors="strict")
     cleaned, changes = normalize_text(original)
-    cleaned, production_edits = remove_production_meta(cleaned)
-    if production_edits:
-        changes["removed production metadata"] += production_edits
     cleaned, removed_notes = remove_internal_workflow_notes(cleaned)
     if removed_notes:
         changes["removed internal drafting notes"] += removed_notes
@@ -414,10 +385,10 @@ def build(source: Path) -> int:
         digest.update(path.relative_to(REPO_ROOT).as_posix().encode())
         digest.update(path.read_bytes())
 
-    identity_keys = {"literal identity edit", "contextual identity edit"}
-    identity_total = sum(changes[key] for key in identity_keys)
+    private_edit_keys = {"private text edit", "private contextual edit"}
+    private_edit_total = sum(changes[key] for key in private_edit_keys)
     publishing_cleanup_total = sum(
-        count for label, count in changes.items() if label not in identity_keys
+        count for label, count in changes.items() if label not in private_edit_keys
     )
     report = f"""# 公开版清理说明
 
@@ -428,7 +399,7 @@ def build(source: Path) -> int:
 - 阅读条目：{len(entries)}
 - HTML：{sum(bool(entry.html_name) for entry in entries)}
 - Markdown：{sum(bool(entry.md_name) for entry in entries)}
-- 身份化措辞转换：{identity_total} 处
+- 私人文本与生产元话语转换：{private_edit_total} 处
 - 其他发布清理（远程字体、内部草稿提示、链接等）：{publishing_cleanup_total} 处
 - 仅有 HTML 的条目：{len(html_only)}
 - 仅有 Markdown 的条目：{len(md_only)}
@@ -451,7 +422,7 @@ def build(source: Path) -> int:
 
     print(
         f"Built {len(entries)} entries: {payload['htmlCount']} HTML, "
-        f"{payload['markdownCount']} Markdown; {identity_total} identity edits, "
+        f"{payload['markdownCount']} Markdown; {private_edit_total} private text edits, "
         f"{publishing_cleanup_total} publishing cleanups."
     )
     return 0
