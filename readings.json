@@ -1,21 +1,22 @@
 {
-  "updated": "2026-08-09",
-  "count": 520,
-  "htmlCount": 516,
-  "markdownCount": 518,
+  "updated": "2026-08-22",
+  "count": 555,
+  "htmlCount": 551,
+  "markdownCount": 553,
   "categories": {
     "人类学与民族志": 13,
-    "传记与回忆录": 8,
+    "传记与回忆录": 10,
     "健康与生活": 4,
-    "历史与文明": 100,
+    "其他阅读": 24,
+    "历史与文明": 105,
     "古典文献与国学": 4,
-    "哲学与思想": 33,
+    "哲学与思想": 34,
     "宗教与灵性": 61,
     "实用与技能": 12,
     "心理学与自我": 37,
-    "性文化与身体": 19,
+    "性文化与身体": 21,
     "文学与小说": 98,
-    "社会与政治": 64,
+    "社会与政治": 65,
     "神话与民俗": 11,
     "科幻与悬疑": 19,
     "科普与科学": 10,
@@ -24,6 +25,321 @@
     "诗歌与词赋": 3
   },
   "entries": [
+    {
+      "title": "齐民要术",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T001929--%E8%A7%A3%E4%B9%A6-%E9%BD%90%E6%B0%91%E8%A6%81%E6%9C%AF.html",
+      "markdown": "markdown/20260822T001929--%E8%A7%A3%E4%B9%A6-%E9%BD%90%E6%B0%91%E8%A6%81%E6%9C%AF.md",
+      "htmlBytes": 14093,
+      "markdownBytes": 8389
+    },
+    {
+      "title": "韩战：抗美援朝",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/%E9%9F%A9%E6%88%98%EF%BC%9A%E6%8A%97%E7%BE%8E%E6%8F%B4%E6%9C%9D_2026-08-22.html",
+      "markdown": "markdown/%E9%9F%A9%E6%88%98%EF%BC%9A%E6%8A%97%E7%BE%8E%E6%8F%B4%E6%9C%9D_2026-08-22.md",
+      "htmlBytes": 31327,
+      "markdownBytes": 27516
+    },
+    {
+      "title": "谬误与真相",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/%E8%B0%AC%E8%AF%AF%E4%B8%8E%E7%9C%9F%E7%9B%B8_2026-08-22.html",
+      "markdown": "markdown/%E8%B0%AC%E8%AF%AF%E4%B8%8E%E7%9C%9F%E7%9B%B8_2026-08-22.md",
+      "htmlBytes": 29137,
+      "markdownBytes": 26179
+    },
+    {
+      "title": "腐败：权力如何崩坏人性",
+      "date": "2026-08-22",
+      "category": "社会与政治",
+      "html": "readings/%E8%85%90%E8%B4%A5%EF%BC%9A%E6%9D%83%E5%8A%9B%E5%A6%82%E4%BD%95%E5%B4%A9%E5%9D%8F%E4%BA%BA%E6%80%A7_2026-08-22.html",
+      "markdown": "markdown/%E8%85%90%E8%B4%A5%EF%BC%9A%E6%9D%83%E5%8A%9B%E5%A6%82%E4%BD%95%E5%B4%A9%E5%9D%8F%E4%BA%BA%E6%80%A7_2026-08-22.md",
+      "htmlBytes": 31337,
+      "markdownBytes": 27208
+    },
+    {
+      "title": "知宋",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/%E7%9F%A5%E5%AE%8B_2026-08-22.html",
+      "markdown": "markdown/%E7%9F%A5%E5%AE%8B_2026-08-22.md",
+      "htmlBytes": 25638,
+      "markdownBytes": 21928
+    },
+    {
+      "title": "白崇禧先生访问记录",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/%E7%99%BD%E5%B4%87%E7%A6%A7%E5%85%88%E7%94%9F%E8%AE%BF%E9%97%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%8A%E5%86%8C%EF%BC%89_2026-08-22.html",
+      "markdown": "markdown/%E7%99%BD%E5%B4%87%E7%A6%A7%E5%85%88%E7%94%9F%E8%AE%BF%E9%97%AE%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%8A%E5%86%8C%EF%BC%89_2026-08-22.md",
+      "htmlBytes": 32994,
+      "markdownBytes": 29129
+    },
+    {
+      "title": "潜夫论",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T022645--%E8%A7%A3%E4%B9%A6-%E6%BD%9C%E5%A4%AB%E8%AE%BA.html",
+      "markdown": "markdown/20260822T022645--%E8%A7%A3%E4%B9%A6-%E6%BD%9C%E5%A4%AB%E8%AE%BA.md",
+      "htmlBytes": 14934,
+      "markdownBytes": 9080
+    },
+    {
+      "title": "洛阳伽蓝记",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T022615--%E8%A7%A3%E4%B9%A6-%E6%B4%9B%E9%98%B3%E4%BC%BD%E8%93%9D%E8%AE%B0.html",
+      "markdown": "markdown/20260822T022615--%E8%A7%A3%E4%B9%A6-%E6%B4%9B%E9%98%B3%E4%BC%BD%E8%93%9D%E8%AE%B0.md",
+      "htmlBytes": 15156,
+      "markdownBytes": 9357
+    },
+    {
+      "title": "法言",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T001901--%E8%A7%A3%E4%B9%A6-%E6%B3%95%E8%A8%80.html",
+      "markdown": "markdown/20260822T001901--%E8%A7%A3%E4%B9%A6-%E6%B3%95%E8%A8%80.md",
+      "htmlBytes": 13756,
+      "markdownBytes": 8016
+    },
+    {
+      "title": "折狱龟鉴",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T022630--%E8%A7%A3%E4%B9%A6-%E6%8A%98%E7%8B%B1%E9%BE%9F%E9%89%B4.html",
+      "markdown": "markdown/20260822T022630--%E8%A7%A3%E4%B9%A6-%E6%8A%98%E7%8B%B1%E9%BE%9F%E9%89%B4.md",
+      "htmlBytes": 14859,
+      "markdownBytes": 9011
+    },
+    {
+      "title": "在大漠那边",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/%E5%9C%A8%E5%A4%A7%E6%BC%A0%E9%82%A3%E8%BE%B9%EF%BC%9A%E8%BF%91%E4%B8%96%E7%9A%84%E8%92%99%E5%8F%A4%E4%B8%8E%E6%88%98%E4%BA%89_2026-08-22.html",
+      "markdown": "markdown/%E5%9C%A8%E5%A4%A7%E6%BC%A0%E9%82%A3%E8%BE%B9%EF%BC%9A%E8%BF%91%E4%B8%96%E7%9A%84%E8%92%99%E5%8F%A4%E4%B8%8E%E6%88%98%E4%BA%89_2026-08-22.md",
+      "htmlBytes": 33592,
+      "markdownBytes": 29731
+    },
+    {
+      "title": "南北战争三百年",
+      "date": "2026-08-22",
+      "category": "历史与文明",
+      "html": "readings/%E5%8D%97%E5%8C%97%E6%88%98%E4%BA%89%E4%B8%89%E7%99%BE%E5%B9%B4_2026-08-22.html",
+      "markdown": "markdown/%E5%8D%97%E5%8C%97%E6%88%98%E4%BA%89%E4%B8%89%E7%99%BE%E5%B9%B4_2026-08-22.md",
+      "htmlBytes": 21898,
+      "markdownBytes": 18329
+    },
+    {
+      "title": "列女传",
+      "date": "2026-08-22",
+      "category": "传记与回忆录",
+      "html": "readings/20260822T014500--%E8%A7%A3%E4%B9%A6-%E5%88%97%E5%A5%B3%E4%BC%A0.html",
+      "markdown": "markdown/20260822T014500--%E8%A7%A3%E4%B9%A6-%E5%88%97%E5%A5%B3%E4%BC%A0.md",
+      "htmlBytes": 14795,
+      "markdownBytes": 9000
+    },
+    {
+      "title": "公孙龙子外三种",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T001915--%E8%A7%A3%E4%B9%A6-%E5%85%AC%E5%AD%99%E9%BE%99%E5%AD%90%E5%A4%96%E4%B8%89%E7%A7%8D.html",
+      "markdown": "markdown/20260822T001915--%E8%A7%A3%E4%B9%A6-%E5%85%AC%E5%AD%99%E9%BE%99%E5%AD%90%E5%A4%96%E4%B8%89%E7%A7%8D.md",
+      "htmlBytes": 14061,
+      "markdownBytes": 8538
+    },
+    {
+      "title": "停滞的帝国",
+      "date": "2026-08-22",
+      "category": "历史与文明",
+      "html": "readings/%E5%81%9C%E6%BB%9E%E7%9A%84%E5%B8%9D%E5%9B%BD_2026-08-22.html",
+      "markdown": "markdown/%E5%81%9C%E6%BB%9E%E7%9A%84%E5%B8%9D%E5%9B%BD_2026-08-22.md",
+      "htmlBytes": 24224,
+      "markdownBytes": 21016
+    },
+    {
+      "title": "伤寒论",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T022600--%E8%A7%A3%E4%B9%A6-%E4%BC%A4%E5%AF%92%E8%AE%BA.html",
+      "markdown": "markdown/20260822T022600--%E8%A7%A3%E4%B9%A6-%E4%BC%A4%E5%AF%92%E8%AE%BA.md",
+      "htmlBytes": 14933,
+      "markdownBytes": 9094
+    },
+    {
+      "title": "人物志",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T001940--%E8%A7%A3%E4%B9%A6-%E4%BA%BA%E7%89%A9%E5%BF%97.html",
+      "markdown": "markdown/20260822T001940--%E8%A7%A3%E4%B9%A6-%E4%BA%BA%E7%89%A9%E5%BF%97.md",
+      "htmlBytes": 14340,
+      "markdownBytes": 8544
+    },
+    {
+      "title": "五次围剿",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/%E4%BA%94%E6%AC%A1%E5%9B%B4%E5%89%BF_2026-08-22.html",
+      "markdown": "markdown/%E4%BA%94%E6%AC%A1%E5%9B%B4%E5%89%BF_2026-08-22.md",
+      "htmlBytes": 33908,
+      "markdownBytes": 30069
+    },
+    {
+      "title": "丰臣西军与关原之战",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%B0%E8%87%A3%E8%A5%BF%E5%86%9B%E4%B8%8E%E5%85%B3%E5%8E%9F%E4%B9%8B%E6%88%98_2026-08-22.html",
+      "markdown": "markdown/%E4%B8%B0%E8%87%A3%E8%A5%BF%E5%86%9B%E4%B8%8E%E5%85%B3%E5%8E%9F%E4%B9%8B%E6%88%98_2026-08-22.md",
+      "htmlBytes": 23878,
+      "markdownBytes": 20303
+    },
+    {
+      "title": "东坡志林",
+      "date": "2026-08-22",
+      "category": "其他阅读",
+      "html": "readings/20260822T012500--%E8%A7%A3%E4%B9%A6-%E4%B8%9C%E5%9D%A1%E5%BF%97%E6%9E%97.html",
+      "markdown": "markdown/20260822T012500--%E8%A7%A3%E4%B9%A6-%E4%B8%9C%E5%9D%A1%E5%BF%97%E6%9E%97.md",
+      "htmlBytes": 14639,
+      "markdownBytes": 8754
+    },
+    {
+      "title": "西方哲学之旅上卷：古代 ＋ 中世纪",
+      "date": "2026-08-21",
+      "category": "哲学与思想",
+      "html": "readings/20260821T005717--%E8%A7%A3%E4%B9%A6-%E8%A5%BF%E6%96%B9%E5%93%B2%E5%AD%A6%E4%B9%8B%E6%97%85.html",
+      "markdown": "markdown/20260821T005717--%E8%A7%A3%E4%B9%A6-%E8%A5%BF%E6%96%B9%E5%93%B2%E5%AD%A6%E4%B9%8B%E6%97%85.md",
+      "htmlBytes": 40969,
+      "markdownBytes": 11261
+    },
+    {
+      "title": "两性勾搭指南",
+      "date": "2026-08-20",
+      "category": "性文化与身体",
+      "html": "readings/%E4%B8%A4%E6%80%A7%E5%8B%BE%E6%90%AD%E6%8C%87%E5%8D%97_2026-08-20.html",
+      "markdown": "markdown/%E4%B8%A4%E6%80%A7%E5%8B%BE%E6%90%AD%E6%8C%87%E5%8D%97_2026-08-20.md",
+      "htmlBytes": 29042,
+      "markdownBytes": 23279
+    },
+    {
+      "title": "1959拉萨达赖喇嘛如何出走",
+      "date": "2026-08-20",
+      "category": "其他阅读",
+      "html": "readings/1959%E6%8B%89%E8%90%A8%EF%BC%9A%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B%E5%A6%82%E4%BD%95%E5%87%BA%E8%B5%B0_2026-08-20.html",
+      "markdown": "markdown/1959%E6%8B%89%E8%90%A8%EF%BC%9A%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B%E5%A6%82%E4%BD%95%E5%87%BA%E8%B5%B0_2026-08-20.md",
+      "htmlBytes": 25860,
+      "markdownBytes": 20675
+    },
+    {
+      "title": "海与帝国明清时代",
+      "date": "2026-08-17",
+      "category": "历史与文明",
+      "html": "readings/20260817T221706--%E8%A7%A3%E4%B9%A6-%E6%B5%B7%E4%B8%8E%E5%B8%9D%E5%9B%BD%EF%BC%9A%E6%98%8E%E6%B8%85%E6%97%B6%E4%BB%A3.html",
+      "markdown": "markdown/20260817T221706--%E8%A7%A3%E4%B9%A6-%E6%B5%B7%E4%B8%8E%E5%B8%9D%E5%9B%BD%EF%BC%9A%E6%98%8E%E6%B8%85%E6%97%B6%E4%BB%A3.md",
+      "htmlBytes": 30389,
+      "markdownBytes": 7339
+    },
+    {
+      "title": "独立记者",
+      "date": "2026-08-16",
+      "category": "其他阅读",
+      "html": "readings/%E7%8B%AC%E7%AB%8B%E8%AE%B0%E8%80%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-16.html",
+      "markdown": "markdown/%E7%8B%AC%E7%AB%8B%E8%AE%B0%E8%80%85_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-16.md",
+      "htmlBytes": 32884,
+      "markdownBytes": 26665
+    },
+    {
+      "title": "阅读素养",
+      "date": "2026-08-14",
+      "category": "传记与回忆录",
+      "html": "readings/%E9%98%85%E8%AF%BB%E7%B4%A0%E5%85%BB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E9%98%85%E8%AF%BB%E7%B4%A0%E5%85%BB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 36866,
+      "markdownBytes": 30301
+    },
+    {
+      "title": "重生的观音：第三个西藏的故事",
+      "date": "2026-08-14",
+      "category": "其他阅读",
+      "html": "readings/%E9%87%8D%E7%94%9F%E7%9A%84%E8%A7%82%E9%9F%B3%EF%BC%9A%E7%AC%AC%E4%B8%89%E4%B8%AA%E8%A5%BF%E8%97%8F%E7%9A%84%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E9%87%8D%E7%94%9F%E7%9A%84%E8%A7%82%E9%9F%B3%EF%BC%9A%E7%AC%AC%E4%B8%89%E4%B8%AA%E8%A5%BF%E8%97%8F%E7%9A%84%E6%95%85%E4%BA%8B_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 32251,
+      "markdownBytes": 26778
+    },
+    {
+      "title": "胡适的顿挫",
+      "date": "2026-08-14",
+      "category": "其他阅读",
+      "html": "readings/%E8%83%A1%E9%80%82%E7%9A%84%E9%A1%BF%E6%8C%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E8%83%A1%E9%80%82%E7%9A%84%E9%A1%BF%E6%8C%AB_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 37819,
+      "markdownBytes": 31059
+    },
+    {
+      "title": "海与帝国：明清时代",
+      "date": "2026-08-14",
+      "category": "历史与文明",
+      "html": "readings/%E6%B5%B7%E4%B8%8E%E5%B8%9D%E5%9B%BD%EF%BC%9A%E6%98%8E%E6%B8%85%E6%97%B6%E4%BB%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E6%B5%B7%E4%B8%8E%E5%B8%9D%E5%9B%BD%EF%BC%9A%E6%98%8E%E6%B8%85%E6%97%B6%E4%BB%A3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 36837,
+      "markdownBytes": 30221
+    },
+    {
+      "title": "情色朝鲜",
+      "date": "2026-08-14",
+      "category": "性文化与身体",
+      "html": "readings/%E6%83%85%E8%89%B2%E6%9C%9D%E9%B2%9C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E6%83%85%E8%89%B2%E6%9C%9D%E9%B2%9C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 31750,
+      "markdownBytes": 26193
+    },
+    {
+      "title": "悲欢离合四十年",
+      "date": "2026-08-14",
+      "category": "其他阅读",
+      "html": "readings/%E6%82%B2%E6%AC%A2%E7%A6%BB%E5%90%88%E5%9B%9B%E5%8D%81%E5%B9%B4%EF%BC%9A%E7%99%BD%E5%B4%87%E7%A6%A7%E4%B8%8E%E8%92%8B%E4%BB%8B%E7%9F%B3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E6%82%B2%E6%AC%A2%E7%A6%BB%E5%90%88%E5%9B%9B%E5%8D%81%E5%B9%B4%EF%BC%9A%E7%99%BD%E5%B4%87%E7%A6%A7%E4%B8%8E%E8%92%8B%E4%BB%8B%E7%9F%B3_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 37326,
+      "markdownBytes": 30808
+    },
+    {
+      "title": "总统俱乐部",
+      "date": "2026-08-14",
+      "category": "其他阅读",
+      "html": "readings/%E6%80%BB%E7%BB%9F%E4%BF%B1%E4%B9%90%E9%83%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E6%80%BB%E7%BB%9F%E4%BF%B1%E4%B9%90%E9%83%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 37849,
+      "markdownBytes": 31089
+    },
+    {
+      "title": "康熙：重构一位中国皇帝的内心世界",
+      "date": "2026-08-14",
+      "category": "历史与文明",
+      "html": "readings/%E5%BA%B7%E7%86%99%EF%BC%9A%E9%87%8D%E6%9E%84%E4%B8%80%E4%BD%8D%E4%B8%AD%E5%9B%BD%E7%9A%87%E5%B8%9D%E7%9A%84%E5%86%85%E5%BF%83%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E5%BA%B7%E7%86%99%EF%BC%9A%E9%87%8D%E6%9E%84%E4%B8%80%E4%BD%8D%E4%B8%AD%E5%9B%BD%E7%9A%87%E5%B8%9D%E7%9A%84%E5%86%85%E5%BF%83%E4%B8%96%E7%95%8C_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 30961,
+      "markdownBytes": 25386
+    },
+    {
+      "title": "寻道者赵紫阳（上册）",
+      "date": "2026-08-14",
+      "category": "其他阅读",
+      "html": "readings/%E5%AF%BB%E9%81%93%E8%80%85%E8%B5%B5%E7%B4%AB%E9%98%B3%EF%BC%88%E4%B8%8A%E5%86%8C%EF%BC%89_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E5%AF%BB%E9%81%93%E8%80%85%E8%B5%B5%E7%B4%AB%E9%98%B3%EF%BC%88%E4%B8%8A%E5%86%8C%EF%BC%89_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 38598,
+      "markdownBytes": 31901
+    },
+    {
+      "title": "北欧众神",
+      "date": "2026-08-14",
+      "category": "其他阅读",
+      "html": "readings/%E5%8C%97%E6%AC%A7%E4%BC%97%E7%A5%9E_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.html",
+      "markdown": "markdown/%E5%8C%97%E6%AC%A7%E4%BC%97%E7%A5%9E_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-08-14.md",
+      "htmlBytes": 38606,
+      "markdownBytes": 32448
+    },
     {
       "title": "西方哲学之旅",
       "date": "2026-08-02",

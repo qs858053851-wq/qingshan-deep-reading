@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>伤寒论 · 深度解读</title>
+<style>
+
+:root { color-scheme: light; --accent:#C2410C; --ink:#1a1a1a; --mid:#6b6b6b; --border:#e0ddd6; --bg:#faf8f3; --paper:#fffdf9; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:'Inter',-apple-system,'Helvetica Neue','PingFang SC','Noto Sans SC',sans-serif; background:var(--bg); color:var(--ink); font-size:16px; line-height:1.85; -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+.container { max-width:1100px; margin:0 auto; padding:0 48px; }
+.hero { padding:96px 0 64px; border-bottom:1px solid var(--ink); }
+.kicker { color:var(--accent); font-size:12px; font-weight:800; letter-spacing:2.2px; text-transform:uppercase; margin-bottom:22px; }
+h1 { margin:0; font-size:68px; line-height:1.06; letter-spacing:-3px; font-weight:900; }
+.subtitle { margin-top:18px; max-width:760px; font-size:21px; line-height:1.55; color:var(--mid); }
+.meta { margin-top:30px; font-size:13px; color:var(--mid); letter-spacing:.2px; }
+.intro { padding:36px 0 20px; max-width:820px; }
+.intro p:first-child { color:var(--mid); font-size:14px; }
+.toc { padding:26px 0 38px; border-bottom:1px solid var(--border); }
+.toc-title { font-size:12px; color:var(--mid); letter-spacing:1.8px; font-weight:800; margin-bottom:12px; }
+.toc ol { margin:0; padding:0; list-style:none; columns:2; column-gap:44px; }
+.toc li { break-inside:avoid; margin:0 0 7px; }
+.toc a { text-decoration:none; color:var(--ink); font-size:14px; }
+.toc a:hover { color:var(--accent); }
+.toc .n { color:var(--accent); display:inline-block; width:30px; font-weight:800; font-size:12px; }
+.section { padding:64px 0 54px; border-bottom:1px solid var(--border); }
+.section:last-of-type { border-bottom:0; }
+.section-num { color:var(--accent); font-size:12px; font-weight:800; letter-spacing:2px; margin-bottom:10px; }
+h2 { margin:0 0 28px; max-width:860px; font-size:36px; line-height:1.25; letter-spacing:-1.2px; font-weight:850; }
+h3 { margin:34px 0 12px; max-width:820px; font-size:20px; line-height:1.45; letter-spacing:-.35px; }
+p, ul, ol, table, pre, blockquote { max-width:820px; }
+p { margin:0 0 18px; }
+strong { font-weight:750; }
+blockquote { margin:28px 0; padding:18px 24px; border-left:3px solid var(--accent); background:rgba(194,65,12,.035); }
+blockquote p { margin:0; font-size:18px; line-height:1.75; }
+ul, ol { padding-left:1.4em; }
+li { margin-bottom:8px; }
+hr { border:0; border-top:1px solid var(--border); margin:42px 0; }
+code { background:#f2eee7; padding:.08em .3em; border-radius:3px; font-size:.92em; }
+pre { overflow:auto; background:var(--paper); border:1px solid var(--border); padding:20px; }
+table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; }
+th, td { border-bottom:1px solid var(--border); padding:10px 12px; text-align:left; vertical-align:top; }
+.section:last-of-type { color:#4f4f4f; }
+.section:last-of-type h2 { color:var(--ink); }
+footer { border-top:2px solid var(--ink); padding:32px 0 46px; color:var(--mid); font-size:12px; display:flex; justify-content:space-between; gap:20px; }
+@media (max-width:700px) {
+  .container { padding:0 20px; }
+  body { font-size:16px; }
+  .hero { padding:64px 0 42px; }
+  h1 { font-size:46px; letter-spacing:-2px; }
+  .subtitle { font-size:18px; }
+  .toc ol { columns:1; }
+  .section { padding:48px 0 40px; }
+  h2 { font-size:29px; letter-spacing:-.8px; }
+  footer { display:block; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="hero">
+  <div class="kicker">古籍深读 · 修订版</div>
+  <h1>伤寒论</h1>
+  <div class="subtitle">作为医学史文本来读六经、方证与误治</div>
+  <div class="meta">钱超尘、郝万山整理 · 李心机译注 · 中华书局 · 修订于 2026-08-22</div>
+</header>
+<div class="intro"><p>钱超尘、郝万山整理，李心机译注，中华书局全本全注全译本</p>
+<blockquote>
+<p>阅读说明　本文讨论《伤寒论》的文本、诊疗思路与医学史位置，不提供诊断、处方或用药建议。原方含有可能产生严重不良反应的药物，疾病表现相似也可能来自完全不同的现代医学病因。出现发热、胸痛、呼吸困难、意识改变、持续呕吐腹泻等症状，应及时寻求正规医疗帮助。</p>
+</blockquote></div>
+<nav class="toc" aria-label="目录"><div class="toc-title">目录</div><ol><li><a href="#section-01"><span class="n">01</span>我们今天读到的是一部长期整理出来的书</a></li><li><a href="#section-02"><span class="n">02</span>“伤寒”不是今天某一种疾病名称</a></li><li><a href="#section-03"><span class="n">03</span>六篇提纲提供了怎样的阅读入口</a></li><li><a href="#section-04"><span class="n">04</span>桂枝汤与麻黄汤说明了什么</a></li><li><a href="#section-05"><span class="n">05</span>第十六条为何如此重要</a></li><li><a href="#section-06"><span class="n">06</span>条文的冷静与它留下的空白</a></li><li><a href="#section-07"><span class="n">07</span>它在医学史上的位置</a></li><li><a href="#section-08"><span class="n">08</span>阅读路径</a></li><li><a href="#section-09"><span class="n">09</span>事实边界与医疗安全</a></li></ol></nav>
+<main><section class="section" id="section-01"><div class="section-num">01</div><h2>我们今天读到的是一部长期整理出来的书</h2><p>传统说法把《伤寒杂病论》归于东汉张仲景。今传《伤寒论》只有其中一部分，原书在战乱与传抄中散乱，魏晋时期王叔和参与搜集整理，唐代医书保存若干不同面貌，北宋校正医书局又在治平二年刊定。明代赵开美据宋本翻刻，成为今天研究宋本系统的重要依据。</p>
+<p>这条传递链意味着，现存条文不能被简单当成张仲景一次写成并亲自定稿的原稿。篇章次序、部分条文归属、方剂文字和后人校语都经历过整理。张仲景的生平也主要依靠传世序文和后世记载，曾任长沙太守的说法仍需谨慎看待。</p>
+<p>今本自序写道，建安以来不到十年，宗族二百余人死亡三分之二，其中“伤寒十居其七”。无论这些数字怎样考订，序文所呈现的写作理由十分清楚。大疫造成大量死亡，当时医生又“各承家技，终始顺旧”，问诊草率，匆忙处方。编书者希望把古训、脉证和经验方整理成可以传授的次序。</p></section><section class="section" id="section-02"><div class="section-num">02</div><h2>“伤寒”不是今天某一种疾病名称</h2><p>古书中的“伤寒”有广狭不同的用法。它可以泛指外感热病，也可以在太阳病等具体条文中指一种症候类型。现代感染性疾病按照病原、器官损害和实验室证据分类，二者的分类基础不同。把《伤寒论》的“伤寒”直接对应流感、伤寒杆菌感染或普通感冒，都会造成混乱。</p>
+<p>同样，六经也不能直接翻译成现代解剖结构或免疫阶段。太阳、阳明、少阳、太阴、少阴、厥阴是这部医学传统用来组织脉象、症状、病势和治法的分类语言。历代医家对六经究竟表示经络、脏腑、气化、病位还是证候阶段，解释并不一致。</p>
+<p>旧稿把六经写成一套计算模型，把发热解释为免疫系统正在动员，把少阴说成全身能量危机。这些说法把类比推进成了生理事实，证据并不充分。较稳妥的读法是观察条文怎样归并临床表现，怎样根据症状变化调整原先判断，同时承认这些分类不能替代现代诊断。</p></section><section class="section" id="section-03"><div class="section-num">03</div><h2>六篇提纲提供了怎样的阅读入口</h2><p>今本六病篇各有著名提纲。太阳病写“脉浮，头项强痛而恶寒”。阳明病写“胃家实”。少阳病写“口苦，咽干，目眩”。太阴、少阴和厥阴则分别列出腹满吐利、脉微细欲寐、寒热错杂等表现。</p>
+<p>这些短句的作用接近篇章入口。后续条文不断增加条件、例外和误治后的变化。提纲不能包办全部诊断，也不能脱离后文单独使用。太阳篇中既有发热恶寒，也有蓄水、蓄血和多种变证。少阴篇既有温法，也保留表证和其他处理。若只背六句提纲，容易把本来复杂的条文系统重新压成六个固定标签。</p>
+<p>《伤寒论》的价值在于，它没有要求每位病人服从一条单线发展。合病、并病、转属和坏病说明表现会交错，治疗也会改变病情。条文之间常有相似处，细节差异又可能改变方药。后世所谓“方证相应”，正是从这种细致配对中发展出来的阅读传统。</p></section><section class="section" id="section-04"><div class="section-num">04</div><h2>桂枝汤与麻黄汤说明了什么</h2><p>太阳篇把有汗与无汗、脉象、恶风恶寒、喘与否等表现组合起来，分别安排桂枝汤、麻黄汤及其他方剂。汗的有无确实是辨别条件之一，却并非唯一差别。旧稿写成“两名发热病人只差一个汗字，因此开两张完全不同的方”，容易让人误以为可以凭单一症状自行选方。</p>
+<p>真正值得看的，是条文对条件的重视。某方“主之”，某方“可与”，某种情形“不可与之”。这些动词和禁忌共同限定适用范围。桂枝汤方后还记录服后观察、何时续服、何时停止，以及怎样避免大汗。它呈现了一种古代临床经验。处方以后继续观察，病情改变便调整，不把一张方机械吃完。</p>
+<p>这项经验不能直接称为现代剂量滴定。古代药材、炮制、计量、病名和患者情况都与今天不同。麻黄、附子等药物具有明确风险，现代使用还涉及药品质量、相互作用和患者基础疾病。阅读方后注可以理解历史上的给药意识，不能据此自行试药。</p></section><section class="section" id="section-05"><div class="section-num">05</div><h2>第十六条为何如此重要</h2><p>太阳篇第十六条谈误汗、误吐、误下、温针之后病仍不解，称为坏病。原来的桂枝汤已经不再适用，接下来要“观其脉证，知犯何逆，随证治之”。这句话经常被概括为辨证论治的核心。</p>
+<p>它最直接的意思是，治疗会改变病人当前表现。原先判断可能因误治而失效，医生需要重新检查脉证，辨认已经发生的变化，再决定处理。这里包含对医源性损害的认识，也包含放弃旧方的能力。</p>
+<p>“随证治之”仍然处在传统脉证体系内部。它没有提供现代医学所要求的病原检测、影像、实验室指标和随机对照证据。把每次给药称为实验，会忽略患者安全、知情同意和证据质量等差别。更合适的历史评价是，《伤寒论》要求医生持续观察，不允许方名替代病人当下的具体表现。</p></section><section class="section" id="section-06"><div class="section-num">06</div><h2>条文的冷静与它留下的空白</h2><p>《伤寒论》条文很少抒情。可治则写治法，可下则写可下，不可汗下则明写禁忌，危重处也会写“死”。这种简短使书便于记忆，也使大量推理过程被省略。为什么这些症状合在一起，为什么某方在此处有效，很多时候只能由后世注家补充。</p>
+<p>成无己《注解伤寒论》以《内经》理论逐条解释，影响深远。后来医家又发展出经络说、脏腑说、六经气化说、方证说等不同传统。旧稿称“半表半里”“传经”全为成无己杜撰，表述过于简单。某些术语确实在后世解释中被强化，具体来源与意义仍需逐条考证。读者应当区分仲景条文、宋本编次、成无己注和近现代讲义，避免把后人的体系全部倒推给原作者。</p>
+<p>条文也受时代知识限制。书中没有微生物概念，许多不同感染、炎症与非感染性疾病可能被归进相似证候。六经欲解时把病愈同特定时辰联系，今天没有足够证据作为临床规律。古代脉诊的主观性、方剂有效性与安全性，也需要现代研究分别评估，不能仅凭经典地位获得豁免。</p></section><section class="section" id="section-07"><div class="section-num">07</div><h2>它在医学史上的位置</h2><p>《伤寒论》使理论与处方之间形成了紧密联系。它没有只罗列药方，而是把方剂放进一组脉证与禁忌之中。它也没有只谈阴阳气化，而是不断回到发热、汗出、疼痛、呕吐、下利、口渴、神志和脉象等具体观察。临床经验因此获得了可传授的条文形式。</p>
+<p>这种成就无需借后来的计算机语言抬高。数据库、推理模型和专家软件都属于后来的知识。用它们偶尔做比喻可以帮助说明结构，持续用这些词却会把古代医学包装成未经验证的现代科学。更有分寸的评价，是承认《伤寒论》建立了一种传统临床推理范式，并考察它在历史中怎样被解释、使用和修正。</p></section><section class="section" id="section-08"><div class="section-num">08</div><h2>阅读路径</h2><p>初读可以先看现存序文和版本说明，弄清今天的文本从何而来。随后读六篇提纲，再选桂枝汤、麻黄汤、小柴胡汤、白虎汤、承气汤和四逆汤相关条文，重点看每一方周围的条件、禁忌与方后观察。最后读坏病和诸可诸不可篇，理解这部书如何处理误治与边界。</p>
+<p>阅读时最好把原文、译文和注释分栏看。遇到“传经”“半表半里”“六经欲解时”等概念，查明它属于原文、旧注还是近人解释。药方只作医学史材料，不照方使用。经典可以帮助理解一种诊疗传统，现实中的诊断和治疗仍须依照当前医疗规范与合格专业人员意见。</p></section><section class="section" id="section-09"><div class="section-num">09</div><h2>事实边界与医疗安全</h2><p>本文依据中华书局译注本及旧稿所摘条文重写。张仲景生平、原书面貌、王叔和整理范围、现存条文层次与序文真伪均有学术讨论。文中只说明传统医学文本怎样组织脉证与方剂，不认可用现代免疫学、解剖学或计算机科学直接证明六经理论。任何方剂均不构成个人诊疗建议，尤其麻黄、附子、大黄等药物可能产生严重不良反应或与其他药物相互作用，须由具备资质的专业人员根据现实病情判断。</p></section></main>
+<footer><span>青山 · 2026-08-22</span><span>古籍深读修订稿</span></footer>
+</div>
+</body>
+</html>

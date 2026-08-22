@@ -28,6 +28,8 @@ INDEX_DATA = REPO_ROOT / "readings.json"
 SANITIZATION_REPORT = REPO_ROOT / "SANITIZATION.md"
 
 DATE_RE = re.compile(r"(20\d{2}-\d{2}-\d{2})")
+# 新解书流水线的文件名形如 20260822T001901--解书-法言，日期藏在紧凑时间戳里。
+STAMP_DATE_RE = re.compile(r"\b(20\d{2})(\d{2})(\d{2})T\d{6}\b")
 TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.I | re.S)
 H1_RE = re.compile(r"<h1[^>]*>(.*?)</h1>", re.I | re.S)
 TAG_RE = re.compile(r"<[^>]+>")
@@ -155,6 +157,8 @@ def extract_title(path: Path, text: str, fallback: str) -> str:
 
 def display_title_from_stem(stem: str) -> str:
     title = DATE_RE.sub("", stem)
+    title = STAMP_DATE_RE.sub("", title)
+    title = re.sub(r"^-*(?:解书)?-*", "", title)
     title = re.sub(r"_?(?:标准)?修订版_?", "", title)
     title = re.sub(r"_+$", "", title)
     return title.replace("_", " ").strip() or stem
@@ -334,7 +338,11 @@ def build(source: Path) -> int:
                     title = heading.group(1).strip()
 
         date_match = DATE_RE.search(stem)
-        published = date_match.group(1) if date_match else "日期未标"
+        if date_match:
+            published = date_match.group(1)
+        else:
+            stamp = STAMP_DATE_RE.search(stem)
+            published = "-".join(stamp.groups()) if stamp else "日期未标"
         entries.append(
             Entry(
                 stem=stem,
