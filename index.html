@@ -4,164 +4,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="青山的十分钟书房：先用十分钟辨认一本书，再决定是否把更长的时间交给它。">
-  <meta name="theme-color" content="#f2f2ee">
+  <meta name="theme-color" content="#faf8f3">
   <meta property="og:title" content="青山的十分钟书房">
-  <meta property="og:description" content="一份持续生长的私人阅读档案。">
-  <meta property="og:image" content="assets/reading-room.jpg">
-  <title>青山的十分钟书房</title>
+  <meta property="og:description" content="一份持续生长的深度阅读与思想测绘档案。">
+  <title>青山的十分钟书房 · 深度阅读档案</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
     :root {
-      --ink: #171816;
-      --muted: #656760;
+      --bg: #faf8f3;
       --paper: #ffffff;
-      --ground: #f2f2ee;
-      --line: #c9cbc4;
-      --soft-line: #dedfd9;
-      --red: #a43b2b;
-      --green: #365848;
-      --blue: #2f5162;
-      --serif: "Songti SC", "STSong", "Noto Serif SC", Georgia, serif;
-      --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+      --ink: #1a1a1a;
+      --accent: #C2410C;
+      --muted: #6b6b6b;
+      --border: #e0ddd6;
+      --soft-line: #ece9e2;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
       color: var(--ink);
-      background: var(--ground);
-      font-family: var(--serif);
-      line-height: 1.8;
+      background: var(--bg);
+      font-family: var(--font-main);
+      font-size: 15px;
+      line-height: 1.85;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; }
-    button, input { font: inherit; }
-    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; color: inherit; }
+
     .shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
     .screen-reader-only {
       position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
       overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
     }
 
+    /* 刊头微排版头部 */
     .site-header {
-      border-top: 6px solid var(--ink);
+      border-top: 5px solid var(--ink);
       border-bottom: 1px solid var(--ink);
-      background: var(--ground);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
     .site-header .shell {
-      min-height: 76px;
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 34px;
+      min-height: 68px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      gap: 24px;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
     }
     .brand {
-      font-size: 21px;
-      font-weight: 700;
-      text-decoration: none;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      color: var(--ink);
     }
     .issue-line {
       color: var(--muted);
-      font-family: var(--sans);
-      font-size: 12px;
-    }
-    .site-nav { display: flex; gap: 22px; font-family: var(--sans); font-size: 13px; }
-    .site-nav a { text-decoration: none; border-bottom: 1px solid transparent; }
-    .site-nav a:hover { border-color: var(--ink); }
-
-    .cover {
-      min-height: 650px;
-      height: 78vh;
-      max-height: 780px;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      color: #fff;
-      background: #252620 url("assets/reading-room.jpg") center 46% / cover no-repeat;
-      isolation: isolate;
-    }
-    .cover::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: rgba(11, 13, 11, .62);
-    }
-    .cover-copy { padding: 0 0 70px; max-width: 940px; }
-    .cover-kicker {
-      margin: 0 0 28px;
-      font-family: var(--sans);
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
-    .cover h1 {
-      margin: 0;
-      max-width: 930px;
-      font-size: 76px;
-      line-height: 1.18;
-      letter-spacing: 0;
-      font-weight: 700;
+    .site-nav {
+      display: flex;
+      gap: 22px;
+      font-size: 13px;
+      font-weight: 500;
     }
-    .cover-deck {
-      max-width: 720px;
-      margin: 28px 0 0;
-      font-size: 21px;
-      line-height: 1.9;
-      color: rgba(255, 255, 255, .9);
+    .site-nav a {
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
     }
-    .cover-actions { display: flex; flex-wrap: wrap; gap: 26px; margin-top: 34px; font-family: var(--sans); font-size: 14px; }
-    .cover-actions a, .cover-actions button {
-      padding: 0 0 7px;
-      border: 0;
-      border-bottom: 1px solid rgba(255,255,255,.8);
-      background: transparent;
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
+    .site-nav a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
-    .cover-credit {
-      position: absolute;
-      right: 18px;
-      bottom: 15px;
-      color: rgba(255,255,255,.68);
-      font-family: var(--sans);
-      font-size: 10px;
-    }
-    .cover-credit a { text-decoration: none; }
 
-    .editor-note {
-      padding: 90px 0 96px;
-      background: var(--paper);
+    /* 纸墨卷首大版式 (Editorial Masthead Hero) */
+    .hero-editorial {
+      padding: 96px 0 88px;
       border-bottom: 1px solid var(--ink);
+      background: var(--bg);
+      position: relative;
+    }
+    .hero-meta-top {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-meta-top::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .hero-title {
+      font-size: 56px;
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -2px;
+      color: var(--ink);
+      max-width: 980px;
+      margin-bottom: 32px;
+    }
+    .hero-lead {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #333333;
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 820px;
+      margin-bottom: 40px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+    .btn-ink {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: 1px solid var(--ink);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-ink:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .btn-paper {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border: 1px solid var(--ink);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-paper:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* 卷首发刊说明 */
+    .editor-note {
+      padding: 80px 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
     }
     .editor-grid {
       display: grid;
-      grid-template-columns: 190px minmax(0, 760px);
-      gap: 62px;
-      justify-content: center;
+      grid-template-columns: 200px minmax(0, 780px);
+      gap: 56px;
     }
-    .section-label {
-      margin: 7px 0 0;
-      color: var(--red);
-      font-family: var(--sans);
-      font-size: 12px;
+    .kicker-tag {
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent);
       text-transform: uppercase;
+      margin-top: 6px;
     }
     .editor-copy h2 {
-      margin: 0 0 30px;
-      font-size: 43px;
-      line-height: 1.35;
-      letter-spacing: 0;
-      font-weight: 600;
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      color: var(--ink);
     }
-    .editor-copy p { margin: 0 0 19px; font-size: 18px; line-height: 2; color: #383a36; }
-    .editor-sign { margin-top: 34px; color: var(--muted); font-family: var(--sans); font-size: 13px; }
+    .editor-copy p {
+      font-size: 16px;
+      line-height: 1.95;
+      color: #2c2d2a;
+      margin-bottom: 18px;
+    }
+    .editor-sign {
+      margin-top: 32px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
 
+    /* 本期新读 */
     .latest {
-      padding: 78px 0 88px;
-      background: var(--ground);
+      padding: 80px 0 88px;
+      background: var(--bg);
       border-bottom: 1px solid var(--ink);
     }
     .section-head {
@@ -169,208 +233,442 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 24px;
-      padding-bottom: 16px;
-      border-bottom: 3px solid var(--ink);
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 36px;
     }
-    .section-head h2 { margin: 0; font-size: 38px; line-height: 1.25; font-weight: 700; }
-    .section-head p { margin: 0; color: var(--muted); font-family: var(--sans); font-size: 13px; }
+    .section-head h2 {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--ink);
+    }
+    .section-head p {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
     .latest-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(320px, .65fr);
-      gap: 58px;
-      padding-top: 30px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+      gap: 48px;
     }
-    .lead-story { min-height: 390px; display: flex; flex-direction: column; justify-content: space-between; }
-    .story-no { color: var(--red); font-family: var(--sans); font-size: 12px; font-weight: 700; }
-    .lead-story h3 { margin: 58px 0 24px; max-width: 720px; font-size: 52px; line-height: 1.26; letter-spacing: 0; }
-    .story-meta { display: flex; gap: 15px; color: var(--muted); font-family: var(--sans); font-size: 12px; }
-    .story-link { align-self: flex-start; margin-top: 42px; color: var(--red); font-family: var(--sans); font-size: 14px; text-decoration: none; border-bottom: 1px solid currentColor; }
-    .latest-list { border-top: 1px solid var(--ink); }
+    .lead-card {
+      background: var(--paper);
+      border: 1px solid var(--ink);
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 420px;
+    }
+    .lead-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .lead-title {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -1.5px;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .lead-meta {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .lead-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 3px;
+      align-self: flex-start;
+    }
+    .lead-link:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .latest-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--ink);
+    }
     .latest-item {
       display: grid;
-      grid-template-columns: 34px 1fr;
-      gap: 14px;
+      grid-template-columns: 36px 1fr;
+      gap: 16px;
       padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
     }
-    .latest-item:hover .latest-title { color: var(--red); }
-    .latest-index { color: var(--red); font-family: var(--sans); font-size: 11px; }
-    .latest-title { display: block; font-size: 18px; line-height: 1.45; }
-    .latest-meta { display: block; margin-top: 6px; color: var(--muted); font-family: var(--sans); font-size: 11px; }
+    .latest-item:hover .latest-item-title {
+      color: var(--accent);
+    }
+    .latest-no {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .latest-item-title {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--ink);
+      transition: color 0.15s;
+    }
+    .latest-item-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      display: block;
+    }
 
+    /* 十八架书 (Shelf Grid) */
     .shelves {
-      padding: 78px 0 92px;
+      padding: 80px 0 92px;
       background: var(--paper);
       border-bottom: 1px solid var(--ink);
     }
-    .shelf-intro { max-width: 680px; margin: 18px 0 42px; color: var(--muted); font-size: 16px; }
+    .shelf-intro {
+      max-width: 720px;
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
     .shelf-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--ink);
+      border-left: 1px solid var(--border);
     }
-    .shelf-button {
-      min-height: 94px;
-      display: grid;
-      grid-template-columns: 34px 1fr auto;
-      gap: 12px;
-      align-items: center;
-      padding: 14px 18px 14px 0;
-      border: 0;
-      border-bottom: 1px solid var(--line);
+    .shelf-card {
+      min-height: 104px;
+      padding: 20px 24px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       text-align: left;
       cursor: pointer;
+      transition: all 0.15s;
     }
-    .shelf-button:nth-child(3n+2), .shelf-button:nth-child(3n+3) { padding-left: 18px; border-left: 1px solid var(--line); }
-    .shelf-button:hover, .shelf-button.active { color: var(--red); }
-    .shelf-no, .shelf-count { color: var(--muted); font-family: var(--sans); font-size: 11px; }
-    .shelf-name { font-size: 18px; line-height: 1.4; }
+    .shelf-card:hover {
+      background: var(--bg);
+    }
+    .shelf-card.active {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .shelf-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .shelf-no {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--accent);
+    }
+    .shelf-card.active .shelf-no {
+      color: var(--accent);
+    }
+    .shelf-count {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .shelf-card.active .shelf-count {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .shelf-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-top: 10px;
+    }
 
+    /* 全部书目 (Complete Catalogue) */
     .catalogue {
-      padding: 78px 0 100px;
-      background: var(--ground);
+      padding: 80px 0 108px;
+      background: var(--bg);
     }
-    .catalogue-tools {
+    .catalogue-sticky-bar {
       position: sticky;
-      top: 0;
-      z-index: 8;
+      top: 68px;
+      z-index: 15;
+      background: rgba(250, 248, 243, 0.96);
+      backdrop-filter: blur(8px);
+      padding: 16px 0 14px;
+      border-bottom: 1px solid var(--ink);
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto auto;
-      gap: 12px;
-      padding: 14px 0;
-      background: rgba(242,242,238,.97);
-      border-bottom: 1px solid var(--ink);
+      gap: 16px;
+      align-items: center;
     }
-    .search {
+    .search-input {
       width: 100%;
-      padding: 13px 2px;
+      padding: 10px 0;
       border: 0;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 2px solid var(--border);
       border-radius: 0;
       outline: none;
       background: transparent;
+      font-size: 16px;
+      font-weight: 600;
       color: var(--ink);
-      font-family: var(--sans);
-      font-size: 15px;
+      transition: border-color 0.2s;
     }
-    .search:focus { border-color: var(--red); }
-    .text-button {
+    .search-input:focus {
+      border-color: var(--accent);
+    }
+    .btn-subtle {
       border: 0;
       background: transparent;
-      font-family: var(--sans);
       font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      padding: 6px 12px;
       cursor: pointer;
+      transition: color 0.2s;
     }
-    .text-button:hover { color: var(--red); }
-    .result-line {
+    .btn-subtle:hover {
+      color: var(--accent);
+    }
+
+    .catalogue-status-line {
       display: flex;
       justify-content: space-between;
-      gap: 24px;
-      padding: 18px 0 12px;
-      color: var(--muted);
-      font-family: var(--sans);
+      align-items: center;
+      padding: 20px 0 12px;
       font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.5px;
     }
-    .book-list { border-top: 3px solid var(--ink); }
+    .active-shelf-name {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .book-table {
+      border-top: 2px solid var(--ink);
+    }
     .book-row {
       display: grid;
-      grid-template-columns: 48px minmax(0, 1fr) 145px 95px 92px;
-      gap: 22px;
+      grid-template-columns: 54px minmax(0, 1fr) 140px 105px 120px;
+      gap: 20px;
       align-items: center;
-      min-height: 92px;
-      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
     }
-    .book-row:hover .book-title { color: var(--red); }
-    .book-index, .book-category, .book-date { color: var(--muted); font-family: var(--sans); font-size: 11px; }
-    .book-title { font-size: 21px; line-height: 1.45; text-decoration: none; }
-    .book-actions { display: flex; justify-content: flex-end; gap: 13px; font-family: var(--sans); font-size: 12px; }
-    .book-actions a { text-decoration: none; border-bottom: 1px solid var(--line); }
-    .book-actions a:hover { color: var(--red); border-color: var(--red); }
-    .empty { padding: 70px 0; color: var(--muted); border-bottom: 1px solid var(--line); text-align: center; }
-    .load-more {
+    .book-row:hover .book-title {
+      color: var(--accent);
+    }
+    .book-index {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      font-family: monospace;
+    }
+    .book-title {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+    .book-category {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .book-date {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: monospace;
+    }
+    .book-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .badge-btn {
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+    .badge-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--paper);
+    }
+
+    .empty-state {
+      padding: 80px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .load-more-btn {
       display: block;
-      margin: 30px auto 0;
-      padding: 11px 0 7px;
-      border: 0;
-      border-bottom: 1px solid var(--ink);
+      margin: 40px auto 0;
+      padding: 12px 32px;
       background: transparent;
+      border: 1px solid var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
       cursor: pointer;
+      transition: all 0.2s;
     }
-    .load-more[hidden] { display: none; }
-
-    .principles {
-      padding: 82px 0 88px;
-      background: var(--blue);
-      color: #fff;
+    .load-more-btn:hover {
+      background: var(--ink);
+      color: var(--paper);
     }
-    .principles h2 { margin: 0 0 42px; font-size: 38px; font-weight: 600; }
-    .principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 52px; }
-    .principle { padding-top: 16px; border-top: 1px solid rgba(255,255,255,.5); }
-    .principle h3 { margin: 0 0 14px; font-size: 21px; }
-    .principle p { margin: 0; color: rgba(255,255,255,.8); font-size: 15px; line-height: 1.9; }
+    .load-more-btn[hidden] { display: none; }
 
-    footer { padding: 38px 0 48px; background: var(--ink); color: rgba(255,255,255,.72); font-family: var(--sans); font-size: 11px; }
-    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 42px; }
-    footer strong { color: #fff; font-family: var(--serif); font-size: 17px; }
-    footer p { margin: 8px 0 0; }
-    footer a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.35); }
+    /* 读者公约 (The Principles) */
+    .principles-section {
+      padding: 96px 0;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .principles-header {
+      margin-bottom: 56px;
+    }
+    .principles-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .principles-title {
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--paper);
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    .principle-card {
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      padding-top: 24px;
+    }
+    .principle-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 14px;
+      color: var(--paper);
+    }
+    .principle-card p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, 0.75);
+    }
 
+    /* 页脚 (Footer) */
+    .site-footer {
+      padding: 48px 0 64px;
+      background: #111111;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 48px;
+    }
+    .footer-brand {
+      color: var(--paper);
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .footer-links a {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--paper);
+      border-color: var(--paper);
+    }
+
+    /* 响应式断点 */
     @media (max-width: 900px) {
-      .site-header .shell { grid-template-columns: 1fr auto; }
-      .site-nav { display: none; }
-      .cover h1 { font-size: 58px; }
-      .editor-grid { grid-template-columns: 140px 1fr; gap: 34px; }
+      .hero-title { font-size: 44px; }
+      .editor-grid { grid-template-columns: 1fr; gap: 24px; }
       .latest-grid { grid-template-columns: 1fr; }
-      .lead-story { min-height: 300px; }
       .shelf-grid { grid-template-columns: repeat(2, 1fr); }
-      .shelf-button:nth-child(3n+2), .shelf-button:nth-child(3n+3) { padding-left: 0; border-left: 0; }
-      .shelf-button:nth-child(2n) { padding-left: 18px; border-left: 1px solid var(--line); }
-      .book-row { grid-template-columns: 38px minmax(0, 1fr) 125px; }
-      .book-date { display: none; }
+      .principles-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .book-row { grid-template-columns: 44px minmax(0, 1fr) 100px; }
+      .book-date, .book-category { display: none; }
     }
 
     @media (max-width: 620px) {
       .shell { width: min(100% - 28px, 1180px); }
-      .site-header .shell { min-height: 66px; gap: 12px; }
       .brand { font-size: 17px; }
-      .issue-line { text-align: right; font-size: 10px; }
-      .cover { min-height: 560px; height: 72svh; max-height: 650px; background-position: 53% center; }
-      .cover-copy { padding-bottom: 58px; }
-      .cover h1 { font-size: 42px; line-height: 1.25; }
-      .cover-deck { font-size: 17px; line-height: 1.85; }
-      .cover-credit { display: none; }
-      .editor-note, .latest, .shelves, .catalogue { padding-top: 58px; padding-bottom: 66px; }
-      .editor-grid { display: block; }
-      .section-label { margin-bottom: 22px; }
-      .editor-copy h2 { font-size: 32px; }
-      .editor-copy p { font-size: 17px; }
-      .section-head { display: block; }
-      .section-head h2 { font-size: 31px; }
-      .section-head p { margin-top: 8px; }
-      .lead-story h3 { margin-top: 38px; font-size: 38px; }
+      .site-nav { display: none; }
+      .hero-editorial { padding: 64px 0 56px; }
+      .hero-title { font-size: 34px; line-height: 1.25; }
+      .hero-lead { font-size: 16px; }
+      .lead-card { padding: 28px 24px; min-height: auto; }
+      .lead-title { font-size: 28px; }
       .shelf-grid { grid-template-columns: 1fr; }
-      .shelf-button, .shelf-button:nth-child(2n) { padding-left: 0; border-left: 0; }
-      .catalogue-tools { grid-template-columns: 1fr auto; }
-      .catalogue-tools .random-catalogue { display: none; }
-      .book-row { grid-template-columns: 30px minmax(0, 1fr); gap: 12px; padding: 16px 0; }
-      .book-title { font-size: 18px; }
-      .book-category, .book-date { display: none; }
-      .book-actions { grid-column: 2; justify-content: flex-start; margin-top: -5px; }
-      .principles { padding: 60px 0 66px; }
-      .principles h2 { font-size: 30px; }
-      .principle-grid, .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+      .catalogue-sticky-bar { grid-template-columns: 1fr auto; top: 58px; }
+      .catalogue-sticky-bar .btn-subtle.random-btn { display: none; }
+      .book-row { grid-template-columns: 32px minmax(0, 1fr); gap: 12px; }
+      .book-title { font-size: 17px; }
+      .book-actions { grid-column: 2; justify-content: flex-start; margin-top: -6px; }
     }
-
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
+
+  <!-- 刊头导航条 -->
   <header class="site-header">
     <div class="shell">
-      <a class="brand" href="#top">青山的十分钟书房</a>
-      <div class="issue-line"><span id="totalCount">520</span> 篇阅读 · <span id="categoryCount">18</span> 架书</div>
+      <div class="brand-wrap">
+        <a class="brand" href="#top">青山的十分钟书房</a>
+        <span class="issue-line"><span id="totalCount">570</span> 篇深度解读 · <span id="categoryCount">18</span> 架书</span>
+      </div>
       <nav class="site-nav" aria-label="书房导航">
         <a href="#latest">本期新读</a>
         <a href="#shelves">十八架书</a>
@@ -381,46 +679,59 @@
   </header>
 
   <main id="top">
-    <section class="cover" aria-labelledby="cover-title">
+    <!-- 纸墨卷首大版式 (Editorial Masthead Hero) -->
+    <section class="hero-editorial" aria-labelledby="hero-heading">
       <div class="shell">
-        <div class="cover-copy">
-          <p class="cover-kicker">一份持续生长的私人阅读档案</p>
-          <h1 id="cover-title">在决定读完以前，先和一本书坐十分钟。</h1>
-          <p class="cover-deck">我把每本书先读到足以辨认它的问题、论证和脾气。值得的，回去细读；不合适的，也明白为什么放下。这里留下的，是这些初次相认。</p>
-          <div class="cover-actions">
-            <a href="#latest">从最近读的一本开始</a>
-            <button id="randomHero" type="button">随手翻开一本</button>
-          </div>
+        <div class="hero-meta-top">OPEN ARCHIVE · 570 TITLES CATALOGUED · VOL. 2026</div>
+        <h1 class="hero-title" id="hero-heading">在决定读完以前，先和一本书坐十分钟。</h1>
+        <p class="hero-lead">
+          面对一本陌生的书，人们常常困在腰封和推荐语的虚词里。这里没有速食摘要，只有不妥协的长交付解书：作者究竟在回答什么，论证立在何处，哪里照亮了困惑，哪里仍值得怀疑。
+        </p>
+        <p class="hero-sub">
+          五百七十份关于制度、人性、历史与思想的实地测绘。把骨架摊开，给同样在书架前驻足掂量的人。
+        </p>
+        <div class="hero-actions">
+          <a class="btn-ink" href="#latest">从最近读的一本开始 ↓</a>
+          <button class="btn-paper" id="randomHero" type="button">随手翻开一本 ↗</button>
         </div>
       </div>
-      <div class="cover-credit">图：<a href="https://commons.wikimedia.org/wiki/File:LOC_Main_Reading_Room_Highsmith.jpg">美国国会图书馆主阅览室</a> · Carol M. Highsmith · Public Domain</div>
     </section>
 
+    <!-- 发刊说明 -->
     <section class="editor-note" aria-labelledby="why-title">
       <div class="shell editor-grid">
-        <p class="section-label">为什么是十分钟</p>
+        <div>
+          <div class="kicker-tag">ISSUE NOTE / 卷首说明</div>
+        </div>
         <div class="editor-copy">
-          <h2 id="why-title">我不是想把一本书缩短，只是想先认出它。</h2>
-          <p>面对一本陌生的书，我常常不知道该不该交出一周。封面和推荐语会把每本书都说得重要，可人的时间有限，真正值得慢读的书，也只能靠自己辨认。</p>
-          <p>所以我先做一次足够深入的阅读：作者究竟在回答什么，论证靠什么站住，哪里照亮了我，哪里仍让我迟疑。十分钟读完这份解读，不等于读完原书。它只是帮我们作出下一步的选择：回到原书，还是坦然放下。</p>
-          <p>书读得多了，我不想只把这些判断留给自己。于是把它们摊开，给也站在书架前犹豫的人。</p>
-          <div class="editor-sign">青山 · 写在书房开门时</div>
+          <h2 id="why-title">我不是想把一本书缩短，只是想先认出它的骨架。</h2>
+          <p>
+            面对一本厚重的大书，我常常不知道该不该交出一周的时间。封面和书评习惯把每本书都说得无比重要，可人的生命与精力终归有限，真正值得慢读的书，只能靠自己去辨认。
+          </p>
+          <p>
+            所以我先做一次足够扎实的深读：拆解它的核心问题、论证链条、制度逻辑与时代盲点。十分钟读完这份长解读，不等于读完原书；它只是帮我们诚实地作出下一步选择：带着一个更清晰的问题回到原著，还是坦然放下它。
+          </p>
+          <p>
+            书读得多了，这些冷峻的骨架与火花不该只留给自己。于是把它们整齐码放出来，给同样站在书架前犹豫的人。
+          </p>
+          <div class="editor-sign">青山 · 记于书房</div>
         </div>
       </div>
     </section>
 
+    <!-- 本期新读 -->
     <section class="latest" id="latest" aria-labelledby="latest-title">
       <div class="shell">
         <div class="section-head">
           <h2 id="latest-title">本期新读</h2>
-          <p>书房按日期留下阅读的脚印</p>
+          <p>RECENT ADDITIONS / 沿时间线往回走的阅读脚印</p>
         </div>
         <div class="latest-grid">
-          <article class="lead-story" id="leadStory">
+          <article class="lead-card" id="leadStory">
             <div>
-              <span class="story-no">01 / 最近一次相遇</span>
-              <h3>正在翻开最近的书……</h3>
-              <div class="story-meta"><span>书房正在开门</span></div>
+              <div class="lead-tag">01 / 最新相遇</div>
+              <h3 class="lead-title">正在翻开最近的书卷……</h3>
+              <div class="lead-meta"><span>书房正在开启</span></div>
             </div>
           </article>
           <div class="latest-list" id="latestList" aria-label="近期阅读"></div>
@@ -428,73 +739,83 @@
       </div>
     </section>
 
+    <!-- 十八架书 -->
     <section class="shelves" id="shelves" aria-labelledby="shelves-title">
       <div class="shell">
         <div class="section-head">
           <h2 id="shelves-title">十八架书</h2>
-          <p>分类是找书的路标，不是思想的边界</p>
+          <p>EIGHTEEN SHELVES / 分类是寻找的路标，不是思想的边界</p>
         </div>
-        <p class="shelf-intro">历史和小说有时讲的是同一件事，哲学也会突然落进日常。这里仍然把书分架，只是为了让寻找轻松一点。</p>
+        <p class="shelf-intro">历史和小说往往讲着同一套人性，哲学也会突然落进日常琐碎。将书分架，只为让探寻变得更加清晰轻松。</p>
         <div class="shelf-grid" id="shelfGrid" aria-label="分类书架"></div>
       </div>
     </section>
 
+    <!-- 全部书目与检索 -->
     <section class="catalogue" id="catalogue" aria-labelledby="catalogue-title">
       <div class="shell">
         <div class="section-head">
           <h2 id="catalogue-title">全部书目</h2>
-          <p>从最近的阅读往回走</p>
+          <p>COMPLETE CATALOGUE / 五百七十部思想与历史的实测档案</p>
         </div>
-        <div class="catalogue-tools">
-          <label>
-            <span class="screen-reader-only">搜索书名</span>
-            <input id="search" class="search" type="search" placeholder="找一本书，或输入一个主题……" autocomplete="off">
+
+        <div class="catalogue-sticky-bar">
+          <label style="display:flex; align-items:center; width:100%;">
+            <span class="screen-reader-only">搜索书名或主题</span>
+            <input id="search" class="search-input" type="search" placeholder="输入书名、作者或某个感兴趣的主题（如：西域、突厥、拜火教、制度、博弈）……" autocomplete="off">
           </label>
-          <button class="text-button" id="showAll" type="button">全部书目</button>
-          <button class="text-button random-catalogue" id="randomCatalogue" type="button">随手一本</button>
+          <button class="btn-subtle" id="showAll" type="button">重置全部</button>
+          <button class="btn-subtle random-btn" id="randomCatalogue" type="button">随手漫游 ↗</button>
         </div>
-        <div class="result-line">
-          <span id="activeShelf">全部书目</span>
-          <span id="resultCount" aria-live="polite">正在整理书目……</span>
+
+        <div class="catalogue-status-line">
+          <span class="active-shelf-name" id="activeShelf">全部书目</span>
+          <span id="resultCount" aria-live="polite">正在整理书架……</span>
         </div>
-        <div class="book-list" id="bookList" aria-label="阅读目录"></div>
-        <button class="load-more" id="loadMore" type="button" hidden>继续往下翻</button>
+
+        <div class="book-table" id="bookList" aria-label="阅读目录"></div>
+        <button class="load-more-btn" id="loadMore" type="button" hidden>加载更多书目 ↓</button>
       </div>
     </section>
 
-    <section class="principles" aria-labelledby="principles-title">
+    <!-- 读者公约 -->
+    <section class="principles-section" aria-labelledby="principles-title">
       <div class="shell">
-        <h2 id="principles-title">关于这些解读，我想诚实三件事</h2>
-        <div class="principle-grid">
-          <article class="principle">
-            <h3>它不是原书</h3>
-            <p>解读是一扇门，不是绕开原作的近路。最好的结果，是让你带着一个更好的问题回到原书。</p>
+        <div class="principles-header">
+          <div class="principles-tag">EDITORIAL PLEDGE / 读者公约</div>
+          <h2 class="principles-title" id="principles-title">关于这些解读，我想诚实三件事</h2>
+        </div>
+        <div class="principles-grid">
+          <article class="principle-card">
+            <h3>一、它不是原书</h3>
+            <p>长解读是一扇推开的门，不是绕过原著的捷径。最好的结果，是让你带着一个更刁钻、更有力的问题回到原书本身。</p>
           </article>
-          <article class="principle">
-            <h3>它不是定论</h3>
-            <p>这里有事实，也有我的理解、推断和偏爱。今天确信的判断，明天仍可能因为新材料而改写。</p>
+          <article class="principle-card">
+            <h3>二、它不是定论</h3>
+            <p>这里记录的是具体的证据链、权力逻辑、制度代价与个人的审视偏爱。今天确信的判断，明天仍可能因新材料而深刻改写。</p>
           </article>
-          <article class="principle">
-            <h3>它有人与工具的共同劳动</h3>
-            <p>AI 参与资料整理、结构梳理和语言打磨；选什么书、问什么问题、保留什么判断，由我决定并负责。</p>
+          <article class="principle-card">
+            <h3>三、人与工具的诚实分工</h3>
+            <p>机器协助拉平海量文献与检索材料；选什么书、追问什么本质、保留哪些锋芒与落笔的全部责任，始终归于青山。</p>
           </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <!-- 页脚 -->
+  <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <strong>青山的十分钟书房</strong>
-        <p>书会继续进来，旧稿也会继续变。</p>
+        <div class="footer-brand">青山的十分钟书房</div>
+        <p>书会继续进来，旧稿也会继续迭代更新。</p>
+      </div>
+      <div class="footer-links">
+        <a href="README.md">关于书房档案</a> · <a href="CONTRIBUTING.md">勘误与讨论</a><br>
+        <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0 知识共享</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 仓库</a>
       </div>
       <div>
-        <a href="README.md">关于书房</a> · <a href="CONTRIBUTING.md">勘误与讨论</a><br>
-        <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub</a>
-      </div>
-      <div>
-        <p>部分内容涉及成人议题、政治、宗教、战争与创伤。保留不等于赞同，请按自己的处境选择阅读。</p>
+        <p>部分内容涉及战争、政治、宗教冲突与历史创伤。忠实记录不代表认同，请读者按自身处境审慎阅读。</p>
       </div>
     </div>
   </footer>
@@ -502,11 +823,11 @@
   <script>
     (() => {
       const SHELF_ORDER = [
-        '文学与小说', '历史与文明', '社会与政治', '宗教与灵性', '心理学与自我', '哲学与思想',
-        '科幻与悬疑', '性文化与身体', '艺术与文化', '人类学与民族志', '实用与技能', '神话与民俗',
-        '经济与商业', '科普与科学', '传记与回忆录', '健康与生活', '古典文献与国学', '诗歌与词赋'
+        '文学与小说', '历史与文明', '社会与政治', '人类学与民族志', '宗教与灵性', '哲学与思想',
+        '经济与商业', '心理学与自我', '科幻与悬疑', '性文化与身体', '艺术与文化', '实用与技能',
+        '神话与民俗', '科普与科学', '传记与回忆录', '健康与生活', '古典文献与国学', '诗歌与词赋'
       ];
-      const pageSize = 40;
+      const pageSize = 45;
       let entries = [];
       let categories = {};
       let selected = '全部书目';
@@ -544,16 +865,19 @@
         if (!lead) return;
         document.querySelector('#leadStory').innerHTML = `
           <div>
-            <span class="story-no">01 / 最近一次相遇</span>
-            <h3>${escapeHtml(lead.title)}</h3>
-            <div class="story-meta"><span>${escapeHtml(lead.category)}</span><time>${escapeHtml(formatDate(lead.date))}</time></div>
+            <div class="lead-tag">01 / 最新相遇 · RECENT</div>
+            <h3 class="lead-title">${escapeHtml(lead.title)}</h3>
+            <div class="lead-meta"><span>${escapeHtml(lead.category)}</span><time>${escapeHtml(formatDate(lead.date))}</time></div>
           </div>
-          <a class="story-link" href="${escapeHtml(preferredLink(lead))}">走进这本书</a>`;
+          <a class="lead-link" href="${escapeHtml(preferredLink(lead))}">走进这篇深度解读 →</a>`;
 
         document.querySelector('#latestList').innerHTML = entries.slice(1, 7).map((entry, index) => `
           <a class="latest-item" href="${escapeHtml(preferredLink(entry))}">
-            <span class="latest-index">${String(index + 2).padStart(2, '0')}</span>
-            <span><span class="latest-title">${escapeHtml(entry.title)}</span><span class="latest-meta">${escapeHtml(entry.category)} · ${escapeHtml(formatDate(entry.date))}</span></span>
+            <span class="latest-no">${String(index + 2).padStart(2, '0')}</span>
+            <span>
+              <span class="latest-item-title">${escapeHtml(entry.title)}</span>
+              <span class="latest-item-meta">${escapeHtml(entry.category)} · ${escapeHtml(formatDate(entry.date))}</span>
+            </span>
           </a>`).join('');
       }
 
@@ -562,10 +886,12 @@
           Object.keys(categories).filter(name => !SHELF_ORDER.includes(name))
         );
         shelfGrid.innerHTML = names.map((name, index) => `
-          <button class="shelf-button" type="button" data-category="${escapeHtml(name)}" aria-pressed="false">
-            <span class="shelf-no">${String(index + 1).padStart(2, '0')}</span>
+          <button class="shelf-card" type="button" data-category="${escapeHtml(name)}" aria-pressed="false">
+            <div class="shelf-card-top">
+              <span class="shelf-no">${String(index + 1).padStart(2, '0')}</span>
+              <span class="shelf-count">${categories[name]} 本</span>
+            </div>
             <span class="shelf-name">${escapeHtml(name)}</span>
-            <span class="shelf-count">${categories[name]} 本</span>
           </button>`).join('');
       }
 
@@ -573,22 +899,22 @@
         const filtered = filteredEntries();
         const shown = filtered.slice(0, visible);
         activeShelf.textContent = selected;
-        resultCount.textContent = `${filtered.length} 本`;
-        document.querySelectorAll('.shelf-button').forEach(button => {
+        resultCount.textContent = `${filtered.length} 本解读收录`;
+        document.querySelectorAll('.shelf-card').forEach(button => {
           const active = button.dataset.category === selected;
           button.classList.toggle('active', active);
           button.setAttribute('aria-pressed', String(active));
         });
 
         if (!shown.length) {
-          bookList.innerHTML = '<div class="empty">这条路上暂时没有书。换一个词，或者回到全部书目。</div>';
+          bookList.innerHTML = '<div class="empty-state">这一架上暂时没有匹配的书目。换一个关键词，或点击“重置全部”。</div>';
         } else {
           bookList.innerHTML = shown.map((entry, index) => {
             const links = [];
-            if (entry.html) links.push(`<a href="${escapeHtml(entry.html)}">阅读</a>`);
-            if (entry.markdown) links.push(`<a href="${escapeHtml(entry.markdown)}">文本</a>`);
+            if (entry.html) links.push(`<a class="badge-btn" href="${escapeHtml(entry.html)}">网页</a>`);
+            if (entry.markdown) links.push(`<a class="badge-btn" href="${escapeHtml(entry.markdown)}">纯文本</a>`);
             return `<article class="book-row">
-              <span class="book-index">${String(index + 1).padStart(3, '0')}</span>
+              <span class="book-index">[${String(index + 1).padStart(3, '0')}]</span>
               <a class="book-title" href="${escapeHtml(preferredLink(entry))}">${escapeHtml(entry.title)}</a>
               <span class="book-category">${escapeHtml(entry.category)}</span>
               <time class="book-date">${escapeHtml(formatDate(entry.date))}</time>
@@ -599,50 +925,57 @@
         loadMore.hidden = visible >= filtered.length;
       }
 
-      function chooseShelf(name) {
+      function selectShelf(name) {
         selected = name;
         visible = pageSize;
         renderCatalogue();
-        document.querySelector('#catalogue').scrollIntoView({ behavior: 'smooth' });
       }
 
-      function openRandom() {
-        const pool = filteredEntries();
-        if (!pool.length) return;
-        const entry = pool[Math.floor(Math.random() * pool.length)];
-        window.location.href = preferredLink(entry);
+      function pickRandom() {
+        if (!entries.length) return;
+        const target = entries[Math.floor(Math.random() * entries.length)];
+        window.location.href = preferredLink(target);
       }
+
+      search.addEventListener('input', () => {
+        visible = pageSize;
+        renderCatalogue();
+      });
+
+      document.querySelector('#showAll').addEventListener('click', () => {
+        search.value = '';
+        selectShelf('全部书目');
+      });
+
+      document.querySelector('#randomHero').addEventListener('click', pickRandom);
+      document.querySelector('#randomCatalogue').addEventListener('click', pickRandom);
+
+      shelfGrid.addEventListener('click', event => {
+        const button = event.target.closest('.shelf-card');
+        if (!button) return;
+        const name = button.dataset.category;
+        selectShelf(selected === name ? '全部书目' : name);
+      });
+
+      loadMore.addEventListener('click', () => {
+        visible += pageSize;
+        renderCatalogue();
+      });
 
       fetch('readings.json')
-        .then(response => {
-          if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          return response.json();
-        })
-        .then(payload => {
-          entries = payload.entries || [];
-          categories = payload.categories || {};
-          document.querySelector('#totalCount').textContent = payload.count;
+        .then(res => res.json())
+        .then(data => {
+          entries = data.entries || [];
+          categories = data.categories || {};
+          document.querySelector('#totalCount').textContent = data.count || entries.length;
           document.querySelector('#categoryCount').textContent = Object.keys(categories).length;
           renderLatest();
           renderShelves();
           renderCatalogue();
         })
         .catch(() => {
-          resultCount.textContent = '书目暂未载入';
-          bookList.innerHTML = '<div class="empty">书房索引暂时没有打开。可以从 GitHub 仓库进入 readings 目录阅读。</div>';
+          resultCount.textContent = '书目加载受阻，请稍后刷新。';
         });
-
-      shelfGrid.addEventListener('click', event => {
-        const button = event.target.closest('button[data-category]');
-        if (button) chooseShelf(button.dataset.category);
-      });
-      search.addEventListener('input', () => { visible = pageSize; renderCatalogue(); });
-      document.querySelector('#showAll').addEventListener('click', () => {
-        selected = '全部书目'; search.value = ''; visible = pageSize; renderCatalogue();
-      });
-      loadMore.addEventListener('click', () => { visible += pageSize; renderCatalogue(); });
-      document.querySelector('#randomHero').addEventListener('click', openRandom);
-      document.querySelector('#randomCatalogue').addEventListener('click', openRandom);
     })();
   </script>
 </body>
