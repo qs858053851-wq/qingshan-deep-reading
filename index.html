@@ -9,24 +9,27 @@
   <meta property="og:description" content="一份持续生长的深度阅读与思想测绘档案。">
   <title>青山的十分钟书房 · 深度阅读档案</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,600;1,9..144,800&family=Noto+Serif+SC:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
 
     :root {
       --bg: #FAF8F5;
       --paper: #FFFFFF;
-      --ink: #141414;
-      --ink-soft: #383838;
+      --ink: #181715;
+      --ink-soft: #383632;
       --accent: #C2410C;
       --accent-hover: #A33508;
-      --accent-bg: #FBF0E9;
+      --accent-bg: #FAF0EA;
       --muted: #737069;
-      --border: #E8E4DB;
-      --border-subtle: #F0EDE6;
-      --shadow-sm: 0 1px 2px rgba(20, 20, 20, 0.04), 0 1px 3px rgba(20, 20, 20, 0.03);
-      --shadow-md: 0 4px 12px rgba(20, 20, 20, 0.05), 0 1px 3px rgba(20, 20, 20, 0.03);
-      --shadow-lg: 0 10px 25px -3px rgba(20, 20, 20, 0.07), 0 4px 6px -2px rgba(20, 20, 20, 0.03);
-      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-      --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      --border: #E5E1D7;
+      --border-subtle: #EFECE4;
+      --border-dark: #181715;
+      --shadow-sm: 0 1px 2px rgba(24, 23, 21, 0.05), 0 1px 3px rgba(24, 23, 21, 0.03);
+      --shadow-md: 0 4px 12px rgba(24, 23, 21, 0.06), 0 1px 3px rgba(24, 23, 21, 0.03);
+      --shadow-lg: 0 10px 25px -3px rgba(24, 23, 21, 0.08), 0 4px 6px -2px rgba(24, 23, 21, 0.03);
+      --font-serif: 'Noto Serif SC', 'Source Han Serif SC', 'Noto Serif CJK SC', 'Songti SC', 'STSong', serif;
+      --font-display: 'Fraunces', 'Noto Serif SC', serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,9 +38,10 @@
     body {
       color: var(--ink);
       background-color: var(--bg);
-      font-family: var(--font-main);
-      font-size: 15px;
-      line-height: 1.8;
+      font-family: var(--font-serif);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.85;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -79,25 +83,27 @@
     .brand-logo {
       width: 24px;
       height: 24px;
-      border-radius: 5px;
+      border-radius: 4px;
       background: var(--ink);
       color: var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: var(--font-serif);
       font-size: 13px;
-      font-weight: 900;
+      font-weight: 800;
     }
     .brand-title {
+      font-family: var(--font-serif);
       font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -0.6px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
       color: var(--ink);
     }
     .brand-badge {
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--muted);
       background: var(--border-subtle);
       padding: 2px 8px;
@@ -107,7 +113,8 @@
     .nav-links {
       display: flex;
       gap: 24px;
-      font-size: 14px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
       font-weight: 600;
       color: var(--muted);
     }
@@ -119,7 +126,7 @@
     }
 
     /* ============================================================
-       Hero 卷首区 (Claude 智性排版 + 超重粗黑主标题)
+       Hero 卷首区 (刻本刀感与古朴印刷大字)
     ============================================================ */
     .hero-section {
       padding: 88px 0 72px;
@@ -134,7 +141,8 @@
       border: 1px solid var(--border);
       padding: 6px 16px;
       border-radius: 20px;
-      font-size: 13px;
+      font-family: var(--font-sans);
+      font-size: 12.5px;
       font-weight: 600;
       color: var(--muted);
       margin-bottom: 28px;
@@ -144,34 +152,38 @@
       color: var(--accent);
       font-size: 13px;
     }
-    
-    /* 超重粗黑主标题 (Bold Heavy Display Headline) */
     .hero-title {
-      font-size: clamp(40px, 5.8vw, 68px);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -2px;
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5.4vw, 64px);
+      font-weight: 800;
+      line-height: 1.28;
+      letter-spacing: -0.5px;
       color: var(--ink);
-      max-width: 940px;
+      max-width: 920px;
       margin: 0 auto 24px;
       text-wrap: balance;
+      -webkit-text-stroke: 0.35px var(--ink);
+      text-shadow: 0 0 0.5px rgba(24, 23, 21, 0.3);
     }
     .hero-title em {
+      font-family: inherit;
       font-style: normal;
-      font-weight: 900;
+      font-weight: 800;
       color: var(--accent);
       padding: 0 4px;
+      -webkit-text-stroke: 0.35px var(--accent);
+      text-shadow: 0 0 0.5px rgba(194, 65, 12, 0.3);
     }
     .hero-desc {
-      font-size: 17px;
-      line-height: 1.85;
+      font-size: 16.5px;
+      line-height: 1.9;
       color: var(--ink-soft);
       font-weight: 500;
       max-width: 680px;
       margin: 0 auto 40px;
     }
 
-    /* Claude 风格的智性探索搜索卡 */
+    /* 优雅的 Claude 搜索/漫游卡片 (The Studio Explorer Input) */
     .explorer-card {
       max-width: 740px;
       margin: 0 auto;
@@ -201,6 +213,7 @@
       border: none;
       background: transparent;
       outline: none;
+      font-family: var(--font-serif);
       font-size: 16px;
       font-weight: 600;
       color: var(--ink);
@@ -209,11 +222,13 @@
     .search-input::placeholder {
       color: #9C9992;
       font-weight: 500;
+      font-family: var(--font-sans);
     }
     .btn-secondary-pill {
       background: var(--accent-bg);
       color: var(--accent);
-      font-size: 13px;
+      font-family: var(--font-sans);
+      font-size: 12.5px;
       font-weight: 700;
       padding: 9px 16px;
       border-radius: 20px;
@@ -236,6 +251,7 @@
       padding: 10px 6px 4px;
       border-top: 1px solid var(--border-subtle);
       margin-top: 6px;
+      font-family: var(--font-sans);
       font-size: 12px;
     }
     .quick-tag-label {
@@ -288,15 +304,17 @@
       text-transform: uppercase;
     }
     .letter-heading-side {
+      font-family: var(--font-serif);
       font-size: 18px;
-      font-weight: 900;
+      font-weight: 800;
       color: var(--ink);
     }
     .letter-body h2 {
-      font-size: 30px;
-      font-weight: 900;
-      line-height: 1.3;
-      letter-spacing: -0.8px;
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: -0.6px;
       margin-bottom: 20px;
       color: var(--ink);
     }
@@ -309,6 +327,7 @@
     }
     .letter-signature {
       margin-top: 28px;
+      font-family: var(--font-serif);
       font-size: 14px;
       font-weight: 700;
       color: var(--muted);
@@ -329,9 +348,10 @@
       padding-bottom: 14px;
     }
     .section-title-bar h2 {
+      font-family: var(--font-serif);
       font-size: 28px;
       font-weight: 900;
-      letter-spacing: -0.8px;
+      letter-spacing: -0.5px;
       color: var(--ink);
     }
     .section-subtitle {
@@ -377,14 +397,16 @@
       letter-spacing: 0.5px;
     }
     .lead-book-title {
+      font-family: var(--font-serif);
       font-size: 34px;
       font-weight: 900;
       line-height: 1.25;
-      letter-spacing: -1px;
+      letter-spacing: -0.8px;
       color: var(--ink);
       margin-bottom: 16px;
     }
     .lead-book-meta {
+      font-family: var(--font-sans);
       font-size: 13px;
       font-weight: 600;
       color: var(--muted);
@@ -396,6 +418,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-family: var(--font-sans);
       font-size: 13.5px;
       font-weight: 700;
       color: var(--accent);
@@ -443,6 +466,7 @@
       color: var(--accent);
     }
     .sub-book-title {
+      font-family: var(--font-serif);
       font-size: 16.5px;
       font-weight: 800;
       line-height: 1.4;
@@ -450,6 +474,7 @@
       transition: color 0.15s;
     }
     .sub-book-meta {
+      font-family: var(--font-sans);
       font-size: 11.5px;
       font-weight: 500;
       color: var(--muted);
@@ -510,15 +535,17 @@
     }
     .shelf-item-count {
       color: var(--muted);
+      font-family: var(--font-sans);
       font-weight: 600;
     }
     .shelf-item-card.active .shelf-item-count {
       color: rgba(255, 255, 255, 0.7);
     }
     .shelf-card-title {
+      font-family: var(--font-serif);
       font-size: 18px;
-      font-weight: 900;
-      letter-spacing: -0.4px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
       margin-top: 10px;
     }
 
@@ -537,9 +564,11 @@
       font-size: 13px;
       font-weight: 600;
       color: var(--muted);
+      font-family: var(--font-sans);
     }
     .active-shelf-title {
-      font-size: 18px;
+      font-family: var(--font-serif);
+      font-size: 17px;
       font-weight: 900;
       color: var(--ink);
     }
@@ -576,6 +605,7 @@
       color: var(--muted);
     }
     .ledger-entry-title {
+      font-family: var(--font-serif);
       font-size: 17.5px;
       font-weight: 800;
       letter-spacing: -0.3px;
@@ -584,6 +614,7 @@
       transition: color 0.15s;
     }
     .ledger-entry-cat {
+      font-family: var(--font-sans);
       font-size: 12px;
       font-weight: 600;
       color: var(--muted);
@@ -601,6 +632,7 @@
     }
     .btn-pill-sm {
       padding: 4px 12px;
+      font-family: var(--font-sans);
       font-size: 11px;
       font-weight: 700;
       border-radius: 12px;
@@ -623,6 +655,7 @@
       background: var(--paper);
       border: 1.5px solid var(--border);
       border-radius: 12px;
+      font-family: var(--font-sans);
       font-size: 13.5px;
       font-weight: 700;
       color: var(--ink);
@@ -642,7 +675,7 @@
     ============================================================ */
     .principles-box {
       padding: 88px 0;
-      background: #141414;
+      background: #181715;
       color: #FAF8F5;
       border-radius: 24px;
       margin: 40px 0;
@@ -662,10 +695,11 @@
       margin-bottom: 12px;
     }
     .principles-heading {
+      font-family: var(--font-serif);
       font-size: 34px;
-      font-weight: 900;
+      font-weight: 800;
       line-height: 1.3;
-      letter-spacing: -0.8px;
+      letter-spacing: -0.5px;
       margin-bottom: 48px;
     }
     .principles-3col {
@@ -678,9 +712,9 @@
       padding-top: 24px;
     }
     .principle-item h3 {
+      font-family: var(--font-serif);
       font-size: 19px;
       font-weight: 800;
-      letter-spacing: -0.4px;
       margin-bottom: 12px;
       color: #FAF8F5;
     }
@@ -698,6 +732,7 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.8;
+      font-family: var(--font-sans);
     }
     .footer-grid {
       display: grid;
@@ -705,8 +740,9 @@
       gap: 40px;
     }
     .footer-brand-name {
+      font-family: var(--font-serif);
       font-size: 16px;
-      font-weight: 900;
+      font-weight: 800;
       color: var(--ink);
       margin-bottom: 6px;
     }
@@ -735,7 +771,7 @@
       .site-nav-bar .shell { min-height: 58px; }
       .nav-links { display: none; }
       .hero-section { padding: 56px 0 48px; }
-      .hero-title { font-size: 34px; letter-spacing: -1px; }
+      .hero-title { font-size: 32px; }
       .hero-desc { font-size: 15px; }
       .shelves-grid { grid-template-columns: 1fr; }
       .ledger-entry-row { grid-template-columns: 32px minmax(0, 1fr); gap: 10px; padding: 14px 16px; }
@@ -765,7 +801,7 @@
   </header>
 
   <main id="top">
-    <!-- Hero 卷首区 (Claude 智性排版 + 超重粗黑主标题) -->
+    <!-- Hero 卷首区 (刻本刀感与古朴印刷大字) -->
     <section class="hero-section">
       <div class="shell">
         <div class="hero-pill-badge">
@@ -1017,7 +1053,7 @@
         });
 
         if (!shown.length) {
-          bookList.innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px;">这一架上暂无匹配书目，请更换检索词或点击“重置全部”。</div>';
+          bookList.innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px; font-family: var(--font-serif);">这一架上暂无匹配书目，请更换检索词或点击“重置全部”。</div>';
         } else {
           bookList.innerHTML = shown.map((entry, index) => {
             const links = [];
