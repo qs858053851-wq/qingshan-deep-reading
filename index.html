@@ -4,32 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="青山的十分钟书房：先用十分钟辨认一本书，再决定是否把更长的时间交给它。570部深度阅读与思想测绘档案。">
-  <meta name="theme-color" content="#FAF8F5">
-  <meta property="og:title" content="青山的十分钟书房">
-  <meta property="og:description" content="一份持续生长的深度阅读与思想测绘档案。">
-  <title>青山的十分钟书房 · 深度阅读档案</title>
+  <meta name="theme-color" content="#f6f4ee">
+  <title>青山的十分钟书房 · 深度阅读印本档案</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,600;1,9..144,800&family=Noto+Serif+SC:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
     :root {
-      --bg: #FAF8F5;
-      --paper: #FFFFFF;
-      --ink: #181715;
-      --ink-soft: #383632;
+      --paper: #f6f4ee;
+      --paper-card: #ffffff;
+      --ink: #141414;
+      --ink-soft: #383838;
       --accent: #C2410C;
-      --accent-hover: #A33508;
-      --accent-bg: #FAF0EA;
-      --muted: #737069;
-      --border: #E5E1D7;
-      --border-subtle: #EFECE4;
-      --border-dark: #181715;
-      --shadow-sm: 0 1px 2px rgba(24, 23, 21, 0.05), 0 1px 3px rgba(24, 23, 21, 0.03);
-      --shadow-md: 0 4px 12px rgba(24, 23, 21, 0.06), 0 1px 3px rgba(24, 23, 21, 0.03);
-      --shadow-lg: 0 10px 25px -3px rgba(24, 23, 21, 0.08), 0 4px 6px -2px rgba(24, 23, 21, 0.03);
-      --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
-      --font-display: 'Fraunces', 'Noto Serif SC', serif;
+      --accent-light: #ea580c;
+      --muted: #737373;
+      --border: #dcd8cd;
+      --border-dark: #141414;
+      --grid-line: rgba(20, 20, 20, 0.08);
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
-      --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, monospace;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,926 +29,1009 @@
     
     body {
       color: var(--ink);
-      background-color: var(--bg);
-      font-family: var(--font-serif);
-      font-size: 15.5px;
-      font-weight: 500;
-      line-height: 1.85;
+      background-color: var(--paper);
+      background-image: 
+        radial-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px, 120px 120px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.8;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      position: relative;
     }
 
     a { color: inherit; text-decoration: none; }
     button, input { font: inherit; color: inherit; }
 
-    .shell {
-      max-width: 1140px;
+    /* 物理印刷裁切标与对位线 (Print Registration & Crop Marks) */
+    .poster-frame {
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 32px;
+      padding: 0 40px;
+      position: relative;
     }
-    @media (max-width: 640px) {
-      .shell { padding: 0 20px; }
+    @media (max-width: 768px) {
+      .poster-frame { padding: 0 18px; }
     }
 
-    /* 顶部极简导航条 (Claude Minimalist Header) */
-    .site-nav-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 248, 245, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.2s;
-    }
-    .site-nav-bar .shell {
-      min-height: 64px;
+    /* 顶部印刷标尺与色标带 (Color Swatches & Specimen Strip) */
+    .top-specimen-strip {
+      border-bottom: 2px solid var(--ink);
+      padding: 12px 0;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.5px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-    }
-    .brand-wrap {
-      display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 12px;
+      background: var(--paper);
     }
-    .brand-logo {
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
-      background: var(--ink);
-      color: var(--bg);
+    .swatches {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-family: var(--font-serif);
+      gap: 8px;
+    }
+    .swatch {
+      width: 14px;
+      height: 14px;
+      border: 1px solid var(--ink);
+      display: inline-block;
+    }
+    .swatch-ink { background: var(--ink); }
+    .swatch-accent { background: var(--accent); }
+    .swatch-paper { background: var(--paper-card); }
+    .swatch-muted { background: var(--border); }
+    .reg-mark {
       font-size: 13px;
-      font-weight: 800;
-    }
-    .brand-title {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--ink);
-    }
-    .brand-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--muted);
-      background: var(--border-subtle);
-      padding: 2px 8px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      font-family: var(--font-sans);
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--muted);
-    }
-    .nav-links a {
-      transition: color 0.15s;
-    }
-    .nav-links a:hover {
+      font-weight: 700;
       color: var(--accent);
     }
 
-    /* ============================================================
-       Hero 卷首区 (刻本刀感与古朴印刷大字)
-    ============================================================ */
-    .hero-section {
-      padding: 88px 0 72px;
-      text-align: center;
-      position: relative;
+    /* 刊头导航 (Masthead Navigation) */
+    .poster-header {
+      padding: 24px 0 20px;
+      border-bottom: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      background: rgba(246, 244, 238, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
     }
-    .hero-pill-badge {
+    .poster-brand-block {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+    .poster-title {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--paper);
-      border: 1px solid var(--border);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-family: var(--font-sans);
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 28px;
-      box-shadow: var(--shadow-sm);
     }
-    .hero-pill-badge span.sparkle {
+    .poster-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--paper);
+      background: var(--ink);
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+    .poster-nav {
+      display: flex;
+      gap: 24px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .poster-nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .poster-nav a:hover {
       color: var(--accent);
-      font-size: 13px;
     }
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(38px, 5.2vw, 62px);
-      font-weight: 900;
-      line-height: 1.25;
-      letter-spacing: -1.2px;
-      color: var(--ink);
-      max-width: 920px;
-      margin: 0 auto 24px;
-      text-wrap: balance;
+    .poster-nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s;
     }
-    .hero-title em {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 900;
-      color: var(--accent);
-      padding: 0 4px;
-    }
-    .hero-desc {
-      font-size: 16.5px;
-      line-height: 1.9;
-      color: var(--ink-soft);
-      font-weight: 500;
-      max-width: 680px;
-      margin: 0 auto 40px;
+    .poster-nav a:hover::after {
+      width: 100%;
     }
 
-    /* 优雅的 Claude 搜索/漫游卡片 (The Studio Explorer Input) */
-    .explorer-card {
-      max-width: 740px;
-      margin: 0 auto;
-      background: var(--paper);
-      border: 1.5px solid var(--border);
-      border-radius: 18px;
-      padding: 8px 12px 14px;
-      box-shadow: var(--shadow-md);
-      transition: box-shadow 0.2s, border-color 0.2s;
+    /* ============================================================
+       海报核心视觉主区 (Main Typographic Poster Hero)
+    ============================================================ */
+    .poster-hero {
+      padding: 72px 0 64px;
+      border-bottom: 2px solid var(--ink);
+      position: relative;
     }
-    .explorer-card:focus-within {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.12), var(--shadow-lg);
+    .poster-grid-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.8fr);
+      gap: 56px;
+      align-items: start;
     }
-    .search-row {
+    
+    .hero-type-block {
+      position: relative;
+    }
+    .hero-specimen-id {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 4px 6px;
     }
-    .search-icon {
+    .hero-specimen-id::before {
+      content: "■";
+      font-size: 10px;
+    }
+    .hero-headline {
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -2px;
+      color: var(--ink);
+      margin-bottom: 32px;
+      text-wrap: balance;
+    }
+    .hero-headline span.accent {
+      color: var(--accent);
+      display: inline-block;
+    }
+    .hero-manifesto {
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--ink-soft);
+      max-width: 680px;
+      margin-bottom: 36px;
+      border-left: 3px solid var(--ink);
+      padding-left: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .poster-btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 14px 28px;
+      border: 2px solid var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0px rgba(20, 20, 20, 0.15);
+      transition: all 0.15s;
+    }
+    .poster-btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--ink);
+    }
+    .poster-btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 14px 28px;
+      border: 2px solid var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0px rgba(20, 20, 20, 0.08);
+      transition: all 0.15s;
+    }
+    .poster-btn-secondary:hover {
+      background: var(--paper-card);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--accent);
+    }
+
+    /* 右侧印刷标本卡盘 (Specimen Stamp Plate) */
+    .hero-stamp-plate {
+      background: var(--paper-card);
+      border: 2px solid var(--ink);
+      padding: 32px 28px;
+      box-shadow: 8px 8px 0px var(--ink);
+      position: relative;
+    }
+    .stamp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .stamp-badge {
+      background: var(--accent);
+      color: #fff;
+      padding: 2px 6px;
+      font-size: 10px;
+    }
+    .stamp-body h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .stamp-body p {
+      font-size: 14px;
       color: var(--muted);
-      font-size: 17px;
+      line-height: 1.7;
+      margin-bottom: 24px;
     }
-    .search-input {
-      flex: 1;
+    .stamp-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      border-top: 1px dashed var(--border);
+      padding-top: 18px;
+      font-family: var(--font-mono);
+    }
+    .stat-num {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ============================================================
+       卷首发刊说明 (Editorial Colophon Note)
+    ============================================================ */
+    .colophon-strip {
+      padding: 64px 0;
+      background: var(--paper-card);
+      border-bottom: 2px solid var(--ink);
+    }
+    .colophon-grid {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 48px;
+    }
+    .colophon-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .colophon-label h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-top: 8px;
+    }
+    .colophon-text h2 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+    .colophon-text p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .colophon-author {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+
+    /* ============================================================
+       本期新读海报列表 (Recent Specimen Exhibition)
+    ============================================================ */
+    .section-block {
+      padding: 72px 0 80px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .section-header-poster {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 16px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .section-header-title {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+    .section-header-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .recent-poster-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+      gap: 40px;
+    }
+    .lead-poster-card {
+      background: var(--paper-card);
+      border: 2px solid var(--ink);
+      padding: 44px 36px;
+      box-shadow: 6px 6px 0px var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 420px;
+      position: relative;
+    }
+    .lead-poster-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--paper);
+      background: var(--accent);
+      padding: 4px 10px;
+      display: inline-block;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    .lead-poster-title {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .lead-poster-meta {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .lead-poster-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 2px;
+      align-self: flex-start;
+      transition: all 0.2s;
+    }
+    .lead-poster-action:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+      transform: translateX(4px);
+    }
+
+    .recent-list-group {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid var(--ink);
+      background: var(--paper-card);
+    }
+    .recent-list-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .recent-list-item:last-child {
+      border-bottom: none;
+    }
+    .recent-list-item:hover {
+      background: var(--paper);
+    }
+    .recent-list-item:hover .item-title {
+      color: var(--accent);
+    }
+    .item-no {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      padding-top: 2px;
+    }
+    .item-title {
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--ink);
+      transition: color 0.15s;
+    }
+    .item-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ============================================================
+       十八架书：印刷色版网格 (18 Print Specimen Plates)
+    ============================================================ */
+    .shelves-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .plate-card {
+      background: var(--paper-card);
+      border: 2px solid var(--ink);
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 118px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      box-shadow: 3px 3px 0px var(--ink);
+    }
+    .plate-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--accent);
+      border-color: var(--accent);
+    }
+    .plate-card.active {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translate(1px, 1px);
+      box-shadow: none;
+    }
+    .plate-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .plate-no {
+      color: var(--accent);
+    }
+    .plate-card.active .plate-no {
+      color: var(--accent-light);
+    }
+    .plate-count {
+      color: var(--muted);
+    }
+    .plate-card.active .plate-count {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .plate-name {
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-top: 14px;
+    }
+
+    /* ============================================================
+       全部书目档案库 (Complete Specimen Ledger)
+    ============================================================ */
+    .catalogue-panel {
+      padding: 72px 0 100px;
+    }
+    .search-toolbar {
+      position: sticky;
+      top: 69px;
+      z-index: 90;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      padding: 12px 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 16px;
+      align-items: center;
+      box-shadow: 6px 6px 0px var(--ink);
+      margin-bottom: 24px;
+    }
+    .search-input-field {
+      width: 100%;
       border: none;
       background: transparent;
       outline: none;
-      font-family: var(--font-serif);
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--ink);
-      padding: 8px 0;
+      font-family: var(--font-sans);
     }
-    .search-input::placeholder {
-      color: #9C9992;
+    .search-input-field::placeholder {
+      color: var(--muted);
       font-weight: 500;
-      font-family: var(--font-sans);
-    }
-    .btn-secondary-pill {
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-family: var(--font-sans);
-      font-size: 12.5px;
-      font-weight: 700;
-      padding: 9px 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(194, 65, 12, 0.2);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s;
-    }
-    .btn-secondary-pill:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .quick-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 10px 6px 4px;
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 6px;
-      font-family: var(--font-sans);
-      font-size: 12px;
-    }
-    .quick-tag-label {
-      color: var(--muted);
-      font-weight: 600;
-      padding: 3px 0;
-    }
-    .quick-tag {
-      background: var(--bg);
-      color: var(--ink-soft);
-      padding: 3px 10px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 600;
-      transition: all 0.15s;
-    }
-    .quick-tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--paper);
-    }
-
-    /* ============================================================
-       发刊卷首语 (Letter from the Studio)
-    ============================================================ */
-    .studio-letter {
-      padding: 64px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--paper);
-    }
-    .letter-grid {
-      display: grid;
-      grid-template-columns: 240px minmax(0, 1fr);
-      gap: 52px;
-    }
-    .letter-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .letter-kicker {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-    .letter-heading-side {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--ink);
-    }
-    .letter-body h2 {
-      font-family: var(--font-serif);
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.35;
-      letter-spacing: -0.6px;
-      margin-bottom: 20px;
-      color: var(--ink);
-    }
-    .letter-body p {
-      font-size: 16px;
-      line-height: 1.95;
-      color: var(--ink-soft);
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-    .letter-signature {
-      margin-top: 28px;
-      font-family: var(--font-serif);
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--muted);
-    }
-
-    /* ============================================================
-       本期新读 (Recent Readings Feature)
-    ============================================================ */
-    .section-wrap {
-      padding: 72px 0 80px;
-    }
-    .section-title-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 14px;
-    }
-    .section-title-bar h2 {
-      font-family: var(--font-serif);
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      color: var(--ink);
-    }
-    .section-subtitle {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .recent-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-      gap: 32px;
-    }
-    .lead-book-card {
-      background: var(--paper);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 380px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s;
-    }
-    .lead-book-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent);
-    }
-    .lead-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-bg);
-      padding: 3px 10px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      letter-spacing: 0.5px;
-    }
-    .lead-book-title {
-      font-family: var(--font-serif);
-      font-size: 34px;
-      font-weight: 900;
-      line-height: 1.25;
-      letter-spacing: -0.8px;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-    .lead-book-meta {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      display: flex;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-    .lead-action-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-sans);
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--accent);
-      padding: 8px 18px;
-      background: var(--accent-bg);
-      border-radius: 20px;
-      border: 1px solid rgba(194, 65, 12, 0.2);
-      align-self: flex-start;
-      transition: all 0.15s;
-    }
-    .lead-action-btn:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .recent-cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .sub-book-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 20px;
-      display: grid;
-      grid-template-columns: 36px 1fr auto;
-      gap: 14px;
-      align-items: center;
-      transition: all 0.15s;
-      box-shadow: var(--shadow-sm);
-    }
-    .sub-book-card:hover {
-      border-color: var(--accent);
-      transform: translateX(3px);
-      box-shadow: var(--shadow-md);
-    }
-    .sub-book-card:hover .sub-book-title {
-      color: var(--accent);
-    }
-    .sub-index {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .sub-book-title {
-      font-family: var(--font-serif);
-      font-size: 16.5px;
-      font-weight: 800;
-      line-height: 1.4;
-      color: var(--ink);
-      transition: color 0.15s;
-    }
-    .sub-book-meta {
-      font-family: var(--font-sans);
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--muted);
-      margin-top: 3px;
-      display: block;
-    }
-    .sub-arrow {
-      color: var(--muted);
       font-size: 14px;
     }
-
-    /* ============================================================
-       十八架书 (The 18 Curated Shelves)
-    ============================================================ */
-    .shelves-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .shelf-item-card {
-      background: var(--paper);
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 106px;
+    .tool-btn {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border: 1px solid var(--ink);
+      background: var(--paper-card);
       cursor: pointer;
       transition: all 0.15s;
-      box-shadow: var(--shadow-sm);
-      text-align: left;
     }
-    .shelf-item-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    .shelf-item-card.active {
+    .tool-btn:hover {
       background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
-      box-shadow: var(--shadow-md);
+      color: var(--paper);
     }
-    .shelf-top-line {
+    .tool-btn-accent:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--paper);
+    }
+
+    .ledger-status {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
-    }
-    .shelf-num {
-      color: var(--accent);
-    }
-    .shelf-item-card.active .shelf-num {
-      color: #FFAA88;
-    }
-    .shelf-item-count {
       color: var(--muted);
-      font-family: var(--font-sans);
-      font-weight: 600;
+      padding: 12px 4px 16px;
+      border-bottom: 2px solid var(--ink);
     }
-    .shelf-item-card.active .shelf-item-count {
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .shelf-card-title {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-      margin-top: 10px;
-    }
-
-    /* ============================================================
-       全部书目档案库 (Complete Reading Ledger)
-    ============================================================ */
-    .catalogue-wrap {
-      padding: 72px 0 100px;
-      border-top: 1px solid var(--border);
-    }
-    .ledger-filter-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      font-family: var(--font-sans);
-    }
-    .active-shelf-title {
-      font-family: var(--font-serif);
-      font-size: 17px;
-      font-weight: 900;
+    .ledger-current-shelf {
       color: var(--ink);
+      font-size: 14px;
+      font-weight: 900;
     }
 
-    .ledger-container {
-      background: var(--paper);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
+    .ledger-table {
+      border: 2px solid var(--ink);
+      border-top: none;
+      background: var(--paper-card);
     }
-    .ledger-entry-row {
+    .ledger-row {
       display: grid;
-      grid-template-columns: 56px minmax(0, 1fr) 140px 110px 140px;
+      grid-template-columns: 64px minmax(0, 1fr) 140px 110px 140px;
       gap: 16px;
       align-items: center;
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
       transition: background 0.15s;
     }
-    .ledger-entry-row:last-child {
-      border-bottom: none;
+    .ledger-row:hover {
+      background: var(--paper);
     }
-    .ledger-entry-row:hover {
-      background: var(--bg);
-    }
-    .ledger-entry-row:hover .ledger-entry-title {
+    .ledger-row:hover .ledger-title {
       color: var(--accent);
     }
-    .ledger-idx {
+    .ledger-index {
       font-family: var(--font-mono);
       font-size: 12px;
       font-weight: 700;
       color: var(--muted);
     }
-    .ledger-entry-title {
-      font-family: var(--font-serif);
-      font-size: 17.5px;
+    .ledger-title {
+      font-size: 18px;
       font-weight: 800;
       letter-spacing: -0.3px;
       color: var(--ink);
       line-height: 1.4;
       transition: color 0.15s;
     }
-    .ledger-entry-cat {
-      font-family: var(--font-sans);
+    .ledger-cat {
       font-size: 12px;
       font-weight: 600;
       color: var(--muted);
     }
-    .ledger-entry-date {
+    .ledger-date {
       font-family: var(--font-mono);
       font-size: 12px;
-      font-weight: 600;
       color: var(--muted);
     }
-    .ledger-entry-actions {
+    .ledger-links {
       display: flex;
       justify-content: flex-end;
       gap: 8px;
+      font-family: var(--font-mono);
     }
-    .btn-pill-sm {
-      padding: 4px 12px;
-      font-family: var(--font-sans);
+    .badge-pill {
+      padding: 4px 10px;
       font-size: 11px;
       font-weight: 700;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--bg);
+      border: 1px solid var(--ink);
+      background: var(--paper);
       color: var(--ink);
+      border-radius: 2px;
       transition: all 0.15s;
     }
-    .btn-pill-sm:hover {
+    .badge-pill:hover {
       background: var(--accent);
       border-color: var(--accent);
-      color: #fff;
+      color: var(--paper);
     }
 
-    .load-more-btn {
+    .load-more-ledger {
       display: block;
       width: 100%;
-      margin-top: 20px;
-      padding: 14px 0;
-      background: var(--paper);
-      border: 1.5px solid var(--border);
-      border-radius: 12px;
-      font-family: var(--font-sans);
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--ink);
+      margin-top: 24px;
+      padding: 16px 0;
+      border: 2px solid var(--ink);
+      background: var(--paper-card);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 4px 4px 0px var(--ink);
       transition: all 0.15s;
     }
-    .load-more-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      box-shadow: var(--shadow-md);
+    .load-more-ledger:hover {
+      background: var(--ink);
+      color: var(--paper);
+      transform: translate(-1px, -1px);
+      box-shadow: 6px 6px 0px var(--accent);
     }
-    .load-more-btn[hidden] { display: none; }
+    .load-more-ledger[hidden] { display: none; }
 
     /* ============================================================
-       读者公约 (Claude Mindful Principles Section)
+       读者工坊公约 (Studio Colophon & Pledge)
     ============================================================ */
-    .principles-box {
+    .studio-pledge-section {
       padding: 88px 0;
-      background: #181715;
-      color: #FAF8F5;
-      border-radius: 24px;
-      margin: 40px 0;
+      background: var(--ink);
+      color: var(--paper);
+      border-top: 3px solid var(--accent);
     }
-    .principles-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 32px;
+    .pledge-header {
+      margin-bottom: 48px;
     }
-    .principles-tag {
+    .pledge-tag {
       font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 12px;
     }
-    .principles-heading {
-      font-family: var(--font-serif);
+    .pledge-title {
       font-size: 34px;
-      font-weight: 800;
-      line-height: 1.3;
-      letter-spacing: -0.5px;
-      margin-bottom: 48px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: var(--paper);
     }
-    .principles-3col {
+    .pledge-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 36px;
     }
-    .principle-item {
-      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    .pledge-box {
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
       padding-top: 24px;
     }
-    .principle-item h3 {
-      font-family: var(--font-serif);
+    .pledge-box h3 {
       font-size: 19px;
       font-weight: 800;
-      margin-bottom: 12px;
-      color: #FAF8F5;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .principle-item p {
+    .pledge-box h3 span.num {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+    }
+    .pledge-box p {
       font-size: 14px;
       line-height: 1.85;
-      color: rgba(250, 248, 245, 0.72);
-      font-weight: 400;
+      color: rgba(255, 255, 255, 0.72);
     }
 
-    /* 页脚 (Quiet Studio Footer) */
-    .site-footer {
-      padding: 64px 0 80px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
+    /* 页脚 (Printed Specimen Colophon Footer) */
+    .poster-footer {
+      padding: 40px 0 60px;
+      background: #0d0d0d;
+      color: rgba(255, 255, 255, 0.5);
+      font-family: var(--font-mono);
+      font-size: 11px;
       line-height: 1.8;
-      font-family: var(--font-sans);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .footer-grid {
+    .footer-layout {
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr;
       gap: 40px;
     }
-    .footer-brand-name {
-      font-family: var(--font-serif);
-      font-size: 16px;
+    .footer-brand-title {
+      color: var(--paper);
+      font-size: 14px;
       font-weight: 800;
-      color: var(--ink);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
-    .footer-links a {
-      color: var(--ink-soft);
-      border-bottom: 1px dotted var(--border);
-      transition: color 0.15s;
+    .footer-layout a {
+      color: rgba(255, 255, 255, 0.75);
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
     }
-    .footer-links a:hover {
+    .footer-layout a:hover {
       color: var(--accent);
       border-color: var(--accent);
     }
 
     /* 响应式断点 */
-    @media (max-width: 900px) {
-      .recent-layout { grid-template-columns: 1fr; }
-      .letter-grid { grid-template-columns: 1fr; gap: 20px; }
-      .shelves-grid { grid-template-columns: repeat(2, 1fr); }
-      .principles-3col { grid-template-columns: 1fr; gap: 28px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-      .ledger-entry-row { grid-template-columns: 44px minmax(0, 1fr) 110px; }
-      .ledger-entry-cat, .ledger-entry-date { display: none; }
+    @media (max-width: 960px) {
+      .poster-grid-hero { grid-template-columns: 1fr; gap: 40px; }
+      .colophon-grid { grid-template-columns: 1fr; gap: 20px; }
+      .recent-poster-grid { grid-template-columns: 1fr; }
+      .shelves-container { grid-template-columns: repeat(2, 1fr); }
+      .pledge-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-layout { grid-template-columns: 1fr; gap: 24px; }
+      .ledger-row { grid-template-columns: 48px minmax(0, 1fr) 110px; }
+      .ledger-cat, .ledger-date { display: none; }
     }
 
-    @media (max-width: 640px) {
-      .site-nav-bar .shell { min-height: 58px; }
-      .nav-links { display: none; }
-      .hero-section { padding: 56px 0 48px; }
-      .hero-title { font-size: 32px; }
-      .hero-desc { font-size: 15px; }
-      .shelves-grid { grid-template-columns: 1fr; }
-      .ledger-entry-row { grid-template-columns: 32px minmax(0, 1fr); gap: 10px; padding: 14px 16px; }
-      .ledger-entry-title { font-size: 16px; }
-      .ledger-entry-actions { grid-column: 2; justify-content: flex-start; margin-top: -4px; }
-      .principles-box { border-radius: 16px; padding: 56px 0; }
+    @media (max-width: 600px) {
+      .poster-header { padding: 18px 0; }
+      .poster-title { font-size: 18px; }
+      .poster-nav { display: none; }
+      .hero-headline { font-size: 32px; }
+      .hero-manifesto { font-size: 16px; }
+      .shelves-container { grid-template-columns: 1fr; }
+      .search-toolbar { grid-template-columns: 1fr auto; top: 62px; }
+      .search-toolbar .tool-btn.random-top { display: none; }
+      .ledger-row { grid-template-columns: 36px minmax(0, 1fr); gap: 10px; padding: 14px 12px; }
+      .ledger-title { font-size: 16px; }
+      .ledger-links { grid-column: 2; justify-content: flex-start; margin-top: -4px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 顶部极简导航条 -->
-  <header class="site-nav-bar">
-    <div class="shell">
-      <div class="brand-wrap">
-        <div class="brand-logo">青</div>
-        <a class="brand-title" href="#top">青山的十分钟书房</a>
-        <span class="brand-badge" id="navBadge">570 篇在架</span>
+  <div class="poster-frame">
+    <!-- 顶部印刷标尺与色样带 -->
+    <div class="top-specimen-strip">
+      <div class="swatches">
+        <span class="reg-mark">+</span>
+        <span>PLATE PALETTE:</span>
+        <span class="swatch swatch-ink" title="Solid Ink #141414"></span>
+        <span class="swatch swatch-accent" title="Terracotta Accent #C2410C"></span>
+        <span class="swatch swatch-paper" title="Card Paper #FFFFFF"></span>
+        <span class="swatch swatch-muted" title="Warm Border #DCD8CD"></span>
       </div>
-      <nav class="nav-links" aria-label="书房导航">
+      <div>
+        <span>SPECIMEN VOL. 2026 // OPEN READING ARCHIVE</span>
+      </div>
+      <div>
+        <span class="reg-mark">⌖</span>
+        <span id="totalTitlesBadge">570 TITLES CATALOGUED</span>
+      </div>
+    </div>
+
+    <!-- 刊头导航 -->
+    <header class="poster-header">
+      <div class="poster-brand-block">
+        <a class="poster-title" href="#top">
+          青山的十分钟书房
+          <span class="poster-tag">570 篇</span>
+        </a>
+      </div>
+      <nav class="poster-nav" aria-label="海报书房导航">
         <a href="#recent">本期新读</a>
         <a href="#shelves">十八架书</a>
         <a href="#catalogue">全部书目</a>
-        <a href="README.md">关于档案</a>
+        <a href="README.md">关于书房</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main id="top">
-    <!-- Hero 卷首区 (刻本刀感与古朴印刷大字) -->
-    <section class="hero-section">
-      <div class="shell">
-        <div class="hero-pill-badge">
-          <span class="sparkle">✦</span>
-          <span>开放阅读档案 · 570 部思想与历史测绘</span>
+    <main id="top">
+      <!-- 印刷海报 Hero 核心区 -->
+      <section class="poster-hero">
+        <div class="poster-grid-hero">
+          <div class="hero-type-block">
+            <div class="hero-specimen-id">SPECIMEN ESSAY ARCHIVE · NO. 570</div>
+            <h1 class="hero-headline">
+              在决定读完以前，<br>
+              先和一本书<span class="accent">坐十分钟</span>。
+            </h1>
+            <p class="hero-manifesto">
+              这是一份拒绝速食摘要的深度阅读标本集。拆解作者在回答什么、论证靠什么站住、制度的代价何在。把五百七十部大书的真实骨架摊开，给同样在书架前驻足掂量的人。
+            </p>
+            <div class="hero-actions">
+              <a class="poster-btn-primary" href="#recent">从最近读的一本开始 ↓</a>
+              <button class="poster-btn-secondary" id="randomHero" type="button">随手翻开一本 ↗</button>
+            </div>
+          </div>
+
+          <!-- 右侧印刷印样卡盘 -->
+          <div class="hero-stamp-plate">
+            <div class="stamp-header">
+              <span>PLATE INFO</span>
+              <span class="stamp-badge">NINE-LAYER</span>
+            </div>
+            <div class="stamp-body">
+              <h3>九层深度测绘系统</h3>
+              <p>每一部书均经由骨架、论证、深层生成器、追问与现实边界完整解剖，绝无通篇套话与虚浮金句。</p>
+            </div>
+            <div class="stamp-stats-grid">
+              <div>
+                <div class="stat-num" id="heroTotalCount">570</div>
+                <div class="stat-lbl">完整解读在架</div>
+              </div>
+              <div>
+                <div class="stat-num" id="heroShelfCount">18</div>
+                <div class="stat-lbl">分类专题架</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1 class="hero-title">
-          在决定读完以前，<br>
-          先和一本书<em>坐十分钟</em>。
-        </h1>
-        <p class="hero-desc">
-          面对一本陌生的书，人们常常困在腰封和推荐语的虚词里。这里没有速食摘要，只有不妥协的长交付解书：拆解作者在回答什么、论证立在何处、制度的代价何在。
-        </p>
+      </section>
 
-        <!-- Claude 风格的智性探索搜索卡 -->
-        <div class="explorer-card">
-          <div class="search-row">
-            <span class="search-icon">🔍</span>
-            <input id="search" class="search-input" type="search" placeholder="输入书名、作者或探索主题（如：西域、突厥、拜火教、制度、博弈、经济）……" autocomplete="off">
-            <button class="btn-secondary-pill" id="randomHero" type="button">✦ 随手翻一本</button>
+      <!-- 发刊说明 -->
+      <section class="colophon-strip">
+        <div class="colophon-grid">
+          <div class="colophon-label">
+            <span>ISSUE NOTE // 01</span>
+            <h4>为什么是十分钟？</h4>
           </div>
-          <div class="quick-tags">
-            <span class="quick-tag-label">快捷探寻：</span>
-            <button class="quick-tag" type="button" data-tag="大唐西域记">《大唐西域记》</button>
-            <button class="quick-tag" type="button" data-tag="中亚文明史">《中亚文明史》</button>
-            <button class="quick-tag" type="button" data-tag="金帐汗国">《金帐汗国》</button>
-            <button class="quick-tag" type="button" data-tag="历史与文明">历史与文明</button>
-            <button class="quick-tag" type="button" data-tag="社会与政治">社会与政治</button>
-            <button class="quick-tag" type="button" data-tag="哲学与思想">哲学与思想</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 发刊说明 (Studio Letter) -->
-    <section class="studio-letter">
-      <div class="shell">
-        <div class="letter-grid">
-          <div class="letter-meta">
-            <span class="letter-kicker">ISSUE NOTE // 01</span>
-            <span class="letter-heading-side">为什么是十分钟？</span>
-          </div>
-          <div class="letter-body">
-            <h2>我不是想把一本书缩短，只是想先认出它的骨架。</h2>
+          <div class="colophon-text">
+            <h2>我不想把一本书缩短，只是想先认出它的骨架。</h2>
             <p>
               面对一本厚重大书，我常常不知道该不该交出一周的时间。封面和推荐语习惯把每本书都说得无比重要，可人的生命与精力终归有限，真正值得慢读的书，只能靠自己去辨认。
             </p>
             <p>
               所以我先做一次足够扎实的深读：拆解它的核心问题、论证链条、制度逻辑与时代盲点。十分钟读完这份长解读，不等于读完原书；它只是帮我们诚实地作出下一步选择：带着一个更清晰的问题回到原著，还是坦然放下它。
             </p>
-            <p>
-              书读得多了，这些冷峻的骨架与火花不该只留给自己。于是把它们整齐码放出来，给同样站在书架前犹豫的人。
-            </p>
-            <div class="letter-signature">── 青山 · 记于书房</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 本期新读 (Recent Readings) -->
-    <section class="section-wrap" id="recent">
-      <div class="shell">
-        <div class="section-title-bar">
-          <h2>本期新读</h2>
-          <span class="section-subtitle">RECENT ADDITIONS // 沿时间线往回走的阅读脚印</span>
-        </div>
-        <div class="recent-layout">
-          <article class="lead-book-card" id="leadStory">
-            <div>
-              <span class="lead-badge">✦ 最新相遇 · RECENT ENTRY</span>
-              <h3 class="lead-book-title">正在翻开最新书卷……</h3>
-              <div class="lead-book-meta"><span>书房标本库开启中</span></div>
-            </div>
-          </article>
-          <div class="recent-cards-list" id="latestList" aria-label="近期阅读列表"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 十八架书 (Eighteen Curated Shelves) -->
-    <section class="section-wrap" id="shelves" style="background: var(--paper); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-      <div class="shell">
-        <div class="section-title-bar">
-          <h2>十八架书</h2>
-          <span class="section-subtitle">EIGHTEEN SHELVES // 分类是寻找的路标，不是思想的边界</span>
-        </div>
-        <div class="shelves-grid" id="shelfGrid" aria-label="分类书架网格"></div>
-      </div>
-    </section>
-
-    <!-- 全部书目档案库 (Complete Reading Ledger) -->
-    <section class="catalogue-wrap" id="catalogue">
-      <div class="shell">
-        <div class="section-title-bar">
-          <h2>全部书目</h2>
-          <span class="section-subtitle">COMPLETE CATALOGUE // 五百七十部思想与历史的实测档案</span>
-        </div>
-
-        <div class="ledger-filter-row">
-          <div>
-            <span>当前架位：</span>
-            <span class="active-shelf-title" id="activeShelf">全部书目</span>
-          </div>
-          <div>
-            <span id="resultCount">正在整理书目……</span>
-            <button id="showAll" type="button" style="margin-left:12px; background:transparent; border:none; color:var(--accent); font-weight:700; cursor:pointer;">重置全部</button>
-          </div>
-        </div>
-
-        <div class="ledger-container">
-          <div id="bookList" aria-label="阅读编目表"></div>
-        </div>
-        <button class="load-more-btn" id="loadMore" type="button" hidden>加载更多书目 ↓</button>
-      </div>
-    </section>
-
-    <!-- 读者公约 (Claude Mindful Principles Section) -->
-    <div class="shell">
-      <section class="principles-box">
-        <div class="principles-inner">
-          <div class="principles-tag">EDITORIAL PLEDGE // 读者公约</div>
-          <h2 class="principles-heading">关于这些解读，我想诚实三件事</h2>
-          <div class="principles-3col">
-            <article class="principle-item">
-              <h3>一、它不是原书</h3>
-              <p>长解读是一扇推开的门，不是绕过原著的捷径。最好的结果，是让你带着一个更刁钻、更有力的问题回到原书本身。</p>
-            </article>
-            <article class="principle-item">
-              <h3>二、它不是定论</h3>
-              <p>这里记录的是具体的证据链、权力逻辑、制度代价与个人的审视偏爱。今天确信的判断，明天仍可能因新材料而深刻改写。</p>
-            </article>
-            <article class="principle-item">
-              <h3>三、人与工具的诚实分工</h3>
-              <p>机器协助拉平海量文献与检索材料；选什么书、追问什么本质、保留哪些锋芒与落笔的全部责任，始终归于青山。</p>
-            </article>
+            <div class="colophon-author">── 青山 · 记于书房</div>
           </div>
         </div>
       </section>
-    </div>
-  </main>
 
-  <!-- 页脚 -->
-  <footer class="site-footer">
-    <div class="shell footer-grid">
-      <div>
-        <div class="footer-brand-name">青山的十分钟书房</div>
-        <p>一份持续生长的私人阅读档案。书会继续进来，旧稿也会继续迭代更新。</p>
+      <!-- 本期新读展区 -->
+      <section class="section-block" id="recent">
+        <div class="section-header-poster">
+          <h2 class="section-header-title">本期新读</h2>
+          <div class="section-header-meta">RECENT ADDITIONS // 沿时间线往回走的阅读脚印</div>
+        </div>
+        <div class="recent-poster-grid">
+          <article class="lead-poster-card" id="leadStory">
+            <div>
+              <div class="lead-poster-badge">01 / 最新相遇 · RECENT ENTRY</div>
+              <h3 class="lead-poster-title">正在翻开最新书卷……</h3>
+              <div class="lead-poster-meta"><span>书房标本库开启中</span></div>
+            </div>
+          </article>
+          <div class="recent-list-group" id="latestList" aria-label="近期阅读列表"></div>
+        </div>
+      </section>
+
+      <!-- 十八架书：印刷色版网格 -->
+      <section class="section-block" id="shelves">
+        <div class="section-header-poster">
+          <h2 class="section-header-title">十八架书</h2>
+          <div class="section-header-meta">EIGHTEEN SHELVES // 分类是寻找的路标，不是思想的边界</div>
+        </div>
+        <div class="shelves-container" id="shelfGrid" aria-label="分类书架网格"></div>
+      </section>
+
+      <!-- 全部书目档案清单 (Ledger) -->
+      <section class="catalogue-panel" id="catalogue">
+        <div class="section-header-poster">
+          <h2 class="section-header-title">全部书目</h2>
+          <div class="section-header-meta">COMPLETE CATALOGUE // 五百七十部思想与历史的实测档案</div>
+        </div>
+
+        <div class="search-toolbar">
+          <label style="display:flex; align-items:center; width:100%;">
+            <input id="search" class="search-input-field" type="search" placeholder="输入书名、作者或主题（如：西域、突厥、拜火教、制度、博弈、经济）……" autocomplete="off">
+          </label>
+          <button class="tool-btn" id="showAll" type="button">重置全部</button>
+          <button class="tool-btn tool-btn-accent random-top" id="randomCatalogue" type="button">随手漫游 ↗</button>
+        </div>
+
+        <div class="ledger-status">
+          <span class="ledger-current-shelf" id="activeShelf">全部书目</span>
+          <span id="resultCount" aria-live="polite">正在检索书目……</span>
+        </div>
+
+        <div class="ledger-table" id="bookList" aria-label="阅读编目表"></div>
+        <button class="load-more-ledger" id="loadMore" type="button" hidden>加载更多书目 ↓</button>
+      </section>
+
+      <!-- 读者工坊公约 (Studio Pledge) -->
+      <section class="studio-pledge-section">
+        <div class="pledge-header">
+          <div class="pledge-tag">STUDIO PLEDGE // 读者公约</div>
+          <h2 class="pledge-title">关于这些解读，我想诚实三件事</h2>
+        </div>
+        <div class="pledge-grid">
+          <article class="pledge-box">
+            <h3><span class="num">01</span> 它不是原书</h3>
+            <p>长解读是一扇推开的门，不是绕过原著的捷径。最好的结果，是让你带着一个更刁钻、更有力的问题回到原书本身。</p>
+          </article>
+          <article class="pledge-box">
+            <h3><span class="num">02</span> 它不是定论</h3>
+            <p>这里记录的是具体的证据链、权力逻辑、制度代价与个人的审视偏爱。今天确信的判断，明天仍可能因新材料而深刻改写。</p>
+          </article>
+          <article class="pledge-box">
+            <h3><span class="num">03</span> 人与工具的诚实分工</h3>
+            <p>机器协助拉平海量文献与检索材料；选什么书、追问什么本质、保留哪些锋芒与落笔的全部责任，始终归于青山。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="poster-footer">
+      <div class="footer-layout">
+        <div>
+          <div class="footer-brand-title">青山的十分钟书房 · PRINTED SPECIMEN</div>
+          <p>书会继续进来，旧稿也会继续迭代更新。</p>
+        </div>
+        <div>
+          <span>RESOURCES:</span><br>
+          <a href="README.md">关于书房档案</a> · <a href="CONTRIBUTING.md">勘误与讨论</a><br>
+          <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0 知识共享</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 源码库</a>
+        </div>
+        <div>
+          <span>NOTICE:</span><br>
+          <p>部分内容涉及战争、政治、宗教冲突与历史创伤。忠实记录不代表认同，请读者按自身处境审慎阅读。</p>
+        </div>
       </div>
-      <div class="footer-links">
-        <span style="font-weight:700; color:var(--ink);">快速通道</span><br>
-        <a href="README.md">关于书房档案</a> · <a href="CONTRIBUTING.md">勘误与讨论</a><br>
-        <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0 知识共享</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 源码库</a>
-      </div>
-      <div>
-        <span style="font-weight:700; color:var(--ink);">阅读提醒</span><br>
-        <p>部分内容涉及战争、政治、宗教冲突与历史创伤。忠实记录不代表认同，请读者按自身处境审慎阅读。</p>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script>
     (() => {
@@ -1003,23 +1078,22 @@
         if (!lead) return;
         document.querySelector('#leadStory').innerHTML = `
           <div>
-            <span class="lead-badge">✦ 最新相遇 · RECENT ENTRY</span>
-            <h3 class="lead-book-title">${escapeHtml(lead.title)}</h3>
-            <div class="lead-book-meta">
-              <span>分类：${escapeHtml(lead.category)}</span>
-              <time>入架时间：${escapeHtml(formatDate(lead.date))}</time>
+            <div class="lead-poster-badge">01 / 最新相遇 · RECENT SPECIMEN</div>
+            <h3 class="lead-poster-title">${escapeHtml(lead.title)}</h3>
+            <div class="lead-poster-meta">
+              <span>PLATE: ${escapeHtml(lead.category)}</span>
+              <time>${escapeHtml(formatDate(lead.date))}</time>
             </div>
           </div>
-          <a class="lead-action-btn" href="${escapeHtml(preferredLink(lead))}">走进这篇深度解读 →</a>`;
+          <a class="lead-poster-action" href="${escapeHtml(preferredLink(lead))}">走进这篇深度解读 →</a>`;
 
         document.querySelector('#latestList').innerHTML = entries.slice(1, 7).map((entry, index) => `
-          <a class="sub-book-card" href="${escapeHtml(preferredLink(entry))}">
-            <span class="sub-index">${String(index + 2).padStart(2, '0')}</span>
+          <a class="recent-list-item" href="${escapeHtml(preferredLink(entry))}">
+            <span class="item-no">${String(index + 2).padStart(2, '0')}</span>
             <span>
-              <span class="sub-book-title">${escapeHtml(entry.title)}</span>
-              <span class="sub-book-meta">${escapeHtml(entry.category)} · ${escapeHtml(formatDate(entry.date))}</span>
+              <span class="item-title">${escapeHtml(entry.title)}</span>
+              <span class="item-sub">${escapeHtml(entry.category)} · ${escapeHtml(formatDate(entry.date))}</span>
             </span>
-            <span class="sub-arrow">→</span>
           </a>`).join('');
       }
 
@@ -1028,12 +1102,12 @@
           Object.keys(categories).filter(name => !SHELF_ORDER.includes(name))
         );
         shelfGrid.innerHTML = names.map((name, index) => `
-          <button class="shelf-item-card" type="button" data-category="${escapeHtml(name)}" aria-pressed="false">
-            <div class="shelf-top-line">
-              <span class="shelf-num">${String(index + 1).padStart(2, '0')}</span>
-              <span class="shelf-item-count">${categories[name]} 本</span>
+          <button class="plate-card" type="button" data-category="${escapeHtml(name)}" aria-pressed="false">
+            <div class="plate-top">
+              <span class="plate-no">PLATE ${String(index + 1).padStart(2, '0')}</span>
+              <span class="plate-count">${categories[name]} TITLES</span>
             </div>
-            <span class="shelf-card-title">${escapeHtml(name)}</span>
+            <span class="plate-name">${escapeHtml(name)}</span>
           </button>`).join('');
       }
 
@@ -1041,26 +1115,26 @@
         const filtered = filteredEntries();
         const shown = filtered.slice(0, visible);
         activeShelf.textContent = selected;
-        resultCount.textContent = `${filtered.length} 本解读在架`;
-        document.querySelectorAll('.shelf-item-card').forEach(button => {
+        resultCount.textContent = `${filtered.length} TITLES ARCHIVED`;
+        document.querySelectorAll('.plate-card').forEach(button => {
           const active = button.dataset.category === selected;
           button.classList.toggle('active', active);
           button.setAttribute('aria-pressed', String(active));
         });
 
         if (!shown.length) {
-          bookList.innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px; font-family: var(--font-serif);">这一架上暂无匹配书目，请更换检索词或点击“重置全部”。</div>';
+          bookList.innerHTML = '<div class="empty-state" style="padding: 60px 20px; text-align: center; color: var(--muted); font-family: var(--font-mono);">NO SPECIMEN MATCHED. 这一架上暂无匹配书目，请更换检索词或点击重置。</div>';
         } else {
           bookList.innerHTML = shown.map((entry, index) => {
             const links = [];
-            if (entry.html) links.push(`<a class="btn-pill-sm" href="${escapeHtml(entry.html)}">网页</a>`);
-            if (entry.markdown) links.push(`<a class="btn-pill-sm" href="${escapeHtml(entry.markdown)}">纯文本</a>`);
-            return `<article class="ledger-entry-row">
-              <span class="ledger-idx">${String(index + 1).padStart(3, '0')}</span>
-              <a class="ledger-entry-title" href="${escapeHtml(preferredLink(entry))}">${escapeHtml(entry.title)}</a>
-              <span class="ledger-entry-cat">${escapeHtml(entry.category)}</span>
-              <time class="ledger-entry-date">${escapeHtml(formatDate(entry.date))}</time>
-              <span class="ledger-entry-actions">${links.join('')}</span>
+            if (entry.html) links.push(`<a class="badge-pill" href="${escapeHtml(entry.html)}">网页</a>`);
+            if (entry.markdown) links.push(`<a class="badge-pill" href="${escapeHtml(entry.markdown)}">纯文本</a>`);
+            return `<article class="ledger-row">
+              <span class="ledger-index">№ ${String(index + 1).padStart(3, '0')}</span>
+              <a class="ledger-title" href="${escapeHtml(preferredLink(entry))}">${escapeHtml(entry.title)}</a>
+              <span class="ledger-cat">${escapeHtml(entry.category)}</span>
+              <time class="ledger-date">${escapeHtml(formatDate(entry.date))}</time>
+              <span class="ledger-links">${links.join('')}</span>
             </article>`;
           }).join('');
         }
@@ -1090,24 +1164,10 @@
       });
 
       document.querySelector('#randomHero').addEventListener('click', pickRandom);
-
-      document.querySelectorAll('.quick-tag').forEach(tag => {
-        tag.addEventListener('click', () => {
-          const val = tag.dataset.tag;
-          if (SHELF_ORDER.includes(val)) {
-            selectShelf(val);
-          } else {
-            search.value = val;
-            selected = '全部书目';
-            visible = pageSize;
-            renderCatalogue();
-          }
-          document.querySelector('#catalogue').scrollIntoView({ behavior: 'smooth' });
-        });
-      });
+      document.querySelector('#randomCatalogue').addEventListener('click', pickRandom);
 
       shelfGrid.addEventListener('click', event => {
-        const button = event.target.closest('.shelf-item-card');
+        const button = event.target.closest('.plate-card');
         if (!button) return;
         const name = button.dataset.category;
         selectShelf(selected === name ? '全部书目' : name);
@@ -1124,13 +1184,16 @@
           entries = data.entries || [];
           categories = data.categories || {};
           const total = data.count || entries.length;
-          document.querySelector('#navBadge').textContent = `${total} 篇在架`;
+          const catCount = Object.keys(categories).length;
+          document.querySelector('#totalTitlesBadge').textContent = `${total} TITLES CATALOGUED`;
+          document.querySelector('#heroTotalCount').textContent = total;
+          document.querySelector('#heroShelfCount').textContent = catCount;
           renderLatest();
           renderShelves();
           renderCatalogue();
         })
         .catch(() => {
-          resultCount.textContent = '书目加载受阻，请稍后刷新。';
+          resultCount.textContent = 'ERROR LOADING SPECIMENS.';
         });
     })();
   </script>
