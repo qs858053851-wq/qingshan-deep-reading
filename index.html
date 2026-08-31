@@ -9,25 +9,27 @@
   <meta property="og:description" content="一份持续生长的深度阅读与思想测绘档案。">
   <title>青山的十分钟书房 · 深度阅读档案</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,600;1,9..144,800&family=Noto+Serif+SC:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
 
     :root {
       --bg: #FAF8F5;
       --paper: #FFFFFF;
-      --ink: #1F1E1B;
-      --ink-soft: #42403B;
-      --accent: #D96B43;
-      --accent-hover: #C2562E;
-      --accent-bg: #FBF0E9;
-      --muted: #78756F;
-      --border: #E8E4DB;
-      --border-subtle: #F0EDE6;
-      --shadow-sm: 0 1px 2px rgba(31, 30, 27, 0.04), 0 1px 3px rgba(31, 30, 27, 0.03);
-      --shadow-md: 0 4px 12px rgba(31, 30, 27, 0.05), 0 1px 3px rgba(31, 30, 27, 0.03);
-      --shadow-lg: 0 10px 25px -3px rgba(31, 30, 27, 0.07), 0 4px 6px -2px rgba(31, 30, 27, 0.03);
+      --ink: #181715;
+      --ink-soft: #383632;
+      --accent: #C2410C;
+      --accent-hover: #A33508;
+      --accent-bg: #FAF0EA;
+      --muted: #737069;
+      --border: #E5E1D7;
+      --border-subtle: #EFECE4;
+      --border-dark: #181715;
+      --shadow-sm: 0 1px 2px rgba(24, 23, 21, 0.05), 0 1px 3px rgba(24, 23, 21, 0.03);
+      --shadow-md: 0 4px 12px rgba(24, 23, 21, 0.06), 0 1px 3px rgba(24, 23, 21, 0.03);
+      --shadow-lg: 0 10px 25px -3px rgba(24, 23, 21, 0.08), 0 4px 6px -2px rgba(24, 23, 21, 0.03);
+      --font-serif: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+      --font-display: 'Fraunces', 'Noto Serif SC', serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
-      --font-serif: 'Newsreader', "STSong", "Songti SC", "Noto Serif SC", Georgia, serif;
-      --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
+      --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, monospace;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,10 +38,12 @@
     body {
       color: var(--ink);
       background-color: var(--bg);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      line-height: 1.8;
+      font-family: var(--font-serif);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.85;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -54,12 +58,12 @@
       .shell { padding: 0 20px; }
     }
 
-    /* 顶部导航条 (Claude Minimalist Header) */
+    /* 顶部极简导航条 (Claude Minimalist Header) */
     .site-nav-bar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(250, 248, 245, 0.92);
+      background: rgba(250, 248, 245, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       transition: all 0.2s;
@@ -77,27 +81,29 @@
       gap: 12px;
     }
     .brand-logo {
-      width: 22px;
-      height: 22px;
-      border-radius: 5px;
-      background: var(--accent);
-      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: var(--ink);
+      color: var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 800;
     }
     .brand-title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
       color: var(--ink);
     }
     .brand-badge {
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--muted);
       background: var(--border-subtle);
       padding: 2px 8px;
@@ -107,8 +113,9 @@
     .nav-links {
       display: flex;
       gap: 24px;
-      font-size: 14px;
-      font-weight: 500;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 600;
       color: var(--muted);
     }
     .nav-links a {
@@ -119,7 +126,7 @@
     }
 
     /* ============================================================
-       Hero 卷首区 (Claude Intellectual & Warm Studio Hero)
+       Hero 卷首区 (刻本刀感与古朴印刷大字)
     ============================================================ */
     .hero-section {
       padding: 88px 0 72px;
@@ -134,37 +141,40 @@
       border: 1px solid var(--border);
       padding: 6px 16px;
       border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 600;
       color: var(--muted);
       margin-bottom: 28px;
       box-shadow: var(--shadow-sm);
     }
     .hero-pill-badge span.sparkle {
       color: var(--accent);
-      font-size: 14px;
+      font-size: 13px;
     }
     .hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(40px, 5.2vw, 64px);
-      font-weight: 500;
-      line-height: 1.22;
-      letter-spacing: -1px;
+      font-size: clamp(38px, 5.2vw, 62px);
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: -1.2px;
       color: var(--ink);
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto 24px;
       text-wrap: balance;
     }
     .hero-title em {
+      font-family: var(--font-display);
       font-style: italic;
+      font-weight: 900;
       color: var(--accent);
-      font-family: var(--font-serif);
       padding: 0 4px;
     }
     .hero-desc {
-      font-size: 17px;
-      line-height: 1.85;
+      font-size: 16.5px;
+      line-height: 1.9;
       color: var(--ink-soft);
+      font-weight: 500;
       max-width: 680px;
       margin: 0 auto 40px;
     }
@@ -174,7 +184,7 @@
       max-width: 740px;
       margin: 0 auto;
       background: var(--paper);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 18px;
       padding: 8px 12px 14px;
       box-shadow: var(--shadow-md);
@@ -182,7 +192,7 @@
     }
     .explorer-card:focus-within {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(217, 107, 67, 0.15), var(--shadow-lg);
+      box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.12), var(--shadow-lg);
     }
     .search-row {
       display: flex;
@@ -199,23 +209,26 @@
       border: none;
       background: transparent;
       outline: none;
+      font-family: var(--font-serif);
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--ink);
       padding: 8px 0;
     }
     .search-input::placeholder {
       color: #9C9992;
-      font-weight: 400;
+      font-weight: 500;
+      font-family: var(--font-sans);
     }
     .btn-secondary-pill {
       background: var(--accent-bg);
       color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 700;
       padding: 9px 16px;
       border-radius: 20px;
-      border: 1px solid rgba(217, 107, 67, 0.2);
+      border: 1px solid rgba(194, 65, 12, 0.2);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -234,11 +247,12 @@
       padding: 10px 6px 4px;
       border-top: 1px solid var(--border-subtle);
       margin-top: 6px;
+      font-family: var(--font-sans);
       font-size: 12px;
     }
     .quick-tag-label {
       color: var(--muted);
-      font-weight: 500;
+      font-weight: 600;
       padding: 3px 0;
     }
     .quick-tag {
@@ -249,7 +263,7 @@
       border: 1px solid var(--border);
       cursor: pointer;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       transition: all 0.15s;
     }
     .quick-tag:hover {
@@ -286,29 +300,32 @@
       text-transform: uppercase;
     }
     .letter-heading-side {
-      font-size: 17px;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 800;
       color: var(--ink);
     }
     .letter-body h2 {
       font-family: var(--font-serif);
-      font-size: 30px;
-      font-weight: 500;
+      font-size: 28px;
+      font-weight: 800;
       line-height: 1.35;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.6px;
       margin-bottom: 20px;
       color: var(--ink);
     }
     .letter-body p {
       font-size: 16px;
-      line-height: 1.9;
+      line-height: 1.95;
       color: var(--ink-soft);
+      font-weight: 500;
       margin-bottom: 16px;
     }
     .letter-signature {
       margin-top: 28px;
+      font-family: var(--font-serif);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--muted);
     }
 
@@ -327,14 +344,16 @@
       padding-bottom: 14px;
     }
     .section-title-bar h2 {
-      font-size: 26px;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 900;
       letter-spacing: -0.5px;
       color: var(--ink);
     }
     .section-subtitle {
-      font-size: 13px;
-      font-weight: 500;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
       color: var(--muted);
     }
 
@@ -345,7 +364,7 @@
     }
     .lead-book-card {
       background: var(--paper);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 16px;
       padding: 40px 36px;
       display: flex;
@@ -363,6 +382,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      font-family: var(--font-mono);
       font-size: 11px;
       font-weight: 700;
       color: var(--accent);
@@ -374,15 +394,17 @@
     }
     .lead-book-title {
       font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 600;
+      font-size: 34px;
+      font-weight: 900;
       line-height: 1.25;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.8px;
       color: var(--ink);
       margin-bottom: 16px;
     }
     .lead-book-meta {
+      font-family: var(--font-sans);
       font-size: 13px;
+      font-weight: 600;
       color: var(--muted);
       display: flex;
       gap: 16px;
@@ -392,13 +414,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 14px;
-      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 700;
       color: var(--accent);
       padding: 8px 18px;
       background: var(--accent-bg);
       border-radius: 20px;
-      border: 1px solid rgba(217, 107, 67, 0.2);
+      border: 1px solid rgba(194, 65, 12, 0.2);
       align-self: flex-start;
       transition: all 0.15s;
     }
@@ -439,14 +462,17 @@
       color: var(--accent);
     }
     .sub-book-title {
-      font-size: 16px;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 16.5px;
+      font-weight: 800;
       line-height: 1.4;
       color: var(--ink);
       transition: color 0.15s;
     }
     .sub-book-meta {
-      font-size: 11px;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      font-weight: 500;
       color: var(--muted);
       margin-top: 3px;
       display: block;
@@ -466,7 +492,7 @@
     }
     .shelf-item-card {
       background: var(--paper);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 14px;
       padding: 18px 20px;
       display: flex;
@@ -495,7 +521,7 @@
       align-items: baseline;
       font-family: var(--font-mono);
       font-size: 11px;
-      font-weight: 500;
+      font-weight: 700;
     }
     .shelf-num {
       color: var(--accent);
@@ -505,13 +531,16 @@
     }
     .shelf-item-count {
       color: var(--muted);
+      font-family: var(--font-sans);
+      font-weight: 600;
     }
     .shelf-item-card.active .shelf-item-count {
-      color: rgba(255, 255, 255, 0.65);
+      color: rgba(255, 255, 255, 0.7);
     }
     .shelf-card-title {
-      font-size: 17px;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 800;
       letter-spacing: -0.3px;
       margin-top: 10px;
     }
@@ -529,18 +558,20 @@
       align-items: center;
       margin-bottom: 20px;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--muted);
+      font-family: var(--font-sans);
     }
     .active-shelf-title {
-      font-size: 16px;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 900;
       color: var(--ink);
     }
 
     .ledger-container {
       background: var(--paper);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 16px;
       box-shadow: var(--shadow-sm);
       overflow: hidden;
@@ -566,25 +597,28 @@
     .ledger-idx {
       font-family: var(--font-mono);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--muted);
     }
     .ledger-entry-title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
+      font-family: var(--font-serif);
+      font-size: 17.5px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
       color: var(--ink);
       line-height: 1.4;
       transition: color 0.15s;
     }
     .ledger-entry-cat {
+      font-family: var(--font-sans);
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--muted);
     }
     .ledger-entry-date {
       font-family: var(--font-mono);
       font-size: 12px;
+      font-weight: 600;
       color: var(--muted);
     }
     .ledger-entry-actions {
@@ -594,8 +628,9 @@
     }
     .btn-pill-sm {
       padding: 4px 12px;
+      font-family: var(--font-sans);
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--bg);
@@ -614,9 +649,10 @@
       margin-top: 20px;
       padding: 14px 0;
       background: var(--paper);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
       border-radius: 12px;
-      font-size: 13px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--ink);
       cursor: pointer;
@@ -635,7 +671,7 @@
     ============================================================ */
     .principles-box {
       padding: 88px 0;
-      background: #191816;
+      background: #181715;
       color: #FAF8F5;
       border-radius: 24px;
       margin: 40px 0;
@@ -656,9 +692,10 @@
     }
     .principles-heading {
       font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 500;
+      font-size: 34px;
+      font-weight: 800;
       line-height: 1.3;
+      letter-spacing: -0.5px;
       margin-bottom: 48px;
     }
     .principles-3col {
@@ -667,19 +704,21 @@
       gap: 36px;
     }
     .principle-item {
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
       padding-top: 24px;
     }
     .principle-item h3 {
+      font-family: var(--font-serif);
       font-size: 19px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 12px;
       color: #FAF8F5;
     }
     .principle-item p {
       font-size: 14px;
       line-height: 1.85;
-      color: rgba(250, 248, 245, 0.7);
+      color: rgba(250, 248, 245, 0.72);
+      font-weight: 400;
     }
 
     /* 页脚 (Quiet Studio Footer) */
@@ -689,6 +728,7 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.8;
+      font-family: var(--font-sans);
     }
     .footer-grid {
       display: grid;
@@ -696,8 +736,9 @@
       gap: 40px;
     }
     .footer-brand-name {
-      font-size: 15px;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 800;
       color: var(--ink);
       margin-bottom: 6px;
     }
@@ -756,7 +797,7 @@
   </header>
 
   <main id="top">
-    <!-- Hero 卷首区 (Claude Intellectual & Warm Studio Hero) -->
+    <!-- Hero 卷首区 (刻本刀感与古朴印刷大字) -->
     <section class="hero-section">
       <div class="shell">
         <div class="hero-pill-badge">
@@ -862,7 +903,7 @@
           </div>
           <div>
             <span id="resultCount">正在整理书目……</span>
-            <button id="showAll" type="button" style="margin-left:12px; background:transparent; border:none; color:var(--accent); font-weight:600; cursor:pointer;">重置全部</button>
+            <button id="showAll" type="button" style="margin-left:12px; background:transparent; border:none; color:var(--accent); font-weight:700; cursor:pointer;">重置全部</button>
           </div>
         </div>
 
@@ -906,12 +947,12 @@
         <p>一份持续生长的私人阅读档案。书会继续进来，旧稿也会继续迭代更新。</p>
       </div>
       <div class="footer-links">
-        <span>快速通道</span><br>
+        <span style="font-weight:700; color:var(--ink);">快速通道</span><br>
         <a href="README.md">关于书房档案</a> · <a href="CONTRIBUTING.md">勘误与讨论</a><br>
         <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0 知识共享</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 源码库</a>
       </div>
       <div>
-        <span>阅读提醒</span><br>
+        <span style="font-weight:700; color:var(--ink);">阅读提醒</span><br>
         <p>部分内容涉及战争、政治、宗教冲突与历史创伤。忠实记录不代表认同，请读者按自身处境审慎阅读。</p>
       </div>
     </div>
@@ -1008,7 +1049,7 @@
         });
 
         if (!shown.length) {
-          bookList.innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px;">这一架上暂无匹配书目，请更换检索词或点击“重置全部”。</div>';
+          bookList.innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px; font-family: var(--font-serif);">这一架上暂无匹配书目，请更换检索词或点击“重置全部”。</div>';
         } else {
           bookList.innerHTML = shown.map((entry, index) => {
             const links = [];
