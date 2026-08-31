@@ -1,30 +1,165 @@
 {
-  "updated": "2026-08-22",
-  "count": 555,
-  "htmlCount": 551,
-  "markdownCount": 553,
+  "updated": "2026-08-31",
+  "count": 570,
+  "htmlCount": 566,
+  "markdownCount": 568,
   "categories": {
-    "人类学与民族志": 13,
+    "人类学与民族志": 15,
     "传记与回忆录": 10,
     "健康与生活": 4,
     "其他阅读": 24,
-    "历史与文明": 105,
-    "古典文献与国学": 4,
+    "历史与文明": 111,
+    "古典文献与国学": 9,
     "哲学与思想": 34,
-    "宗教与灵性": 61,
+    "宗教与灵性": 50,
     "实用与技能": 12,
-    "心理学与自我": 37,
+    "心理学与自我": 36,
     "性文化与身体": 21,
-    "文学与小说": 98,
-    "社会与政治": 65,
+    "文学与小说": 105,
+    "社会与政治": 62,
     "神话与民俗": 11,
-    "科幻与悬疑": 19,
+    "科幻与悬疑": 18,
     "科普与科学": 10,
-    "经济与商业": 10,
+    "经济与商业": 21,
     "艺术与文化": 14,
     "诗歌与词赋": 3
   },
   "entries": [
+    {
+      "title": "金帐汗国兴衰史",
+      "date": "2026-08-31",
+      "category": "历史与文明",
+      "html": "readings/%E9%87%91%E5%B8%90%E6%B1%97%E5%9B%BD%E5%85%B4%E8%A1%B0%E5%8F%B2_2026-08-31.html",
+      "markdown": "markdown/%E9%87%91%E5%B8%90%E6%B1%97%E5%9B%BD%E5%85%B4%E8%A1%B0%E5%8F%B2_2026-08-31.md",
+      "htmlBytes": 24393,
+      "markdownBytes": 12562
+    },
+    {
+      "title": "翦商：殷周之变与华夏新生",
+      "date": "2026-08-31",
+      "category": "历史与文明",
+      "html": "readings/%E7%BF%A6%E5%95%86%EF%BC%9A%E6%AE%B7%E5%91%A8%E4%B9%8B%E5%8F%98%E4%B8%8E%E5%8D%8E%E5%A4%8F%E6%96%B0%E7%94%9F_2026-08-31.html",
+      "markdown": "markdown/%E7%BF%A6%E5%95%86%EF%BC%9A%E6%AE%B7%E5%91%A8%E4%B9%8B%E5%8F%98%E4%B8%8E%E5%8D%8E%E5%A4%8F%E6%96%B0%E7%94%9F_2026-08-31.md",
+      "htmlBytes": 33630,
+      "markdownBytes": 20974
+    },
+    {
+      "title": "祥瑞：王莽和他的时代",
+      "date": "2026-08-31",
+      "category": "历史与文明",
+      "html": "readings/%E7%A5%A5%E7%91%9E%EF%BC%9A%E7%8E%8B%E8%8E%BD%E5%92%8C%E4%BB%96%E7%9A%84%E6%97%B6%E4%BB%A3_2026-08-31.html",
+      "markdown": "markdown/%E7%A5%A5%E7%91%9E%EF%BC%9A%E7%8E%8B%E8%8E%BD%E5%92%8C%E4%BB%96%E7%9A%84%E6%97%B6%E4%BB%A3_2026-08-31.md",
+      "htmlBytes": 38149,
+      "markdownBytes": 25171
+    },
+    {
+      "title": "浩罕国与西域政治",
+      "date": "2026-08-31",
+      "category": "社会与政治",
+      "html": "readings/%E6%B5%A9%E7%BD%95%E5%9B%BD%E4%B8%8E%E8%A5%BF%E5%9F%9F%E6%94%BF%E6%B2%BB_2026-08-31.html",
+      "markdown": "markdown/%E6%B5%A9%E7%BD%95%E5%9B%BD%E4%B8%8E%E8%A5%BF%E5%9F%9F%E6%94%BF%E6%B2%BB_2026-08-31.md",
+      "htmlBytes": 23482,
+      "markdownBytes": 12036
+    },
+    {
+      "title": "孔子大历史：初民、贵族与寡头们的早期华夏",
+      "date": "2026-08-31",
+      "category": "历史与文明",
+      "html": "readings/%E5%AD%94%E5%AD%90%E5%A4%A7%E5%8E%86%E5%8F%B2%EF%BC%9A%E5%88%9D%E6%B0%91%E3%80%81%E8%B4%B5%E6%97%8F%E4%B8%8E%E5%AF%A1%E5%A4%B4%E4%BB%AC%E7%9A%84%E6%97%A9%E6%9C%9F%E5%8D%8E%E5%A4%8F_2026-08-31.html",
+      "markdown": "markdown/%E5%AD%94%E5%AD%90%E5%A4%A7%E5%8E%86%E5%8F%B2%EF%BC%9A%E5%88%9D%E6%B0%91%E3%80%81%E8%B4%B5%E6%97%8F%E4%B8%8E%E5%AF%A1%E5%A4%B4%E4%BB%AC%E7%9A%84%E6%97%A9%E6%9C%9F%E5%8D%8E%E5%A4%8F_2026-08-31.md",
+      "htmlBytes": 32152,
+      "markdownBytes": 19865
+    },
+    {
+      "title": "天山游记",
+      "date": "2026-08-31",
+      "category": "人类学与民族志",
+      "html": "readings/%E5%A4%A9%E5%B1%B1%E6%B8%B8%E8%AE%B0_2026-08-31.html",
+      "markdown": "markdown/%E5%A4%A9%E5%B1%B1%E6%B8%B8%E8%AE%B0_2026-08-31.md",
+      "htmlBytes": 18305,
+      "markdownBytes": 10778
+    },
+    {
+      "title": "大唐西域记今译",
+      "date": "2026-08-31",
+      "category": "人类学与民族志",
+      "html": "readings/%E5%A4%A7%E5%94%90%E8%A5%BF%E5%9F%9F%E8%AE%B0%E4%BB%8A%E8%AF%91_2026-08-31.html",
+      "markdown": "markdown/%E5%A4%A7%E5%94%90%E8%A5%BF%E5%9F%9F%E8%AE%B0%E4%BB%8A%E8%AF%91_2026-08-31.md",
+      "htmlBytes": 19955,
+      "markdownBytes": 12008
+    },
+    {
+      "title": "俄国征服中亚战记",
+      "date": "2026-08-31",
+      "category": "历史与文明",
+      "html": "readings/%E4%BF%84%E5%9B%BD%E5%BE%81%E6%9C%8D%E4%B8%AD%E4%BA%9A%E6%88%98%E8%AE%B0_2026-08-31.html",
+      "markdown": "markdown/%E4%BF%84%E5%9B%BD%E5%BE%81%E6%9C%8D%E4%B8%AD%E4%BA%9A%E6%88%98%E8%AE%B0_2026-08-31.md",
+      "htmlBytes": 32807,
+      "markdownBytes": 20141
+    },
+    {
+      "title": "中亚文明史 第3卷：文明的交会",
+      "date": "2026-08-31",
+      "category": "历史与文明",
+      "html": "readings/%E4%B8%AD%E4%BA%9A%E6%96%87%E6%98%8E%E5%8F%B2%E7%AC%AC3%E5%8D%B7_2026-08-31.html",
+      "markdown": "markdown/%E4%B8%AD%E4%BA%9A%E6%96%87%E6%98%8E%E5%8F%B2%E7%AC%AC3%E5%8D%B7_2026-08-31.md",
+      "htmlBytes": 24118,
+      "markdownBytes": 12435
+    },
+    {
+      "title": "岛上书店",
+      "date": "2026-08-27",
+      "category": "文学与小说",
+      "html": "readings/%E5%B2%9B%E4%B8%8A%E4%B9%A6%E5%BA%97_2026-08-27.html",
+      "markdown": "markdown/%E5%B2%9B%E4%B8%8A%E4%B9%A6%E5%BA%97_2026-08-27.md",
+      "htmlBytes": 38781,
+      "markdownBytes": 21862
+    },
+    {
+      "title": "对标生意经一个知识付费博主的真实复盘",
+      "date": "2026-08-27",
+      "category": "经济与商业",
+      "html": "readings/%E5%AF%B9%E6%A0%87%E7%94%9F%E6%84%8F%E7%BB%8F_2026-08-27.html",
+      "markdown": "markdown/%E5%AF%B9%E6%A0%87%E7%94%9F%E6%84%8F%E7%BB%8F_2026-08-27.md",
+      "htmlBytes": 15112,
+      "markdownBytes": 9370
+    },
+    {
+      "title": "不科学御兽",
+      "date": "2026-08-27",
+      "category": "文学与小说",
+      "html": "readings/%E4%B8%8D%E7%A7%91%E5%AD%A6%E5%BE%A1%E5%85%BD_2026-08-27.html",
+      "markdown": "markdown/%E4%B8%8D%E7%A7%91%E5%AD%A6%E5%BE%A1%E5%85%BD_2026-08-27.md",
+      "htmlBytes": 36879,
+      "markdownBytes": 18927
+    },
+    {
+      "title": "绍宋 · 深度解读",
+      "date": "2026-08-25",
+      "category": "文学与小说",
+      "html": "readings/%E7%BB%8D%E5%AE%8B_2026-08-25.html",
+      "markdown": "markdown/%E7%BB%8D%E5%AE%8B_2026-08-25.md",
+      "htmlBytes": 31825,
+      "markdownBytes": 25038
+    },
+    {
+      "title": "穷鬼的上下两千年",
+      "date": "2026-08-25",
+      "category": "文学与小说",
+      "html": "readings/%E7%A9%B7%E9%AC%BC%E7%9A%84%E4%B8%8A%E4%B8%8B%E4%B8%A4%E5%8D%83%E5%B9%B4_2026-08-25.html",
+      "markdown": "markdown/%E7%A9%B7%E9%AC%BC%E7%9A%84%E4%B8%8A%E4%B8%8B%E4%B8%A4%E5%8D%83%E5%B9%B4_2026-08-25.md",
+      "htmlBytes": 36835,
+      "markdownBytes": 29703
+    },
+    {
+      "title": "汉乡 · 深度解读",
+      "date": "2026-08-25",
+      "category": "文学与小说",
+      "html": "readings/%E6%B1%89%E4%B9%A1_2026-08-25.html",
+      "markdown": "markdown/%E6%B1%89%E4%B9%A1_2026-08-25.md",
+      "htmlBytes": 38796,
+      "markdownBytes": 31973
+    },
     {
       "title": "齐民要术",
       "date": "2026-08-22",
@@ -352,7 +487,7 @@
     {
       "title": "经济大师的回响",
       "date": "2026-08-02",
-      "category": "宗教与灵性",
+      "category": "经济与商业",
       "html": "readings/%E7%BB%8F%E6%B5%8E%E5%A4%A7%E5%B8%88%E7%9A%84%E5%9B%9E%E5%93%8D_2026-08-02.html",
       "markdown": "markdown/%E7%BB%8F%E6%B5%8E%E5%A4%A7%E5%B8%88%E7%9A%84%E5%9B%9E%E5%93%8D_2026-08-02.md",
       "htmlBytes": 21217,
@@ -424,7 +559,7 @@
     {
       "title": "康乃尔最经典的思考逻辑课",
       "date": "2026-08-02",
-      "category": "宗教与灵性",
+      "category": "古典文献与国学",
       "html": "readings/%E5%BA%B7%E4%B9%83%E5%B0%94%E6%9C%80%E7%BB%8F%E5%85%B8%E7%9A%84%E6%80%9D%E8%80%83%E9%80%BB%E8%BE%91%E8%AF%BE_2026-08-02.html",
       "markdown": "markdown/%E5%BA%B7%E4%B9%83%E5%B0%94%E6%9C%80%E7%BB%8F%E5%85%B8%E7%9A%84%E6%80%9D%E8%80%83%E9%80%BB%E8%BE%91%E8%AF%BE_2026-08-02.md",
       "htmlBytes": 36189,
@@ -559,7 +694,7 @@
     {
       "title": "是谁决定我们的薪水？为什么不可能人人均富？",
       "date": "2026-08-01",
-      "category": "科幻与悬疑",
+      "category": "经济与商业",
       "html": "readings/%E6%98%AF%E8%B0%81%E5%86%B3%E5%AE%9A%E6%88%91%E4%BB%AC%E7%9A%84%E8%96%AA%E6%B0%B4_2026-08-01.html",
       "markdown": "markdown/%E6%98%AF%E8%B0%81%E5%86%B3%E5%AE%9A%E6%88%91%E4%BB%AC%E7%9A%84%E8%96%AA%E6%B0%B4_2026-08-01.md",
       "htmlBytes": 39398,
@@ -721,7 +856,7 @@
     {
       "title": "增长的极限",
       "date": "2026-07-31",
-      "category": "社会与政治",
+      "category": "经济与商业",
       "html": "readings/%E5%A2%9E%E9%95%BF%E7%9A%84%E6%9E%81%E9%99%90_2026-07-31.html",
       "markdown": "markdown/%E5%A2%9E%E9%95%BF%E7%9A%84%E6%9E%81%E9%99%90_2026-07-31.md",
       "htmlBytes": 20815,
@@ -1216,7 +1351,7 @@
     {
       "title": "六祖坛经",
       "date": "2026-07-20",
-      "category": "宗教与灵性",
+      "category": "古典文献与国学",
       "html": "readings/%E5%85%AD%E7%A5%96%E5%9D%9B%E7%BB%8F_2026-07-20.html",
       "markdown": "markdown/%E5%85%AD%E7%A5%96%E5%9D%9B%E7%BB%8F_2026-07-20.md",
       "htmlBytes": 37515,
@@ -1279,7 +1414,7 @@
     {
       "title": "绘图鲁班经",
       "date": "2026-07-18",
-      "category": "宗教与灵性",
+      "category": "古典文献与国学",
       "html": "readings/%E7%BB%98%E5%9B%BE%E9%B2%81%E7%8F%AD%E7%BB%8F_2026-07-18.html",
       "markdown": "markdown/%E7%BB%98%E5%9B%BE%E9%B2%81%E7%8F%AD%E7%BB%8F_2026-07-18.md",
       "htmlBytes": 27528,
@@ -1531,7 +1666,7 @@
     {
       "title": "亲密关系管理",
       "date": "2026-07-18",
-      "category": "心理学与自我",
+      "category": "经济与商业",
       "html": "readings/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB%E7%AE%A1%E7%90%86_2026-07-18.html",
       "markdown": "markdown/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB%E7%AE%A1%E7%90%86_2026-07-18.md",
       "htmlBytes": 24905,
@@ -1585,7 +1720,7 @@
     {
       "title": "资本论",
       "date": "2026-07-17",
-      "category": "社会与政治",
+      "category": "经济与商业",
       "html": "readings/%E8%B5%84%E6%9C%AC%E8%AE%BA_2026-07-17.html",
       "markdown": "markdown/%E8%B5%84%E6%9C%AC%E8%AE%BA_2026-07-17.md",
       "htmlBytes": 32091,
@@ -1603,7 +1738,7 @@
     {
       "title": "诗经译注 · 深度解读",
       "date": "2026-07-17",
-      "category": "宗教与灵性",
+      "category": "文学与小说",
       "html": "readings/%E8%AF%97%E7%BB%8F%E8%AF%91%E6%B3%A8_2026-07-17.html",
       "markdown": "markdown/%E8%AF%97%E7%BB%8F%E8%AF%91%E6%B3%A8_2026-07-17.md",
       "htmlBytes": 25454,
@@ -1738,7 +1873,7 @@
     {
       "title": "政治经济学的特征与逻辑方法",
       "date": "2026-07-17",
-      "category": "宗教与灵性",
+      "category": "经济与商业",
       "html": "readings/%E6%94%BF%E6%B2%BB%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9A%84%E7%89%B9%E5%BE%81%E4%B8%8E%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95_2026-07-17.html",
       "markdown": "markdown/%E6%94%BF%E6%B2%BB%E7%BB%8F%E6%B5%8E%E5%AD%A6%E7%9A%84%E7%89%B9%E5%BE%81%E4%B8%8E%E9%80%BB%E8%BE%91%E6%96%B9%E6%B3%95_2026-07-17.md",
       "htmlBytes": 30513,
@@ -2008,7 +2143,7 @@
     {
       "title": "我们时代的神经症人格 · 深度解读",
       "date": "2026-07-16",
-      "category": "宗教与灵性",
+      "category": "心理学与自我",
       "html": "readings/%E6%88%91%E4%BB%AC%E6%97%B6%E4%BB%A3%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%97%87%E4%BA%BA%E6%A0%BC_2026-07-16.html",
       "markdown": "markdown/%E6%88%91%E4%BB%AC%E6%97%B6%E4%BB%A3%E7%9A%84%E7%A5%9E%E7%BB%8F%E7%97%87%E4%BA%BA%E6%A0%BC_2026-07-16.md",
       "htmlBytes": 27733,
@@ -2890,7 +3025,7 @@
     {
       "title": "罗织经",
       "date": "2026-07-14",
-      "category": "宗教与灵性",
+      "category": "古典文献与国学",
       "html": "readings/%E7%BD%97%E7%BB%87%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%BD%97%E7%BB%87%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 49487,
@@ -3025,7 +3160,7 @@
     {
       "title": "白银资本",
       "date": "2026-07-14",
-      "category": "社会与政治",
+      "category": "经济与商业",
       "html": "readings/%E7%99%BD%E9%93%B6%E8%B5%84%E6%9C%AC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E7%99%BD%E9%93%B6%E8%B5%84%E6%9C%AC_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 42579,
@@ -3790,7 +3925,7 @@
     {
       "title": "山海经全译",
       "date": "2026-07-14",
-      "category": "宗教与灵性",
+      "category": "文学与小说",
       "html": "readings/%E5%B1%B1%E6%B5%B7%E7%BB%8F%E5%85%A8%E8%AF%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.html",
       "markdown": "markdown/%E5%B1%B1%E6%B5%B7%E7%BB%8F%E5%85%A8%E8%AF%91_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-14.md",
       "htmlBytes": 69486,
@@ -4627,7 +4762,7 @@
     {
       "title": "贫穷的本质",
       "date": "2026-07-13",
-      "category": "社会与政治",
+      "category": "经济与商业",
       "html": "readings/%E8%B4%AB%E7%A9%B7%E7%9A%84%E6%9C%AC%E8%B4%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E8%B4%AB%E7%A9%B7%E7%9A%84%E6%9C%AC%E8%B4%A8_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 49151,
@@ -4753,7 +4888,7 @@
     {
       "title": "爱经",
       "date": "2026-07-13",
-      "category": "宗教与灵性",
+      "category": "古典文献与国学",
       "html": "readings/%E7%88%B1%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E7%88%B1%E7%BB%8F_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 51403,
@@ -4843,7 +4978,7 @@
     {
       "title": "思考，快与慢",
       "date": "2026-07-13",
-      "category": "心理学与自我",
+      "category": "经济与商业",
       "html": "readings/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 50250,
@@ -4870,7 +5005,7 @@
     {
       "title": "小岛经济学",
       "date": "2026-07-13",
-      "category": "宗教与灵性",
+      "category": "经济与商业",
       "html": "readings/%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.html",
       "markdown": "markdown/%E5%B0%8F%E5%B2%9B%E7%BB%8F%E6%B5%8E%E5%AD%A6_%E4%BF%AE%E8%AE%A2%E7%89%88_2026-07-13.md",
       "htmlBytes": 50041,

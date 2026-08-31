@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>金帐汗国兴衰史 · 深度阅读</title>
+<style>
+
+:root {
+  --accent: #C2410C;
+  --black: #1a1a1a;
+  --mid: #6b6b6b;
+  --border: #e0ddd6;
+  --bg: #faf8f3;
+  --paper: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, 'Helvetica Neue', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+@media (max-width: 600px) {
+  .container { padding: 0 20px; }
+  body { font-size: 16px; }
+}
+.hero {
+  padding: 80px 0 48px;
+  border-bottom: 1px solid var(--black);
+}
+.hero-book {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.hero-author {
+  font-size: 18px;
+  color: var(--mid);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.hero-desc {
+  font-size: 16px;
+  color: var(--black);
+  max-width: 860px;
+  line-height: 1.8;
+}
+.layer {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+.layer-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.layer-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.25;
+  margin-bottom: 28px;
+}
+.content p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+.marker {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-top: 36px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.qa-box {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--accent);
+  background: var(--paper);
+  border-radius: 4px;
+}
+.qa-q {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.qa-a {
+  font-size: 15px;
+  color: var(--black);
+  line-height: 1.8;
+}
+.formula-box {
+  border: 1px solid var(--black);
+  padding: 36px 32px;
+  margin: 36px 0;
+  background: var(--paper);
+  text-align: center;
+}
+.formula-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+}
+.formula-content {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.formula-note {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+.ascii-box {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre;
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.fact-boundary {
+  padding: 32px 0 24px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.7;
+}
+.quote-box {
+  border-top: 2px solid var(--black);
+  padding: 48px 0 24px;
+  margin-top: 48px;
+}
+.quote-text {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.quote-author {
+  font-size: 13px;
+  color: var(--mid);
+  text-align: right;
+}
+footer {
+  font-size: 12px;
+  color: var(--mid);
+  border-top: 1px solid var(--border);
+  padding: 24px 0 48px;
+  margin-top: 24px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <section class="hero">
+    <h1 class="hero-book">金帐汗国兴衰史</h1>
+    <div class="hero-author">[苏] 鲍·季·格列科夫 / 亚·尤·雅库博夫斯基 著 · 余大钧 译</div>
+    <div class="hero-desc">
+      苏联史学界关于十三至十五世纪蒙古金帐汗国最权威的经典巨著。全书综合大量阿拉伯文、波斯文与古罗斯编年史料以及伏尔加河下游考古发掘成果，全景式剖析了术赤兀鲁思的封建经济基础、对罗斯诸公国的统治机制以及最终在商路毁灭与内部割据中走向瓦解的历史全貌。
+    </div>
+  </section>
+
+  <!-- 第一层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 01</div>
+    <h2 class="layer-title">两百五十年术赤兀鲁思的崛起、统治与瓦解</h2>
+    <div class="content">
+      <div class="marker">1223年到1242年 · 拔都西征与术赤兀鲁思奠基</div>
+      <p>
+        1223年迦勒迦河战役，蒙古先锋部队初次重创罗斯与钦察联军。1236年成吉思汗长孙拔都统领大军发动长子西征，先后横扫伏尔加保加利亚，攻陷梁赞、弗拉基米尔与莫斯科，并于1240年摧毁基辅城，兵锋直抵中欧多瑙河流域。拔都回师伏尔加河下游，建立起东起额尔齐斯河、西抵多瑙河下游、南达高加索与咸海、北至北极圈边缘的庞大国家，史称术赤兀鲁思或金帐汗国。他在伏尔加河左岸兴建都城拔都萨莱（旧萨莱），正式确立了对东欧平原的封建宗主统治。
+      </p>
+      
+      <div class="marker">1242年到1357年 · 萨莱城市文明、伊斯兰化与全盛巅峰</div>
+      <p>
+        别儿哥汗在位期间转向信奉伊斯兰教，并在下游兴建更为宏大的别儿哥萨莱（新萨莱）。十四世纪上半叶，在月即别汗（1313到1341年）与得尼别汗统治时期，金帐汗国达到国力巅峰。汗廷定伊斯兰教为国教，依托贯通欧亚大陆的东西方过境商道与黑海热那亚、威尼斯商站，建立起繁华的城市手工业与货币经济体系。在此期间，弗拉基米尔与莫斯科诸公国必须前往萨莱向大汗进贡、受领封诰令旨（八思哈牌符）。
+      </p>
+
+      <div class="marker">1357年到1380年 · 汗廷大动乱与库里科沃转折</div>
+      <p>
+        1357年得尼别汗遭其子别儿迪别弑杀，金帐汗国陷入长达二十余年的权力大动乱，先后有二十多位汗王在权臣操控下自立相残。掌控汗国西部的权臣马麦独揽大权，与逐渐聚集实力的莫斯科公国爆发直接冲突。1380年顿河之畔的库里科沃战役，莫斯科大公德米特里·顿斯科伊率全罗斯联军大破马麦汗，打破了蒙古骑兵不可战胜的心理神话。
+      </p>
+
+      <div class="marker">1380年到1395年 · 脱脱迷失中兴与帖木儿毁灭性打击</div>
+      <p>
+        在白帐汗国后裔脱脱迷失借助中亚霸主帖木儿的支持夺取萨莱汗位，击杀马麦，暂时重新统一了金帐汗国。1382年脱脱迷失突袭焚毁莫斯科，迫使罗斯诸邦恢复纳贡。然而野心膨胀的脱脱迷失背叛帖木儿，企图夺取花剌子模与高加索商道。帖木儿发动两次大规模北征，分别于1391年昆都尔察河之战与1395年捷列克河战役彻底击溃脱脱迷失。帖木儿大军彻底夷平萨莱、阿斯特拉罕与乌尔根奇，洗劫了克里米亚商埠，将横贯金帐汗国的欧亚商道彻底切断。
+      </p>
+
+      <div class="marker">1395年到1480年 · 诸汗国分裂与鞑靼之轭的终结</div>
+      <p>
+        商路毁灭后的金帐汗国再也无法维系统一的财政与军事机器。权臣也迪该的整顿努力随其死而告终，汗国迅速分裂为喀山汗国、阿斯特拉罕汗国、克里米亚汗国、西伯利亚汗国、诺盖汗国以及残存的大帐汗国。1480年，莫斯科大公伊凡三世在乌格拉河畔与大帐汗国阿合马汗大军对峙，阿合马汗无力发动决战引兵撤退。这一事件标志着统治东欧平原长达二百四十年的鞑靼之轭彻底画上句号，统一的俄罗斯中央集权国家正式确立。
+      </p>
+    </div>
+  </section>
+
+  <!-- 第二层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 02</div>
+    <h2 class="layer-title">城市考古、贡赋网络与帝国解体逻辑</h2>
+    <div class="content">
+      <p>
+        格列科夫与雅库博夫斯基运用唯物史观与大量跨语种第一手材料，构建了三项颠覆传统认知的核心论证案例：
+      </p>
+      <p>
+        第一个案例是萨莱遗址考古发掘对游牧野蛮论的彻底推翻。雅库博夫斯基依据捷列申科等人在别儿哥萨莱遗址的大规模发掘成果，证明萨莱城决非游牧民的临时营地，而是一座拥有数十万人口、由砖石建筑、复杂陶管供水与下水道网络构成的宏大都市。城内出土了大量精美铜器、波斯与中国风格的瓷器、金属冶炼与骨雕作坊遗存以及各汗王铸造的银币和铜币。这表明金帐汗国具有成熟的封建城市与国际商贸枢纽形态。
+      </p>
+      <p>
+        第二个案例是莫斯科大公利用包税权实现的制度反噬。格列科夫通过对古罗斯编年史与封邑契约的研究，指出蒙古早期推行由达鲁花赤（八思哈）直接率军下乡清查人口并征税的制度，引发了特维尔、诺夫哥罗德等地的频繁起义。莫斯科大公伊凡一世（卡利塔）借机向大汗献媚，争取到了由莫斯科大公独家代征全罗斯贡税的特权。伊凡一世在截留巨额财税的同时，以大汗之名打击其他公国，为莫斯科聚集土地、收买封臣提供了最关键的经济杠杆。
+      </p>
+      <p>
+        第三个案例是帖木儿切断商道后汗国财政崩溃的经济因果链。两位作者指出，金帐汗国的城市并未植根于本国自给自足的农业分工，主要高度寄生于从中国、中亚通往黑海和地中海的过境商路过路税。当帖木儿在1395年有计划地摧毁所有商道节点并转道南线波斯时，萨莱城的手工业与财政来源一夜断绝。失去中央财政输血的汗廷无法再雇佣军队和拉拢各部首领，直接导致了汗国不可逆转的裂解。
+      </p>
+      <p>
+        本书立论的核心隐含前提在于：国家的兴衰与政治集权的形成，归根到底取决于其生产方式、阶级关系以及维系中央财政的物质经济基础，而非单纯的游牧尚武精神或君主的道德品行。
+      </p>
+      <p>
+        这套论述的失效边界在于：作者带有明显的战后苏联史学政治倾向，在论述蒙古征服的破坏性与俄罗斯人民反抗英雄主义时给予了浓重笔墨，在一定程度上弱化了蒙古统治对俄罗斯官僚制度、邮政通驿网络以及地缘整合所产生的客观制度塑造作用。
+      </p>
+    </div>
+  </section>
+
+  <!-- 第三层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 03</div>
+    <h2 class="layer-title">支撑金帐汗国兴亡的三大独立支柱</h2>
+    <div class="content">
+      <p>
+        统摄金帐汗国两百五十年历史的，是三条在不同维度上运作的深层动力线：
+      </p>
+      <p>
+        第一条线是横跨欧亚大陆的过境商贸经济动脉。金帐汗国之所以能在贫瘠的钦察草原上维持繁荣，是因为它牢牢扼守着自黑海沿岸港口（卡法、塔纳）经里海北部通往中亚与远东的商路。诸汗通过保护热那亚与威尼斯商人、发行统一货币、抽取百分之三至五的关税，获得了极为充裕的白银与奢侈品财富。
+      </p>
+      <p>
+        第二条线是草原游牧封建制固有的血缘分封与离心倾向。金帐汗国内部存在着庞大的蒙古突厥封建军事贵族阶层（异密、别克、那颜）。土地与牧场被分封给各支宗王，中央大汗对地方诸部的控制高度依赖个人威望与战利品分赃。一旦中央缺乏外财奖赏，贵族之间为争夺牧场和税源便会立即爆发火并。
+      </p>
+      <p>
+        第三条线是罗斯农业定居社会的阶级凝聚与集权重组。面对严酷的异族压迫，被征服的罗斯农民与城市平民在承受沉重贡赋的同时，推动了内部经济的逐步复苏。莫斯科大公利用地理居中与大汗代理人的双重优势，逐步将分散的王公力量整合为一个拥有高度行政动员能力的中央集权君主国。
+      </p>
+    </div>
+  </section>
+
+  <!-- 第四层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 04</div>
+    <h2 class="layer-title">顺着商贸寄生往下追问超级帝国的命门</h2>
+    <div class="content">
+      <p>
+        第一步追问：为什么一个在十四世纪初富甲欧亚、拥有数十万控弦之士的超级帝国，会在几十年内迅速沦为任人宰割的碎屑？
+        直接的表象是帖木儿的军事打击与汗室内部连绵不绝的弑君内讧。
+      </p>
+      <p>
+        第二步追问：为什么一次外部战争的失败就会导致整个帝国的政权结构永久性瘫痪？
+        其背后的运作机理在于金帐汗国城市文明与本土经济的脱节。萨莱城等工商业繁华完全建立在国际过境贸易的税收之上，并未与草原游牧民以及森林农业区形成深度的工农业商品内循环。商道一断，城市瞬间沦为空壳。
+      </p>
+      <p>
+        第三步追问：为什么金帐诸汗未能将过境贸易收益转化为稳固的本土工农业一体化生产体系？
+        支撑这种运作的基本道理在于游牧封建贵族的掠夺性分肥本能。统治集团满足于向过境商旅抽取关税、向罗斯公国强索实物与金银贡赋，缺乏对农业水利、工场制造以及深层生产关系的改良意愿与制度工具。
+      </p>
+      <p>
+        第四步追问：这种寄生性掠夺经济模型的不可逆极限是什么？
+        在于它无法抵御外部地缘商路的转移，更无法阻止被掠夺定居民族在长期生存重压下完成组织度进化。当被掠夺者学会了帝国的集权组织方式并切断贡赋输送时，寄生于外部血肉之上的庞大帝国便无可挽回地走向整体性崩解。
+      </p>
+    </div>
+  </section>
+
+  <!-- 第五层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 05</div>
+    <h2 class="layer-title">七个递进问题看透金帐汗国与东欧变迁</h2>
+    <div class="content">
+      <div class="qa-box">
+        <div class="qa-q">问题一：蒙古西征前的钦察草原处于怎样的社会状态？</div>
+        <div class="qa-a">
+          钦察草原当时被突厥语系的库曼人（钦察人）占据，处于原始公社解体向早期阶级社会过渡的阶段，部落林立缺乏统一国家，同基辅罗斯既有血缘联姻又有频繁劫掠冲突。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">问题二：为什么金帐汗国的蒙古统治者最终突厥化并皈依伊斯兰教？</div>
+        <div class="qa-a">
+          因为进入钦察草原的蒙古征服者人数仅有数万人，远远少于被统治的钦察人等突厥土著。在长期共同生活与经济交往中，蒙古人在语言和习俗上迅速被突厥人口汪洋同化，并借助伊斯兰教确立了统一的意识形态与商贸文明连接。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">问题三：达鲁花赤（八思哈）制度是如何在罗斯运转并演变的？</div>
+        <div class="qa-a">
+          初期由大汗直接派遣八思哈军官驻扎各公国，专司人口清查、征兵与催缴重税；由于引发激烈的反抗暴动，十四世纪起大汗改为册封亲顺的罗斯大公代行征税，从而使权力重心向罗斯本土王公转移。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">问题四：伊凡一世（卡利塔）是如何利用大汗权威成就莫斯科霸业的？</div>
+        <div class="qa-a">
+          伊凡一世通过严厉镇压反抗蒙古的特维尔公国赢得了大汗的绝对信任，获得了全罗斯大公头衔与包税权，他利用代征税款的截留财富兼并领土，使莫斯科成为全罗斯的政治与经济重心。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">问题五：库里科沃之战对于东欧历史进程有何决定性意义？</div>
+        <div class="qa-a">
+          虽然此战并未立即终结蒙古统治，但它首次证明了团结在莫斯科旗帜下的罗斯民族具备击溃蒙古主力的实力，确立了莫斯科作为全罗斯解放核心的唯一领导地位。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">问题六：帖木儿为什么要不惜代价摧毁金帐汗国的都城与商道？</div>
+        <div class="qa-a">
+          脱脱迷失企图争夺高加索与中亚商路的控制权直接威胁了帖木儿帝国的核心利益；帖木儿通过彻底夷平萨莱等商埠，强行将欧亚贸易流转完全吸引到撒马尔罕和波斯本土路线。
+        </div>
+      </div>
+
+      <div class="qa-box">
+        <div class="qa-q">问题七：1480年乌格拉河对峙为何标志着鞑靼之轭的彻底终结？</div>
+        <div class="qa-a">
+          因为此时的大帐汗国财政枯竭、兵力匮乏且孤立无援，而伊凡三世领导的莫斯科公国拥有完备的枪炮步兵与强大的防御纵深，双方力量对比已发生不可逆转的根本反转。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第六层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 06</div>
+    <h2 class="layer-title">学术突破、时代烙印与现代治理镜像</h2>
+    <div class="content">
+      <p>
+        格列科夫与雅库博夫斯基合撰此书，成功摆脱了沙俄时代单纯编年史与欧洲中心主义的旧范式，将金帐汗国视作一个拥有复杂社会阶级、封建土地关系与独特城市文明的独立历史实体，开创了东方学与俄国中世纪史交叉研究的新高度。
+      </p>
+      <p>
+        全书的局限在于过于侧重汗国在俄罗斯境内的作用，对汗国在高加索、克里米亚以及花剌子模等非俄罗斯族地区的社会演进论述相对单薄，且对战后斯大林时代的苏联民族历史叙事存在一定迎合。
+      </p>
+      <p>
+        跨域映射到商业与组织演化：一个平台的庞大体量如果完全依赖转口流量与外部税收分润，而自身没有建立起不可替代的研发与生产制造能力，一旦外部流量通道被竞争对手腰斩，平台的解体往往比建立更加迅猛。
+      </p>
+      <p>
+        具体行动建议：在构建任何组织或商业体系时，切勿将中介通道的税收红利误判为自身的内生竞争力；必须将通道红利迅速沉淀为基础资产与组织协同能力。
+      </p>
+    </div>
+  </section>
+
+  <!-- 第七层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 07</div>
+    <h2 class="layer-title">全书骨架浓缩</h2>
+    <div class="content">
+      <div class="formula-box">
+        <div class="formula-title">金帐汗国统治生命力模型</div>
+        <div class="formula-content">帝国存续力 = (欧亚过境商税 + 外部贡赋抽取) / (血缘宗王离心力 + 代理人集权反噬速度)</div>
+        <div class="formula-note">当帖木儿腰斩商税且莫斯科完成集权反噬时，比值击穿临界点，帝国不可逆地走向彻底解体。</div>
+      </div>
+
+      <div class="ascii-box">
+【金帐汗国与东欧平原演化结构】
+
+  [术赤兀鲁思 (拔都 / 别儿哥 / 月即别)]
+         |
+         +----> 经济支柱: 萨莱城手工业 + 欧亚过境商道税收 + 黑海商站
+         |
+         +----> 统治杠杆: 达鲁花赤 / 八思哈令旨 / 挑拨罗斯诸王公内耗
+         |
+         v
+  [两大致命危机爆发]
+         |
+         +----> 危机一: 内部二十年弑君大内讧 (封建贵族割据)
+         |
+         +----> 危机二: 帖木儿两次北征 (1395年夷平萨莱，商道彻底断绝)
+         |
+         v
+  [莫斯科公国反噬与终结]
+         |
+         +----> 伊凡一世 (卡利塔): 包税权积累土地与资本
+         +----> 德米特里: 1380年库里科沃大捷打破不可战胜神话
+         +----> 1480年乌格拉河对峙: 伊凡三世彻底终结二百四十年鞑靼之轭
+         |
+         v
+  [金帐解体为六大碎屑汗国: 喀山 / 阿斯特拉罕 / 克里米亚 / 西伯利亚等]
+      </div>
+
+      <p style="font-weight: 600; text-align: center; margin-top: 16px;">
+        一句话总结：金帐汗国以马刀与商税征服东欧两百年，却在寄生商道的毁灭与莫斯科大公的包税反噬中走向瓦解。
+      </p>
+    </div>
+  </section>
+
+  <!-- 第八层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 08</div>
+    <h2 class="layer-title">包税权的反噬：莫斯科如何掘毁金帐汗国的基石</h2>
+    <div class="content">
+      <p>
+        在人类帝国历史上，最富戏剧性的权力反转往往发生在宗主国与代理人之间。莫斯科公国对金帐汗国的寄生与反噬，堪称这一政治机制的教科书级样本。
+      </p>
+      <p>
+        十三世纪中叶，当拔都的大军荡平基辅罗斯时，蒙古人建立了极为残酷直接的军事专政。达鲁花赤（八思哈）率领精锐骑兵进驻各大城镇，逐户清查人口，强征重税，任何迟延都会招致毁灭性的洗劫。然而这种直接统治的成本极高，各公国起义不断，蒙古官吏频频被杀。
+      </p>
+      <p>
+        十四世纪初，莫斯科大公伊凡一世（卡利塔）敏锐地捕捉到了制度漏洞。他频繁前往萨莱，向月即别汗展示近乎卑微的忠诚，不仅带去丰厚的贿赂，更在特维尔爆发反蒙起义时，主动充当蒙古大军的向导残忍镇压同胞。大汗为此重赏伊凡一世，授予其弗拉基米尔大公称号，并将全罗斯的包税权全权委托给莫斯科。
+      </p>
+      <p>
+        在汗廷看来，这是一笔极其合算的统治外包。大汗不再需要派军队逐村收税，只要坐在萨莱数收白银即可。然而蒙古贵族没有预料到，包税权是一把极具毁灭性的双刃剑。
+      </p>
+      <p>
+        拿到包税权的伊凡一世获得了前所未有的经济与法律强制力。他凭借大汗的令旨，向全罗斯其他公国课以重税，将其中一部分上缴萨莱，将更庞大的一部分悄悄充实莫斯科的国库。他用这些截留的金银大肆收买破产贵族的封地，赎买各地的土地抵押权，更建立起强大的常备雇佣武装。凡是不服从莫斯科吞并的王公，伊凡一世就以抗税为由借大汗之名予以兼并。
+      </p>
+      <p>
+        莫斯科就这样在金帐汗国的庇护下完成了最初的资本与领土原始积累。当汗廷因为内部争权与帖木儿的打击而虚弱不堪时，莫斯科已经成长为一个拥有统一财政、庞大领土与高度集权动员能力的庞然大物。曾经用来榨取罗斯骨髓的八思哈令旨，最终变成了莫斯科埋葬金帐汗国的铁锹。
+      </p>
+    </div>
+  </section>
+
+  <!-- 第九层 -->
+  <section class="layer">
+    <div class="layer-tag">Layer 09</div>
+    <h2 class="layer-title">最终判断</h2>
+    <div class="content">
+      <div class="quote-box">
+        <div class="quote-text">
+          任何建立在外部通道寄生与外包代理统治之上的帝国，其委托给代理人的强制征收权，终有一天会转化为代理人埋葬帝国自身的利刃。
+        </div>
+        <div class="quote-author">青山 · 2026-08-31</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 事实边界 -->
+  <section class="fact-boundary">
+    <div style="font-weight: 700; margin-bottom: 8px; color: var(--black);">事实边界</div>
+    <p>
+      本文依据苏联历史学家鲍·季·格列科夫与亚·尤·雅库博夫斯基合著之《金帐汗国兴衰史》（余大钧中译本，商务印书馆1985年版）。文中所述拔都西征战役、萨莱城考古发掘成果、莫斯科大公伊凡一世代征税款、1380年库里科沃之战、1395年帖木儿摧毁萨莱商道以及1480年乌格拉河对峙等历史节点，均出自原书史料与苏联科学院公认史实考证；文中关于包税权与国家经济寄生性的分析，属于基于历史唯物主义的结构性推论。
+    </p>
+  </section>
+
+  <footer>
+    <div class="container" style="padding:0;">
+      青山 · 2026-08-31
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
