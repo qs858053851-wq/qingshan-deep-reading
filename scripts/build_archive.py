@@ -209,6 +209,15 @@ def remove_remote_font_loads(text: str) -> tuple[str, int]:
     return text, removed
 
 
+def remove_local_font_paths(text: str) -> tuple[str, int]:
+    """Remove local filesystem font paths from CSS @font-face rules."""
+    pattern = re.compile(
+        r",\s*url\([\"']?(?:/Users/|/home/|file://|[A-Za-z]:\\\\)[^)\"']+[\"']?\)\s*(?:format\([^)]*\))?",
+        re.I,
+    )
+    return pattern.subn("", text)
+
+
 def rewrite_markdown_html_link(text: str, html_name: str | None) -> tuple[str, int]:
     if not html_name:
         pattern = re.compile(r"\[[^\]]*(?:HTML|网页|可视化)[^\]]*\]\(\.\./[^)]+\.html\)", re.I)
@@ -257,6 +266,9 @@ def copy_clean(path: Path, destination: Path, html_name: str | None = None) -> t
         cleaned, removed_fonts = remove_remote_font_loads(cleaned)
         if removed_fonts:
             changes["removed remote font requests"] += removed_fonts
+        cleaned, removed_local_fonts = remove_local_font_paths(cleaned)
+        if removed_local_fonts:
+            changes["removed local font paths"] += removed_local_fonts
     elif path.suffix.lower() == ".md":
         cleaned, rewritten_links = rewrite_markdown_html_link(cleaned, html_name)
         if rewritten_links:
