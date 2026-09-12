@@ -151,8 +151,8 @@ def clean_title(raw: str, fallback: str) -> str:
 
 
 def extract_title(path: Path, text: str, fallback: str) -> str:
-    match = H1_RE.search(text) or TITLE_RE.search(text)
-    return clean_title(match.group(1), fallback) if match else fallback
+    # 始终以文件名 stem 解析出的书名为准，严禁用文章正文的 h1/小标题覆盖书名
+    return fallback
 
 
 def display_title_from_stem(stem: str) -> str:
