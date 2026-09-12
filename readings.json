@@ -1,26 +1,26 @@
 {
   "updated": "2026-09-12",
-  "count": 639,
-  "htmlCount": 634,
-  "markdownCount": 637,
+  "count": 661,
+  "htmlCount": 656,
+  "markdownCount": 659,
   "categories": {
-    "人类学与民族志": 14,
+    "人类学与民族志": 15,
     "传记与回忆录": 10,
     "健康与生活": 4,
-    "其他阅读": 40,
-    "历史与文明": 120,
+    "其他阅读": 41,
+    "历史与文明": 123,
     "古典文献与国学": 9,
-    "哲学与思想": 45,
+    "哲学与思想": 47,
     "宗教与灵性": 59,
     "实用与技能": 12,
-    "心理学与自我": 37,
+    "心理学与自我": 39,
     "性文化与身体": 21,
     "文学与小说": 114,
-    "社会与政治": 67,
-    "神话与民俗": 11,
+    "社会与政治": 73,
+    "神话与民俗": 12,
     "科幻与悬疑": 18,
-    "科普与科学": 11,
-    "经济与商业": 21,
+    "科普与科学": 12,
+    "经济与商业": 26,
     "艺术与文化": 16,
     "诗歌与词赋": 10
   },
@@ -35,6 +35,33 @@
       "markdownBytes": 33422
     },
     {
+      "title": "金枝",
+      "date": "2026-09-12",
+      "category": "人类学与民族志",
+      "html": "readings/%E9%87%91%E6%9E%9D_2026-09-12.html",
+      "markdown": "markdown/%E9%87%91%E6%9E%9D_2026-09-12.md",
+      "htmlBytes": 14501,
+      "markdownBytes": 6854
+    },
+    {
+      "title": "道德情操论",
+      "date": "2026-09-12",
+      "category": "哲学与思想",
+      "html": "readings/%E9%81%93%E5%BE%B7%E6%83%85%E6%93%8D%E8%AE%BA_2026-09-12.html",
+      "markdown": "markdown/%E9%81%93%E5%BE%B7%E6%83%85%E6%93%8D%E8%AE%BA_2026-09-12.md",
+      "htmlBytes": 15806,
+      "markdownBytes": 8214
+    },
+    {
+      "title": "资本主义、社会主义与民主",
+      "date": "2026-09-12",
+      "category": "经济与商业",
+      "html": "readings/%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E3%80%81%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B0%91%E4%B8%BB_2026-09-12.html",
+      "markdown": "markdown/%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E3%80%81%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E4%B8%8E%E6%B0%91%E4%B8%BB_2026-09-12.md",
+      "htmlBytes": 23568,
+      "markdownBytes": 12626
+    },
+    {
       "title": "致命的自负",
       "date": "2026-09-12",
       "category": "哲学与思想",
@@ -42,6 +69,15 @@
       "markdown": "markdown/%E8%87%B4%E5%91%BD%E7%9A%84%E8%87%AA%E8%B4%9F_2026-09-12.md",
       "htmlBytes": 41722,
       "markdownBytes": 27003
+    },
+    {
+      "title": "自私的基因",
+      "date": "2026-09-12",
+      "category": "科普与科学",
+      "html": "readings/%E8%87%AA%E7%A7%81%E7%9A%84%E5%9F%BA%E5%9B%A0_2026-09-12.html",
+      "markdown": "markdown/%E8%87%AA%E7%A7%81%E7%9A%84%E5%9F%BA%E5%9B%A0_2026-09-12.md",
+      "htmlBytes": 23861,
+      "markdownBytes": 12610
     },
     {
       "title": "自由宪章",
@@ -62,6 +98,15 @@
       "markdownBytes": 33160
     },
     {
+      "title": "社会契约论",
+      "date": "2026-09-12",
+      "category": "哲学与思想",
+      "html": "readings/%E7%A4%BE%E4%BC%9A%E5%A5%91%E7%BA%A6%E8%AE%BA_2026-09-12.html",
+      "markdown": "markdown/%E7%A4%BE%E4%BC%9A%E5%A5%91%E7%BA%A6%E8%AE%BA_2026-09-12.md",
+      "htmlBytes": 23595,
+      "markdownBytes": 12682
+    },
+    {
       "title": "白银帝国",
       "date": "2026-09-12",
       "category": "历史与文明",
@@ -80,6 +125,15 @@
       "markdownBytes": 48740
     },
     {
+      "title": "独裁者手册",
+      "date": "2026-09-12",
+      "category": "社会与政治",
+      "html": "readings/%E7%8B%AC%E8%A3%81%E8%80%85%E6%89%8B%E5%86%8C_2026-09-12.html",
+      "markdown": "markdown/%E7%8B%AC%E8%A3%81%E8%80%85%E6%89%8B%E5%86%8C_2026-09-12.md",
+      "htmlBytes": 19006,
+      "markdownBytes": 10646
+    },
+    {
       "title": "狂热分子",
       "date": "2026-09-12",
       "category": "社会与政治",
@@ -87,6 +141,69 @@
       "markdown": "markdown/%E7%8B%82%E7%83%AD%E5%88%86%E5%AD%90_2026-09-12.md",
       "htmlBytes": 46976,
       "markdownBytes": 32122
+    },
+    {
+      "title": "梦的解析",
+      "date": "2026-09-12",
+      "category": "心理学与自我",
+      "html": "readings/%E6%A2%A6%E7%9A%84%E8%A7%A3%E6%9E%90_2026-09-12.html",
+      "markdown": "markdown/%E6%A2%A6%E7%9A%84%E8%A7%A3%E6%9E%90_2026-09-12.md",
+      "htmlBytes": 15140,
+      "markdownBytes": 7528
+    },
+    {
+      "title": "极权主义的起源",
+      "date": "2026-09-12",
+      "category": "社会与政治",
+      "html": "readings/%E6%9E%81%E6%9D%83%E4%B8%BB%E4%B9%89%E7%9A%84%E8%B5%B7%E6%BA%90_2026-09-12.html",
+      "markdown": "markdown/%E6%9E%81%E6%9D%83%E4%B8%BB%E4%B9%89%E7%9A%84%E8%B5%B7%E6%BA%90_2026-09-12.md",
+      "htmlBytes": 18780,
+      "markdownBytes": 10500
+    },
+    {
+      "title": "明朝那些事儿",
+      "date": "2026-09-12",
+      "category": "历史与文明",
+      "html": "readings/%E6%98%8E%E6%9C%9D%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF_2026-09-12.html",
+      "markdown": "markdown/%E6%98%8E%E6%9C%9D%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF_2026-09-12.md",
+      "htmlBytes": 18689,
+      "markdownBytes": 10482
+    },
+    {
+      "title": "旧制度与大革命",
+      "date": "2026-09-12",
+      "category": "社会与政治",
+      "html": "readings/%E6%97%A7%E5%88%B6%E5%BA%A6%E4%B8%8E%E5%A4%A7%E9%9D%A9%E5%91%BD_2026-09-12.html",
+      "markdown": "markdown/%E6%97%A7%E5%88%B6%E5%BA%A6%E4%B8%8E%E5%A4%A7%E9%9D%A9%E5%91%BD_2026-09-12.md",
+      "htmlBytes": 15919,
+      "markdownBytes": 8273
+    },
+    {
+      "title": "新教伦理与资本主义精神",
+      "date": "2026-09-12",
+      "category": "经济与商业",
+      "html": "readings/%E6%96%B0%E6%95%99%E4%BC%A6%E7%90%86%E4%B8%8E%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E7%B2%BE%E7%A5%9E_2026-09-12.html",
+      "markdown": "markdown/%E6%96%B0%E6%95%99%E4%BC%A6%E7%90%86%E4%B8%8E%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E7%B2%BE%E7%A5%9E_2026-09-12.md",
+      "htmlBytes": 15468,
+      "markdownBytes": 7873
+    },
+    {
+      "title": "文明及其不满",
+      "date": "2026-09-12",
+      "category": "其他阅读",
+      "html": "readings/%E6%96%87%E6%98%8E%E5%8F%8A%E5%85%B6%E4%B8%8D%E6%BB%A1_2026-09-12.html",
+      "markdown": "markdown/%E6%96%87%E6%98%8E%E5%8F%8A%E5%85%B6%E4%B8%8D%E6%BB%A1_2026-09-12.md",
+      "htmlBytes": 21366,
+      "markdownBytes": 10584
+    },
+    {
+      "title": "思考，快与慢",
+      "date": "2026-09-12",
+      "category": "经济与商业",
+      "html": "readings/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2_2026-09-12.html",
+      "markdown": "markdown/%E6%80%9D%E8%80%83%EF%BC%8C%E5%BF%AB%E4%B8%8E%E6%85%A2_2026-09-12.md",
+      "htmlBytes": 23457,
+      "markdownBytes": 12282
     },
     {
       "title": "大转型",
@@ -116,6 +233,15 @@
       "markdownBytes": 35784
     },
     {
+      "title": "国富论",
+      "date": "2026-09-12",
+      "category": "经济与商业",
+      "html": "readings/%E5%9B%BD%E5%AF%8C%E8%AE%BA_2026-09-12.html",
+      "markdown": "markdown/%E5%9B%BD%E5%AF%8C%E8%AE%BA_2026-09-12.md",
+      "htmlBytes": 20012,
+      "markdownBytes": 11704
+    },
+    {
       "title": "国家为什么会失败",
       "date": "2026-09-12",
       "category": "社会与政治",
@@ -123,6 +249,24 @@
       "markdown": "markdown/%E5%9B%BD%E5%AE%B6%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%A4%B1%E8%B4%A5_2026-09-12.md",
       "htmlBytes": 57672,
       "markdownBytes": 43236
+    },
+    {
+      "title": "吴思历史经典三部曲",
+      "date": "2026-09-12",
+      "category": "历史与文明",
+      "html": "readings/%E5%90%B4%E6%80%9D%E5%8E%86%E5%8F%B2%E7%BB%8F%E5%85%B8%E4%B8%89%E9%83%A8%E6%9B%B2_2026-09-12.html",
+      "markdown": "markdown/%E5%90%B4%E6%80%9D%E5%8E%86%E5%8F%B2%E7%BB%8F%E5%85%B8%E4%B8%89%E9%83%A8%E6%9B%B2_2026-09-12.md",
+      "htmlBytes": 19398,
+      "markdownBytes": 11132
+    },
+    {
+      "title": "君主论",
+      "date": "2026-09-12",
+      "category": "社会与政治",
+      "html": "readings/%E5%90%9B%E4%B8%BB%E8%AE%BA_2026-09-12.html",
+      "markdown": "markdown/%E5%90%9B%E4%B8%BB%E8%AE%BA_2026-09-12.md",
+      "htmlBytes": 15323,
+      "markdownBytes": 7698
     },
     {
       "title": "叫魂",
@@ -134,6 +278,24 @@
       "markdownBytes": 36794
     },
     {
+      "title": "古拉格：一部历史",
+      "date": "2026-09-12",
+      "category": "历史与文明",
+      "html": "readings/%E5%8F%A4%E6%8B%89%E6%A0%BC%EF%BC%9A%E4%B8%80%E9%83%A8%E5%8E%86%E5%8F%B2_2026-09-12.html",
+      "markdown": "markdown/%E5%8F%A4%E6%8B%89%E6%A0%BC%EF%BC%9A%E4%B8%80%E9%83%A8%E5%8E%86%E5%8F%B2_2026-09-12.md",
+      "htmlBytes": 15274,
+      "markdownBytes": 7702
+    },
+    {
+      "title": "反脆弱",
+      "date": "2026-09-12",
+      "category": "经济与商业",
+      "html": "readings/%E5%8F%8D%E8%84%86%E5%BC%B1_2026-09-12.html",
+      "markdown": "markdown/%E5%8F%8D%E8%84%86%E5%BC%B1_2026-09-12.md",
+      "htmlBytes": 23929,
+      "markdownBytes": 13186
+    },
+    {
       "title": "历史决定论的贫困",
       "date": "2026-09-12",
       "category": "哲学与思想",
@@ -141,6 +303,24 @@
       "markdown": "markdown/%E5%8E%86%E5%8F%B2%E5%86%B3%E5%AE%9A%E8%AE%BA%E7%9A%84%E8%B4%AB%E5%9B%B0_2026-09-12.md",
       "htmlBytes": 40554,
       "markdownBytes": 26111
+    },
+    {
+      "title": "千面英雄",
+      "date": "2026-09-12",
+      "category": "神话与民俗",
+      "html": "readings/%E5%8D%83%E9%9D%A2%E8%8B%B1%E9%9B%84_2026-09-12.html",
+      "markdown": "markdown/%E5%8D%83%E9%9D%A2%E8%8B%B1%E9%9B%84_2026-09-12.md",
+      "htmlBytes": 14861,
+      "markdownBytes": 7242
+    },
+    {
+      "title": "利维坦",
+      "date": "2026-09-12",
+      "category": "社会与政治",
+      "html": "readings/%E5%88%A9%E7%BB%B4%E5%9D%A6_2026-09-12.html",
+      "markdown": "markdown/%E5%88%A9%E7%BB%B4%E5%9D%A6_2026-09-12.md",
+      "htmlBytes": 14954,
+      "markdownBytes": 7345
     },
     {
       "title": "儒教与道教",
@@ -168,6 +348,24 @@
       "markdown": "markdown/%E4%BC%8A%E7%94%B8%E5%9B%AD_2026-09-12.md",
       "htmlBytes": 57076,
       "markdownBytes": 44728
+    },
+    {
+      "title": "乌合之众",
+      "date": "2026-09-12",
+      "category": "心理学与自我",
+      "html": "readings/%E4%B9%8C%E5%90%88%E4%B9%8B%E4%BC%97_2026-09-12.html",
+      "markdown": "markdown/%E4%B9%8C%E5%90%88%E4%B9%8B%E4%BC%97_2026-09-12.md",
+      "htmlBytes": 22835,
+      "markdownBytes": 11765
+    },
+    {
+      "title": "东方学",
+      "date": "2026-09-12",
+      "category": "社会与政治",
+      "html": "readings/%E4%B8%9C%E6%96%B9%E5%AD%A6_2026-09-12.html",
+      "markdown": "markdown/%E4%B8%9C%E6%96%B9%E5%AD%A6_2026-09-12.md",
+      "htmlBytes": 14577,
+      "markdownBytes": 6980
     },
     {
       "title": "身份的焦虑",
