@@ -5,97 +5,329 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>爱经 · 深度解书</title>
 <style>
-:root { color-scheme: light; }
-* { box-sizing: border-box; }
-body {
-  margin: 0; padding: 0;
-  background: #faf8f3;
-  color: #2a2a2a;
-  font-family: "Inter", -apple-system, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.85;
-  font-size: 17px;
-  -webkit-font-smoothing: antialiased;
-}
-.wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
-.cover {
-  text-align: center;
-  padding: 60px 0 40px;
-  border-bottom: 1px solid #e6dfd0;
-  margin-bottom: 48px;
-}
-.cover .kicker {
-  font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
-  color: #8a7a55; margin-bottom: 18px;
-}
-.cover h1 {
-  font-size: 44px; font-weight: 800; letter-spacing: -0.02em;
-  margin: 0 0 8px; color: #1a1a1a;
-}
-.cover .byline { font-size: 14px; color: #888; margin-top: 12px; }
-.cover .date { font-size: 12px; color: #aaa; margin-top: 6px; }
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+  }
 
-.fact-edge {
-  background: #f5efe0; border-left: 3px solid #c9b870;
-  padding: 14px 18px; margin: 24px 0 48px;
-  font-size: 14px; color: #5a533a; border-radius: 0 4px 4px 0;
-}
-.fact-edge b { color: #3a3320; }
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
 
-.layer {
-  margin: 56px 0;
-  padding-top: 36px;
-  border-top: 1px solid #e6dfd0;
-}
-.layer:first-of-type { border-top: none; }
-.layer .lnum {
-  font-size: 11px; letter-spacing: 0.25em; color: #b0a070;
-  text-transform: uppercase; margin-bottom: 6px;
-}
-.layer h2 {
-  font-size: 28px; font-weight: 750; letter-spacing: -0.015em;
-  margin: 4px 0 24px; color: #1a1a1a; line-height: 1.3;
-}
-.layer h3 {
-  font-size: 18px; font-weight: 650; color: #3a3320;
-  margin: 28px 0 12px;
-}
-.layer p { margin: 14px 0; }
-.layer .qa { margin: 22px 0; padding: 18px 20px; background: #f3ecdc; border-radius: 4px; }
-.layer .qa .q { font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
-.layer .qa .a { color: #3a3a3a; }
-.layer .formula {
-  font-family: "SF Mono", Consolas, monospace; background: #f0e9d8;
-  padding: 14px 18px; border-radius: 4px; text-align: center;
-  font-size: 16px; color: #3a3320; margin: 20px 0;
-}
-.layer pre.ascii {
-  font-family: "SF Mono", Consolas, monospace; background: #f0e9d8;
-  padding: 18px; border-radius: 4px; font-size: 13px; color: #3a3320;
-  overflow-x: auto; line-height: 1.5;
-}
-.layer blockquote {
-  border-left: 3px solid #c9b870; padding: 6px 18px;
-  margin: 18px 0; color: #555; font-style: italic;
-}
-.napkin-box {
-  border: 1px solid #d0c5a0; border-radius: 6px;
-  padding: 32px; margin: 32px 0; text-align: center; background: #f5efe0;
-}
-.napkin-box .big { font-size: 20px; font-weight: 700; color: #3a3320; margin: 12px 0; }
-.gold {
-  text-align: center; font-size: 22px; font-weight: 700;
-  color: #1a1a1a; padding: 48px 0 20px; line-height: 1.5;
-  border-top: 1px solid #e6dfd0; margin-top: 56px;
-}
-footer { text-align: center; color: #aaa; font-size: 12px; margin-top: 40px; padding-top: 24px; border-top: 1px solid #e6dfd0; }
-.revision-signature { text-align: center; color: #8a7a55; font-size: 12px; letter-spacing: .4px; margin: 44px 0 -20px; }
-@media (max-width: 600px) {
-  body { font-size: 16px; }
-  .wrap { padding: 30px 16px 50px; }
-  .cover h1 { font-size: 32px; }
-  .layer h2 { font-size: 22px; }
-}
-.marker { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: #8a7a55; margin: 28px 0 6px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+  }
+  .cover-eyebrow, .kicker {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title, .hero h1 {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub, .tagline, .subtitle {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta, .author, .meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
+  /* TOC */
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  /* Layers & Sections */
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag, .layer-num {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
+
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 12pt 0;
+    letter-spacing: 1pt;
+    line-height: 1.6;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
 </style>
 </head>
 <body>

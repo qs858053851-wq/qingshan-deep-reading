@@ -5,421 +5,329 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>嫌疑人X的献身 —— 九层解书</title>
 <style>
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+  }
 
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
 
-:root {
-  --accent: #D4532B;
-  --black: #111111;
-  --mid: #666666;
-  --light: #999999;
-  --border: #d0d0d0;
-  --bg: #fafafa;
-  --surface: #ffffff;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
 
-body {
-  font-family: 'Noto Serif SC', 'Inter', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--black);
-  font-size: 16px;
-  line-height: 1.8;
-}
+  html, body {
+    background: var(--parchment);
+  }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
 
-/* Hero */
-.hero {
-  padding: 80px 0 48px;
-  border-bottom: 2px solid var(--black);
-  margin-bottom: 0;
-}
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
 
-.hero h1 {
-  font-size: 52px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+  }
+  .cover-eyebrow, .kicker {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title, .hero h1 {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub, .tagline, .subtitle {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta, .author, .meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
 
-.hero .author {
-  font-size: 18px;
-  color: var(--mid);
-  font-family: 'Inter', sans-serif;
-}
+  /* TOC */
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
 
-.hero .meta {
-  font-size: 13px;
-  color: var(--light);
-  margin-top: 24px;
-  font-family: 'Inter', sans-serif;
-}
+  /* Layers & Sections */
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
 
-/* Layer */
-.layer {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--border);
-}
+  .layer-tag, .layer-num {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
 
-.layer-header {
-  margin-bottom: 32px;
-}
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
 
-.layer-number {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
 
-.layer-title {
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.3;
-}
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
 
-.layer-body {
-  font-size: 16px;
-  line-height: 1.9;
-}
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
 
-.layer-body p {
-  margin-bottom: 20px;
-}
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
 
-/* Skeleton table */
-.skeleton-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 24px 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-}
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 12pt 0;
+    letter-spacing: 1pt;
+    line-height: 1.6;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
+  }
 
-.skeleton-table th {
-  text-align: left;
-  padding: 12px 16px;
-  border-bottom: 2px solid var(--black);
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--mid);
-}
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
 
-.skeleton-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
 
-.skeleton-table .col-chapter {
-  width: 80px;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.skeleton-table .col-bone {
-  font-weight: 600;
-}
-
-.skeleton-table .col-meat {
-  color: var(--mid);
-  font-size: 13px;
-}
-
-/* Character table */
-.char-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 24px 0;
-  font-size: 15px;
-}
-
-.char-table th {
-  text-align: left;
-  padding: 14px 16px;
-  border-bottom: 2px solid var(--black);
-  font-weight: 700;
-}
-
-.char-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
-
-.char-table .role {
-  font-weight: 700;
-  color: var(--accent);
-  white-space: nowrap;
-}
-
-/* Tension box */
-.tension-box {
-  border: 1px solid var(--black);
-  padding: 24px;
-  margin: 24px 0;
-  background: var(--surface);
-}
-
-.tension-box .label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.tension-box .content {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-/* Arc timeline */
-.arc-timeline {
-  margin: 24px 0;
-  padding-left: 24px;
-  border-left: 2px solid var(--border);
-}
-
-.arc-item {
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.arc-item::before {
-  content: '';
-  position: absolute;
-  left: -29px;
-  top: 8px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-.arc-item .phase {
-  font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.arc-item .desc {
-  color: var(--mid);
-  font-size: 14px;
-}
-
-/* Blockquote */
-blockquote {
-  border-left: 3px solid var(--accent);
-  padding-left: 20px;
-  margin: 24px 0;
-  color: var(--mid);
-  font-style: italic;
-}
-
-/* QA chain */
-.qa-block {
-  margin: 28px 0;
-  padding: 24px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-
-.qa-block .q {
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--accent);
-  margin-bottom: 16px;
-  line-height: 1.5;
-}
-
-.qa-block .a-section {
-  margin-bottom: 12px;
-  padding-left: 16px;
-  border-left: 2px solid var(--border);
-}
-
-.qa-block .a-section .label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--light);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-/* Napkin */
-.napkin {
-  border: 2px solid var(--black);
-  padding: 40px 32px;
-  margin: 32px 0;
-  text-align: center;
-  background: var(--surface);
-}
-
-.napkin .formula {
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: -1px;
-  line-height: 1.4;
-}
-
-.napkin .subtitle {
-  font-size: 14px;
-  color: var(--mid);
-  margin-top: 16px;
-  font-family: 'Inter', sans-serif;
-}
-
-/* ASCII diagram */
-.ascii-diagram {
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
-  line-height: 1.6;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 24px;
-  margin: 24px 0;
-  overflow-x: auto;
-  white-space: pre;
-  color: var(--black);
-}
-
-/* Essay layer */
-.essay-layer {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.essay-layer .layer-body {
-  font-size: 17px;
-  line-height: 2;
-}
-
-.essay-layer .layer-body p {
-  margin-bottom: 24px;
-  text-indent: 2em;
-}
-
-.essay-layer .layer-body p:first-child {
-  text-indent: 0;
-}
-
-/* Closing */
-.closing {
-  padding: 64px 0;
-  border-top: 2px solid var(--black);
-  margin-top: 0;
-}
-
-.closing-quote {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  font-style: italic;
-  line-height: 1.5;
-  margin-bottom: 32px;
-}
-
-.closing-signature {
-  text-align: right;
-  font-size: 14px;
-  color: var(--mid);
-  font-family: 'Inter', sans-serif;
-}
-
-/* Footer */
-.footer {
-  padding: 24px 0;
-  border-top: 1px solid var(--border);
-  font-size: 12px;
-  color: var(--light);
-  font-family: 'Inter', sans-serif;
-  text-align: right;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  .container { padding: 0 20px; }
-  .hero h1 { font-size: 36px; }
-  .layer-title { font-size: 24px; }
-  .closing-quote { font-size: 20px; }
-  .skeleton-table, .char-table { font-size: 13px; }
-  .skeleton-table th, .skeleton-table td,
-  .char-table th, .char-table td { padding: 8px 10px; }
-}
-
-/* Highlight */
-.highlight {
-  background: linear-gradient(transparent 60%, rgba(212, 83, 43, 0.15) 60%);
-}
-
-/* Soul question */
-.soul-question {
-  margin: 20px 0;
-  padding: 20px;
-  background: var(--surface);
-  border-left: 3px solid var(--accent);
-}
-
-.soul-question .q-text {
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.soul-question .a-text {
-  color: var(--mid);
-}
-
-/* Action trigger */
-.action-box {
-  border: 2px solid var(--accent);
-  padding: 24px;
-  margin: 24px 0;
-  background: var(--surface);
-}
-
-.action-box .label {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.action-box .content {
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-/* Marker (时间眉批小注) */
-.marker {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--accent);
-  text-transform: uppercase;
-  margin: 8px 0 4px;
-}
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
 </style>
 </head>
 <body>

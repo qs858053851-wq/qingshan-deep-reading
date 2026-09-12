@@ -13,62 +13,48 @@
 <meta name="keywords" content="波德莱尔,恶之花,巴黎的忧郁,现代性,象征主义,钱春绮,深度解读,青山">
 <meta name="generator" content="Kami">
 <style>
-  /* ── 本地宋体 / 明朝体字体族声明 ── */
   @font-face {
     font-family: "KingHwaOldSong";
     src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
     font-weight: 400;
-    font-style: normal;
   }
   @font-face {
-    font-family: "KingHwaOldSong";
+    font-family: "KingHwaOldSong Bold";
     src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
     font-weight: 700;
-    font-style: normal;
   }
   @font-face {
     font-family: "Huiwen-mincho";
     src: local("Huiwen-mincho"), local("汇文明朝体");
     font-weight: 400;
-    font-style: normal;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
-    font-style: normal;
   }
 
-  /* ── 页面与打印规则 ── */
   @page {
     size: A4;
     margin: 22mm 24mm 24mm 24mm;
     background: #f5f4ed;
-
     @top-right {
       content: string(section-title);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
       letter-spacing: 0.5pt;
     }
-
     @bottom-center {
-      content: counter(page) "   ·   恶之花与巴黎的忧郁";
+      content: counter(page);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
     }
-  }
-
-  @page:first {
-    @top-right { content: ""; }
-    @bottom-center { content: ""; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ── Kami 设计系统色彩与度量 Token ── */
   :root {
     --parchment:   #f5f4ed;
     --ivory:       #faf9f5;
@@ -76,7 +62,7 @@
     --dark-warm:   #3d3d3a;
     --olive:       #504e49;
     --stone:       #6b6a64;
-    --brand:       #1B365D;       /* 标志性深邃墨水蓝 */
+    --brand:       #1B365D;
     --brand-tint:  #EEF2F7;
     --border:      #e8e6dc;
     --border-soft: #e5e3d8;
@@ -84,8 +70,6 @@
     --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
     --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
     --sans:        var(--serif);
-    --rhythm-module:  14pt;
-    --rhythm-section: 20pt;
   }
 
   html, body {
@@ -94,399 +78,263 @@
 
   @media screen {
     body {
-      max-width: 216mm;
-      margin: 30px auto;
-      padding: 24mm 24mm;
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
       border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
 
   body {
     color: var(--near-black);
     font-family: var(--serif);
-    font-size: 10.5pt;
-    line-height: 1.82;
-    letter-spacing: 0.55pt;
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
     widows: 3;
     orphans: 3;
   }
 
-  /* ── 封面设计 ── */
-  .cover {
-    min-height: 242mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 38mm 0 10mm 0;
-    break-after: page;
-    page-break-after: always;
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
   }
-  .cover-eyebrow {
+  .cover-eyebrow, .kicker {
     font-family: var(--title-font);
-    font-size: 10.5pt;
+    font-size: 11pt;
     color: var(--brand);
     letter-spacing: 2pt;
     font-weight: 700;
-    margin-bottom: 24pt;
-    display: flex;
-    align-items: center;
-    gap: 8pt;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
   }
-  .cover-eyebrow::after {
-    content: "";
-    flex: 1;
-    height: 0.6pt;
-    background: var(--brand);
-    opacity: 0.3;
-  }
-  .cover-title {
+  .cover-title, .hero h1 {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
     color: var(--near-black);
-    line-height: 1.18;
+    line-height: 1.22;
     letter-spacing: 1.5pt;
-    margin-bottom: 20pt;
+    margin-bottom: 18pt;
   }
-  .cover-sub {
+  .cover-sub, .tagline, .subtitle {
     font-family: var(--serif);
-    font-size: 12.5pt;
+    font-size: 13.5pt;
     color: var(--dark-warm);
-    line-height: 1.65;
-    max-width: 90%;
-    margin-bottom: 36pt;
-    padding-left: 14pt;
-    border-left: 2pt solid var(--brand);
-  }
-  .cover-meta {
-    font-family: var(--serif);
-    font-size: 9.5pt;
-    color: var(--stone);
     line-height: 1.75;
-    border-top: 0.6pt solid var(--border);
-    padding-top: 18pt;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta p {
-    margin-bottom: 4pt;
-  }
-  .cover-meta strong {
-    color: var(--dark-warm);
-    font-family: var(--title-font);
-    font-weight: 700;
-    margin-right: 4pt;
+  .cover-meta, .author, .meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
   }
 
-  /* ── 目录设计 ── */
+  /* TOC */
   .toc {
-    break-after: page;
-    page-break-after: always;
-    padding-top: 15mm;
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
   }
   .toc h2 {
     font-family: var(--title-font);
-    font-size: 20pt;
+    font-size: 22pt;
     font-weight: 700;
-    margin-bottom: 22pt;
+    margin-bottom: 20pt;
     color: var(--near-black);
     letter-spacing: 1pt;
-  }
-  .toc-list {
-    margin-top: 12pt;
   }
   .toc-item {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 10pt 0;
-    border-bottom: 0.3pt dotted var(--border);
-    font-size: 10.5pt;
-  }
-  .toc-item:last-of-type { border-bottom: none; }
-  .toc-num {
-    color: var(--brand);
-    font-family: var(--title-font);
-    font-weight: 700;
-    min-width: 32pt;
-    letter-spacing: 1pt;
-  }
-  .toc-title {
-    flex: 1;
-    color: var(--near-black);
-    padding-left: 6pt;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
     text-decoration: none;
-    display: flex;
-    justify-content: space-between;
-    gap: 12pt;
+    color: var(--dark-warm);
   }
-  .toc-title[href]::after {
-    content: target-counter(attr(href), page);
-    color: var(--stone);
-    font-variant-numeric: tabular-nums;
-    margin-left: auto;
-    font-family: var(--serif);
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
   }
-
-  
-  #ch-02 {
-    padding-top: 6mm;
-  }
-  #ch-02 h1 {
-    margin-bottom: 8pt;
-  }
-  #ch-02 .lead {
-    margin-bottom: 8pt;
-    line-height: 1.6;
-  }
-  #ch-02 .takeaway {
-    padding: 8pt 14pt;
-    margin: 8pt 0;
-  }
-  #ch-02 .takeaway-body {
+  .toc-desc {
     font-size: 10pt;
-    line-height: 1.55;
-  }
-  #ch-02 h2 {
-    margin: 8pt 0 4pt 0;
-    font-size: 11.5pt;
-  }
-  #ch-02 blockquote {
-    margin: 6pt 0;
-    padding: 6pt 12pt;
-    font-size: 9.5pt;
-    line-height: 1.55;
-  }
-  #ch-02 .diagram-box {
-    padding: 6pt 10pt;
-    margin: 6pt 0;
-  }
-  #ch-02 .diagram-box pre {
-    font-size: 6.8pt;
-    line-height: 1.32;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
   }
 
-  /* ── 章节标题与排版 ── */
-  .chapter {
-    margin-top: 28pt;
-    padding-top: 10pt;
+  /* Layers & Sections */
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
   }
-  .chapter-num {
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
-    font-size: 9.5pt;
+    font-size: 11pt;
+    font-weight: 700;
     color: var(--brand);
-    letter-spacing: 1.5pt;
-    font-weight: 700;
-    margin-bottom: 6pt;
+    letter-spacing: 2pt;
     text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
   }
-  h1 {
+
+  h1, .layer-title {
     font-family: var(--title-font);
-    font-size: 20pt;
+    font-size: 26pt;
     font-weight: 700;
-    line-height: 1.3;
-    margin: 0 0 16pt 0;
     color: var(--near-black);
-    break-after: avoid;
-    page-break-after: avoid;
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
     string-set: section-title content();
   }
+
   h2 {
     font-family: var(--title-font);
-    font-size: 13.5pt;
+    font-size: 18pt;
     font-weight: 700;
-    line-height: 1.4;
-    margin: 26pt 0 11pt 0;
     color: var(--near-black);
-    letter-spacing: 0.8pt;
-    break-after: avoid;
-    page-break-after: avoid;
-  }
-  h3 {
-    font-family: var(--title-font);
-    font-size: 11.5pt;
-    font-weight: 700;
     line-height: 1.4;
-    margin: 16pt 0 6pt 0;
-    color: var(--brand);
-    break-after: avoid;
-    page-break-after: avoid;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
   }
 
-  .marker {
+  h3, .marker {
+    display: block;
     font-family: var(--title-font);
-    font-size: 9pt;
+    font-size: 15pt;
     font-weight: 700;
-    letter-spacing: 1.2pt;
+    letter-spacing: 0.8pt;
     color: var(--brand);
-    margin: 20pt 0 8pt;
-    padding-bottom: 3pt;
-    border-bottom: 0.4pt solid var(--border);
-    display: inline-block;
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
   }
 
   p {
-    margin: 0 0 14pt 0;
-    line-height: 1.82;
-    color: var(--near-black);
+    margin-bottom: 20pt;
     text-align: justify;
   }
 
-  .lead {
-    font-size: 11pt;
-    line-height: 1.85;
-    letter-spacing: 0.65pt;
-    color: var(--dark-warm);
-    margin-bottom: 18pt;
-  }
-
-  strong {
-    font-weight: 700;
-    color: var(--near-black);
-  }
-
-  /* ── 引用与卡片 ── */
-  blockquote {
-    margin: 18pt 0;
-    padding: 10pt 18pt;
-    background: var(--ivory);
-    border-left: 2.5pt solid var(--brand);
-    color: var(--dark-warm);
-    font-size: 10.5pt;
-    line-height: 1.78;
-    letter-spacing: 0.5pt;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-
-  .takeaway {
-    background: var(--ivory);
-    border: 0.5pt solid var(--border);
-    border-left: 3pt solid var(--brand);
+  blockquote, .quote {
+    margin: 16pt 0;
     padding: 14pt 18pt;
-    margin: 16pt 0;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-  .takeaway-label {
-    font-family: var(--title-font);
-    font-size: 9pt;
-    font-weight: 700;
-    color: var(--brand);
-    letter-spacing: 1pt;
-    margin-bottom: 6pt;
-    text-transform: uppercase;
-  }
-  .takeaway-body {
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
     font-size: 11pt;
-    line-height: 1.65;
-    font-weight: 500;
-    color: var(--near-black);
+    color: var(--dark-warm);
+    line-height: 1.75;
   }
-  .takeaway-note {
-    font-size: 9pt;
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
     color: var(--stone);
-    margin-top: 6pt;
-    line-height: 1.55;
+    margin-top: 8pt;
   }
 
-  /* ── 表格样式（Kami Table）── */
-  .kami-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 9pt;
-    margin: 16pt 0;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-  .kami-table th {
-    text-align: left;
-    font-family: var(--title-font);
-    font-weight: 700;
-    color: var(--near-black);
-    padding: 7pt 9pt;
-    border-top: 0.6pt solid var(--brand);
-    border-bottom: 0.6pt solid var(--brand);
-    background: transparent;
-    letter-spacing: 0.5pt;
-  }
-  .kami-table td {
-    padding: 6pt 9pt;
-    border-bottom: 0.25pt solid var(--border);
-    vertical-align: top;
-    line-height: 1.55;
-    color: var(--dark-warm);
-  }
-  .kami-table tr:last-child td {
-    border-bottom: 0.6pt solid var(--border);
-  }
-  .kami-table .col-sub {
-    font-family: var(--title-font);
-    font-weight: 700;
-    color: var(--brand);
-    white-space: nowrap;
-  }
-  .kami-table .col-scene {
-    color: var(--near-black);
-    font-weight: 500;
-  }
-
-  /* ── 结构演化图 ── */
-  .diagram-box {
-    background: var(--ivory);
-    border: 0.5pt solid var(--border);
-    padding: 12pt 16pt;
-    margin: 14pt 0;
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
     border-radius: 2pt;
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
-  .diagram-box pre {
-    font-family: "JetBrains Mono", "SF Mono", "Menlo", monospace;
-    font-size: 7.8pt;
-    line-height: 1.48;
-    color: var(--dark-warm);
-    white-space: pre;
-  }
-
-  /* ── 行动与考证卡片 ── */
-  .action-box {
-    background: var(--ivory);
-    border: 0.5pt solid var(--border);
-    padding: 12pt 16pt;
-    margin: 12pt 0;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-  .action-title {
+  .napkin-formula {
+    text-align: center;
     font-family: var(--title-font);
-    font-size: 10pt;
+    font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin-bottom: 4pt;
-  }
-
-  /* ── 终章与落款 ── */
-  .colophon {
-    border-top: 1pt solid var(--brand);
-    margin-top: 32pt;
-    padding-top: 20pt;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
-  .colophon-sentence {
-    font-family: var(--title-font);
-    font-size: 13.5pt;
-    font-weight: 700;
+    margin: 12pt 0;
+    letter-spacing: 1pt;
     line-height: 1.6;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
   }
-  .colophon-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 9pt;
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
     color: var(--stone);
-    font-family: var(--serif);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
   }
 </style>
 </head>
@@ -546,7 +394,7 @@
     整部《恶之花》拒绝零散诗篇的随意拼凑。波德莱尔在给友人的信件里多次强调，这部书拥有严密的内在建筑结构，每一首诗都对应着灵魂受难的一个确凿坐标。全书字面的运动轨迹，始于对整个人类文明病症的宣判，终于向未知死亡深渊的纵身一跃。
   </p>
 
-  <div class="marker">起手卷 · 致读者与现代性顽疾</div>
+  <h3 class="marker">起手卷 · 致读者与现代性顽疾</h3>
   <p>
     全书的门楣由著名的长诗《致读者》钉死。波德莱尔在此处没有用任何客套话迎合买书的中产阶级市民，劈头盖脸便点出了人类心灵的贪婪、错误与罪孽。诗行一路罗列了吞噬骨髓的淫欲与恶行，却在结尾突然收拢到一个最隐秘的毒物：它既不大声疾呼，也不手持利刃，却能在打哈欠的倦怠里把整个地球揉成碎片。这个怪物就是现代人无法摆脱的幽灵——<strong>无聊（Ennui）</strong>。
   </p>
@@ -554,7 +402,7 @@
     这是整部书得以运转的第一推动力。人之所以在恶德与刺激里辗转反侧，正是因为被日复一日机械运转的平庸日常逼到了发疯的悬崖边。波德莱尔用近乎残酷的坦白撕下了文明人的遮羞布，将读者拉入同一张审判席。
   </p>
 
-  <div class="marker">第一乐章 · 忧郁与理想的双重撕裂</div>
+  <h3 class="marker">第一乐章 · 忧郁与理想的双重撕裂</h3>
   <p>
     随后的核心主体《忧郁与理想》展开了长达八十八首诗的心灵拉锯。开篇《祝福》与《信天翁》描绘了诗人在世俗世界里的绝境。天空中展翅高飞的信天翁（<em>L'Albatros</em>），曾经是浩瀚暴风雨中的君王，一旦落在甲板上，那双巨大的羽翼反而成了行走时的累赘，引来粗鄙水手们用烟斗肆意戏弄。<strong>崇高在庸俗的人间成了一种无法被原谅的残疾。</strong>
   </p>
@@ -562,7 +410,7 @@
     紧接着，波德莱尔在《感应》（<em>Correspondances</em>）一诗中确立了象征主义诗学的基石：自然成了一座神殿中感应的活柱，香气、色彩与声音在深沉而幽暗的统一体中彼此交融交谈。诗人具备辨认这种宇宙秘密密码的天赋，然而这种天赋并没有带来安宁。在《腐尸》《吸血鬼》与连绵的《忧郁》组诗里，黑色的胆汁逐渐淹没了飞升的冲动。死神、严寒、墓穴的泥土与爬满颅骨的蛆虫，一次次将诗人从形而上的梦境拽回到冰冷腐烂的肉身牢笼。
   </p>
 
-  <div class="marker">第二乐章 · 漫游于奥斯曼改造下的巴黎风光</div>
+  <h3 class="marker">第二乐章 · 漫游于奥斯曼改造下的巴黎风光</h3>
   <p>
     当内心的理想在私密空间中彻底粉碎，波德莱尔在 1861 年第二版中增加了至关重要的篇章——《巴黎风光》。这也是全书从内心自白转向外部现代性体验的关键枢纽。当时的巴黎正在第二帝国行政官奥斯曼男爵的主导下经历野蛮的大拆大建，古老幽暗的中世纪街巷被无情铲平，宽阔笔直的林荫大道与气派的新式百货公司拔地而起。旧日的记忆在机器轰鸣中化为齑粉。
   </p>
@@ -570,7 +418,7 @@
     波德莱尔成了大都市最早的漫游者（Flâneur）。在名篇《天鹅》中，一只从动物园铁笼逃脱的天鹅，在没有水的碎石路面上拖着洁白的羽毛，在干涸水沟里张着嘴向无动于衷的天空索求雨水。诗人站在卢浮宫旁新建的桥头，看着满地的旧木料、柱头与荒草，写下了流传百年的慨叹：<strong>一个城市的面貌，比凡人的心变化得更快。</strong>在《七个老头子》《小老太婆》与《盲人》的行列里，城市不再是古典秩序的象征，而成了挤满畸形者、乞丐与孤独幽灵的现代地狱。
   </p>
 
-  <div class="marker">余响与收束 · 酒、叛逆与最后的航行</div>
+  <h3 class="marker">余响与收束 · 酒、叛逆与最后的航行</h3>
   <p>
     大都市的繁华无法治愈绝望，诗人的目光转向了更激烈的逃遁手段。《酒》组诗写出了拾垃圾者、凶手与穷人在酒精幻象里夺回尊严的狂喜；《恶之花》组诗直面被禁忌的爱欲与肉体毁伤；而在《叛逆》组诗里，波德莱尔发出了对传统神明最激烈的抗议，转向该隐与撒旦寻求同情。当世间所有的麻醉剂与叛逆行动全部被消耗殆尽，全书无可避免地走向了终点站——《死亡》。
   </p>
@@ -578,7 +426,7 @@
     在长达百行的全书压轴名篇《旅行》中，波德莱尔借老水手的口吻清算了人类所有的虚幻希冀。我们漂洋过海游历万邦，看到的不过是人奴役人的单调苦戏。面对这片无可挽回的荒芜，诗人终于在卷尾吐露了全书最震颤人心的呐喊：<strong>向着深渊的底层，地狱或天堂有什么相干，我们要走向未知的底细去发现新奇。</strong>
   </p>
 
-  <div class="marker">平行进军 · 巴黎的忧郁与散文诗革命</div>
+  <h3 class="marker">平行进军 · 巴黎的忧郁与散文诗革命</h3>
   <p>
     如果说《恶之花》还保留着古典十四行诗极其严谨的格律外壳，那么《巴黎的忧郁》则彻底打破了形式的枷锁。波德莱尔在给阿尔塞纳·乌塞的献词里宣称，大都市无数错综复杂的关系催生了一种新的强迫观念。他要创造一种没有节律、没有脚韵，但富于音乐性，并且足够粗粝柔软的散文诗，像一条被切断后仍能自行扭动的蛇一样，适应现代人跳跃颠簸的神经节奏。
   </p>

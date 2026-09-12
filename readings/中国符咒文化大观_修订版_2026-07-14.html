@@ -5,48 +5,329 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>《中国符咒文化大观》——九层解书·标准修订版</title>
 <style>
-:root { color-scheme: light; --accent:#D4532B; --black:#111111; --mid:#666666; --border:#d0d0d0; --bg:#fafafa; }
-* { box-sizing:border-box; }
-body { font-family:'Inter','PingFang SC','Microsoft YaHei',-apple-system,sans-serif; background:var(--bg); color:var(--black); font-size:15px; line-height:1.75; margin:0; }
-.container { max-width:1120px; margin:0 auto; padding:0 48px; }
-.hero { padding:80px 0 48px; border-bottom:1px solid var(--black); }
-.hero .kicker { font-size:12px; font-weight:700; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:18px; }
-.hero h1 { font-size:54px; font-weight:900; letter-spacing:-3px; margin:0 0 14px; line-height:1.1; }
-.hero .author { color:var(--mid); font-size:17px; }
-.hero .meta { color:var(--mid); font-size:13px; margin-top:20px; line-height:1.9; }
-.tagline { font-style:italic; font-size:20px; font-weight:600; margin:28px 0 0; color:var(--black); border-left:3px solid var(--accent); padding-left:18px; }
-.revision { margin:22px 0 0; padding:12px 16px; border:1px solid var(--border); background:#fff; color:var(--mid); font-size:12px; letter-spacing:.4px; }
-.marker { display:inline-block; margin:18px 0 10px; padding:3px 9px; border-left:3px solid var(--accent); background:#fff; color:var(--mid); font-size:12px; font-weight:700; letter-spacing:1px; }
-.layer { padding:52px 0; border-bottom:1px solid var(--border); }
-.layer .num { font-size:12px; font-weight:700; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:10px; }
-.layer h2 { font-size:34px; font-weight:800; letter-spacing:-1px; margin:0 0 8px; }
-.layer .sub { color:var(--mid); font-size:15px; margin:0 0 26px; }
-.layer h3 { font-size:18px; font-weight:700; margin:30px 0 10px; }
-.layer p { margin:0 0 16px; }
-.layer ul, .layer ol { margin:0 0 16px; padding-left:22px; }
-.layer li { margin-bottom:10px; }
-strong { font-weight:700; }
-.mono { font-family:'SF Mono',Menlo,Consolas,monospace; background:#fff; border:1px solid var(--border); padding:18px 22px; white-space:pre; overflow-x:auto; font-size:13px; line-height:1.6; margin:0 0 18px; }
-.quote { border-left:3px solid var(--accent); padding:6px 0 6px 20px; color:var(--black); font-style:italic; margin:0 0 18px; }
-.qa { border:1px solid var(--border); background:#fff; padding:22px 26px; margin:0 0 18px; }
-.qa .q { color:var(--accent); font-weight:700; margin:0 0 12px; font-size:16px; }
-.qa .field { margin:0 0 8px; padding-left:14px; }
-.qa .label { font-weight:700; color:var(--mid); font-size:12px; letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:2px; }
-.qa .form { font-family:'SF Mono',Menlo,Consolas,monospace; font-size:13px; background:var(--bg); padding:6px 10px; display:inline-block; }
-.napkin { border:1px solid var(--black); padding:34px; text-align:center; margin:0 0 22px; background:#fff; }
-.napkin .formula { font-size:26px; font-weight:800; letter-spacing:-0.5px; }
-.napkin .note { margin-top:12px; color:var(--mid); font-size:12px; }
-.essay { font-size:16px; line-height:1.95; }
-.essay p:first-of-type { font-size:18px; }
-.gen { display:grid; grid-template-columns:1fr; gap:14px; margin:0 0 18px; }
-.gen .card { border:1px solid var(--border); background:#fff; padding:20px 24px; }
-.gen .card .t { font-weight:700; color:var(--accent); margin-bottom:6px; }
-.jinju { border-top:2px solid var(--black); padding:54px 0; }
-.jinju .num { font-size:12px; font-weight:700; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:20px; }
-.jinju p { font-size:25px; font-weight:700; letter-spacing:-0.5px; font-style:italic; line-height:1.5; margin:0; }
-.jinju .sign { text-align:right; color:var(--mid); font-size:13px; margin-top:24px; font-style:normal; }
-footer { color:var(--mid); font-size:12px; border-top:1px solid var(--border); padding:24px 0 60px; display:flex; justify-content:space-between; }
-@media(max-width:680px){ .container{padding:0 22px;} .hero h1{font-size:36px;letter-spacing:-1.5px;} .layer h2{font-size:26px;} .napkin .formula{font-size:19px;} }
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+  }
+  .cover-eyebrow, .kicker {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title, .hero h1 {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub, .tagline, .subtitle {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta, .author, .meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
+  /* TOC */
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  /* Layers & Sections */
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag, .layer-num {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
+
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 12pt 0;
+    letter-spacing: 1pt;
+    line-height: 1.6;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
 </style>
 </head>
 <body>

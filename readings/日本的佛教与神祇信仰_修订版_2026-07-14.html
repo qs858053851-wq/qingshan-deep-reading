@@ -5,55 +5,329 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>日本的佛教与神祇信仰 · 九层解书</title>
 <style>
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+  }
 
-:root {
-  --accent: #C2410C; --black: #1a1a1a;
-  --mid: #6b6b6b; --border: #e0ddd6; --bg: #faf8f3; --paper: #ffffff;
-}
-* { box-sizing: border-box; }
-body { font-family: 'Inter', -apple-system, 'Helvetica Neue', 'PingFang SC', 'Noto Sans SC', sans-serif;
-       background: var(--bg); color: var(--black); font-size: 15px; line-height: 1.85; -webkit-font-smoothing: antialiased; margin: 0; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
-.hero { padding: 96px 0 64px; border-bottom: 1px solid var(--black); }
-.hero .kicker { font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 24px; }
-.hero h1 { font-size: 64px; font-weight: 900; letter-spacing: -3px; line-height: 1.08; margin: 0 0 20px; }
-.hero .author { font-size: 18px; color: var(--mid); font-weight: 500; }
-.hero .sub { margin-top: 28px; font-size: 16px; color: var(--mid); max-width: 760px; line-height: 1.8; }
-.hero .note { margin-top: 18px; font-size: 13px; color: var(--mid); font-style: italic; }
-.layer { padding: 56px 0 64px; border-bottom: 1px solid var(--border); }
-.layer:first-of-type { border-top: none; }
-.layer-num { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 14px; }
-.layer-title { font-size: 36px; font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin: 0 0 32px; }
-.layer h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; margin: 36px 0 14px; }
-.layer p { margin: 0 0 18px; }
-.layer blockquote { margin: 24px 0; padding: 4px 0 4px 24px; border-left: 3px solid var(--accent); color: var(--mid); font-style: italic; }
-.layer ul, .layer ol { margin: 0 0 18px; padding-left: 24px; }
-.layer li { margin-bottom: 8px; }
-.layer strong { font-weight: 700; color: var(--black); }
-.lead { font-size: 17px; color: var(--mid); margin-bottom: 28px; }
-.qa { margin: 28px 0; padding: 24px 0; border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); }
-.qa .q { font-size: 17px; font-weight: 700; color: var(--accent); margin-bottom: 14px; }
-.qa .a { padding-left: 20px; border-left: 2px solid var(--border); }
-.qa .a p { margin-bottom: 12px; }
-.qa .a .verdict { font-weight: 700; }
-.napkin { text-align: center; padding: 56px 0; }
-.napkin .formula { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; border: 1px solid var(--black); padding: 36px 24px; margin: 0 0 32px; line-height: 1.5; }
-.napkin .oneliner { font-size: 20px; font-weight: 600; color: var(--mid); margin-bottom: 36px; }
-.napkin pre { font-family: 'Inter', monospace; font-size: 13px; line-height: 1.7; color: var(--black); text-align: left; display: inline-block; white-space: pre; overflow-x: auto; max-width: 100%; }
-.quote { border-top: 2px solid var(--black); padding: 56px 0 48px; text-align: center; }
-.quote .qtext { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; font-style: italic; line-height: 1.5; max-width: 820px; margin: 0 auto 24px; }
-.quote .sign { font-size: 12px; color: var(--mid); text-align: right; }
-footer { font-size: 12px; color: var(--mid); border-top: 1px solid var(--border); padding: 24px 0 48px; display: flex; justify-content: space-between; }
-@media (max-width: 600px) {
-  .container { padding: 0 20px; }
-  body { font-size: 16px; }
-  .hero { padding: 56px 0 40px; }
-  .hero h1 { font-size: 40px; letter-spacing: -2px; }
-  .layer { padding: 40px 0 44px; }
-  .layer-title { font-size: 26px; }
-  .napkin .formula { font-size: 18px; padding: 24px 16px; }
-  .quote .qtext { font-size: 20px; }
-}
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+  }
+  .cover-eyebrow, .kicker {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title, .hero h1 {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub, .tagline, .subtitle {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta, .author, .meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
+  /* TOC */
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  /* Layers & Sections */
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag, .layer-num {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
+
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 12pt 0;
+    letter-spacing: 1pt;
+    line-height: 1.6;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
 </style>
 </head>
 <body>

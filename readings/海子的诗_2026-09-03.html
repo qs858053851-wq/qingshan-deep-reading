@@ -17,51 +17,40 @@
     font-family: "KingHwaOldSong";
     src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
     font-weight: 400;
-    font-style: normal;
   }
   @font-face {
-    font-family: "KingHwaOldSong";
+    font-family: "KingHwaOldSong Bold";
     src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
     font-weight: 700;
-    font-style: normal;
   }
   @font-face {
     font-family: "Huiwen-mincho";
     src: local("Huiwen-mincho"), local("汇文明朝体");
     font-weight: 400;
-    font-style: normal;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
-    font-style: normal;
   }
 
   @page {
     size: A4;
     margin: 22mm 24mm 24mm 24mm;
     background: #f5f4ed;
-
     @top-right {
       content: string(section-title);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
       letter-spacing: 0.5pt;
     }
-
     @bottom-center {
-      content: counter(page) "   ·   海子的诗";
+      content: counter(page);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
     }
-  }
-
-  @page:first {
-    @top-right { content: ""; }
-    @bottom-center { content: ""; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -81,8 +70,6 @@
     --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
     --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
     --sans:        var(--serif);
-    --rhythm-module:  14pt;
-    --rhythm-section: 20pt;
   }
 
   html, body {
@@ -91,206 +78,192 @@
 
   @media screen {
     body {
-      max-width: 216mm;
-      margin: 30px auto;
-      padding: 24mm 24mm;
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
       border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
 
   body {
     color: var(--near-black);
     font-family: var(--serif);
-    font-size: 10.5pt;
-    line-height: 1.82;
-    letter-spacing: 0.55pt;
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
     widows: 3;
     orphans: 3;
   }
 
-  .cover {
-    min-height: 242mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 38mm 0 10mm 0;
-    break-after: page;
-    page-break-after: always;
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
   }
-  .cover-eyebrow {
+  .cover-eyebrow, .kicker {
     font-family: var(--title-font);
-    font-size: 10.5pt;
+    font-size: 11pt;
     color: var(--brand);
     letter-spacing: 2pt;
     font-weight: 700;
-    margin-bottom: 24pt;
-    display: flex;
-    align-items: center;
-    gap: 8pt;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
   }
-  .cover-eyebrow::after {
-    content: "";
-    flex: 1;
-    height: 0.6pt;
-    background: var(--brand);
-    opacity: 0.3;
-  }
-  .cover-title {
+  .cover-title, .hero h1 {
     font-family: var(--title-font);
-    font-size: 32pt;
+    font-size: 34pt;
     font-weight: 700;
     color: var(--near-black);
-    line-height: 1.2;
+    line-height: 1.22;
     letter-spacing: 1.5pt;
-    margin-bottom: 20pt;
+    margin-bottom: 18pt;
   }
-  .cover-sub {
+  .cover-sub, .tagline, .subtitle {
     font-family: var(--serif);
-    font-size: 12pt;
+    font-size: 13.5pt;
     color: var(--dark-warm);
-    line-height: 1.7;
-    max-width: 90%;
-    margin-bottom: 36pt;
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
     padding-left: 14pt;
-    border-left: 2pt solid var(--brand);
+    border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta {
+  .cover-meta, .author, .meta {
     font-family: var(--serif);
-    font-size: 9.5pt;
+    font-size: 10.5pt;
     color: var(--stone);
     line-height: 1.8;
-    border-top: 0.6pt solid var(--border);
-    padding-top: 18pt;
-  }
-  .cover-meta p {
-    margin-bottom: 4pt;
-  }
-  .cover-meta strong {
-    color: var(--dark-warm);
-    font-family: var(--title-font);
-    font-weight: 700;
-    margin-right: 4pt;
+    margin-top: 14pt;
   }
 
+  /* TOC */
   .toc {
-    break-after: page;
-    page-break-after: always;
-    padding-top: 15mm;
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
   }
   .toc h2 {
     font-family: var(--title-font);
-    font-size: 20pt;
+    font-size: 22pt;
     font-weight: 700;
-    margin-bottom: 22pt;
+    margin-bottom: 20pt;
     color: var(--near-black);
     letter-spacing: 1pt;
-  }
-  .toc-list {
-    margin-top: 12pt;
   }
   .toc-item {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 10pt 0;
+    padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
     text-decoration: none;
     color: var(--dark-warm);
   }
-  .toc-item:hover {
-    color: var(--brand);
-  }
   .toc-name {
     font-family: var(--title-font);
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: 700;
   }
   .toc-desc {
-    font-size: 9pt;
+    font-size: 10pt;
     color: var(--stone);
     margin-left: 12pt;
     flex: 1;
   }
 
-  .section {
+  /* Layers & Sections */
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
-    font-size: 9.5pt;
+    font-size: 11pt;
     font-weight: 700;
     color: var(--brand);
     letter-spacing: 2pt;
     text-transform: uppercase;
-    margin-bottom: 8pt;
+    margin-bottom: 10pt;
     display: inline-block;
     background: var(--tag-bg);
-    padding: 2pt 8pt;
+    padding: 3pt 10pt;
     border-radius: 2pt;
   }
-  h1 {
+
+  h1, .layer-title {
     font-family: var(--title-font);
-    font-size: 22pt;
+    font-size: 26pt;
     font-weight: 700;
     color: var(--near-black);
-    line-height: 1.3;
+    line-height: 1.35;
     letter-spacing: 1pt;
-    margin-bottom: 16pt;
+    margin-bottom: 18pt;
     string-set: section-title content();
   }
+
   h2 {
     font-family: var(--title-font);
-    font-size: 14pt;
+    font-size: 18pt;
     font-weight: 700;
-    color: var(--dark-warm);
+    color: var(--near-black);
     line-height: 1.4;
-    margin-top: 20pt;
-    margin-bottom: 10pt;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
   }
-  h3 {
+
+  h3, .marker {
+    display: block;
     font-family: var(--title-font);
-    font-size: 11.5pt;
+    font-size: 15pt;
     font-weight: 700;
+    letter-spacing: 0.8pt;
     color: var(--brand);
-    margin-top: 14pt;
-    margin-bottom: 6pt;
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
   }
 
   p {
-    margin-bottom: 14pt;
+    margin-bottom: 20pt;
     text-align: justify;
   }
 
-  blockquote {
+  blockquote, .quote {
     margin: 16pt 0;
     padding: 14pt 18pt;
     background: var(--ivory);
-    border-left: 3pt solid var(--brand);
-    font-size: 10pt;
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
     color: var(--dark-warm);
     line-height: 1.75;
   }
-  blockquote p:last-child {
+  blockquote p:last-child, .quote p:last-child {
     margin-bottom: 0;
   }
-
-  .poetry-box {
-    margin: 18pt 0;
-    padding: 16pt 20pt;
-    background: #ffffff;
-    border: 0.8pt solid var(--border);
-    border-radius: 3pt;
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
   }
 
   .napkin {
-    margin: 22pt 0;
+    margin: 24pt 0;
     padding: 20pt 24pt;
     background: #ffffff;
     border: 1.5pt solid var(--near-black);
@@ -304,26 +277,27 @@
     color: var(--brand);
     margin: 12pt 0;
     letter-spacing: 1pt;
+    line-height: 1.6;
   }
   .napkin-core {
-    font-size: 11.5pt;
+    font-size: 12pt;
     font-weight: 700;
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
   }
 
-  .ascii-box {
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
     border: 0.6pt solid var(--border-soft);
     font-family: "Courier New", monospace;
-    font-size: 8.5pt;
+    font-size: 10pt;
     line-height: 1.45;
     color: var(--olive);
-    overflow: hidden;
-    white-space: pre;
+    overflow-x: auto;
+    white-space: pre-wrap;
   }
 
   .facts-boundary {
@@ -331,15 +305,15 @@
     padding: 16pt 20pt;
     background: var(--ivory);
     border-top: 1pt solid var(--border);
-    font-size: 9pt;
+    font-size: 10.5pt;
     color: var(--stone);
-    line-height: 1.7;
+    line-height: 1.75;
   }
   .facts-boundary h3 {
-    font-size: 10pt;
+    font-size: 12pt;
     color: var(--dark-warm);
     margin-top: 0;
-    margin-bottom: 6pt;
+    margin-bottom: 8pt;
   }
 
   .closing-quote {
@@ -351,15 +325,15 @@
   }
   .closing-quote p {
     font-family: var(--title-font);
-    font-size: 15pt;
+    font-size: 16pt;
     font-weight: 700;
     color: var(--near-black);
     line-height: 1.6;
     letter-spacing: 1pt;
-    margin-bottom: 8pt;
+    margin-bottom: 10pt;
   }
   .closing-author {
-    font-size: 9pt;
+    font-size: 10.5pt;
     color: var(--stone);
   }
 </style>

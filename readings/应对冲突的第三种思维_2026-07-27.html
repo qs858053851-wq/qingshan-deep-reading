@@ -1,5 +1,329 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>应对冲突的第三种思维 · 深度解读</title>
-<style>:root{--accent:#C2410C;--black:#1a1a1a;--mid:#6b6b6b;--border:#e0ddd6;--bg:#faf8f3}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,'Helvetica Neue','PingFang SC','Noto Sans SC',sans-serif;background:var(--bg);color:var(--black);font-size:15px;line-height:1.85}.container{max-width:1200px;margin:auto;padding:0 48px}.hero{padding:88px 0 56px;border-bottom:1px solid var(--black)}h1{font-size:52px;line-height:1.05;font-weight:900;letter-spacing:-3px;margin:0 0 16px}.author{color:var(--mid)}.layer{padding:56px 0;border-bottom:1px solid var(--border)}.kicker{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--accent)}.layer-title{font-size:36px;line-height:1.18;font-weight:800;letter-spacing:-1px;margin:8px 0 30px}h3{font-size:20px;font-weight:800;margin:28px 0 8px}p{max-width:850px;margin:0 0 18px}.qa{max-width:900px;padding:20px 0;border-top:1px solid var(--border)}.q{color:var(--accent);font-size:18px;font-weight:800}.a{margin-left:22px}.label{font-weight:700}.napkin{max-width:850px;border:1px solid var(--black);padding:32px;text-align:center;font-size:24px;font-weight:800;white-space:pre-line}.fact{font-size:13px;color:var(--mid);border-top:1px solid var(--border);padding:24px 0}.seal{border-top:2px solid var(--black);padding:48px 0}.seal .line{font-size:24px;font-weight:700;font-style:italic}.sign{text-align:right;color:var(--mid);font-size:12px}footer{font-size:12px;color:var(--mid);border-top:1px solid var(--border);padding:24px 0}@media(max-width:600px){.container{padding:0 20px}body{font-size:16px}h1{font-size:38px}.layer-title{font-size:29px}}</style></head><body><main class="container">
+<style>
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+  }
+  .cover-eyebrow, .kicker {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title, .hero h1 {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub, .tagline, .subtitle {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta, .author, .meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
+  /* TOC */
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  /* Layers & Sections */
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag, .layer-num {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
+
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 12pt 0;
+    letter-spacing: 1pt;
+    line-height: 1.6;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+</style></head><body><main class="container">
 <header class="hero"><h1>应对冲突的第三种思维</h1><div class="author">爱德华·德博诺 · 从裁决立场转向设计选项</div></header>
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">第三条路从哪里开始</h2>
 <p>冲突通常被安排成两种结局：斗争决定谁赢，谈判让双方各退一步。德博诺提出第三种思维，先不在旧选项里分输赢，而是追问双方真正要达到什么目的，能否设计出此前不存在的安排。</p>

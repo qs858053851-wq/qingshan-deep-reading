@@ -17,51 +17,40 @@
     font-family: "KingHwaOldSong";
     src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
     font-weight: 400;
-    font-style: normal;
   }
   @font-face {
-    font-family: "KingHwaOldSong";
+    font-family: "KingHwaOldSong Bold";
     src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
     font-weight: 700;
-    font-style: normal;
   }
   @font-face {
     font-family: "Huiwen-mincho";
     src: local("Huiwen-mincho"), local("汇文明朝体");
     font-weight: 400;
-    font-style: normal;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
-    font-style: normal;
   }
 
   @page {
     size: A4;
     margin: 22mm 24mm 24mm 24mm;
     background: #f5f4ed;
-
     @top-right {
       content: string(section-title);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
       letter-spacing: 0.5pt;
     }
-
     @bottom-center {
-      content: counter(page) "   ·   仲夏夜之梦";
+      content: counter(page);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
     }
-  }
-
-  @page:first {
-    @top-right { content: ""; }
-    @bottom-center { content: ""; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -81,8 +70,6 @@
     --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
     --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
     --sans:        var(--serif);
-    --rhythm-module:  14pt;
-    --rhythm-section: 20pt;
   }
 
   html, body {
@@ -91,103 +78,86 @@
 
   @media screen {
     body {
-      max-width: 216mm;
-      margin: 30px auto;
-      padding: 24mm 24mm;
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
       border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
 
   body {
     color: var(--near-black);
     font-family: var(--serif);
-    font-size: 10.5pt;
-    line-height: 1.82;
-    letter-spacing: 0.55pt;
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
     widows: 3;
     orphans: 3;
   }
 
-  .cover {
-    min-height: 242mm;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 38mm 0 10mm 0;
-    break-after: page;
-    page-break-after: always;
+  /* Cover & Hero */
+  .cover, .hero, .cover-hero {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
   }
-  .cover-eyebrow {
+  .cover-eyebrow, .kicker {
     font-family: var(--title-font);
-    font-size: 10.5pt;
+    font-size: 11pt;
     color: var(--brand);
     letter-spacing: 2pt;
     font-weight: 700;
-    margin-bottom: 24pt;
-    display: flex;
-    align-items: center;
-    gap: 8pt;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
   }
-  .cover-eyebrow::after {
-    content: "";
-    flex: 1;
-    height: 0.6pt;
-    background: var(--brand);
-    opacity: 0.3;
-  }
-  .cover-title {
+  .cover-title, .hero h1 {
     font-family: var(--title-font);
-    font-size: 32pt;
+    font-size: 34pt;
     font-weight: 700;
     color: var(--near-black);
-    line-height: 1.2;
+    line-height: 1.22;
     letter-spacing: 1.5pt;
-    margin-bottom: 20pt;
+    margin-bottom: 18pt;
   }
-  .cover-sub {
+  .cover-sub, .tagline, .subtitle {
     font-family: var(--serif);
-    font-size: 12pt;
+    font-size: 13.5pt;
     color: var(--dark-warm);
-    line-height: 1.7;
-    max-width: 90%;
-    margin-bottom: 36pt;
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
     padding-left: 14pt;
-    border-left: 2pt solid var(--brand);
+    border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta {
+  .cover-meta, .author, .meta {
     font-family: var(--serif);
-    font-size: 9.5pt;
+    font-size: 10.5pt;
     color: var(--stone);
     line-height: 1.8;
-    border-top: 0.6pt solid var(--border);
-    padding-top: 18pt;
-  }
-  .cover-meta p {
-    margin-bottom: 4pt;
-  }
-  .cover-meta strong {
-    color: var(--dark-warm);
-    font-family: var(--title-font);
-    font-weight: 700;
-    margin-right: 4pt;
+    margin-top: 14pt;
   }
 
+  /* TOC */
   .toc {
-    break-after: page;
-    page-break-after: always;
-    padding-top: 15mm;
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
   }
   .toc h2 {
     font-family: var(--title-font);
-    font-size: 20pt;
+    font-size: 22pt;
     font-weight: 700;
-    margin-bottom: 22pt;
+    margin-bottom: 20pt;
     color: var(--near-black);
     letter-spacing: 1pt;
-  }
-  .toc-list {
-    margin-top: 12pt;
   }
   .toc-item {
     display: flex;
@@ -198,103 +168,103 @@
     text-decoration: none;
     color: var(--dark-warm);
   }
-  .toc-item:hover {
-    color: var(--brand);
-  }
   .toc-name {
     font-family: var(--title-font);
-    font-size: 10.5pt;
+    font-size: 12pt;
     font-weight: 700;
   }
   .toc-desc {
-    font-size: 8.5pt;
+    font-size: 10pt;
     color: var(--stone);
     margin-left: 12pt;
     flex: 1;
   }
 
-  .section {
-    padding-top: 12mm;
-    margin-bottom: 16mm;
+  /* Layers & Sections */
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
-    padding-bottom: 14mm;
+    padding-bottom: 16mm;
   }
 
-  .layer-tag {
-    font-family: var(--title-font);
-    font-size: 9.5pt;
-    font-weight: 700;
-    color: var(--brand);
-    letter-spacing: 2pt;
-    text-transform: uppercase;
-    margin-bottom: 8pt;
-    display: inline-block;
-    background: var(--tag-bg);
-    padding: 2pt 8pt;
-    border-radius: 2pt;
-  }
-  h1 {
-    font-family: var(--title-font);
-    font-size: 20pt;
-    font-weight: 700;
-    color: var(--near-black);
-    line-height: 1.3;
-    letter-spacing: 1pt;
-    margin-bottom: 14pt;
-    string-set: section-title content();
-  }
-  h2 {
-    font-family: var(--title-font);
-    font-size: 13.5pt;
-    font-weight: 700;
-    color: var(--dark-warm);
-    line-height: 1.4;
-    margin-top: 18pt;
-    margin-bottom: 10pt;
-  }
-  h3 {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
     color: var(--brand);
-    margin-top: 14pt;
-    margin-bottom: 6pt;
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
   }
 
   p {
-    margin-bottom: 12pt;
+    margin-bottom: 20pt;
     text-align: justify;
   }
 
-  .marker {
-    font-family: var(--title-font);
-    font-size: 9pt;
-    font-weight: 700;
-    letter-spacing: 1.5pt;
-    color: var(--brand);
-    margin-top: 14pt;
-    margin-bottom: 4pt;
-    text-transform: uppercase;
-  }
-
-  blockquote {
-    margin: 14pt 0;
-    padding: 12pt 16pt;
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
     background: var(--ivory);
-    border-left: 3pt solid var(--brand);
-    font-size: 9.5pt;
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
     color: var(--dark-warm);
-    line-height: 1.7;
+    line-height: 1.75;
   }
-  blockquote p:last-child {
+  blockquote p:last-child, .quote p:last-child {
     margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
   }
 
   .napkin {
-    margin: 20pt 0;
-    padding: 18pt 22pt;
+    margin: 24pt 0;
+    padding: 20pt 24pt;
     background: #ffffff;
     border: 1.5pt solid var(--near-black);
     border-radius: 2pt;
@@ -302,67 +272,68 @@
   .napkin-formula {
     text-align: center;
     font-family: var(--title-font);
-    font-size: 13pt;
+    font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 10pt 0;
+    margin: 12pt 0;
     letter-spacing: 1pt;
+    line-height: 1.6;
   }
   .napkin-core {
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: 700;
     text-align: center;
     color: var(--near-black);
-    margin-bottom: 12pt;
+    margin-bottom: 14pt;
   }
 
-  .ascii-box {
-    margin: 14pt 0;
-    padding: 12pt;
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
     background: var(--ivory);
     border: 0.6pt solid var(--border-soft);
     font-family: "Courier New", monospace;
-    font-size: 8.5pt;
+    font-size: 10pt;
     line-height: 1.45;
     color: var(--olive);
-    overflow: hidden;
-    white-space: pre;
+    overflow-x: auto;
+    white-space: pre-wrap;
   }
 
   .facts-boundary {
-    margin-top: 24pt;
-    padding: 14pt 18pt;
+    margin-top: 28pt;
+    padding: 16pt 20pt;
     background: var(--ivory);
     border-top: 1pt solid var(--border);
-    font-size: 9pt;
+    font-size: 10.5pt;
     color: var(--stone);
-    line-height: 1.7;
+    line-height: 1.75;
   }
   .facts-boundary h3 {
-    font-size: 10pt;
+    font-size: 12pt;
     color: var(--dark-warm);
     margin-top: 0;
-    margin-bottom: 6pt;
+    margin-bottom: 8pt;
   }
 
   .closing-quote {
-    margin: 32pt 0 18pt 0;
-    padding: 22pt 18pt;
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
     border-top: 2pt solid var(--near-black);
     border-bottom: 0.6pt solid var(--border);
     text-align: center;
   }
   .closing-quote p {
     font-family: var(--title-font);
-    font-size: 14pt;
+    font-size: 16pt;
     font-weight: 700;
     color: var(--near-black);
     line-height: 1.6;
     letter-spacing: 1pt;
-    margin-bottom: 8pt;
+    margin-bottom: 10pt;
   }
   .closing-author {
-    font-size: 9pt;
+    font-size: 10.5pt;
     color: var(--stone);
   }
 </style>
@@ -426,16 +397,16 @@
   <div class="layer-tag">Layer 01 · 剧情主线与四重声部</div>
   <h1>雅典法庭出逃到森林乱伦狂欢的完整轨迹</h1>
 
-  <div class="marker">幕启 · 雅典宫廷的死刑威胁</div>
+  <h3 class="marker">幕启 · 雅典宫廷的死刑威胁</h3>
   <p>故事开场于雅典公爵忒修斯的大殿。公爵正沉浸在四天后迎娶被他征服的亚马逊女王希波吕忒的喜悦中。突然，顽固的老贵族伊吉斯怒气冲冲拽着女儿赫米娅上殿。老头指控青年拉山德用情歌、发辫和首饰勾引了赫米娅的心，要求公爵行使雅典最严苛古老的法律：赫米娅必须遵从父命嫁给另一个追求者狄米特律斯，否则就要被当场处死，或者被终身幽禁在狄安娜神庙的修道院里做修女。拉山德当面反唇相讥，指出狄米特律斯是个玩弄赫米娅闺蜜海丽娜感情的轻薄之徒。然而公爵毫不通融，命令赫米娅在四天后新月婚礼之日给出最终答复。</p>
 
-  <div class="marker">子夜 · 逃向魔法森林与爱懒花之毒</div>
+  <h3 class="marker">子夜 · 逃向魔法森林与爱懒花之毒</h3>
   <p>大难临头，拉山德与赫米娅约定次日深夜逃离雅典城，穿过城外的森林去投奔拉山德家底丰厚的姑母。天真的赫米娅将秘密告诉了失恋痛苦的海丽娜；为了博取旧爱的好感，海丽娜转身向狄米特律斯告密。于是，在仲夏夜惨白的月光下，四位青年男女先后钻进了那座迷雾缭绕的雅典树林：拉山德与赫米娅在逃亡中迷失方向困倦入睡，狄米特律斯怀着杀意在林中疯狂搜寻情敌，海丽娜则像一条忠犬般跌跌撞撞尾随在狄米特律斯身后忍受侮辱。</p>
 
-  <div class="marker">仙界内讧 · 仙后宠幸蠢驴与四角大乱</div>
+  <h3 class="marker">仙界内讧 · 仙后宠幸蠢驴与四角大乱</h3>
   <p>然而这片森林绝非凡人避难所，这里正爆发着一场更为蛮横的统治阶级内战。仙王奥布朗正与仙后提泰妮娅争夺一个美貌的印度小男童。为了报复妻子的抗拒，仙王命心腹小精灵帕克去采摘被丘比特之箭射中的<code>｜紫色爱懒花的魔汁滴眼｜</code>。只要趁熟睡把花汁滴在眼皮上，醒来见到的第一个活物，无论是一头狮子、熊、猩猩还是恶狼，受害者都会对他陷入盲目的痴恋。此时，雅典城里六个粗苯的补锅匠、木匠和织工，正悄悄溜进树林排演一出准备献给公爵婚礼的悲剧《庇拉缪斯和斯斯比》。帕克恶作剧般将带头的织工波顿变成了一个<code>｜顶着长耳朵驴头的织工波顿｜</code>。仙后被花汁催醒，第一眼看见这头嚼着干草的蠢驴，立刻肉麻地赞美他的歌声宛如天籁，命仙女们用鲜花簇拥着他同榻共寝。</p>
 
-  <div class="marker">破晓 · 猎犬吠声与戏中戏的滑稽大团圆</div>
+  <h3 class="marker">破晓 · 猎犬吠声与戏中戏的滑稽大团圆</h3>
   <p>另一边，帕克错把花汁滴在了拉山德的眼里。拉山德醒来一眼看见海丽娜，当场抛弃生死相依的赫米娅，发疯般向海丽娜求爱；仙王试图纠错，又把花汁滴入狄米特律斯眼中，导致原本争夺赫米娅的两个男人，突然拔剑反目、誓死争夺先前被踩进泥里的海丽娜。两个闺蜜反目成仇，在泥水和荆棘中撕扯谩骂。仙王玩腻了闹剧，乘机逼迫仙后交出了印度男童，随后命帕克用浓雾引开四人，用解药解除了拉山德的迷药，同时给波顿摘掉了驴头。拂晓时分，公爵忒修斯的猎犬狂吠着打破林中寂静。梦醒的恋人们如同经历了一场大病，狄米特律斯恢复了对海丽娜的爱，拉山德与赫米娅终成眷属。公爵收回成命，准许三对新人同日完婚。最终，工匠们在公爵婚宴上上演了一出漏洞百出、让全场贵族笑破肚皮的戏中戏，全剧在帕克手握扫帚的谢幕词中圆满收场。</p>
 </div>
 
