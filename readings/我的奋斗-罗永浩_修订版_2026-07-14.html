@@ -325,6 +325,54 @@
     font-size: 10.5pt;
     color: var(--stone);
   }
+
+  @media screen and (max-width: 640px) {
+    body {
+      margin: 0 auto;
+      padding: 24px 20px 48px 20px;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    .cover, .hero, .cover-hero {
+      padding-top: 20px;
+      padding-bottom: 16pt;
+      margin-bottom: 20pt;
+    }
+    .cover-title, .hero h1 {
+      font-size: 24pt;
+      line-height: 1.25;
+      letter-spacing: 1pt;
+      word-break: break-word;
+    }
+    .toc-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .toc-desc {
+      margin-left: 0;
+    }
+    .section {
+      padding-top: 20px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+    }
+    h1 {
+      font-size: 20pt;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .napkin-formula {
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
+
 </style></head><body><div class="container">
 <div class="hero"><div class="kicker">九层深度解读</div><h1 class="book-title">我的奋斗</h1>
 <div class="subtitle">罗永浩 著 · 九层深度解读 · 青山 06-26 初稿 · 07-14 修订</div>
