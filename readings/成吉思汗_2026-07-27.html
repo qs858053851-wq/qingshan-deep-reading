@@ -512,6 +512,105 @@
     }
   }
 
+
+  /* Read finish widget */
+  .read-finish-card {
+    margin: 48pt 0 24pt 0;
+    padding: 28pt 32pt;
+    background: #FAF9F5;
+    border: 1.2pt solid var(--border);
+    border-radius: 4pt;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .read-finish-badge {
+    font-family: var(--title-font);
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .read-finish-title {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+  .read-finish-sub {
+    font-size: 10.5pt;
+    color: var(--stone);
+    margin-bottom: 20pt !important;
+    text-align: center !important;
+  }
+  .read-finish-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8pt;
+    background: var(--brand);
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 10pt 28pt;
+    border-radius: 30pt;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(27, 54, 93, 0.2);
+    transition: all 0.2s ease;
+  }
+  .read-finish-btn:hover {
+    background: var(--brand-light);
+    transform: translateY(-1pt);
+    box-shadow: 0 5px 16px rgba(27, 54, 93, 0.3);
+  }
+  .read-finish-btn.is-read {
+    background: #E4ECF5;
+    color: var(--brand);
+    border: 1.2pt solid var(--brand);
+    box-shadow: none;
+  }
+  .read-finish-btn.is-read:hover {
+    background: #FDE8E8;
+    color: #C53030;
+    border-color: #C53030;
+  }
+  .read-finish-foot {
+    margin-top: 18pt;
+  }
+  .read-finish-back {
+    font-size: 10pt;
+    color: var(--stone);
+    text-decoration: none;
+    border-bottom: 1pt dotted var(--stone);
+    transition: color 0.15s;
+  }
+  .read-finish-back:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  @media screen and (max-width: 768px) {
+    .read-finish-card {
+      margin: 32px 0 16px 0 !important;
+      padding: 24px 16px !important;
+    }
+    .read-finish-title {
+      font-size: 14pt !important;
+    }
+    .read-finish-btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 12px 20px !important;
+      font-size: 11pt !important;
+    }
+  }
+  @media print {
+    .read-finish-card { display: none !important; }
+  }
+
 </style></head><body><main class="container">
 <header class="hero"><h1>成吉思汗</h1><div class="author">杰克·魏泽福 · 征服、连接与一场历史翻案</div></header>
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">作者想改写的，不只是一个征服者</h2>
@@ -577,4 +676,22 @@
 <section class="layer"><div class="kicker">Layer 09</div><h2 class="layer-title">一句话封印这本书</h2>
 <div class="fact"><h3>事实边界</h3><p>本稿依据繁体竖排扫描本的 OCR 复核，专名、数字和句序仍可能有识别错误，不作逐字引文。成吉思汗出生年代及若干战役规模有学术争议；《蒙古秘史》包含口述记忆与王朝合法性叙事，不是透明的现场记录。纸币、护照式通行凭证、火药、宗教宽容等都有更早源流，蒙古帝国较稳妥的贡献是整合、扩大与加速。中世纪死亡数字常被编年史夸张，魏泽福的翻案也可能低估毁坏；本稿不把任一方估算写成定论。书中从蒙古交流推到欧洲现代性的部分属于作者解释，需要逐项验证。</p></div>
 <div class="seal"><div class="line">蒙古帝国把远方接到一起；读懂它，要同时看见桥梁怎样建成，又碾过了谁的土地。</div><div class="sign">青山 · 2026-07-27</div></div></section>
-</main><footer><div class="container">青山 · 2026-07-27</div></footer></body></html>
+</main><footer><div class="container">青山 · 2026-07-27</div></footer>
+    <div class="read-finish-card">
+    <div class="read-finish-inner">
+      <div class="read-finish-badge">✦ 读完结项 · COMPLETION</div>
+      <h3 class="read-finish-title">读到这里，这本书已经陪伴了你一段旅程</h3>
+      <p class="read-finish-sub">点击下方按钮将《成吉思汗》标记为已读，书房总录将实时记录你的阅读足迹。</p>
+      <div class="read-finish-actions">
+        <a href="../index.html?mark_read=%E6%88%90%E5%90%89%E6%80%9D%E6%B1%97#catalogue" class="read-finish-btn">✓ 读完了，返回书房并标记已读 →</a>
+      </div>
+      <div class="read-finish-foot">
+        <a href="../index.html#catalogue" class="read-finish-back">← 直接返回书房总录</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+
+</body></html>

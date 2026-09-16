@@ -514,6 +514,105 @@
     }
   }
 
+
+  /* Read finish widget */
+  .read-finish-card {
+    margin: 48pt 0 24pt 0;
+    padding: 28pt 32pt;
+    background: #FAF9F5;
+    border: 1.2pt solid var(--border);
+    border-radius: 4pt;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .read-finish-badge {
+    font-family: var(--title-font);
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .read-finish-title {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+  .read-finish-sub {
+    font-size: 10.5pt;
+    color: var(--stone);
+    margin-bottom: 20pt !important;
+    text-align: center !important;
+  }
+  .read-finish-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8pt;
+    background: var(--brand);
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 10pt 28pt;
+    border-radius: 30pt;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(27, 54, 93, 0.2);
+    transition: all 0.2s ease;
+  }
+  .read-finish-btn:hover {
+    background: var(--brand-light);
+    transform: translateY(-1pt);
+    box-shadow: 0 5px 16px rgba(27, 54, 93, 0.3);
+  }
+  .read-finish-btn.is-read {
+    background: #E4ECF5;
+    color: var(--brand);
+    border: 1.2pt solid var(--brand);
+    box-shadow: none;
+  }
+  .read-finish-btn.is-read:hover {
+    background: #FDE8E8;
+    color: #C53030;
+    border-color: #C53030;
+  }
+  .read-finish-foot {
+    margin-top: 18pt;
+  }
+  .read-finish-back {
+    font-size: 10pt;
+    color: var(--stone);
+    text-decoration: none;
+    border-bottom: 1pt dotted var(--stone);
+    transition: color 0.15s;
+  }
+  .read-finish-back:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  @media screen and (max-width: 768px) {
+    .read-finish-card {
+      margin: 32px 0 16px 0 !important;
+      padding: 24px 16px !important;
+    }
+    .read-finish-title {
+      font-size: 14pt !important;
+    }
+    .read-finish-btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 12px 20px !important;
+      font-size: 11pt !important;
+    }
+  }
+  @media print {
+    .read-finish-card { display: none !important; }
+  }
+
 </style></head><body>
 <header class="hero"><div class="container"><div class="eyebrow">DEEP READING · 2026</div><h1>1959拉萨<br>达赖喇嘛如何出走</h1><div class="author">李江琳</div><p class="dek">这本书把一个常被压成口号的事件重新展开。达赖喇嘛的出走没有在某一天凭空发生，也无法由一个幕后操盘者完整控制。四省藏区的战争和拉萨的恐惧，加上军政双方的误判，在八天里越过了所有人的控制能力。</p></div></header>
 <main>
@@ -647,4 +746,22 @@
 <section class="layer final-line"><div class="container"><div class="layer-no">Layer 09</div><h2 class="layer-title">留下一句话</h2><div class="words"><p>达赖喇嘛在3月17日作出决定，而此前三年的战争与当周的失控已经大幅压缩了他的选择。</p></div><div class="signature">青山 · 2026-08-20</div></div></section>
 
 <section class="boundary"><div class="container"><strong>事实边界</strong><br>本篇对用户提供的扫描版 PDF 做了全书 OCR，并回看进入正文的关键材料。事件线、人物行动和主要判断来自李江琳此书；OCR 对个别繁体字和人名可能误识，故未引用无法复核的细碎数字。有关中共决策、藏方行动与国际介入，书中材料来自公开文献、内部出版物和口述史，正文在争议性因果与责任判断附近标明作者位置。围绕1959年事件仍存在档案开放不足和立场争议，本篇不把任何单一证词写成最后定论。</div></section>
-</main><footer><div class="container">青山 · 2026-08-20</div></footer></body></html>
+</main><footer><div class="container">青山 · 2026-08-20</div></footer>
+    <div class="read-finish-card">
+    <div class="read-finish-inner">
+      <div class="read-finish-badge">✦ 读完结项 · COMPLETION</div>
+      <h3 class="read-finish-title">读到这里，这本书已经陪伴了你一段旅程</h3>
+      <p class="read-finish-sub">点击下方按钮将《1959拉萨：达赖喇嘛如何出走》标记为已读，书房总录将实时记录你的阅读足迹。</p>
+      <div class="read-finish-actions">
+        <a href="../index.html?mark_read=1959%E6%8B%89%E8%90%A8%EF%BC%9A%E8%BE%BE%E8%B5%96%E5%96%87%E5%98%9B%E5%A6%82%E4%BD%95%E5%87%BA%E8%B5%B0#catalogue" class="read-finish-btn">✓ 读完了，返回书房并标记已读 →</a>
+      </div>
+      <div class="read-finish-foot">
+        <a href="../index.html#catalogue" class="read-finish-back">← 直接返回书房总录</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+
+</body></html>

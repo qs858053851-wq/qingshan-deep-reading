@@ -734,7 +734,320 @@
       .ledger-entry-actions { grid-column: 2; justify-content: flex-start; margin-top: -4px; }
       .principles-box { border-radius: 16px; padding: 56px 0; }
     }
-  </style>
+  
+    /* Read progress in header */
+    .read-progress-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 14px;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-sm);
+    }
+    .read-progress-chip .chip-label {
+      color: var(--muted);
+    }
+    .read-progress-chip .chip-num {
+      color: #1B365D;
+      font-weight: 700;
+    }
+    .chip-bar {
+      width: 44px;
+      height: 6px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 3px;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .chip-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: #1B365D;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .chip-percent {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* Read Status Filter Pills in Ledger */
+    .read-status-filters {
+      display: inline-flex;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2px;
+      gap: 2px;
+      margin-left: 12px;
+    }
+    .read-filter-pill {
+      background: transparent;
+      border: none;
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.15s;
+    }
+    .read-filter-pill .pill-count {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      opacity: 0.8;
+      background: rgba(0,0,0,0.05);
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+    .read-filter-pill:hover {
+      color: var(--ink);
+    }
+    .read-filter-pill.active {
+      background: #1B365D;
+      color: #ffffff;
+    }
+    .read-filter-pill.active .pill-count {
+      background: rgba(255,255,255,0.2);
+      color: #ffffff;
+    }
+
+    /* Read Toggle Button in Ledger Rows */
+    .btn-read-toggle {
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      color: var(--muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .btn-read-toggle:hover {
+      border-color: #1B365D;
+      color: #1B365D;
+      background: rgba(27, 54, 93, 0.04);
+    }
+    .btn-read-toggle.is-read {
+      background: #E8EEF5;
+      color: #1B365D;
+      border-color: rgba(27, 54, 93, 0.35);
+      font-weight: 700;
+    }
+    .btn-read-toggle.is-read:hover {
+      background: #FDE8E8;
+      color: #C53030;
+      border-color: rgba(197, 48, 48, 0.3);
+    }
+
+    .badge-read-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      color: #1B365D;
+      background: #E4ECF5;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: 0.3px;
+    }
+
+    .ledger-entry-row.is-read-row {
+      background: rgba(245, 244, 237, 0.4);
+    }
+    .ledger-entry-row.is-read-row .ledger-entry-title {
+      color: var(--dark-warm);
+    }
+
+    .btn-sync-action {
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+    .btn-sync-action:hover {
+      border-color: #1B365D;
+      color: #1B365D;
+      background: var(--paper);
+    }
+
+    /* Sync Modal */
+    .sync-modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(20, 20, 19, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .sync-modal-backdrop[hidden] { display: none !important; }
+    .sync-modal-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      max-width: 540px;
+      width: 100%;
+      padding: 28px 32px;
+      box-shadow: var(--shadow-lg);
+    }
+    .sync-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .sync-modal-header h3 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--ink);
+    }
+    .sync-modal-close {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      line-height: 1;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .sync-modal-desc {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 14px;
+    }
+    .sync-stat-line {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .sync-textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink);
+      resize: vertical;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+      outline: none;
+    }
+    .sync-textarea:focus {
+      border-color: #1B365D;
+    }
+    .sync-actions-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn-sync-op {
+      padding: 8px 16px;
+      font-size: 12.5px;
+      font-weight: 600;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-sync-op:hover {
+      background: #eee;
+    }
+    .btn-sync-op.primary {
+      background: #1B365D;
+      color: #fff;
+      border-color: #1B365D;
+    }
+    .btn-sync-op.primary:hover {
+      background: #2c5282;
+    }
+    .btn-sync-op.danger {
+      color: #c53030;
+      margin-left: auto;
+    }
+    .btn-sync-op.danger:hover {
+      background: #FDE8E8;
+    }
+    .sync-feedback {
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      min-height: 18px;
+    }
+
+    /* Mobile adjustments for ledger */
+    @media (max-width: 768px) {
+      .read-progress-chip { display: none; }
+      .ledger-filter-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .read-status-filters {
+        margin-left: 0;
+        margin-top: 6px;
+      }
+      .btn-sync-action {
+        padding: 3px 8px;
+        font-size: 11px;
+      }
+    }
+
+
+    .read-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(40px);
+      background: #1B365D;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10000;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .read-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+</style>
 </head>
 <body>
 
@@ -744,7 +1057,13 @@
       <div class="brand-wrap">
         <div class="brand-logo">青</div>
         <a class="brand-title" href="#top">青山的十分钟书房</a>
-        <span class="brand-badge" id="navBadge">639 篇在架</span>
+        <span class="brand-badge" id="navBadge">757 篇在架</span>
+        <div class="read-progress-chip" id="readProgressChip" title="阅读进度统计">
+          <span class="chip-label">已读</span>
+          <strong class="chip-num" id="chipRead">0</strong>/<span id="chipTotal">757</span>
+          <div class="chip-bar"><div class="chip-bar-fill" id="chipBarFill"></div></div>
+          <span class="chip-percent" id="chipPercent">0%</span>
+        </div>
       </div>
       <nav class="nav-links" aria-label="书房导航">
         <a href="#recent">本期新读</a>
@@ -856,13 +1175,25 @@
         </div>
 
         <div class="ledger-filter-row">
-          <div>
+          <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px;">
             <span>当前架位：</span>
             <span class="active-shelf-title" id="activeShelf">全部书目</span>
+            <div class="read-status-filters" id="readFilterGroup">
+              <button type="button" class="read-filter-pill active" data-read-filter="all">全部 <span class="pill-count" id="countAll">0</span></button>
+              <button type="button" class="read-filter-pill" data-read-filter="unread">未读 <span class="pill-count" id="countUnread">0</span></button>
+              <button type="button" class="read-filter-pill" data-read-filter="read">已读 <span class="pill-count" id="countRead">0</span></button>
+            </div>
           </div>
-          <div>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
             <span id="resultCount">正在整理书目……</span>
-            <button id="showAll" type="button" style="margin-left:12px; background:transparent; border:none; color:var(--accent); font-weight:600; cursor:pointer;">重置全部</button>
+            <button id="showAll" type="button" style="background:transparent; border:none; color:var(--accent); font-weight:600; cursor:pointer;">重置全部</button>
+            <button id="syncModalBtn" type="button" class="btn-sync-action" title="备份或导入已读记录">☁ 备份/同步</button>
+          </div>
+        </div>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <span id="resultCount">正在整理书目……</span>
+            <button id="showAll" type="button" style="background:transparent; border:none; color:var(--accent); font-weight:600; cursor:pointer;">重置全部</button>
+            <button id="syncModalBtn" type="button" class="btn-sync-action" title="备份或导入已读记录">☁ 备份/同步</button>
           </div>
         </div>
 
@@ -948,13 +1279,81 @@
 
       function preferredLink(entry) { return entry.html || entry.markdown || '#'; }
 
+      const STORAGE_KEY = 'qingshan_read_books';
+      let readFilter = 'all'; // 'all', 'unread', 'read'
+
+      function getReadShelf() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; }
+      }
+
+      function saveReadShelf(shelf) {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(shelf)); } catch(e) {}
+        updateReadStats();
+      }
+
+      function isBookRead(title) {
+        const shelf = getReadShelf();
+        return !!shelf[title];
+      }
+
+      function toggleRead(title) {
+        const shelf = getReadShelf();
+        if (shelf[title]) {
+          delete shelf[title];
+        } else {
+          const today = new Date().toISOString().slice(0, 10);
+          shelf[title] = { date: today, time: Date.now() };
+        }
+        saveReadShelf(shelf);
+        renderCatalogue();
+        renderLatest();
+      }
+
+      function updateReadStats() {
+        const shelf = getReadShelf();
+        const total = entries.length || 757;
+        let readCount = 0;
+        for (const entry of entries) {
+          if (shelf[entry.title]) readCount++;
+        }
+        const unreadCount = Math.max(0, total - readCount);
+        const pct = total ? Math.round((readCount / total) * 100) : 0;
+
+        const chipRead = document.querySelector('#chipRead');
+        const chipTotal = document.querySelector('#chipTotal');
+        const chipBarFill = document.querySelector('#chipBarFill');
+        const chipPercent = document.querySelector('#chipPercent');
+        if (chipRead) chipRead.textContent = readCount;
+        if (chipTotal) chipTotal.textContent = total;
+        if (chipBarFill) chipBarFill.style.width = pct + '%';
+        if (chipPercent) chipPercent.textContent = pct + '%';
+
+        const cAll = document.querySelector('#countAll');
+        const cUnread = document.querySelector('#countUnread');
+        const cRead = document.querySelector('#countRead');
+        if (cAll) cAll.textContent = total;
+        if (cUnread) cUnread.textContent = unreadCount;
+        if (cRead) cRead.textContent = readCount;
+
+        const mCount = document.querySelector('#modalReadCount');
+        if (mCount) mCount.textContent = readCount;
+      }
+
       function filteredEntries() {
         const query = search.value.trim().toLocaleLowerCase('zh-CN');
+        const shelf = getReadShelf();
         return entries.filter(entry => {
           const inShelf = selected === '全部书目' || entry.category === selected;
-          const haystack = `${entry.title} ${entry.category} ${entry.date}`.toLocaleLowerCase('zh-CN');
-          return inShelf && (!query || haystack.includes(query));
+          const haystack = (entry.title + " " + entry.category + " " + entry.date).toLocaleLowerCase('zh-CN');
+          const matchesSearch = !query || haystack.includes(query);
+          if (!inShelf || !matchesSearch) return false;
+
+          const isRead = !!shelf[entry.title];
+          if (readFilter === 'read') return isRead;
+          if (readFilter === 'unread') return !isRead;
+          return true;
         });
+      });
       }
 
       function renderLatest() {
@@ -1014,13 +1413,22 @@
             const links = [];
             if (entry.html) links.push(`<a class="btn-pill-sm" href="${escapeHtml(entry.html)}">网页</a>`);
             if (entry.markdown) links.push(`<a class="btn-pill-sm" href="${escapeHtml(entry.markdown)}">纯文本</a>`);
-            return `<article class="ledger-entry-row">
-              <span class="ledger-idx">${String(index + 1).padStart(3, '0')}</span>
-              <a class="ledger-entry-title" href="${escapeHtml(preferredLink(entry))}">${escapeHtml(entry.title)}</a>
-              <span class="ledger-entry-cat">${escapeHtml(entry.category)}</span>
-              <time class="ledger-entry-date">${escapeHtml(formatDate(entry.date))}</time>
-              <span class="ledger-entry-actions">${links.join('')}</span>
-            </article>`;
+            const isRead = isBookRead(entry.title);
+            return '<article class="ledger-entry-row ' + (isRead ? 'is-read-row' : '') + '">' +
+              '<span class="ledger-idx">' + String(index + 1).padStart(3, '0') + '</span>' +
+              '<div style="display:flex; align-items:baseline; gap:8px; min-width:0;">' +
+                '<a class="ledger-entry-title" href="' + escapeHtml(preferredLink(entry)) + '">' + escapeHtml(entry.title) + '</a>' +
+                (isRead ? '<span class="badge-read-tag">✓ 已读</span>' : '') +
+              '</div>' +
+              '<span class="ledger-entry-cat">' + escapeHtml(entry.category) + '</span>' +
+              '<time class="ledger-entry-date">' + escapeHtml(formatDate(entry.date)) + '</time>' +
+              '<span class="ledger-entry-actions">' +
+                '<button type="button" class="btn-read-toggle ' + (isRead ? 'is-read' : '') + '" data-title="' + escapeHtml(entry.title) + '" title="' + (isRead ? '已读 · 点击取消' : '点击标记已读') + '">' +
+                  (isRead ? '✓ 已读' : '○ 标记已读') +
+                '</button>' +
+                links.join('') +
+              '</span>' +
+            '</article>';
           }).join('');
         }
         loadMore.hidden = visible >= filtered.length;
@@ -1072,6 +1480,107 @@
         selectShelf(selected === name ? '全部书目' : name);
       });
 
+      
+      bookList.addEventListener('click', event => {
+        const toggleBtn = event.target.closest('.btn-read-toggle');
+        if (!toggleBtn) return;
+        event.preventDefault();
+        event.stopPropagation();
+        const title = toggleBtn.dataset.title;
+        if (title) toggleRead(title);
+      });
+
+      const readFilterGroup = document.querySelector('#readFilterGroup');
+      if (readFilterGroup) {
+        readFilterGroup.addEventListener('click', event => {
+          const btn = event.target.closest('.read-filter-pill');
+          if (!btn) return;
+          readFilterGroup.querySelectorAll('.read-filter-pill').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          readFilter = btn.dataset.readFilter || 'all';
+          visible = pageSize;
+          renderCatalogue();
+        });
+      }
+
+      // Sync & Backup Modal
+      const syncModal = document.querySelector('#syncModal');
+      const syncModalBtn = document.querySelector('#syncModalBtn');
+      const closeSyncModal = document.querySelector('#closeSyncModal');
+      const syncDataArea = document.querySelector('#syncDataArea');
+      const copySyncData = document.querySelector('#copySyncData');
+      const importSyncData = document.querySelector('#importSyncData');
+      const clearSyncData = document.querySelector('#clearSyncData');
+      const syncFeedback = document.querySelector('#syncFeedback');
+
+      function showSyncModal() {
+        if (!syncModal) return;
+        const shelf = getReadShelf();
+        syncDataArea.value = JSON.stringify(shelf, null, 2);
+        updateReadStats();
+        syncFeedback.textContent = '';
+        syncModal.hidden = false;
+      }
+
+      function hideSyncModal() {
+        if (syncModal) syncModal.hidden = true;
+      }
+
+      if (syncModalBtn) syncModalBtn.addEventListener('click', showSyncModal);
+      if (closeSyncModal) closeSyncModal.addEventListener('click', hideSyncModal);
+      if (syncModal) {
+        syncModal.addEventListener('click', event => {
+          if (event.target === syncModal) hideSyncModal();
+        });
+      }
+
+      if (copySyncData) {
+        copySyncData.addEventListener('click', () => {
+          syncDataArea.select();
+          navigator.clipboard.writeText(syncDataArea.value)
+            .then(() => {
+              syncFeedback.style.color = '#2c7a7b';
+              syncFeedback.textContent = '✓ 已复制到剪贴板，可在手机或其他设备上粘贴导入！';
+            })
+            .catch(() => {
+              syncFeedback.style.color = '#c53030';
+              syncFeedback.textContent = '复制失败，请手动全选上方框中文本复制。';
+            });
+        });
+      }
+
+      if (importSyncData) {
+        importSyncData.addEventListener('click', () => {
+          try {
+            const parsed = JSON.parse(syncDataArea.value.trim());
+            if (typeof parsed !== 'object' || parsed === null) throw new Error();
+            const current = getReadShelf();
+            const merged = Object.assign({}, current, parsed);
+            saveReadShelf(merged);
+            renderCatalogue();
+            renderLatest();
+            syncFeedback.style.color = '#2c7a7b';
+            syncFeedback.textContent = '✓ 导入成功！当前已读总数：' + Object.keys(merged).length + ' 本。';
+          } catch(e) {
+            syncFeedback.style.color = '#c53030';
+            syncFeedback.textContent = '导入失败：请确保粘贴的是合法的已读数据 JSON 文本。';
+          }
+        });
+      }
+
+      if (clearSyncData) {
+        clearSyncData.addEventListener('click', () => {
+          if (confirm('确定要清空当前设备上的所有已读记录吗？')) {
+            saveReadShelf({});
+            syncDataArea.value = '{}';
+            renderCatalogue();
+            renderLatest();
+            syncFeedback.style.color = '#c53030';
+            syncFeedback.textContent = '已清空当前设备上的阅读记录。';
+          }
+        });
+      }
+
       loadMore.addEventListener('click', () => {
         visible += pageSize;
         renderCatalogue();
@@ -1086,6 +1595,30 @@
           document.querySelector('#navBadge').textContent = `${total} 篇在架`;
           renderLatest();
           renderShelves();
+
+          // Handle mark_read query parameter
+          const urlParams = new URLSearchParams(window.location.search);
+          const markReadTitle = urlParams.get('mark_read');
+          if (markReadTitle) {
+            const shelf = getReadShelf();
+            if (!shelf[markReadTitle]) {
+              const today = new Date().toISOString().slice(0, 10);
+              shelf[markReadTitle] = { date: today, time: Date.now() };
+              saveReadShelf(shelf);
+            }
+            const toast = document.createElement('div');
+            toast.className = 'read-toast';
+            toast.innerHTML = '✓ 已为您将《' + escapeHtml(markReadTitle) + '》标记为已读！';
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.classList.add('show'); }, 100);
+            setTimeout(() => {
+              toast.classList.remove('show');
+              setTimeout(() => toast.remove(), 400);
+            }, 3500);
+            window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+          }
+
+          updateReadStats();
           renderCatalogue();
         })
         .catch(() => {
@@ -1093,5 +1626,31 @@
         });
     })();
   </script>
+
+  <!-- 备份与同步弹窗 -->
+  <div id="syncModal" class="sync-modal-backdrop" hidden>
+    <div class="sync-modal-card">
+      <div class="sync-modal-header">
+        <h3>☁ 阅读记录备份与同步</h3>
+        <button type="button" id="closeSyncModal" class="sync-modal-close">&times;</button>
+      </div>
+      <div class="sync-modal-body">
+        <p class="sync-modal-desc">
+          已读状态保存在当前设备的浏览器缓存（localStorage）中。你可以通过下方代码，将阅读进度快速导出或同步至其他设备：
+        </p>
+        <div class="sync-stat-line">
+          当前已标记已读：<strong id="modalReadCount" style="color:var(--accent);">0</strong> 本书目
+        </div>
+        <textarea id="syncDataArea" class="sync-textarea" rows="4" placeholder="在此粘贴导出的已读记录代码进行导入……"></textarea>
+        <div class="sync-actions-row">
+          <button type="button" id="copySyncData" class="btn-sync-op">复制导出代码</button>
+          <button type="button" id="importSyncData" class="btn-sync-op primary">从上方代码导入</button>
+          <button type="button" id="clearSyncData" class="btn-sync-op danger">清空全部已读</button>
+        </div>
+        <div id="syncFeedback" class="sync-feedback"></div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

@@ -513,6 +513,105 @@
     }
   }
 
+
+  /* Read finish widget */
+  .read-finish-card {
+    margin: 48pt 0 24pt 0;
+    padding: 28pt 32pt;
+    background: #FAF9F5;
+    border: 1.2pt solid var(--border);
+    border-radius: 4pt;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .read-finish-badge {
+    font-family: var(--title-font);
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .read-finish-title {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+  .read-finish-sub {
+    font-size: 10.5pt;
+    color: var(--stone);
+    margin-bottom: 20pt !important;
+    text-align: center !important;
+  }
+  .read-finish-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8pt;
+    background: var(--brand);
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 10pt 28pt;
+    border-radius: 30pt;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(27, 54, 93, 0.2);
+    transition: all 0.2s ease;
+  }
+  .read-finish-btn:hover {
+    background: var(--brand-light);
+    transform: translateY(-1pt);
+    box-shadow: 0 5px 16px rgba(27, 54, 93, 0.3);
+  }
+  .read-finish-btn.is-read {
+    background: #E4ECF5;
+    color: var(--brand);
+    border: 1.2pt solid var(--brand);
+    box-shadow: none;
+  }
+  .read-finish-btn.is-read:hover {
+    background: #FDE8E8;
+    color: #C53030;
+    border-color: #C53030;
+  }
+  .read-finish-foot {
+    margin-top: 18pt;
+  }
+  .read-finish-back {
+    font-size: 10pt;
+    color: var(--stone);
+    text-decoration: none;
+    border-bottom: 1pt dotted var(--stone);
+    transition: color 0.15s;
+  }
+  .read-finish-back:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  @media screen and (max-width: 768px) {
+    .read-finish-card {
+      margin: 32px 0 16px 0 !important;
+      padding: 24px 16px !important;
+    }
+    .read-finish-title {
+      font-size: 14pt !important;
+    }
+    .read-finish-btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 12px 20px !important;
+      font-size: 11pt !important;
+    }
+  }
+  @media print {
+    .read-finish-card { display: none !important; }
+  }
+
 </style></head><body><div class="container"><section class="hero"><h1>缠中说禅全集</h1><div class="meta"><span>缠中说禅</span> · 2006-2008 · 博客全集 · 1840+篇</div><div style="margin-top:6px;font-size:14px;color:var(--mid)">论证型 · 全九层 · 260万字 · 12卷 · 标准修订版</div></section>
 &lt;!-- 案例分配表：均线吻系统→第二层；人口量子化→第三层验证；“当下为何困难”→第四层；三类买卖点→第五层；作者人格张力→第六层；餐巾纸公式→第七层；“患”的重释→第八层唯一主场。其他层仅作一句证据指引。第八层选题已前置锁定为：“患”如何把《论语》从道德书翻成操作手册。 --&gt;
 <section class="layer">
@@ -612,4 +711,22 @@
 <div class="layer-num">第九层</div>
 <div class="layer-title">金句收尾</div>
 <p style="font-size:20px;font-weight:700;font-style:italic;text-align:center;padding:32px 0">这不是一本只教你赚钱的书。它更想训练一种能力：先看清结构，再在自己的位次上行动。</p>
-</section><section class="closing"><div class="kotoba">万事万物都在它该在的位次上，看到它——不加不减，就是全部。</div><div class="sign">青山 · 2026-07-15 · 标准修订版</div></section><footer>缠中说禅全集 · 九层解书 · 标准修订版 · 2026-07-15</footer></div></body></html>
+</section><section class="closing"><div class="kotoba">万事万物都在它该在的位次上，看到它——不加不减，就是全部。</div><div class="sign">青山 · 2026-07-15 · 标准修订版</div></section><footer>缠中说禅全集 · 九层解书 · 标准修订版 · 2026-07-15</footer></div>
+    <div class="read-finish-card">
+    <div class="read-finish-inner">
+      <div class="read-finish-badge">✦ 读完结项 · COMPLETION</div>
+      <h3 class="read-finish-title">读到这里，这本书已经陪伴了你一段旅程</h3>
+      <p class="read-finish-sub">点击下方按钮将《缠中说禅全集_2026-05-30_标准修订版》标记为已读，书房总录将实时记录你的阅读足迹。</p>
+      <div class="read-finish-actions">
+        <a href="../index.html?mark_read=%E7%BC%A0%E4%B8%AD%E8%AF%B4%E7%A6%85%E5%85%A8%E9%9B%86_2026-05-30_%E6%A0%87%E5%87%86%E4%BF%AE%E8%AE%A2%E7%89%88#catalogue" class="read-finish-btn">✓ 读完了，返回书房并标记已读 →</a>
+      </div>
+      <div class="read-finish-foot">
+        <a href="../index.html#catalogue" class="read-finish-back">← 直接返回书房总录</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+
+</body></html>

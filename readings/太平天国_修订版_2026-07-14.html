@@ -518,6 +518,105 @@
     }
   }
 
+
+  /* Read finish widget */
+  .read-finish-card {
+    margin: 48pt 0 24pt 0;
+    padding: 28pt 32pt;
+    background: #FAF9F5;
+    border: 1.2pt solid var(--border);
+    border-radius: 4pt;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .read-finish-badge {
+    font-family: var(--title-font);
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .read-finish-title {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+  .read-finish-sub {
+    font-size: 10.5pt;
+    color: var(--stone);
+    margin-bottom: 20pt !important;
+    text-align: center !important;
+  }
+  .read-finish-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8pt;
+    background: var(--brand);
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 10pt 28pt;
+    border-radius: 30pt;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(27, 54, 93, 0.2);
+    transition: all 0.2s ease;
+  }
+  .read-finish-btn:hover {
+    background: var(--brand-light);
+    transform: translateY(-1pt);
+    box-shadow: 0 5px 16px rgba(27, 54, 93, 0.3);
+  }
+  .read-finish-btn.is-read {
+    background: #E4ECF5;
+    color: var(--brand);
+    border: 1.2pt solid var(--brand);
+    box-shadow: none;
+  }
+  .read-finish-btn.is-read:hover {
+    background: #FDE8E8;
+    color: #C53030;
+    border-color: #C53030;
+  }
+  .read-finish-foot {
+    margin-top: 18pt;
+  }
+  .read-finish-back {
+    font-size: 10pt;
+    color: var(--stone);
+    text-decoration: none;
+    border-bottom: 1pt dotted var(--stone);
+    transition: color 0.15s;
+  }
+  .read-finish-back:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  @media screen and (max-width: 768px) {
+    .read-finish-card {
+      margin: 32px 0 16px 0 !important;
+      padding: 24px 16px !important;
+    }
+    .read-finish-title {
+      font-size: 14pt !important;
+    }
+    .read-finish-btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 12px 20px !important;
+      font-size: 11pt !important;
+    }
+  }
+  @media print {
+    .read-finish-card { display: none !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -794,5 +893,23 @@
 <div class="footer">九层深度解读 · 太平天国（史景迁）· 青山 · 06-26 初稿 · 07-14 修订</div>
 
 </div>
+
+    <div class="read-finish-card">
+    <div class="read-finish-inner">
+      <div class="read-finish-badge">✦ 读完结项 · COMPLETION</div>
+      <h3 class="read-finish-title">读到这里，这本书已经陪伴了你一段旅程</h3>
+      <p class="read-finish-sub">点击下方按钮将《太平天国》标记为已读，书房总录将实时记录你的阅读足迹。</p>
+      <div class="read-finish-actions">
+        <a href="../index.html?mark_read=%E5%A4%AA%E5%B9%B3%E5%A4%A9%E5%9B%BD#catalogue" class="read-finish-btn">✓ 读完了，返回书房并标记已读 →</a>
+      </div>
+      <div class="read-finish-foot">
+        <a href="../index.html#catalogue" class="read-finish-back">← 直接返回书房总录</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+
 </body>
 </html>

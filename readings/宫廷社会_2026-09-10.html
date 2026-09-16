@@ -527,6 +527,105 @@
     }
   }
 
+
+  /* Read finish widget */
+  .read-finish-card {
+    margin: 48pt 0 24pt 0;
+    padding: 28pt 32pt;
+    background: #FAF9F5;
+    border: 1.2pt solid var(--border);
+    border-radius: 4pt;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .read-finish-badge {
+    font-family: var(--title-font);
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .read-finish-title {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+  .read-finish-sub {
+    font-size: 10.5pt;
+    color: var(--stone);
+    margin-bottom: 20pt !important;
+    text-align: center !important;
+  }
+  .read-finish-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8pt;
+    background: var(--brand);
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 10pt 28pt;
+    border-radius: 30pt;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(27, 54, 93, 0.2);
+    transition: all 0.2s ease;
+  }
+  .read-finish-btn:hover {
+    background: var(--brand-light);
+    transform: translateY(-1pt);
+    box-shadow: 0 5px 16px rgba(27, 54, 93, 0.3);
+  }
+  .read-finish-btn.is-read {
+    background: #E4ECF5;
+    color: var(--brand);
+    border: 1.2pt solid var(--brand);
+    box-shadow: none;
+  }
+  .read-finish-btn.is-read:hover {
+    background: #FDE8E8;
+    color: #C53030;
+    border-color: #C53030;
+  }
+  .read-finish-foot {
+    margin-top: 18pt;
+  }
+  .read-finish-back {
+    font-size: 10pt;
+    color: var(--stone);
+    text-decoration: none;
+    border-bottom: 1pt dotted var(--stone);
+    transition: color 0.15s;
+  }
+  .read-finish-back:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  @media screen and (max-width: 768px) {
+    .read-finish-card {
+      margin: 32px 0 16px 0 !important;
+      padding: 24px 16px !important;
+    }
+    .read-finish-title {
+      font-size: 14pt !important;
+    }
+    .read-finish-btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 12px 20px !important;
+      font-size: 11pt !important;
+    }
+  }
+  @media print {
+    .read-finish-card { display: none !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -839,6 +938,24 @@
     <p><strong>史实与理论边界说明</strong> 本文对凡尔赛宫廷礼仪的解读严格限定在路易十四亲政（1661至1715年）至大革命爆发（1789年）之间的历史时段。必须明确指出的是，书中关于路易十四个人的智力水平与日常细节（例如睡觉时依然佩戴小假发套、三年不与圣西门对视等），主要源自圣西门公爵带有强烈政治倾向的回忆录陈述。圣西门作为坚定主张恢复古老大贵族参政特权的保守派，在字里行间难免对路易十四提拔资产阶级大臣的政策带有主观怨怼与讽刺色彩。现代专业历史学家（如埃内斯特·拉维斯等）指出，路易十四的实际统治策略兼具高度的务实理性与帝国战略眼光，并未纯粹沦为礼仪的形式主义囚徒。此外，埃利亚斯将凡尔赛宫廷机制提炼为社会学构形理论时，高度抽象了阶级张力的两极平衡模型，在应对十八世纪后期地方高等法院与外省三级会议的复杂财政对抗时，具有一定的纯理论模型化色彩，读者在对照具体法国政治通史时宜结合宏观财税制度演变辩证参阅。</p>
   </div>
 </div>
+
+
+    <div class="read-finish-card">
+    <div class="read-finish-inner">
+      <div class="read-finish-badge">✦ 读完结项 · COMPLETION</div>
+      <h3 class="read-finish-title">读到这里，这本书已经陪伴了你一段旅程</h3>
+      <p class="read-finish-sub">点击下方按钮将《宫廷社会》标记为已读，书房总录将实时记录你的阅读足迹。</p>
+      <div class="read-finish-actions">
+        <a href="../index.html?mark_read=%E5%AE%AB%E5%BB%B7%E7%A4%BE%E4%BC%9A#catalogue" class="read-finish-btn">✓ 读完了，返回书房并标记已读 →</a>
+      </div>
+      <div class="read-finish-foot">
+        <a href="../index.html#catalogue" class="read-finish-back">← 直接返回书房总录</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
 
 </body>
 </html>

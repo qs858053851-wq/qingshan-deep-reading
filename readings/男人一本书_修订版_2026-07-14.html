@@ -515,6 +515,105 @@
     }
   }
 
+
+  /* Read finish widget */
+  .read-finish-card {
+    margin: 48pt 0 24pt 0;
+    padding: 28pt 32pt;
+    background: #FAF9F5;
+    border: 1.2pt solid var(--border);
+    border-radius: 4pt;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+  .read-finish-badge {
+    font-family: var(--title-font);
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 12pt;
+  }
+  .read-finish-title {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    margin-bottom: 8pt;
+    line-height: 1.4;
+  }
+  .read-finish-sub {
+    font-size: 10.5pt;
+    color: var(--stone);
+    margin-bottom: 20pt !important;
+    text-align: center !important;
+  }
+  .read-finish-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8pt;
+    background: var(--brand);
+    color: #ffffff;
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+    padding: 10pt 28pt;
+    border-radius: 30pt;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(27, 54, 93, 0.2);
+    transition: all 0.2s ease;
+  }
+  .read-finish-btn:hover {
+    background: var(--brand-light);
+    transform: translateY(-1pt);
+    box-shadow: 0 5px 16px rgba(27, 54, 93, 0.3);
+  }
+  .read-finish-btn.is-read {
+    background: #E4ECF5;
+    color: var(--brand);
+    border: 1.2pt solid var(--brand);
+    box-shadow: none;
+  }
+  .read-finish-btn.is-read:hover {
+    background: #FDE8E8;
+    color: #C53030;
+    border-color: #C53030;
+  }
+  .read-finish-foot {
+    margin-top: 18pt;
+  }
+  .read-finish-back {
+    font-size: 10pt;
+    color: var(--stone);
+    text-decoration: none;
+    border-bottom: 1pt dotted var(--stone);
+    transition: color 0.15s;
+  }
+  .read-finish-back:hover {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  @media screen and (max-width: 768px) {
+    .read-finish-card {
+      margin: 32px 0 16px 0 !important;
+      padding: 24px 16px !important;
+    }
+    .read-finish-title {
+      font-size: 14pt !important;
+    }
+    .read-finish-btn {
+      width: 100% !important;
+      justify-content: center !important;
+      padding: 12px 20px !important;
+      font-size: 11pt !important;
+    }
+  }
+  @media print {
+    .read-finish-card { display: none !important; }
+  }
+
 </style></head><body><div class="container">
 <div class="hero"><div class="kicker">九层深度解读</div><h1 class="book-title">男人一本书</h1>
 <div class="subtitle">爱德华·奥古斯丁 / 菲利普·封·凯森贝格 / 克里斯蒂安·扎什克 著 · 九层深度解读 · 青山 2026-06-26 初稿 · 07-14 修订</div>
@@ -622,4 +721,22 @@
 <p>一个人可能以住宿业谋生，却真正热爱阅读，两者分属生活的两边。我猜你心里偶尔也会闪过一个念头：读这么多书，到底&quot;有什么用&quot;？它不直接帮你多签一个项目，不直接帮你多赚一笔钱。按最功利的算法，读书和这本书教你&quot;怎么当教皇&quot;一样，是&quot;用不上的&quot;。可你正是在这件&quot;用不上&quot;的事里,最像你自己。因为阅读喂养的，恰恰不是你的谋生，是你心里那个&quot;想抵达的世界&quot;&quot;想成为的人&quot;。你读历史、读道家、读那些跟民宿生意八竿子打不着的书，不是因为它们有用，是因为它们最懂你——它们对接的，是你心里那个比&quot;民宿项目经理&quot;更深、更真的你。<strong>一个人读什么书、做什么样的白日梦，藏着他真正是谁。</strong> 谋生那一边，是你不得不做的；心之所向这一边，是你忍不住要去的——而后者，往往才是更接近你本质的那个你。</p>
 <p>所以,这本插科打诨的、教你斗鲨鱼当教皇的小书,讲到最后,递给我一个一点都不好笑的东西:别太快用&quot;有没有用&quot;去判一件事的死刑。那些你忍不住一遍遍幻想、一遍遍回去的&quot;没用&quot;的事——一个白日梦,一本跟生计无关的书,一种你向往却没敢过的活法——往往比你每天忙碌的&quot;正事&quot;,更接近你是谁。下次你又做了一个&quot;没用&quot;的白日梦,或者又躲进一本&quot;没用&quot;的书里,别急着笑自己不务正业。那里头站着的,是一个比你的日常更真实的你。真正的问题只剩一个:你愿不愿意,偶尔,让那个白日梦里的人、那个书页里向往的世界,往你的现实里,挪进来一步?</p></section>
 <div class="goldzone"><div class="kicker">第九层 · CODA</div><p class="goldline">你忍不住一遍遍回去的那些&quot;没用&quot;之事，往往比你天天忙的正事，更接近你是谁。</p><div class="sig">青山 · 2026-06-26 初稿 · 07-14 修订 · 九层深度解读</div></div>
-</div></body></html>
+</div>
+    <div class="read-finish-card">
+    <div class="read-finish-inner">
+      <div class="read-finish-badge">✦ 读完结项 · COMPLETION</div>
+      <h3 class="read-finish-title">读到这里，这本书已经陪伴了你一段旅程</h3>
+      <p class="read-finish-sub">点击下方按钮将《男人一本书》标记为已读，书房总录将实时记录你的阅读足迹。</p>
+      <div class="read-finish-actions">
+        <a href="../index.html?mark_read=%E7%94%B7%E4%BA%BA%E4%B8%80%E6%9C%AC%E4%B9%A6#catalogue" class="read-finish-btn">✓ 读完了，返回书房并标记已读 →</a>
+      </div>
+      <div class="read-finish-foot">
+        <a href="../index.html#catalogue" class="read-finish-back">← 直接返回书房总录</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  
+
+</body></html>
