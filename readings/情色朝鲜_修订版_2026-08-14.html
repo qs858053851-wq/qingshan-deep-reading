@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>情色朝鲜 · 九层解书</title><style>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>情色朝鲜 · 九层解书</title><style>
   @font-face {
     font-family: "KingHwaOldSong";
     src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
@@ -322,6 +322,196 @@
     font-size: 10.5pt;
     color: var(--stone);
   }
+
+  /* Mobile Responsive Adaptation */
+  @media screen and (max-width: 768px) {
+    body {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 24px 18px 48px 18px !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      font-size: 11.5pt !important;
+      line-height: 1.8 !important;
+      letter-spacing: 0.3pt !important;
+    }
+    .container {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    /* Cover / Hero */
+    .cover, .hero, .cover-hero {
+      padding-top: 16px !important;
+      padding-bottom: 18px !important;
+      margin-bottom: 24px !important;
+      page-break-after: avoid !important;
+    }
+    .cover-eyebrow, .kicker {
+      font-size: 9.5pt !important;
+      letter-spacing: 1.5pt !important;
+      margin-bottom: 12px !important;
+    }
+    .cover-title, .hero h1 {
+      font-size: 22pt !important;
+      line-height: 1.25 !important;
+      letter-spacing: 0.5pt !important;
+      margin-bottom: 14px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    .cover-sub, .hero .sub, .sub {
+      font-size: 11pt !important;
+      line-height: 1.65 !important;
+      padding-left: 10px !important;
+      margin-bottom: 16px !important;
+      max-width: 100% !important;
+      border-left-width: 2pt !important;
+    }
+    .cover-meta, .meta, .author {
+      font-size: 9pt !important;
+      line-height: 1.6 !important;
+      margin-top: 10px !important;
+    }
+    /* TOC */
+    .toc {
+      padding-top: 16px !important;
+      padding-bottom: 18px !important;
+      margin-bottom: 24px !important;
+      page-break-after: avoid !important;
+    }
+    .toc h2 {
+      font-size: 17pt !important;
+      margin-bottom: 14px !important;
+    }
+    .toc-item {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding: 10px 0 !important;
+      gap: 4px !important;
+    }
+    .toc-name {
+      font-size: 11pt !important;
+      line-height: 1.4 !important;
+    }
+    .toc-desc {
+      font-size: 9.5pt !important;
+      margin-left: 0 !important;
+      line-height: 1.5 !important;
+    }
+    /* Sections & Layers */
+    .section, .layer {
+      padding-top: 18px !important;
+      margin-bottom: 24px !important;
+      padding-bottom: 18px !important;
+    }
+    .layer-tag, .tag, .label, .layer-no, .layer-num {
+      font-size: 9.5pt !important;
+      letter-spacing: 1.5pt !important;
+      padding: 2pt 8pt !important;
+      margin-bottom: 8px !important;
+    }
+    h1, .layer-title {
+      font-size: 17pt !important;
+      line-height: 1.35 !important;
+      letter-spacing: 0.5pt !important;
+      margin-bottom: 14px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    h2 {
+      font-size: 14pt !important;
+      line-height: 1.35 !important;
+      margin-top: 24px !important;
+      margin-bottom: 10px !important;
+    }
+    h3, .marker {
+      font-size: 12pt !important;
+      line-height: 1.35 !important;
+      margin-top: 20px !important;
+      margin-bottom: 8px !important;
+      padding-left: 8px !important;
+      border-left-width: 2.5pt !important;
+    }
+    p {
+      margin-bottom: 14pt !important;
+      font-size: 11.5pt !important;
+      line-height: 1.8 !important;
+      text-align: justify !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    /* QA block */
+    .qa, .qa-block {
+      margin: 16px 0 !important;
+      padding: 12px 14px !important;
+    }
+    .qa-q, .q {
+      font-size: 11.5pt !important;
+      line-height: 1.5 !important;
+      margin-bottom: 8px !important;
+    }
+    .qa-a, .a {
+      font-size: 11pt !important;
+      line-height: 1.75 !important;
+    }
+    /* Napkin / Highlight */
+    .napkin {
+      margin: 18px 0 !important;
+      padding: 14px 14px !important;
+    }
+    .napkin-formula {
+      font-size: 11pt !important;
+      line-height: 1.5 !important;
+      margin-bottom: 8px !important;
+      text-align: left !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    .napkin-caption {
+      font-size: 9.5pt !important;
+      line-height: 1.6 !important;
+    }
+    .highlight-box {
+      margin: 16px 0 !important;
+      padding: 12px 14px !important;
+      font-size: 10.5pt !important;
+      line-height: 1.65 !important;
+    }
+    table {
+      display: block !important;
+      width: 100% !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    img, svg {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    body {
+      padding: 18px 14px 40px 14px !important;
+      font-size: 11pt !important;
+      line-height: 1.75 !important;
+    }
+    .cover-title, .hero h1 {
+      font-size: 19pt !important;
+    }
+    h1, .layer-title {
+      font-size: 15.5pt !important;
+    }
+    h2 {
+      font-size: 13pt !important;
+    }
+    p {
+      font-size: 11pt !important;
+      margin-bottom: 12pt !important;
+    }
+  }
+
 </style></head><body><div class="container"><div class="hero"><div class="kicker">九层解书 · 性别史与制度批判</div><h1>情色朝鲜</h1><div class="sub">性禁忌由权力制定，特权阶层借制度外的渠道满足自己，弱者承担名誉、身体与法律的代价，个人仍持续寻找情感和身体自主。朴永圭把朝鲜时代的礼法、婚姻与司法摊开，看欲望如何被身份重新分配。</div><div class="meta"><b>朴永圭 著</b>　·　朝鲜时代性别与社会史　·　修订版 2026-08-14</div></div><section class="layer" id="layer-1"><div class="layer-num">第1层</div><h2 class="layer-title">这本书写了什么</h2><p class="lead">这本书的总问题是，性欲如何被制度和阶级重新分配。作者朴永圭在朝鲜王朝的礼法、婚姻、司法和身份等级里追踪一条线，从两班男性的公开道德与私下特权开始，一路走到妓生、宫女、医女、妾、寡妇、双性人和追求自由恋爱的女性各自承担的后果。读这本书最先要抓住的事实是，禁忌由掌权者制定，而掌权者本人通常拥有绕过禁忌的出口。</p><h3>前言把食欲与性欲放在一起</h3><p>前言从一种并置开始。人既要吃饭，也要相爱，欲望推动文明，也带来秩序问题。作者认为，掌权者不会消灭欲望，而是会给弱者的欲望加上法律和身份的限制。这里已经埋下全书的立场，问题不在于欲望本身，而在于谁被允许，谁被禁止，谁替整份账单付费。作者还用“寂静的晨间之国”把朝鲜的礼仪、士大夫和封闭社会形象连在一起，构成批判的入口。婚前相会与未经媒妁的婚姻受到法律与社会否定，夫妻之间的性生活也被压缩到传宗接代的功能上。食欲与性欲的并置在全书中反复出现，作者把两者都当作无法被彻底取缔的生命冲动，区别只在于谁给它们上锁。</p><h3>两班男性与制度外的性特权</h3><p>两班是朝鲜时代的统治阶层，公开信奉儒学道德。作者指出，同一批士大夫以妓生、妾和“风流”给自己的性特权正名。书中点名徐敬德、郑澈、李彦迪等人物，说他们属于道德话语与性实践并存的例子。正妻被写成守住丈夫的竞争者，妾承担察言观色与不安，妓生承担被买卖和被抛弃的不确定性。作者还列出抢妓生、妻妾纠葛、夜间私用女婢等行为，说明私人欲望会进入公共权力。宫中后妃与宫女构成另一种性资源和身份竞争场域。</p><h3>身份等级与良人贱民的界线</h3><p>朝鲜时代把人口划进严密的等级里。良人包括两班、中人和平民，贱民包括奴婢、妓生、白丁等。身份不是职业，而是先天的位置，决定能不能科考、能不能与谁结婚、犯法时受什么刑。作者指出，性别与身份是双重的筛选器，同样的身体冲动，落在两班男性身上是风流，落在平民女性身上是失贞，落在贱民身上则是可以被交换或处罚的资产。国家还通过户籍和婚书管理这一切，娶谁、生谁、归谁，都被写进可查询的档案。</p><p>婚姻因此不只是两个人之间的事。书中反复提示，婚前的性接触被否定，未经媒妁的婚姻不被承认，夫妻关系由宗族和传宗接代定义。恋爱没有独立的制度位置，它只能以通奸、私奔或买卖的方式存在，而这些方式全部通向刑罚。制度对“合法欲望”的定义越窄，制度外的欲望就越需要伪装成别的样子，或者付出更高的代价才能存在。</p><h3>妓生、宫女、医女与妾</h3><p>第一部集中写四类女性。妓生是官办的乐舞和陪侍制度，分京妓、官妓和守厅妓生等类别，自幼入籍，习乐舞与诗词，以才艺侍奉宴席。书中用黄真伊为例，她以诗才闻名，追求自由恋爱，最终仍要面对制度的排斥。宫女在宫中侍奉，有“对食”这样的私下伴侣关系，书中写到宫女蔷薇，以及禧嫔张氏张玉贞、淑嫔崔氏这些由宫女上升的后妃。医女创于太宗六年即一四零六年，是女医制度，小说里的“大长今”与医术出名的张德都属此类。妾分贱妾、婢妾、良妾，等级不同，地位都很低，书中写到权采之妻郑氏与丰加伊杀孝静翁主案，以及郑兰贞与尹元衡的关系。</p><h3>春宫图与艳本</h3><p>第二部处理被禁的色情文化。春宫图追溯陈平与房中术传统，素女经讲九法、八益、七损，作者把金弘道、申润福这些画家放进朝鲜自己的视觉史。艳本指禁书，书中提到古今笑丛十一本，以及宋世琳编的《御眠楯》，收八十八则故事。作者承认，封闭制度下仍存在多种性实践，说明社会规范并不能穷尽真实生活。</p><h3>第三部的刑罚光谱</h3><p>第三部回到身体与法律。韩乙生、朴希茂、申通礼强奸女奴，量刑因身份而不同。慎自治之妻活活烧死女奴道里。俞甘同因三十多名情夫被流放，于乙宇同因私通被处死。舍方知兼具男女身体特征，家人让他穿女服、学针线，因与李氏长期亲密而被官府审问验身，最终贬为官奴。林性仇之同样被当作先例处理。追求自由恋爱的女性与双性身体，都进入了刑罚系统。</p><p>第一层的主线可以这样复述。欲望是普遍的，制度的分配不是。礼法与婚姻先压缩合法表达，两班男性用风流、妓生和妾保留出口，女性和贱民承担名誉、身体与法律的代价。作者承认规范从未消灭实践，只是把实践赶进更隐蔽、更危险、更昂贵的位置。</p></section><section class="layer" id="layer-2"><div class="layer-num">第2层</div><h2 class="layer-title">作者凭什么这样写</h2><p class="lead">这是一本历史文化的通俗论述，案例来自朝鲜实录、笔记和刑案记录。判断作者凭什么这样写，必须把书中的叙事判断与可核对的历史材料分开。下列例子先说明书中怎么写，再说明它能支持到哪里。</p><h3>证据一，黄真伊与妓生制度</h3><p>书中把黄真伊写成追求自由恋爱并付出代价的妓生，用她的诗与行动说明制度如何同时消费和惩罚女性才情。材料足以证明妓生制度真实存在，黄真伊相关记录也在文献中流传。边界在于，黄真伊的传记细节和诗词归属在学术上仍有争议，不能把通俗叙述当作定论。作者用她的案例不是为了考据，而是为了展示制度如何同时消费与惩罚女性才情，这一判断来自书中对妓生处境的整体描写，不是对黄真伊个人的完整传记。</p><h3>证据二，舍方知案</h3><p>书中转引官方记录，舍方知因兼具男女身体特征，家人让他穿女服、学针线，后来因与李氏长期亲密而被审查。官府反复审问、验身，最后将他贬为官奴，个人关系被身份判定终止。这是全书最有力的案例之一，它展示国家如何用“男或女”的二分处理复杂身体。案件细节来自书中转引的实录，原始文本仍需复核。</p><h3>证据三，林性仇之案</h3><p>林性仇之被描述为同样具有双性特征，曾以女性身份出嫁，后来又娶妻，最终被官府以舍方知为先例处理。这个案例补充了舍方知案的制度逻辑，说明分类不是一次性事件，而是可以援引的先例。边界是，该人物的具体细节依赖作者的转述，独立史料有限。</p><h3>证据四，三起强奸女奴案</h3><p>书中写韩乙生、朴希茂、申通礼分别强奸女奴，量刑因身份等级而不同，同一行为在不同人身上产生不同的法律结果。这个对比把性别、阶级和司法连成一条线。它说明身份分类直接进入量刑，但具体判例的数字和条文需要回到朝鲜王朝法典核对。</p><h3>隐含前提与失效边界</h3><p>这套论述依赖一个前提，抑制不会消灭性欲，反而会使其以隐蔽或畸形的方式排出。作者用“越禁越乱”解释春宫图、艳本和婚外实践的持续存在。这个前提在全书的批判结构里很有效，但它的跨社会、跨时期普遍性尚未由当前材料证明。可以当作解释假说，不能当作已验证定律。另一个边界是，作者的案例选择偏重压迫面，不能据此概括所有朝鲜人的实际性生活，尤其不能把书中转引的个案推成普遍习俗。</p></section><section class="layer" id="layer-3"><div class="layer-num">第3层</div><h2 class="layer-title">真正在起作用的几件事</h2><p class="lead">把全书看成一套运行机制，有四根作用线。它们彼此相连，却不能互相替代。</p><h3>第一根线，制度线</h3><p>礼法、婚姻、司法和身份分类决定谁可以表达欲望。婚前接触被压制，婚姻由家族和传宗接代定义，夫妻之间的情感协商空间被压缩。国家的法律既惩罚婚外性，又管理婚姻内部的性，制度是欲望的第一道分流器。</p><h3>第二根线，阶级线</h3><p>男性特权阶层拥有制度外的出口。妓生、妾和风流是两班男性的备用通道，正妻守住婚姻，妾承担不安全，妓生承担被买卖和被抛弃。弱者替整套秩序的代价付费，包括名誉、身体和自由。</p><h3>第三根线，性别线</h3><p>同一行为由男性称作风流，由女性承担贞节与刑罚后果。俞甘同与于乙宇同几乎面对同一套“私通”指控，量刑与公众评价却完全不同。性别决定同一行为落在道德区还是刑法区。</p><h3>第四根线，身体分类线</h3><p>舍方知与林性仇之说明，国家面对复杂身体时优先追求分类和隔离。穿什么衣服、学什么手艺、跟谁生活，都由行政判定重新安排。身体在这里不是自然事实，而是被治理的档案对象。分类的结果是彻底的，一旦被定为官奴，科举、婚姻、迁徙和上诉都与这个人无关，之前建立的一切关系都要重新接受审查。</p><p class="">这四根线能解释大部分关键事件，但它们属于依据章节编排形成的读法。第四根线尤其需要谨慎，古代文献并没有用现代性别研究的术语来命名这些案例，术语是解释工具，不是史料内容。</p></section><section class="layer" id="layer-4"><div class="layer-num">第4层</div><h2 class="layer-title">顺着制度往下问</h2><p class="lead">这是一本社会史论述，第四层不把它硬改成理论宣言。仍可沿着“制度为什么会这样分配欲望”追问四步。</p><h3>第一步，为什么国家要管性</h3><p>因为性连接着家庭、身份与人口。婚姻决定财产与继承，出身决定等级，等级决定义务。国家管性，本质上是在管理身份再生产。法律不是站在欲望对面，而是站在秩序一边，把欲望登记进户籍和宗法。户籍记录出生、婚嫁与身死，身份等级决定赋役和刑罚，性被写进这套框架里，没有人能完全逃开。</p><h3>第二步，为什么管控落在弱者身上</h3><p>特权阶层已经拥有出口，出口的存在恰恰需要弱者的不可出口来衬托。妓生、妾、女奴和双性身体被反复分类、验身和量刑，而两班男性的风流成为社交资本。两班的出口是结构性的，正妻、妾、妓生各司其职，风流成为士大夫之间的社交语言。管控的对象不是欲望本身，而是欲望的分配。</p><h3>第三步，为什么分类成为治理核心</h3><p>舍方知案显示，国家面对一个无法简单归入男女的身体，第一反应是审问、验身、确认身份，然后贬为官奴。分类先于处罚，身份先于关系。治理需要的不是真相，而是一个可以写进公文的位置。</p><h3>第四步，能否再往下问</h3><p>可以问国家是否能允许身份之外的关系存在，却无法从书中得到乐观答案。林性仇之被以先例处理，说明前一次分类会变成后一次的模板。制度的惯性就在这里，它承认个人的复杂性，却永远只输出简单的选项。</p></section><section class="layer" id="layer-5"><div class="layer-num">第5层</div><h2 class="layer-title">顺着问题走完推理</h2><p class="lead">下面八问沿着制度与案例推进。每个回答都把结论、推理和边界放在一起。</p><div class="qa"><div class="q">作者真正批评的是性本身，还是性权力？</div><div class="a-label">回答</div><p>结论是批评对象是权力对欲望的差别分配。推理在于男性特权被“风流”包装，女性行为却进入刑罚和名誉体系，同一行为有双重标准。边界是作者的案例选择偏重压迫面，不能据此概括所有朝鲜人的性生活。</p></div><div class="qa"><div class="q">为什么婚姻制度会影响夫妻内部的性？</div><div class="a-label">回答</div><p>结论是婚姻把性绑定在传宗接代上，压缩了情感协商空间。推理在于婚前接触被法律与社会否定，婚后生活又由家族定义。边界是这是作者的解释链，具体法律条文需查朝鲜王朝法典。</p></div><div class="qa"><div class="q">妓生与妾为什么既是制度角色又是个人？</div><div class="a-label">回答</div><p>结论是她们被制度安排为男性服务对象，同时仍有自己的策略、感情和风险。推理在于黄真伊能写诗，郑兰贞能经营关系，妾能察言观色求生。京妓与官妓隶属官署，按月领取俸料，看似有身份，实际仍是可被转赠、被闲置或被打发的服役人口。边界是材料足以支撑结构判断，不足以替每位人物补写心理。</p></div><div class="qa"><div class="q">舍方知案说明了什么？</div><div class="a-label">回答</div><p>结论是国家面对双性身体时优先追求分类和隔离。推理是官府反复审问、验身，最终贬为官奴，个人关系被身份判定终止。贬为官奴不只是刑罚，更是身份改写，此后他的职业、居所与社交都被重新安排。边界是案件细节来自书中转引的实录，原始史料仍需复核。</p></div><div class="qa"><div class="q">林性仇之案与舍方知案是什么关系？</div><div class="a-label">回答</div><p>结论是先例制度把个案变成模板。推理是林性仇之以女性身份出嫁又娶妻，官府以舍方知为先例处理。边界是人物细节依赖作者转述，独立史料有限，不能把两案细节混用。</p></div><div class="qa"><div class="q">“越禁越乱”是不是被作者当成了普遍规律？</div><div class="a-label">回答</div><p>结论是作者确实把它当作全书重要前提。推理是春宫图、艳本和婚外实践都被解释为抑制的反作用力。边界是跨社会、跨时期的普遍性尚未由当前材料证明，只能作为解释假说。</p></div><div class="qa"><div class="q">俞甘同与于乙宇同的结局差异说明了什么？</div><div class="a-label">回答</div><p>结论是性别决定同一行为落在道德区还是刑法区。推理是俞甘同因三十多名情夫被流放，于乙宇同因私通被处死，男性的风流与女性的失贞后果完全不同。两人的差异背后是同一套逻辑，女性身体属于家族与国家，不属于自己。边界是量刑细节需要回到具体记录核验。</p></div><div class="qa"><div class="q">春宫图与艳本的存在能否证明朝鲜社会开放？</div><div class="a-label">回答</div><p>结论是只能证明封闭制度下存在多种隐秘实践，不能证明社会开放。推理是作者自己强调规范不能穷尽真实生活，实践被赶进更隐蔽的位置。边界是书中提到的书名与版本细节需要另查文献目录。</p></div></section><section class="layer" id="layer-6"><div class="layer-num">第6层</div><h2 class="layer-title">跳出这本书再看一次</h2><p class="lead">作者写这本书，动机可以从书名和前言看出来。书名直接点出“被迫忍受、压抑”，前言把批判立场放在开头。他显然希望读者把性史当成社会史来读，而不是猎奇。这里是根据文本的推测，不能替代作者自述。</p><h3>他看见了什么，又漏看了什么</h3><p>他很会写制度如何分配欲望，也很会用具体案例让抽象结构落地。舍方知案、黄真伊和量刑差异都承担了证据功能。相应的代价是，普通两班家庭的日常、乡村婚姻的真实样貌、以及女性内部的反抗网络被压缩。书中女性大多以受害或反抗的面目出现，较少呈现她们作为完整生活者的日常层次。书名和前言带有强烈的批判性，容易把朝鲜社会整体概括成单一的“封闭”。</p><h3>可以怎样跨域，但不要乱比</h3><p>它和现代职场中的性权力有一处结构相似。规则写在明处，例外掌握在少数人手里，受害者承担举证和名誉代价，举报本身又变成新的风险。相似处只在权力如何绕过规则，不等于古代制度等同于现代职场。它和身份登记制度也有相似之处，行政分类能改变一个人可过的生活，但具体条款不能互搬。</p><h3>一个可执行的触发</h3><p>当你在组织里看到“规则对所有人一视同仁”的说法时，先把“所有人”拆成具体身份，问一遍谁有暗门、谁在担责、谁的申诉成本最高。再把个案和制度分开，看单次处罚究竟在纠正行为还是在维护分类。这个动作不能消灭性权力，却能让你看清账单落在谁身上。</p><h3>材料的位置提醒我们什么</h3><p>这本书的另一个价值在于提醒我们材料的位置。书中案例多来自实录、刑案与笔记，这些材料本身由治理者书写，记录的是被治理者被处置的过程，而不是他们的完整生活。作者在转述时不得不依赖这些文件，这使他能写出生动的案例，也让读者必须同时警惕材料的来源。性史研究最大的困难就在这里，我们能看到刑罚，却很少能看到刑罚之前的生活。</p><h3>我的立场</h3><p>我被书中对身份分类的观察说服。舍方知案让我看到，秩序追求的是可治理的身体，而不是真实的人。我的保留在于，作者把批判倾向写得很满，案例的转述性质有时被叙事节奏掩盖。它适合作为进入朝鲜性别史的入口，不适合单独承担史学结论。</p></section><section class="layer" id="layer-7"><div class="layer-num">第7层</div><h2 class="layer-title">把整本书压到一张纸上</h2><p class="lead">整本书的关系判断是，性禁忌由权力制定，特权阶层借制度外的渠道满足自己，弱者承担名誉、身体与法律的代价，个人仍持续寻找情感与身体自主。这四者不是并列的四个事实，而是一条因果链，权力先定义禁忌，再用身份分配出口，用刑罚分配代价，最后留下无法被消灭的个人行动。</p><div class="napkin"><div class="formula">权力定禁忌 × 身份分出口 × 刑罚分对象 → 弱者付费</div><p>欲望没有消失，只是被赶进更隐蔽、更危险的位置。</p></div><pre class="ascii">       欲望
         │
         ▼

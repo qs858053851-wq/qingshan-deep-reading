@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>大唐西域记今译 · 深度阅读</title>
 <style>
   @font-face {
@@ -328,6 +328,196 @@
     font-size: 10.5pt;
     color: var(--stone);
   }
+
+  /* Mobile Responsive Adaptation */
+  @media screen and (max-width: 768px) {
+    body {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 24px 18px 48px 18px !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      font-size: 11.5pt !important;
+      line-height: 1.8 !important;
+      letter-spacing: 0.3pt !important;
+    }
+    .container {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    /* Cover / Hero */
+    .cover, .hero, .cover-hero {
+      padding-top: 16px !important;
+      padding-bottom: 18px !important;
+      margin-bottom: 24px !important;
+      page-break-after: avoid !important;
+    }
+    .cover-eyebrow, .kicker {
+      font-size: 9.5pt !important;
+      letter-spacing: 1.5pt !important;
+      margin-bottom: 12px !important;
+    }
+    .cover-title, .hero h1 {
+      font-size: 22pt !important;
+      line-height: 1.25 !important;
+      letter-spacing: 0.5pt !important;
+      margin-bottom: 14px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    .cover-sub, .hero .sub, .sub {
+      font-size: 11pt !important;
+      line-height: 1.65 !important;
+      padding-left: 10px !important;
+      margin-bottom: 16px !important;
+      max-width: 100% !important;
+      border-left-width: 2pt !important;
+    }
+    .cover-meta, .meta, .author {
+      font-size: 9pt !important;
+      line-height: 1.6 !important;
+      margin-top: 10px !important;
+    }
+    /* TOC */
+    .toc {
+      padding-top: 16px !important;
+      padding-bottom: 18px !important;
+      margin-bottom: 24px !important;
+      page-break-after: avoid !important;
+    }
+    .toc h2 {
+      font-size: 17pt !important;
+      margin-bottom: 14px !important;
+    }
+    .toc-item {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding: 10px 0 !important;
+      gap: 4px !important;
+    }
+    .toc-name {
+      font-size: 11pt !important;
+      line-height: 1.4 !important;
+    }
+    .toc-desc {
+      font-size: 9.5pt !important;
+      margin-left: 0 !important;
+      line-height: 1.5 !important;
+    }
+    /* Sections & Layers */
+    .section, .layer {
+      padding-top: 18px !important;
+      margin-bottom: 24px !important;
+      padding-bottom: 18px !important;
+    }
+    .layer-tag, .tag, .label, .layer-no, .layer-num {
+      font-size: 9.5pt !important;
+      letter-spacing: 1.5pt !important;
+      padding: 2pt 8pt !important;
+      margin-bottom: 8px !important;
+    }
+    h1, .layer-title {
+      font-size: 17pt !important;
+      line-height: 1.35 !important;
+      letter-spacing: 0.5pt !important;
+      margin-bottom: 14px !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    h2 {
+      font-size: 14pt !important;
+      line-height: 1.35 !important;
+      margin-top: 24px !important;
+      margin-bottom: 10px !important;
+    }
+    h3, .marker {
+      font-size: 12pt !important;
+      line-height: 1.35 !important;
+      margin-top: 20px !important;
+      margin-bottom: 8px !important;
+      padding-left: 8px !important;
+      border-left-width: 2.5pt !important;
+    }
+    p {
+      margin-bottom: 14pt !important;
+      font-size: 11.5pt !important;
+      line-height: 1.8 !important;
+      text-align: justify !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    /* QA block */
+    .qa, .qa-block {
+      margin: 16px 0 !important;
+      padding: 12px 14px !important;
+    }
+    .qa-q, .q {
+      font-size: 11.5pt !important;
+      line-height: 1.5 !important;
+      margin-bottom: 8px !important;
+    }
+    .qa-a, .a {
+      font-size: 11pt !important;
+      line-height: 1.75 !important;
+    }
+    /* Napkin / Highlight */
+    .napkin {
+      margin: 18px 0 !important;
+      padding: 14px 14px !important;
+    }
+    .napkin-formula {
+      font-size: 11pt !important;
+      line-height: 1.5 !important;
+      margin-bottom: 8px !important;
+      text-align: left !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    .napkin-caption {
+      font-size: 9.5pt !important;
+      line-height: 1.6 !important;
+    }
+    .highlight-box {
+      margin: 16px 0 !important;
+      padding: 12px 14px !important;
+      font-size: 10.5pt !important;
+      line-height: 1.65 !important;
+    }
+    table {
+      display: block !important;
+      width: 100% !important;
+      overflow-x: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    img, svg {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    body {
+      padding: 18px 14px 40px 14px !important;
+      font-size: 11pt !important;
+      line-height: 1.75 !important;
+    }
+    .cover-title, .hero h1 {
+      font-size: 19pt !important;
+    }
+    h1, .layer-title {
+      font-size: 15.5pt !important;
+    }
+    h2 {
+      font-size: 13pt !important;
+    }
+    p {
+      font-size: 11pt !important;
+      margin-bottom: 12pt !important;
+    }
+  }
+
 </style>
 </head>
 <body>
