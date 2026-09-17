@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>昨日之前的世界 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>昨日之前的世界</h1>
-  <div class="author">贾雷德·戴蒙德　The World Until Yesterday, 2012</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">昨日之前的世界</div>
+    <div class="cover-sub">戴蒙德　The World Until Yesterday, 2012</div>
+    <div class="cover-meta">贾雷德 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">二〇〇六年，莫尔斯比港机场。候机大厅里挤着一群人，大多互不相识。戴蒙德写下这句话：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么拿几十个小社会来说人类</span>
+      <span class="toc-desc">这本书的方法有一个天然的软肋：新几内亚高地的几十个部落，凭什么代表“人类的昨天”？这一层看他怎么撑住，以及哪里...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 十一章书拆到底，三根线在牵</span>
+      <span class="toc-desc">这是全书最有解释力的一根，虽然戴蒙德自己没有把它提炼成一条原则。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：为什么他们不争对错，只求相处</span>
+      <span class="toc-desc">一个孩子被撞死了，几天之内两家和解，赔偿只是道歉的象征。换在现代社会，同一件事要走几个月甚至几年的程序，最后出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把这本书问到底</span>
+      <span class="toc-desc">他把人际关系分成三类：朋友、敌人、陌生人。前两类都有一套现成的规矩可循，麻烦的是第三类，一个不认识的人出现在...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">他从一九六四年起在新几内亚做鸟类调查，前后几十年，一半时间在丛林里，一半时间在洛杉矶。这本书写于二〇一二年，他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 一棵树，和一道没人算过的算术题</span>
+      <span class="toc-desc">戴蒙德在新几内亚的丛林里宿营。天快黑了，他看中一块空地，头顶是一棵大树，树下平整干爽，是个好地方。</span>
+    </div>
+  </div>
+
   <div class="lead">人类社会解决同一批问题，试过成千上万种办法。我们现在用的这一种只有几千年历史，而且是从其中一小撮人那里传开的。这本书要问的是：凭什么认为它是最好的？</div>
 </div>
 
@@ -478,7 +558,7 @@
 
   <p>这一根出现在讲宗教那一章，是全书最见功力的一段分析。</p>
 
-  <p>他先摆出宗教研究的两派争论：一派问宗教解决了什么问题（功能派），一派认为宗教是人类某些认知能力的副产品（演化心理学派）。他的判决很聪明——这两派讲的是宗教发展的两个阶段，好比生物演化里先有变异产生、再有选择筛选。</p>
+  <p>他先摆出宗教研究的两派争论：一派问宗教解决了什么问题（功能派），一派认为宗教是人类某些认知能力的副产品（演化心理学派）。他的判决很聪明，这两派讲的是宗教发展的两个阶段，好比生物演化里先有变异产生、再有选择筛选。</p>
 
   <p>他给的最有分量的证据是代价：</p>
 
@@ -533,9 +613,9 @@
 
   <p>因为任何一套处理纠纷的办法，都得同时办两件事：给这一次一个了结，给以后一个安排。这两件事的权重，取决于“以后”还剩多少。</p>
 
-  <p>以后还很长的时候，把对错分个清楚是有害的——判出一个输家，你就得跟一个记恨你的邻居再相处三十年。所以传统社会的办法把重心全放在了修复上：仪式、道歉、赔偿、共食，每一样都是在给关系搭台阶下。</p>
+  <p>以后还很长的时候，把对错分个清楚是有害的，判出一个输家，你就得跟一个记恨你的邻居再相处三十年。所以传统社会的办法把重心全放在了修复上：仪式、道歉、赔偿、共食，每一样都是在给关系搭台阶下。</p>
 
-  <p>以后不剩什么的时候，修复没有意义，剩下的唯一问题就是这一次谁对谁错、赔多少。所以陌生人社会必须发明另一套东西：成文法、法庭、警察、强制执行。<strong>这套东西谈不上更文明，是没有别的选择</strong>——没有下一次可以指望的时候，只能靠外力来兜底。</p>
+  <p>以后不剩什么的时候，修复没有意义，剩下的唯一问题就是这一次谁对谁错、赔多少。所以陌生人社会必须发明另一套东西：成文法、法庭、警察、强制执行。<strong>这套东西谈不上更文明，是没有别的选择</strong>，没有下一次可以指望的时候，只能靠外力来兜底。</p>
 
   <div class="sub">第四层 · 触底：规矩的形状，是关系结构的形状</div>
 
@@ -559,7 +639,7 @@
   <div class="qa">
     <div class="q">Q1　书里说传统社会的人不敢走出十英里，这跟“淳朴好客”的印象差太远了吧？</div>
     <p class="a-lead">那个印象基本是现代人编的。传统社会对陌生人的默认态度是敌意。</p>
-    <p>他把人际关系分成三类：朋友、敌人、陌生人。前两类都有一套现成的规矩可循，麻烦的是第三类——一个不认识的人出现在你的地界上，没有任何关系网能约束他，也没有任何人能替他担保。在那样的环境里，先动手是理性的。</p>
+    <p>他把人际关系分成三类：朋友、敌人、陌生人。前两类都有一套现成的规矩可循，麻烦的是第三类，一个不认识的人出现在你的地界上，没有任何关系网能约束他，也没有任何人能替他担保。在那样的环境里，先动手是理性的。</p>
     <p>所以机场大厅里一群陌生人安静地等飞机，是一件极不寻常的事，需要一整套庞大的制度在背后支撑。<strong>“对陌生人不设防”是现代社会了不起的成就，也最容易被当成天经地义。</strong></p>
     <p class="a-edge">这也是第四层那条底的推论：陌生人之间没有下一次，所以只能靠外部力量兜底。兜底的力量足够可靠时，人才敢放松。</p>
   </div>
@@ -623,7 +703,7 @@
 
   <p>这个来回是理解这本书的关键。他并非去研究一个题目，他是在两个世界之间生活了五十年，然后想把带回来的东西讲清楚。所以这本书里有大量“我在那里的时候”，也有他自己家里的事。<strong>这是一个人在生命后期做的整理，而非一个学者在结项。</strong></p>
 
-  <p>他要挡的也是两种人：一种觉得那些人还很原始，一种觉得那些人活在伊甸园里。这两种看法在书的开头就被他一起否了，理由跟《崩溃》里那一句是同一个——他们都以为过去的人和现在的人有根本性差异。</p>
+  <p>他要挡的也是两种人：一种觉得那些人还很原始，一种觉得那些人活在伊甸园里。这两种看法在书的开头就被他一起否了，理由跟《崩溃》里那一句是同一个，他们都以为过去的人和现在的人有根本性差异。</p>
 
   <div class="sub">他没看见的</div>
 
@@ -653,7 +733,7 @@
 
   <p>有两处我不服。一是那组战争死亡率数据的处理，他知道争议存在却没有把不确定性写进结论的语气里，这是我对这本书最大的保留。二是全书的可学清单有点像旅行者的清单：他去过、他喜欢、他带回来了，但没有认真算过在这边落地要付多少钱、动多少制度。</p>
 
-  <p>给读者的读法建议：第二章（争端解决）、第六章（老人）、第七与第八章（危险）、第十章（语言）是全书的精华，值得慢读。第三、四章的战争带着争议读。第九章讲宗教偏理论，第十一章讲健康偏医学文献，都可以跳读，只看结论。序言那三十来页密度极高，别跳。</p>
+  <p>给先生的读法建议：第二章（争端解决）、第六章（老人）、第七与第八章（危险）、第十章（语言）是全书的精华，值得慢读。第三、四章的战争带着争议读。第九章讲宗教偏理论，第十一章讲健康偏医学文献，都可以跳读，只看结论。序言那三十来页密度极高，别跳。</p>
 </div>
 
 <div class="layer">
@@ -710,17 +790,17 @@
 
   <p>请注意这套态度的适用范围极其精准：<strong>它只管你要反复做很多次的那类事。</strong>过河、爬树、走同一条林间小路、每晚睡在哪儿。这些事情单次的风险都低到不值一提，正因为低，才没有人警惕；也正因为要做几千次，它们才是真正会要命的地方。</p>
 
-  <p>反过来，那些一辈子只会遇到一两次的事情——遇见野兽、碰上部落冲突——反而不需要这种日常的神经质，需要的是另一套办法。</p>
+  <p>反过来，那些一辈子只会遇到一两次的事情，遇见野兽、碰上部落冲突，反而不需要这种日常的神经质，需要的是另一套办法。</p>
 
   <p>这套办法我拿两个问题试过。</p>
 
   <p>第一个疑问最实际：<strong>照这么活，不是每天都提心吊胆吗？</strong>什么都要算概率，累不累？</p>
 
-  <p>这一问其实指向了这套办法最聪明的地方：它<strong>省</strong>力气，不费力气。需要用到这种警惕的事项，数量是有限的——每天重复的那几件，掰着指头能数完。把力气集中在那几件上，别的地方反而可以放松。真正累的是我们现在这种反过来的活法：对空难、绑架、陌生人下毒这些几乎不会发生的事投入大量恐惧，对每天骑车穿过的那个路口毫无感觉。<strong>我们的警惕并没有变少，只是放错了地方。</strong></p>
+  <p>这一问其实指向了这套办法最聪明的地方：它<strong>省</strong>力气，不费力气。需要用到这种警惕的事项，数量是有限的，每天重复的那几件，掰着指头能数完。把力气集中在那几件上，别的地方反而可以放松。真正累的是我们现在这种反过来的活法：对空难、绑架、陌生人下毒这些几乎不会发生的事投入大量恐惧，对每天骑车穿过的那个路口毫无感觉。<strong>我们的警惕并没有变少，只是放错了地方。</strong></p>
 
   <p>第二个疑问不好答：<strong>现代社会有保险、有医院、有救护车，这套谨慎还有必要吗？</strong>树倒了砸伤，送医院就是了，不至于像丛林里那样必死。</p>
 
-  <p>这一问确实削弱了这套办法的一部分。兜底改变的是后果的严重程度，让很多“致命”降级成了“受伤”。但它一点也不改变频率——路口还是那个路口，浴室的地面还是那么滑。而且这里有一层反噬：<strong>因为知道有人兜底，我们对频率的警惕反而更松了。</strong></p>
+  <p>这一问确实削弱了这套办法的一部分。兜底改变的是后果的严重程度，让很多“致命”降级成了“受伤”。但它一点也不改变频率，路口还是那个路口，浴室的地面还是那么滑。而且这里有一层反噬：<strong>因为知道有人兜底，我们对频率的警惕反而更松了。</strong></p>
 
   <p>第三层那个昆族人和狮子的例子，说的正是这层反噬的前半段：狮口伤人少，是因为一直在防。反噬在后半段。有人把“这些年没出事”读成“这事本来就不危险”，于是把防松掉，事情就回来了。<strong>安全的数字是防出来的，可它长得跟“不必再防”一模一样。</strong></p>
 

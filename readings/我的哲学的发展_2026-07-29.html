@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我的哲学的发展 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · 汉译学术名著</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">我的哲学的发展</div>
+    <div class="cover-sub">罗素（Bertrand Russell）著 · 温锡增译 · 商务印书馆</div>
+    <div class="cover-meta">伯特兰 · 解读主理：青山 · 日期：2026-07-29 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这个倔老头，一辈子在推翻自己</span>
+      <span class="toc-desc">这本书写在 1959 年，罗素八十七岁。离他去世还有十一年。一个搞了一辈子哲学的人，在快走到头的时候，回头把自...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么说</span>
+      <span class="toc-desc">罗素这本书不论证一条结论，它复盘的是一套方法。所以"他凭什么"这个问题，要问的不是"他证明了什么"，而是"他用...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三件事在牵动全书</span>
+      <span class="toc-desc">罗素这本书十八章，看着千头万绪，唯心论、多元论、数学基础、悖论、类型论、维特根斯坦、认识论、语言、真理。可你把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层：确定性为什么非塌不可</span>
+      <span class="toc-desc">第三根线说罗素的工具每次反过来拆他自己。这一层我想顺着这个最深的现象往下钻：为什么他追求的确定性，注定一个个塌...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 九个问题，串起他的整套方法</span>
+      <span class="toc-desc">这一层把罗素的论证一根一根抽成问答。问题顺着他的思想发展往下走，每一个答完，下一个自然冒出来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书：他为什么非写不可，又漏了什么</span>
+      <span class="toc-desc">罗素写这本书时八十七岁。一个人到了这个年纪回头盘自己一辈子的思想，不图给学生讲课，他给自己一个交代。那股劲儿是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 压在一张餐巾纸上</span>
+      <span class="toc-desc">如果把这本书只能留下一个公式，是这个：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 一间屋，拆了五十年</span>
+      <span class="toc-desc">前面几层我把证据一件件摆出来，按下不表的那件事，到这里该讲了。罗素这本书，合上之后最值得跟人讲的，不在他哪一条...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇依据商务印书馆温锡增译本（汉译世界学术名著丛书 120 年纪念版）的扫描件 OCR 文本写成，非逐页精读。...</span>
+    </div>
+  </div>
+
   <h1>我的哲学的发展</h1>
   <div class="author">伯特兰·罗素（Bertrand Russell）著 · 温锡增译 · 商务印书馆</div>
   <div class="verdict">一个花了五十年亲手拆掉自己避难所的人。他比谁都想要确定性，又比谁都更彻底地证明了确定性保不住，而拆它的工具，每次都是他自己发明的。</div>
@@ -356,14 +441,14 @@
 
   <p>讲法很老实：按时间顺序，一章一段，我从哪出发，走到哪拐了弯，为什么拐。十八章，每章一个阶段。你要只看目录，会觉得这是本平铺直叙的回忆录。可你真读进去会发现，这十八章合起来讲的是一件事，<strong>一个人怎么一次次把自己最相信的东西拆掉</strong>。</p>
 
-  <div class="marker">1872–1890 · 出发点：一个想逃离现实世界的少年</div>
+  <div class="marker">1872，1890 · 出发点：一个想逃离现实世界的少年</div>
   <p>罗素 1872 年生在一个贵族家庭。祖父当过两次英国首相。他从小在家受教育，由一群严格到近乎严酷的家庭教师陪着长大。他很早就迷上数学，但迷的方式有点特别，他迷的不是数学能算什么，而是数学那种"不管人间事"的干净。少年罗素对现实世界有一种说不出的厌恶，觉得它脏、乱、妥协、没指望。他想要一个"无变迁、无衰退、也没有前进那个鬼火"的世界，一个超时间的、永恒不变的世界。数学给他的就是这个：那里的真理不需要看现实脸色，永远成立。</p>
 
   <p>他在 1907 年的一篇文章里把这种心情写得很明白，后来在书里原样引出来：</p>
   <blockquote>数学，如果正确地看它，不但拥有真理，而且也具有至高的美，正像雕刻的美，是一种冷而严肃的美……远远离开人的情感，甚至远远离开自然的可怜的事实，世世代代逐渐创造了一个秩序井然的宇宙。纯正的思想在这个宇宙里好像是住在自己的家里。<span class="src">第十七章引《数学的研究》（1907）</span></blockquote>
   <p>注意这句话："纯正的思想在这个宇宙里好像是住在自己的家里。"这是少年罗素的毕达哥拉斯梦，数学是天上的真理，哲学的活儿就是爬上去够它。这就是他出发的地方，也是他后来要一砖一砖拆掉的地方。</p>
 
-  <div class="marker">1890–1898 · 剑桥：先信了黑格尔，又亲手推翻</div>
+  <div class="marker">1890，1898 · 剑桥：先信了黑格尔，又亲手推翻</div>
   <p>1890 年他进剑桥。那时候英国哲学界被黑格尔的绝对唯心主义占着。他年轻时的老师布拉德雷、麦克塔加特都是这套。唯心论说什么呢？说一切是一，对立是假的，部分只在整体里有意义，宇宙是一个统一的、精神性的整体。罗素信了几年。信得很虔诚。</p>
 
   <p>然后 1898 年前后，他和比他大两岁的同学 G. E. 摩尔一起造反了。摩尔的性格比他还倔，第一个站出来说：外面那个桌子就是真的桌子，不是什么"绝对者"的表象。罗素说他被摩尔推了一把，从唯心论里醒过来。这一下叛逃得很彻底，他后来管这叫"叛入多元论"。从"一切是一"翻到"世界是许多个独立的东西凑成的"，这个翻转他一辈子没再回头。他在书里说，摩尔给了他勇气，怀特海后来补了技术。摩尔的功劳是让他敢信常识。</p>
@@ -375,15 +460,15 @@
 
   <p>罗素为这个悖论折腾了好几年，最后发明了"类型论"来堵漏，给集合分层，不许自己装自己。堵是堵住了，可这个补丁本身就说明：他原本想找的那套"自明的、干净的、不需要人为约定的"数学基础，并不存在。你得先立一条规矩（不许自我指涉）才能不矛盾，而这条规矩是人加的，不是天上掉下来的。这是他第一次在自己最相信的东西上看见裂缝。</p>
 
-  <div class="marker">1903–1913 · 十年苦写《数学原理》</div>
+  <div class="marker">1903，1913 · 十年苦写《数学原理》</div>
   <p>他和怀特海为了这套书写了十年。十年。手写，全靠脑子算，写到第四卷的时候罗素说自己脑子真的空了，他原话是觉得自己完全失去了思考抽象问题的能力，怕这辈子完了。这十年他几乎是拿命在换。书写出来，三大卷，逻辑主义的大厦算盖起来了。可这大厦盖完，他已经知道地基不干净。类型论是人加的补丁，不是天启真理。</p>
 
-  <div class="marker">1911–1920 · 维特根斯坦来了</div>
+  <div class="marker">1911，1920 · 维特根斯坦来了</div>
   <p>1911 年一个奥地利青年来剑桥找他，叫路德维希·维特根斯坦。这人来势极猛。罗素起先把他当天才学生，很快发现这个学生在动摇他最底层的东西。维特根斯坦后来在战壕里写出《逻辑哲学论》，寄给罗素。核心想法之一是：一个命题是它所说事实的图像。世界由事实构成，不是由东西构成；语言的结构和世界的结构同构，命题之所以有意义，是因为它和事实共享同一个逻辑形式。</p>
 
   <p>这个想法对罗素的冲击是双重的。一方面他被说服了一阵，他在 1918 年做了"逻辑原子主义"系列讲演，承认受维特根斯坦影响很大。另一方面，这个学生后来走得更远，远到他把哲学弄成"只是把句子说清楚"，罗素到老都接受不了。书里第十八章他明说：后来的维特根斯坦让他觉得"对于严肃的思维发生了厌倦"，把了解世界的愿望说成"过了时的蠢事"，这是他和这个学生最深的分歧。</p>
 
-  <div class="marker">1920–1959 · 中立一元论，和最后的退守</div>
+  <div class="marker">1920，1959 · 中立一元论，和最后的退守</div>
   <p>中年后罗素的世界观慢慢定型成所谓"中立一元论"，心和物都不是最根本的，最根本的是"事项"（event），心和物只是事项在不同因果链条上呈现出来的两头。他用底片感光、电影摄影机、留声机打比方：一颗星的光到达底片，中间经过一堆物理转换，开头和结尾保留的是同一个"结构"，不是同一个东西。我们所知道的"外部世界"，是结构通过因果链条传到知觉里的结果；至于这些事项的内在性质，物理学给不了，只有碰上它的才知道。</p>
 
   <p>这套看法里藏着一个他年轻时绝不会接受的让步：我们认识的世界并非世界本身，是世界经过一连串因果传递之后剩在我们手里的"结构"。确定性又退了一步。</p>
@@ -466,7 +551,7 @@
   <p>这条线解释了全书最反常的一个现象：为什么罗素比他同时代的人都更彻底地放弃了自己的早期信念。同时代的哲学家也有改变观点的，但通常是被别人驳倒、被新证据说服。罗素不一样，他的每一次推翻几乎都是自己动手。悖论是他发现的，类型论是他造的，逻辑主义也是他一手推的。他用最大的力气想保住那个避难所，结果用同一把力气证明了它保不住。这条线是观察者视角的概括，罗素自己未必这么看自己，但把它说出来，全书十八章的内在动力就串起来了。</p>
 
   <p>三根线合起来，能把全书大部分论点推回来：第一根线说他为什么上路，第二根线说他怎么走，第三根线说他为什么一路都在拆自己。去掉第一根，解释不了他的执着和晚年与维特根斯坦的决裂；去掉第二根，他的技术工作成了一堆零散的成就而非一个方法；去掉第三根，全书最反常的现象，自己拆自己，就成了偶然。三条线都立得住，彼此不能互相替代。</p>
-  <p>有一点得诚实标出来：第三根线"工具反噬"是我作为读者看出来的结构，不是罗素自己贴的标签。他写到自己的转变时，语气是"我后来发现……"，像在报告一系列认识上的更正，并没有把"我的工具反过来拆了我"当成一条规律来讲。这个概括对不对，读者可以自己掂量，但把它说出来，比把他写成"一个不断进步的哲学家"更贴近这本书的实感。</p>
+  <p>有一点得诚实标出来：第三根线"工具反噬"是我作为读者看出来的结构，不是罗素自己贴的标签。他写到自己的转变时，语气是"我后来发现……"，像在报告一系列认识上的更正，并没有把"我的工具反过来拆了我"当成一条规律来讲。这个概括对不对，先生可以自己掂量，但把它说出来，比把他写成"一个不断进步的哲学家"更贴近这本书的实感。</p>
 </div>
 
 <!-- 第四层 -->
@@ -559,7 +644,7 @@
 
   <div class="qa">
     <div class="q">Q9 · 这套方法的代价是什么？</div>
-    <div class="a-line"><b>结论</b>两个代价：它无法自证自己的起点，而且对不玩"分析—还原"这个游戏的人，它没有说服力。</div>
+    <div class="a-line"><b>结论</b>两个代价：它无法自证自己的起点，而且对不玩"分析，还原"这个游戏的人，它没有说服力。</div>
     <div class="a-line"><b>怎么想到的</b>第一，罗素整套方法站在"有一个独立于心的外部世界"这个他自称偏见的假设上，这个假设不能用方法本身证明，它是赌注。第二，这套方法的力量只在"把概念拆成零件"这个动作里发挥。遇到后期维特根斯坦这种换了赛道、不拆概念改看用法的对手，它就使不上劲。方法的威力越集中，能施展的场地就越窄。</div>
     <div class="a-line"><b>边界</b>这两条代价罗素自己都意识到了。他没假装方法万能。但意识到代价不等于解决了代价，他晚年的应对是承认、绕开、继续按自己的路走，这既是诚实的，也带一点无可奈何。</div>
   </div>

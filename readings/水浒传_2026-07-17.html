@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>水浒传 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>水浒传</h1>
-  <div class="meta">施耐庵 罗贯中 · 人民文学出版社百回本 · 青山深度阅读</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">水浒传</div>
+    <div class="cover-sub">人民文学出版社百回本 · 青山深度阅读</div>
+    <div class="cover-meta">施耐庵 罗贯中 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把故事讲一遍</span>
+      <span class="toc-desc">故事的开头没有好汉，只有一个泼皮。高俅，东京城里的浮浪破落户，会踢球，会帮闲，"若论仁义礼智，信行忠良，却是不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这本书凭什么让人信</span>
+      <span class="toc-desc">小说不讲逻辑论证，水浒用的是积累论证：一个又一个具体的人，在具体的官府手续里无路可走，堆到最后，"逼上梁山"这...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 梁山这台戏，底下就三根线在绷着</span>
+      <span class="toc-desc">先说明：小说话本，作者没有留下创作谈，这层讲的是文本撑得起的一种读法，不是标准答案。通行的读法是"官逼民反的农...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">先说作者为什么非写不可。这本书是世代累积的说书底本，最后由施耐庵、罗贯中在元明之际写定，"作者"本来就是个模糊...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">一句话：一群被体制逼出来的人，聚成最讲平等的乌托邦，最后被自己心里最不敢碰的那个字收编。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 梁山为什么只有招安这一条死路</span>
+      <span class="toc-desc">先把时间拨回第七十一回那场菊花会。一百单八人刚排完座次，正是这个组织最鼎盛的一天，宋江乘兴填了一首《满江红》，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇基于人民文学出版社百回本《水浒传》原文精读，回目与引文均在原文中逐一核对过。北宋末年的大背景（徽宗朝、蔡京...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">

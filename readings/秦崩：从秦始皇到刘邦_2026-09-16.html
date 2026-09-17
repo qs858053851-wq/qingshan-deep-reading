@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>秦崩：从秦始皇到刘邦 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -250,6 +285,13 @@
     color: var(--brand);
     margin-bottom: 12pt;
     letter-spacing: 1pt;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
   .napkin-caption {
     font-size: 11pt;
@@ -267,6 +309,65 @@
     color: var(--dark-warm);
     border-radius: 0 4pt 4pt 0;
     line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -288,48 +389,48 @@
 
   <div class="toc">
     <h2>目 录</h2>
-    <a class="toc-item" href="#layer01">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">走出后见之明的成王败寇神话，用地理与律法刑侦还原大秦崩溃的真实骨骼</span>
-    </a>
-    <a class="toc-item" href="#layer02">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">睡虎地律简失真推翻、沙丘密谋行程复原与沛县游侠网络的考古印证</span>
-    </a>
-    <a class="toc-item" href="#layer03">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 机制解剖</span>
       <span class="toc-desc">帝国崩溃的动力学链条：极权律法、中枢失序与楚国复仇意识的咬合</span>
-    </a>
-    <a class="toc-item" href="#layer04">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 终极下钻</span>
       <span class="toc-desc">法家理性的极壁与自然人性的反弹，帝国治理的根本命题</span>
-    </a>
-    <a class="toc-item" href="#layer05">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 衍生推演</span>
       <span class="toc-desc">六大核心推演：从大秦速亡到现代复杂组织的风险防控</span>
-    </a>
-    <a class="toc-item" href="#layer06">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 破界审视</span>
       <span class="toc-desc">警惕刑侦史学的证据诱惑，保持宏观制度史的平视审视</span>
-    </a>
-    <a class="toc-item" href="#layer07">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
       <span class="toc-desc">极权体制动员极壁与崩溃临界动力学模型</span>
-    </a>
-    <a class="toc-item" href="#layer08">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">最值钱的一个问题：如果一辆超级赛车零件全是用顶级合金打造，为什么开出十五公里就会彻底散架？</span>
-    </a>
-    <a class="toc-item" href="#layer09">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">抚摸两千年前的古道车辙，倾听历史深处的人性叹息</span>
-    </a>
+    </div>
   </div>
 
   <div class="section" id="layer01">
     <div class="layer-tag">Layer 01 · 论证全景</div>
     <h1>走出后见之明的成王败寇神话，用地理与律法刑侦还原大秦崩溃的真实骨骼</h1>
-    <p>传统历史叙事习惯将秦帝国的速亡归结为暴政二字，仿佛只要始皇帝修长城、二世杀戮忠良，这艘庞然大物便必然在短短十五年内土崩瓦解。史学名家李开元读者在这部开创性的著作中，彻底颠覆了这种道德评判式的概念概括。他像一位冷静的现代刑侦专家，带着考古报告、测量皮尺与历史文献，亲自踏勘两千年前的山川驿道与古战场遗址，将秦末大变局重新置于具体的地理时空与微观制度中解剖。</p>
+    <p>传统历史叙事习惯将秦帝国的速亡归结为暴政二字，仿佛只要始皇帝修长城、二世杀戮忠良，这艘庞然大物便必然在短短十五年内土崩瓦解。史学名家李开元先生在这部开创性的著作中，彻底颠覆了这种道德评判式的概念概括。他像一位冷静的现代刑侦专家，带着考古报告、测量皮尺与历史文献，亲自踏勘两千年前的山川驿道与古战场遗址，将秦末大变局重新置于具体的地理时空与微观制度中解剖。</p>
     <p>李开元先生指出，秦帝国的崩溃绝非单一偶发的民变失控，而是一场法家极权动员体制撞击地理与文化极限的系统性雪崩。当商鞅变法打造的关中耕战机器强行套用在辽阔多样的东方六国故地时，刚性律法不仅未能建立持久认同，反而迅速耗尽了帝国的行政冗余。一旦中枢发生权力真空，地方社会的自治力量便迅速借由楚文化纽带裂变复活。</p>
     <p>全书以沙丘之谋为起点，以刘邦入关为终点，通过精密考据将历史当事人的视线、道路里程与政治博弈严丝合缝地拼接在一起，展现了历史进程中制度惯性、突发机缘与人物性格的惊险交织。</p>
   </div>

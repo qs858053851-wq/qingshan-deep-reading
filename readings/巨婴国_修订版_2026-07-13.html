@@ -6,25 +6,32 @@
 <title>巨婴国 · 深度解读</title>
 
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -81,6 +88,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -94,14 +112,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -110,7 +128,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -119,7 +137,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -129,7 +147,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -137,12 +155,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -158,7 +176,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -173,7 +190,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -268,9 +284,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -278,6 +293,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -330,6 +362,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -341,11 +382,52 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <h1>巨婴国</h1>
-  <p class="author">武志红 · 深度解读</p>
-  <p class="tagline">大多数中国人的身体已经成年，心理发展水平却还停留在婴儿期。它是一句诊断，不是骂人话。武志红用它来解释一整套中国社会文化现象的底层框架。</p>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">巨婴国</div>
+    <div class="cover-sub">从那以后，“巨婴”不再只是一个刺激人的标签，它成了他理解中国人的总入口。</div>
+    <div class="cover-meta">青山 读 · 巨婴国 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">从那以后，“巨婴”不再只是一个刺激人的标签，它成了他理解中国人的总入口。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">这个推理依赖三条前提。第一条是发展心理学的基本假设：人的心理发展有阶段性，一岁前的核心任务是建立基本的依恋、自...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动全书的那几根线</span>
+      <span class="toc-desc">整本书对中国式关系最狠的观察，是中国人表面上讲究亲密、团圆、一家人不分彼此，实际上这种“不分彼此”常常是一种绞...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">最表层看，孝道是一组行为规范：尊敬父母、听从长辈、赡养老人、传宗接代。几千年来，它被视为中国人道德生活的核心。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">结论：因为他观察到，中国社会很多反复出现的现象，从亲密关系到公共行为，都呈现出一岁前婴儿的心理特征：共生、全能...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">武志红自己说过，1995 年他给自己出了一道考试题：一定要搞明白人是怎么回事。更准确地说，是搞明白中国人是怎么...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能用三句话说这本书</span>
+      <span class="toc-desc">三个因子正好是第三层拆出的那三根线，缺一不可。只有共生绞杀，得到的是黏稠的家族政治；只有全能自恋，得到的是孤独...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 中国式好人：一种我们最熟悉却最难承认的病</span>
+      <span class="toc-desc">前面几层反复按下不表的那个东西，“好”为什么会是一种病、好人为什么留不住亲密，现在摊开。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">巨婴国真正的可怕之处，不是有人想当皇帝，而是太多人早已放弃了自己。</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-label">Layer 01</div>
@@ -365,7 +447,7 @@
 
   <p>第三根线是<strong>偏执分裂</strong>。婴儿的心理是非黑即白的，好人坏人不能同时存在，所有坏事都是外部敌对力量干的。巨婴也一样：一旦失控，必须找到一个外部的、有主观恶意的责任方。老人摔倒后讹诈扶助者，在武志红看来未必是有意识敲诈，更可能是巨婴面对失控时，必须把一个“坏”投射到外部、再控制住它的心理机制。</p>
 
-  <p>全书七章，就是顺着这三根线往下拆。第一章提出总体诊断；第二章讲“共生”，把中国文化实质概括为“都在找妈”，集体主义、回家过年、逼婚、互害社会都被放进来分析；第三章讲“中国式好人”，那些只付出不索取、情感淡漠、身体软塌塌的人——这种“好”底下到底藏着什么，先按下不表，第八层摊开；第四章讲“全能自恋的龙”，从卓越强迫症、诛心论、自恋性暴怒到农民皇帝梦，解释中国人身上的戾气和权力崇拜；第五章讲“孝就是顺”，把孝道解释为成人巨婴对子女的客体使用逆转；第六章讲“无回应即绝境”，用精神分析的“无回应之地即是绝境”解释中国人的存在性孤独；第七章收束为“从龙成为人”，主张不要灭龙，而要驯龙：全能自恋的生命力本身没有错，错在没被看见、没被抱持，而“爱就是答案”。</p>
+  <p>全书七章，就是顺着这三根线往下拆。第一章提出总体诊断；第二章讲“共生”，把中国文化实质概括为“都在找妈”，集体主义、回家过年、逼婚、互害社会都被放进来分析；第三章讲“中国式好人”，那些只付出不索取、情感淡漠、身体软塌塌的人，这种“好”底下到底藏着什么，先按下不表，第八层摊开；第四章讲“全能自恋的龙”，从卓越强迫症、诛心论、自恋性暴怒到农民皇帝梦，解释中国人身上的戾气和权力崇拜；第五章讲“孝就是顺”，把孝道解释为成人巨婴对子女的客体使用逆转；第六章讲“无回应即绝境”，用精神分析的“无回应之地即是绝境”解释中国人的存在性孤独；第七章收束为“从龙成为人”，主张不要灭龙，而要驯龙：全能自恋的生命力本身没有错，错在没被看见、没被抱持，而“爱就是答案”。</p>
 
   <p>需要提前说明这本书的边界。武志红的论断来自他二十多年的心理咨询经验、一万小时以上的临床积累，以及对大量社会热点事件的观察，它不属于抽样统计的社会科学结论。把“多数国人是巨婴”作为文化诊断来读，和把它作为已验证的人口学事实来读，是两个完全不同的读法。书里很多案例，如毕节四童自杀、青岛女孩孙正雯遗书、杨向彬成为全能神教“女基督”，都来自媒体报道，作者用它们来说明心理机制，不等同于法律或事实层面的最终裁定。</p>
 
@@ -481,7 +563,7 @@
     <div class="qa-q">Q3：中国式好人真的是好吗？</div>
     <div class="qa-a">
       <p><strong>结论：</strong>未必。武志红观察到一个反常现象：这种“好”与真正的亲密，常常互相排斥。</p>
-      <p><strong>怎么想到的：</strong>他在咨询室里反复遇到一种人：对谁都很好，从不麻烦别人，口碑极佳，但自己活得很累、很空，伴侣抱怨“你什么都做了，我却感觉不到你”。好人做到极致，亲密关系反而失败——这个悖论说明“好”背后另有来路。它究竟是什么、怎么长出来的，这里按下不表，第八层整层摊开。</p>
+      <p><strong>怎么想到的：</strong>他在咨询室里反复遇到一种人：对谁都很好，从不麻烦别人，口碑极佳，但自己活得很累、很空，伴侣抱怨“你什么都做了，我却感觉不到你”。好人做到极致，亲密关系反而失败，这个悖论说明“好”背后另有来路。它究竟是什么、怎么长出来的，这里按下不表，第八层整层摊开。</p>
       <p><strong>边界：</strong>这里说的特指那种以取消自我为代价、无法建立真实关系的“好”，不涵盖所有善良或乐于助人的人。</p>
     </div>
   </div>
@@ -490,7 +572,7 @@
     <div class="qa-q">Q4：孝道为什么会变成“孝就是顺”？</div>
     <div class="qa-a">
       <p><strong>结论：</strong>因为多数父母自己也是巨婴，他们无法把孩子体验为独立的人，于是“听话”成了他们确认自我存在的方式。</p>
-      <p><strong>怎么想到的：</strong>武志红从“孝”字的字形出发：老在上，子在下，子承老。这个结构本身就暗示了一种上下的、不可逆的权力关系。至于权力关系底下那条心理链条——客体使用的倒置、父母自身的匮乏位置——第四层已经一路挖到井底，这里只留结论：父母需要孩子承接自己的意志、情绪甚至人生意义，所以“顺”被抬高到最高位置。</p>
+      <p><strong>怎么想到的：</strong>武志红从“孝”字的字形出发：老在上，子在下，子承老。这个结构本身就暗示了一种上下的、不可逆的权力关系。至于权力关系底下那条心理链条，客体使用的倒置、父母自身的匮乏位置，第四层已经一路挖到井底，这里只留结论：父母需要孩子承接自己的意志、情绪甚至人生意义，所以“顺”被抬高到最高位置。</p>
       <p><strong>边界：</strong>武志红批判的是“孝就是顺”的权力结构，赡养老人、感恩父母这些基本伦理不在批判之列。</p>
     </div>
   </div>
@@ -559,7 +641,7 @@
 
   <p>在亲密关系中，如果你发现自己总在找妈或找爸，总在期待对方读懂自己的心思、无条件包容自己，这本书会提醒你：这是共生需求的投射，不是爱情。真正的亲密关系是两个独立的人选择在一起，不是两个巨婴互相喂养。</p>
 
-  <p>这副眼镜也能戴进工作现场。带民宿和乡村运营团队时，留意两件事：一是那个永远不拒绝、永远接锅的员工，他的“好用”可能正在积累怨气，与其等他崩，不如主动给他一个能安全说“不”的空间；二是和村民、合作社打交道时的共生期待——“咱们是一家人”听着温暖，边界不清时它就是纠纷的种子，先小人后君子的书面约定反而是对关系的保护。做交易时同样适用：亏损后急着加仓扳回来的冲动，正是全能自恋的暴怒——“行情必须按我的来”。在下单前认出这个婴儿，比任何技术指标都省钱。</p>
+  <p>这副眼镜也能戴进工作现场。带民宿和乡村运营团队时，留意两件事：一是那个永远不拒绝、永远接锅的员工，他的“好用”可能正在积累怨气，与其等他崩，不如主动给他一个能安全说“不”的空间；二是和村民、合作社打交道时的共生期待，“咱们是一家人”听着温暖，边界不清时它就是纠纷的种子，先小人后君子的书面约定反而是对关系的保护。做交易时同样适用：亏损后急着加仓扳回来的冲动，正是全能自恋的暴怒，“行情必须按我的来”。在下单前认出这个婴儿，比任何技术指标都省钱。</p>
 </section>
 
 <section class="layer">
@@ -568,10 +650,10 @@
 
   <div class="formula">
     <div class="formula-text">巨婴国 = 共生绞杀 × 全能自恋 × 无回应之地</div>
-    <div style="font-size:13px;color:var(--mid);margin-top:14px;font-weight:400;">小注：点火条件是“身体成年、心理停在一岁前”——它决定这三个因子何时引爆，本身不进公式。</div>
+    <div style="font-size:13px;color:var(--mid);margin-top:14px;font-weight:400;">小注：点火条件是“身体成年、心理停在一岁前”，它决定这三个因子何时引爆，本身不进公式。</div>
   </div>
 
-  <p>三个因子正好是第三层拆出的那三根线，缺一不可。只有共生绞杀，得到的是黏稠的家族政治；只有全能自恋，得到的是孤独的自大狂；只有无回应之地，得到的是沉默的抑郁。三者相乘，才是那个既黏人又争权、既自大又空洞的巨婴国：共生绞杀提供关系结构，全能自恋提供能量和戾气，无回应之地提供假自我的生产线。任何一个因子趋近于零，整个系统都立不起来——这也是公式用乘号而不用加号的原因。</p>
+  <p>三个因子正好是第三层拆出的那三根线，缺一不可。只有共生绞杀，得到的是黏稠的家族政治；只有全能自恋，得到的是孤独的自大狂；只有无回应之地，得到的是沉默的抑郁。三者相乘，才是那个既黏人又争权、既自大又空洞的巨婴国：共生绞杀提供关系结构，全能自恋提供能量和戾气，无回应之地提供假自我的生产线。任何一个因子趋近于零，整个系统都立不起来，这也是公式用乘号而不用加号的原因。</p>
 
   <p>一句话：大多数中国人身体成年了，心理却还停在一岁前，于是共生绞杀、全能自恋、无回应之地这三根线，织成了中国式关系、中国式好人、孝道绑架和集体主义的社会操作系统。</p>
 
@@ -598,7 +680,7 @@
   <div class="layer-label">Layer 08</div>
   <h2 class="layer-title">中国式好人：一种我们最熟悉却最难承认的病</h2>
 
-  <p>前面几层反复按下不表的那个东西——“好”为什么会是一种病、好人为什么留不住亲密——现在摊开。</p>
+  <p>前面几层反复按下不表的那个东西，“好”为什么会是一种病、好人为什么留不住亲密，现在摊开。</p>
 
   <p>如果你身边有这样一个朋友：他对谁都很好，从不拒绝别人，口碑极佳，但你觉得他活得有点空、有点累、有点远。你甚至说不上来哪里不对，就是觉得和他之间隔着一层什么。那么，他很可能就是武志红说的“中国式好人”。</p>
 

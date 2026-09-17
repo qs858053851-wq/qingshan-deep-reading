@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>春秋公羊传 · 深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,52 @@
 <body>
 <div class="container">
 
-<section class="hero">
-  <div class="kicker">深度阅读 · 2026-07-17</div>
-  <h1>春秋公羊传</h1>
-  <div class="author">黄铭、曾亦 译注 · 底本为阮元校刻《十三经注疏》本《春秋公羊传注疏》 · 战国至汉初口传，汉景帝时著于竹帛</div>
-  <div class="lede">《春秋》记事，一年到头不过几十个字，有一条只写「王正月」三个字。两千年前的公羊家偏要追问：为什么先说王、后说正月？这一问，问出了一整套给天下立规矩的学问。这本书教的不是历史知识，是一种看字的本事：哪个字写了，哪个字没写，哪个字被换了。</div>
-</section>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">春秋公羊传</div>
+    <div class="cover-sub">底本为阮元校刻《十三经注疏》本《春秋公羊传注疏》 · 战国至汉初口传，汉景帝时著于竹帛</div>
+    <div class="cover-meta">黄铭、曾亦 译注 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">先说这书怎么来的。周平王东迁之后，各诸侯国都有史官记事，鲁国的国史叫《春秋》，从鲁隐公元年（前 722 年）记...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">公羊家这套「抠字眼」的玩法，最大的疑问摆在明处：你凭什么说某个字是孔子特意改的？史官随手一写，就不行吗？这本书...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就三根线在牵</span>
+      <span class="toc-desc">十二公、二百四十二年、几千条问答，看着庞杂，底下拽着的就是三根线。抓住这三根，随便翻到一页，你都知道公羊家要往...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着「改字」，往井底再钻一层</span>
+      <span class="toc-desc">这一层挑全书最惹眼的动作，「改字」，往下挖。孔子修《春秋》，主要干了什么？笔则笔，削则削：该写的写，该删的删，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书</span>
+      <span class="toc-desc">公羊传自己就是用问答写成的，这一层算是用它的办法读它。顺着问下去，整本书的推理就走了一遍。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">先说这书为什么非写不可。《公羊传》是带着任务出世的：给新生帝国备下一部立法蓝图。春秋战国的天下碎了几百年，到汉...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">整本《公羊传》，压到最后一张餐巾纸。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 全书最值钱的是哪一点</span>
+      <span class="toc-desc">前面七层，有两桩案子我一直按着没拆。第一层点到为止：齐襄公灭了纪国，伍子胥掘了楚平王的墓。这两桩都是灭国级的暴...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">合上书，就剩这一句。这本书里最硬的东西全是拧着的：讳是写出来的遮掩，夸是拐着弯的骂，许可证发给的是报仇的人。封...</span>
+    </div>
+  </div>
+
 
 <!-- 第一层 -->
 <section class="layer">
@@ -374,7 +455,7 @@
 
   <p>哀公十四年春天，鲁国西郊打猎，打到一只谁也没见过的兽，认出是麒麟。孔子听说了，撩起袖子擦眼泪，哭得泪水打湿袍子，说：「吾道穷矣。」我的道，走到头了。颜回死的时候他说「天丧予」，子路死的时候他说「天祝予」，这回是麟死了。传说他就此搁笔，《春秋》写到这一年为止。</p>
 
-  <p>《春秋》为什么从隐公开始？公羊家说，那是孔子祖辈能听到的最远的年代，「祖之所逮闻也」。为什么到哀公十四年结束？曰：备矣——到这儿，义法齐了。那孔子为什么要写《春秋》？传文给了全书的总纲：</p>
+  <p>《春秋》为什么从隐公开始？公羊家说，那是孔子祖辈能听到的最远的年代，「祖之所逮闻也」。为什么到哀公十四年结束？曰：备矣，到这儿，义法齐了。那孔子为什么要写《春秋》？传文给了全书的总纲：</p>
 
   <div class="quote">「拨乱世，反诸正，莫近诸《春秋》。……制《春秋》之义，以俟后圣。」<span class="src">哀公十四年</span></div>
 
@@ -434,7 +515,7 @@
 
   <div class="quote">「所见异辞，所闻异辞，所传闻异辞。」<span class="src">隐公元年</span></div>
 
-  <p>亲眼见过的时代用一种写法，听说的时代换一种，传闻的时代再换一种。何休后来把这三段坐实为衰乱世、升平世、太平世：越古越乱，越到后来越接近太平。这个分期还有一层配套的写法，成公十五年说得最清楚：《春秋》以鲁国为内、中原诸侯为外，又以中原为内、夷狄为外。既然王者要统一天下，为什么还要分内外？「言自近者始也」——统一从身边开始推，一圈一圈往外推。亲疏远近在这里当不得歧视讲，那是秩序展开的次序。有了这根线，同一件事在不同年代的不同写法就全说通了：书法是活的，它跟着时代的位置走。</p>
+  <p>亲眼见过的时代用一种写法，听说的时代换一种，传闻的时代再换一种。何休后来把这三段坐实为衰乱世、升平世、太平世：越古越乱，越到后来越接近太平。这个分期还有一层配套的写法，成公十五年说得最清楚：《春秋》以鲁国为内、中原诸侯为外，又以中原为内、夷狄为外。既然王者要统一天下，为什么还要分内外？「言自近者始也」，统一从身边开始推，一圈一圈往外推。亲疏远近在这里当不得歧视讲，那是秩序展开的次序。有了这根线，同一件事在不同年代的不同写法就全说通了：书法是活的，它跟着时代的位置走。</p>
 
   <p>三根线验一验。拿它们往回推：拆字问的体例靠线一，齐桓祭仲的褒贬靠线二，三世内外的变例靠线三，全书的大关节基本都能归位，抽掉任何一根，都有一大片问答无处安放。要老实交代的是两头：一是这套线的完整版（何休的「三科九旨」）是汉末人加码的系统化，光凭传文推不出那么整齐的体系；二是预测力，「实与而文不与」这种立法术，后世史馆笔法、褒贬权臣的写法里确实一再重演，这一条算它应验。</p>
 </section>
@@ -446,7 +527,7 @@
 
   <p>这一层挑全书最惹眼的动作，「改字」，往下挖。孔子修《春秋》，主要干了什么？笔则笔，削则削：该写的写，该删的删，该换说法的换说法。就从这里开始下井。</p>
 
-  <p>看得见的第一层：删和换。隐公三年，周天子的大夫死了，《春秋》写「尹氏卒」。传文问：这个人为什么只称「尹氏」？答：贬他。为什么贬？讥世卿——讽刺世代把持卿位这件事，「世卿，非礼也」。一个人的死讯，不称名只称氏，四个字的一条记录里，藏着对整个世袭制度的判决。同一类动作全书都是：该记日的记了月，该称名的称了字，每一处不规则，都被读成一次表态。</p>
+  <p>看得见的第一层：删和换。隐公三年，周天子的大夫死了，《春秋》写「尹氏卒」。传文问：这个人为什么只称「尹氏」？答：贬他。为什么贬？讥世卿，讽刺世代把持卿位这件事，「世卿，非礼也」。一个人的死讯，不称名只称氏，四个字的一条记录里，藏着对整个世袭制度的判决。同一类动作全书都是：该记日的记了月，该称名的称了字，每一处不规则，都被读成一次表态。</p>
 
   <p>往下钻一层：这种读法成立，靠的是什么机制？靠「写法即判决」。写史不是摄像，落笔就有取舍，而公羊家认定，取舍的那一瞬，评判已经完成。宋宣公那案子把这层照得最亮。宋宣公临终，不传位给儿子与夷，传给弟弟缪公，理由是弟弟贤。缪公即位，临终又坚持把君位还给宣公的儿子与夷，说先君不立你，我继位只是「摄」。一让一还，两代人的美意，感人吧？《春秋》的判词冷得像铁：</p>
 
@@ -504,7 +585,7 @@
   <div class="qa">
     <div class="q">Q6 季札不肯当国君，也不肯替兄长报仇，怎么还又义又仁？</div>
     <div class="a"><span class="tag">结论：</span>因为他把「自己的位置」看得比权位和私仇都重，这正中公羊家的下怀。</div>
-    <div class="a"><span class="tag">怎么想到的：</span>襄公二十九年，吴国的季札出使鲁国。他的哥哥们依次传位，一心想把君位传给他，他坚辞不受。后来阖闾弑了吴王僚，按血仇逻辑，季札该起兵，可他说：你杀了我的国君，我再杀你，父子兄弟相杀，一辈子没个完。于是躲到延陵，终身不进吴国国都。公羊家的判词是：不受国，是义；不杀，是仁。接着还补了一条总则：「许人臣者必使臣，许人子者必使子」——夸一个臣子，就要拿臣子的标准成全他；夸一个儿子，就要拿儿子的标准成全他。季札守住了自己的位，书法就成全他的名。</div>
+    <div class="a"><span class="tag">怎么想到的：</span>襄公二十九年，吴国的季札出使鲁国。他的哥哥们依次传位，一心想把君位传给他，他坚辞不受。后来阖闾弑了吴王僚，按血仇逻辑，季札该起兵，可他说：你杀了我的国君，我再杀你，父子兄弟相杀，一辈子没个完。于是躲到延陵，终身不进吴国国都。公羊家的判词是：不受国，是义；不杀，是仁。接着还补了一条总则：「许人臣者必使臣，许人子者必使子」，夸一个臣子，就要拿臣子的标准成全他；夸一个儿子，就要拿儿子的标准成全他。季札守住了自己的位，书法就成全他的名。</div>
     <div class="a"><span class="tag">边界：</span>这套逻辑要求每个人都先认下自己那个「位」。位分的边界清晰时，它是安身立命的护栏；位分本身不公时，它就成了认命的学问。季札的洒脱，学的人是学不来的，他有得让，才让得动人。</div>
   </div>
 
@@ -587,7 +668,7 @@
 
   <p>案子齐了，往下挖。表面看，公羊家是在鼓吹血亲复仇，而且吹得极狠，「虽百世可也」，隔一百代都正当。可真是这样吗？细看那几张许可证，每一张都带着小字。第一张给齐襄公，小字是：国君之间，百世可报；大夫之家呢？「曰不可。」家仇不许隔夜还许隔代，国仇才许百世，因为「国君一体也」：国君在这里不能当自然人看，他是国的化身，国与国的账，不会因哪一代君主的死而注销。第二张许可证背面还有一行：「有明天子，则襄公得为若行乎？曰：不得也。」上头若有管事的天子，齐襄公这一票就是非法的；他能干，是因为「上无天子，下无方伯」，没人主持公道了。</p>
 
-  <p>核到这儿就浮出来了：公羊家真正在干的，是回答一个法理学问题——当垄断暴力的仲裁者缺位时，私力救济该不该有合法通道？它的答案是：该有，但只发给三种人，只开在三道门里。门一：主体合格，国的账由国来报，家的仇不许跨国界扩编。门二：时机合格，秩序真空中才发行，天子一回来，通道立刻关闭。门三：手段合格，不受诛才可报，报仇不许顺手除害。复仇在它手里脱掉了情绪，变成一条补漏的规矩：什么情形下能发动，发到谁头上，什么手段禁用，都写得清清楚楚。</p>
+  <p>核到这儿就浮出来了：公羊家真正在干的，是回答一个法理学问题，当垄断暴力的仲裁者缺位时，私力救济该不该有合法通道？它的答案是：该有，但只发给三种人，只开在三道门里。门一：主体合格，国的账由国来报，家的仇不许跨国界扩编。门二：时机合格，秩序真空中才发行，天子一回来，通道立刻关闭。门三：手段合格，不受诛才可报，报仇不许顺手除害。复仇在它手里脱掉了情绪，变成一条补漏的规矩：什么情形下能发动，发到谁头上，什么手段禁用，都写得清清楚楚。</p>
 
   <p>核找到了，接着攻。最尖的一矛：百世可也，这不就是给无穷无尽的仇杀背书吗？今天灭你的国，理由是九世前的仇；明天他灭回来，理由更新。冤冤相报，何时是了？</p>
 

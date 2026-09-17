@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>祥瑞：王莽和他的时代 - 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,15 +381,96 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="hero-tag">青山深度阅读 · 历史与制度</div>
-  <h1 class="hero-title">祥瑞：王莽和他的时代</h1>
-  <div class="hero-meta">
-    <span>著者：张向荣</span>
-    <span>解读产出：深度长交付</span>
-    <span>日期：2026-08-31</span>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">祥瑞：王莽和他的时代</div>
+    <div class="cover-sub">汉代的历史在公元前与公元后的交界处出现了一次剧烈转折。西汉王朝自汉武帝独尊儒术以来，儒家思想经过董仲舒、公羊学者和谶纬学派的层层演化，逐渐从一种学术流派变成了裁决皇权合法性的最高法...</div>
+    <div class="cover-meta">青山 读 · 祥瑞：王莽和他的时代 · 解读主理：青山 · 日期：2026-08-31 · 典藏长交付</div>
   </div>
-</header>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 从道德楷模到万民公敌的四十四年政治实验</span>
+      <span class="toc-desc">汉代的历史在公元前与公元后的交界处出现了一次剧烈转折。西汉王朝自汉武帝独尊儒术以来，儒家思想经过董仲舒、公羊学...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 支撑全书论述的三根史料支柱与制度边界</span>
+      <span class="toc-desc">张向荣在书中提出，将王莽简单定义为包藏祸心的篡位奸雄，或者不切实际的空想改革家，都低估了西汉中晚期的政治深度。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05</span>
+      <span class="toc-desc">第一案是汉哀帝建平年间的夏贺良改元再受命事件。在王莽执政前数年，待诏夏贺良等齐鲁儒生便向汉哀帝进言，称汉家历数...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">全书论证立足于一条关键前提。在西汉中晚期的政治话语中，天人感应与五德终始学说已经取得了宪法级的意识形态统治地位...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 汉代政治天平上的四股结构性重力</span>
+      <span class="toc-desc">推动两汉之际政治演进的动力，来自当时四种彼此独立又相互绞合的制度性力量。正是这四股力量的交汇，最终将西汉王朝送...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">自汉武帝立五经博士以来，儒生群体通过太学与察举制度逐步垄断了文官队伍。经师们不仅教授礼乐，更通过《春秋公羊传》...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">西汉建立后，刘邦为了防范异姓功臣，确立了非刘氏不得王的家天下铁律。然而当皇帝年幼或昏庸时，皇权为了对抗外朝以丞...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11</span>
+      <span class="toc-desc">西汉中晚期，天人感应学说与阴阳五行、占星图谶深度融合。无论是皇帝、权臣还是民间布衣，都习惯于在天象异常、奇异动...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">在社会经济层面，汉武帝以来的盐铁官营、算缗告缗政策未能遏制地方豪强的土地兼并。关东地区的宗族大姓聚敛了广袤的田...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 从尊经到亡国：儒家政治哲学的四步深渊</span>
+      <span class="toc-desc">沿着儒家经学试图用道德与经典驯服君权的这一根本线索，我们能够层层穿透两汉之际政治灾难的发生机制。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 七个递进问题解剖王莽与西汉政局的演进逻辑</span>
+      <span class="toc-desc">王莽早年的言行绝非现代人理解的廉价作秀，而是一个儒家原教旨主义者在特定权力生态下的极度自我要求。王莽自幼研读《...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 走出脸谱化定论与古代改革的死局审视</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">张向荣写作《祥瑞》的核心意图，是打破两千年正统史学对王莽的刻板脸谱。传统史观受制于成王败寇与宗法正统，将王莽描...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20</span>
+      <span class="toc-desc">本书对两汉之际思想史与高层政治斗争的剖析极为精辟，但在社会经济维度的微观量化分析上略显单薄。例如土地兼并的具体...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">王莽的兴亡在现代组织管理与政策推行中存在极其清晰的结构同构：当一个组织的领导层完全沉迷于一套逻辑自洽但脱离实际...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 22</span>
+      <span class="toc-desc">当面临复杂的系统性改革或政策设计时，必须警惕任何诉诸绝对道德崇高感与完美复古蓝图的方案。行动准则为，永远以基层...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 23</span>
+      <span class="toc-desc">张向荣对西汉经学如何从学术变成政治绞肉机的分析令人信服。尤其是书中对哀帝再受命、刘歆古文经学考订以及王莽心理演...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 25 · 两汉政权合法性转移的餐巾纸模型</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27 · 驯服君主的代价：儒家神权政治的自我毁灭</span>
+      <span class="toc-desc">汉代的儒学在确立自身独尊地位的过程中，实际上完成了一次极其危险的权力盗火。先秦孔孟之儒，本是宗周礼乐崩坏后的游...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 29 · 留下一句话</span>
+      <span class="toc-desc">当知识精英试图用完美的道德经籍与神圣符命去改造世俗政治时，他们所迎接的往往不是周公的三代盛世，而是制度解体与人...</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">Layer 01</div>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>一个人值多少钱，谁是现代奴隶 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>一个人值多少钱，<br>谁是现代奴隶？</h1>
-  <div class="author">克莉丝汀·舒兹-莱斯　向下扎根！德国教育的公民思辨课 1 · 捍卫权利的基本知识（繁体中译本）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">一个人值多少钱， 谁是现代奴隶？</div>
+    <div class="cover-sub">舒兹-莱斯　向下扎根！德国教育的公民思辨课 1 · 捍卫权利的基本知识（繁体中译本）</div>
+    <div class="cover-meta">克莉丝汀 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先说清楚它的身份：这是德国给青少年写的公民课外读物，中译本由台湾出版，全套七册，这是第一册，讲人权与民主。作者...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 她凭什么说人权是争来的，不是天生的</span>
+      <span class="toc-desc">这本书表面在讲“人生而自由平等”，实际讲的是这句话花了多少年、死了多少人才被写进纸里。她给的证据链很实在。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一百多个小节拆到底，三件事在起作用</span>
+      <span class="toc-desc">全书最精巧的一处在第三章，三个连着的小节标题：国家的自由、国家中的自由、透过国家而来的自由。三个介词，把人权分...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：为什么权利不能一项一项地给</span>
+      <span class="toc-desc">书里那句“只有一个等于没有”，初读像修辞。你完全可以反问：我先有饭吃，再谈别的，怎么就等于没有了？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这套东西问明白</span>
+      <span class="toc-desc">第二章有一节直接问“人拥有什么？谁发现了自然法则？”，这个提法来自自然法传统：权利像自然规律一样本来就在那儿，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">这套书的写作背景，是德国战后公民教育的一个基本共识：一个受过良好教育、有法治传统、有优秀宪法的国家，仍然可能在...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 有些东西，投票也不能碰</span>
+      <span class="toc-desc">第五章的章名叫“民主人士的工具”，里面有一节的标题很不客气：把手拿开！什么是人权的绝对条款？</span>
+    </div>
+  </div>
+
   <div class="lead">一本写给中学生的人权入门书。它不讲道理，它讲权利是怎么一步步从神那里、从国王那里被抢过来的，以及为什么一项权利单独存在时，等于不存在。</div>
 </div>
 
@@ -356,7 +436,7 @@
 
   <div class="sub">作者要回答的问题</div>
 
-  <p>她在前言里问得很直白：人权这个构想，人在什么时候、以什么方式产生的？是谁“发现”了人类的这种权利？为什么这个发现导致了民主？为什么我们认为民主是最适合实践和保障人权的国家形式？还有一句反问，这句才是她真正的重心——<strong>难道民主不会伤害人权吗？我们该如何防范？</strong></p>
+  <p>她在前言里问得很直白：人权这个构想，人在什么时候、以什么方式产生的？是谁“发现”了人类的这种权利？为什么这个发现导致了民主？为什么我们认为民主是最适合实践和保障人权的国家形式？还有一句反问，这句才是她真正的重心，<strong>难道民主不会伤害人权吗？我们该如何防范？</strong></p>
 
   <p>她的答案分三步：人权是在神权、君权、人权的长期抗争中一寸寸争来的；民主是目前保障它的最好形式，但民主本身可以侵害人权；所以每一项权利都得有人天天守着，守的方式是尽义务。</p>
 
@@ -479,7 +559,7 @@
 
   <p>拆开看就清楚了。</p>
 
-  <p>你有言论自由，可你不识字、没读过书，这项自由你用不上多少，它要靠受教育权撑着。你有受教育权，可你家里揭不开锅，孩子得下地干活，这项权利也是空的，它要靠劳动与生存的保障撑着。你有财产权，可没有独立的法院，你的地随时可能被人拿走，它要靠司法救济撑着。你有选举权，可你不知道候选人干过什么，因为没人敢报道——它要靠新闻自由撑着。</p>
+  <p>你有言论自由，可你不识字、没读过书，这项自由你用不上多少，它要靠受教育权撑着。你有受教育权，可你家里揭不开锅，孩子得下地干活，这项权利也是空的，它要靠劳动与生存的保障撑着。你有财产权，可没有独立的法院，你的地随时可能被人拿走，它要靠司法救济撑着。你有选举权，可你不知道候选人干过什么，因为没人敢报道，它要靠新闻自由撑着。</p>
 
   <p>每一项都不是独立的一格，每一项都要借用别的格子才能兑现。</p>
 
@@ -592,7 +672,7 @@
 
   <p>不服的：全书对制度的信心比我强。那些尖锐的问题她一个也没躲，可每次问完都落回“还是需要它”。这个回答不算错，只是太快。真正难的问题是：当一套机构长期失效时，是继续修它，还是承认它已经变成了掩护？这本书没往这个方向想，它的读者年龄也确实还没到想这个的时候。</p>
 
-  <p>最后给读者一句实在话：这一册的性价比在第三章和第八章。第二章的历史线你早就熟，第四章的机构介绍资料性强、可跳读，第六、七章是清单。真正值得琢磨的是三代人权那几节，和最后那句“没有权利是不需要尽义务的”。</p>
+  <p>最后给先生一句实在话：这一册的性价比在第三章和第八章。第二章的历史线你早就熟，第四章的机构介绍资料性强、可跳读，第六、七章是清单。真正值得琢磨的是三代人权那几节，和最后那句“没有权利是不需要尽义务的”。</p>
 </div>
 
 <div class="layer">
@@ -667,13 +747,13 @@
 
   <p>这本书是给十四岁的人写的，讲到这里就停住了。但这条判准可以带走，用在很多地方。任何一个组织、一家公司、一个村子、一个家庭，都会有需要商量的事和不能商量的事。区分的标准不必是谁的官大、谁的道德高，可以就用那条：<strong>这件事如果做错了，还回得来吗？</strong></p>
 
-  <p>回得来的，尽管去试，试错本身就是学习。回不来的，事先划出去，谁也别碰——包括当时占多数的你自己。</p>
+  <p>回得来的，尽管去试，试错本身就是学习。回不来的，事先划出去，谁也别碰，包括当时占多数的你自己。</p>
   </div>
 </div>
 
 <div class="boundary">
   <h4>事实边界</h4>
-  <p>本篇依据《向下扎根！德国教育的公民思辨课 1——一个人值多少钱，谁是现代奴隶？》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书结构、各章各节标题、前言与总导读的内容，均出自原书；我通读了目录、前言、总导读与第一章开头，其余各章按标题与抽样理解，<strong>未逐节细读</strong>。本篇引述的各节标题都是原书标题，节内的具体内容若读者要引用，请翻原书对应页。</p>
+  <p>本篇依据《向下扎根！德国教育的公民思辨课 1，一个人值多少钱，谁是现代奴隶？》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书结构、各章各节标题、前言与总导读的内容，均出自原书；我通读了目录、前言、总导读与第一章开头，其余各章按标题与抽样理解，<strong>未逐节细读</strong>。本篇引述的各节标题都是原书标题，节内的具体内容若先生要引用，请翻原书对应页。</p>
   <p>“市民勇气”词源那段（1835 年出现于法国、1898 年发展为公民勇气、俾斯麦的用法）出自原书译注，非我自己的考据。</p>
   <p>第八层关于绝对条款的具体内容（生命权、禁止酷刑、禁止奴役等不可克减），是我按国际人权公约的通行常识写的，<strong>没有逐条核对原书第五章列了哪几项</strong>；德国魏玛宪法被合法程序架空一事为公认史实，本篇只作背景陈述，未展开考证。</p>
   <p>第三层的三根线、第四层的下钻、第六层关于作者盲点的判断，以及第八层“不可逆的事不进投票箱”这条判准，都是我读下来的看法，不是原书写的。</p>

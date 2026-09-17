@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>工作、消费主义和新穷人 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">工作、消费主义<br>和新穷人</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">工作、消费主义和新穷人</div>
+    <div class="cover-sub">鲍曼 著 · 郭楠 译 · 上海社会科学院出版社 2021（原著 1998）</div>
+    <div class="cover-meta">[英] 齐格蒙特 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">鲍曼问的不是"怎么帮穷人"，而是一个更少有人问的问题：穷人是怎么被制造出来的？我们这些不穷的人的生活方式，在多...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">把鲍曼的论证抽出来，是这样一条链：工作伦理是被发明的，不是自古就有（前提一）→ 发明它是为了解决一个具体麻烦：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">六章书，几十个概念，拆到最后，真正干活的就两根线。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">全书最值得单独往深处钻的一个观察：为什么每个时代谈论穷人，最后都谈成了穷人的品行问题？懒惰、软弱、成瘾、不知节...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：驯服，而非致富。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">鲍曼动笔的九十年代末，有一件事正在他眼前发生：体面社会谈论穷人的语言，在一代人之内完全换掉了。1981 年，最...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：告诉我一个社会要求成员成为什么，我就能告诉你它的穷人是谁、被怎样解释、有没有回来的路。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">1996 年夏天，美国的就业数据变坏了：新增岗位减少，失业人口比例上升。按常识，这是坏消息。可当天的报纸标题写...</span>
+    </div>
+  </div>
+
   <div class="meta">[英] 齐格蒙特·鲍曼 著 · 郭楠 译 · 上海社会科学院出版社 2021（原著 1998）</div>
   <div class="oneliner">穷人一直都在，但"穷"的含义换过一次底。这本书讲的就是那次换底：从"暂时没工作的人"，变成"不会消费的人"。</div>
 </div>

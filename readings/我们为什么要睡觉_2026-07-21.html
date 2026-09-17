@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我们为什么要睡觉 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>我们为什么要睡觉</h1>
-  <div class="author">马修·沃克 · 睡眠科学 · 你的身体在你睡着后上夜班</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">我们为什么要睡觉</div>
+    <div class="cover-sub">沃克 · 睡眠科学 · 你的身体在你睡着后上夜班</div>
+    <div class="cover-meta">马修 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书在喊什么</span>
+      <span class="toc-desc">先把作者摆出来。马修·沃克，英国人，哈佛医学院精神病学教授出身，现在是加州大学伯克利分校的神经科学与心理学教授...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他的证据，哪块硬哪块软</span>
+      <span class="toc-desc">科普书的"凭什么这么说"要分两问：证据本身硬不硬？摆证据的人公不公？第二问第六层再碰，这一层先过证据的秤。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就三根线在牵</span>
+      <span class="toc-desc">这本书中译本四百来页，实验数以百计。拆到底，真正在牵动全书的是三根线，四部分内容都能从这三根线上推回来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底钻：为什么睡觉躲不掉</span>
+      <span class="toc-desc">三根线里挑最深的一根往下钻：睡眠为什么必须存在？这个问题看着蠢，钻下去是全书的地基。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把这本书走一遍</span>
+      <span class="toc-desc">Q1：困意到底从哪来？为什么下午那杯咖啡让你夜里瞪天花板？答：先把话说死，困是腺苷在你脑里攒账，咖啡因只是捂住...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 他的喇叭，他的盲区</span>
+      <span class="toc-desc">动机分两层看。表层那层他从不掩饰：传教。一个睡眠科学家看着本领域的证据堆成山，公众却一无所知，他自称这本书是"...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸写完这本书</span>
+      <span class="toc-desc">三个因子对应前两根线：第一根线（两套时钟）出了两个因子，昼夜节律要校准，腺苷的账要清零；第二根线（两班倒）出第...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 疲劳坏的不是油量，是油表</span>
+      <span class="toc-desc">这本书里埋着一颗实验，比所有癌症数据都冷。它冷在这个实验测的对象：感觉本身。</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -465,7 +545,7 @@
   <div class="ascii"> 清醒质量 ＝ ①节律对准 × ②压力清零 × ③班次跑满
 
  ① 昼夜节律：内源 24h15′，每天靠日光校准
-    咖啡因＝捂住记账员的嘴（半衰期 5–7h，账照涨）
+    咖啡因＝捂住记账员的嘴（半衰期 5，7h，账照涨）
  ② 腺苷压力：清醒越久，欠账越高
  ③ 夜班排班：前半夜 深睡→搬记忆、清冗余
              后半夜 做梦→缝情绪、强连接
@@ -503,7 +583,7 @@
 <!-- ==================== 事实边界 ==================== -->
 <div class="fact-boundary">
   <div class="fb-title">事实边界</div>
-  <p>本篇取材：辅助索引对原书中译本（3735行）做轻索引（16章骨架＋12章定点深读，覆盖约35–40%，引文带行号），主线据索引写作，未逐页通读。文中实验与数据（丁格斯剂量实验、疫苗抗体、NK细胞、克里普克安眠药数据、J形曲线、咖啡因半衰期、伊代纳与提顿县案例等）均按原书中译本口径转述，未逐项回核原始论文。</p>
+  <p>本篇取材：deep-reading-extractor 子代理对原书中译本（3735行）做轻索引（16章骨架＋12章定点深读，覆盖约35，40%，引文带行号），主线据索引写作，未逐页通读。文中实验与数据（丁格斯剂量实验、疫苗抗体、NK细胞、克里普克安眠药数据、J形曲线、咖啡因半衰期、伊代纳与提顿县案例等）均按原书中译本口径转述，未逐项回核原始论文。</p>
   <p>须带折扣处：①"世界卫生组织宣布睡眠不足已成流行病"一句，原书脚注指向《国家地理》纪录片而非世卫文件，本篇一律以"沃克称"处理；②伊代纳SAT案例，沃克本人注明其准确性受质疑；③"癌症风险翻倍""睡眠越短生命越短"等措辞基于流行病学相关性，因果强度低于行文口吻，沃克在安眠药一节亦自承此类数据不能证明因果；④本书2017年出版后有公开学术质疑（研究者 Alexey Guzey 逐条指其数据夸大，沃克修改过部分公开表述），此条为书外公开信息，供读者握折扣；⑤中文版序非沃克所写，出自国内睡眠产业协会人士，有产业背书色彩；⑥沃克本人任多家企业睡眠顾问，第16章设备类方案与其业务方向一致，本篇第六层已作利益关联标注，属合理推断而非指控。</p>
 </div>
 

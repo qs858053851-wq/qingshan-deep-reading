@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>身份的焦虑 · 出版级深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -361,39 +402,39 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-item">
-    <a href="#layer1">Layer 01 · 叙事全景 ｜ 渴望爱的承认与现代人隐秘的自卑史</a>
+    <span>Layer 01 · 叙事全景 ｜ 渴望爱的承认与现代人隐秘的自卑史</div>
     <span class="toc-desc">全书脉络与两部十章的宏观思想全貌</span>
   </div>
   <div class="toc-item">
-    <a href="#layer2">Layer 02 · 作者凭什么这么说 ｜ 社会评判体系的脆弱假设与证据链</a>
+    <span>Layer 02 · 作者凭什么这么说 ｜ 社会评判体系的脆弱假设与证据链</div>
     <span class="toc-desc">三组历史证据、一条隐蔽前提与理论边界</span>
   </div>
   <div class="toc-item">
-    <a href="#layer3">Layer 03 · 真正在起作用的几件事 ｜ 驱动身份焦虑的三根深层骨架</a>
+    <span>Layer 03 · 真正在起作用的几件事 ｜ 驱动身份焦虑的三根深层骨架</div>
     <span class="toc-desc">期望放大器、道德化倒错与依附性法则</span>
   </div>
   <div class="toc-item">
-    <a href="#layer4">Layer 04 · 顺着最深的线往下问 ｜ 现代人何以将自我价值完全交托他者</a>
+    <span>Layer 04 · 顺着最深的线往下问 ｜ 现代人何以将自我价值完全交托他者</div>
     <span class="toc-desc">四步递进追问，触及自尊构造的人性底层限制</span>
   </div>
   <div class="toc-item">
-    <a href="#layer5">Layer 05 · 顺着问题走完作者的推理 ｜ 破解身份迷思的七个关键追问</a>
+    <span>Layer 05 · 顺着问题走完作者的推理 ｜ 破解身份迷思的七个关键追问</div>
     <span class="toc-desc">围绕因果、差别与代价展开的理性问答链</span>
   </div>
   <div class="toc-item">
-    <a href="#layer6">Layer 06 · 跳出这本书再看一次 ｜ 德波顿的思想底牌、盲区与行动支点</a>
+    <span>Layer 06 · 跳出这本书再看一次 ｜ 德波顿的思想底牌、盲区与行动支点</div>
     <span class="toc-desc">阶层审视、现实盲点、跨域映射与具体生活动作</span>
   </div>
   <div class="toc-item">
-    <a href="#layer7">Layer 07 · 把整本书压到一张纸上 ｜ 餐巾纸仪表盘</a>
+    <span>Layer 07 · 把整本书压到一张纸上 ｜ 餐巾纸仪表盘</div>
     <span class="toc-desc">核心关系公式与双轨价值演化状态机</span>
   </div>
   <div class="toc-item">
-    <a href="#layer8">Layer 08 · 把最值钱的一点写透 ｜ 精英崇拜如何将贫困洗劫为道德罪名</a>
+    <span>Layer 08 · 把最值钱的一点写透 ｜ 精英崇拜如何将贫困洗劫为道德罪名</div>
     <span class="toc-desc">无小标题深度长文，认知跃迁与机制补位</span>
   </div>
   <div class="toc-item">
-    <a href="#layer9">Layer 09 · 留下一句话与事实考证 ｜ 终局定音与事实考据</a>
+    <span>Layer 09 · 留下一句话与事实考证 ｜ 终局定音与事实考据</div>
     <span class="toc-desc">青山终局定音结语与版本文献考证说明</span>
   </div>
 </div>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>跟各国人都可以聊得来 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>跟各国人都<br>可以聊得来</h1>
-  <div class="author">加百列·怀纳　Fluent Forever, 2014　繁体中译本</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">跟各国人都 可以聊得来</div>
+    <div class="cover-sub">怀纳　Fluent Forever, 2014　繁体中译本</div>
+    <div class="cover-meta">加百列 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">他在明德学院的暑期语言学校做分班测验时，用谷歌翻译作了弊。结果被分进了中级班。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么说这套管用</span>
+      <span class="toc-desc">这是全书理论的地基，也是他给得最扎实的一处引用。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 整套方法拆到底，三件事在起作用</span>
+      <span class="toc-desc">他给这件事起了个很好的名字：破碎单字。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：费劲为什么反而记得住</span>
+      <span class="toc-desc">第三层那道梯度就是这一层的表面事实：取出来越费劲，记得越牢。它违背所有人的直觉，因为我们默认“轻松掌握”才是学...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这套方法问明白</span>
+      <span class="toc-desc">他有一句很不客气的话：在语言课堂上学习“杏桃”“桃子”这类单字，还不如把时间用在笔电、医药、能源这些字汇上。他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">他的动机写在个人履历里，而那份履历基本是一串失败：希伯来语在学校学了七年，失败；俄语在高中学了五年，失败。直到...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 练了十年也没进步的那些人，缺的是什么</span>
+      <span class="toc-desc">日本人分不清英语里的 rock 和 lock，这件事常被拿来当例子，通常的解释是日语里没有这组对立，成年之后再...</span>
+    </div>
+  </div>
+
   <div class="lead">一个歌剧演唱家写的语言学习法。它真正值钱的地方不在语言上：它把"怎么让一样东西留在脑子里"这件事，拆成了几条可以直接照做的规矩。</div>
 </div>
 
@@ -418,7 +498,7 @@
     <tr><td>个人关联</td><td>你喜欢「PIZZA」吗？</td></tr>
   </table>
 
-  <p>结果是：<strong>PIZZA 的记忆度是 BEAR 的六倍。</strong>而且层层递进——声音是结构的两倍，概念又是声音的两倍，个人关联比概念还要再省一半力气。</p>
+  <p>结果是：<strong>PIZZA 的记忆度是 BEAR 的六倍。</strong>而且层层递进，声音是结构的两倍，概念又是声音的两倍，个人关联比概念还要再省一半力气。</p>
 
   <p>这一条决定了他后面所有的操作。练发音，是把词从结构层抬到声音层；用图片而不用翻译，走的是概念层；每张卡片末尾还留了一个动作，把它再往个人关联层抬一级。整套方法做的就是这件事：把一个词往这四层里逐级搬。</p>
 
@@ -461,7 +541,7 @@
 
   <p>意思是，当你以为的读音和实际读音对不上，这个词就在你的“文字语言”和“口说语言”之间裂成了两半。你在书上认得它，听见了却认不出；你想说它，出口的是另一个东西。他讲了自己的糗事：把 scheme 一直读成“sheem”，直到上大学；还讲过法语课上有人把 Descartes 念成“Dess-CART-eez”的现场。</p>
 
-  <p>破碎单字的代价不止是丢人。<strong>一个读音错了的词，在你脑子里等于两个词，而且这两个都记不牢</strong>——因为第二层那张表说了，声音层的记忆强度是结构层的两倍，你把这一层废掉了。</p>
+  <p>破碎单字的代价不止是丢人。<strong>一个读音错了的词，在你脑子里等于两个词，而且这两个都记不牢</strong>，因为第二层那张表说了，声音层的记忆强度是结构层的两倍，你把这一层废掉了。</p>
 
   <p>所以他把发音放在最前面，而且拆成三道关：练耳朵（先能听出区别）、练嘴巴（能发出来）、练眼睛（拼写和读音的对应规则）。顺序不能颠倒，因为<strong>嘴巴发不出的音，耳朵多半也听不出。</strong></p>
 
@@ -485,7 +565,7 @@
 
   <p>他给图像找的依据是六十年代的图片再认实验：受试者看过六百多张广告图之后，识别率高达九成八；就算加码到一万张、连看五天，识别率仍有八成三。他还引了一份综述指出，<strong>图配词的效果优于纯图</strong>。</p>
 
-  <p>抽象词怎么办？他的办法是找能勾起联想的具体图：economia 配硬币、存钱罐、股市曲线。这个做法不算优雅，但它绕开了那个真正的敌人——<strong>一旦你在词和意思之间插进一个母语词，你就永远要多走一道手续，而且那道手续会在你着急说话时垮掉。</strong></p>
+  <p>抽象词怎么办？他的办法是找能勾起联想的具体图：economia 配硬币、存钱罐、股市曲线。这个做法不算优雅，但它绕开了那个真正的敌人，<strong>一旦你在词和意思之间插进一个母语词，你就永远要多走一道手续，而且那道手续会在你着急说话时垮掉。</strong></p>
 
   <div class="sub">这三根线牢不牢</div>
 
@@ -520,7 +600,7 @@
 
   <p>它只能找一个代理指标，而最省事的代理指标就是取回的成本。<strong>刚才那件事我费了很大劲才想起来，说明这条路修得不够，那就加固它。</strong>反过来，一秒就想起来的，说明路已经够宽，不必再修。</p>
 
-  <p>这个机制是节省的：把加固的资源只投给那些正在变弱的连接。它也解释了很多别的现象——为什么划线和抄笔记没用（取回成本为零），为什么听课比自己做题记得少（老师替你完成了取回），为什么临时抱佛脚考完就忘（考前一天的取回成本极低）。</p>
+  <p>这个机制是节省的：把加固的资源只投给那些正在变弱的连接。它也解释了很多别的现象，为什么划线和抄笔记没用（取回成本为零），为什么听课比自己做题记得少（老师替你完成了取回），为什么临时抱佛脚考完就忘（考前一天的取回成本极低）。</p>
 
   <div class="sub">第四层 · 触底：省力的学习必然留不住</div>
 
@@ -550,7 +630,7 @@
   <div class="qa">
     <div class="q">Q2　高频词表真的够用吗？</div>
     <p class="a-lead">够用，但会让你的能力长得很奇怪。他自己的例子就是最好的说明。</p>
-    <p>他背完俄语前一千词去参加考试。第一题是“列一张购物清单”，他惨败——蔬菜水果的名字全不在高频词表里。第二题是“教师薪酬该不该与学生成绩挂钩”，他洋洋洒洒写了四页。</p>
+    <p>他背完俄语前一千词去参加考试。第一题是“列一张购物清单”，他惨败，蔬菜水果的名字全不在高频词表里。第二题是“教师薪酬该不该与学生成绩挂钩”，他洋洋洒洒写了四页。</p>
     <p><strong>高频词表让你先学会谈抽象的事，后学会买菜。</strong>这个反差极有意思，也暴露了这条路的形状：它优先给你的是连接词、动词、代词、抽象名词这些结构性的东西，而具体的名词得靠后面按需补。</p>
     <p class="a-edge">对成年学习者来说这个顺序未必是坏事，因为具体名词随用随查、随查随记，而结构性的词必须内化。但如果你的目标就是出门旅游点菜，这条路反而绕远了。</p>
   </div>
@@ -566,7 +646,7 @@
   <div class="qa">
     <div class="q">Q4　为什么强调不能用别人做好的卡片？</div>
     <p class="a-lead">因为卡片的力量在制作过程里。</p>
-    <p>他管这叫“创造过程的威力”。你做一张卡片时，要搜图、要挑一张、要想起自己上次见到这东西是什么时候——这几个动作就是第二层那张表里的概念层和个人关联层。别人的卡片只保留了最终形态，把这几步全省了。</p>
+    <p>他管这叫“创造过程的威力”。你做一张卡片时，要搜图、要挑一张、要想起自己上次见到这东西是什么时候，这几个动作就是第二层那张表里的概念层和个人关联层。别人的卡片只保留了最终形态，把这几步全省了。</p>
     <p><strong>省下的正是有效的那部分。</strong>下载一套现成卡组，等于拿到一份别人的健身记录。</p>
     <p class="a-edge">这一条也是判断各类学习产品的好尺子：凡是主打“帮你整理好、你只要看”的，多半省掉的正是起作用的那一段。</p>
   </div>
@@ -574,7 +654,7 @@
   <div class="qa">
     <div class="q">Q5　这套方法的适用边界在哪儿？</div>
     <p class="a-lead">它擅长把东西装进脑子，不擅长教你怎么用。</p>
-    <p>看他自己的路线图就明白：卡片系统解决的是词汇、发音、语法形式这些可以被切成小块、可以判对错的东西。而说话这件事，他给的办法是另一套——找人聊、用“禁忌”那类不许说某个词的游戏逼自己绕着说、看剧、读书。<strong>这部分他讲得远不如前面细致，因为它没法被卡片化。</strong></p>
+    <p>看他自己的路线图就明白：卡片系统解决的是词汇、发音、语法形式这些可以被切成小块、可以判对错的东西。而说话这件事，他给的办法是另一套，找人聊、用“禁忌”那类不许说某个词的游戏逼自己绕着说、看剧、读书。<strong>这部分他讲得远不如前面细致，因为它没法被卡片化。</strong></p>
     <p>第三层已经说过语法那一章是全书最薄的。同样的道理：语法规则可以做成卡片，语感不行。</p>
     <p class="a-edge">所以更公道的读法是：把这本书当成一本记忆方法书，附带解决了语言学习里可被记忆化的那一大半。剩下的一半，它没有承诺，也确实没给。</p>
   </div>
@@ -610,7 +690,7 @@
 
   <p><strong>中医里对应的东西是背方子。</strong>老一辈的学法是抄方、背汤头歌诀，然后跟诊。这个路子暗合了这本书的几条：歌诀是声音层（押韵、可诵），跟诊是个人关联层（这个方子是给王大爷开的，他什么脉象），而每天早上先默一遍再翻书，是自测优于重读。<strong>反过来，只把方子表格打印出来贴在墙上看，取回成本为零，看一年也记不住。</strong></p>
 
-  <p><strong>做业务的人管它叫复盘。</strong>一场谈判、一次项目、一个失败的案子，事后写一份复盘，跟事后重读一遍会议纪要，效果是两回事。前者是取出，后者是读入。而更好的做法是隔一段时间再回头看自己当时写的复盘，看还记不记得住当时的判断——那就是间隔重复。</p>
+  <p><strong>做业务的人管它叫复盘。</strong>一场谈判、一次项目、一个失败的案子，事后写一份复盘，跟事后重读一遍会议纪要，效果是两回事。前者是取出，后者是读入。而更好的做法是隔一段时间再回头看自己当时写的复盘，看还记不记得住当时的判断，那就是间隔重复。</p>
 
   <div class="sub">读完可以做的三件事</div>
 
@@ -626,7 +706,7 @@
 
   <p>两处我不买账。一是数据处理：全书最好卖的那几个数字恰恰是没出处的那几个，而语气跟有出处的部分一模一样，这对读者不公平。二是他对自己天赋的沉默。一个歌剧演唱家写发音训练法，却不提自己的耳朵是训练出来的，这会让读者按他的时间表估计自己的进度，然后受挫。</p>
 
-  <p>给读者的读法建议：这本书的第二章值得精读，第三章的三道关看一遍知道原理即可，第四章挑词频那几节看，第五、六章可跳。四篇“集锦”是操作手册，真要动手做卡片时再翻。附录五那份六百二十五词的表，如果哪天真要从头学一门语言，是现成的起点。</p>
+  <p>给先生的读法建议：这本书的第二章值得精读，第三章的三道关看一遍知道原理即可，第四章挑词频那几节看，第五、六章可跳。四篇“集锦”是操作手册，真要动手做卡片时再翻。附录五那份六百二十五词的表，如果哪天真要从头学一门语言，是现成的起点。</p>
 </div>
 
 <div class="layer">
@@ -676,7 +756,7 @@
 
   <p>这个实验之所以值钱，是因为它把两件被混为一谈的事分开了：<strong>练习本身，和带回馈的练习。</strong>前一组人不是不努力，他们练的次数一点不少，可他们练的是一个没有信号的动作。反复做一件你不知道做对没做对的事，做一万遍还是原地踏步。</p>
 
-  <p>更要命的一点是：<strong>第一组人多半会得出结论说自己没天分。</strong>他们有确凿的经验支持这个结论——我练了那么久，一点没进步。而真相是，他们缺的那样东西，跟天分毫无关系，只是每次二十毫秒内的一个对错提示。</p>
+  <p>更要命的一点是：<strong>第一组人多半会得出结论说自己没天分。</strong>他们有确凿的经验支持这个结论，我练了那么久，一点没进步。而真相是，他们缺的那样东西，跟天分毫无关系，只是每次二十毫秒内的一个对错提示。</p>
 
   <p>怀纳把这个实验放在讲练耳朵的那一章里，用它来支持“最小对立体测验”这个具体方法：用两个只差一个音的词做成卡片，听音选词，立刻看答案。但我认为这个实验的分量远远超出了那一章。</p>
 
@@ -686,7 +766,7 @@
 
   <p>更硬的一问在后面：<strong>七八成不是母语水平。</strong>训练确实起作用了，但没有把他们变成本地人。这是不是说明关键期假说至少部分成立？</p>
 
-  <p>这一问我认为是对的，得老老实实认下来。成年人的可塑性有上限，这个实验没有推翻关键期，它推翻的是另一句话——“成年人在这件事上练也白练”。<strong>从五成到八成的那一段，原来一直被“反正练也没用”这句话挡在门外。</strong>那三成的差距，对一个想听懂电影、听懂电话的人来说，几乎就是全部。</p>
+  <p>这一问我认为是对的，得老老实实认下来。成年人的可塑性有上限，这个实验没有推翻关键期，它推翻的是另一句话，“成年人在这件事上练也白练”。<strong>从五成到八成的那一段，原来一直被“反正练也没用”这句话挡在门外。</strong>那三成的差距，对一个想听懂电影、听懂电话的人来说，几乎就是全部。</p>
 
   <p>灶台上就有一个一模一样的例子。一个人炒了二十年菜，盐还是时多时少。你说他不用心吗？他每天都在炒。可如果他从来不在起锅前尝一口，那二十年就是二十年的重复动作，不是二十年的练习。</p>
 
@@ -707,7 +787,7 @@
   <p>本篇依据加百列·怀纳《跟各国人都可以聊得来》繁体中译本（原著 <em>Fluent Forever</em>，2014）。三大关键、记忆的四个层次、五大原则、间隔阶梯、词频与前 625 词、发音三关，均出自原书。</p>
   <p><strong>本次阅读的覆盖情况：</strong>我通过原文索引读了全书骨架、第一章导论、第二章全部正文、第三章发音三关、第四章词频与 625 词、第五章语法、第六章目标与路线图、第七章结语与全部关键脚注，<strong>未逐字通读</strong>。四篇“学习集锦”的制卡操作步骤、术语表、附录五的 625 词全表这三块查表用的部分，我没有细读。</p>
   <p><strong>出处分层（这一条最要紧）：</strong>记忆的四个层次（Lockhart &amp; Craik 的综述与自我参照效应的元分析）、遗忘曲线、自测效应、最小对立体训练（McClelland 等 2002）、双语的认知效应、图片再认实验，这几处原书都挂了可查的脚注。而<strong>“难度即价值”那一段的 20%／75%／双倍留存率、“自测有五倍效益”、“四个月三千六百张卡”、以及各种词汇覆盖率百分比，原书没有给出处</strong>，本篇已在正文中标明要打折。</p>
-  <p>第八层那个日本受试者的实验，原书给了脚注（McClelland, Fiez &amp; McCandliss 2002，准确率从约五成提到七至八成）。<strong>但我是按索引转述的，没有回核原始论文的实验设计细节</strong>，若要引用请以原研究为准。文中“三次二十分钟”这个说法出自原书转述。</p>
+  <p>第八层那个日本受试者的实验，原书给了脚注（McClelland, Fiez &amp; McCandliss 2002，准确率从约五成提到七至八成）。<strong>但我是按索引转述的，没有回核原始论文的实验设计细节</strong>，先生若要引用请以原研究为准。文中“三次二十分钟”这个说法出自原书转述。</p>
   <p>附录的语言难度分级以英语母语者为基准，繁体译本有译注提醒中文母语者情况不同，本篇已标明。第三层的三根线、第四层的下钻、第六层关于作者盲点（耳朵是隐藏前提、未算社交成本）的判断，以及第八层拿炒菜作类比，都是我的分析，不是原书写的。</p>
 </div>
 

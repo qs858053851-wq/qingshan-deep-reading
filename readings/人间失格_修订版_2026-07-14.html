@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>人间失格 · 太宰治 — 九层深读</title>
+<title>人间失格 · 太宰治 ， 九层深读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,14 +380,47 @@
 </head>
 <body>
 
-<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近日常场景的行动落点。</div>
+<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近先生场景的行动落点。</div>
 
 <div class="container">
-<header class="hero">
-<h1 class="book-title">人间失格</h1>
-<div class="author">太宰治 · 1948 · 遗作</div>
-<p class="tagline">一个把逗笑当成唯一求爱方式的人，如何一步步失去做人的资格。这是太宰治在死前写给自己的判决书。</p>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">人间失格</div>
+    <div class="cover-sub">1948 · 遗作</div>
+    <div class="cover-meta">太宰治 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把故事讲一遍</span>
+      <span class="toc-desc">故事不是太宰治直接讲的，是借一个“我”，叙述者，拿到的一叠手记转述出来的。手记的主人叫大庭叶藏，乡下人都叫他“...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他的写法站不站得住</span>
+      <span class="toc-desc">太宰治选了一种很险的写法：让一个已经“失格”的人，自己讲自己怎么失格的。这险在哪？险在第一人称自白最容易变成矫...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在牵动全书的那几根线</span>
+      <span class="toc-desc">把这本薄书拆到底，真正在底下使劲的，是三根线。三根线绞在一起，每根都绷到极限，全书就是它们互相绞杀的过程。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 他为什么非写不可，又漏了什么</span>
+      <span class="toc-desc">这本书是太宰治的遗作，写完三个月他就投水了。这一点解释了它全部的紧迫感。他不是在“创作”，是在赶着死之前把一句...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸上能写下的</span>
+      <span class="toc-desc">公式里的三个因子，就是第三层拆出来的三根线，一一对应，没有多也没有少：逗笑线是求爱线，信赖线是暗线，恐惧线是底...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 为什么那个最敢信人的女孩，偏偏碎得最彻底</span>
+      <span class="toc-desc">良子出场时，太宰治给了她一句近乎圣徒的描写：“不知污秽为何物的童贞”。她是全书唯一一个没有被阿叶的恐惧传染的人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 用一句话封印这本书</span>
+      <span class="toc-desc">胆小鬼连幸福都怕，碰到棉花都会受伤。</span>
+    </div>
+  </div>
+
 
 <main>
 
@@ -452,7 +526,7 @@
 
 <p>这三根线不是太宰治一个人的，是1948年整个日本的。战败后的日本，旧的“做人”规则全塌了，军国主义的荣光成了耻辱，传统的伦理被占领军冲击，经济凋敝，价值观真空。一整个国家的人突然不知道怎么“做人”了，普遍的失格感弥漫。无赖派就是从这片废墟里长出来的：既然正经做人的路断了，那就用颓废、自谑、滑稽来对抗，不是反抗，是把自己当笑话讲，借以保住最后一点尊严。太宰治把一个国家的失格感，浓缩进一个人的肉身。阿叶的恐惧，就是战后日本的恐惧；阿叶的“逗笑”，就是无赖派的姿态。这本书能成为国民级读物，不是因为它写了一个怪人，是因为它写出了那个年代日本人心里最不敢说的那句，我们也都快不会做人了。</p>
 
-<p>还要补一句结构上的事。三根线之所以绞得这么紧，靠的是序—手记—后记这个“远—近—远”的呼吸。序用三张照片把人物弧线视觉化，猴子笑、人工笑、死相，是逗笑线断裂的全过程被定格成三格胶片；手记是近距离贴着脸听自剖，三根线在这里互相绞杀；后记用老板娘的反转判词，把阿叶自己写的“蟾蜍”翻成“神一样的孩子”，让三根线的张力悬而不决，读者既不能全信阿叶的自我贬低，也不能全信老板娘的宽容，只能停在那个裂缝里。这个结构本身就是太宰治的立场：他不替谁定罪，也不替谁开脱，他只把“一个人怎么失格”和“别人怎么看他”并排放着，让裂缝自己说话。这是这本书比一般自白体高明的地方，它不是一个人的独白，是一个人和他者的对峙，而真相就藏在对峙的中间地带。</p>
+<p>还要补一句结构上的事。三根线之所以绞得这么紧，靠的是序，手记，后记这个“远，近，远”的呼吸。序用三张照片把人物弧线视觉化，猴子笑、人工笑、死相，是逗笑线断裂的全过程被定格成三格胶片；手记是近距离贴着脸听自剖，三根线在这里互相绞杀；后记用老板娘的反转判词，把阿叶自己写的“蟾蜍”翻成“神一样的孩子”，让三根线的张力悬而不决，读者既不能全信阿叶的自我贬低，也不能全信老板娘的宽容，只能停在那个裂缝里。这个结构本身就是太宰治的立场：他不替谁定罪，也不替谁开脱，他只把“一个人怎么失格”和“别人怎么看他”并排放着，让裂缝自己说话。这是这本书比一般自白体高明的地方，它不是一个人的独白，是一个人和他者的对峙，而真相就藏在对峙的中间地带。</p>
 
 </section>
 

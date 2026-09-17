@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>楚辞 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · 诗歌总集</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">楚辞</div>
+    <div class="cover-sub">林家骊 译注 · 中华书局「中华经典名著全本全注全译丛书」</div>
+    <div class="cover-meta">屈原 等 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先说清楚一件事：《楚辞》是西汉刘向编成的一部诗集，收屈原、宋玉，再加上贾谊、东方朔这些汉代崇拜者的作品，核心是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">屈原的写作动机不用猜，他自己说了。《九章·惜诵》开头一句：「惜诵以致愍兮，发愤以抒情」。痛惜地陈述来表达忧伤，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">一句话版本：一个走不掉、脏不得、变不了的人，把人间的出口挨个试完，最后用诗和死各开了一扇门。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第一层里我说《渔父》是全书戏剧性最强的文本，只给了一句话。现在可以讲了。</span>
+    </div>
+  </div>
+
   <h1>楚辞</h1>
   <div class="author">屈原 等 · 林家骊 译注 · 中华书局「中华经典名著全本全注全译丛书」</div>
 </div>
@@ -355,7 +420,7 @@
   <div class="marker">公元前 339 年前后 · 一个贵族孩子的出生</div>
   <p>屈原生在楚国最显赫的家族之一。屈家和楚王同宗，世代出将入相。他出生的日子据《离骚》自述是寅年寅月寅日，按学者推算大约是公元前 339 年正月（生卒年学界有争议，此处从林家骊本前言）。他父亲给他取名「正则」，取字「灵均」，意思是公正而有法度、上可安天下可养民。一个孩子从出生起就被寄予"这是要做大事的人"的期待，这份期待他背了一辈子，最后也是被这份期待压进了汨罗江。</p>
   <p>他自己怎么看这份出身，《离骚》第一句就给了答案：</p>
-  <blockquote>帝高阳之苗裔兮，朕皇考曰伯庸。<span class="src">——《离骚》开篇。翻成大白话：我是上古帝王高阳氏的后代，我父亲叫伯庸。</span></blockquote>
+  <blockquote>帝高阳之苗裔兮，朕皇考曰伯庸。<span class="src">，《离骚》开篇。翻成大白话：我是上古帝王高阳氏的后代，我父亲叫伯庸。</span></blockquote>
   <p>注意这个开头的分量：一首诗，第一句先报家世。这一句是立约：我是王族的人，楚国的事就是我家的事。后面他所有的执拗，根都在这句里。</p>
 
   <div class="marker">怀王年间 · 左徒的风光与坠落</div>
@@ -364,18 +429,18 @@
 
   <div class="marker">公元前 299 年 · 武关之会，怀王之死</div>
   <p>秦国攻下楚国八座城，然后"邀请"怀王到武关会盟。屈原竭力劝阻：秦是虎狼之国，不能去。以公子子兰为首的一派怂恿怀王去，求一时平安。怀王去了，被扣，逃跑未遂，三年后死在秦国。《史记》记灵柩归楚那天，楚人「如悲亲戚」。</p>
-  <p>新君顷襄王继位，任用弟弟子兰做令尹——就是那个劝父亲去送死的人。屈原对此不可能没有态度，于是被流放到更远的江南。此后他再没有回到过郢都的政治中心，在沅湘之间流浪了大约二十年，写下了《九章》里那些一篇比一篇绝望的诗。</p>
+  <p>新君顷襄王继位，任用弟弟子兰做令尹，就是那个劝父亲去送死的人。屈原对此不可能没有态度，于是被流放到更远的江南。此后他再没有回到过郢都的政治中心，在沅湘之间流浪了大约二十年，写下了《九章》里那些一篇比一篇绝望的诗。</p>
 
   <div class="marker">公元前 278 年 · 郢都陷落，汨罗江</div>
   <p>顷襄王二十一年，秦将白起攻破郢都，楚国宗庙被烧，先王陵墓被毁。对屈原来说这不只是军事失败：他一生所系的那个"楚国"，实体性地死了。他此时已经流浪多年，形容枯槁。这一年（一说稍后），他抱石自沉于汨罗江。临死前的诗里有一句：</p>
-  <blockquote>知死不可让，愿勿爱兮。明告君子，吾将以为类兮。<span class="src">——《九章·怀沙》乱辞。大意：知道死已不可避免，那就不必贪惜生命。明白告诉后世君子，我要以死为同类者立个榜样。</span></blockquote>
+  <blockquote>知死不可让，愿勿爱兮。明告君子，吾将以为类兮。<span class="src">，《九章·怀沙》乱辞。大意：知道死已不可避免，那就不必贪惜生命。明白告诉后世君子，我要以死为同类者立个榜样。</span></blockquote>
   <p>死是他最后一次表态，说崩溃是读浅了。这一点第四层细说。</p>
 
   <h3>这部诗集里都有什么</h3>
   <p>把屈原的命讲完，他的作品就好排了，几乎每一部都能挂到上面那条时间线上。</p>
   <p><strong>《离骚》</strong>是核心中的核心，两千五百字左右的长诗，中国文学史上第一首有署名的鸿篇巨制。结构上它是两截。前一半是自传：我是谁、我怎么修养自己、我怎么被小人排挤、君王怎么不信我；后一半突然飞起来：诗人驾着龙车凤鸟上天入地，让太阳神减速，命天帝的门房开门，三次"求女"都失败，最后在天上突然望见故乡，全诗停在这里。一个在地上走投无路的人，把整个神话宇宙当成了逃亡路线，结果发现天上也没有他的位置。「离骚」二字什么意思，自古有九种解法，主流的一种就是"遭遇忧愁"，遭遇忧愁而写的诗。</p>
   <p><strong>《九歌》</strong>是完全另一副面孔：十一篇祭神的乐歌，屈原根据楚地民间祭祀歌曲加工而成。祭天神的、祭河神山鬼的、祭阵亡将士的。这一组诗里几乎没有牢骚，全是神与神、神与人之间隔水相望的爱情与等待。最动人的是《湘夫人》的开头：</p>
-  <blockquote>帝子降兮北渚，目眇眇兮愁予。嫋嫋兮秋风，洞庭波兮木叶下。<span class="src">——《九歌·湘夫人》。湘水之神在北岸的小洲上等他的爱人，望穿秋水；秋风轻轻地吹，洞庭湖起了波，树叶落下来。</span></blockquote>
+  <blockquote>帝子降兮北渚，目眇眇兮愁予。嫋嫋兮秋风，洞庭波兮木叶下。<span class="src">，《九歌·湘夫人》。湘水之神在北岸的小洲上等他的爱人，望穿秋水；秋风轻轻地吹，洞庭湖起了波，树叶落下来。</span></blockquote>
   <p>等的人始终没有来。《九歌》里的神都在等一个不来的人。《山鬼》里那位「若有人兮山之阿，被薜荔兮带女罗」的山中女神，打扮好了在山坳里等心上人，等到雷声滚滚、风雨交加，也没等到。唯一的例外是《国殇》，祭的是战死的楚国士兵，末句「身既死兮神以灵，子魂魄兮为鬼雄」：身体死了，魂魄也是鬼中的英雄。把这十一篇连起来看你会发现一个事实：楚国人的宗教里，神和人一样会孤独、会失约、会战死，没有一个是高高在上的裁判。</p>
   <p><strong>《天问》</strong>是全世界文学史上都罕见的奇文：一口气提出一百七十多个问题，从「遂古之初，谁传道之」问起（宇宙最开始的事，是谁传下来的？），问到天有几重、日月怎么运行、鲧禹治水的真相、夏商周为什么兴为什么亡，一路问到楚国自己的将来。全诗没有一个答案，只有问。传说他是在流放中看到先王庙宇墙壁上的壁画，指着画一路问下来的。一个被现实放逐的人，转身去质问整个宇宙的秩序。这是中国文学里怀疑精神的第一次总爆发。</p>
   <p><strong>《九章》</strong>是九篇独立诗作的合集，可以当成屈原流放期间的日记来读：《惜诵》写初被疏远的委屈，《抽思》《思美人》写在汉北的思念，《涉江》《哀郢》写顷襄王时被放江南、回望郢都的痛，《橘颂》可能是早年作品，咏物明志，《悲回风》《怀沙》《惜往日》写在自沉之前。哪一篇是绝命辞，《怀沙》还是《惜往日》，学界至今两说并存。比起《离骚》的神游，《九章》写实得多，痛得也直接得多。</p>
@@ -474,7 +539,7 @@
 
   <div class="facts">
     <h4>事实边界</h4>
-    <p>本篇屈原生平叙述出自林家骊本前言及《史记·屈原贾生列传》通行说法；生卒年（约前 339—前 278）系学者推算，学界有争议。《渔父》《卜居》《远游》的作者归属历代有疑，本篇从林家骊本旧说系于屈原名下，并已在正文标注两说。绝命辞为《怀沙》还是《惜往日》，学界两说并存。所有诗句引文均核对自林家骊译注本原文（如「路曼曼其修远兮」从本书作「曼曼」，「嫋嫋兮秋风」从本书作「嫋嫋」）。</p>
+    <p>本篇屈原生平叙述出自林家骊本前言及《史记·屈原贾生列传》通行说法；生卒年（约前 339，前 278）系学者推算，学界有争议。《渔父》《卜居》《远游》的作者归属历代有疑，本篇从林家骊本旧说系于屈原名下，并已在正文标注两说。绝命辞为《怀沙》还是《惜往日》，学界两说并存。所有诗句引文均核对自林家骊译注本原文（如「路曼曼其修远兮」从本书作「曼曼」，「嫋嫋兮秋风」从本书作「嫋嫋」）。</p>
   </div>
 </div>
 

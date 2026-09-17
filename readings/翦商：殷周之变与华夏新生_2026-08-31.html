@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>翦商：殷周之变与华夏新生 - 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,15 +381,96 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="hero-tag">青山深度阅读 · 上古史与文明源流</div>
-  <h1 class="hero-title">翦商：殷周之变与华夏新生</h1>
-  <div class="hero-meta">
-    <span>著者：李硕</span>
-    <span>解读产出：深度长交付</span>
-    <span>日期：2026-08-31</span>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">翦商：殷周之变与华夏新生</div>
+    <div class="cover-sub">长期以来，中国上古史在传统经典叙述中呈现为一种温情脉脉的德治谱系，从尧舜禹的三代禅让，到成汤立商、文武兴周，历史似乎是一连串圣王仁政的自然传承。李硕在《翦商》中，打破了这一由儒家文...</div>
+    <div class="cover-meta">青山 读 · 翦商：殷周之变与华夏新生 · 解读主理：青山 · 日期：2026-08-31 · 典藏长交付</div>
   </div>
-</header>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 从神权血祭的殷商地狱到周公的人文华夏</span>
+      <span class="toc-desc">长期以来，中国上古史在传统经典叙述中呈现为一种温情脉脉的德治谱系，从尧舜禹的三代禅让，到成汤立商、文武兴周，历...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 重构商周之变的考古实证、甲骨量化与文本破译</span>
+      <span class="toc-desc">李硕在《翦商》中的论述之所以具备颠覆性的冲击力，在于他将田野考古学报告、甲骨文字释读与传世古籍进行了毫厘不差的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05</span>
+      <span class="toc-desc">第一案是安阳殷墟祭祀遗址的系统性发掘数据。自二十世纪二十年代安阳发掘以来，考古学家在殷墟王陵区与宫殿区清理出数...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">全书论述立足于一条重要的人类学前提。早期人类社会在迈向复杂国家形态时，普遍存在借助人祭来强化阶级威慑与神权垄断...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 塑造早期华夏命运的四根底层骨骼</span>
+      <span class="toc-desc">推动商周大变革并最终塑造华夏文明形态的，是四种彼此交织的深层历史力量。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">商人的宗教世界观建立在人神契约论之上。商人认为诸神与祖先拥有决定雨水、战争与疾病的绝对权能，但神灵是嗜血且贪婪...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">自二里头到殷商，青铜始终是一种极度稀缺的战略资源。商王室严格垄断了铜矿原料的开采通道（如盘龙城）与铸造作坊（如...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11</span>
+      <span class="toc-desc">周人作为定居农业部族，其早期发展史充满了在强权缝隙中求存的艰难妥协。为了不被商王朝彻底消灭，周人充当了可耻的捕...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">灭商之后，周公旦以超凡的政治智慧化解了暴力反噬的危机。他意识到如果继续沿用商人的神权统治，周人也会重蹈覆辙；如...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 遗忘即新生：周公救赎华夏文明的四步深渊</span>
+      <span class="toc-desc">因为商代的人祭记忆包含了周人无法面对的道德耻辱与群体心理创伤。周族曾经为商王朝充当了半个多世纪的捕俘帮凶，手上...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 七个递进问题解剖《翦商》的历史真相</span>
+      <span class="toc-desc">因为羌人与商人在体貌、语言和文化上存在鲜明的异质性，且羌人处于缺乏坚固城防的松散部落状态。在商人的世界观中，异...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 重新评估华夏文明诞生的血色黎明</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">李硕写作《翦商》的最大贡献，是用现代考古学的铁证彻底打破了传统史学对上古三代的田园牧歌式美化。他用外科手术般的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20</span>
+      <span class="toc-desc">本书为了叙事的戏剧张力与情节连贯性，在个别环节采取了文学化的情境推想。例如周文王创作《易经》时的心理独白、伯邑...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">商周之变展示了文明演进中的一种根本模式：任何完全依靠残酷暴力、恐惧威慑与垄断特权维系的组织，其体系外表坚固，内...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 22</span>
+      <span class="toc-desc">在审视任何历史结论或组织文化时，永远保持批判性审视。行动准则为，不要被经过后世美化修饰的温情叙事所迷惑，必须深...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 23</span>
+      <span class="toc-desc">《翦商》在近年上古史著作中展现了扎实的材料驾驭力。李硕兼具扎实的考据功底与宏阔的历史想象力，成功让冷冰冰的考古...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 25 · 殷周文明大转向的餐巾纸模型</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27 · 周公的创伤与华夏文明的道德转向</span>
+      <span class="toc-desc">当我们凝视安阳殷墟出土的层层白骨时，我们所面对的不是抽象的考古标本，而是一个曾经真实存在了六百年的恐怖帝国。在...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 29 · 留下一句话</span>
+      <span class="toc-desc">华夏文明之所以能够走出野蛮神权的血色地狱，是因为周公以极其决绝的道德勇气，将嗜血的诸神永远驱逐出了中华大地的人...</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">Layer 01</div>

@@ -1,23 +1,30 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>亲密关系 · 深度解读</title><style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -74,6 +81,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -87,14 +105,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -103,7 +121,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -112,7 +130,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -122,7 +140,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -130,12 +148,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -151,7 +169,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -166,7 +183,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -261,9 +277,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -271,6 +286,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -323,13 +355,67 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
       padding-right: 20px;
     }
   }
-</style></head><body><main class="container"><header class="hero"><h1>亲密关系</h1><div class="author">罗兰·米勒 · 第6版</div></header>
+</style></head><body><main class="container">  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">亲密关系</div>
+    <div class="cover-sub">米勒 · 第6版</div>
+    <div class="cover-meta">罗兰 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 一段关系从靠近到离开，发生了什么</span>
+      <span class="toc-desc">这是一部十四章的关系科学教材。它从归属需要和研究方法起步，依次讲吸引、社会认知、沟通、相互依赖、友谊、爱情、性...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 关系科学拿什么作证</span>
+      <span class="toc-desc">课堂曝光实验让几名女生分别出现十五次、十次或五次，从不和学生交谈。期末只看照片，出现次数更多的人更受喜欢。熟悉...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 关系走向由哪几件事牵着</span>
+      <span class="toc-desc">第一根线是接触与期待。临近、熟悉和相似决定谁先进入候选范围，初始期待又改变自己的热情和提问方式。电话实验验证了...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 要求和退避为什么越演越烈</span>
+      <span class="toc-desc">追问者觉得问题必须解决，退避者觉得谈下去只会更糟。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六个问题，看清一段关系</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 跳出教材，再看一眼关系</span>
+      <span class="toc-desc">米勒写这本教材的动机，是把人人都有意见的领域交给证据校准。爱情最容易把个人经历包装成普遍真理，他坚持并列社会、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 全书只剩一个公式</span>
+      <span class="toc-desc">一句话：关系是两个人长期互相改变以后留下的结果。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 幸福和离不开，是两个问题</span>
+      <span class="toc-desc">一段关系过得好不好，与一个人会不会继续留下，经常被混成同一件事。米勒把它们拆开。满意看当前关系相对自己的期望如...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇沿用第六版所综述的研究，部分样本集中于北美社会和异性伴侣，文化、性别制度与家庭形态变化会限制外推。满意度、...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">一段关系从靠近到离开，发生了什么</h2><p>这是一部十四章的关系科学教材。它从归属需要和研究方法起步，依次讲吸引、社会认知、沟通、相互依赖、友谊、爱情、性爱、嫉妒与背叛、冲突、权力与暴力、关系解体，最后讲维持与修复。它不提供一条“幸福秘诀”，而是把关系看成个人特征、文化条件、双方判断与长期互动共同生成的结果。</p><p>全书最重要的姿态是相互依赖：一方的选择会改变另一方得到的奖赏、承担的代价、形成的期待和可选去路；对方的回应又回来改变前者。两个人既在发现彼此，也在持续制造彼此。亲近、熟悉、互惠与相似让人靠近，沟通和归因决定小事如何被解释，投入、替代选择与外部压力则决定关系是否继续。</p><p>教材还专门讲研究方法，提醒相关、自我报告和实验各自能证明什么。这一章是全书的尺子。第6版资料主要到2011年前后，样本偏北美、婚恋和二元性别，平均规律也不能直接给某一对人开处方。尤其涉及胁迫和暴力时，普通冲突中的倾听、顺应与宽恕建议必须停用，安全优先。</p></section>
 <section class="layer"><div class="kicker">Layer 02</div><h2 class="layer-title">关系科学拿什么作证</h2><p>课堂曝光实验让几名女生分别出现十五次、十次或五次，从不和学生交谈。期末只看照片，出现次数更多的人更受喜欢。熟悉本身就能增加好感，所谓缘分常先被相遇机会筛过一轮。</p><p>电话实验把假照片给男生，让他们以为通话对象漂亮或普通。前者说话更热切，女生也回应得更活跃；只听女生声音的旁观者，同样觉得她更有吸引力。男生并非只发现了预期中的人，他的待遇参与造出了那种反应。</p><p>PAIR项目追踪168对新婚夫妻。十三年后，有的离婚，有的仍在一起却不幸福，留下的幸福夫妻平均也不如新婚时满足。婚初矛盾和浪漫感下降速度能预测后来走向。纵向材料让关系从一次问卷变成一段时间。</p><p>教材的隐形前提是，亲密可以拆成变量，并用平均规律理解。这样便于积累证据，也会压平一段关系独有的历史和伦理。北美样本、特定年代、自我报告与相关研究限制了外推。社会交换里的奖赏和代价是主观评价，不表示人都在冷静算账；涉及控制与暴力时，关系安全不能被“沟通技巧”替代。</p></section>
 <section class="layer"><div class="kicker">Layer 03</div><h2 class="layer-title">关系走向由哪几件事牵着</h2><p>第一根线是接触与期待。临近、熟悉和相似决定谁先进入候选范围，初始期待又改变自己的热情和提问方式。电话实验验证了期待会进入互动。</p><p>第二根线是持续相互依赖。每次选择都会改变双方得到的资源、承担的代价与下一轮期待；共同财物、孩子、朋友网络和回忆还会改变离开时需要重组的生活。</p><p>第三根线是压力下的应对。个体脆弱不会自动毁掉关系，外部压力、沟通习惯和修复能力会相互放大或缓冲。PAIR的长期差异、要求与退避的互动都说明，时间不是背景，它不断把小反应积累成结果。</p></section>

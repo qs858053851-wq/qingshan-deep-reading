@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>乡村建设理论 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">中国社会特殊构造的哲学洞察与乡村文明自救全景</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">邹平实验七年实绩、乡农学校规程与乡村信用合作社铁证</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 机制解剖</span><span class="toc-desc">政教合一的乡农学校与乡村自治合作机制</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 终极下钻</span><span class="toc-desc">人类文化三路向说与东方伦理文明终极归宿下钻</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 衍生推演</span><span class="toc-desc">现代化进程中城乡关系的演进推演与逆城市化反思</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">历史局限反思：阶级矛盾规避与枪杆子逻辑的历史碰撞</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">乡村文明重构与现代化转型的内生动力极简模型</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">最值钱的一个问题：为什么一个北大哲学教授甘愿在山东农村挑大粪七年？</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">新时代的乡村自救与复兴：走好本土现代化的人间正道</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">中国社会特殊构造的哲学洞察与乡村文明自救全景</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">邹平实验七年实绩、乡农学校规程与乡村信用合作社铁证</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 机制解剖</span><span class="toc-desc">政教合一的乡农学校与乡村自治合作机制</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 终极下钻</span><span class="toc-desc">人类文化三路向说与东方伦理文明终极归宿下钻</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 衍生推演</span><span class="toc-desc">现代化进程中城乡关系的演进推演与逆城市化反思</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">历史局限反思：阶级矛盾规避与枪杆子逻辑的历史碰撞</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">乡村文明重构与现代化转型的内生动力极简模型</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">最值钱的一个问题：为什么一个北大哲学教授甘愿在山东农村挑大粪七年？</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">新时代的乡村自救与复兴：走好本土现代化的人间正道</span></div>
     </div>
   </div>
 
@@ -348,7 +408,7 @@
     <div class="layer-tag">Layer 01 · 论证全景</div>
     <h1>中国社会特殊构造的哲学洞察与乡村文明自救全景</h1>
     
-<p>在二十世纪三十年代中华民族内忧外患、大厦将倾的至暗时刻，被誉为中国最后一位儒家的大思想家梁漱溟读者，在山东邹平主持了长达七年的乡村建设实验，并在此基础上撰写出了毕生思想的集大成之作《乡村建设理论》。梁漱溟先生彻底跳脱了当时思想界全盘西化或生搬硬套苏俄革命模式的激进思潮，以直击中国文明底层的第一性原理，展开了一场关于中国社会究竟何去何从的终极哲学追问与社会学奠基。</p>
+<p>在二十世纪三十年代中华民族内忧外患、大厦将倾的至暗时刻，被誉为中国最后一位儒家的大思想家梁漱溟先生，在山东邹平主持了长达七年的乡村建设实验，并在此基础上撰写出了毕生思想的集大成之作《乡村建设理论》。梁漱溟先生彻底跳脱了当时思想界全盘西化或生搬硬套苏俄革命模式的激进思潮，以直击中国文明底层的第一性原理，展开了一场关于中国社会究竟何去何从的终极哲学追问与社会学奠基。</p>
 <p>全书的字面运动路径紧扣中国社会的特殊本质、乡村危机根源与文明再造路径展开。梁漱溟开门见山提出著名的宏大论断，中国社会既非西方封建社会，也非近代资本主义阶级对立社会，而是一个独具特色的特殊构造，即｜伦理本位职业分立之中国特殊社会构造论｜。在传统中国，家庭情义与伦理义务被置于至高无上的核心，全社会缺乏西方那种固化的阶级壁垒，人人皆可凭耕读入仕，职业自由流动。乡村不仅是八成以上国民的栖息之所，更是维系中华文明五千年礼乐教化的母体容器。</p>
 <p>梁漱溟向世人发出了震撼心灵的历史警告，近代中国真正的危机，在于西方工业资本主义文明的坚船利炮与商业倾销，强行打碎了本土社会的古老骨架，导致乡村全面破产崩溃。如果只知在沿海大城市建造工厂、模仿西方的政党议会，而听任占人口绝大多数的乡村社会沦为废墟，中国将陷入彻底的文化失魂与肌体解体。本书展现出的不仅是一份救亡图存的施政大纲，更是一代东方先哲为人类文明走出资本异化与阶级厮杀、探索天人合一新秩序的宏伟自救蓝图。</p>
 <div class="highlight-box">
@@ -443,7 +503,7 @@
     
 <p>如果要向一个追求名利与大都市繁华的年轻学子讲解《乡村建设理论》，最能震撼灵魂、激发生命思考的问题莫过于，梁漱溟在二十岁出头便名震天下、担任北京大学哲学系教授，享受着全中国最顶级的文化声望与优厚待遇，为什么他会在人生的黄金盛年毅然辞去北大教职，脱下长衫换上粗布农装，一头扎进山东邹平的贫困泥潭中，与农民同吃同住、挑大粪办学校整整七年？</p>
 <p>普通读者的零号模型往往以为，大学教授的天职就是做学问、写高深论文、在学术界扬名立万，去农村不过是一场有钱有闲者的短暂体验生活或政治投机，何苦为了泥腿子放弃大好学术前程？</p>
-<p>梁漱溟读者用自己的热血生命给出了让千百万人动容的回答。在他看来，知识分子的生命价值绝不在于象牙塔里的坐而论道，而在于能否用自己的知识解决苦难大地的真实痛楚。面对国破家亡的民族危局，如果八成以上的中国老百姓还在饥寒与愚昧中挣扎沉沦，书斋里的学术论文再华美也不过是一张废纸。他之所以扎根乡村，是因为他深爱着这片土地和土地上的父老乡亲，他坚信中国文明的心脏不在北京的殿堂，而在农村的田埂。他不仅要去教化农民，更是怀着谦卑的心去向农民学习求索生命的本真。读者由此感受到一种直击灵魂的崇高人格力量，明白了什么才是一代大儒真正的知行合一与天下担当。</p>
+<p>梁漱溟先生用自己的热血生命给出了让千百万人动容的回答。在他看来，知识分子的生命价值绝不在于象牙塔里的坐而论道，而在于能否用自己的知识解决苦难大地的真实痛楚。面对国破家亡的民族危局，如果八成以上的中国老百姓还在饥寒与愚昧中挣扎沉沦，书斋里的学术论文再华美也不过是一张废纸。他之所以扎根乡村，是因为他深爱着这片土地和土地上的父老乡亲，他坚信中国文明的心脏不在北京的殿堂，而在农村的田埂。他不仅要去教化农民，更是怀着谦卑的心去向农民学习求索生命的本真。读者由此感受到一种直击灵魂的崇高人格力量，明白了什么才是一代大儒真正的知行合一与天下担当。</p>
 <div class="highlight-box">
 <strong>认知跃迁：</strong>走入泥土绝非人生的退化，实为灵魂的彻底淬火。真正的伟大，永远建立在对脚下大地的深沉眷恋与对底层大众的无私托举之中。
 </div>
@@ -455,7 +515,7 @@
     <h1>新时代的乡村自救与复兴：走好本土现代化的人间正道</h1>
     
 <p>回望邹平古道，梁漱溟先生的身影已化作历史丰碑，但他留下的《乡村建设理论》，在今天中国式现代化的宏伟征程中，依然是指引我们探寻文明新路的最明亮航标。</p>
-<p>对于当代每一个投身乡村振兴、乡村项目庄与基层治理的奋斗者，梁漱溟先生留下了三笔跨越世纪的无价精神财富。第一，坚决摒弃照抄照搬西方经验的迷信盲从，坚定走好植根中国本土国情与伦理文化的自主创新之路。中国的现代化绝不能以彻底摧毁乡村文明为代价，我们要像梁先生那样，立足中国乡村的家庭伦理、邻里温情与熟人信用基石，探索出具有中国底色、东方神韵的现代乡村善治体系。</p>
+<p>对于当代每一个投身乡村振兴、百美村庄与基层治理的奋斗者，梁漱溟先生留下了三笔跨越世纪的无价精神财富。第一，坚决摒弃照抄照搬西方经验的迷信盲从，坚定走好植根中国本土国情与伦理文化的自主创新之路。中国的现代化绝不能以彻底摧毁乡村文明为代价，我们要像梁先生那样，立足中国乡村的家庭伦理、邻里温情与熟人信用基石，探索出具有中国底色、东方神韵的现代乡村善治体系。</p>
 <p>第二，坚定不移地走科技赋能、合作共赢的现代农业新路。今天的乡村建设拥有当年邹平无法比拟的现代数字技术、冷链物流与全网电商。我们要把现代科学技术与生态绿色理念深度引入田间地头，完善新型农村集体经济与合作组织，让亿万农民在共享数字化红利的同时，实现尊严与财富的双丰收。</p>
 <p>第三，大力弘扬知识分子扎根基层、躬行实践的家国情怀。当代青年与专业人才，应当勇敢走出内卷焦虑的精神孤岛，把青春的汗水挥洒在祖国辽阔广袤的大地上。在乡村民宿的微观营造中、在农产品品牌的精心打磨中、在乡村文化遗产的守护传承中，实现个人抱负与民族复兴的同频共振。乡村的希望，就在我们的脚下；中国的未来，必将因乡村的璀璨重生而更加光辉灿烂。</p>
 <div class="highlight-box">

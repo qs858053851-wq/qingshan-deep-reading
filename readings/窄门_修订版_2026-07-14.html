@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>窄门 —— 九层解书（修订版）</title>
+<title>窄门 ， 九层解书（修订版）</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -341,13 +382,44 @@
 <div class="container">
 
   <!-- 层间施工图：第一层只立时间骨架；第二层主场为“自我丑化＋调包书架”；第三层固定三根线；第六层跨域使用心理/民宿/健康；第八层主场为日记“受辱”，交易类比只在此展开。 -->
-  <header class="hero">
-    <div class="kicker">九层解书 · 叙事型</div>
-    <h1>窄门</h1>
-    <p class="author">安德烈·纪德　著　／　顾琪静　译</p>
-    <p class="meta">La Porte étroite · 1909　|　读者关切：自我牺牲的心理机制<br>版本：06-04 初稿 · 07-14 修订</p>
-    <p class="summary">一个人如何因为太想得到天堂，而亲手放走了唯一真实的爱——这不是一本关于殉道的颂歌，是一份关于"以爱之名、以神之名"完成的精神自杀的尸检报告。</p>
-  </header>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">窄门</div>
+    <div class="cover-sub">讲述者杰罗姆十二岁丧父，随母亲移居巴黎，每年假期回到诺曼底舅舅布科兰家的庄园。舅舅有三个孩子：大女儿阿莉莎、二女儿朱莉叶特和小儿子罗贝尔。杰罗姆比阿莉莎小两岁，从童年起就把这位安静...</div>
+    <div class="cover-meta">青山 读 · 窄门 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 骨架扫描</span>
+      <span class="toc-desc">讲述者杰罗姆十二岁丧父，随母亲移居巴黎，每年假期回到诺曼底舅舅布科兰家的庄园。舅舅有三个孩子：大女儿阿莉莎、二...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 血肉解剖</span>
+      <span class="toc-desc">第一项前提，真正值得追求的是灵魂的圣洁，是“高于爱情的东西”。第二项前提，尘世幸福会拖累这种圣洁，抓住幸福等于失去更高...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 叙事结构分析</span>
+      <span class="toc-desc">第一根线：崇高与幸福的二元对立。阿莉莎把“窄门”理解为只能独自通过的门，于是神圣与相爱不能并存。这个价值方向把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 灵魂提取</span>
+      <span class="toc-desc">纪德写《窄门》，不是单纯要讲凄美爱情，而是在处理一桩私人旧案。阿莉莎身上有玛德莱娜的影子，也有纪德自己的投射。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 餐巾纸压缩</span>
+      <span class="toc-desc">餐巾纸公式</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 可传播短文</span>
+      <span class="toc-desc">前面按下不表的那句话，现在摊开。阿莉莎发现妹妹朱莉叶特不需要她的牺牲，也能过得幸福时，她在日记里写：我“感到受...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 金句收尾</span>
+      <span class="toc-desc">窄的从来不是那道门，是她亲手把自己收得越来越小，小到最后只容得下一个谁也碰不到的、完美的自己。</span>
+    </div>
+  </div>
+
   
     <section class="layer first">
       <div class="layer-num">第一层</div>
@@ -356,7 +428,7 @@
 
       <div class="marker">童年 · 芬格斯玛尔庄园</div>
       <p>讲述者杰罗姆十二岁丧父，随母亲移居巴黎，每年假期回到诺曼底舅舅布科兰家的庄园。舅舅有三个孩子：大女儿阿莉莎、二女儿朱莉叶特和小儿子罗贝尔。杰罗姆比阿莉莎小两岁，从童年起就把这位安静、虔诚、略带忧郁的表姐当作精神世界的中心。</p>
-      <p>一个夏夜，杰罗姆撞见轻浮的舅妈与年轻军官暧昧，随后听见阿莉莎独自在房间里哭泣祈祷。他立下近乎宗教的誓愿：要保护她，把她从母亲留下的污浊阴影中救出来。第二天牧师引用《路加福音》：“你们要努力进窄门。”这句话从此嵌进两人的爱情——爱不再只是靠近一个人，也被赋予了把彼此送往更高处的使命。</p>
+      <p>一个夏夜，杰罗姆撞见轻浮的舅妈与年轻军官暧昧，随后听见阿莉莎独自在房间里哭泣祈祷。他立下近乎宗教的誓愿：要保护她，把她从母亲留下的污浊阴影中救出来。第二天牧师引用《路加福音》：“你们要努力进窄门。”这句话从此嵌进两人的爱情，爱不再只是靠近一个人，也被赋予了把彼此送往更高处的使命。</p>
 
       <h3 class="interlude-title">幕间 · 四个人，各自守着什么</h3>
       <p><strong>阿莉莎</strong>害怕母亲的命运在自己身上重演，于是把感官幸福与堕落连在一起；<strong>杰罗姆</strong>把爱理解为保护与共同升华，也接受了同一套高调；<strong>朱莉叶特</strong>爱过杰罗姆，却最终走进世俗婚姻；<strong>布科兰舅舅</strong>的受伤与沉默，让“克制可敬、幸福可疑”成了家庭空气。悲剧没有一个单独的恶人，只有一套被所有人不同程度接受的价值秩序。</p>
@@ -374,7 +446,7 @@
       <p>黄昏花园里，杰罗姆拥抱她，追问既然相爱为何不能在一起。阿莉莎回答：“因为爱着彼此，我们期待对方能获得高于爱情的东西。”她相信尘世幸福会使那个高举的梦出现裂痕，于是说“现在，最美好的东西就要开始了”，随后插上门闩。杰罗姆靠门哭泣，却没有撞进去。</p>
 
       <div class="marker">不到一个月 · 疗养院与日记</div>
-      <p>阿莉莎独自前往巴黎一家疗养院，悄然死去，把日记留给杰罗姆。日记证明她并不像表面那样坚定：她怀疑自己的牺牲里混着骄傲，也记录了一个极刺眼的反应——当妹妹不靠她也能幸福时，她竟感到“受辱”。这句话会改写整场牺牲的性质，先按下不表，第八层单独摊开。</p>
+      <p>阿莉莎独自前往巴黎一家疗养院，悄然死去，把日记留给杰罗姆。日记证明她并不像表面那样坚定：她怀疑自己的牺牲里混着骄傲，也记录了一个极刺眼的反应，当妹妹不靠她也能幸福时，她竟感到“受辱”。这句话会改写整场牺牲的性质，先按下不表，第八层单独摊开。</p>
 
       <div class="marker">多年以后 · 活人仍困在幻影里</div>
       <p>杰罗姆终身未娶，后来拜访已为人母的朱莉叶特。暮色里，朱莉叶特问这种没有希望的爱情能否在人心中留存如此之久，杰罗姆说“是的”。她掩面欲哭，女仆掌灯进来。故事收束时，死者已经离场，两个活着的人仍守着那段被无限抬高的爱情。</p>
@@ -389,12 +461,12 @@
       <h2 class="layer-title">血肉解剖</h2>
       <h3>她不是突然退缩，而是被一条论证链推到死角</h3>
       <div class="chain">圣洁高于幸福 → 日常会磨损完美 → 爱若落地必有裂痕 → 不拥有才能永久保存 → 放弃爱情被解释成成全爱情</div>
-      <p><strong>前提一：</strong>真正值得追求的是灵魂的圣洁，是“高于爱情的东西”。<strong>前提二：</strong>尘世幸福会拖累这种圣洁，抓住幸福等于失去更高的生命。<strong>前提三：</strong>她与杰罗姆的爱已被供成通往神的阶梯；既然婚姻会让理想化的爱落进磨损，唯一的保存办法就是不让它发生。</p>
-      <p>于是结论看似顺理成章：放弃不是失败，而是成全；缺席不是失去，而是保存。可这条链把“保住爱情的完美”偷换成“保住爱情”，最终推出一个荒谬结果——为了不让爱受损，先让爱失去生命。</p>
+      <p><strong>第一项前提，</strong>真正值得追求的是灵魂的圣洁，是“高于爱情的东西”。<strong>第二项前提，</strong>尘世幸福会拖累这种圣洁，抓住幸福等于失去更高的生命。<strong>第三项前提，</strong>她与杰罗姆的爱已被供成通往神的阶梯；既然婚姻会让理想化的爱落进磨损，唯一的保存办法就是不让它发生。</p>
+      <p>于是结论看似顺理成章：放弃不是失败，而是成全；缺席不是失去，而是保存。可这条链把“保住爱情的完美”偷换成“保住爱情”，最终推出一个荒谬结果，为了不让爱受损，先让爱失去生命。</p>
 
       <h3>主场案例：她为什么要先把自己变得不值得爱</h3>
       <p>障碍全部清除后，阿莉莎换上生硬发型和破坏身形的粗劣衣服，让自己埋进缝补旧袜的劳作；又撤掉杰罗姆送的画和两人共读的好书，改放她明知庸俗的宗教小册子。这两组动作不是审美变化，而是一场有计划的“去魅”：外表切断肉身吸引，书架切断精神共鸣。</p>
-      <p>它们有同一个功能——把“我不敢让爱落地”改写成“我们已经不再相配”。只要她先拆掉被爱的资格，退场就不再像怯懦，而像顺理成章的自我放弃。纪德没有靠心理说明，而是让发型、胸衣、旧袜和书架替她招供。</p>
+      <p>它们有同一个功能，把“我不敢让爱落地”改写成“我们已经不再相配”。只要她先拆掉被爱的资格，退场就不再像怯懦，而像顺理成章的自我放弃。纪德没有靠心理说明，而是让发型、胸衣、旧袜和书架替她招供。</p>
 
       <h3>最危险的三个隐形假设</h3>
       <p><strong>一，幸福和神圣不能共存。</strong>只要承认爱一个具体的人也可能是接近神的方式，整条链从起点就断了。</p>
@@ -402,19 +474,19 @@
       <p><strong>三，牺牲本身具有救赎价值。</strong>放弃越多，仿佛就越接近圣洁。日记里那句“受辱”说明牺牲甚至可能反过来供养自我，但这一证据的完整含义留到第八层再算。</p>
 
       <h3>边界条件：拒绝二元对立，悲剧就不再必然</h3>
-      <p>朱莉叶特是反证：她走进最世俗、最不完美的婚姻，却长出可触摸的生活。她并非毫无遗憾，但至少证明“有裂痕地活着”不等于堕落。阿莉莎的逻辑越严密，越提醒人检查第一个前提——错误的起点，推得越认真，代价越彻底。</p>
+      <p>朱莉叶特是反证：她走进最世俗、最不完美的婚姻，却长出可触摸的生活。她并非毫无遗憾，但至少证明“有裂痕地活着”不等于堕落。阿莉莎的逻辑越严密，越提醒人检查第一个前提，错误的起点，推得越认真，代价越彻底。</p>
     </section>
     <section class="layer ">
       <div class="layer-num">第三层</div>
       <h2 class="layer-title">叙事结构分析</h2>
       <h3>拆到底，悲剧由三根线牵动</h3>
       <p><strong>第一根线：崇高与幸福的二元对立。</strong>阿莉莎把“窄门”理解为只能独自通过的门，于是神圣与相爱不能并存。这个价值方向把所有靠近都重新命名为下坠，把所有离开都重新命名为上升。她不是被往下拖进深渊，而是被“更高”吸进虚空。</p>
-      <p><strong>第二根线：完美只能靠缺席保存。</strong>她不能忍受爱出现裂痕，便把“不发生”当成最安全的保存术。现实障碍越少，落地风险越直接；妹妹、父亲等理由依次消失后，她只能把防线退到最内侧——只要永不共同生活，爱情就永远不会暴露普通、厌倦和磨损。</p>
+      <p><strong>第二根线：完美只能靠缺席保存。</strong>她不能忍受爱出现裂痕，便把“不发生”当成最安全的保存术。现实障碍越少，落地风险越直接；妹妹、父亲等理由依次消失后，她只能把防线退到最内侧，只要永不共同生活，爱情就永远不会暴露普通、厌倦和磨损。</p>
       <p><strong>第三根线：牺牲成为身份。</strong>放弃起初像手段，后来变成“我是谁”的证明。一个人若靠牺牲确认自己的圣洁，就会需要牺牲持续存在；外部不再要求她受苦时，她反而必须制造新的放弃，才能保住那个高尚自我。</p>
-      <p>三根线一拧紧，形成全书的自我加压机器：价值线规定方向，防御线阻止落地，身份线奖励退让。每清除一个外部障碍，系统就向内升一级压强。普通爱情故事靠阻力制造分离，《窄门》反过来——门一直开着，分离由人物自己生产。</p>
+      <p>三根线一拧紧，形成全书的自我加压机器：价值线规定方向，防御线阻止落地，身份线奖励退让。每清除一个外部障碍，系统就向内升一级压强。普通爱情故事靠阻力制造分离，《窄门》反过来，门一直开着，分离由人物自己生产。</p>
 
       <h3>人物弧线：三种命运的对照</h3>
-      <p><strong>阿莉莎</strong>走“上升—失重”的弧线：越把自己拔高，越无处落脚；临终日记让她看见牺牲中可能混着骄傲，但清醒来得太晚。<strong>朱莉叶特</strong>走“下降—扎根”的弧线：看似向世俗妥协，却在婚姻和孩子中活下来，结尾的泪又说明她并非全胜。<strong>杰罗姆</strong>走“共谋—守灵”的弧线：他几乎把阿莉莎拉回地面，却在门前重新接受那套崇高语言，此后用一生守住幻影。</p>
+      <p><strong>阿莉莎</strong>走“上升，失重”的弧线：越把自己拔高，越无处落脚；临终日记让她看见牺牲中可能混着骄傲，但清醒来得太晚。<strong>朱莉叶特</strong>走“下降，扎根”的弧线：看似向世俗妥协，却在婚姻和孩子中活下来，结尾的泪又说明她并非全胜。<strong>杰罗姆</strong>走“共谋，守灵”的弧线：他几乎把阿莉莎拉回地面，却在门前重新接受那套崇高语言，此后用一生守住幻影。</p>
 
       <h3>书名的反讽</h3>
       <p>福音书的“窄门”原本强调通往真理的路艰难、不能随大流；阿莉莎却把精神难度偷换成物理宽度，仿佛门窄到不能带着爱人同行。耶稣说“别走容易的路”，她听成“别带着爱进去”。杀死她的不是一句经文本身，而是经文被家庭阴影与个人恐惧共同改写后的版本。</p>
@@ -438,7 +510,7 @@
 
       <h3>行动触发：把牺牲从身份还原成工具</h3>
       <p><strong>第一问：</strong>如果对方今天告诉我“已经不需要你这样做”，我会轻松，还是会感到被否定？后者说明被威胁的可能不是善意，而是“高尚的我”。</p>
-      <p><strong>第二步，落到住宿业场景现场：</strong>挑一件反复由自己救火的事，写成“触发条件—负责人—标准动作—升级边界”四格流程，本周完整交给一个人跑一次。真正的负责，是让事情不再依赖自己的牺牲。</p>
+      <p><strong>第二步，落到先生的民宿现场：</strong>挑一件反复由自己救火的事，写成“触发条件，负责人，标准动作，升级边界”四格流程，本周完整交给一个人跑一次。真正的负责，是让事情不再依赖自己的牺牲。</p>
       <p><strong>第三条边界：</strong>接受裂痕不等于放弃标准。关系、项目和身体计划都可以迭代；先允许它以七十分落地，再用反馈修正，比用一百分的想象长期推迟更接近真实。</p>
     </section>
     <section class="layer ">
@@ -475,7 +547,7 @@
       <p>这反应很奇怪。一个人若真心只想成全妹妹，发现妹妹已经幸福，本该松一口气：目的达成，而且谁也不必受苦。可阿莉莎失落的不是妹妹，她失落的是自己的牺牲突然没有了用处。</p>
       <p>这句话像一道裂缝，把整场悲剧的地基照亮了。她当然真诚，也确实爱杰罗姆、爱妹妹、爱神；问题恰恰不在虚伪，而在一种真诚的自我欺骗：牺牲原本是手段，慢慢变成了自我价值的来源。她需要的不只是谁得到幸福，还需要自己是那个“为了更高之物放弃幸福的人”。</p>
       <p><strong>自我牺牲有时不是给出去，而是绕一圈抓回来。</strong>表面献出爱情、时间和身体，暗中收回一个无可指摘的自我形象。只要“我在牺牲”仍被紧紧保留，献出的东西越多，这个自我反而越高大。</p>
-      <p>有人会反驳：她是真的信“窄门”，不是表演。没错。可真诚并不能自动证明动机纯粹。若她只在乎神与妹妹的结果，那么“不需要牺牲”应当是恩典；她却感到受辱，说明结果之外还有一笔隐藏收益——牺牲让她确认自己高尚、必要、不同于普通人。</p>
+      <p>有人会反驳：她是真的信“窄门”，不是表演。没错。可真诚并不能自动证明动机纯粹。若她只在乎神与妹妹的结果，那么“不需要牺牲”应当是恩典；她却感到受辱，说明结果之外还有一笔隐藏收益，牺牲让她确认自己高尚、必要、不同于普通人。</p>
       <p>把这套结构搬到交易里，就更容易看清。一个交易者反复等待“完美入场”：再等一根确认K线，再等一次回踩，再等结构更干净。每个理由都专业，合起来却是永远不开仓。他保存的不是利润，而是“我从不犯错”的形象。</p>
       <p>真金白银一进场，判断就会被市场检验，可能浮亏、止损、证明自己只是普通人。不行动则能永久保存完美。阿莉莎也一样：爱一旦落地，就会争吵、厌倦、磨损，证明两个人都只是普通人；只有把爱留在缺席里，它才永远像神迹。</p>
       <p>所以最高的标准，有时是最深的怯懦。标准越高，越有正当理由不行动；每一次“还不够纯粹”“还没准备好”，都能保护那个理想自我不受现实碰撞。阿莉莎把标准抬到天国，人间自然没有任何东西配得上。</p>

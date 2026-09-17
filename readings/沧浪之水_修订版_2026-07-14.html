@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>沧浪之水 —— 深度解书（修订版）</title>
+<title>沧浪之水 ， 深度解书（修订版）</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,12 +380,48 @@
 </head>
 <body>
 <div class="container">
-<div class="hero">
-<div class="meta">深度解书 · 叙事型</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">沧浪之水</div>
+    <div class="cover-sub">深度解书 · 叙事型</div>
+    <div class="cover-meta">阎真 著 · 人民文学出版社 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 骨架扫描：一个人怎样走完下山路</span>
+      <span class="toc-desc">池大为的父亲是个被打成右派、下放到三山坳的乡村医生，一辈子守着一身清骨。父亲死后，池大为整理遗物，翻出一本《中...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 血肉解剖：堕落怎样获得了说服力</span>
+      <span class="toc-desc">这条因果链并不复杂：人格原则换不来车、房、职称和床位；原则的代价渐渐落到妻儿身上；当“坚守”被体验成“让家人受...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 叙事结构分析：三根线把人往下牵</span>
+      <span class="toc-desc">池大为的变化看似由很多琐事推动，收束到底，实际只有三根线：亲人受苦形成压力，系统封闭压缩退路，语言重命名消解内...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 灵魂提取：不是岸上的审判，是水里的坦白</span>
+      <span class="toc-desc">阎真是大学教授，也是他笔下那类知识分子。《沧浪之水》的痛感不是来自站在岸上批判别人，而是来自“同谋者的羞愧”：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 餐巾纸压缩：三根线，一个结果</span>
+      <span class="toc-desc">餐巾纸公式</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 可传播短文：“别无选择”是怎么被造出来的</span>
+      <span class="toc-desc">儿子一波被开水严重烫伤，池大为抱着孩子冲进卫生厅大院借车。他向洗车司机下跪作揖，喊“是个人啊，不是别的，是个人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 金句、事实边界与结尾</span>
+      <span class="toc-desc">《沧浪之水》写的是一个知识分子在权力与世俗的合围下，如何为了爱与生存，一步步亲手交出自己的灵魂，并用“别无选择...</span>
+    </div>
+  </div>
+
 <h1>沧浪之水</h1>
 <div class="author">阎真 著 · 人民文学出版社</div>
 <div class="version">06-13 初稿 · 07-14 修订</div>
-<div class="quote">沧浪之水清兮，可以濯吾缨；沧浪之水浊兮，可以濯吾足。<br>——屈原《渔父》</div>
+<div class="quote">沧浪之水清兮，可以濯吾缨；沧浪之水浊兮，可以濯吾足。<br>，屈原《渔父》</div>
 </div>
 
 <div class="layer"><div class="num">第一层</div><h2>骨架扫描：一个人怎样走完下山路</h2>
@@ -366,7 +443,7 @@
 <p>池大为不是突然变坏的。他先是试着看马厅长的脸色，继而学会在饭局上说该说的话，替领导写材料、办私事、铺路子。晏之鹤用自己的半生教训告诉他：“你不要跟生活作对，生活比你强大得多。”每次妥协都先带来厌恶，随后带来一点真实收益；收益又替下一次妥协作证。直到他成为马垂章身边的人，并在马退下来后接过厅长的位置。</p>
 
 <div class="marker">登顶：山下有人喊“池厅长”</div>
-<p>他终于有了车、房、别人的笑脸，也有了“虚拟的尊严和真实的利益”。小说结尾，他回到父亲坟前，烧掉那张肖像，也烧掉了父亲交给他的那套尺度。山下传来“池厅长——池厅长——”的呼唤，越来越近。职位上的成功与精神上的告别，在同一团火光里完成。</p>
+<p>他终于有了车、房、别人的笑脸，也有了“虚拟的尊严和真实的利益”。小说结尾，他回到父亲坟前，烧掉那张肖像，也烧掉了父亲交给他的那套尺度。山下传来“池厅长，池厅长，”的呼唤，越来越近。职位上的成功与精神上的告别，在同一团火光里完成。</p>
 
 <h3>这本书在说什么</h3>
 <p>小说把省卫生厅当作一个切面，写上世纪末价值尺度转换时，一名知识分子如何从“守住什么”走向“得到什么”。书名取自《渔父》：“沧浪之水清兮，可以濯吾缨；沧浪之水浊兮，可以濯吾足。”阎真把原本的随遇而安拧成反讽：当河水整体变浊，清白还到哪里寻找立足之岸？</p>
@@ -473,22 +550,22 @@
 <p>《沧浪之水》写的是一个知识分子在权力与世俗的合围下，如何为了爱与生存，一步步亲手交出自己的灵魂，并用“别无选择”为这场交付盖上封条。它不是简单的堕落故事，而是关于堕落如何变得“名正言顺”的故事。</p>
 <h3>关键洞察</h3>
 <div class="blockquote">“堕落或许难以避免，但为堕落撒谎是可以避免的。前者是处境，后者是人格。”</div>
-<div class="blockquote">“没有人拿刀逼池大为。所有的‘迫’，都来自他自己对代价的计算——不是没得选，是另一个选项的标价他不愿付。”</div>
+<div class="blockquote">“没有人拿刀逼池大为。所有的‘迫’，都来自他自己对代价的计算，不是没得选，是另一个选项的标价他不愿付。”</div>
 <div class="blockquote">“知识本该是照亮路的灯，在池大为手里却成了遮住眼的布。他越聪明，借口越精致。”</div>
 <h3>最终启示</h3>
 <div class="blockquote">守不守得住清白，很多时候不由你；但守不守得住对自己的诚实，永远由你。</div>
 
 <div class="facts">
 <h3>事实边界</h3>
-<p><strong>文本与解读</strong>：本文据阎真《沧浪之水》的小说叙事写成。人物、情节及引语属于文学文本；“亲人受苦—系统封闭—语言重命名”是本文的结构归纳，不是作者在书中明列的理论。</p>
+<p><strong>文本与解读</strong>：本文据阎真《沧浪之水》的小说叙事写成。人物、情节及引语属于文学文本；“亲人受苦，系统封闭，语言重命名”是本文的结构归纳，不是作者在书中明列的理论。</p>
 <p><strong>时代判断</strong>：关于上世纪末价值尺度转换、知识分子精神退场的表述，是结合小说场域作出的解释，不等同于对整个时代或所有体制经验的统计结论。</p>
-<p><strong>隐形假设</strong>：本文的堕落逻辑成立，前提是“整条河都浊了”——系统给清白者留下的生存空间很小，独善其身的成本高到需要至亲共同承担。如果存在可行的离场路径，堕落便不是唯一解。</p>
+<p><strong>隐形假设</strong>：本文的堕落逻辑成立，前提是“整条河都浊了”，系统给清白者留下的生存空间很小，独善其身的成本高到需要至亲共同承担。如果存在可行的离场路径，堕落便不是唯一解。</p>
 <p><strong>边界条件</strong>：胡一兵代表的体制外路径在小说里被轻轻带过，说明作者为了保持困局强度，压缩了现实中的替代方案。因此，“别无选择”既是人物的心理事实，也仍是一项可被质疑的叙事判断。</p>
 </div>
 
 <h3>结语</h3>
-<p>阎真没有审判池大为，因为他知道审判太便宜。他只是把一个人怎样一寸寸交出自己的全过程，冷静地摊在你面前，然后让你在某个瞬间惊出一身冷汗——那不是别人，那是被逼到墙角的你。这本书的价值不在于教你做屈原，而在于：当你不得不濯足的时候，它让你记得，水曾经是清的，而你心里清楚自己正站在哪一段河里。</p>
-<p>读它最大的收获，或许不是学会了怎么对抗污浊，而是学会了诚实地丈量自己——知道自己能扛到哪一步，知道自己在哪一步会松手，知道松手时别再骗自己说“是水把我冲走的”。这份自知，不能让你免于濯足，却能让你濯足时仍是个清醒的人。而清醒，正是池大为在烧掉那张肖像的火光里，最终也没能保住的东西。这或许就是阎真留给每一个读书人最后的提醒。</p>
+<p>阎真没有审判池大为，因为他知道审判太便宜。他只是把一个人怎样一寸寸交出自己的全过程，冷静地摊在你面前，然后让你在某个瞬间惊出一身冷汗，那不是别人，那是被逼到墙角的你。这本书的价值不在于教你做屈原，而在于：当你不得不濯足的时候，它让你记得，水曾经是清的，而你心里清楚自己正站在哪一段河里。</p>
+<p>读它最大的收获，或许不是学会了怎么对抗污浊，而是学会了诚实地丈量自己，知道自己能扛到哪一步，知道自己在哪一步会松手，知道松手时别再骗自己说“是水把我冲走的”。这份自知，不能让你免于濯足，却能让你濯足时仍是个清醒的人。而清醒，正是池大为在烧掉那张肖像的火光里，最终也没能保住的东西。这或许就是阎真留给每一个读书人最后的提醒。</p>
 <p style="text-align:right;color:#666;font-size:13px;">青山 · 2026-06-13 初稿 · 2026-07-14 修订</p>
 </div>
 

@@ -5,26 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>国家构建 · 九层解读</title>
 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -81,6 +90,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -94,14 +114,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -110,7 +130,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -119,7 +139,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -129,7 +149,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -137,12 +157,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -158,7 +178,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -173,7 +192,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -268,9 +286,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -278,6 +295,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -330,6 +364,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +383,56 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-  <div class="series">理想国译丛 · 福山七书之五 · 九层解读</div>
-  <h1>国家构建</h1>
-  <div class="sub">真正的问题不是政府大不大，而是它承担的事情和它办成事情的能力，是否匹配</div>
-  <div class="meta"><b>弗朗西斯·福山</b>（Francis Fukuyama）著 · 郭华 译 · 学林出版社 / 理想国译丛 2017<br>原书 State-Building: Governance and World Order in the Twenty-First Century（2004）· 政治理论 / 国家治理 / 世界秩序<br>说明：中文本含李强导读，导读可作定位与批评，不混作福山正文。</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">国家构建</div>
+    <div class="cover-sub">福山 （Francis Fukuyama）著 · 郭华 译 · 学林出版社 / 理想国译丛 2017 原书 State-Building: Governance and World Order in the Twenty-First Century（2004）· 政治理论 / 国家治理 / 世界秩序 说明：中文本含李强导读，导读可作定位与批评，不混作福山正文。</div>
+    <div class="cover-meta">弗朗西斯 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">《国家构建》问的不是一个抽象政治学问题，而是一个很现实的治理问题：为什么很多国家按外部专家的药方做了自由化、私...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · "管多少"和"办不办得成"不是一回事</span>
+      <span class="toc-desc">读这本书，先别急着站队"大政府"还是"小政府"。福山要你先把这个问题拆开。政府管多少事，叫范围；政府能不能把事...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 市场化不是错，错在没有制度地基</span>
+      <span class="toc-desc">福山批评华盛顿共识，但他不是反市场派。这个点必须钉牢。华盛顿共识里有很多东西，在当时并非凭空胡来：财政纪律、私...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 公共行政为什么没有万能说明书</span>
+      <span class="toc-desc">第2章是全书最技术、也最难的一章。很多人读制度书，会满足于一句"制度很重要"。福山更狠，他继续往下问：如果制度...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 为什么帮忙也可能把能力吸走</span>
+      <span class="toc-desc">福山不是简单骂外部援助。他知道很多援助是真需要，很多失败国家没有外部帮助会更糟。但他提醒一个残酷矛盾：外部力量...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 弱国家把国内问题变成世界问题</span>
+      <span class="toc-desc">第3章把全书从发展政策推进到世界秩序。福山的判断是：冷战结束后，软弱或失败国家已经成为国际秩序最重要的问题之一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 国家能力到底是什么东西</span>
+      <span class="toc-desc">"国家能力"听起来很大，其实可以拆成几件朴素的事。第一，能制定清楚政策，不是每天变口径。第二，能执行法律，不是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 顺着问题，把全书逻辑串起来</span>
+      <span class="toc-desc">因为福山认为，冷战后很多问题不是国家太强，而是国家太弱。弱国家无法提供法治、安全、公共服务和基本秩序，内部发展...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 如果只能记住一套判断</span>
+      <span class="toc-desc">做乡村和民宿项目时，最容易被宏大叙事带走：共同富裕、乡村振兴、文旅融合、研学营地、主理人社区、品牌传播、村民增...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20 · 别把一张漂亮蓝图误认为一块真正长出来的骨头</span>
+      <span class="toc-desc">前面七层各自拆开的问题，到这里要收成一句话。《国家构建》最值得带走的，不是一套国际政治术语，而是一种看事情的眼...</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层 · 先把整本书放平</div>
@@ -381,7 +468,7 @@
   <p>但冷战结束后，另一种危险变得更突出：不是国家太多，而是国家太少。这里的"少"不是机构少，而是能力少。索马里、海地、阿富汗、部分非洲国家的困境告诉世界，弱国家不只让本国人民受苦，还会制造难民、内战、疾病、恐怖主义和跨境犯罪。9·11之后，弱国家从发展问题、人道问题，变成西方安全问题。福山这本书的2004年语境就在这里：阿富汗、伊拉克、失败国家、国际干预、主权合法性，都压在他的论证背后。今天读它，不能把它当成2020年代写的书，但它提出的框架仍然耐用。</p>
   <h3>"小而强"的真实含义</h3>
   <p>"小而强"不是小政府口号。它不是说政府越小越好，而是说政府承担的职能必须和能力匹配；尤其对贫穷国家来说，不需要一个范围广泛、无所不包的国家，更需要一个能在有限范围内把基本职能办好的国家。这里的"小"是边界感，"强"是执行力、法治、透明度、问责和组织能力。它的精神更像一句项目管理原则：别把摊子铺到团队承载不了的地方；但凡你写进职责清单的事，就要有流程、人、钱、权责和复盘机制把它做成。</p>
-  <p>这对读者做乡村和民宿项目特别有用。很多项目失败，不是愿景不美，也不是设计不漂亮，而是范围和能力错配。一个村庄运营平台一上来就想做住宿、餐饮、研学、文创、电商、直播、社群、培训、农产品供应链，听起来像"全域运营"，实际可能是大而弱。更稳的做法，是先定义有限范围：比如先把接待、卫生、安全、财务、客户反馈、村民协作这六件基本事做强。等能力长出来，再扩范围。这就是福山的"小而强"在乡村场景里的翻译。</p>
+  <p>这对先生做乡村和民宿项目特别有用。很多项目失败，不是愿景不美，也不是设计不漂亮，而是范围和能力错配。一个村庄运营平台一上来就想做住宿、餐饮、研学、文创、电商、直播、社群、培训、农产品供应链，听起来像"全域运营"，实际可能是大而弱。更稳的做法，是先定义有限范围：比如先把接待、卫生、安全、财务、客户反馈、村民协作这六件基本事做强。等能力长出来，再扩范围。这就是福山的"小而强"在乡村场景里的翻译。</p>
 </section>
 
 <section class="layer">
@@ -450,7 +537,7 @@
   <h3>能力不是可见文件，是可重复行动</h3>
   <p>很多组织有一种错觉：制度上墙了，能力就有了；培训做完了，能力就有了；专家报告交付了，能力就有了。福山会说，这些最多是能力的条件，不是能力本身。能力要看行动能不能重复。今天领导在，能做好；明天领导不在，也能做好。今天外部专家在，能做好；项目结束后，也能做好。今天有检查，能做好；平时没人看，也能做好。这才叫能力。</p>
   <p>所以国家能力不能移植。你可以移植制度文本，不能移植背后那套行动习惯。你可以复制组织架构，不能复制人们对权责的理解。你可以拿来一套绩效表，不能拿来一个组织的职业伦理。真正的国家构建，是把规则、资源、人、激励、文化和时间熬在一起，熬出一种稳定可预期的行动方式。这个过程慢，且必然本地化。</p>
-  <h3>对读者项目的直接映射</h3>
+  <h3>对先生项目的直接映射</h3>
   <p>把福山这套东西放到乡村和民宿项目里，可以得到一个很实用的判断框架：第一，先问范围。这个项目到底要承担哪些功能？住宿接待、公共空间、研学课程、村民增收、品牌传播、基层治理、产业供应链，哪些是现在必须做的，哪些是以后再做的？第二，问能力。每一项功能背后有没有人、流程、预算、授权、数据、复盘？第三，问匹配。如果能力不够，就先缩范围；如果范围不能缩，就必须补能力；最怕的是两边都不承认，靠口号硬扛。</p>
   <p>比如一个村宿项目，最基础的能力不是会做漂亮方案，而是卫生稳定、入住顺畅、安全可控、账目清楚、客诉闭环、村民分工明确。没有这些，就不要急着叠加复杂产品。再比如培训课程，真正的能力不是讲师讲得精彩，而是学员回去能不能照着做，管理者能不能跟进，组织有没有二次练习和反馈。如果没有，培训只是一次服务交付，不是能力建设。</p>
 </section>
@@ -486,7 +573,7 @@
 
 华盛顿共识的误区：只盯着向左缩范围，没有同步向上补能力。
 福山的提醒：市场、援助、民主、发展，都需要国家能力托底。</div>
-  <h3>给读者的落地版</h3>
+  <h3>给青山先生的落地版</h3>
   <p>做乡村和民宿项目时，最容易被宏大叙事带走：共同富裕、乡村振兴、文旅融合、研学营地、主理人社区、品牌传播、村民增收。它们都重要，但每加一个词，都是在扩大范围。福山会提醒我们：范围扩一次，就要问能力跟上没有。谁负责？钱怎么来？标准是什么？信息怎么回流？失败怎么纠偏？外部团队退出后谁继续？这些问题答不出来，就先别再加新功能。</p>
   <p>更锋利一点说，很多项目所谓"资源导入"，其实是外部团队的能力展示，不是本地能力生长。真正高级的帮忙，不是替村庄完成一个漂亮动作，而是让村庄获得下一次自己完成动作的能力。能做到这一点，哪怕范围小，项目也是强的；做不到这一点，哪怕页面很漂亮、活动很热闹、报道很多，也可能只是大而弱。</p>
 </section>

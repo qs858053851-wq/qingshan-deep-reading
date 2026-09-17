@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>如何有效阅读一本书 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -338,10 +379,52 @@
 </style>
 </head>
 <body><main class="container">
-<header class="hero">
-  <h1>如何有效阅读一本书</h1>
-  <div class="author">奥野宣之 · 一本笔记本里的阅读生活</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">如何有效阅读一本书</div>
+    <div class="cover-sub">一本笔记本里的阅读生活</div>
+    <div class="cover-meta">奥野宣之 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 这本书到底在讲什么</span>
+      <span class="toc-desc">奥野宣之解决的是一个很常见的麻烦：书买了，读了，几个月后却只剩“好像看过”。他的办法并不新奇，只用一本普通笔记...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 作者凭什么这么说</span>
+      <span class="toc-desc">这本书没有实验组和统计表，它的证据主要来自作者多年的个人实践。这样的证据能说明方法怎样运转，无法比较它和其他方...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 真正在牵动全书的是哪几根线</span>
+      <span class="toc-desc">第一根线是选择权。读什么，应该由生活中持续出现的问题决定。作者把报纸书评里反复遇见的书名、谈话中冒出的疑问和日...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这件事的根扎在哪</span>
+      <span class="toc-desc">理解发生在有限的注意中。阅读当时，前后文都在眼前，一条论证显得连贯；书合上后，支撑这份连贯感的上下文也随之退场...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 七个问题，串起整本书</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者为什么非写不可</span>
+      <span class="toc-desc">奥野宣之着急的，是人和书的关系被“读完”两个字截断。他看见许多人追求数量与速度，买书靠一时冲动，读时划满重点，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">一句话：书只有进入你的选择、判断和后来生活，才算真正读过。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 合上书最想跟人讲的那件事</span>
+      <span class="toc-desc">奥野宣之讲了一整本笔记技巧。把这些技巧放在一起看，会出现一个比文具更重要的预期：读完以后，我要对其中几句话作出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 <section class="layer">
   <div class="kicker">Layer 01</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>

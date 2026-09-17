@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>三国演义 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>三国演义</h1>
-  <div class="author">罗贯中 · 章回体长篇小说 · 毛宗岗评改本一百二十回</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">三国演义</div>
+    <div class="cover-sub">章回体长篇小说 · 毛宗岗评改本一百二十回</div>
+    <div class="cover-meta">罗贯中 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">全书第一句话就把底牌亮了："话说天下大势，分久必合，合久必分。"这不是开场白，是整本书的物理定律。往下一百二十...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">《三国演义》通行的说法是"七实三虚"：大框架照史书，关键戏全靠编。看懂它做了哪些手脚，比背熟情节更接近这本书。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">把演义当一部组织兴衰史读，一百二十回底下是三根线：三个创业集团各押了一种立国资源，各自的结局都是那笔押注的利息...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">罗贯中生在元末明初，亲历了另一场天下大乱，相传他还给起兵的张士诚做过幕僚（此为通行说法，史料单薄）。一个见过真...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">一句话：一群顶级聪明人拼尽人谋争天下，天下最后归了那个不争、只熬的人。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">全书第一回，三个人在桃园里发誓："不求同年同月同日生，只愿同年同月同日死。"读者从小听到大，把它当美谈。但如果...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -411,7 +483,7 @@
   <div class="layer-no">第三层</div>
   <div class="layer-title">拆到底：三家公司，三套打法</div>
 
-  <p>把演义当一部组织兴衰史读，一百二十回底下是三根线：三个创业集团各押了一种立国资源，各自的结局都是那笔押注的利息。这也是读史时最关心的层面，制度逻辑，不是热闹。</p>
+  <p>把演义当一部组织兴衰史读，一百二十回底下是三根线：三个创业集团各押了一种立国资源，各自的结局都是那笔押注的利息。这也是先生读史最关心的层面，制度逻辑，不是热闹。</p>
 
   <p>曹操押的是<strong>制度</strong>。两件事奠定曹魏：挟天子（垄断合法性的解释权，打谁都师出有名）和唯才是举（人才市场向寒门敞开，郭嘉、荀彧、贾诩这批顶级谋士全是制度红利招来的）。制度型组织的长处是不依赖任何一个人，曹操死了，曹魏照常运转。短处也在这里：制度是个空壳，谁掌握它谁就是它，所以曹魏最终被自己体系里最会经营制度的司马家从内部接管。三国里唯一被权臣和平取代而非战场消灭的，恰恰是制度最完备的魏。</p>
 

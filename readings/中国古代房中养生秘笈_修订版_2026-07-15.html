@@ -5,25 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>解书：中国古代房中养生秘笈</title>
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -338,13 +379,12 @@
 </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="kicker">QINGSHAN DEEP READING</div>
-      <h1>中国古代房中养生秘笈</h1>
-      <div class="meta">段成功、刘亚柱 主编｜中医古籍出版社｜2001 年｜扫描版 PDF 受限深读</div>
-    </div>
-  </header>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中国古代房中养生秘笈</div>
+    <div class="cover-sub">这次读到的 PDF 是 1925 页扫描版，由 FlashPaper 生成，没有可复制文本层。本地 `pdftotext` 只能取到空白字符；Tesseract 没有中文语言包；项...</div>
+    <div class="cover-meta">段成功、刘亚柱 主编｜中医古籍出版社｜2001 年｜扫描版 PDF 受限深读 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
 
   <main class="container">
     <section>
@@ -399,7 +439,7 @@
       <h2>追本：为什么房事会变成养生问题</h2>
       <p>表面看，这本书在谈房中。往下钻一层，它在谈节制。再往下，它在谈生命能量如何被欲望牵动。继续往下，是一个更老的问题：人怎样和自己的冲动相处。</p>
       <p>人有身体，身体会有欲望。欲望一来，人最容易把它理解成“我要满足”。古人不这么看，他们更警惕：欲望是有力量的东西，而有力量的东西，最不能完全交给即时冲动。</p>
-      <p>古人为这股力量准备了什么？阴阳、节气、禁忌、礼法、医方、导引——证据都已陈列在前面几层。但这些手段背后还藏着一个共同的意象，它才是全书真正的钥匙。这里按下不表，第八层摊开。</p>
+      <p>古人为这股力量准备了什么？阴阳、节气、禁忌、礼法、医方、导引，证据都已陈列在前面几层。但这些手段背后还藏着一个共同的意象，它才是全书真正的钥匙。这里按下不表，第八层摊开。</p>
       <p>先留一个裂缝：如果管得过死，生命会僵硬；如果完全放任，生命会失控。房中养生就在这个裂缝里摇摆。它一边试图保护身体，一边又很容易滑向神秘化、男性中心和控制欲。读这类书，需要同时保留两只眼睛：一只看它的洞见，一只看它的时代局限。</p>
     </section>
 
@@ -450,7 +490,7 @@
       <p>但它的长处也在这里。它逼现代人承认：性不是孤立事件。你以为它只是私密快感，实际上它和身体状态、心理压力、关系结构、身份焦虑、衰老恐惧、生育想象纠缠在一起。古人用精气神说，现代人用激素、神经、循环、依恋和压力说，底层问题没有完全变。</p>
       <p>跨域来看，这本书很像交易里的风险管理。新手只看进场技巧，老手先看仓位、波动、止损和恢复能力。房中养生也是这样。庸俗读法只问“有什么技巧”，高一层读法先问“我的身体、关系和节律能不能承载”。</p>
       <p>也像道家修行。道家最怕“有为过度”，房中术最怕“欲望过度”。不是反对生命力，而是怕生命力被短期冲动牵着走。真正的养生不是把人变成冷冰冰的禁欲机器，而是让欲望不再反过来奴役身体。</p>
-      <p>行动触发很具体：第一，读古方时先标注“仅作历史材料”，不要直接试药；第二，任何性健康问题先走现代医学路径；第三，把性状态当作身体和关系的信号，不要只当表现问题；第四，把“节制”理解为节律，不理解为压抑；第五，把“先看承载再谈技巧”带进交易和民宿运营——进场前先看仓位和睡眠，旺季冲量前先看团队和身体还剩多少余量；第六，亲密关系里少一点秘术想象，多一点沟通、休息和诚实。</p>
+      <p>行动触发很具体：第一，读古方时先标注“仅作历史材料”，不要直接试药；第二，任何性健康问题先走现代医学路径；第三，把性状态当作身体和关系的信号，不要只当表现问题；第四，把“节制”理解为节律，不理解为压抑；第五，把“先看承载再谈技巧”带进交易和民宿运营，进场前先看仓位和睡眠，旺季冲量前先看团队和身体还剩多少余量；第六，亲密关系里少一点秘术想象，多一点沟通、休息和诚实。</p>
     </section>
 
     <section>

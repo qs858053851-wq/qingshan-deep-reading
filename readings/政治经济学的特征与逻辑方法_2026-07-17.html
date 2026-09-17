@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>政治经济学的特征与逻辑方法 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>政治经济学的特征与逻辑方法</h1>
-  <div class="meta">约翰·埃利奥特·凯尔恩斯 · 商务印书馆 2016 刘瑞译本（1875 年第二版）· 青山深度阅读</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">政治经济学的特征与逻辑方法</div>
+    <div class="cover-sub">埃利奥特·凯尔恩斯 · 商务印书馆 2016 刘瑞译本（1875 年第二版）· 青山深度阅读</div>
+    <div class="cover-meta">约翰 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">核心问题：政治经济学到底算不算一门科学？如果算，它的方法是什么？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">核心论证链：政治经济学研究财富现象间的因果 → 它的前提（人追求财富、厌恶劳动、人口原理、土地报酬递减）人人可...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在牵动全书的那三根线</span>
+      <span class="toc-desc">这本书看着讲了很多：定义、方法、人口、租金、论战。拆到底，就三根线在起作用。用这三根线，全书几乎每个论点都能推...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">全书最深的问题，比"经济学该用什么方法"还要底下一层：规律为什么可以是趋势？我们平时觉得，规律就是"一定会发生...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把凯尔恩斯的辩护走一遍</span>
+      <span class="toc-desc">结论：凭它追踪现象间的必然联系，并且拒绝开处方。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者为什么非写不可。凯尔恩斯接手惠特利讲席时，古典经济学正处在信任危机的谷底：工人阶级不信任它，因为它听起来总...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸说完这本书</span>
+      <span class="toc-desc">一句话：政治经济学是一门假设性科学，前提人人可察，方法以演绎为主，结论只承诺趋势，数据负责验证和暴露干扰，中立...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 最值钱的那一点：规律被现实打脸时，该怎么办</span>
+      <span class="toc-desc">一八五七年，凯尔恩斯在都柏林的讲台上说了一句当时很逆耳、今天更逆耳的话：经济学的规律与事实不符，根本不构成反驳...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇基于商务印书馆 2016 年刘瑞译本扫描版 OCR 全文（所据底本为凯尔恩斯 1875 年第二版），引文均...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -404,7 +488,7 @@
 
   <p>第三层，实验。硬气来自实验。物理学家能把其他原因一个一个关掉，让引力单独表演，于是规律可以直接兑现成事件序列。经济学家关不掉：不能叫半个国家的人今年别消费。没有实验这把剪刀，规律和事件之间就永远隔着一层"其他条件"。裂缝再往下：那为什么隔着这一层，规律还配叫规律？</p>
 
-  <p>第四层，基岩：规律管"作用"，世界管"结果"。钻到底了。科学讲的从来不是"会发生什么"，而是"什么在起作用"。引力定律说的是质量互相吸引，羽毛落不落，它都成立；货币数量论同理，它承诺货币对物价有一个推力，仅此而已。结果可以被干扰项改写，作用不会。凯尔恩斯全书就站在这块基岩上：把"规律"从"结果的承诺"改写成"作用的陈述"，趋势律于是翻了身——在所有无法实验的科学里，这是唯一诚实的说法。谁要求经济规律承诺结果，谁就是要求一门科学做它做不到的事；这个要求本身，才是不科学。</p>
+  <p>第四层，基岩：规律管"作用"，世界管"结果"。钻到底了。科学讲的从来不是"会发生什么"，而是"什么在起作用"。引力定律说的是质量互相吸引，羽毛落不落，它都成立；货币数量论同理，它承诺货币对物价有一个推力，仅此而已。结果可以被干扰项改写，作用不会。凯尔恩斯全书就站在这块基岩上：把"规律"从"结果的承诺"改写成"作用的陈述"，趋势律于是翻了身，在所有无法实验的科学里，这是唯一诚实的说法。谁要求经济规律承诺结果，谁就是要求一门科学做它做不到的事；这个要求本身，才是不科学。</p>
 </div>
 
 <div class="layer">
@@ -530,7 +614,7 @@
 
 <div class="truth">
   <div class="t">事实边界</div>
-  <p>本篇基于商务印书馆 2016 年刘瑞译本扫描版 OCR 全文（所据底本为凯尔恩斯 1875 年第二版），引文均以短片段在原文中定位核实，OCR 有 5%–10% 噪点。几处口径说明：托伦斯预言的年数，OCR 文本有"14 个世纪"的明显讹文，本篇按书中另一处自证"约三十五年"采用；人名经 OCR 多有变体（里卡兹、詹宁斯等），本篇以通行译名统一。格雷戈里·金价格表等历史数字只作趋势示意，未与印本逐字复核。文末注释末页疑扫描不全。需声明：行为经济学、实验经济学、波普尔可证伪性都是后世对照框架，非本书内容；"科学陈述作用而非结果"一层是顺着凯尔恩斯论证的解读发挥。第七、八讲的两场论战本篇只作方法论示范引用，未展开人口论与租金论的实质内容。</p>
+  <p>本篇基于商务印书馆 2016 年刘瑞译本扫描版 OCR 全文（所据底本为凯尔恩斯 1875 年第二版），引文均以短片段在原文中定位核实，OCR 有 5%，10% 噪点。几处口径说明：托伦斯预言的年数，OCR 文本有"14 个世纪"的明显讹文，本篇按书中另一处自证"约三十五年"采用；人名经 OCR 多有变体（里卡兹、詹宁斯等），本篇以通行译名统一。格雷戈里·金价格表等历史数字只作趋势示意，未与印本逐字复核。文末注释末页疑扫描不全。需声明：行为经济学、实验经济学、波普尔可证伪性都是后世对照框架，非本书内容；"科学陈述作用而非结果"一层是顺着凯尔恩斯论证的解读发挥。第七、八讲的两场论战本篇只作方法论示范引用，未展开人口论与租金论的实质内容。</p>
 </div>
 
 <div class="quote-block">

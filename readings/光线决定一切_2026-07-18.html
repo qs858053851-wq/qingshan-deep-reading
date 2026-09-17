@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>光线决定一切 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>光线决定一切</h1>
-  <div class="author">郑玮刚 · 摄影用光全书</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">光线决定一切</div>
+    <div class="cover-sub">摄影用光全书</div>
+    <div class="cover-meta">郑玮刚 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书解决的问题很实在：你到了现场，光线不配合。要么灰蒙蒙一片没精神，要么烈日当头硬得扎眼，要么天黑得"没法拍...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">他的核心论证链：光效（光线照在物体上的视觉效果）决定景物呈现的形态 → 光效可以被选择、调整、补充 → 所以摄...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">结论因为感光材料有曝光宽容度，记录亮度差异的能力有上限，人眼的适应范围远大于它。你眼里层次丰富的逆光场景，相机...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">一句话概括：光线不配合是常态，职业和业余的分界，就在光线不配合时你还有没有下一个动作。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">三条终极忠告里，第一条的标题最怪："看起来最难的，也许最简单"。读完那一节会发现它真正想说的话更扎人：你追求的...</span>
+    </div>
+  </div>
+
   <p class="intro">一本职业摄影师写的用光书。跟多数入门书的差别在开篇就亮出来了：他不许诺"圣经"和"宝典"，反倒说摄影用光根本没有一整套完整的法则，有的只是大量成功经验和"调整糟糕光线的办法"。这本书教的与其说是用光，不如说是跟光讨价还价。</p>
 </div>
 
@@ -358,7 +426,7 @@
 
   <blockquote>摄影的确是需要几分运气的，但摄影师不能只靠运气吃饭。</blockquote>
 
-  <p>书里最能立住这个姿态的是两个作者自己的案例。一个是 T3 航站楼的委托拍摄，只有两天工期，偏赶上北京的桑拿天，从早到晚灰蒙蒙。他拍完内景，在预先选好的机位上等太阳落下、灯光刚亮的那几分钟——只有那个窗口天空才泛蓝，画面反差才立得起来。另一个是海边风雪天，五六级刺骨海风夹着雪,睁不开眼，一分钟手就冻肿，"完全凭着本能在设置相机"。前者是把烂天气算计到分钟，后者是技术熟到不用想。这本书教的本事，就在这两个故事之间。</p>
+  <p>书里最能立住这个姿态的是两个作者自己的案例。一个是 T3 航站楼的委托拍摄，只有两天工期，偏赶上北京的桑拿天，从早到晚灰蒙蒙。他拍完内景，在预先选好的机位上等太阳落下、灯光刚亮的那几分钟，只有那个窗口天空才泛蓝，画面反差才立得起来。另一个是海边风雪天，五六级刺骨海风夹着雪,睁不开眼，一分钟手就冻肿，"完全凭着本能在设置相机"。前者是把烂天气算计到分钟，后者是技术熟到不用想。这本书教的本事，就在这两个故事之间。</p>
 
   <p>写作结构是工具书里少见的"忠告先行"：第一章末尾三条终极忠告（看起来最难的也许最简单、办法比规则更重要、对光线的认识就是对影像的认识）先把价值观立好，后面四章全是这三条的展开和佐证。</p>
 </section>
@@ -373,7 +441,7 @@
 
   <p>隐形假设有一条：全书默认你有足够的时间成本可付。等光线、头天踩点、天不亮出发、野外露营，这套工作方式是职业摄影师和深度爱好者的，一个只有周末半天的普通人，书里最值钱的"等"字诀基本用不上，只能靠换镜头换机位那两条。作者没有假装这套方法是轻量的，但也没提醒读者按自己的时间预算取舍。</p>
 
-  <p>边界条件他自己说得很直白：用光技巧只是拍摄的一个重要因素"而绝非全部"，且它建立在摄影全部技术技巧之上——手不熟，看见了光也抓不住。另一条边界是审美上的：书里推崇的"平和冲淡为上"是一种明确的东方趣味，认同不认同这个趣味，直接决定你觉得这本书是高级还是寡淡。</p>
+  <p>边界条件他自己说得很直白：用光技巧只是拍摄的一个重要因素"而绝非全部"，且它建立在摄影全部技术技巧之上，手不熟，看见了光也抓不住。另一条边界是审美上的：书里推崇的"平和冲淡为上"是一种明确的东方趣味，认同不认同这个趣味，直接决定你觉得这本书是高级还是寡淡。</p>
 </section>
 
 <section class="layer">
@@ -452,7 +520,7 @@
 
   <div class="napkin">
     <div class="formula">可用的照片 = 现场光效 × 调整手段 × 等待的耐心</div>
-    <div class="note">现场光效不可控，后两项全在你手里——这本书只教后两项。</div>
+    <div class="note">现场光效不可控，后两项全在你手里，这本书只教后两项。</div>
   </div>
 
   <p>一句话概括：光线不配合是常态，职业和业余的分界，就在光线不配合时你还有没有下一个动作。</p>
@@ -484,7 +552,7 @@
 
   <p>这个道理有个现成的中国参照，作者自己引了：古典书论讲"平和冲淡为上，剑拔弩张次之"。学字的人都知道这个次序有多反直觉，初学者临帖，总觉得笔画张扬、锋芒毕露的字有劲，要写很多年才看得出颜真卿晚年那种不使劲的字才是真难。吃菜也一样：重油重辣谁做都好吃，一碗清汤能不能立住，才见厨子的底。刺激强的东西对感官的要求低，所以人人都接得住；刺激淡的东西要靠感受力去补，接得住的人少。追求的口味，反过来就是感受力的体检单。</p>
 
-  <p>放回全书看，这条忠告其实是整本书的暗线。第四章教你在灰蒙蒙的天里找局部、在阴天里用散射光、在"太暗没法拍"的地方拍低调，全是在训练同一件事：把眼睛从"等强光"调成"读弱光"。低调那一节说得最透，照度低不等于光线质量低——这句话对光线成立，对眼睛也成立：光线暗下来的时候，看得见东西的眼睛才算好眼睛。</p>
+  <p>放回全书看，这条忠告其实是整本书的暗线。第四章教你在灰蒙蒙的天里找局部、在阴天里用散射光、在"太暗没法拍"的地方拍低调，全是在训练同一件事：把眼睛从"等强光"调成"读弱光"。低调那一节说得最透，照度低不等于光线质量低，这句话对光线成立，对眼睛也成立：光线暗下来的时候，看得见东西的眼睛才算好眼睛。</p>
 
   <p>说个我的立场：这是三本摄影书（本批还有《新摄影笔记》《构图决定一切》）里最有作者脾气的一本，敢直接说读者审美有欠缺的技术书不多见。但它的短板也明显：第一章的光学基础写得敷衍，甚至说出"最迫切需要的读物应该是初中课本而不是摄影书"这种话，姿态潇洒，对真需要补课的读者并不友好；HDR 一节的技术细节如今也过时了。这本书经老的部分不是技术，是那三条忠告。</p>
 </section>

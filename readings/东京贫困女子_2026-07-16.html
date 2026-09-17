@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>东京贫困女子 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">东京贫困女子</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">东京贫困女子</div>
+    <div class="cover-sub">傅栩 译 · 原著 2019 · 副题：她们为什么会跌倒</div>
+    <div class="cover-meta">[日] 中村淳彦 著 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书没有理论框架，是一场连载采访的结集：2016 年起，作者中村淳彦和一位女编辑在东洋经济在线开设专栏《在贫...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">访谈书最容易被质疑的就是：你挑的都是极端个案吧？中村不辩解，只摆证据的来路和数字的底座。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">访谈书没有论证链，但有结构。把六个故事叠在一起看，人物、年龄、学历全不一样，跌倒的轨迹却惊人地一致，说明背后是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">动机是书里写明的。第一层是那次醒悟：二十年、1300 场采访的素材，被编辑一句话重新点亮，他突然欠下一笔债，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">一句话版本：这不是六个女人不小心跌倒的故事，是一台机器按设计正常运转的验收报告。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">全书真正让我停下来的一段，藏在后记里。一位曾经贫困、后来抓住一份高收入工作翻身的女性，在采访结束后对中村说：其...</span>
+    </div>
+  </div>
+
   <div class="meta">[日] 中村淳彦 著 · 傅栩 译 · 原著 2019 · 副题：她们为什么会跌倒</div>
   <div class="oneliner">一个给成人杂志写了二十年稿的男人，采访过 1300 多个出卖身体的女性之后，才被编辑一句话点醒：原来他记录的一直是同一件事，叫贫困。</div>
 </div>
@@ -386,7 +459,7 @@
   <p>访谈书最容易被质疑的就是：你挑的都是极端个案吧？中村不辩解，只摆证据的来路和数字的底座。</p>
 
   <h3>证据一：样本是自己涌上来的</h3>
-  <p>受访者基本来自东洋经济在线专栏的读者报名，作者明说"并没有刻意选择风俗小姐或患有精神疾病的女性"。可到第三章为止登场的六名女性里，五人有性风俗或卖身经历，三人苦于精神疾病。他就把这个结果原样摆出来：只要你去看女性贫困，卖身和精神疾病就会自己出现。抽样确实不科学，但方向恰恰因此有说服力——鱼是自己游进网里的。</p>
+  <p>受访者基本来自东洋经济在线专栏的读者报名，作者明说"并没有刻意选择风俗小姐或患有精神疾病的女性"。可到第三章为止登场的六名女性里，五人有性风俗或卖身经历，三人苦于精神疾病。他就把这个结果原样摆出来：只要你去看女性贫困，卖身和精神疾病就会自己出现。抽样确实不科学，但方向恰恰因此有说服力，鱼是自己游进网里的。</p>
 
   <h3>证据二：几组官方数字</h3>
   <p>书里的制度数据都有出处：借贷型助学金覆盖超过半数大学生（日本学生支援机构）；女性受雇者中非正式雇用约占四成；母子单亲家庭 123.2 万户、平均年收 243 万日元（厚生劳动省）；单亲家庭儿童贫困率 50.8%，在经合组织国家里排第一。另一头是：日本 1800 兆日元个人金融资产的六成在 60 岁以上人群手里（日本银行）。年轻女性背债，老年人囤钱，两个数字对着看，全书的代际结构就出来了。</p>
@@ -427,7 +500,7 @@
   <div class="layer-title">他为什么非写不可，又有什么没写</div>
 
   <h3>不写不行的那股劲儿</h3>
-  <p>动机是书里写明的。第一层是那次醒悟：二十年、1300 场采访的素材，被编辑一句话重新点亮，他突然欠下一笔债——那些他当成行业奇闻听完的人生，原来是同一场社会事故的现场记录，不写出来等于白听了。第二层更具体，他在前言里自问："日本社会针对贫困的当事人有一种很强的责任自负的认识。但事实果真如此吗？"全书就是对这一问的回答。他的写法也从动机里长出来：既然社会用抽象的道德判断压人，他就用具体到令人无法转开眼睛的细节顶回去。</p>
+  <p>动机是书里写明的。第一层是那次醒悟：二十年、1300 场采访的素材，被编辑一句话重新点亮，他突然欠下一笔债，那些他当成行业奇闻听完的人生，原来是同一场社会事故的现场记录，不写出来等于白听了。第二层更具体，他在前言里自问："日本社会针对贫困的当事人有一种很强的责任自负的认识。但事实果真如此吗？"全书就是对这一问的回答。他的写法也从动机里长出来：既然社会用抽象的道德判断压人，他就用具体到令人无法转开眼睛的细节顶回去。</p>
 
   <h3>他没写的</h3>
   <p>三处。最明显的是没有出路：全书没有一页政策建议，终章直接说"真的没有任何理由可以令人相信，将来会变得更好"。记录者的本分他尽到了，但绝望本身在书的结尾成了一种姿态。第二，男人在这本书里只有两种角色：付钱的（干爹、嫖客）和拖后腿的（西野那个抢钱去打弹珠的同居男友）。贫困的男性同样存在，而且常常和这些女性绑在同一条沉船上，这半边现实被取景框切掉了。第三，他自己靠写这些女性挣稿费，这层伦理他有自觉（前言里专门区分自己和"来自另一个世界的援助者"），但自觉不等于化解，读者应该带着这层意识去读。</p>
@@ -437,7 +510,7 @@
   <p>还有"感谢即报酬"。看护行业用使命感话术给低薪上漆，这个配方在哪里都有本地版本：越是被称作"有爱心""有情怀""神圣"的行业，工资条越难看，因为道德赞美在谈判桌上是可以抵现金用的。下次听到一个行业被反复歌颂奉献，可以直接去查它的平均薪资，两者的反差大体稳定。</p>
 
   <h3>读完可以做的两件事</h3>
-  <p>一件：下次听到"她怎么不去找份正经工作"这类议论，花两分钟算一笔账：那份"正经工作"的时薪乘以可能的工作小时数，减去当地房租和基本吃穿，剩多少。数字摆出来，很多道德判断会自己熄火。这本书教的就是这个动作——中村每次采访必问收入和房租，判断从数字开始。</p>
+  <p>一件：下次听到"她怎么不去找份正经工作"这类议论，花两分钟算一笔账：那份"正经工作"的时薪乘以可能的工作小时数，减去当地房租和基本吃穿，剩多少。数字摆出来，很多道德判断会自己熄火。这本书教的就是这个动作，中村每次采访必问收入和房租，判断从数字开始。</p>
   <p>另一件：见到任何以"资助""援助"为名的项目，先分清它是给予还是放贷。书里最冷的制度细节是日本的借贷型助学金：名字叫奖学金，实体是让 18 岁的人背上几百万日元债务的贷款，超过半数学生在用。名字和实体不一致的援助，援助的往往是放贷方。</p>
 
   <h3>我的立场</h3>
@@ -488,7 +561,7 @@
 
   <p>把这句话削到最尖：在这套制度里，工作是负资产。彻底放弃的人，反而站上了生活质量的高地。</p>
 
-  <p>这个结论看起来有个明显的破绽：既然领保障比工作划算，她们为什么不去领？问出这个问题，才算真正进入这本书。因为答案就埋在前面每一个故事里。羞耻感先堵住一半的路，责任自负论修行得最好的恰恰是受害者自己，广田优花宁可在歌舞伎町打工也用假名遮住脸，这样的人怎么可能走进福利窗口自证"我失败了"。制度再堵上另一半：申请要清查资产、通知亲属，而一旦进入保障，就几乎出不来了。井川在回信里写得最清楚，她被反复建议申请最低生活保障，但一旦申请，孩子考医学部就成了镜花水月，"这就是制度在制造阶级差距"。所以要修正一下刚才那句话：这套设计并没有奖励躺平，它是两头堵——挣扎通向穷忙，放弃通向有饭吃但没有明天的静止。寿町的安稳是真的，寿町的天花板也是真的：那里没有一个人在准备考试。</p>
+  <p>这个结论看起来有个明显的破绽：既然领保障比工作划算，她们为什么不去领？问出这个问题，才算真正进入这本书。因为答案就埋在前面每一个故事里。羞耻感先堵住一半的路，责任自负论修行得最好的恰恰是受害者自己，广田优花宁可在歌舞伎町打工也用假名遮住脸，这样的人怎么可能走进福利窗口自证"我失败了"。制度再堵上另一半：申请要清查资产、通知亲属，而一旦进入保障，就几乎出不来了。井川在回信里写得最清楚，她被反复建议申请最低生活保障，但一旦申请，孩子考医学部就成了镜花水月，"这就是制度在制造阶级差距"。所以要修正一下刚才那句话：这套设计并没有奖励躺平，它是两头堵，挣扎通向穷忙，放弃通向有饭吃但没有明天的静止。寿町的安稳是真的，寿町的天花板也是真的：那里没有一个人在准备考试。</p>
 
   <p>我想了很久用什么类比来装这件事，最后是一道楼梯。福利保障像一楼铺着的床垫，工作像通往上层的楼梯。正常社会里，楼梯陡一点没关系，因为它通向二楼。这本书写的社会里，非正式雇用这道楼梯被人抽掉了上半截：你可以一直爬，时薪 1000 日元，没有晋升，没有奖金，合同随时终止，爬到 45 岁和爬到 25 岁站在同一级台阶上。而床垫四周围着栅栏，躺上去就别想再碰楼梯。于是所有人的选择只剩两种下场：在不通向任何地方的楼梯上耗尽体力，或者翻进栅栏里躺平。这个类比对我是承重的：抽掉"楼梯不通二楼"这一节，寿町就只是个猎奇景观；装上它，寿町就成了整套制度的验收现场。</p>
 

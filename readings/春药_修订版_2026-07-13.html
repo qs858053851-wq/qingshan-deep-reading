@@ -7,25 +7,32 @@
 
 
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -82,6 +89,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -95,14 +113,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -111,7 +129,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -120,7 +138,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -130,7 +148,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -138,12 +156,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -159,7 +177,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -174,7 +191,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -269,9 +285,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -279,6 +294,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -331,6 +363,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -342,12 +383,48 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="kicker">青山 · 深度阅读</div>
-  <h1>春药</h1>
-  <div class="sub">从印度密教到非洲巫术，从女巫审判到六十年代嬉皮运动，两位德国民族学者横跨六大洲，翻出一个几乎所有古文明都不约而同信过的东西：能让人兴奋的植物，从来不只是壮阳工具，是一条通向神的近路。现代科学把这条近路拆开、提纯、化验，剩下的只有一句诊断书：毒品。</div>
-  <div class="meta">Claudia Müller-Ebeling / Christian Rätsch　著　·　论证型（文化人类学）深度解读　·　2026-07-06 初稿 · 2026-07-13 修订</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">春药</div>
+    <div class="cover-sub">论证型（文化人类学）深度解读　·　2026-07-06 初稿 · 2026-07-13 修订</div>
+    <div class="cover-meta">Claudia Müller-Ebeling / Christian Rätsch　著 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">核心答案：因为这些植物给人的，从来不只是生理快感，是一种"认知、快乐、陶醉"三合一的体验，终章里作者把它叫"神...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">串起来是这样：几乎所有互不往来的古老文明都独立地把致幻/催情物质和神圣绑在一起（前提一，六章案例逐一证明）→ ...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就三根线在起作用</span>
+      <span class="toc-desc">几乎每个文明的春药实践，都不是单纯为了性快感，是想借身体去确认某种超越日常的东西真实存在。印度密教修行者相信吸...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">第一层，看得见的表象：现代科学把可可提纯出苯基乙胺，把苏摩背后的植物提纯出致幻生物碱，把古柯提纯出古柯碱。表面...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着问答，把六大洲的论证走一遍</span>
+      <span class="toc-desc">因为致幻植物的效果，恰好会同时触发认知改变、情绪愉悦、意识陶醉三种体验。这三种体验凑在一起，是人在日常清醒状态...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">Christian Rätsch 是当代最知名的民族植物学家之一，一辈子都在研究萨满、致幻植物、传统宗教里的意...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只留一个公式</span>
+      <span class="toc-desc">一句话：这不是一本讲情欲药物的猎奇书，是一本讲"完整的意义系统怎样被现代性拆成孤立碎片"的书。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 这本书为身体平了反，但没说清谁在替身体做主</span>
+      <span class="toc-desc">前三层已经看见：身体被当作验证神性的仪器，权力在定义什么算正当，提纯又把使用语境拆开。这里不重复那条提纯线，而...</span>
+    </div>
+  </div>
+
 
 <!-- ========== 第一层 ========== -->
 <section class="layer">

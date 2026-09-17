@@ -1,24 +1,31 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>逻辑思考的100个关键 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -75,6 +82,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -88,14 +106,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -104,7 +122,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -113,7 +131,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -123,7 +141,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -131,12 +149,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -152,7 +170,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -167,7 +184,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -262,9 +278,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -272,6 +287,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -324,6 +356,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -331,7 +372,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>逻辑思考的100个关键</h1><div class="author">茂木健一郎 · 为思考创造条件</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">逻辑思考的100个关键</div>
+    <div class="cover-sub">为思考创造条件</div>
+    <div class="cover-meta">茂木健一郎 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 一百条建议，究竟在讲什么</span>
+      <span class="toc-desc">书名容易让人期待命题、演绎和谬误，正文却走另一条路。茂木健一郎把效率、灵感、压力、专注、沟通、记忆、阅读和习惯...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 哪些案例真正撑住了方法</span>
+      <span class="toc-desc">作者抄写夏目漱石时，才发现自己先前略过了借字等细节。抄写本身不能保证理解，但它把阅读速度降下来，使遗漏变得可见...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 三根线把百条建议串起来</span>
+      <span class="toc-desc">第一根线是可检验输出。复述、写摘要、教别人和在真实任务中调用知识，都会留下可比较的结果。输入带来熟悉感，输出让...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 为什么“再想久一点”常常没用</span>
+      <span class="toc-desc">人卡住时常命令自己再专心一点，仿佛时间和力度继续增加，答案就会出现。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六个问题，把工具放回用途</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者的企图、盲点和可用动作</span>
+      <span class="toc-desc">茂木健一郎想把脑科学从解释名词变成生活动作。他反复告诉读者，头脑并非固定性能的机器，环境、身体和社交方式会改变...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 餐巾纸上的全书</span>
+      <span class="toc-desc">一句话：先让想法留下结果，再让身体、时间和他人帮助它接受校正。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 群体的盲点，常藏在没有说出口的信息里</span>
+      <span class="toc-desc">团队开会时，最会说的人容易被误认成掌握信息最多的人。可群体决策的原料分散在不同成员手上；若发言机会高度不均，团...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">本书的额叶、颞叶、感觉与运动回路等说法带有通俗简化；心流、弱连接和群体智慧有正式研究传统，正文转述不能替代原始...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">一百条建议，究竟在讲什么</h2>
 <p>书名容易让人期待命题、演绎和谬误，正文却走另一条路。茂木健一郎把效率、灵感、压力、专注、沟通、记忆、阅读和习惯分成一百个短题，讨论人在有限注意和情绪条件下怎样更容易进入思考。</p>
 <p>前半从输入与输出讲到限时、散步和无意识加工，再处理不安、压力与身体动作。中段转向心流、元认知、轮流发言和弱连接；后半进入信息整理、主动阅读、写作与作息。它更像一张认知生活的工具桌，每件工具只解决一个局部麻烦。</p>

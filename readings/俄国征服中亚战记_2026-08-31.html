@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>俄国征服中亚战记 - 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,15 +381,96 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="hero-tag">青山深度阅读 · 地缘与战争</div>
-  <h1 class="hero-title">俄国征服中亚战记</h1>
-  <div class="hero-meta">
-    <span>著者：李硕</span>
-    <span>解读产出：深度长交付</span>
-    <span>日期：2026-08-31</span>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">俄国征服中亚战记</div>
+    <div class="cover-sub">十九世纪中叶，当大英帝国的铁甲机帆船在海洋上四处建立殖民据点时，欧亚大陆深处正在经历一场静悄悄却改变大陆格局的陆地征服。沙皇俄国越过乌拉尔河与哈萨克草原，向南推进数千公里，将浩罕、...</div>
+    <div class="cover-meta">青山 读 · 俄国征服中亚战记 · 解读主理：青山 · 日期：2026-08-31 · 典藏长交付</div>
   </div>
-</header>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 从奥伦堡冰雪到格奥克捷佩血战的四十年陆权扩张</span>
+      <span class="toc-desc">十九世纪中叶，当大英帝国的铁甲机帆船在海洋上四处建立殖民据点时，欧亚大陆深处正在经历一场静悄悄却改变大陆格局的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 支撑全书历史复原的三套一手证据与适用条件</span>
+      <span class="toc-desc">李硕对俄国征服中亚历史的重构，摆脱了以往宏观外交史只看圣彼得堡与伦敦电报往来的局限，将视线牢牢锚定在战场一线、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05</span>
+      <span class="toc-desc">第一案是捷连季耶夫中将的三卷本《征服中亚史》与军官战地日记。捷连季耶夫早年作为上尉亲历了撒马尔罕巷战，晚年系统...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">李硕全书叙事的一条核心前提在于，十九世纪欧亚大陆腹地的战争，本质上是一场工业化早期组织形态对前工业化游牧与绿洲...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 撕裂中亚荒原的四股地缘与技术重力</span>
+      <span class="toc-desc">俄国在中亚的胜利，由干亚洲地理、军事技术代差、边疆将领激励机制以及汗国内部脆弱性四股力量共同塑造。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">中亚远离海洋，降水稀少，广布卡拉库姆与克孜勒库姆两大沙漠，仅靠阿姆河、锡尔河等冰川融雪河流滋养狭小的绿洲。这种...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">在十九世纪六十至七十年代，俄军完成了从前装滑膛枪到后膛别旦式击针步枪的换装，射速与精准度产生质的飞跃。面对布哈...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11</span>
+      <span class="toc-desc">沙俄帝国的扩张体制赋予了边疆军官极大的自主权。圣彼得堡的外交官们出于对英俄大博弈恶化的恐惧，屡屡在公文中要求克...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">浩罕、布哈拉和希瓦虽然统治着数百万人口，但其内部矛盾重重。统治阶层多为乌兹别克贵族，常备军大量依赖波斯奴隶，普...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 四步追问干亚洲大陆战争的深层胜负机制</span>
+      <span class="toc-desc">因为后膛枪炮制造技术的演进打破了机动性与杀伤力的平衡。在冷兵器与火绳枪时代，游牧骑兵凭借每人两三匹战马的高机动...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 七个递进问题解剖十九世纪中亚征服史</span>
+      <span class="toc-desc">关键差别在于后勤基础设施与推进策略的全面升级。1839年彼罗夫斯基企图依靠单一驼队在冬季一次性强行穿越千里荒漠...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 在丝路终结处重新理解内亚地理与现代秩序</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">李硕写作此书的起点，源于他在新疆任教期间对内亚干旱地理的身体性感知。站在乌鲁木齐南郊的天山脚下，面对风雪、荒漠...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20</span>
+      <span class="toc-desc">本书大量依靠俄国方面的军旅日记、档案与画作，相比之下，中亚本土民族（乌兹别克、土库曼、哈萨克）的察合台突厥语和...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">俄军征服中亚的后勤逻辑，在现代基础设施工程与复杂项目推进中具有极高的参考价值。当面对极端恶劣且未知的外部环境时...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 22</span>
+      <span class="toc-desc">在规划任何跨地域或长周期的复杂任务时，坚决警惕乐观主义情绪。行动准则为，把至少六成的资源与精力配置在供应链、补...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 23</span>
+      <span class="toc-desc">李硕展现了极佳的历史叙事掌控力与地理感知力。他笔下的战争没有廉价的英雄主义，充斥着泥泞、干渴、冻伤与血腥。全书...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 25 · 干亚洲陆权征服的餐巾纸模型</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27 · 水井、铁锹与步枪：工业机器如何粉碎游牧神话</span>
+      <span class="toc-desc">在长达两千多年的亚欧大陆历史上，内亚干旱草原与沙漠绿洲始终是农耕帝国难以逾越的地理梦魇。无论是波斯帝国大流士远...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 29 · 留下一句话</span>
+      <span class="toc-desc">当步枪、水井与工兵铁锹被组装进工业化后勤体系时，亚欧大陆腹地两千年的游牧骑射神话便在一瞬间被降维清零。</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">Layer 01</div>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>法言 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,14 +380,14 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-  <div class="kicker">古籍深读</div>
-  <h1>法言</h1>
-  <div class="subtitle">乱世里，一个无位者替天下立法</div>
-  <div class="meta">扬雄 撰 · 韩敬 译注 · 中华书局 · 2026-08-22</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">法言</div>
+    <div class="cover-sub">乱世里，一个无位者替天下立法</div>
+    <div class="cover-meta">扬雄 撰 · 韩敬 译注 · 中华书局 · 2026-08-22 · 解读主理：青山 · 日期：2026-08-22 · 典藏长交付</div>
+  </div>
 <div class="intro">依据中华书局「中华经典名著全本全注全译丛书」韩敬译注本（2012）。该本以《四部丛刊》影印涵芬楼藏秦恩复石砚斋翻刻宋治平监本为底本，参校司马光集注系统诸本与汪荣宝《法言义疏》。本文引文条目编号（如 10.10）均按韩敬本。</div>
-<nav class="toc" aria-label="目录"><div class="toc-title">目录</div><ol><li><a href="#layer-01"><span class="n">01</span>这本书到底在讲什么</a></li><li><a href="#layer-02"><span class="n">02</span>他的论证站不站得住</a></li><li><a href="#layer-03"><span class="n">03</span>线头藏在哪</a></li><li><a href="#layer-04"><span class="n">04</span>这件事的根扎在哪</a></li><li><a href="#layer-05"><span class="n">05</span>顺着问答把推理走一遍</a></li><li><a href="#layer-06"><span class="n">06</span>作者没说的那部分</a></li><li><a href="#layer-07"><span class="n">07</span>一张餐巾纸写得下吗</a></li><li><a href="#layer-08"><span class="n">08</span>全书最值钱的是哪一点</a></li><li><a href="#layer-09"><span class="n">09</span>一句话封印这本书</a></li></ol></nav>
+<nav class="toc" aria-label="目录"><div class="toc-title">目录</div><ol><li><span><span class="n">01</span>这本书到底在讲什么</div></li><li><span><span class="n">02</span>他的论证站不站得住</div></li><li><span><span class="n">03</span>线头藏在哪</div></li><li><span><span class="n">04</span>这件事的根扎在哪</div></li><li><span><span class="n">05</span>顺着问答把推理走一遍</div></li><li><span><span class="n">06</span>作者没说的那部分</div></li><li><span><span class="n">07</span>一张餐巾纸写得下吗</div></li><li><span><span class="n">08</span>全书最值钱的是哪一点</div></li><li><span><span class="n">09</span>一句话封印这本书</div></li></ol></nav>
 <main>
 <section class="layer" id="layer-01"><div class="layer-num">Layer 01</div><h2>这本书到底在讲什么</h2>
 <p>《法言》的作者扬雄，一辈子只有一件事做得不成功，就是做官。他生于西汉宣帝甘露元年（前 53），蜀郡成都人。祖上在楚汉之际避仇入蜀，迁到岷山之阳的郫县，五世单传，家产不过十金。汉代人说“百金，中民十家之产”，十金就是一家中民之产，再配上“有田一，有宅一区”，是一个货真价实的小地主家庭，够温饱，不够排场，更不够在地方上经营察举的门路。</p>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>一百年的一千本书 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">一百年的一千本书</div>
+    <div class="cover-sub">咖啡店二十天，一位失业编辑的提案之旅</div>
+    <div class="cover-meta">詹宏志 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">一个三十八岁的编辑失业了，坐在咖啡店里二十天，脑子里一个接一个地冒出出版提案：从《梦的解析》出发的「论梦十书」...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">詹宏志写作的此刻，已经是 PChome 董事长、城邦集团创办人，一个功成名就的人，为什么要回头写自己最落魄的二...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">你读过的书，就是你失业那天的全部家当。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 你读过的书，会在失业那天排队来救你</span>
+      <span class="toc-desc">三十八岁那年，詹宏志辞掉了远流出版总经理的职位。理由很体面，也很苦涩：他以为找到了安身立命的归宿，会做到老死，...</span>
+    </div>
+  </div>
+
   <h1>一百年的一千本书</h1>
   <div class="author">詹宏志 · 咖啡店二十天，一位失业编辑的提案之旅</div>
 </div>
@@ -354,7 +419,7 @@
   <p>一个三十八岁的编辑失业了，坐在咖啡店里二十天，脑子里一个接一个地冒出出版提案：从《梦的解析》出发的「论梦十书」、间谍小说、科幻小说、推理小说选集，一直到「百年千书」的宏大构想。</p>
   <p>书名叫《一百年的一千本书》，但书里真正写的其实是这些提案怎么长出来的：他的读书积累、他的编辑方法、他对台湾读书界的观察，以及一个读书人在失去舞台之后，怎么靠脑子里存着的书给自己铺出一条路。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>詹宏志，台湾出版界传奇人物，远流出版总经理出身，后来创办了 PChome、城邦集团、明日报。这本书写的是他人生一个很特殊的节点：从远流辞职后、还没开始新事业的过渡期。他坐在咖啡馆，前途茫茫，既不想去别的出版社（怕对不起老雇主），也不想创业（怕对不起旧同事），于是他想：也许可以当一个「自由提案编辑」，不接活，只提出自己的出版构想，说服出版社来做。</p>
   <p>书里的结构是九个章节，从「接案与提案之间」讲到台湾读书界的偏见，再到一个又一个具体提案的构思过程，最后收在「百年千书」：那个把一百年缩成一千本书的构想。当时他觉得太难完成，把书单锁进抽屉，没想到二十年后这个构想又被命运捞了起来。</p>
 
@@ -364,7 +429,7 @@
   <p><strong>《谋殺专门店》。</strong>他给推理小说做的一个封闭式经典选集构想。他发现台湾的推理小说引进「随机随意，缺少正典的形成」，读者与作品的关系是遭遇性的，谁也不知道该怎么尊重谁。他想用一批「转折之作」给整个类型建立历史坐标，让后来的人评书时有个共同的参照系，不用各说各话。这个案子后来真的做了十年，他也因此被台湾出版界叫做「推理小说传教士」：他自己说是「浪得虚名」。</p>
   <p><strong>「百年千书」。</strong>坐进咖啡店的最后一天，他忽然问自己：像我这样一个自学成才的编辑，我又是被哪些书「形成」的？于是想到：世界是由某些书构成的，先有某些书形成了社会，再有某些书形成了自己；两岸同辈人命运不同，是因为读的书不同（《共产党宣言》和《三民主义》，《小市民的心声》和《荒漠甘泉》）。「书及阅读，就是社会主体性的基因。」他记下构想、列了数百本书单，然后锁进抽屉。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一个博览群书的出版人坐在咖啡馆里自言自语：坦诚、博学、爱掉书袋但不卖弄。他会突然引一句佛经（「有生灭心，有相续心」），也会自嘲「我好像只是接收的天线」。他写的是二十年前的往事，语气里带着事过境迁的从容，和一点「命运自有安排」的感叹。</p>
 </div>
 
@@ -432,7 +497,7 @@
 
   <p>三十八岁那年，詹宏志辞掉了远流出版总经理的职位。理由很体面，也很苦涩：他以为找到了安身立命的归宿，会做到老死，结果发现老板另有想法。辞职之后他坐在咖啡店里，前途茫茫，既不能去别的出版社（对不起老雇主），也不能自己创业（对不起旧同事），三十几岁谈退休太早，改行又志趣不合。他手里只剩一样东西：一本笔记本，和脑子里读过的书。</p>
   <p>接下来二十天发生的事，可能是这本书里最值得记住的：他一个接一个地冒出出版提案。从《梦的解析》出发，他想到可以编一套「论梦十书」：选《梦的解析》以来最具突破性的十本梦书，重译加导读；从克劳塞维茨的《战争论》出发，想到战争十书；然后是金钱十书、爱情十书、记忆十书。接着是间谍小说、科幻小说、推理小说，最后是那个他自己都觉得不可能完成的「百年千书」：把一百年的书缩成一千本，看看是哪些书塑造了今天的世界。</p>
-  <p>他说，那些提案的产生过程，「好像是回顾自己的启蒙历程」——一本一本从少年时期激励过他、感动过他、困惑过他的书，排着队在他面前阅兵似的走过。这句话是整本书的钥匙：一个失去一切的人，唯一还能调动的资产，是他读过的书。</p>
+  <p>他说，那些提案的产生过程，「好像是回顾自己的启蒙历程」，一本一本从少年时期激励过他、感动过他、困惑过他的书，排着队在他面前阅兵似的走过。这句话是整本书的钥匙：一个失去一切的人，唯一还能调动的资产，是他读过的书。</p>
   <p>很多人读到这儿会不服气：我也读了不少书，失业那天照样抓瞎。差别在哪？</p>
   <p>差别在詹宏志的读书方式。第一，他读的书是成体系的：按类型、按历史、按作者群纵横织成的网。所以他看到一个题目（梦），立刻知道这个题目的一百年里发生过什么（《梦的解析》是起点、后来的发展曲折幽微），于是「十本书」的框架自己就站起来了。散读十本书和系统读一个领域，差的不是数量，是书的排列方式，散读的书各自为战，体系化的书会互相引用。第二，他有输出训练：在出版社一年要写一两百种新书的介绍文字，过目的内容高达千万字。写书介这件事，逼着他把「读进去」变成「说出来」，一本书为什么值得读、站在哪个位置、跟谁是一伙的。这个「转化器」才是读书复利的关键：只进不出的读书，像只存钱不取钱，账面上好看，急用时拿不出来。第三，他有「正典」意识。台湾推理小说引进多年却「缺少正典的形成」，读者跟作品只是偶然碰到，谈不上谁尊重谁。一个知道自己读的书在历史上什么位置的人，和一个只凭直觉得出「某某也不过如此」的人，看到的世界不是同一个。</p>
   <p>书是茶叶，读只是买回来，输出才是泡茶。詹宏志的二十天，是二十年的茶叶被开水泡开的过程。泡过一次的茶叶和没泡过的干叶子，体积一样，价值完全不同，但前提是你得真存了茶叶，还得真烧了开水。</p>

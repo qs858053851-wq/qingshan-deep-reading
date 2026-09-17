@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>金钱心理学 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">理智与合理、守富的生存偏执与财富的隐形本质</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">扫地杂工里德的八百万遗产、巴菲特99%财富的复利秘诀与德国通胀创伤</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">尾部事件主宰法则、合理性优于纯粹理性与安全边际冗余</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从银行存款到心理账户、隐形资产与掌控时间的主动权</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析金钱心理、长线复利与抵御财务焦虑</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">豪泽尔的写作姿态、现代消费金融算法诱导与个人护城河</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">金钱心理学财富与自由转化闭环全景图</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从两块同样美味的蛋糕看炫耀性消费与隐形自由的抉择</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与行为金融学思想史考据说明</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">理智与合理、守富的生存偏执与财富的隐形本质</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">扫地杂工里德的八百万遗产、巴菲特99%财富的复利秘诀与德国通胀创伤</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">尾部事件主宰法则、合理性优于纯粹理性与安全边际冗余</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从银行存款到心理账户、隐形资产与掌控时间的主动权</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析金钱心理、长线复利与抵御财务焦虑</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">豪泽尔的写作姿态、现代消费金融算法诱导与个人护城河</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">金钱心理学财富与自由转化闭环全景图</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从两块同样美味的蛋糕看炫耀性消费与隐形自由的抉择</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与行为金融学思想史考据说明</span></div>
     </div>
   </div>
 
@@ -349,7 +409,7 @@
     <h1>理智与合理、守富的生存偏执与财富的隐形本质</h1>
     
 <p>在传统的金融学教科书里，金钱被描述为一个由数字、公式、风险收益曲线和资产定价模型构建的冰冷世界。然而，著名投资专栏作家摩根·豪泽尔在《金钱心理学》中，用二十个短小精悍却直击灵魂的故事，颠覆了这种将财富视为纯粹智商游戏的传统偏见。全书的核心命题指出：做好金钱管理从来不是一门科学，而是一门关于人类软实力与行为控制的心理艺术。你在投资和金钱上的最终结局，往往取决于你的情绪自控力、你对欲望的节制以及你如何应对贪婪与恐惧，而非你懂多少复杂的数学模型。</p>
-<p>豪泽尔深刻地揭示了财富积累的双重逻辑：致富（Getting Wealthy）需要冒险、乐观和勇往直前，而守富（Staying Wealthy）则需要截然相反的能力——谦卑、谨慎、偏执以及对运气的敬畏。真正的财富（Wealth）往往是那些你看不到的东西：是那些没有买下的豪车、没有炫耀的名表、没有挥霍的现金流。财富带给一个人的最高股息，从来不是买得起更多昂贵的奢侈品，而是掌控自己时间的终极自由——在每天清晨醒来时，能够平静地对自己说：“今天我可以做任何我想做的事情。”</p>
+<p>豪泽尔深刻地揭示了财富积累的双重逻辑：致富（Getting Wealthy）需要冒险、乐观和勇往直前，而守富（Staying Wealthy）则需要截然相反的能力，谦卑、谨慎、偏执以及对运气的敬畏。真正的财富（Wealth）往往是那些你看不到的东西：是那些没有买下的豪车、没有炫耀的名表、没有挥霍的现金流。财富带给一个人的最高股息，从来不是买得起更多昂贵的奢侈品，而是掌控自己时间的终极自由，在每天清晨醒来时，能够平静地对自己说：“今天我可以做任何我想做的事情。”</p>
 <div class="highlight-box">
 <strong>核心洞见：</strong>金钱最大的内在价值，是赋予你对时间的绝对掌控权；世俗世界里的富裕（Rich）是流动的显性消费，而真正的财富（Wealth）是未被转化为废物的自由选择权。
 </div>
@@ -363,7 +423,7 @@
 <h2>案例一：乡村清洁工罗纳德·里德与哈佛金融高管理查德·富斯康的命运对比</h2>
 <p>罗纳德·里德（Ronald Read）是一位普通的加油站修理工兼百货公司清洁工，一生拿最低工资，过着极度俭朴的生活。2014年他去世时，留下了超过800万美元的巨额遗产，捐给当地图书馆和医院。与此同时，毕业于哈佛大学、担任美林证券高管的理查德·富斯康（Richard Fuscone）在金融危机中破产，两处豪宅被法拍。清洁工之所以能击败华尔街精英，是因为里德将极端的储蓄率与几十年的指数复利结合，而富斯康则在极度自负与高杠杆炫耀性消费中粉身碎骨。金钱世界是极少数不需要专业学历、仅凭行为自律就能彻底碾压行业专家的领域。</p>
 <h2>案例二：沃伦·巴菲特财富积累的99%来自于六十五岁以后的复利时间轴</h2>
-<p>世人都在狂热研究巴菲特的选股模型和价值投资选股技巧，却忽视了他最核心的超能力——活得足够久。巴菲特超过99%的财富是在他65岁生日之后才赚到的。如果巴菲特在30岁时像普通人一样开始投资，并在60岁退休享受生活，他的名字将永远不会出现在全球富豪榜上。巴菲特投资哲学的基石从来不是追求每年50%的超高收益率，而是保持每年20%左右的稳健回报率并让它不中断地奔跑超过七十年。</p>
+<p>世人都在狂热研究巴菲特的选股模型和价值投资选股技巧，却忽视了他最核心的超能力，活得足够久。巴菲特超过99%的财富是在他65岁生日之后才赚到的。如果巴菲特在30岁时像普通人一样开始投资，并在60岁退休享受生活，他的名字将永远不会出现在全球富豪榜上。巴菲特投资哲学的基石从来不是追求每年50%的超高收益率，而是保持每年20%左右的稳健回报率并让它不中断地奔跑超过七十年。</p>
 <h2>案例三：代际贫富经历对风险偏好的不可磨灭烙印</h2>
 <p>经历过1930年代大萧条的美国人，一生对股市充满病态的恐惧，将大部分储蓄存入低息国债；而在1990年代大牛市中长大的年轻人，则天然认为股市是只涨不跌的提款机。豪泽尔通过美联储消费者金融调查数据证明：没有任何人真正失去理智，每个人的投资决策都被其青少年时期经历的宏观经济剧烈动荡所决定，所谓的理性经济人模型在现实的记忆创伤面前彻底失效。</p>
 <h2>论证的制度前提与失效边界</h2>
@@ -487,7 +547,7 @@
     
 <div class="closing-quote">
   <p>金钱带给人类最崇高的自由，是在每一个晨光初现的清晨，能够平视世界并完全自主地决定今天该如何度过自己宝贵的生命。</p>
-  <div class="closing-author">—— 《金钱心理学》财富哲学终局定音</div>
+  <div class="closing-author">， 《金钱心理学》财富哲学终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与思想史考据说明</h3>

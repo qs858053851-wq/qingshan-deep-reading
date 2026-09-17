@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>微积分的力量 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>微积分的力量</h1>
-  <div class="author">史蒂夫·斯托加茨 · 数学科普 · 一场两千五百年的接力赛</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">微积分的力量</div>
+    <div class="cover-sub">斯托加茨 · 数学科普 · 一场两千五百年的接力赛</div>
+    <div class="cover-meta">史蒂夫 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这场接力赛，从古希腊跑到引力波</span>
+      <span class="toc-desc">费曼有一次对一个叫沃克的年轻人说：你最好学学微积分，它是上帝的语言。这本书就是来翻译这句话的。作者斯托加茨，康...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">数学科普的"凭什么"跟一般社科书不一样。它不依赖统计数据，靠的是三种硬东西。第一种是你能亲手验证的：微波炉那节...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就三根线在牵</span>
+      <span class="toc-desc">这本书看着千头万绪：古希腊的几何、十七世纪的天文学、十九世纪的热学、今天的CT和引力波，人物几十个，公式一串。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着第一根线，一路挖到底</span>
+      <span class="toc-desc">第三层是横着看，三根线并排。这一层竖着来：挑最深的第一根线，切分与重组，往井底下探，看它能挖到多深。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把全书的逻辑走一遍</span>
+      <span class="toc-desc">问一：微积分到底是门什么手艺？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，再看它一眼</span>
+      <span class="toc-desc">先看作者为什么非写不可。明面上的动机他自己说了：世上有一群沃克那样的读者，好奇、爱琢磨，就是没学过高等数学，他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">三个因子对应第三层的三根线：切分与重组占两个（微分负责切，积分负责加，少一步这台机器就不转），有用的虚构占一个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 明知是假的，反而量得最准</span>
+      <span class="toc-desc">这本书里藏着一句奇怪的坦白。前面说微积分是上帝的语言，预言精确到小数点后8位，是人类量宇宙最准的一把尺；可作者...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -394,7 +474,7 @@
 
   <p>第一根线：切分与重组。这是微积分唯一的本事，作者在引言里给它起了个名字叫无穷原则。拿到任何一个复杂的东西，弯曲的形状、变速的运动、变化的过程，先把它切成无穷多个简单的小块，每一小块简单到能直接算，再把结果加回去。切成无穷细的减法，叫微分；无穷的加法，叫积分。两千五百年里所有的天才，说到底都在这两步上打转。阿基米德测圆周率就是这两步的雏形：圆没法直接算，他拿正多边形逼近，边数从6加到12、24、48，一路翻到96，从里面夹住也从外面夹住，圆周率就被挤在两个分数中间，动弹不得。切得越细，夹得越紧。再看两千年后的艾滋病研究：病毒和免疫系统在人体内每时每刻都在厮杀，何大一和佩雷尔森把这个过程切成无穷小的时间片，每一片写一条变化率，列成微分方程，再积分回去，算出一个此前谁也没法测量的数字：人体每天清除10亿个病毒颗粒。两千年过去，切的东西从圆换成了病毒，手上的动作没变：切碎，加回。</p>
 
-  <p>第二根线：直觉先行，逻辑后补票。书里有句话可以当这根线的注脚：创造力是直觉的产物，而理性姗姗来迟，在微积分的故事里，逻辑落后于直觉的情况比数学其他任何分支都多。阿基米德是最老的例子：他那篇《方法》公然用实无穷猜答案，把图形放到想象的跷跷板上称，这在当时的数学规范里等于作弊；他自己心里清楚，所以猜完再用合法的穷举法老老实实证一遍。直觉负责找到答案，逻辑负责让答案站住，顺序不能反，反了就什么都发现不了。牛顿也在这条线上：他用流数术（他自己的微积分）算出天体的运动，可《原理》发表时通篇是古典几何证明，新工具藏在背后，因为它的名声还没立起来。无穷小量被伯克利主教骂作"消逝量的鬼魂"，工程师们照用不误，拿它算了一百多年的桥和炮，极限理论才姗姗来迟补上票。作者把无穷比作被驯服的石巨人，说每一代数学家都得重新驯服它一次——驯服的过程，就是先敢骑上去，再想办法装缰绳。</p>
+  <p>第二根线：直觉先行，逻辑后补票。书里有句话可以当这根线的注脚：创造力是直觉的产物，而理性姗姗来迟，在微积分的故事里，逻辑落后于直觉的情况比数学其他任何分支都多。阿基米德是最老的例子：他那篇《方法》公然用实无穷猜答案，把图形放到想象的跷跷板上称，这在当时的数学规范里等于作弊；他自己心里清楚，所以猜完再用合法的穷举法老老实实证一遍。直觉负责找到答案，逻辑负责让答案站住，顺序不能反，反了就什么都发现不了。牛顿也在这条线上：他用流数术（他自己的微积分）算出天体的运动，可《原理》发表时通篇是古典几何证明，新工具藏在背后，因为它的名声还没立起来。无穷小量被伯克利主教骂作"消逝量的鬼魂"，工程师们照用不误，拿它算了一百多年的桥和炮，极限理论才姗姗来迟补上票。作者把无穷比作被驯服的石巨人，说每一代数学家都得重新驯服它一次，驯服的过程，就是先敢骑上去，再想办法装缰绳。</p>
 
   <p>第三根线：明知是假的，反而更准。微积分看世界有一个基本姿态：世界其实是不连续的，物质由一个个原子组成，可微积分偏把它当成连续的东西来处理。作者不回避，还给这种姿态正了名，叫它"有用的虚构"：原子当然存在，可假装它们不存在大有帮助。离奇的是，这个明知为假的假设，交出来的成绩单是最好的：小数点后8位的预言、方程里长出来的正电子、每天45微秒的卫星钟修正。为什么假的东西反而量得最准？这条线是全书埋得最深的钩子，这里只把事实摆上桌，账留到第八层算。</p>
 
@@ -469,7 +549,7 @@
 
   <div class="napkin">微积分的力量 ＝ 切得够碎 × 加得回来 × 假得恰当</div>
 
-  <p>三个因子对应第三层的三根线：切分与重组占两个（微分负责切，积分负责加，少一步这台机器就不转），有用的虚构占一个（明知世界不连续，假装它连续，假必须假得恰到好处）。第二根线进不了公式，它是公式的使用史，只能作注：这三个因子先灵了两千年，逻辑才追上——直觉先上车，理性后补票。</p>
+  <p>三个因子对应第三层的三根线：切分与重组占两个（微分负责切，积分负责加，少一步这台机器就不转），有用的虚构占一个（明知世界不连续，假装它连续，假必须假得恰到好处）。第二根线进不了公式，它是公式的使用史，只能作注：这三个因子先灵了两千年，逻辑才追上，直觉先上车，理性后补票。</p>
 
   <p>一句话：把世界切得够碎，再一片不少地加回来，连一个明知为假的假设都能变成量宇宙最准的尺。</p>
 
@@ -503,7 +583,7 @@
 
   <p>不行。书里伽利略早就立好了标尺。他做斜面实验，让小球往下滚，故意忽略空气阻力和摩擦，只抓惯性和引力。这个忽略有没有资格？有，因为对小球来说，空气阻力带来的误差是毫发级的。可你要是研究的是一片羽毛的下落，再忽略空气阻力，误差立刻变成缆绳级的，整条船都给你拖翻。伽利略的原话是：毫发之差可以接受，船舶缆绳那样显眼的误差就不行。所以失真要讲资格：它必须失在不伤筋动骨的地方。你关心的那一项，一分一毫都不能假；你不关心的，越假越好，假得越狠，模型越干净。知道该忽略什么，才叫建模；什么都舍不得忽略，那叫抄世界。</p>
 
-  <p>这套道理其实每个人兜里都揣着，它叫地图。地图必须比领土小，一张和领土一样大的地图是废物，这是常识。你手机里的导航地图，不画每棵树、每根电线杆，把立交桥简化成一个点，把七拐八弯的小路拉成直线。这些全是失真，而省略本身就是它的功能：真把每条裂缝都画出来，你反而找不到路。但地图的失真有自己的禁区：它可以把路画弯，不能把路画断，两条路连通还是不通连，一个环岛有几个出口，这些一分不能错。因为用地图的人关心的是"能不能到"，不是"路有多弯"。地铁图把这个道理推到了极端：站点的真实位置全是变形的，地理距离失真得一塌糊涂，可换乘关系毫厘不差。它假在几何上，真在拓扑上，因为乘客要的是换乘，不是距离。人人都接受地图是假的，人人都照常用它回家——我们早就是"有用的虚构"的熟练用户，只是没给这个习惯起过名字。</p>
+  <p>这套道理其实每个人兜里都揣着，它叫地图。地图必须比领土小，一张和领土一样大的地图是废物，这是常识。你手机里的导航地图，不画每棵树、每根电线杆，把立交桥简化成一个点，把七拐八弯的小路拉成直线。这些全是失真，而省略本身就是它的功能：真把每条裂缝都画出来，你反而找不到路。但地图的失真有自己的禁区：它可以把路画弯，不能把路画断，两条路连通还是不通连，一个环岛有几个出口，这些一分不能错。因为用地图的人关心的是"能不能到"，不是"路有多弯"。地铁图把这个道理推到了极端：站点的真实位置全是变形的，地理距离失真得一塌糊涂，可换乘关系毫厘不差。它假在几何上，真在拓扑上，因为乘客要的是换乘，不是距离。人人都接受地图是假的，人人都照常用它回家，我们早就是"有用的虚构"的熟练用户，只是没给这个习惯起过名字。</p>
 
   <p>从地图再推半步，手里就有了一把能带走的秤。以后看任何模型、理论、假设，别问"真不真"，因为全是假的，没有例外；要问"它假在哪，这个假伤不伤我要用它办的事"。拿经济学最常用的理性人假设试秤：人不是理性的，这事连经济学家自己都知道，假设是假的，明牌。可拿它分析价格战、分析供需，商家和消费者足够像理性人，误差是毫发级的，地图好用。换一个用途，拿它去解释泡沫和恐慌呢？羊群效应、损失厌恶、踩梯子式的互相惊吓全成了主角，"理性人"在这个场景里的失真是缆绳级的，同一张地图，进城好用，爬山会死人。行为经济学这些年干的活，说到底就是在这张地图上标悬崖：此处假设失效，绕行。假设没变，秤上的读数变了。</p>
 
@@ -515,7 +595,7 @@
 <!-- ==================== 事实边界 ==================== -->
 <div class="fact-boundary">
   <div class="fb-title">事实边界（本篇的取材与折扣）</div>
-  <p>一、本篇依据辅助工具对原文的定点精读（原文索引覆盖约30%：引言、结语、第1/3/6/8/9/10/11章关键段直接深读；第2章阿基米德篇、第1章芝诺段、第10章CT段依据Grep命中的密集引文，未逐段通读），引文与行号均可回查。二、本书txt版公式大量丢失为空白行，文中涉及的公式（光速＝频率×波长等）按标准形式补写。三、"阿基米德是微积分祖宗"的大帐篷史观是作者自认的少数派，本篇已标注，主流史观以牛顿、莱布尼茨为发明人。四、数字的时效："每天清除10亿病毒颗粒"是1995年研究的估计值；"小数点后8位"是科普通行说法；GPS"每天45微秒/误差10公里"是作者给的量级。五、费曼"上帝的语言"出自沃克回忆录，属轶事级出处；《独立宣言》一条是文化影响叙事，非硬因果；牛顿与莱布尼茨的优先权之争本书只写到1676年，后续皇家学会之争属书外内容。六、封面与致谢页作者译名不统一（史蒂夫/史蒂文），本篇从封面。</p>
+  <p>一、本篇依据子代理对原文的定点精读（原文索引覆盖约30%：引言、结语、第1/3/6/8/9/10/11章关键段直接深读；第2章阿基米德篇、第1章芝诺段、第10章CT段依据Grep命中的密集引文，未逐段通读），引文与行号均可回查。二、本书txt版公式大量丢失为空白行，文中涉及的公式（光速＝频率×波长等）按标准形式补写。三、"阿基米德是微积分祖宗"的大帐篷史观是作者自认的少数派，本篇已标注，主流史观以牛顿、莱布尼茨为发明人。四、数字的时效："每天清除10亿病毒颗粒"是1995年研究的估计值；"小数点后8位"是科普通行说法；GPS"每天45微秒/误差10公里"是作者给的量级。五、费曼"上帝的语言"出自沃克回忆录，属轶事级出处；《独立宣言》一条是文化影响叙事，非硬因果；牛顿与莱布尼茨的优先权之争本书只写到1676年，后续皇家学会之争属书外内容。六、封面与致谢页作者译名不统一（史蒂夫/史蒂文），本篇从封面。</p>
 </div>
 
 <!-- ==================== 第九层 ==================== -->

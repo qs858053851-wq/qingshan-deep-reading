@@ -14,25 +14,32 @@
 <meta name="keywords" content="波德莱尔,恶之花,巴黎的忧郁,现代性,象征主义,钱春绮,深度解读,青山">
 <meta name="generator" content="Kami">
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -89,6 +96,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -102,14 +120,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -118,7 +136,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -127,7 +145,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -137,7 +155,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -145,12 +163,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -166,7 +184,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -181,7 +198,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -276,9 +292,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -286,6 +301,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -338,6 +370,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -372,19 +413,19 @@
   <div class="toc-list">
     <div class="toc-item">
       <span class="toc-num">01</span>
-      <a class="toc-title" href="#ch-01">时代转折与全书脉络：从无聊的深渊走向大都市瓦砾堆</a>
+      <span>时代转折与全书脉络：从无聊的深渊走向大都市瓦砾堆</div>
     </div>
     <div class="toc-item">
       <span class="toc-num">02</span>
-      <a class="toc-title" href="#ch-02">一页餐巾纸上的现代性动力学与精神演化图</a>
+      <span>一页餐巾纸上的现代性动力学与精神演化图</div>
     </div>
     <div class="toc-item">
       <span class="toc-num">03</span>
-      <a class="toc-title" href="#ch-03">法庭上的异端，何以成了现代文学的立法者</a>
+      <span>法庭上的异端，何以成了现代文学的立法者</div>
     </div>
     <div class="toc-item">
       <span class="toc-num">04</span>
-      <a class="toc-title" href="#ch-04">当光环掉进马车泥坑：审美认知跃迁与事实考证</a>
+      <span>当光环掉进马车泥坑：审美认知跃迁与事实考证</div>
     </div>
   </div>
 </section>
@@ -404,7 +445,7 @@
 
   <h3 class="marker">起手卷 · 致读者与现代性顽疾</h3>
   <p>
-    全书的门楣由著名的长诗《致读者》钉死。波德莱尔在此处没有用任何客套话迎合买书的中产阶级市民，劈头盖脸便点出了人类心灵的贪婪、错误与罪孽。诗行一路罗列了吞噬骨髓的淫欲与恶行，却在结尾突然收拢到一个最隐秘的毒物：它既不大声疾呼，也不手持利刃，却能在打哈欠的倦怠里把整个地球揉成碎片。这个怪物就是现代人无法摆脱的幽灵——<strong>无聊（Ennui）</strong>。
+    全书的门楣由著名的长诗《致读者》钉死。波德莱尔在此处没有用任何客套话迎合买书的中产阶级市民，劈头盖脸便点出了人类心灵的贪婪、错误与罪孽。诗行一路罗列了吞噬骨髓的淫欲与恶行，却在结尾突然收拢到一个最隐秘的毒物：它既不大声疾呼，也不手持利刃，却能在打哈欠的倦怠里把整个地球揉成碎片。这个怪物就是现代人无法摆脱的幽灵，<strong>无聊（Ennui）</strong>。
   </p>
   <p>
     这是整部书得以运转的第一推动力。人之所以在恶德与刺激里辗转反侧，正是因为被日复一日机械运转的平庸日常逼到了发疯的悬崖边。波德莱尔用近乎残酷的坦白撕下了文明人的遮羞布，将读者拉入同一张审判席。
@@ -420,7 +461,7 @@
 
   <h3 class="marker">第二乐章 · 漫游于奥斯曼改造下的巴黎风光</h3>
   <p>
-    当内心的理想在私密空间中彻底粉碎，波德莱尔在 1861 年第二版中增加了至关重要的篇章——《巴黎风光》。这也是全书从内心自白转向外部现代性体验的关键枢纽。当时的巴黎正在第二帝国行政官奥斯曼男爵的主导下经历野蛮的大拆大建，古老幽暗的中世纪街巷被无情铲平，宽阔笔直的林荫大道与气派的新式百货公司拔地而起。旧日的记忆在机器轰鸣中化为齑粉。
+    当内心的理想在私密空间中彻底粉碎，波德莱尔在 1861 年第二版中增加了至关重要的篇章，《巴黎风光》。这也是全书从内心自白转向外部现代性体验的关键枢纽。当时的巴黎正在第二帝国行政官奥斯曼男爵的主导下经历野蛮的大拆大建，古老幽暗的中世纪街巷被无情铲平，宽阔笔直的林荫大道与气派的新式百货公司拔地而起。旧日的记忆在机器轰鸣中化为齑粉。
   </p>
   <p>
     波德莱尔成了大都市最早的漫游者（Flâneur）。在名篇《天鹅》中，一只从动物园铁笼逃脱的天鹅，在没有水的碎石路面上拖着洁白的羽毛，在干涸水沟里张着嘴向无动于衷的天空索求雨水。诗人站在卢浮宫旁新建的桥头，看着满地的旧木料、柱头与荒草，写下了流传百年的慨叹：<strong>一个城市的面貌，比凡人的心变化得更快。</strong>在《七个老头子》《小老太婆》与《盲人》的行列里，城市不再是古典秩序的象征，而成了挤满畸形者、乞丐与孤独幽灵的现代地狱。
@@ -428,7 +469,7 @@
 
   <h3 class="marker">余响与收束 · 酒、叛逆与最后的航行</h3>
   <p>
-    大都市的繁华无法治愈绝望，诗人的目光转向了更激烈的逃遁手段。《酒》组诗写出了拾垃圾者、凶手与穷人在酒精幻象里夺回尊严的狂喜；《恶之花》组诗直面被禁忌的爱欲与肉体毁伤；而在《叛逆》组诗里，波德莱尔发出了对传统神明最激烈的抗议，转向该隐与撒旦寻求同情。当世间所有的麻醉剂与叛逆行动全部被消耗殆尽，全书无可避免地走向了终点站——《死亡》。
+    大都市的繁华无法治愈绝望，诗人的目光转向了更激烈的逃遁手段。《酒》组诗写出了拾垃圾者、凶手与穷人在酒精幻象里夺回尊严的狂喜；《恶之花》组诗直面被禁忌的爱欲与肉体毁伤；而在《叛逆》组诗里，波德莱尔发出了对传统神明最激烈的抗议，转向该隐与撒旦寻求同情。当世间所有的麻醉剂与叛逆行动全部被消耗殆尽，全书无可避免地走向了终点站，《死亡》。
   </p>
   <p>
     在长达百行的全书压轴名篇《旅行》中，波德莱尔借老水手的口吻清算了人类所有的虚幻希冀。我们漂洋过海游历万邦，看到的不过是人奴役人的单调苦戏。面对这片无可挽回的荒芜，诗人终于在卷尾吐露了全书最震颤人心的呐喊：<strong>向着深渊的底层，地狱或天堂有什么相干，我们要走向未知的底细去发现新奇。</strong>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>法国高中生哲学读本1 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02 · 受限深读（扫描版 OCR）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">法国高中生哲学读本1</div>
+    <div class="cover-sub">政府是人民的主人还是仆人？探讨政治的哲学之路</div>
+    <div class="cover-meta">Blanche Robert 等 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">政治、国家、正义、自由、民主：这些天天出现在新闻里的词，到底是什么意思？我们该怎么想它们，才能不被它们绑架？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">第一项前提，政治概念（国家、正义、自由）没法用字典定义，它们是几百年来哲学家反复争论出来的。第二项前提，争论不可怕，可...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 顺着七个问题，把政治哲学的推理走一遍</span>
+      <span class="toc-desc">结论：三个哲学家的三套答案：霍布斯说是保护者（服从换安全），洛克说是雇员（违约可解雇），卢梭说是公意的化身（否...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">这本书的作者们是一群法国高中哲学教师。他们要对付的现实是：法国每年有几十万高三学生要考哲学作文，而他们中的大多...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">政治哲学给的是反绑架的装备，答案得你自己找。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 法国高中生要学的东西，为什么我们更需要</span>
+      <span class="toc-desc">在法国，高三学生人人要上哲学课，人人要考哲学作文。题目长这样：「国家的主权来自哪里？」「自由是拒绝服从吗？」「...</span>
+    </div>
+  </div>
+
   <h1>法国高中生哲学读本1</h1>
   <div class="author">Blanche Robert 等 · 政府是人民的主人还是仆人？探讨政治的哲学之路</div>
 </div>
@@ -350,11 +423,11 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>
 
-  <h3>一句话：这本书在答什么问题</h3>
+  <h3>核心问题与直接回答</h3>
   <p>政治、国家、正义、自由、民主：这些天天出现在新闻里的词，到底是什么意思？我们该怎么想它们，才能不被它们绑架？</p>
   <p>回答：这是法国高中生的哲学课本（政治卷），它的目的写在导论里，一句话：「培养出思考不受绑架、情绪不受操弄的人」。全书只示范「怎么想」，把「该信什么」留给你自己定：每一个政治议题（国家是主人的仆人吗？正义和法律是什么关系？自由在哪里？），都拆成具体的问题，每个问题请出三到四位哲学家（霍布斯、洛克、卢梭、孟德斯鸠、马克思、韦伯、罗尔斯、康德……），把他们的论证完整摆出来，让你自己判断。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>法国高中哲学课是世界独一份的：毕业班（高三）学生人人要上哲学课、人人要考哲学作文。这本「哲学读本」就是这套课程用的教材：由一群法国高中哲学教师（Blanche Robert 主编）合写，台湾引进翻译。它的结构是「问题导向」：每章一个大主题（政治、国家、正义与法律、自由、民主……），每个主题下设「问题思考」（先自己想想）、「哲人看法」（读哲学家的原文）、「进阶思考」（再往深里问）、「延伸思考」（电影、小说、艺术作品）四层。</p>
   <p>书里反复出现的动作是同一个：把一个大词（国家、正义、自由）拆成可以吵的问题，「国家是为主人服务的吗」「合理的不平等存在吗」「合法的就是对的吗」：然后让哲学家们吵给你看，吵完把笔交给你。</p>
 
@@ -362,7 +435,7 @@
   <p><strong>国家是人民的仆人，还是主人？</strong>书名就是这个问题。霍布斯说：国家来自「社会契约」，人们把权力交出去，换回安全；国家只要还能保障安全，就该服从它。洛克说：不对：国家没有权利剥夺任何人的「自然权利」（生命、自由、财产）；政府违背这一点，人民有权推翻它。卢梭说：你们俩都只说了一半，国家的合法性来自「公意」，它必须把自由与平等写进法律，否则就变成奴役了。一个问题，三个立场，全都说得通：这就是这本书的标准配方：没有标准答案，但每个答案都附完整论证。</p>
   <p><strong>合法的一定正义吗？</strong>「法律是强者定来保护自己的」，还是「法律是弱者用来抵御强者的」？亚里士多德说：正义是合乎比例的公平，给每个人应得的；阿奎那说：不遵守法律有时是正当的：恶法不是法；梭罗说：守法之前先听自己的良心，所以他会拒缴战争税、坐牢也不妥协；康德说：法律的本性是强制：但正因为如此，它必须符合理性。四个哲学家，四种立场，教材不做裁决，它只确保你走的时候，带走了完整的论据。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一本训练独立思考的教科书：不给结论、只给材料和方法。它像教练而不是老师：教练不替你跑，他只告诉你动作要领，然后让你自己跑。每一章末尾的「哲学练习」更是明说：考试不考你背了谁的观点，考你能不能自己组织一个论证。</p>
 </div>
 
@@ -370,19 +443,19 @@
   <div class="layer-num">第二层</div>
   <h2 class="layer-title">作者凭什么这么说</h2>
 
-  <h3>论证链</h3>
-  <p>前提一：政治概念（国家、正义、自由）没法用字典定义，它们是几百年来哲学家反复争论出来的。前提二：争论不可怕，可怕的是只听到一方就站队，被绑架的思考比没有思考更糟。前提三：完整的对立面论证是可以被展示、被学习的（每个问题请出三四个立场相反的哲学家，原文照录）。结论：哲学教育要培养的，是「思考不受绑架、情绪不受操弄」的人，立场留给你自己；方法是问题导向的论证训练。</p>
+  <h3>核心论证逻辑</h3>
+  <p>第一项前提，政治概念（国家、正义、自由）没法用字典定义，它们是几百年来哲学家反复争论出来的。第二项前提，争论不可怕，可怕的是只听到一方就站队，被绑架的思考比没有思考更糟。第三项前提，完整的对立面论证是可以被展示、被学习的（每个问题请出三四个立场相反的哲学家，原文照录）。结论：哲学教育要培养的，是「思考不受绑架、情绪不受操弄」的人，立场留给你自己；方法是问题导向的论证训练。</p>
 
-  <h3>三个具体的证据</h3>
+  <h3>关键事实与核心实证</h3>
   <p><strong>证据一：同一个问题，三四个相反的答案并排。</strong>「国家如何行使权力」，马基维利说：为了维护权力要懂得操弄舆论；马克思说：国家用集体信仰（意识形态）维持统治；韦伯说：现代国家靠的是理性权威和合法暴力。三个立场互相对立，教材不裁决、不调和，全部原文照录。这个「并排」本身就是证据：它证明政治哲学没有标准答案，它是一场持续了几百年的辩论。辩论的每一方都值得被完整听见。</p>
   <p><strong>证据二：选文直接出自哲学家原著。</strong>这本书的「哲人看法」部分不转述、不加工，卢梭的《社会契约论》直接选原文段落，霍布斯、洛克、孟德斯鸠、罗尔斯全部原文照录。教材敢这么做，赌的是高中生读得懂原著（法国高三学生确实要读）。这个选择本身是一种立场：哲学不能靠二手转述学：你得亲自撞见原文，才有资格判断。</p>
   <p><strong>证据三：练习设计指向「自己组织论证」。</strong>每章末尾的「哲学练习」不考背诵，考写作，给你一个问题，让你自己组织论证、引用材料、回应反例。法国高考的哲学作文题也是这么出的（「国家的主权来自哪里？」这种题目）。这套设计把「思考」本身变成了可训练、可考核的技能：它相信：能写出完整论证的人，不会被口号绑架。</p>
 
-  <h3>隐形假设（作者没说，但必须成立）</h3>
+  <h3>底层隐含假设</h3>
   <p><strong>公民是可以用教育培养出来的。</strong>整套教材赌的是：独立思考是可教的技能，只要方法对（问题导向+原文+练习），高中生就能学会「思考不受绑架」。这个假设一旦松动（如果独立思考无法靠教育习得），整本教材就失去了存在理由。</p>
   <p>另一条更隐蔽：<strong>「看见对立面」本身就有价值，即使不达成共识。</strong>教材默认：把马基维利和卢梭并排，比直接告诉你「卢梭是对的」更有教育价值：因为它相信，一个看过完整对立面的人，即使最后选了边，那也是他自己选的边。这个默认是整个法国哲学教育的根基。</p>
 
-  <h3>边界条件（什么情况下这套会失效）</h3>
+  <h3>适用边界与失效条件</h3>
   <p>第一，它要求读者「愿意想」，对只想要答案的人，这套教材是折磨。法国哲学课在高三开设，学生已经十七八岁，教材赌的正是这个年纪有思考的胃口。第二，它的选文以西方经典为主（马基维利到罗尔斯），非西方政治传统（儒家、法家、伊斯兰政治思想）缺席：「政治哲学」在这本书里是西方政治的哲学。第三，它训练「怎么想」，但不保证「想对」，看完四个对立立场，学生可能选了一个更糟的立场（更极端、更固执）；教材只提供思考的材料，想不想得对，得看你自己。</p>
 </div>
 

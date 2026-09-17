@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>公孙龙子外三种 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,14 +380,14 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-  <div class="kicker">古籍深读</div>
-  <h1>公孙龙子外三种</h1>
-  <div class="subtitle">一个辩士把“名”从“实”里掰开，转手又想拿“名”去正天下</div>
-  <div class="meta">公孙龙 等 撰 · 黄克剑 注译 · 中华书局 · 2026-08-22</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">公孙龙子外三种</div>
+    <div class="cover-sub">一个辩士把“名”从“实”里掰开，转手又想拿“名”去正天下</div>
+    <div class="cover-meta">公孙龙 等 撰 · 黄克剑 注译 · 中华书局 · 2026-08-22 · 解读主理：青山 · 日期：2026-08-22 · 典藏长交付</div>
+  </div>
 <div class="intro">依据中华书局“中华经典名著全本全注全译丛书”黄克剑注译本（2012）。该本以明正统《道藏》本（上海涵芬楼影印版）为《公孙龙子》底本，参校说郛、子汇、守山阁、《四库全书》诸本及陈澧、俞樾、王琯、谭戒甫等校注；惠施“历物之意”十题原文取自《庄子·天下》，底本为郭庆藩《庄子集释》；《尹文子》附逸文以《守山阁丛书》本为底本。本文引文均按该本，篇名用该本所调整后的编次。</div>
-<nav class="toc" aria-label="目录"><div class="toc-title">目录</div><ol><li><a href="#layer-01"><span class="n">01</span>这本书到底在讲什么</a></li><li><a href="#layer-02"><span class="n">02</span>他的论证站不站得住</a></li><li><a href="#layer-03"><span class="n">03</span>线头藏在哪</a></li><li><a href="#layer-04"><span class="n">04</span>这件事的根扎在哪</a></li><li><a href="#layer-05"><span class="n">05</span>顺着问答把推理走一遍</a></li><li><a href="#layer-06"><span class="n">06</span>作者没说的那部分</a></li><li><a href="#layer-07"><span class="n">07</span>一张餐巾纸写得下吗</a></li><li><a href="#layer-08"><span class="n">08</span>全书最值钱的是哪一点</a></li><li><a href="#layer-09"><span class="n">09</span>一句话封印这本书</a></li></ol></nav>
+<nav class="toc" aria-label="目录"><div class="toc-title">目录</div><ol><li><span><span class="n">01</span>这本书到底在讲什么</div></li><li><span><span class="n">02</span>他的论证站不站得住</div></li><li><span><span class="n">03</span>线头藏在哪</div></li><li><span><span class="n">04</span>这件事的根扎在哪</div></li><li><span><span class="n">05</span>顺着问答把推理走一遍</div></li><li><span><span class="n">06</span>作者没说的那部分</div></li><li><span><span class="n">07</span>一张餐巾纸写得下吗</div></li><li><span><span class="n">08</span>全书最值钱的是哪一点</div></li><li><span><span class="n">09</span>一句话封印这本书</div></li></ol></nav>
 <main>
 <section class="layer" id="layer-01"><div class="layer-num">Layer 01</div><h2>这本书到底在讲什么</h2>
 <p>公孙龙这个人，正史上只有一句话。《史记·孟子荀卿列传》写着，“而赵亦有公孙龙，为坚白同异之辩”。一个赵国人，以“坚白同异”的论辩出名。他给平原君当了多年门客，跟孔子六世孙孔穿在平原君家对过话，还拿“楚人遗弓”的故事跟孔穿讲道理。后世还冒出来另一个公孙龙，孔子弟子，字子石，比孔子小五十三岁，两个人不是一回事。考证下来，这个辩士公孙龙大约生在公元前三百二十五年到三百一十五年间，死在公元前二百五十年左右。</p>
@@ -410,7 +451,7 @@
    正（名实相副）─┴─► 正名 ──► 化天下 / 循名责实</pre>
 <p>四根线各管一块，又收在一头。前三条讲认知，名怎么脱离实存，怎么一变再变，怎么被对象限住。最后一条讲用处，把这些认知全铺到治世上。公孙龙的天才在头三条，他的执念在最后一条，他要拿一套干净的概念去管一个脏乱的人世，这正是这本书最拧巴也最动人的地方。</p></section>
 <section class="layer" id="layer-08"><div class="layer-num">Layer 08</div><h2>全书最值钱的是哪一点</h2>
-<p>平原君家，一场关于“白马是不是马”的争论。孔穿是孔子的六世孙，站在那个年代最正宗的学问一边。他开口就说，读者，我愿意拜你为师，只要你肯放下“白马非马”。“白马非马”这四个字当时是烫手的，谁认它，谁就像在说太阳西边出。公孙龙没让。他答，我之所以被人知道，就是因为这桩辩论是我最看重的手艺，你让我把它放下，等于让我没了可以教人的东西。你先让我扔下吃饭的本事，再来当我的学生，这个次序就乱了。</p>
+<p>平原君家，一场关于“白马是不是马”的争论。孔穿是孔子的六世孙，站在那个年代最正宗的学问一边。他开口就说，先生，我愿意拜你为师，只要你肯放下“白马非马”。“白马非马”这四个字当时是烫手的，谁认它，谁就像在说太阳西边出。公孙龙没让。他答，我之所以被人知道，就是因为这桩辩论是我最看重的手艺，你让我把它放下，等于让我没了可以教人的东西。你先让我扔下吃饭的本事，再来当我的学生，这个次序就乱了。</p>
 <p>这场争论真正值钱的，是他那句话里夹着的一个念头，把“白马”跟“马”掰开。他拿“要马”和“要白马”来试。你要一匹马，黄马黑马都行；你要一匹白马，黄马黑马就不行。这么一验，两个概念就不是一回事了。“马”这个词只指形体，“白”这个词只指颜色，“白马”把这俩合在一起，念的是形体再加上颜色，而“马”只念形体。一个词里塞进去的东西不一样，这个词跟那个词自然就不相等。</p>
 <p>再往下，这桩“白马非马”，其实是在替一件更大的事开路。坚白论里公孙龙问，一块又白又硬的石头，它的硬、白、形状三样，能同时被摸见看见吗。他说不能。眼睛看见白、看见形状，摸不着硬；手摸得着硬、摸得着形状，看不见白。眼和手各管一摊，“坚”跟“白”在人的感受里各走各的路。于是他往下说，“离也者，藏也”。这个“藏”，藏的人没存心，它自个儿就藏在感官够不着的地方。到后来他干脆说，那个不跟石头、物件粘在一起的“坚”，天下其实找不着，它“藏”着。“离也者天下，故独而正”。</p>
 <p>把这几篇连起来看，公孙龙真正想说的那一件事，已经浮上来了。他发现“名”跟“实”之间有道缝。一个词，一旦被拿去指认某个具体的东西，就被那个东西限住了，不再是原来那个没被限住的词。“白马”的“白”跟“白石”的“白”不是一个白，字一样，意思已经漂了。“马”“白”“坚”这些名，自己成为一个系统，不跟世上任何一个具体东西一一对得上。这是孔子、老子、墨子都没走到过的地方。他们都拿“名”去说“道”，公孙龙把“名”自己摘出来看了一回。</p>

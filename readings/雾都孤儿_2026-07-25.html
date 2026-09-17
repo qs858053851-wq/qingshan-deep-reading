@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>雾都孤儿 · 狄更斯</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>雾都孤儿</h1>
-  <div class="author">查尔斯·狄更斯　黄雨石译　人民文学出版社</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">雾都孤儿</div>
+    <div class="cover-sub">五十三章 · 1838 年 · 一个孩子要多一碗粥</div>
+    <div class="cover-meta">查尔斯·狄更斯　黄雨石译　人民文学出版社 · 解读主理：青山 · 日期：2026-07-25 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">一个孩子在贫民习艺所出生，母亲当场死了，没人知道她是谁。教区管事班博给他取名奥利弗·退斯特，名字是按字母表顺序...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么写</span>
+      <span class="toc-desc">这本书 1838 年出版，狄更斯二十六岁，这是他的第一部社会小说。他在 1867 年版的序言里替自己辩过一次：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三件事在起作用</span>
+      <span class="toc-desc">五十三章，人物几十个，线索三四条。底下真正在转的是三件事。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 狄更斯为什么非写不可，又漏了什么</span>
+      <span class="toc-desc">他写这本书的前一年，英国刚颁行新的济贫法。那部法律的思路跟书里董事会的思路一模一样：救济必须让人难受，难受到宁...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸能写下的《雾都孤儿》</span>
+      <span class="toc-desc">如果只能留一句给没读过的人：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">这本书的账目很清楚：好人得救，坏人受罚。奥利弗认祖归宗，露丝出嫁，班博丢官进习艺所，蒙克斯死在狱里，赛克斯吊死...</span>
+    </div>
+  </div>
+
   <div class="meta">五十三章 · 1838 年 · 一个孩子要多一碗粥</div>
 </div>
 
@@ -361,7 +433,7 @@
 
 <p>孩子们饿了三个月，最后抽签决定由谁去要添饭。奥利弗中签了。他端着碗走到大师傅面前，说了全书最有名的一句话：</p>
 
-<blockquote>"求您，读者，我还要再添一点儿。"</blockquote>
+<blockquote>"求您，先生，我还要再添一点儿。"</blockquote>
 
 <p>厨师脸都白了，扶着铜锅才站住。班博冲进会议室报告，满屋子人一惊。那个穿白坎肩的先生当场下了断语：这孩子将来准得给绞死。第二天门上贴出布告，谁把奥利弗领走，附送五镑钱。</p>
 
@@ -461,11 +533,11 @@
 
 <p>这种写法的效果，跟直接控诉是两回事。控诉会让读者提防，因为读者知道你在拉他站队；而这种写法把读者放在了跟作者同一侧，两人一起看着那些人一本正经地作恶。<strong>你笑出来的那一下，就已经站过来了。</strong></p>
 
-<p>还有一层更狠：这些话全是那些人自己的逻辑，狄更斯只是照着他们的账本念了一遍。董事会真觉得穷人爱住习艺所，曼太太真觉得自己仁慈——她给孩子灌杜松子酒的理由是"我不能看着他们在我眼前受折磨"。<strong>他不需要编，他只需要把这套说法完整地说完。</strong></p>
+<p>还有一层更狠：这些话全是那些人自己的逻辑，狄更斯只是照着他们的账本念了一遍。董事会真觉得穷人爱住习艺所，曼太太真觉得自己仁慈，她给孩子灌杜松子酒的理由是"我不能看着他们在我眼前受折磨"。<strong>他不需要编，他只需要把这套说法完整地说完。</strong></p>
 
 <h3>第三件本钱：给"注定烂掉"这个说法安排一个人去反驳</h3>
 
-<p>那位穿白坎肩的读者在第二章就下了断语：这孩子将来准得给绞死。他还在布告前又说了一遍，说我一生中再没有任何事比这个更让我深信不疑。</p>
+<p>那位穿白坎肩的先生在第二章就下了断语：这孩子将来准得给绞死。他还在布告前又说了一遍，说我一生中再没有任何事比这个更让我深信不疑。</p>
 
 <p>棺材铺里，班博讲得更明白：他出身于一个坏家庭，很容易犯脾气。索尔伯利太太骂奥利弗的母亲，说"他的话并没有冤枉她，她比他说的还要更坏"。</p>
 
@@ -475,7 +547,7 @@
 
 <p>这一条狄更斯没写出来，但整本书踩在上面。</p>
 
-<p>他要驳"坏在血里"，用的办法是"好也在血里"。奥利弗从没受过一天教育，没人教他祷告——狄更斯自己交代过这一笔：如果奥利弗曾为喂养他的人祈祷，那他便将完全像一个基督教徒，但他没有，因为没有人教过他。可这孩子的良心、语言、举止，从头到尾像个受过好教养的少爷。</p>
+<p>他要驳"坏在血里"，用的办法是"好也在血里"。奥利弗从没受过一天教育，没人教他祷告，狄更斯自己交代过这一笔：如果奥利弗曾为喂养他的人祈祷，那他便将完全像一个基督教徒，但他没有，因为没有人教过他。可这孩子的良心、语言、举止，从头到尾像个受过好教养的少爷。</p>
 
 <p>他还专门给了个说法：造化或者遗传却让奥利弗·退斯特有一副坚忍、刚毅的性格。</p>
 
@@ -485,7 +557,7 @@
 
 <p>这本书里所有转机都来自个人的善心。布朗洛愿意等一等再判断；洛斯本医生为了保住这孩子对警察撒谎；梅丽太太和露丝把一个盗案里的伤者收进家门。制度这一头，从头到尾没有一处被修好。</p>
 
-<p>习艺所还在那儿，董事会还在那儿。班博夫妇最后的下场是丢官、进习艺所当贫民——这算报应，可那个磨人的地方本身完好无损，只是换了两个人进去挨磨。</p>
+<p>习艺所还在那儿，董事会还在那儿。班博夫妇最后的下场是丢官、进习艺所当贫民，这算报应，可那个磨人的地方本身完好无损，只是换了两个人进去挨磨。</p>
 
 <p>所以狄更斯给出的出路是：碰上好人。<strong>而碰上，是运气。</strong></p>
 
@@ -534,13 +606,13 @@
 
 <p>这一根一立起来，这本书的意思就变了。<strong>它写的不是好人斗坏人，是规矩本身在办坏事，而好人只能靠犯规来救人。</strong></p>
 
-<p>顺着这一根还能看出为什么班博这个人物那么招人恨。他不算什么大恶棍，他没杀人没抢劫，他只是把职权用满：踢门、敲手杖、扣救济、在公事上一丝不苟。狄更斯给他的下场也精确——丢了官，进了他自己当年管过的习艺所当贫民。<strong>脱下那身制服，他就是他自己制度下的一个号码。</strong></p>
+<p>顺着这一根还能看出为什么班博这个人物那么招人恨。他不算什么大恶棍，他没杀人没抢劫，他只是把职权用满：踢门、敲手杖、扣救济、在公事上一丝不苟。狄更斯给他的下场也精确，丢了官，进了他自己当年管过的习艺所当贫民。<strong>脱下那身制服，他就是他自己制度下的一个号码。</strong></p>
 
 <h3>第三根：这本书要救的是一个人，不是一群人</h3>
 
 <p>这一根决定了这本书能走多远，也决定了它到哪儿就走不动了。</p>
 
-<p>狄更斯把全部力气押在奥利弗一个人身上。为了让这一个人得救，他动用了画像、遗嘱、失散的姨母、同父异母的哥哥——一整套巧合。这套巧合成立的前提是：<strong>奥利弗有身世。</strong>他是个绅士的儿子，血里有东西，画像能认，遗产能查。</p>
+<p>狄更斯把全部力气押在奥利弗一个人身上。为了让这一个人得救，他动用了画像、遗嘱、失散的姨母、同父异母的哥哥，一整套巧合。这套巧合成立的前提是：<strong>奥利弗有身世。</strong>他是个绅士的儿子，血里有东西，画像能认，遗产能查。</p>
 
 <p>而书里其他孩子没有身世。机灵鬼道杰没有，查理·贝茨没有，跟奥利弗一起挨饿的那几十个孩子没有，那个饿到说要吃掉睡在身边的小家伙的大孩子没有。他们没有画像挂在谁家墙上，所以他们不会被认领，只能被流放、被吊死、或者长成下一个费金。</p>
 
@@ -595,7 +667,7 @@
 
 <p>而想把这件事掰回来的人，往往得先破一次规矩：越级说一句话、替人担一次责、在表上填一个不完全准确的数。这跟洛斯本医生对警察撒谎是同一个动作。这本书把这个格局写得很透：<strong>作恶靠照章办事，行善靠个人担责，两边的成本天差地别。</strong></p>
 
-<p>再说一件更小的。一个人被贴上标签之后有多难撕。班博说奥利弗"出身于一个坏家庭，很容易犯脾气"，这句话贴上去以后，奥利弗后来的每一次反抗都成了这句话的证据——他打诺亚，正好证明他很容易犯脾气。</p>
+<p>再说一件更小的。一个人被贴上标签之后有多难撕。班博说奥利弗"出身于一个坏家庭，很容易犯脾气"，这句话贴上去以后，奥利弗后来的每一次反抗都成了这句话的证据，他打诺亚，正好证明他很容易犯脾气。</p>
 
 <p>这在哪儿都一样。一个人被认定难打交道之后，他提意见就是难打交道，他不提意见就是消极。<strong>标签的厉害之处不在于它错，在于它把此后所有的证据都收编了。</strong>要拆掉它，靠自证清白是没用的，得有一个像布朗洛那样愿意先把结论悬起来的人。</p>
 
@@ -647,7 +719,7 @@
 
 <p>三个因子合起来解释了这本书的力量，也解释了它的天花板：它给出的出路是碰上好人，而碰上是运气。</p>
 
-<p>还有两样这张餐巾纸装不下。一样是狄更斯写恐惧的本事——赛克斯逃亡那两天，费金死牢那一夜，跟制度和巧合都无关。另一样是南希，全书唯一一个他自己算不过来的人，下一层专讲。</p>
+<p>还有两样这张餐巾纸装不下。一样是狄更斯写恐惧的本事，赛克斯逃亡那两天，费金死牢那一夜，跟制度和巧合都无关。另一样是南希，全书唯一一个他自己算不过来的人，下一层专讲。</p>
 
   </div>
 </div>
@@ -664,7 +736,7 @@
 
 <h3>她做了什么</h3>
 
-<p>先把她的位置说清。她是费金养大的贼，赛克斯的女人，全书前半她是反面角色——奥利弗第一次逃出贼窝，是她在大街上演戏把他抓回去的：她哭喊他是自己逃走的弟弟，围观的人全站在她这一边。这一手她演得极熟，说明她干过不止一次。</p>
+<p>先把她的位置说清。她是费金养大的贼，赛克斯的女人，全书前半她是反面角色，奥利弗第一次逃出贼窝，是她在大街上演戏把他抓回去的：她哭喊他是自己逃走的弟弟，围观的人全站在她这一边。这一手她演得极熟，说明她干过不止一次。</p>
 
 <p>可是她也是那个在赛克斯要打奥利弗时挡在中间的人，是那个偷听到蒙克斯和费金的话之后，冒着命去找露丝的人。她给赛克斯灌了一杯鸦片酊才走得出门。</p>
 
@@ -684,7 +756,7 @@
 
 <blockquote>"是家，小姐。我用我一生的操劳为我自己建立起来的一个家。"</blockquote>
 
-<p>露丝还要给她一个钱袋。她也不要，她说：我这么做并不是为了钱。她要的是另一样东西——请给我一件您用过的东西，不，不是一个戒指，是您的手套或手绢儿，任何一件原属于您、而我可以保存的东西。</p>
+<p>露丝还要给她一个钱袋。她也不要，她说：我这么做并不是为了钱。她要的是另一样东西，请给我一件您用过的东西，不，不是一个戒指，是您的手套或手绢儿，任何一件原属于您、而我可以保存的东西。</p>
 
 <p>她拿走了那方手绢。四十八小时后，她跪在地上，用两手把这方手绢举向天上，被赛克斯用木棒击倒。</p>
 
@@ -700,7 +772,7 @@
 
 <p>这句话把这本书扎了一个洞。因为整本书都在讲一个孩子该被抹掉出身、放回体面人家里去，而这里有一个人当着布朗洛的面说：我那二十几年不是废纸，那是我的。</p>
 
-<p>再看她要手绢那一下。钱她不要，因为钱是酬劳，收了钱这件事就成了一笔交易，就等于承认她是被买来做好事的。手绢不是酬劳，是纪念——<strong>她要的是"我做这件事是我自己要做的"这个名分。</strong>这是全书唯一一个人，在唯一一次可以要报酬的时候，只要了一件证明自己动机的东西。</p>
+<p>再看她要手绢那一下。钱她不要，因为钱是酬劳，收了钱这件事就成了一笔交易，就等于承认她是被买来做好事的。手绢不是酬劳，是纪念，<strong>她要的是"我做这件事是我自己要做的"这个名分。</strong>这是全书唯一一个人，在唯一一次可以要报酬的时候，只要了一件证明自己动机的东西。</p>
 
 <p>更狠的是那句"如果更早一些时候您对我这么说，我一定只会大笑几声了事"。她自己知道太晚了。她不是没算过账，她算过，算完了还是回去。</p>
 

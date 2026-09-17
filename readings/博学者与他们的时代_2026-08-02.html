@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>博学者与他们的时代 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">博学者与他们的时代</div>
+    <div class="cover-sub">伯克（Peter Burke）· 通才是如何炼成的：从达文西到桑塔格的知识人文化史</div>
+    <div class="cover-meta">彼得 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这两千年讲一遍</span>
+      <span class="toc-desc">这本书讲的是博学者（polymath）：那些跨学科的通才：从古希腊到今天的完整历史。剑桥历史学家彼得·伯克用了...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这本书拆到底，就一场持续两千年的战争在牵动</span>
+      <span class="toc-desc">人物几百个，时代从古希腊排到硅谷，但牵动全书叙事的，其实只有一对矛盾：知识要广，还是知识要深。这场战争的双方各...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">伯克自己就是学术界的异类：一个历史学家，横跨文化史、社会史、文艺复兴研究、语言社会学，他研究的所有主题都是「学...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">先挖一口深井，再修管网。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 专门化的时代，为什么更需要会连接的人</span>
+      <span class="toc-desc">你参加过那种会吗：做市场的说用户要的是爽感，做技术的说用户要的是稳定，做运营的说用户要的是参与感，三拨人各说各...</span>
+    </div>
+  </div>
+
   <h1>博学者与他们的时代</h1>
   <div class="author">彼得·伯克（Peter Burke）· 通才是如何炼成的：从达文西到桑塔格的知识人文化史</div>
 </div>
@@ -373,10 +442,10 @@
   <div class="marker">20 世纪 · 跨学科：博学者以另一种方式复活</div>
   <p>二十世纪，博学者改头换面：一个人知道一切的年代过去了，现在是一群人跨过学科围墙。维特根斯坦、波普尔、史坦纳（写哲学、神学、语言学、西洋棋）、桑塔格（文学、电影、政治、摄影）、戴蒙德（生理学家出身，最后写出《枪炮、病菌与钢铁》）。批判专门化的声音也越来越响：海莱因说「专门化是昆虫做的事」，芒福德自称「通才」，学者们把学科高墙比作「巴爾幹化」。跨学科从非正式咖啡馆沙龙，一路变成大学课程（牛津的 PPE）、研究中心和跨学科期刊。</p>
 
-  <h3>一句话：作者在答什么问题</h3>
+  <h3>核心问题与直接回答</h3>
   <p>博学者是怎么炼成的，又为什么几乎绝种？答案：知识爆炸把「全知」变成不可能，但创新的前沿恰恰长在学科的缝隙里：所以通才没有消失，只是换了活法：从「一个人知道一切」，变成「一群人连接一切」。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一位老派历史学家在档案室里写了两千页人物志：冷静、详尽、不煽情。他不制造英雄叙事：达文西有缺点，洪堡有盲区，博学者也会一事无成。他把博学者当「一个物种」来研究：他们的生态、栖息地、生存策略，以及它们赖以生存的知识气候如何变迁。</p>
 </div>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>人生五味：蒙曼品最美唐诗 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>人生五味：蒙曼品最美唐诗</h1>
-  <div class="author">蒙曼 · 唐诗鉴赏 · 把三十来首名篇，还原成三十来颗活人的心</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">人生五味：蒙曼品最美唐诗</div>
+    <div class="cover-sub">唐诗鉴赏 · 把三十来首名篇，还原成三十来颗活人的心</div>
+    <div class="cover-meta">蒙曼 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书端上来的五味</span>
+      <span class="toc-desc">蒙曼给这本书搭的架子很家常：人这一辈子，纵着看是四季，少年青年中年老年；横着看是五情，喜怒哀乐怨。她借《红楼梦...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 跳出这本书，再看它一眼</span>
+      <span class="toc-desc">先说这本书为什么存在。以下是基于文本的推测，不是蒙曼自述。她是文史学者里最会对着大众讲话的那批人，而这本书的使...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">三个因子从第一层的扫描里来：真情，蒙曼全书的主张就一句"唐诗之美，正在于有情"，情是假的，技巧再好也是塑料花；...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 这本书真正的礼物，是五个名字</span>
+      <span class="toc-desc">这本书挑了三十来首名诗，讲了三十来个故事，可我合上书，觉得它给的最重要的东西，是五个名字：喜、怒、哀、乐、怨。...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层（改·意境扫描） ==================== -->
@@ -350,7 +414,7 @@
   <div class="layer-num">Layer 01</div>
   <h2 class="layer-title">这本书端上来的五味</h2>
 
-  <p>蒙曼给这本书搭的架子很家常：人这一辈子，纵着看是四季，少年青年中年老年；横着看是五情，喜怒哀乐怨。她借《红楼梦》里宝玉的酒令开场，那句"女儿悲，青春已大守空闺；女儿乐，秋千架上春衫薄"，和唐诗的五情正好对上。她的主张一句话：唐诗之美，正在于有情。这本书不讲格律知识，不考古诗人生卒，就干一件事——把三十来首名篇，按五味分成五组，一首一首还原成诗人那一刻的心情。</p>
+  <p>蒙曼给这本书搭的架子很家常：人这一辈子，纵着看是四季，少年青年中年老年；横着看是五情，喜怒哀乐怨。她借《红楼梦》里宝玉的酒令开场，那句"女儿悲，青春已大守空闺；女儿乐，秋千架上春衫薄"，和唐诗的五情正好对上。她的主张一句话：唐诗之美，正在于有情。这本书不讲格律知识，不考古诗人生卒，就干一件事，把三十来首名篇，按五味分成五组，一首一首还原成诗人那一刻的心情。</p>
 
   <div class="marker">喜 · 漫卷诗书的那一卷</div>
 
@@ -362,7 +426,7 @@
 
   <div class="marker">哀 · 两个字，两种黄昏</div>
 
-  <p>哀的代表是李商隐《登乐游原》。蒙曼说，兴亡之叹属于贵族和知识分子，生命的感叹才属于所有人，它不针对兴亡，只针对时间。"夕阳无限好，只是近黄昏"，她先把乐游原的长天落日铺开，然后把一桩千年公案摆上桌：争就争在"只是"两个字。作"只不过"解，是美景转瞬即逝，人生、大唐、宇宙都如露如电，一声浩叹；可有学者说，唐朝人的"只是"是"正是"的意思，那就成了另一种心情——正是临近黄昏这一刻，看见了天地间最壮美的景色，个人的愁苦反而释然了。两种讲法她并排摆好，不替你裁决：诗无达诂，仁者见仁。</p>
+  <p>哀的代表是李商隐《登乐游原》。蒙曼说，兴亡之叹属于贵族和知识分子，生命的感叹才属于所有人，它不针对兴亡，只针对时间。"夕阳无限好，只是近黄昏"，她先把乐游原的长天落日铺开，然后把一桩千年公案摆上桌：争就争在"只是"两个字。作"只不过"解，是美景转瞬即逝，人生、大唐、宇宙都如露如电，一声浩叹；可有学者说，唐朝人的"只是"是"正是"的意思，那就成了另一种心情，正是临近黄昏这一刻，看见了天地间最壮美的景色，个人的愁苦反而释然了。两种讲法她并排摆好，不替你裁决：诗无达诂，仁者见仁。</p>
 
   <div class="marker">乐 · 小巧、轻快、短暂的那一种</div>
 
@@ -380,7 +444,7 @@
   <div class="layer-num">Layer 06</div>
   <h2 class="layer-title">跳出这本书，再看它一眼</h2>
 
-  <p>先说这本书为什么存在。以下是基于文本的推测，不是蒙曼自述。她是文史学者里最会对着大众讲话的那批人，而这本书的使命，我读着是"把唐诗从考场里接回家"。我们这代人跟唐诗的关系，多半坏在应试上：背诵、默写、中心思想，三步走完，诗就成了任务，人就成了门外汉。蒙曼干的事是把这个关系倒过来：先不管"这首诗表达了什么思想感情"，先看这个人那一刻在经历什么——八年的仗打完了，谪居的难友音信不通了，夕阳要落了。处境一还原，那句诗自己就活了。她其实是在修复一代人和唐诗之间断掉的那截线。</p>
+  <p>先说这本书为什么存在。以下是基于文本的推测，不是蒙曼自述。她是文史学者里最会对着大众讲话的那批人，而这本书的使命，我读着是"把唐诗从考场里接回家"。我们这代人跟唐诗的关系，多半坏在应试上：背诵、默写、中心思想，三步走完，诗就成了任务，人就成了门外汉。蒙曼干的事是把这个关系倒过来：先不管"这首诗表达了什么思想感情"，先看这个人那一刻在经历什么，八年的仗打完了，谪居的难友音信不通了，夕阳要落了。处境一还原，那句诗自己就活了。她其实是在修复一代人和唐诗之间断掉的那截线。</p>
 
   <p>她的盲点，诚实说有三处。一是所选全是正典名篇，唐诗的粗粝边缘，李贺的怪、卢仝的险、寒山的疯，都进不了这本书的门；名篇有名篇的道理，但"最美唐诗"这个框，本身就把唐诗修成了盆景。二是她说"诗无达诂"，乐游原那节两种讲法并排摆好，这是真雅量；可全书多数篇目，她其实还是给了定解，两解并立是少数。三是五味这个架子太整齐了，人情远不止五味：羞、妒、悔、怯，都没分到抽屉。整齐的框架好讲，代价是装不下的那一部分被挡在了框外。</p>
 

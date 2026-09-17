@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>盐糖脂 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">食品工业的生物黑客、极乐点计算与公众健康的系统沦陷</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">极乐点数学模型、消失的热量密度与儿童午餐包（Lunchables）奇迹</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">华尔街季度财报压力、食品物理加工重组与味觉耐受性钝化</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从早晨麦片到全天候味觉麻醉、代谢紊乱与医疗沉重负担</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析食品工业攻防、家庭厨房陷落与重夺饮食主权</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">摩斯调查记者方法论、现代食品工业算法映射与防身术</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">食品工业盐糖脂生物黑客成瘾闭环全景图</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一听冰镇可乐的黄金配比看人类舌尖的沦陷</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与食品公共卫生思想史事实考据</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">食品工业的生物黑客、极乐点计算与公众健康的系统沦陷</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">极乐点数学模型、消失的热量密度与儿童午餐包（Lunchables）奇迹</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">华尔街季度财报压力、食品物理加工重组与味觉耐受性钝化</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从早晨麦片到全天候味觉麻醉、代谢紊乱与医疗沉重负担</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析食品工业攻防、家庭厨房陷落与重夺饮食主权</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">摩斯调查记者方法论、现代食品工业算法映射与防身术</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">食品工业盐糖脂生物黑客成瘾闭环全景图</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一听冰镇可乐的黄金配比看人类舌尖的沦陷</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与食品公共卫生思想史事实考据</span></div>
     </div>
   </div>
 
@@ -393,7 +453,7 @@
 <h2>第二步 运作方式：感官特异性饱腹感（Sensory-Specific Satiety）的工业规避</h2>
 <p>人类在进化中形成了对单一风味产生厌倦的保护机制。然而，食品科学家通过将盐、糖、脂肪按极其诡异的黄金比例混合，让任何一种单一味道都不至于突兀到触发厌倦机制。冰淇淋中的高脂肪包裹住了高糖分，薯片中的盐粒在入口瞬间炸裂随后被油脂抚平，这种复杂的复合感官刺激完美绕过了大脑的饱腹防御系统。</p>
 <h2>第三步 基本道理：加工食品彻底割裂了口感感知与真实营养信号的对应关系</h2>
-<p>在自然界中，甜味代表成熟无毒的果实与维生素，咸味代表矿物质，油脂代表珍贵的越冬能量。然而，工业加工食品制造了纯粹的空热量空符号——浓烈的甜味背后只有破坏肝脏代谢的果糖，浓郁的奶香背后只有堵塞血管的反式脂肪酸。身体在摄入了海量热量的同时，细胞依然处于营养饥渴状态，从而不断发出继续进食的错误指令。</p>
+<p>在自然界中，甜味代表成熟无毒的果实与维生素，咸味代表矿物质，油脂代表珍贵的越冬能量。然而，工业加工食品制造了纯粹的空热量空符号，浓烈的甜味背后只有破坏肝脏代谢的果糖，浓郁的奶香背后只有堵塞血管的反式脂肪酸。身体在摄入了海量热量的同时，细胞依然处于营养饥渴状态，从而不断发出继续进食的错误指令。</p>
 <h2>第四步 底层限制与悖论：工业帝国高管绝不让自己孩子吃自家产品的终极反讽</h2>
 <p>摩斯在调查中最具震撼力的发现是：卡夫、雀巢和可口可乐的历任高管与首席科学家，在私生活中极度自律，严格遵循地中海饮食，严厉禁止自己的子女食用自家生产的苏打水、冷冻披萨和午餐包。制造者对产品的毒性心知肚明，却为了年终奖金继续向全球底层大众源源不断地倾倒这些慢性毒药。</p>
 
@@ -476,8 +536,8 @@
     <h1>从一听冰镇可乐的黄金配比看人类舌尖的沦陷</h1>
     
 <p>炎热的盛夏午后，你拉开一听冰镇可乐的拉环，伴随着清脆的气体释放声，白色的泡沫在罐口翻滚。你仰起头大口吞咽，气泡在喉咙处炸裂，冰凉清甜的液体顺流而下，一种难以言喻的爽快感瞬间传遍四肢百骸。你长舒一口气，由衷地感叹这真是一项伟大的现代发明。你的常识直觉告诉你：这只是一听普通的好喝饮料，解渴又提神。</p>
-<p>然而，如果我们将这罐可乐放进食品化学实验室的分析仪中，一个冷酷的生理学陷阱将立刻暴露无遗。在这区区三百三十毫升的黑色液体里，溶解了整整三十九克高纯度糖分——相当于整整十块标准的方形咖啡方糖。在正常情况下，如果你把十块方糖直接扔进一杯白开水里一口气喝下去，你的舌头会立刻感受到令人作呕的极度甜腻，胃部会本能地痉挛甚至触发呕吐反射，因为人体生理机制在警告你：如此高浓度的单糖涌入将引发致命的高渗性代谢紊乱。</p>
-<p>那么，为什么你在喝可乐时不仅没有感到恶心，反而觉得清爽无比？答案就在配方表里隐藏的另一种关键工业试剂——磷酸。食品科学家精心计算了磷酸与糖分的分子比例：强烈的酸味在舌尖精准中和了十块方糖的甜腻感，同时二氧化碳气泡对口腔三叉神经的物理刺激，进一步麻痹了大脑的味觉预警雷达。两者合谋，巧妙地把原本足以引发呕吐的高剂量糖分伪装成了一种轻盈可口的日常饮品。</p>
+<p>然而，如果我们将这罐可乐放进食品化学实验室的分析仪中，一个冷酷的生理学陷阱将立刻暴露无遗。在这区区三百三十毫升的黑色液体里，溶解了整整三十九克高纯度糖分，相当于整整十块标准的方形咖啡方糖。在正常情况下，如果你把十块方糖直接扔进一杯白开水里一口气喝下去，你的舌头会立刻感受到令人作呕的极度甜腻，胃部会本能地痉挛甚至触发呕吐反射，因为人体生理机制在警告你：如此高浓度的单糖涌入将引发致命的高渗性代谢紊乱。</p>
+<p>那么，为什么你在喝可乐时不仅没有感到恶心，反而觉得清爽无比？答案就在配方表里隐藏的另一种关键工业试剂，磷酸。食品科学家精心计算了磷酸与糖分的分子比例：强烈的酸味在舌尖精准中和了十块方糖的甜腻感，同时二氧化碳气泡对口腔三叉神经的物理刺激，进一步麻痹了大脑的味觉预警雷达。两者合谋，巧妙地把原本足以引发呕吐的高剂量糖分伪装成了一种轻盈可口的日常饮品。</p>
 <p>当这罐液体进入你的体内，十块方糖的果糖分子在没有纤维素阻隔的情况下，如同一场海啸般直接冲击你的肝脏。胰岛素疯狂分泌，血糖坐上过山车，大脑伏隔核的多巴胺如烟花般绽放。四十五分钟后，血糖骤降，多巴胺回落，疲惫与莫名的空虚感再次袭来，你的手不由自主地伸向了第二罐。在这个被精密计算的循环里，你以为自己是在享受舌尖的自由，实际上你的神经回路已经被锁死在一套高度工业化的生化枷锁之中。</p>
 
   </div>
@@ -488,7 +548,7 @@
     
 <div class="closing-quote">
   <p>当我们把餐桌的主权全盘交托给追求利润最大化的工业巨头，我们失去的不仅是原汁原味的自然味觉，更是整个人类物种最基本的健康尊严。</p>
-  <div class="closing-author">—— 《盐糖脂》公共健康启示终局定音</div>
+  <div class="closing-author">， 《盐糖脂》公共健康启示终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与调查考据说明</h3>

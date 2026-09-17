@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中国文化史导论 —— 解书</title>
+<title>中国文化史导论 ， 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>中国文化史导论</h1>
-  <div class="author">钱穆 · 一九四一年抗战中所著，一九四八年出版，一九八七年修订</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中国文化史导论</div>
+    <div class="cover-sub">抗战最苦那年，他在后方回答一个问题：中国文化，还值不值得救</div>
+    <div class="cover-meta">钱穆 · 一九四一年抗战中所著，一九四八年出版，一九八七年修订 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先交代这本书的分量从哪来，一九四一年前后，抗战最艰难的时候，钱穆在大后方写这本书。他自己说得很白：中国以大型农...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这本书是钱穆在"书籍不凑手"的抗战后方写的，他自己承认是"一种空洞意见之叙述"。可它的论证靠的不是脚注，是几个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">十章，两千年，从地理讲到科学，底下就两根线。用这两根线，每一章都能推回来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">两根线里更深的是第一根："转化 vs 变异"。这个二分，是钱穆给"中国停滞论"下的战书。往下挖。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">这本书写在抗战最苦的年头。钱穆在弁言里说得很白：中国"安足者陷于不安足，文化生机岌岌不可终日"。国家能不能救，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">转化能消化：中国史是转化不是变异，所以外来的一切（佛、胡、蒙、满、科学）都能消化。这是"不亡"的理由。安足立得...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">前面七层，有一个东西我一直按着没展开：钱穆在这本书里，真正在打的，不是一场学术仗，是一场"尺子仗"。谁有资格拿...</span>
+    </div>
+  </div>
+
   <div class="tagline">抗战最苦那年，他在后方回答一个问题：中国文化，还值不值得救</div>
 </div>
 
@@ -355,7 +431,7 @@
 
   <p>写法是"一条问题线"：十章，每章回答一个子问题，合起来回答一个总问题：中国文化从哪来、是什么性格、还能不能救。弁言先给总钥匙：文化分三型，游牧、商业、农耕；游牧和商业起于"内不足"，所以流动、进取、侵略；农耕可以自给，所以静定、和平。人类文化终究要以和平为本，所以领导未来世界和平的，必是"大型农国加新科学装备"。美苏中三国够格，而只有中国同时是"农耕和平文化最优秀的代表"。这个总钥匙一插，十章就顺了：</p>
 
-  <p><strong>第一章（地理背景）</strong>：中国文化发源于黄河各支流的"汭"（两水相交的三角地），跟埃及、巴比伦、印度的"小地面单一水系"不一样。中国是"复杂广大地面多水系"，所以能养成大组织、强抵抗、不断有新刺激不腐化。顺手立了全书的史观：西方历史是"变动—进步—异体"，中国历史是"转化—绵延—同体"。</p>
+  <p><strong>第一章（地理背景）</strong>：中国文化发源于黄河各支流的"汭"（两水相交的三角地），跟埃及、巴比伦、印度的"小地面单一水系"不一样。中国是"复杂广大地面多水系"，所以能养成大组织、强抵抗、不断有新刺激不腐化。顺手立了全书的史观：西方历史是"变动，进步，异体"，中国历史是"转化，绵延，同体"。</p>
 
   <p><strong>第二章（国家凝成）</strong>：中国是一个民族一个国家独创、四五千年一线相承。但"非单纯非保守"。中国民族像大水系汇纳支流，分四期融和（先秦、秦汉、隋唐、清至今）。希腊有民族凝不成国家，罗马有国家融不成民族，中国先秦就把两者合一了。</p>
 
@@ -437,7 +513,7 @@
 
   <p>两根线里更深的是第一根："转化 vs 变异"。这个二分，是钱穆给"中国停滞论"下的战书。往下挖。</p>
 
-  <p><strong>表层：这是两个比喻。</strong>长跑 vs 接力跑，大河 vs 泉源——听着像修辞。往下钻。</p>
+  <p><strong>表层：这是两个比喻。</strong>长跑 vs 接力跑，大河 vs 泉源，听着像修辞。往下钻。</p>
 
   <p><strong>第二层：这是两种时间观。</strong>"变异"的时间是断裂的：一个时代结束，另一个时代开始，新旧之间是"死"与"生"的关系（罗马死了，日耳曼生了）；"转化"的时间是连续的：一个时代化进另一个时代，新旧之间是"化"与"被化"的关系（汉化了，唐生了，但汉没死，化在唐里）。所以西方历史读出来是"进步"（新胜过旧），中国历史读出来是"绵延"（旧化在新里）。这不是两种修辞，是两种对"时间里的东西怎么存灭"的根本看法。再往下。</p>
 
@@ -597,7 +673,7 @@
 <!-- ============ 事实边界 ============ -->
 <div class="fact-box">
   <div class="fb-title">事实边界</div>
-  <p>本篇引用的原文、十章结构、各章判词（三型文化、转化 vs 变异、孝为柱石、科举为大群主义、先正德后物性），均出自所读《中国文化史导论》epub 原文（经 辅助索引定点核对）。需向读者申明三处：其一，"中国古代无农奴制度""两千年无资本主义"为钱穆判词，与主流经济史叙述有张力，本篇按"钱穆的论点"呈现；其二，三型文化地理决定论为高度简化的类型学，非今日地理学共识；其三，"安足 vs 富强"的二分写于抗战时期，钱穆自己在书中也承认中国须"装新装备"，本篇已把这个张力作为"读者立场"的一部分标出。第八层"拿回尺子"为解读者对全书的整体判断，钱穆本人并未用此说法自述。</p>
+  <p>本篇引用的原文、十章结构、各章判词（三型文化、转化 vs 变异、孝为柱石、科举为大群主义、先正德后物性），均出自所读《中国文化史导论》epub 原文（经 deep-reading-extractor 轻索引定点核对）。需向读者申明三处：其一，"中国古代无农奴制度""两千年无资本主义"为钱穆判词，与主流经济史叙述有张力，本篇按"钱穆的论点"呈现；其二，三型文化地理决定论为高度简化的类型学，非今日地理学共识；其三，"安足 vs 富强"的二分写于抗战时期，钱穆自己在书中也承认中国须"装新装备"，本篇已把这个张力作为"读者立场"的一部分标出。第八层"拿回尺子"为解读者对全书的整体判断，钱穆本人并未用此说法自述。</p>
 </div>
 
 <!-- ============ 第九层 ============ -->

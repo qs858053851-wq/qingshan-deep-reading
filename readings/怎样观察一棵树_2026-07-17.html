@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>怎样观察一棵树 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>怎样观察一棵树</h1>
-  <div class="author">南茜·罗斯·胡格 著 · 罗伯特·卢埃林 摄影 · 商务印书馆 · 原书名 Seeing Trees</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">怎样观察一棵树</div>
+    <div class="cover-sub">罗斯·胡格 著 · 罗伯特·卢埃林 摄影 · 商务印书馆 · 原书名 Seeing Trees</div>
+    <div class="cover-meta">南茜 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">一个清晨，作者的丈夫约翰跑来报告：院子里的栎果发芽了。就是壳斗底下鼓出一点胚根的那种小事。她听了很高兴，高兴的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">结论：差在镜头。看树用广角，认个整体；观树用特写，盯一个部件看它的变化。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">一句话：这本书教的是把"看见"从本能练成本事。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第一层提到，这本书的尾声发生在一家汉堡王后面的停车场。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">胡格写这本书的那股劲儿，说穿了是一种温柔的着急：人跟自然住在同一个院子里，却越来越像陌生人。她不开环保课，不列...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">本篇依据商务印书馆中译本的扫描版文本写成，原文 OCR 噪声较重，树种名已按书后中外词汇对照表尽量回正。柿子花...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -474,7 +546,7 @@
 
   <p>胡格写这本书的那股劲儿，说穿了是一种温柔的着急：人跟自然住在同一个院子里，却越来越像陌生人。她不开环保课，不列濒危名单，她走的路数是把陌生人重新介绍给你认识。你看，这是黑胡桃，你闻一闻它的叶子，柑橘味；以后在火车站一样的人群里，你一眼就能把它挑出来。她相信认识先于爱护，人对叫不出名字的东西是狠得下心的。</p>
 
-  <p>盲点也得说。第一，这本书的树全是北美的种，中国读者认树时对不上号，方法能搬，树种不能搬，这是翻译引进时没解决的事。第二，她的世界太干净了。观察、记录、感染家人，书里几乎没有"看不下去"的时刻，可真实的人开始一件慢事，九成败在前两周的枯燥期，她对这段劝退期着墨太少，把习惯养成说得太容易了。第三是我个人的保留：全书几乎不碰科学结论，物候、传粉、蒸腾都点到即止，读者会以为"观察"止于欣赏；其实只要她再迈半步——比如讲清康毕斯那六十年记录是怎么变成气候证据的，读者就能看见个人观察和科学之间的桥。</p>
+  <p>盲点也得说。第一，这本书的树全是北美的种，中国读者认树时对不上号，方法能搬，树种不能搬，这是翻译引进时没解决的事。第二，她的世界太干净了。观察、记录、感染家人，书里几乎没有"看不下去"的时刻，可真实的人开始一件慢事，九成败在前两周的枯燥期，她对这段劝退期着墨太少，把习惯养成说得太容易了。第三是我个人的保留：全书几乎不碰科学结论，物候、传粉、蒸腾都点到即止，读者会以为"观察"止于欣赏；其实只要她再迈半步，比如讲清康毕斯那六十年记录是怎么变成气候证据的，读者就能看见个人观察和科学之间的桥。</p>
 
   <p>跨着领域看，这套方法跟读人是一个道理。认识一个人也有两种镜头：广角是标签，职业、收入、哪个学校毕业的，一眼扫过就算"认识了"；特写是看他怎么处理一件小事，怎么对待服务员，怎么过一个普通的下午。档案袋装的是广角信息，日子过出来的是特写信息。我们抱怨"看不懂一个人"，多半是广角用得太多，特写一次没用过。</p>
 
@@ -491,7 +563,7 @@
 </div>
 
 <div class="finale">
-  <div class="quote">这本书教的不是认树，是成为那种走到哪里都自带熟人的人——因为看见，所以不再陌生。</div>
+  <div class="quote">这本书教的不是认树，是成为那种走到哪里都自带熟人的人，因为看见，所以不再陌生。</div>
   <div class="sign">青山 · 2026-07-17</div>
 </div>
 

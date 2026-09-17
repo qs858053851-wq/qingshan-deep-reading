@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>我的阿勒泰 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -250,6 +285,13 @@
     color: var(--brand);
     margin-bottom: 12pt;
     letter-spacing: 1pt;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
   .napkin-caption {
     font-size: 11pt;
@@ -267,6 +309,65 @@
     color: var(--dark-warm);
     border-radius: 0 4pt 4pt 0;
     line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -288,42 +389,42 @@
 
   <div class="toc">
     <h2>目 录</h2>
-    <a class="toc-item" href="#layer01">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">打破都市现代性虚妄焦虑，在北疆旷野的风雪与晨曦中找回生命的原本自洽</span>
-    </a>
-    <a class="toc-item" href="#layer02">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">戈壁流动裁缝铺、转场羊群的古老节奏与零敲碎打的荒野互惠实证铁证</span>
-    </a>
-    <a class="toc-item" href="#layer03">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 机制解剖</span>
       <span class="toc-desc">顺天应时、物质极简与感知纯粹的三大生命自洽动力学齿轮</span>
-    </a>
-    <a class="toc-item" href="#layer04">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 终极下钻</span>
       <span class="toc-desc">从过客的漂泊虚无到大地的安顿归宿：存在主义的心灵安详</span>
-    </a>
-    <a class="toc-item" href="#layer05">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 衍生推演</span>
       <span class="toc-desc">六大核心推演：从长白山与巫山民宿空间营造到都市人精神自愈</span>
-    </a>
-    <a class="toc-item" href="#layer06">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 破界审视</span>
       <span class="toc-desc">拒绝田园牧歌的廉价浪漫化滤镜，正视荒野生存的严酷现实代价</span>
-    </a>
-    <a class="toc-item" href="#layer07">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
       <span class="toc-desc">山野生活本真诗学与精神自洽能量平衡模型</span>
-    </a>
-    <a class="toc-item" href="#layer08">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">最值钱的一个问题：如果世界上最好的五星级酒店拥有恒温两千支纱纯棉床品，为什么有人睡在冰凉木屋的羊皮褥子上却能做出这一生最香甜的梦？</span>
-    </a>
-    <a class="toc-item" href="#layer09">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">在喧嚣的人间修篱种菊，把阿勒泰的草木清香留在心底</span>
-    </a>
+    </div>
   </div>
 
   <div class="section" id="layer01">
@@ -363,7 +464,7 @@
   <div class="section" id="layer05">
     <div class="layer-tag">Layer 05 · 衍生推演</div>
     <h1>六大核心推演：从长白山与巫山民宿空间营造到都市人精神自愈</h1>
-    <p>推演一，在皛仚长白山与一个乡村住宿项目等高端度假民宿打造中，什么是不可替代的核心灵魂？非冷冰冰的高档建材与千篇一律的奢华软装堆砌，为李娟笔下那种真正扎根在地风土的生命温度；窗外原始森林与雪山的呼吸、柴火噼啪作响的壁炉、一壶热气腾腾的在地清茶、管家真诚朴实的问候，让客人卸下防备重归本真。</p>
+    <p>推演一，在皛仚长白山与目涯巫山等高端度假民宿打造中，什么是不可替代的核心灵魂？非冷冰冰的高档建材与千篇一律的奢华软装堆砌，为李娟笔下那种真正扎根在地风土的生命温度；窗外原始森林与雪山的呼吸、柴火噼啪作响的壁炉、一壶热气腾腾的在地清茶、管家真诚朴实的问候，让客人卸下防备重归本真。</p>
     <p>推演二，民宿的做全村客人理念如何在现实中具象落地？正如阿勒泰戈壁上汉族小裁缝铺与哈萨克牧民的深厚互惠情谊一样，民宿不能孤立于村庄，必须将本地村民的质朴善意、在地手作、传统节庆与原汁原味的乡村生活编织进客人的体验之中，构建温情的主客共生生态。</p>
     <p>推演三，长期身处高压脑力劳动的数字极客与交易者如何自我修复？定期将自己从荧光屏与K线波动中物理隔离出来，走进真正的山野森林，在纯粹的自然环境中散步、深呼吸、触摸粗糙的树皮与冰凉的溪水，借由大自然的深沉能量重置紧绷过敏的神经系统。</p>
     <p>推演四，如何彻底告别消费主义带来的物欲奴役与债务焦虑？践行游牧转场般的极简生活哲学：定期给生活做断舍离，清理掉那些非必需的多余物品与无意义社交，把宝贵的金钱与精力投资于内在技能的成长、身体的健康与深度的真实体验。</p>

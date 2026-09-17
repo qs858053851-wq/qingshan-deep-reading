@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>西方哲学之旅 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">西方哲学之旅</div>
+    <div class="cover-sub">启发人生的 120 位哲学家、穿越 2600 年的心灵巡礼（上：古代＋中世纪）</div>
+    <div class="cover-meta">傅佩荣 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这两千六百年讲一遍</span>
+      <span class="toc-desc">这本书是傅佩荣（台大哲学系教授）的西方哲学史巡礼：上卷从古希腊讲到中世纪，带着 120 位哲学家中的前一半，回...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这本书拆到底，就三件事在牵动</span>
+      <span class="toc-desc">十五个章节、几十位哲学家、从水讲到上帝，看着像一本厚厚的知识史。但拆到底，牵动这本书叙事的只有三件事，而它们都...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">傅佩荣在台大教了几十年哲学，见过太多学生把哲学当「考试科目」：背得出康德的名字，说不出一句康德的话。他写这本《...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">哲学史，就是人类安顿自我的接力赛。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 你已经在用哲学活着，只是没人告诉你</span>
+      <span class="toc-desc">先问自己三个问题：你觉得人应该诚实还是灵活？失败了该怪自己还是怪环境？钱和爱好，哪个更重要？这些问题你可能从来...</span>
+    </div>
+  </div>
+
   <h1>西方哲学之旅</h1>
   <div class="author">傅佩荣 · 启发人生的 120 位哲学家、穿越 2600 年的心灵巡礼（上：古代＋中世纪）</div>
 </div>
@@ -370,7 +439,7 @@
   <h3>一句话：这本书在讲什么</h3>
   <p>两千六百年，一百二十位哲学家，其实都在回答同一个问题：人该怎么活？哲学史就是人类「安顿自我」的接力赛，每个人都从上一棒手里接过「我是谁」的追问，用自己的方式再答一次。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一位把哲学讲了几十年的教授，坐在茶馆里给你泡茶讲故事：深入浅出、爱用对照（苏格拉底对孔子、海德格对老子：他说海德格崇拜老子，因为「道」就是西方人找了两千多年的「存在本身」）、不端着。他把每个哲学家都讲成「一个认真活着的人」，不是教科书上的雕像。</p>
 </div>
 
@@ -452,7 +521,7 @@
   <h2 class="layer-title">你已经在用哲学活着，只是没人告诉你</h2>
 
   <p>先问自己三个问题：你觉得人应该诚实还是灵活？失败了该怪自己还是怪环境？钱和爱好，哪个更重要？这些问题你可能从来没有认真想过，但你每天的生活都在回答它们：你怎么处理一次失信、怎么面对一次失败、怎么分配你的时间，全是你对这三道题的答案。傅佩荣在《西方哲学之旅》里讲了 2600 年的哲学史，讲到最后你会发现：哲学不是一门你选修过的课，你早就开始修了，只是没人为你的答案打分，也没人告诉你那些答案是从哪来的。</p>
-  <p>傅佩荣这本书里有个小故事，把这件事说得最清楚。二战时巴黎被德军占领，哲学家沙特和卡缪在咖啡馆里辩论「人有绝对自由吗」。沙特说有，卡缪说没有。辩到卡缪不耐烦，他使出杀手锏：「沙特读者，如果人有绝对自由，你愿意向纳粹检举我是地下抗德分子吗？」沙特沉默了，然后说：「我做不出这样的事。」卡缪说：「所以，人没有绝对自由，自由至少要以朋友的道义为底线。」注意这两个人：他们没有查资料、没有引经据典，他们用「我做不出这样的事」来回答：用行动回答。这就是哲学问题的回答方式：答案不在论文里，在你自己的选择里。</p>
+  <p>傅佩荣这本书里有个小故事，把这件事说得最清楚。二战时巴黎被德军占领，哲学家沙特和卡缪在咖啡馆里辩论「人有绝对自由吗」。沙特说有，卡缪说没有。辩到卡缪不耐烦，他使出杀手锏：「沙特先生，如果人有绝对自由，你愿意向纳粹检举我是地下抗德分子吗？」沙特沉默了，然后说：「我做不出这样的事。」卡缪说：「所以，人没有绝对自由，自由至少要以朋友的道义为底线。」注意这两个人：他们没有查资料、没有引经据典，他们用「我做不出这样的事」来回答：用行动回答。这就是哲学问题的回答方式：答案不在论文里，在你自己的选择里。</p>
   <p>所以你其实早就站队了。你遇到不公平时选择忍，你的哲学是「忍」；你相信努力就有回报，你的哲学是「因果」；你觉得人都是自私的，你的哲学是「性恶」。这些立场你从没在课堂上选过，但它们比任何课本都更顽固地支配你，因为它们是随大流捡来的，没经过你自己的检验。傅佩荣讲苏格拉底，讲的就是这个：「认识你自己」：你现在的活法，是你自己选的，还是别人替你选的？你的「忍」是真的权衡过，还是因为你爸就这么忍的？你的「努力就有回报」是真的信，还是因为鸡汤听多了？苏格拉底在雅典街头干了一辈子的事，就是拦住一个名人，问：你说的「正义」，是什么意思？他问这一句，是让你第一次认真看自己的答案。</p>
   <p>傅佩荣把哲学史写成「心灵巡礼」，因为他相信一件事：2600 年里的 120 位哲学家，其实是在替所有普通人试穿衣服。苏格拉底试了「追问」：把一切都问到底，问出一个不靠别人定义的自己；伊比鸠鲁试了「节制」，快乐就是把痛苦消除干净，花园里的一杯水比王宫里的盛宴更甜；斯多亚试了「接受」：罗马皇帝奥雷流士在行军帐篷里写《沉思录》：改变能改变的，接受不能改变的，还要有智慧分辨两者；奥古斯丁试了「信」，理性解释不了的东西，用信仰接住。这些活法没有一件是「正确答案」，但每一件都是「认真答过的问题」：而认真答过，和没答过，是两种人生。</p>
   <p>区别在哪？没答过的人，活法是捡来的，遇到变故就崩：一直信「努力就有回报」的人，第一次遭遇努力无果时，整个世界观塌掉，因为他的哲学没经过压力测试。认真答过的人，活法是自己的：斯多亚的信徒失业了不会崩，他早知道「有些事不由我」；伊比鸠鲁的信徒失恋了不会崩：他早就练习过「痛苦是可以消除的」。哲学史不给你标准答案，它给你一批经过两千年压力测试的答案，你可以一件件试穿，合身的留下，不合身的还回去。这比你自己从零开始瞎试，省两千年。</p>

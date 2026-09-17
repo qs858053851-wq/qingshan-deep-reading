@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>树上的男爵 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>树上的男爵</h1>
-  <div class="author">伊塔洛·卡尔维诺　吴正仪 译　译林出版社 2012</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">树上的男爵</div>
+    <div class="cover-sub">卡尔维诺　吴正仪 译　译林出版社 2012</div>
+    <div class="cover-meta">伊塔洛 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这个故事从头讲一遍</span>
+      <span class="toc-desc">翁布罗萨，隆多男爵家的餐室。全家人按老规矩在中午聚齐：父亲阿米尼奥男爵戴着过时的路易十四长假发，一心想弄个公爵...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 凭什么说他不是在逃避</span>
+      <span class="toc-desc">一个人赌气爬上树，一辈子不下来，最省事的解释是他在躲。卡尔维诺知道读者会这么想，所以他花了三十章来堵这条路。他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这个故事拆到底，三根线在牵</span>
+      <span class="toc-desc">这是一本情节松散的小说，三十章像三十个短篇。但底下有三根线一直绷着，人物走到哪儿，线就跟到哪儿。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 自己立的规矩，为什么别人撤不掉</span>
+      <span class="toc-desc">顺着第二根线往下挖。为什么自己给自己下的令，比外面下的令硬这么多？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把这本书问到底</span>
+      <span class="toc-desc">看那一来一往的写法就明白：父亲下的是威胁，儿子下的是承诺。承诺的效力跟事由大小无关，只看说话的人还认不认。他十...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">这一节难得不必猜。一九六〇年他为三部曲写了一篇后记，把话说得很白：为了与他人真正在一起，唯一的出路是与他人相疏...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 赦令下来那天，只有一个人没下树</span>
+      <span class="toc-desc">柯希莫中年时去了一趟奥利瓦巴萨。那地方有一群西班牙贵族，因为一道禁令不许落地，全家人都住在树上，老爷、太太、...</span>
+    </div>
+  </div>
+
   <div class="lead">一个十二岁的男孩因为一盘蜗牛爬上树，从此再没落地，一直活到六十五岁。听上去是童话，读下来是一道关于自由的算术题：你自己划的那条线，跟别人给你划的线，到底差在哪儿。</div>
 </div>
 
@@ -360,7 +440,7 @@
 
   <p>柯希莫说：“我决不下树！”</p>
 
-  <p>八岁的弟弟比亚乔——也就是这本书的叙述者——那天把蜗牛吃了。他后来老老实实写道，哥哥的出走里“也有着对我的抗议，因为我让他失望了”。这一笔很要紧：全书是一个平庸的人在晚年回忆他不平庸的哥哥，而他从第一页就承认自己是那个咽下去的人。</p>
+  <p>八岁的弟弟比亚乔，也就是这本书的叙述者，那天把蜗牛吃了。他后来老老实实写道，哥哥的出走里“也有着对我的抗议，因为我让他失望了”。这一笔很要紧：全书是一个平庸的人在晚年回忆他不平庸的哥哥，而他从第一页就承认自己是那个咽下去的人。</p>
 
   <div class="marker">同年夏 · 疆域条约</div>
 
@@ -426,7 +506,7 @@
 
   <p>结局是全书最漂亮的一笔：一只英国热气球飘过，垂着锚绳，老人抓住绳子升了上去，越过海湾，消失了。没有遗体。家里给他立了块碑，上面写着：</p>
 
-  <blockquote>柯希莫·皮奥瓦斯科·迪·隆多——生活在树上——始终热爱大地——升入天空。</blockquote>
+  <blockquote>柯希莫·皮奥瓦斯科·迪·隆多，生活在树上，始终热爱大地，升入天空。</blockquote>
 
   <p>弟弟比亚乔在复辟年代的书房里写完这本书。他那时已经老了，家业、妻子、孩子都有，哥哥不在了，翁布罗萨的树林也砍得差不多了。他说，从前不一样，有我哥哥在，我对自己说“有他替我们大家着想”，我只爱过日子。全书最后一句，他把自己的叙述比作一条墨水线，最后把理想和梦想挽成一串无意义的话语，这就算写完了。</p>
 
@@ -467,7 +547,7 @@
 
   <div class="sub">这本书立着不倒，靠两个没写出来的前提</div>
 
-  <p><strong>第一个：翁布罗萨的树必须足够密。</strong>柯希莫的自由首先是个地理条件，其次才谈得上精神。树冠连成一片，他才能走；哪怕断上几十米，这个故事当场结束。卡尔维诺自己在结尾把这个前提收了回去——弟弟晚年看到的是被砍得七零八落的树林，那种生活从此不可能再有。<strong>自由需要物质基础</strong>，卡尔维诺把这句话写成了情节，没有拿它讲道理。</p>
+  <p><strong>第一个：翁布罗萨的树必须足够密。</strong>柯希莫的自由首先是个地理条件，其次才谈得上精神。树冠连成一片，他才能走；哪怕断上几十米，这个故事当场结束。卡尔维诺自己在结尾把这个前提收了回去，弟弟晚年看到的是被砍得七零八落的树林，那种生活从此不可能再有。<strong>自由需要物质基础</strong>，卡尔维诺把这句话写成了情节，没有拿它讲道理。</p>
 
   <p><strong>第二个：他是男爵的儿子。</strong>他不交租，没人能把他从自家林子里赶走；他打猎、修剪、有家里接济，还继承了爵位。换成一个佃农的儿子上树，三天就得下来，因为地里的活等着他，主家的租等着他。这本书写的是一个有退路的人如何放弃退路，跟一个没有退路的人如何活着，是两回事。这一层卡尔维诺没有碰。</p>
 
@@ -585,7 +665,7 @@
     <div class="q">Q4　他和薇莪拉走到那一步，是谁的问题？</div>
     <p class="a-lead">两边都没错，这才是它疼的地方。</p>
     <p>薇莪拉要的是把感情一直往前推，不承认任何边界；柯希莫的存在方式建立在守住一条自划的边界上。她要他证明她比那条线更重要，他证明不了，也不愿意假装。他那句“我和我的想法是统一的”，在她听来就是“我不会为你动”。她把话说到那一步，当晚就走了。</p>
-    <p class="a-edge">卡尔维诺在后记里说薇莪拉代表的是巴洛克式和浪漫主义式的冲动，跟启蒙者的坚定正好相反，还说她“险些变成破坏力量”。这个说法有点偏向柯希莫，可以不全信——她要的东西并不荒唐，只是跟他要的东西不共存。</p>
+    <p class="a-edge">卡尔维诺在后记里说薇莪拉代表的是巴洛克式和浪漫主义式的冲动，跟启蒙者的坚定正好相反，还说她“险些变成破坏力量”。这个说法有点偏向柯希莫，可以不全信，她要的东西并不荒唐，只是跟他要的东西不共存。</p>
   </div>
 
   <div class="qa">
@@ -618,7 +698,7 @@
 
   <p>这一节难得不必猜。一九六〇年他为三部曲写了一篇后记，把话说得很白：为了与他人真正在一起，唯一的出路是与他人相疏离。他还特意交代，他不想把柯希莫写成一个厌世者。</p>
 
-  <p>这句话的分量，要放回他那几年的处境里看。四十年代他是抵抗运动的游击队员、意大利共产党员；一九五六年匈牙利事件之后，他在一九五七年退了党。一个真心投入过集体、又不得不退出来的人，最迫切要回答的问题就是：退出来的人还能不能算数？这本书是他给自己的回答——退开的那个人，可能比留在里面的人更能替大家着想。</p>
+  <p>这句话的分量，要放回他那几年的处境里看。四十年代他是抵抗运动的游击队员、意大利共产党员；一九五六年匈牙利事件之后，他在一九五七年退了党。一个真心投入过集体、又不得不退出来的人，最迫切要回答的问题就是：退出来的人还能不能算数？这本书是他给自己的回答，退开的那个人，可能比留在里面的人更能替大家着想。</p>
 
   <p>他同时给了自己一个对照组，而且在后记里点了名：奥利瓦巴萨那群西班牙人。这是全书唯一一处作者亲手标出来的对比，可见他多在乎这个区分。</p>
 
@@ -632,7 +712,7 @@
 
   <p><strong>在手艺行当里，它叫“这活我不接”。</strong>老木匠不给你在承重的地方用拼板，老中医不给你开来路不明的方子。你多加钱他也不干，因为他不接这活的理由长在他自己身上，跟你出多少钱没关系。这跟柯希莫不下树是同一个结构：外人给不了他好处让他破例，因为破例损失的东西外人根本给不起。行里管这个叫规矩，其实就是一个人给自己划的那条线。</p>
 
-  <p><strong>在修行里，它叫戒。</strong>受了戒的人不吃肉，既不为躲人的眼睛，也不等谁来赦免。戒律的效力从受戒那一刻起就转移到了自己身上，破戒的第一后果是要重新回答“我还是不是那个受过戒的人”。柯希莫在临终时拒绝领圣礼，说这样就很好——那一刻他守的是自己给自己受的那条戒。</p>
+  <p><strong>在修行里，它叫戒。</strong>受了戒的人不吃肉，既不为躲人的眼睛，也不等谁来赦免。戒律的效力从受戒那一刻起就转移到了自己身上，破戒的第一后果是要重新回答“我还是不是那个受过戒的人”。柯希莫在临终时拒绝领圣礼，说这样就很好，那一刻他守的是自己给自己受的那条戒。</p>
 
   <p>我本来还想写第三条，把它对到今天的职业独立性上（比如学者不接某类课题）。结构上对得不严，就不写了。</p>
 
@@ -646,11 +726,11 @@
 
   <div class="sub">我自己的看法</div>
 
-  <p>先说不同意的：这本书经常被读成一碗励志汤，说什么坚持自我。我不这么看。卡尔维诺把代价写得很清楚——他失去了唯一爱过的人，晚年在等一个不会来的“重新开始”，最后连一具尸首都没留下。这不算成功故事。一个人把话说到底，最后就是这个样子。你可以敬他，但别拿它当鸡汤喝。</p>
+  <p>先说不同意的：这本书经常被读成一碗励志汤，说什么坚持自我。我不这么看。卡尔维诺把代价写得很清楚，他失去了唯一爱过的人，晚年在等一个不会来的“重新开始”，最后连一具尸首都没留下。这不算成功故事。一个人把话说到底，最后就是这个样子。你可以敬他，但别拿它当鸡汤喝。</p>
 
   <p>再说被说服的：那句“集体会使人更强大，能突出每个人的长处”，加上紧跟着的“共同的问题不存在之后，集体就不再像从前那么好了”，这两句连读，是我读过对集体最公道的一段话。它既没有把集体说成幻觉，也没有把它说成归宿，只是老实指出它有保质期。</p>
 
-  <p>还有一句实在话给读者：这书中间有几章确实松。风流韵事那几章、树上共同生活那几章、革命镇压那几章，可以快读。真正值得逐句琢磨的是上树那天、强盗、赠剑、奥利瓦巴萨、决裂、拿破仑来访和最后升空这七处。</p>
+  <p>还有一句实在话给先生：这书中间有几章确实松。风流韵事那几章、树上共同生活那几章、革命镇压那几章，可以快读。真正值得逐句琢磨的是上树那天、强盗、赠剑、奥利瓦巴萨、决裂、拿破仑来访和最后升空这七处。</p>
 </div>
 
 <div class="layer">
@@ -690,7 +770,7 @@
   <h2 class="layer-title">赦令下来那天，只有一个人没下树</h2>
 
   <div class="essay">
-  <p>柯希莫中年时去了一趟奥利瓦巴萨。那地方有一群西班牙贵族，因为一道禁令不许落地，全家人都住在树上——老爷、太太、小姐、孩子，连神父都在树上给他们做弥撒。</p>
+  <p>柯希莫中年时去了一趟奥利瓦巴萨。那地方有一群西班牙贵族，因为一道禁令不许落地，全家人都住在树上，老爷、太太、小姐、孩子，连神父都在树上给他们做弥撒。</p>
 
   <p>他们把树上的日子过得很像样。有礼节，有规矩，讲究穿戴，姑娘们的裙子从枝丫间垂下去。他们都是体面人，在一个荒唐的处境里维持着体面。柯希莫在这儿住了一阵，跟其中一位叫乌苏拉的姑娘恋爱。这是他一生中难得的、有人陪着的树上生活。</p>
 
@@ -712,7 +792,7 @@
 
   <p>这个说法我攻了两次。</p>
 
-  <p>头一个疑问最不客气：这跟死心眼有什么区别？赦令都下了还不走，无非是把执拗说得好听点。薇莪拉后来给过他一模一样的判词——那么，做一个孤独的你自己吧。这一问必须认真对待，因为它没错。柯希莫确实付出了代价，而且是他一生最重的代价。</p>
+  <p>头一个疑问最不客气：这跟死心眼有什么区别？赦令都下了还不走，无非是把执拗说得好听点。薇莪拉后来给过他一模一样的判词，那么，做一个孤独的你自己吧。这一问必须认真对待，因为它没错。柯希莫确实付出了代价，而且是他一生最重的代价。</p>
 
   <p>但把这两件事分开的地方也很清楚：他那条线是有产出的。消防队、修剪的手艺、行会、《控诉书》、抗税、那部没写完的宪法，都是从树上长出来的。一个纯粹的死心眼不会给全镇设计蓄水池。判断一条自定的规矩到底是筋骨还是姿态，标准就在这儿：它有没有让你做成一些不这么活就做不成的事。柯希莫过得了这一关，代价另算。</p>
 
@@ -724,7 +804,7 @@
 
   <p>这件事，酒桌上最容易看明白。</p>
 
-  <p>两个人说自己不喝酒。第一个说，单位有规定，工作日不许喝。第二个说，我不喝酒。你把这两句话放到同一场饭局里，结果完全不同。第一个人，只要今天领导发一句话“今天不算工作日”，或者今天恰好是周六，酒就端起来了——他的“不喝”寄存在规定里，规定放个假，他也跟着放假。第二个人不一样，他没有可以给他放假的人。你劝他，他说我不喝酒；你说就一杯，他还是说我不喝酒。到第三轮，桌上就没人再劝了。</p>
+  <p>两个人说自己不喝酒。第一个说，单位有规定，工作日不许喝。第二个说，我不喝酒。你把这两句话放到同一场饭局里，结果完全不同。第一个人，只要今天领导发一句话“今天不算工作日”，或者今天恰好是周六，酒就端起来了，他的“不喝”寄存在规定里，规定放个假，他也跟着放假。第二个人不一样，他没有可以给他放假的人。你劝他，他说我不喝酒；你说就一杯，他还是说我不喝酒。到第三轮，桌上就没人再劝了。</p>
 
   <p>你留意过没有，饭桌上真正劝不动的，从来不是搬规定的那些人，是什么理由都不给的那些人。搬规定的人其实是在跟你商量，因为规定是可以变通的，他把变通的门留着；不给理由的人没有门可以留，他要是喝了这一杯，明天他就没法说自己是不喝酒的人了。</p>
 
@@ -740,7 +820,7 @@
   <h4>事实边界</h4>
   <p>本篇情节与引文均出自卡尔维诺《树上的男爵》吴正仪译本（译林出版社 2012）。柯希莫上树日为一七六七年六月十五日、时年十二岁，临终时约六十五岁，均系原书明写。</p>
   <p>三处容易记错的地方我按原书写了，也在此说明：<strong>伏尔泰从未见过柯希莫</strong>，是弟弟比亚乔在巴黎见到伏尔泰后谈起哥哥，“保持必要的距离”那句是弟弟转述哥哥的看法；<strong>拿破仑确实亲自到树下见了他</strong>，事后并未授勋；<strong>共济会那一节原文用的是“有的人说”“我不排除”</strong>，不能写成确定事实。另外第 27 章的战绩、第 24 章的猎狼，原书叙述者明说不予证实，本篇引用时已避开细节。</p>
-  <p>第六层引用的作者意图，出自本书所附卡尔维诺一九六〇年为《我们的祖先》三部曲写的后记，属作者自述，不是小说正文。他一九五七年退出意大利共产党一事为公认史实，我凭记忆写入，具体经过若要引用建议再核。</p>
+  <p>第六层引用的作者意图，出自本书所附卡尔维诺一九六〇年为《我们的祖先》三部曲写的后记，属作者自述，不是小说正文。他一九五七年退出意大利共产党一事为公认史实，我凭记忆写入，具体经过先生若要引用建议再核。</p>
   <p>第三层的三根线、第四层的下钻、第六层关于作者盲点的判断，都是我读下来的看法，不是原书或评论界定论。译本内部人名有一处小出入（母亲一处作科拉迪娜、一处作康拉丁娜），本篇统一按前者写。</p>
 </div>
 

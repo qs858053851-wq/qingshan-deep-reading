@@ -3,27 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>缠中说禅全集 —— 九层解书</title>
+<title>缠中说禅全集 ， 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,10 +380,72 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-<h1>缠中说禅全集</h1>
-<div class="meta">缠中说禅 · 2006-2008 · 博客全集 · 九层深度阅读 · 05-30 初稿 · 07-15 修订</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">缠中说禅全集</div>
+    <div class="cover-sub">2006-2008 · 博客全集 · 九层深度阅读 · 05-30 初稿 · 07-15 修订</div>
+    <div class="cover-meta">缠中说禅 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 内容摘要</span>
+      <span class="toc-desc">作者: 缠中说禅。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 第一层：骨架扫描</span>
+      <span class="toc-desc">人话先说：这本书不是一本炒股书。它当然包含缠论，包含中枢、级别、背驰、买卖点，也包含大量交易问答；但如果只把它...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 第二层：血肉解剖</span>
+      <span class="toc-desc">缠中说禅的核心论证链可以这样写：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 第三层：底层逻辑：三个生成器</span>
+      <span class="toc-desc">缠中说禅的第一个生成器是位次。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 第四层：追本：为什么“看到”这么难</span>
+      <span class="toc-desc">全书最核心的一个词，不是中枢，不是背驰，不是论语，不是禅，而是“看”。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 第五层：Q-A链：复现论证骨架</span>
+      <span class="toc-desc">结论: 普通技术分析多半在寻找经验形态，缠论试图定义走势生成结构。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 第六层：灵魂提取</span>
+      <span class="toc-desc">缠中说禅写作背后有一股强烈的“不吐不快”。他像是看到了一整套错误：股民在市场里被情绪收割，读经的人被道德化解释...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 第七层：餐巾纸压缩</span>
+      <span class="toc-desc">有效行动 = 当下结构 × 所处级别 × 位次允许性</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 第八层：可传播短文</span>
+      <span class="toc-desc">前面几层反复按下不表的那个“患”字，现在摊开。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 第九层：金句收尾</span>
+      <span class="toc-desc">这不是一本教你赚钱的书。这是一本教你“看到”的书：看到的人自然会少犯错，看不到的人拿同样的方法，也只会把方法变...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11 · 补充一：逐域阅读地图</span>
+      <span class="toc-desc">这套博客太大，不能像读普通书那样从第一页一路读到最后。更合理的方法，是按“功能区”进入。缠中说禅自己写作时是横...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 补充二：青山的实战使用法</span>
+      <span class="toc-desc">缠论最容易让人误入歧途的地方，是术语太丰富。笔、线段、中枢、背驰、三买、同级别分解、走势必完美……这些词一多，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 13 · 补充三：阅读风险提示</span>
+      <span class="toc-desc">读缠中说禅要有三重警惕。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 完整可视化版本</span>
+      <span class="toc-desc">&lt;iframe src=&quot;20260530T194204--解书-缠中说禅全集.html&qu...</span>
+    </div>
+  </div>
+
 <section class="layer"><h2>内容摘要</h2>
 <p><strong>作者</strong>: 缠中说禅。</p>
 <p><strong>材料范围</strong>: 本次阅读基于 EPUB 提取文本，约 260 万字符，12 卷，时间覆盖 2006 年 2 月至 2008 年 10 月。它不是一本按现代出版逻辑整理好的专著，而是一座博客矿山：交易、禅宗、儒家、经济、货币、历史、音乐、中医、数学、诗词、时政、性别、网络论战，全都混在一起。</p>
@@ -362,7 +465,7 @@
 <p>第三条河流是《论语》详解。他不是把《论语》当道德书，而是把它当“成人之道”的操作系统。他对“学”“习”“患”“仁”“礼”“君子”等字重新编码，核心是把它们从道德标签还原成位次和行动规则。所谓君子，不是品德好的人，而是在某个结构位次上能承担相应行动的人。</p>
 <p>第四条河流是经济、货币和国家战略。他写“货币战争和人民币战略”，写人口规模，写资源价格，写全球资本结构。这里最明显的是他的尺度思维：个人交易的级别可以放大到国家战略，市场里的一买二买三买可以隐喻文明机会。这个地方有锋利洞见，也有相当大的推演风险。</p>
 <p>第五条河流是音乐、中医、数学、诗词与时政。这些看似边缘，其实是在反复展示同一件事：结构不是金融市场独有的。音乐有结构，身体有结构，诗词有结构，政治叙事也有结构。一个真正懂结构的人，不会只在一个领域里懂。</p>
-<h3>写作姿态</h3>
+<h3>叙述视角与专业底色</h3>
 <p>他写作的姿态很特别：既像传法，又像骂街；既像讲义，又像判词；既有数学式的定义欲，又有禅宗式的棒喝。他不想温柔地说服你，他想把你从梦里拽起来。这个姿态让人又爱又烦。爱的是他真有东西；烦的是他几乎不留台阶。</p>
 <p>但如果只看“狂”，会错过他的根。狂只是外形，底层是孤独和急迫。他像一个知道自己时间不多的人，拼命把看见的结构写下来。他不是在经营读者关系，也不是在做品牌。他更像在留下火种：能接的人自己接，接不住的骂也没关系。</p>
 <hr>
@@ -373,7 +476,7 @@
 <p>这条链条很重要。因为很多人学缠论时跳过前面，只拿最后的买卖点。就像一个人没学语法，只背漂亮句子。买卖点不是孤立技巧，它是整套结构哲学的末端果实。你不理解级别、位次和当下，买卖点就会变成猜点位。</p>
 <h3>他凭什么这么说</h3>
 <p>第一个证据来自交易结构。缠论反复强调“走势必完美”。这句话容易被误解成神秘命题。其实人话就是：一个走势要被称为某级别走势，必须在结构上完成自己。它不是随便涨几根K线就叫上涨，不是跌得多就叫下跌。它必须有可识别的内部构造。中枢就是这种构造的核心节点。一个中枢不是随便画出来的框，而是连续次级别走势重叠形成的共识区域。</p>
-<p>第二个证据来自《论语》重读。他对几个关键字重新编码，最锋利的一处是“患”字——传统当“担忧”，他当“根据、立足点”。就这一个字的改读，整部《论语》从道德说教翻成行动哲学。具体怎么翻、为什么这么翻能成立，压轴的第八层摊开细说，这里先按下不表，只作为“他的方法在原典里有根”的第二个证据陈列。</p>
+<p>第二个证据来自《论语》重读。他对几个关键字重新编码，最锋利的一处是“患”字，传统当“担忧”，他当“根据、立足点”。就这一个字的改读，整部《论语》从道德说教翻成行动哲学。具体怎么翻、为什么这么翻能成立，压轴的第八层摊开细说，这里先按下不表，只作为“他的方法在原典里有根”的第二个证据陈列。</p>
 <p>第三个证据来自经济和历史。他把国家竞争看成更大级别的结构博弈。比如他谈人口规模时，不只是说人多力量大，而是说不同人口级别对应不同文明结构和经济模式。英国霸权、美国苏联、中国印度，在他那里不是简单国力比较，而是不同规模级别的系统跃迁。这个判断未必都能被历史严格证明，但它显示出他的思维惯性：看到对象，先看级别；看到事件，先看结构位次。</p>
 <h3>隐形假设</h3>
 <p>他没有总是明说，但全书背后有一个大假设：凡是足够复杂、足够开放、反馈足够充分的系统，都会自组织出可识别结构。</p>
@@ -454,9 +557,9 @@
 <p><strong>论证步</strong>: 普通人爱抄最低点，因为最低点带来最大想象空间。但最低点也是不确定性最高的地方。三买牺牲一点价格优势，换来结构确认：走势已经离开中枢，回抽不破，方向更清晰。缠论的成熟不是买得最便宜，而是在更确定的位置行动。</p>
 <p><strong>边界</strong>: 三买也不是保险。中枢可能扩展，趋势可能失败。它只是结构上更优，不是永远正确。</p>
 <h3>Q6：缠中说禅为什么要解《论语》？</h3>
-<p><strong>结论</strong>: 他不是用经典装饰交易，而是要证明“位次—当下—行动”是中国原典里本来就有的结构。</p>
+<p><strong>结论</strong>: 他不是用经典装饰交易，而是要证明“位次，当下，行动”是中国原典里本来就有的结构。</p>
 <p><strong>形式化</strong>: 论语 = 成人位次系统；缠论 = 市场位次系统；二者共享同一结构语法。</p>
-<p><strong>论证步</strong>: 他把“学”解释成觉悟，把“习”解释成落实——都指向一件事：《论语》不是劝人做好人，而是教人如何在具体结构里成为能承担行动的人。交易中的“看和干”，在《论语》里就是“学而时习之”。其中最锋利的一处改读（“患”字），是全套解经的引信，留到压轴的第八层摊开。</p>
+<p><strong>论证步</strong>: 他把“学”解释成觉悟，把“习”解释成落实，都指向一件事：《论语》不是劝人做好人，而是教人如何在具体结构里成为能承担行动的人。交易中的“看和干”，在《论语》里就是“学而时习之”。其中最锋利的一处改读（“患”字），是全套解经的引信，留到压轴的第八层摊开。</p>
 <p><strong>边界</strong>: 这种解释不一定符合传统训诂标准。它的价值不在学术保守性，而在结构启发性。</p>
 <h3>Q7：这套系统最危险的误用是什么？</h3>
 <p><strong>结论</strong>: 最危险的是把“看到结构”误会成“拥有真理”。</p>
@@ -480,7 +583,7 @@
 <p>在管理学里接近系统思维：局部问题往往不是局部造成的，而是结构位次和反馈回路造成的。</p>
 <h3>行动触发</h3>
 <p>第一，交易前先写下级别。你不能说“我看涨”或“我看跌”，你只能说“我在什么级别看到什么结构”。这能立刻减少一半胡思乱想。</p>
-<p>第二，任何重大决策前先问位次。落到你手上的场景：你在这个民宿项目里的位次是什么——是拍板的、担风险的，还是被推到前台的？你在乡村运营的合作结构里，谁有实际权力、谁只有形式权力？位次不清，很多看似观点冲突的事，其实是位次冲突，行动就会变成情绪。</p>
+<p>第二，任何重大决策前先问位次。落到你手上的场景：你在这个民宿项目里的位次是什么，是拍板的、担风险的，还是被推到前台的？你在乡村运营的合作结构里，谁有实际权力、谁只有形式权力？位次不清，很多看似观点冲突的事，其实是位次冲突，行动就会变成情绪。</p>
 <p>第三，练习只看五分钟。看价格、看呼吸、看一段音乐都可以。关键是不解释，不命名，不马上得出结论。你会发现自己几乎做不到。这正是训练入口。</p>
 <p>第四，把知识分成级别。日级别是练习，周级别是复盘，月级别是模型，年级别是方向。不要用年级别焦虑压垮日级别行动。</p>
 <hr>

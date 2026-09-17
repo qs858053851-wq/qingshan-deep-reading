@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>你一生的故事 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>你一生的故事</h1>
-  <div class="author">特德·姜 · 短篇集（电影《降临》原著）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">你一生的故事</div>
+    <div class="cover-sub">姜 · 短篇集（电影《降临》原著）</div>
+    <div class="cover-meta">特德 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">七个短篇，挑分量最重的几篇铺开讲。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">科幻的"论证"就是设定的自洽度。特德·姜的特点是把设定当公理系统来经营，推理链条几乎可以当习题做。三个证据。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">先说明：这是读法之一，不是作者自述。但七篇并排看，一条线露得很清楚：每一篇都在问：当你知道了结局/真相/规则，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">作者动机（文本推测，非自述）：特德·姜是职业技术写作者，写小说极慢，每篇都从一个"如果这是真的"开始。从各篇后...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">《你一生的故事》最容易被记成"学了外星语言就能预知未来"，电影《降临》也基本这么拍。但小说里真正值钱的东西藏在...</span>
+    </div>
+  </div>
+
   <p class="intro">特德·姜写得极慢，产量极少，几乎每篇都拿奖。这本集子收了他早期的七个短篇，每一篇的配方都一样：拿一个抽象观念（一条物理定律、一个数学悖论、一套神学设定）当真，推到底，看它落在一个具体的人身上会压出什么形状。</p>
 </div>
 
@@ -353,7 +421,7 @@
   <p>七个短篇，挑分量最重的几篇铺开讲。</p>
 
   <div class="marker">开篇 · 你一生的故事</div>
-  <p>语言学家露易丝·班克斯被军方请去跟外星人对话。外星人叫七肢桶，桶状身体，七条腿，眼睛环绕一周，没有正面和背面。它们的口语和文字是两套完全独立的系统，文字尤其古怪：不是一个词接一个词写下来的，而是一整句话、一整段意思揉成一个团状的符号，落笔之前就得知道结尾。物理学家盖雷那边的突破口同样古怪：人类物理里最基础的定律七肢桶毫无反应，直到演示了费尔马最少时间律（光从空气进水会拐弯，因为它走的永远是耗时最短的路径），七肢桶立刻听懂了。露易丝学七肢桶的文字越深，她的意识越被它改写：她开始不按先后顺序感知时间，未来对她像记忆一样敞开。整篇小说用第二人称写成，穿插着她对女儿说话的段落：你会这样出生，你会这样长大，你会在二十五岁死于登山事故。读到中途读者才醒悟，这些"回忆"全是预知——她在学会七肢桶语言的那一刻，就看见了女儿的一生，包括结尾。小说的最后一句落在起点：外星人走了，什么也没带走什么也没留下，露易丝站在月光下的院子里，丈夫问她：想要个孩子吗？她知道这个孩子的全部一生，她说好。</p>
+  <p>语言学家露易丝·班克斯被军方请去跟外星人对话。外星人叫七肢桶，桶状身体，七条腿，眼睛环绕一周，没有正面和背面。它们的口语和文字是两套完全独立的系统，文字尤其古怪：不是一个词接一个词写下来的，而是一整句话、一整段意思揉成一个团状的符号，落笔之前就得知道结尾。物理学家盖雷那边的突破口同样古怪：人类物理里最基础的定律七肢桶毫无反应，直到演示了费尔马最少时间律（光从空气进水会拐弯，因为它走的永远是耗时最短的路径），七肢桶立刻听懂了。露易丝学七肢桶的文字越深，她的意识越被它改写：她开始不按先后顺序感知时间，未来对她像记忆一样敞开。整篇小说用第二人称写成，穿插着她对女儿说话的段落：你会这样出生，你会这样长大，你会在二十五岁死于登山事故。读到中途读者才醒悟，这些"回忆"全是预知，她在学会七肢桶语言的那一刻，就看见了女儿的一生，包括结尾。小说的最后一句落在起点：外星人走了，什么也没带走什么也没留下，露易丝站在月光下的院子里，丈夫问她：想要个孩子吗？她知道这个孩子的全部一生，她说好。</p>
 
   <div class="marker">第二篇 · 巴比伦塔</div>
   <p>矿工希拉鲁姆随队伍去修那座通天塔。塔已经修了几个世纪，高到运一块砖上塔顶要走一个半月，塔上有整代人出生、老死，从没下过地面。他们凿穿天顶之后，希拉鲁姆被洪水冲进裂缝，九死一生爬出来，发现自己站在示拿平原上。是塔底。天顶通向地面，宇宙像一枚滚筒印章，首尾相卷。人爬到世界尽头，只会回到出发的地方，而这本身就是造物的答案。</p>
@@ -365,13 +433,13 @@
   <p>数学家雷内证明了算术在形式上不自洽：1 可以等于 2，任何数等于任何数。她一生的意义建立在数学之美上，这个证明把地基抽掉了，她走向崩溃。丈夫想安慰她，却在自己身上发现了同构的裂缝：他发现自己不再爱她，而他曾以为这份爱是公理。两条叙事线用 1、1A、2、2A 的编号并排推进，像一份对照证明。</p>
 
   <div class="marker">第五篇 · 七十二个字母</div>
-  <p>一个名字学（卡巴拉命名术）当真运转的维多利亚英国：往黏土人偶体内塞进一个名字，它就能行走干活。主人公罗伯特从小玩的就是测试名字的极限。成年后他卷入一场存亡危机：人类的精子被发现只剩五代繁殖力，唯一出路是造出能"自我命名"的名字——能生成自身的命名术。产业革命、工会抗争、优生学阴谋全在这套设定里重演。</p>
+  <p>一个名字学（卡巴拉命名术）当真运转的维多利亚英国：往黏土人偶体内塞进一个名字，它就能行走干活。主人公罗伯特从小玩的就是测试名字的极限。成年后他卷入一场存亡危机：人类的精子被发现只剩五代繁殖力，唯一出路是造出能"自我命名"的名字，能生成自身的命名术。产业革命、工会抗争、优生学阴谋全在这套设定里重演。</p>
 
   <div class="marker">第六篇 · 地狱是上帝不在的地方</div>
   <p>这个世界里神迹是新闻事件：天使定期降临，每次降临随机治愈几人、杀死几人，地狱偶尔在地面下透明可见。尼尔的妻子死于一次天使降临，按教义她升了天堂。尼尔不爱上帝，但想再见妻子，就必须变成真心敬爱上帝的人：为了功利的目的追求一种定义上不能功利的爱。他最终在天使的圣光里被灼瞎、被赐予了无条件的爱，然后死去，坠入地狱。他在上帝不在的地方，继续爱着上帝。</p>
 
   <div class="marker">第七篇 · 赏心悦目</div>
-  <p>伪纪录片体：某大学公投是否强制学生使用"审美干扰镜"——一种关掉人对面孔美丑感知的装置。支持者说这是铲除颜值歧视，反对者说这是自残感官。各方证言拼成一场没有裁判的辩论，最后一层反转：最动人的那篇反对演讲，是化妆品行业赞助的、经过传播学优化的产品。</p>
+  <p>伪纪录片体：某大学公投是否强制学生使用"审美干扰镜"，一种关掉人对面孔美丑感知的装置。支持者说这是铲除颜值歧视，反对者说这是自残感官。各方证言拼成一场没有裁判的辩论，最后一层反转：最动人的那篇反对演讲，是化妆品行业赞助的、经过传播学优化的产品。</p>
 
   <p>整本集子的姿态：作者不站在讲台上，他把每个思想实验的代价算到具体的人头上，露易丝的女儿、雷内的公理、尼尔的妻子。冷设定，热落点。</p>
 </section>

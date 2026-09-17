@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>高级迷信 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>高级迷信</h1>
-  <div class="author">保罗·格罗斯 &amp; 诺曼·莱维特 · 学术左派及其关于科学的争论（1994/1998）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">高级迷信</div>
+    <div class="cover-sub">格罗斯 &amp; 诺曼·莱维特 · 学术左派及其关于科学的争论（1994/1998）</div>
+    <div class="cover-meta">保罗 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">核心问题：为什么美国学术界一个庞大且极有影响的群体，对自然科学怀着"毫不含糊的敌意"？这种敌意的论述站不站得住...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">论证策略作者自己命名为"答辩状的设计"：不打抽象理论战，考察一系列范例，用对手自己的文本逐段打靶。挑三个最有代...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">作者动机：书里写得动情。他们反复强调论战对象是朋友，两位作者自己就是老派左翼学人，眼看着自己认同的政治阵营把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">这本书最有戏剧性的资产，是它亲手触发的那场实验，索卡尔诈文。但实验真正证明了什么，比通常的讲法要窄，也比通常...</span>
+    </div>
+  </div>
+
   <p class="intro">一位生物学家和一位数学家，对着 1990 年代美国大学里的"科学批评"产业开了第一枪。书名一语双关："高级"既指高等学府，也讽刺那些用精致理论包装的反科学论述。迷信换上后现代的华服，还是迷信。两年后的索卡尔诈文事件，火种就是这本书。</p>
 </div>
 
@@ -380,7 +444,7 @@
   <div class="layer-num">第六层</div>
   <div class="layer-title">跳出这本书，它还能怎么用</div>
 
-  <p>作者动机：书里写得动情。他们反复强调论战对象是朋友——两位作者自己就是老派左翼学人，眼看着自己认同的政治阵营把"反科学"当成了进步姿态，那种痛感是家人误入歧途式的，不是两军对垒式的。第一章那句"如果本书仅能博得其宿敌们的喝彩……那我们就彻底失败了"，是全书最真的一句话，也是日后最落空的一句：这本书恰恰被文化保守派大量引用作弹药。</p>
+  <p>作者动机：书里写得动情。他们反复强调论战对象是朋友，两位作者自己就是老派左翼学人，眼看着自己认同的政治阵营把"反科学"当成了进步姿态，那种痛感是家人误入歧途式的，不是两军对垒式的。第一章那句"如果本书仅能博得其宿敌们的喝彩……那我们就彻底失败了"，是全书最真的一句话，也是日后最落空的一句：这本书恰恰被文化保守派大量引用作弹药。</p>
 
   <p>作者盲点：三条。其一，情绪化修辞时时压过论证（"瞎话王国""隐喻贩子"），削弱了他们最强的实证部分。其二，以极端个案代表整个流派：拉图尔、哈拉威的完整论证是否被公平呈现，学界至今有争议；打最弱的表述最省力，但胜利的含金量也最低。其三，他们没料到武器会换手：三十年后，"科学只是一种叙事"的怀疑论主力早已不在左翼文化研究系，而在疫苗怀疑、气候否认的右翼民粹那里。第二版前言其实已经隐约看见（保守主义底蕴中"对科学的本能憎恶"再度抬头），但全书的火力配置没来得及调转。</p>
 
@@ -419,9 +483,9 @@
   <div class="layer-num">第八层</div>
   <div class="layer-title">全书最值钱的是哪一点</div>
 
-  <p>这本书最有戏剧性的资产，是它亲手触发的那场实验——索卡尔诈文。但实验真正证明了什么，比通常的讲法要窄，也比通常的讲法更深。</p>
+  <p>这本书最有戏剧性的资产，是它亲手触发的那场实验，索卡尔诈文。但实验真正证明了什么，比通常的讲法要窄，也比通常的讲法更深。</p>
 
-  <p>流行版本说：索卡尔证明了后现代理论是胡说。这个讲法经不起攻。一篇诈文骗过一家期刊的编辑，逻辑上只证明那家期刊审稿失职，证明不了整个领域破产——医学期刊也收过造假论文，没人因此宣布医学是胡说。索卡尔自己也没做这么大的宣称。</p>
+  <p>流行版本说：索卡尔证明了后现代理论是胡说。这个讲法经不起攻。一篇诈文骗过一家期刊的编辑，逻辑上只证明那家期刊审稿失职，证明不了整个领域破产，医学期刊也收过造假论文，没人因此宣布医学是胡说。索卡尔自己也没做这么大的宣称。</p>
 
   <p>实验真正测出的是另一个东西：那个学术共同体的免疫系统靠什么工作。《社会文本》的编辑们收到一篇物理学家来稿，满纸"量子引力的解释学"，结论恰好支持他们的理论立场。他们没有能力核查物理内容，但他们收了。为什么收？因为投稿人的身份（真物理学家）对了，术语的气味（拉康、德里达引用齐全）对了，政治的方向（科学客观性可疑）对了。三个"对了"，替代了"内容是否成立"的检验。这恰恰坐实了《高级迷信》最核心的指控：在这个圈子里，立场的正确性已经取代了论证的有效性，成为知识的准入标准。而这正是"迷信"的操作定义：按信仰的味道而不是证据的成色接收信息。</p>
 

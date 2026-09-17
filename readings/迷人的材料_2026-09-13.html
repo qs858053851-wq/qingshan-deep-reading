@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>迷人的材料 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">物质微观晶格、缺陷美学与人类人造世界的隐形支柱</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">钢的位错钉扎机制、自愈合混凝土生物水化与气凝胶隔热极限</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">原子间化学键能、晶格几何排列与微观相变动力学</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从破损茶杯到不可逆断裂、热力学耗散与重塑感知边界</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析自愈材料、石墨烯未来与工业材料伦理</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">米奥多尼克的科普叙事美学、现代硬科技材料瓶颈与未来展望</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">人类材料演进与微观结构决定论全景图</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一枚小小的安全别针看金属疲劳与原子的重新排布</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与材料科学思想史考据说明</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">物质微观晶格、缺陷美学与人类人造世界的隐形支柱</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">钢的位错钉扎机制、自愈合混凝土生物水化与气凝胶隔热极限</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">原子间化学键能、晶格几何排列与微观相变动力学</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从破损茶杯到不可逆断裂、热力学耗散与重塑感知边界</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析自愈材料、石墨烯未来与工业材料伦理</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">米奥多尼克的科普叙事美学、现代硬科技材料瓶颈与未来展望</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">人类材料演进与微观结构决定论全景图</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一枚小小的安全别针看金属疲劳与原子的重新排布</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与材料科学思想史考据说明</span></div>
     </div>
   </div>
 
@@ -414,7 +474,7 @@
 <h2>Q5 自愈合金属与自修复涂层是通过什么微观机制实现的？</h2>
 <p>自愈合材料通常在微观基体中埋入装有液态单体树脂的微型胶囊，并配合催化剂。当材料受外力产生微裂纹时，裂纹会撕破胶囊，释放出液态单体，单体接触催化剂后发生极速原位聚合反应，自动将裂缝填补焊接愈合。</p>
 <h2>Q6 为什么巧克力的口感如此让人欲罢不能？</h2>
-<p>巧克力中的可可脂拥有极其特殊的晶体多晶型（Polymorphism）特性，共有六种不同的晶型。其中最完美的第五型晶体（Form V），其熔点精准落在34至36摄氏度之间——恰好略低于人类口腔的37度体温。当它进入嘴里时，会从坚脆的固体瞬间吸热融化成丝滑的液体，带来极致的感官愉悦。</p>
+<p>巧克力中的可可脂拥有极其特殊的晶体多晶型（Polymorphism）特性，共有六种不同的晶型。其中最完美的第五型晶体（Form V），其熔点精准落在34至36摄氏度之间，恰好略低于人类口腔的37度体温。当它进入嘴里时，会从坚脆的固体瞬间吸热融化成丝滑的液体，带来极致的感官愉悦。</p>
 <h2>Q7 学习材料科学对普通人的生活认知有什么根本改变？</h2>
 <p>它让你拥有一双透视物质世界的X光眼睛：在平庸的日常水泥地、易拉罐、塑料袋和手机屏幕背后，你不再看到枯燥的人造物，而是看到无数原子在人类智慧指挥下跳动的微观交响乐，对我们所生活的物质文明产生深切的敬畏与爱意。</p>
 
@@ -473,7 +533,7 @@
     
 <p>你坐在书桌前，手里拿着一枚最普通的金属曲别针。你无聊地将它掰直，然后反复来回弯折。在前两三次弯折时，金属顺从地弯曲，展现出极佳的柔韧性；但随着你弯折的次数增加，你明显感觉到折弯处的金属变得越来越坚硬、越来越滚烫、越来越难以掰动；最后，伴随着咔哒一声脆响，曲别针在折弯处干脆利落地断成了两截。在你的常识直觉里，这是金属被折断了，没什么稀奇的。</p>
 <p>然而，如果我们将视线放大一千万倍，投向曲别针折弯处的微观原子世界，一场惊心动魄的微观交通大堵塞正在发生。曲别针是由数万亿个铁原子整齐排列成的晶体构成的。当你第一次弯折曲别针时，原子层之间像一层层滑动润滑的纸牌一样平稳滑移，这在物理学上被称为位错运动。这种位错的顺畅滑移，赋予了金属优异的延展性，让它不会像玻璃那样一碰就碎。</p>
-<p>但是，随着你来回反复弯折，金属晶格内部被强行激发出成千上万条新的位错滑移线。这些滑移线在狭窄的微观空间里互相交叉、碰撞、纠缠在一起，就像早高峰时数百辆汽车在一个没有红绿灯的狭窄十字路口互相别车，形成了一个谁也动弹不得的微观死结。在材料学上，这被称为加工硬化（Work Hardening）——位错被彻底堵死，金属变得坚硬而脆弱。</p>
+<p>但是，随着你来回反复弯折，金属晶格内部被强行激发出成千上万条新的位错滑移线。这些滑移线在狭窄的微观空间里互相交叉、碰撞、纠缠在一起，就像早高峰时数百辆汽车在一个没有红绿灯的狭窄十字路口互相别车，形成了一个谁也动弹不得的微观死结。在材料学上，这被称为加工硬化（Work Hardening），位错被彻底堵死，金属变得坚硬而脆弱。</p>
 <p>当你最后一次强行施加外力时，原子层已经彻底失去了滑移缓冲的能力，巨大的机械应力无处宣泄，只能直接撕裂铁原子之间的金属键。一条微观裂纹瞬间萌生并以每秒数千米的光速穿透晶界，金属轰然断裂。从一枚小小的曲别针断裂，到跨海大桥悬索的疲劳断裂，甚至飞机机翼的金属疲劳事故，其背后的物理机制完全相同。这就是材料科学的无穷魅力：在我们触手可及的每一次微小动作背后，都运行着统治整个宇宙物质世界的永恒定律。</p>
 
   </div>
@@ -484,7 +544,7 @@
     
 <div class="closing-quote">
   <p>人类之所以成为文明的创造者，是因为我们学会了倾听物质微观深处的原子私语，并用智慧将凡俗的泥土与沙石铸就为璀璨的星际奇迹。</p>
-  <div class="closing-author">—— 《迷人的材料》物质文明哲学终局定音</div>
+  <div class="closing-author">， 《迷人的材料》物质文明哲学终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与科学史考据说明</h3>

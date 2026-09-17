@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>丰乳肥臀 · 深度解读 · 青山</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,11 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>丰乳肥臀</h1>
-  <p class="author">莫言 著 · 深度解读 · 2026-07-21</p>
-  <p class="oneline">一个高密东北乡的女人，和她的九个孩子。从 1900 年走到 1995 年，差不多一个世纪。</p>
-</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">丰乳肥臀</div>
+    <div class="cover-sub">《丰乳肥臀》，1995 年写成，五十六万字，七卷六十三章，外加七篇「卷外卷」补漏。主角叫上官鲁氏，一个裹小脚的农村女人；书里讲了她的九个孩子，以及闯进这个家的所有男人。莫言自己说过...</div>
+    <div class="cover-meta">青山 读 · 丰乳肥臀 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">《丰乳肥臀》，1995 年写成，五十六万字，七卷六十三章，外加七篇「卷外卷」补漏。主角叫上官鲁氏，一个裹小脚的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">小说不立论，这一层换个问法：莫言这套写法，凭什么让人信？他要读者承认「母亲即大地」这么大的一个命题。这么大的命...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三件事在起作用</span>
+      <span class="toc-desc">先把丑话说在前面：小说是叙事体，作者没有义务立论。下面这三根线是一种读法，是我把书拆开后看见的，不是替莫言宣布...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 作者为什么非写不可</span>
+      <span class="toc-desc">这一层涉及动机和盲点的部分，是推测，依据是公开资料和文本。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 压到不能再压</span>
+      <span class="toc-desc">第三层拆出三根线，压成一张餐巾纸：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">一九六〇年，大栏镇的磨房。母亲开始往胃里装豌豆。</span>
+    </div>
+  </div>
+
 
 <!-- ============ 第一层 ============ -->
 <div class="layer first">
@@ -358,11 +428,11 @@
   <div class="marker">1900 · 沙窝村惨案</div>
   <p>鲁璇儿生在沙窝村，出生不久就遇上德国兵进村，父母死在屠杀里。她被姑姑抱走养大，裹了小脚。养她的姑父叫于大巴掌。记住这个人，后面还有他的戏。</p>
 
-  <div class="marker">约 1920—1938 · 嫁进上官家，「借种」十八年</div>
+  <div class="marker">约 1920，1938 · 嫁进上官家，「借种」十八年</div>
   <p>鲁氏嫁给铁匠上官寿喜。婆家要香火，丈夫不能生育。婆婆上官吕氏当家，默许儿媳妇「借种」。在这个家里，这是心照不宣的活路。于是她连生七个女儿，一个爹一个样：大闺女、二闺女是姑父于大巴掌的；三闺女是赊小鸭的土匪密探的；四闺女是一个江湖郎中的；五闺女是杀狗人高大膘子的；六闺女连她娘都是后来才弄清楚，究竟是那个俊俏和尚还是杀狗的；七闺女最惨：1935 年秋天，她在蛟龙河北岸割草，被四个拖着枪的败兵糟蹋，转年生下求弟。</p>
   <p>这段前史书里写得极慢极细。读的时候你会意识到：这七个生父各是一种时局身份：土匪、游医、屠户、和尚、溃兵。这一页账，是写在女人肚皮上的乱世史。</p>
 
-  <div class="marker">1938—1939 · 马洛亚与双胞胎</div>
+  <div class="marker">1938，1939 · 马洛亚与双胞胎</div>
   <p>瑞典传教士马洛亚在高密传教。1938 年初夏，他和鲁氏相恋，她怀上双胞胎。九个孩子里，只有这一对是出于爱情。</p>
   <p>1939 年五月初五，日军逼近大栏镇。枪声里，鲁氏生下金童和玉女：女儿落地就瞎了眼，儿子是她盼了七胎才盼来的男孩。同一天，公公上官福禄和丈夫上官寿喜死于战乱，马洛亚受辱之后跳楼。一个男人留的种，三个男人用命交了账。这个家从此没有成年男丁。一个裹小脚的女人，带着一窝孩子。</p>
 
@@ -370,20 +440,20 @@
   <p>女儿们陆续长大，嫁出去的人把二十世纪中国的各路势力凑了个齐。大闺女来弟跟了黑驴鸟枪队的沙月亮，沙月亮后来投日当伪警备司令，日本战败后自杀；二闺女招弟嫁了司马库，福生堂二掌柜、抗日别动大队司令，高密地面说一不二的人物；三闺女领弟疯了，人称「鸟仙」，嫁给从战场上回来的哑巴英雄孙不言；五闺女盼弟嫁了共产党的爆炸大队政委鲁立人；六闺女念弟嫁了美国飞行员巴比特。四闺女想弟没嫁人。家里揭不开锅的年月，她把自己卖进了妓院。七闺女求弟从小被卖给白俄伯爵夫人，改名乔其莎，后来当了医生。</p>
   <p>上官家的堂屋，就是二十世纪中国的会议室。来的都是客，走的都留债。</p>
 
-  <div class="marker">1945—1949 · 拉锯与清算</div>
+  <div class="marker">1945，1949 · 拉锯与清算</div>
   <p>日本投降，国共在高密拉锯。招弟死在司马库队伍和独立十六旅的乱战里；司马库败走潜逃，他留下的两个女儿被密令处死；巴比特和念弟在乱世里同归于尽。鲁立人这一边赢了，当了县长。</p>
 
   <div class="marker">1950 年代 · 新秩序下的旧人家</div>
   <p>金童被选中当「雪公子」。那是一种古老的民间仪式：禁语的雪集上，求子的女人任他抚摸乳房。仪式被国家权力当场打破，主持的门老道吃了枪子。这件事是个预告：连乳房都要管起来的时代来了。</p>
-  <p>司马库潜逃多年后回来自首，公审，枪毙。刑场上的他是全书最硬的场面之一：他吼「我不能让你们从我的背后开枪」，又大叫「女人是好东西啊——」，随后枪响，「头盖骨像小瓢一样被揭开」。母亲家的成分改了正，金童入了学。孙不言在领弟摔死后又娶了来弟；从日本做了十五年劳工回来的鸟儿韩和来弟相恋，孙不言发现后与之搏斗，被来弟打死，来弟被处决；鸟儿韩在押赴青海的路上跳车身亡。</p>
+  <p>司马库潜逃多年后回来自首，公审，枪毙。刑场上的他是全书最硬的场面之一：他吼「我不能让你们从我的背后开枪」，又大叫「女人是好东西啊，」，随后枪响，「头盖骨像小瓢一样被揭开」。母亲家的成分改了正，金童入了学。孙不言在领弟摔死后又娶了来弟；从日本做了十五年劳工回来的鸟儿韩和来弟相恋，孙不言发现后与之搏斗，被来弟打死，来弟被处决；鸟儿韩在押赴青海的路上跳车身亡。</p>
 
-  <div class="marker">1958—1960 · 大饥荒</div>
+  <div class="marker">1958，1960 · 大饥荒</div>
   <p>全书最噎人的一卷。姐姐们的孩子、女婿们的遗孤，全塞在母亲屋里，粮食断了。母亲用一种谁也想不到的办法往家运吃的。这个办法先按住，第八层细说。饿死的人开始排队：瞎眼的玉女一辈子怕给家里添麻烦，一个傍晚自己摸出门，哼着小调一步步走进河水深处。母亲的判词只有一句：「这闺女，太懂事了，她是不忍拖累我才自寻了短见。」被白俄养大、当了医生的乔其莎，饥荒里为一口吃的受辱，最后暴食生豆饼胀死。也是在这一年，农场场长龙青萍自杀，金童在她尸身旁做了那件说不清的事，以「奸尸罪」被判十五年。</p>
 
-  <div class="marker">1966—1976 · 文革</div>
+  <div class="marker">1966，1976 · 文革</div>
   <p>卷外卷里补的几笔：想弟挨批斗，旧病复发死了；盼弟早已改名马瑞莲，自杀。鲁立人其实没等到文革，困难时期就心脏病死了。这一家的男人，几乎没人活过中年。</p>
 
-  <div class="marker">1980—1990 年代 · 出狱以后</div>
+  <div class="marker">1980，1990 年代 · 出狱以后</div>
   <p>八十年代第一个春天，金童刑满回乡，四十多岁，一无所长。时代的浪头换成了钱：鸟儿韩的儿子鹦鹉韩办「东方鸟类中心」，骗贷挥霍，进了监狱；司马库的儿子司马粮成了南韩巨商，衣锦还乡；沙月亮的女儿沙枣花是个神偷，向司马粮求婚不成，跳楼殉情；鲁立人的女儿鲁胜利当了市长，贪污受贿，判了死刑。第三代一个比一个鲜亮，一个比一个死得快。金童在街上游荡，和独乳的寡妇老金纠缠，在司马粮的「独角兽乳罩大世界」里混过差事。他一辈子唯一熟练的事，是想母亲的乳房。母亲晚年信了基督教。</p>
 
   <div class="marker">1995 · 母亲之死</div>

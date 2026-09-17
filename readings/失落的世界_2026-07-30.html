@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>失落的世界 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="book-title">失落的世界</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">失落的世界</div>
+    <div class="cover-sub">1912 年的伦敦，一个想做出惊天动地之事的年轻记者，一段没人肯信的南美奇闻，一座被玄武岩峭壁围了几千万年的高原。柯南·道尔这一次不写福尔摩斯，他写了一群英国绅士跑到南美腹地，亲眼...</div>
+    <div class="cover-meta">青山 读 · 失落的世界 · 解读主理：青山 · 日期：2026-07-30 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">1912 年的伦敦，一个想做出惊天动地之事的年轻记者，一段没人肯信的南美奇闻，一座被玄武岩峭壁围了几千万年的高...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">这本书是小说，不是论文，柯南·道尔不需要"论证"什么。但他得让读者信"失落世界"是真的。1912 年的读者刚被...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在牵动全书的是哪几根线</span>
+      <span class="toc-desc">这本书看着是"探险队到南美找恐龙"一条主线，底下其实有三根线在同时起作用，少了哪一根，故事都撑不起来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 作者没说的那部分</span>
+      <span class="toc-desc">柯南·道尔为什么非写这本书不可，这是我的推测，不是作者自述，得先说清。明面上他是在蹭 1912 年的热潮：达尔...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">把这本书压到不能再压，一个公式够：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">前面几层，有一件事我一直按着没说：查林杰教授这个人物，为什么偏偏这么画。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一句话封印这本书</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
   <div class="book-meta"><span class="author">阿瑟·柯南·道尔</span>　·　1912　·　深度解读　·　青山 2026-07-30</div>
 </div>
 
@@ -462,7 +539,7 @@
 
   <p>这本书的思想在别的领域里，有两个地方结构对得上。</p>
 
-  <p>一个是"失落世界"和现实里的"活化石"。1938 年，南非渔民捕到一条腔棘鱼，这种鱼被认为已经灭绝六千五百万年，结果它还活着。这跟"失落世界"的结构完全一样：一个被科学判定灭绝的生物，在一个隔绝的角落里活到了今天。腔棘鱼是书后二十六年的事，柯南·道尔不可能受它影响，是结构巧合。但这个巧合说明他踩中了一个真实的科学现象——"活化石"确实存在，灭绝不是绝对的。从这个角度看，"失落世界"这个设定在 1912 年是科幻，今天看是预言的雏形。</p>
+  <p>一个是"失落世界"和现实里的"活化石"。1938 年，南非渔民捕到一条腔棘鱼，这种鱼被认为已经灭绝六千五百万年，结果它还活着。这跟"失落世界"的结构完全一样：一个被科学判定灭绝的生物，在一个隔绝的角落里活到了今天。腔棘鱼是书后二十六年的事，柯南·道尔不可能受它影响，是结构巧合。但这个巧合说明他踩中了一个真实的科学现象，"活化石"确实存在，灭绝不是绝对的。从这个角度看，"失落世界"这个设定在 1912 年是科幻，今天看是预言的雏形。</p>
 
   <p>另一个是查林杰和魏格纳。1912 年，魏格纳提出大陆漂移说，被地质学界嘲笑几十年，死后才被海底扩张理论证明是对的。查林杰在报告会被哄笑"骗子"，后来被证明是对的，这个结构跟魏格纳一模一样。有意思的是两件事都发生在 1912 年。我没找到柯南·道尔受魏格纳影响的证据，只能说结构对得上、时间巧合。但"狂妄的个体对了、体面的共同体错了"这个模式，在科学史里反复出现，伽利略、魏格纳、后来的古尔德讲的那些案例，都是这个结构。柯南·道尔踩中的不是偶然，是科学建制和异端之间的长期张力。</p>
 

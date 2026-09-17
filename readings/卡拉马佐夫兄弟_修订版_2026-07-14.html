@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>卡拉马佐夫兄弟 · 九层解书（修订版）</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,12 +380,48 @@
 </head>
 <body>
 
-<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近日常场景的行动落点。</div>
+<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近先生场景的行动落点。</div>
 
 <div class="container">
 
-<div class="hero">
-<div class="book-title">卡拉马佐夫兄弟</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">卡拉马佐夫兄弟</div>
+    <div class="cover-sub">陀氏在死前两年，把一辈子关于上帝的怀疑交给魔鬼去说，又把答案藏在一具会发臭的尸体里。</div>
+    <div class="cover-meta">费奥多尔·陀思妥耶夫斯基 · 荣如德 译 · 青山深读 · 2026-07-14 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把故事讲一遍</span>
+      <span class="toc-desc">一八六〇年代，俄国外省一座小县城。卡拉马佐夫一家住在这里，陀氏自己管这家人叫“偶合家庭”，意思是一群被血缘硬凑...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">陀氏不在书里直接讲道理。他把道理拆给人物去活：一个怀疑，一个信仰，一个肉欲，一个入世：然后看这几个人各自走到什...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动全书的那几根线</span>
+      <span class="toc-desc">这本书八十万字，看着千头万绪。可往下拆，底下就那么几根线在起作用。把这几根线拎出来，整本书的走向就与作家随手安...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">陀氏写这本书时五十七岁，离他死还有三年。这个时候他癫痫每两周发作一次，三岁的幼子刚夭折：这孩子就叫阿辽沙，和书...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸上能写下的</span>
+      <span class="toc-desc">陀氏把自由给了人，又把人承受不起自由的样子一五一十演给你看，最后说：承受不起也得扛，因为你一旦卸下来，就不再是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 自由这东西，给得起，扛不住</span>
+      <span class="toc-desc">塞维利亚那个场景很怪。基督重临人间，十六世纪的西班牙，宗教大法官在广场上当众烧死了一百多个异端。基督也在人群里...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 用一句话封印这本书</span>
+      <span class="toc-desc">本篇故事梗概、人物关系、关键对白与主要情节，出自陀思妥耶夫斯基《卡拉马佐夫兄弟》原书（荣如德译本），具体页码未...</span>
+    </div>
+  </div>
+
 <div class="author">费奥多尔·陀思妥耶夫斯基 · 荣如德 译 · 青山深读 · 2026-07-14</div>
 <div class="tagline">陀氏在死前两年，把一辈子关于上帝的怀疑交给魔鬼去说，又把答案藏在一具会发臭的尸体里。</div>
 </div>

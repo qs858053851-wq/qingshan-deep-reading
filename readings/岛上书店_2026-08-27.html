@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>岛上书店 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -341,17 +382,52 @@
 
 <div class="container">
 
-  <header class="hero">
-    <div class="meta">青山 · 深度阅读</div>
-    <h1>岛上书店</h1>
-    <div class="subtitle">The Storied Life of A.J. Fikry</div>
-    <div class="info-bar">
-      <div class="info-item"><span class="info-label">原作者</span> 加布瑞埃拉·泽文（Gabrielle Zevin）</div>
-      <div class="info-item"><span class="info-label">中文翻译</span> 孙仲旭 / 李玉瑶</div>
-      <div class="info-item"><span class="info-label">文体形态</span> 叙事型 · 长篇小说</div>
-      <div class="info-item"><span class="info-label">核心介质</span> 爱伦·坡初版诗集《帖木儿》与爱丽丝岛</div>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">岛上书店</div>
+    <div class="cover-sub">The Storied Life of A.J. Fikry</div>
+    <div class="cover-meta">青山 · 深度阅读 · 解读主理：青山 · 日期：2026-08-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 千头万绪，其实就一件事</span>
+      <span class="toc-desc">故事发生在马萨诸塞州科德角外海一个虚构的小岛，名叫爱丽丝岛。全岛只有一家书店，名叫“岛上书店”。门廊上钉着一块...</span>
     </div>
-  </header>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他的论证站不站得住</span>
+      <span class="toc-desc">作为一部以书店为舞台的小说，作者加布瑞埃拉·泽文通过人物的选择和命运的发展，提出了一个核心判断。拯救一个陷在虚...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这两三件事在起作用</span>
+      <span class="toc-desc">通读整部小说，推动所有人物走向蜕变和重生的动力，可以归结为三根彼此独立的线索。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线挖到底</span>
+      <span class="toc-desc">顺着具体负担如何击碎精神虚无这一核心命题，我们可以展开四层步步深入的追问。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 作者没说的那部分</span>
+      <span class="toc-desc">作者加布瑞埃拉·泽文出身于出版家庭，毕业于哈佛大学英美文学系。她写这部小说的时代，正是电子书阅读器风靡、实体独...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 全书只剩一个公式</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">合上这本小说，有一个问题在前面的层级里一直没有彻底说透。为什么一笔横财或彻底的避世自由无法救人脱困，反而是一个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">1. 本解读基于加布瑞埃拉·泽文（Gabrielle Zevin）长篇小说《岛上书店》（The Storied...</span>
+    </div>
+  </div>
+
 
   <!-- 第一层 -->
   <section class="layer">

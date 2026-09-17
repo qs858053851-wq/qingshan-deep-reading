@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>看不见的城市 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>看不见的城市</h1>
-  <div class="author">伊塔洛·卡尔维诺　张密 译</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">看不见的城市</div>
+    <div class="cover-sub">卡尔维诺　张密 译</div>
+    <div class="cover-meta">伊塔洛 · 解读主理：青山 · 日期：2026-07-31 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底写了什么</span>
+      <span class="toc-desc">先说个容易劝退人的事实：这本书没有情节。没有主角要去救谁，没有谜要解开，没有人在最后一页娶了谁。它的全部内容是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 凭什么这些不存在的城市，比真城市还真</span>
+      <span class="toc-desc">这是读这本书绕不过去的一问。五十五座城全是编的，名字都是女人名，地理上一座也找不着。可读完之后，你对城市的感觉...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 五十五座城拆到底，就三件事在起作用</span>
+      <span class="toc-desc">五十五座城市看着千头万绪，每座都长得不一样。但你把它们全摊开，会发现底下反复起作用的就三件事。三件事一组合，能...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">挑第三根线往下挖：说出来就会失去。这句话听着像文人的伤感，其实底下有硬东西，能一直挖到不能再问为止。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把这本书的逻辑走一遍</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">这本书出在一九七二年。那几年意大利的城市正在飞快地摊大饼，老城被围在里头，新区一圈圈长出来，长得哪儿都一样。卡...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc">这个式子可以直接拿去算别的东西。把“城”换成一个人、一段关系、一个村子，三个因子照样成立：你从哪个角度认识他、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 一格空棋盘，和一块木头上的纹理</span>
+      <span class="toc-desc">忽必烈想过一个办法，绕开语言。</span>
+    </div>
+  </div>
+
   <div class="lead">五十五座不存在的城市，两个坐在花园里的人。一本看上去最像诗集的书，底下藏着一道极硬的问题：你能不能真正拥有你所描述的东西。</div>
 </div>
 
@@ -350,9 +430,9 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底写了什么</h2>
 
-  <p>先说个容易劝退人的事实：这本书没有情节。没有主角要去救谁，没有谜要解开，没有人在最后一页娶了谁。它的全部内容是——一个威尼斯青年，跟一个年老的皇帝，坐在花园里说城市。</p>
+  <p>先说个容易劝退人的事实：这本书没有情节。没有主角要去救谁，没有谜要解开，没有人在最后一页娶了谁。它的全部内容是，一个威尼斯青年，跟一个年老的皇帝，坐在花园里说城市。</p>
 
-  <p>但它有骨头，而且骨头长得极规整。全书五十五座城市，每座三五百字，分成十一类：城市与记忆、城市与欲望、城市与符号、轻盈的城市、城市与贸易、城市与眼睛、城市与名字、城市与死者、城市与天空、连绵的城市、隐蔽的城市。每类五座。这些城市之间插着马可·波罗和忽必烈汗的对话，用斜体排。城市是货，对话是账房。你可以把它当五十五首散文诗读，也可以当一部只有两个人的长篇小说读——后一种读法更值。</p>
+  <p>但它有骨头，而且骨头长得极规整。全书五十五座城市，每座三五百字，分成十一类：城市与记忆、城市与欲望、城市与符号、轻盈的城市、城市与贸易、城市与眼睛、城市与名字、城市与死者、城市与天空、连绵的城市、隐蔽的城市。每类五座。这些城市之间插着马可·波罗和忽必烈汗的对话，用斜体排。城市是货，对话是账房。你可以把它当五十五首散文诗读，也可以当一部只有两个人的长篇小说读，后一种读法更值。</p>
 
   <div class="marker">框架 · 一个正在腐烂的帝国</div>
 
@@ -368,7 +448,7 @@
 
   <p>忽必烈看得懂动作，看不懂意思。但他记住了。他甚至觉得，自己那个由沙粒般可互换的数据构成的帝国，只有在这个外国人的字谜里才浮出形状来。</p>
 
-  <p>后来马可学会了鞑靼语和其他部族的语言，他的汇报变成全帝国最精确最详细的一份。奇怪的事发生了：每当新消息传来，皇帝想起的仍然是当初那些手势和物件。这是全书第一个真正的转折——精确没有取代含混，反而要靠含混来安放。</p>
+  <p>后来马可学会了鞑靼语和其他部族的语言，他的汇报变成全帝国最精确最详细的一份。奇怪的事发生了：每当新消息传来，皇帝想起的仍然是当初那些手势和物件。这是全书第一个真正的转折，精确没有取代含混，反而要靠含混来安放。</p>
 
   <p>这一阶段末尾有一句对话，把整本书的赌注亮了出来。忽必烈问：等我弄懂了所有象征，我是不是就真正拥有我的帝国了？马可回答：别这样想，到那时候，你自己也不过是众多象征中的一个。</p>
 
@@ -376,7 +456,7 @@
 
   <p>城市本身才是这本书的血肉。每一座都是一个圈套，专门绊你一下。举三座你就明白它的手法。</p>
 
-  <p><strong>迪奥米拉</strong>，有六十个银顶、青铜神像、铅板街道、水晶剧场，塔顶一只金鸡每天报晓。旅客对这些美景毫无感觉，因为别处也有。这城真正独有的东西是九月黄昏、炸食店门口一起亮起的灯、凉台上传来的女人的叫喊——你会羡慕那些自认为曾在这样的夜晚幸福过的人。一座城市的特点不在它的清单里，在它让你产生的那点无从归类的怅然里。</p>
+  <p><strong>迪奥米拉</strong>，有六十个银顶、青铜神像、铅板街道、水晶剧场，塔顶一只金鸡每天报晓。旅客对这些美景毫无感觉，因为别处也有。这城真正独有的东西是九月黄昏、炸食店门口一起亮起的灯、凉台上传来的女人的叫喊，你会羡慕那些自认为曾在这样的夜晚幸福过的人。一座城市的特点不在它的清单里，在它让你产生的那点无从归类的怅然里。</p>
 
   <p><strong>扎伊拉</strong>，是全书最重要的一座。马可说，我可以告诉你街道有多少级台阶、拱廊多少度弧、屋顶铺什么锌片，但这等于什么也没说。构成扎伊拉的不是这些，是它的空间尺寸和历史事件之间的关系：灯柱的高度，和被吊死的篡位者双脚离地的距离；栅栏的高度，和偷情的汉子黎明爬过去的姿势；流水槽的斜度，和一只猫从那儿溜进窗户。城市像海绵，吸着一波波涌来的记忆，跟着膨胀。它不会交出自己的过去，只把过去藏起来，像手纹一样，写在街角、护栏、扶手、旗杆上，每道印记都是抓挠、锯锉、刻凿、猛击留下的。</p>
 
@@ -388,7 +468,7 @@
 
   <p><strong>忽必烈</strong>要的是“拥有”。他征服了别人的国土，也顺带继承了别人的祸患。他的动机是那种到手之后突然发现手里空空的恐慌，所以他要一张能装下帝国的图，一套能算清所有胜负的规则。他是全书里那个抽象的人。</p>
 
-  <p><strong>马可</strong>要的是“留住”。他每描述一座城，都是在抵抗遗忘。他是全书里那个具体的人：他给的从来是猫、流水槽、破渔网、九月黄昏的灯。他跟皇帝的分歧不在信息量上，在方向上——一个往上抽，一个往下沉。</p>
+  <p><strong>马可</strong>要的是“留住”。他每描述一座城，都是在抵抗遗忘。他是全书里那个具体的人：他给的从来是猫、流水槽、破渔网、九月黄昏的灯。他跟皇帝的分歧不在信息量上，在方向上，一个往上抽，一个往下沉。</p>
 
   <p><strong>威尼斯</strong>是那个隐形角色。书快到末尾时，忽必烈发现马可从没讲过自己的家乡，逼他讲，他不肯。这段对话是全书第三根线的正面亮相，第三层细说。</p>
 
@@ -490,7 +570,7 @@
 
   <p>这根线的另一次演示是扎伊拉（第一层已细说）。同一堵墙，吊过篡位者的和挂过婚礼彩带的，就是两堵墙。</p>
 
-  <p>把这两篇并排看就清楚了：城市这个东西，物理上是砖石，实际存在的方式是沉积——记忆、欲望、名分，一层层糊在砖石上。人搬走了，糊上去的东西不会跟着走。</p>
+  <p>把这两篇并排看就清楚了：城市这个东西，物理上是砖石，实际存在的方式是沉积，记忆、欲望、名分，一层层糊在砖石上。人搬走了，糊上去的东西不会跟着走。</p>
 
   <div class="sub">第三根线：一说出来，就开始失去</div>
 
@@ -605,7 +685,7 @@
     <div class="q">Q6　结尾那句“在地狱里寻找非地狱的人和物”，跟前面五十五座城有关系吗？还是一句漂亮的空话？</div>
     <p class="a-lead">有关系，而且是整本书方法的一次总演示。</p>
     <p class="a-body">前面五十五座城，马可干的一直是同一件事：从一堆可互换的、乏味的、令人绝望的材料里，挑出那个不能互换的东西。迪奥米拉的圆屋顶到处都有，九月黄昏的那声叫喊只有这一座有。他挑的从来是后者。所以最后那句话并不是临时冒出来的道德教诲。他把自己做了一整本书的动作，用一句话说清了：辨认，然后给它地方待着。卡尔维诺自己在讲稿里提醒过，那不是全书的唯一结论，书的每一条棱上都有结论。这句只是最锋利的一条。</p>
-    <p class="a-edge">边界：这句话流传太广，已经被抄成各种签名档，抄的人多半跳过了“要求持久的警惕和学习”那半句。原句里最难的恰恰是这半句——辨认是需要功夫的，不是姿态。</p>
+    <p class="a-edge">边界：这句话流传太广，已经被抄成各种签名档，抄的人多半跳过了“要求持久的警惕和学习”那半句。原句里最难的恰恰是这半句，辨认是需要功夫的，不是姿态。</p>
   </div>
 
   <div class="qa">
@@ -739,7 +819,7 @@
 
   <p>忽必烈熬了一辈子汤，最后端着一撮盐，说这就是我的帝国。马可从锅边舀了一勺，说你听我讲讲这只鸡。</p>
 
-  <p>这件事的用处不在读书里，在日常判断里。凡是你想彻底搞懂一样东西的时候，注意自己正在往哪个方向走。你抽出一个模型、一张表、一套指标，这条路很快，也很干净，但它每走一步都在扔东西，扔到最后你手里必然是空的，而且那个空是数学上必然的，不是你不够努力。抽象本身没有错。要防的是抽象走到底之后那个“原来什么都没有”的时刻——很多人在那个时刻做出人生里最灰的判断，其实那只是一条路走到了尽头。</p>
+  <p>这件事的用处不在读书里，在日常判断里。凡是你想彻底搞懂一样东西的时候，注意自己正在往哪个方向走。你抽出一个模型、一张表、一套指标，这条路很快，也很干净，但它每走一步都在扔东西，扔到最后你手里必然是空的，而且那个空是数学上必然的，不是你不够努力。抽象本身没有错。要防的是抽象走到底之后那个“原来什么都没有”的时刻，很多人在那个时刻做出人生里最灰的判断，其实那只是一条路走到了尽头。</p>
 
   <p>另一条路是从任何一个具体的点扎下去，问它身上发生过什么。这条路慢，而且不通往任何总结，但它有个好处：它不会归零。任何一格方格里都有一个干旱的年份。</p>
 
@@ -750,7 +830,7 @@
 <div class="boundary">
   <h4>事实边界</h4>
   <p>本篇引文均出自伊塔洛·卡尔维诺《看不见的城市》张密译本（原书一九七二年出版，此为公认出版事实）。书中五十五座城市全部为虚构，作者在书内所附一九八三年哥伦比亚大学讲稿中亲自说明了这一点，本篇引用的“别处已经不再存在”“作者的意见是多余的”等说法均出自该讲稿。</p>
-  <p>关于博尔赫斯那则与疆域同大的地图的故事（《论科学的精确性》），系文学史上的公认篇目，此处凭记忆转述其大意，未逐字核对原文，若要引用建议再核。文中“记忆每提取一次就被重写一次”的说法有心理学研究支撑，但本篇是按日常经验讲的，未引具体文献。</p>
+  <p>关于博尔赫斯那则与疆域同大的地图的故事（《论科学的精确性》），系文学史上的公认篇目，此处凭记忆转述其大意，未逐字核对原文，先生若要引用建议再核。文中“记忆每提取一次就被重写一次”的说法有心理学研究支撑，但本篇是按日常经验讲的，未引具体文献。</p>
   <p>第三层关于“轻盈的城市”一类推不回来的判断、第六层关于全书后三分之一变松的判断，都是我读下来的看法，不是原书或评论界的定论。</p>
 </div>
 

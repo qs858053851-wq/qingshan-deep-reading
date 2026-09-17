@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>局外人 —— 九层解书（修订版）</title>
+<title>局外人 ， 九层解书（修订版）</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>局外人</h1>
-  <div class="author">阿尔贝·加缪（Albert Camus）· 作家榜经典版</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">局外人</div>
+    <div class="cover-sub">书型：叙事型 · 路径：第一、二、三、六、七、八、九层 版本：06-09 初稿 · 07-14 修订</div>
+    <div class="cover-meta">阿尔贝·加缪（Albert Camus）· 作家榜经典版 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">默尔索是阿尔及尔一个普通的法国籍办公室职员。故事从一封电报开始，“母逝。明日葬。此致。”他搭巴士赶到马朗戈养...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">加缪在1955年美国版序言中把小说的出发点概括为：在我们的社会里，任何在母亲葬礼上不哭的人，都可能被判处死刑。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">推动这个故事的不是英雄意志，不是欲望，甚至不是宿命，是惯性。默尔索像一颗在斜面上滚动的球，没有人推他，只是地...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">可确认的事实：加缪1913年出生于法属阿尔及利亚的贫困家庭，幼年丧父，十七岁左右确诊肺结核；《局外人》于194...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">默尔索在母亲的葬礼上没有哭。这件事后来杀了他。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">世界不会因为你的诚实而善待你，但你的诚实是世界夺不走的唯一东西。</span>
+    </div>
+  </div>
+
   <div class="meta">书型：叙事型 · 路径：第一、二、三、六、七、八、九层<br>版本：06-09 初稿 · 07-14 修订</div>
 </div>
 
@@ -353,13 +425,13 @@
   <h3>故事讲了什么？</h3>
 
   <div class="marker">第一天 · 电报与守灵</div>
-  <p>默尔索是阿尔及尔一个普通的法国籍办公室职员。故事从一封电报开始——“母逝。明日葬。此致。”他搭巴士赶到马朗戈养老院，守灵，送葬；在这场公共仪式中，他没有做出旁人预期的悲伤姿态。</p>
+  <p>默尔索是阿尔及尔一个普通的法国籍办公室职员。故事从一封电报开始，“母逝。明日葬。此致。”他搭巴士赶到马朗戈养老院，守灵，送葬；在这场公共仪式中，他没有做出旁人预期的悲伤姿态。</p>
 
   <div class="marker">第二天至随后数周 · 生活照常</div>
   <p>葬礼次日，他游泳、看喜剧电影，与旧同事玛丽过夜。之后，他因“没理由拒绝”而卷入邻居雷蒙与其情妇的纠纷：代写信、作证、同行去海滩。看似无关紧要的小顺从，把他一步步带向一场并非预谋的冲突。</p>
 
   <div class="marker">海滩午后 · 五声枪响</div>
-  <p>海滩上，雷蒙与两名阿拉伯人发生打斗。后来，默尔索独自走回泉水边，在灼热、汗水与刀光的刺激中开了一枪，又向倒地的人补了四枪——“就好像我在厄运之门上快速地连敲四下”。</p>
+  <p>海滩上，雷蒙与两名阿拉伯人发生打斗。后来，默尔索独自走回泉水边，在灼热、汗水与刀光的刺激中开了一枪，又向倒地的人补了四枪，“就好像我在厄运之门上快速地连敲四下”。</p>
 
   <div class="marker">数月后 · 审判</div>
   <p>庭审重新编排了他的人生：守灵时的咖啡和香烟、葬礼次日的游泳和喜剧、与雷蒙的交往，都被连成“没有灵魂”的证据。被杀者在法庭叙事中退到边缘，默尔索是否按社会脚本表达悲伤，反而成为审判中心。陪审团判他死刑。</p>
@@ -394,22 +466,22 @@
   <div class="layer-num">LAYER 03</div>
   <div class="layer-title">叙事结构分析</div>
   <h3>叙事动力：惯性与偶然</h3>
-  <p>推动这个故事的不是英雄意志，不是欲望，甚至不是宿命——是<strong>惯性</strong>。默尔索像一颗在斜面上滚动的球，没有人推他，只是地面碰巧倾斜了。</p>
+  <p>推动这个故事的不是英雄意志，不是欲望，甚至不是宿命，是<strong>惯性</strong>。默尔索像一颗在斜面上滚动的球，没有人推他，只是地面碰巧倾斜了。</p>
   <p>帮雷蒙写信？“我没理由拒绝。”接受玛丽的求婚？“如果她想的话就可以。”每一次，默尔索面对的都不是一个关键抉择，而是一个无所谓的小顺从。但这些小顺从像多米诺骨牌一样依次倒下：写信 → 雷蒙打女人 → 女人的兄弟跟踪报复 → 海滩冲突 → 枪在手上 → 阳光 → 开枪。</p>
   <p>检察官在法庭上用“偶然”这个词来讽刺他：“偶然在整个故事里真是做尽了坏事。”但这句讽刺恰好说出了真相：在加缪的世界观里，偶然就是世界运行的方式，只是人类不能接受这个事实，必须给每个事件安上一个“意图”。</p>
 
   <h3>核心张力：肉身的真实 vs. 语言的秩序</h3>
   <p>全书最深的那对矛盾，不是“个人与社会”，而是<strong>两种存在方式的不可通约</strong>。</p>
-  <p>默尔索活在肉身里。他的世界由感觉构成：阳光的重量、海水的温度、玛丽肚子的起伏。他对语言世界里的东西几乎没有感知力：爱、悔恨、灵魂、上帝——这些词在他嘴里变成空壳。</p>
+  <p>默尔索活在肉身里。他的世界由感觉构成：阳光的重量、海水的温度、玛丽肚子的起伏。他对语言世界里的东西几乎没有感知力：爱、悔恨、灵魂、上帝，这些词在他嘴里变成空壳。</p>
   <p>社会活在语言里。法庭是一台语言机器，它的功能是把混沌的事件翻译成一个可以理解、可以审判、可以执行的叙事。两套叙事都跟默尔索本人无关。他坐在那里，像一个被翻译成了外语的人，读不懂自己的译文。</p>
-  <p>默尔索说“太阳的缘故”时法庭哄堂大笑——在法律的语言里，太阳不能成为杀人的理由。但对默尔索来说，太阳不是隐喻，不是借口，它是那天发生在他身上的最真实的事情。法庭笑是因为他们活在语言的世界里。默尔索活在身体的世界里。</p>
-  <p>预审法官最感兴趣的问题是“为什么第一枪和第二枪之间停了一下”——这个“为什么”假设了一个有意图的灵魂。但默尔索的经验里没有那个主体。法官要的是一个可以审判的意图，但默尔索只有一连串可以感受的瞬间。</p>
+  <p>默尔索说“太阳的缘故”时法庭哄堂大笑，在法律的语言里，太阳不能成为杀人的理由。但对默尔索来说，太阳不是隐喻，不是借口，它是那天发生在他身上的最真实的事情。法庭笑是因为他们活在语言的世界里。默尔索活在身体的世界里。</p>
+  <p>预审法官最感兴趣的问题是“为什么第一枪和第二枪之间停了一下”，这个“为什么”假设了一个有意图的灵魂。但默尔索的经验里没有那个主体。法官要的是一个可以审判的意图，但默尔索只有一连串可以感受的瞬间。</p>
 
   <h3>人物弧线：从无所谓到确信</h3>
-  <p>第一部的默尔索是一个被动的感知器——一种<strong>前语言的纯粹在场</strong>。他完整地活在每一个瞬间里，但不把这些瞬间串联成一个“人生”。</p>
-  <p>第二部的庭审打破了这种状态。他第一次被迫从外部看自己。转折发生在死囚牢房里跟神甫的对峙——全书唯一一次默尔索用语言来为自己的存在方式辩护。他第一次把自己一直在做的事——不撒谎、不表演——从一种习惯升格为一种信念。</p>
-  <p>加缪安排了两个镜像人物。萨拉马诺和他的狗，是默尔索和母亲关系的变形镜：一个男人打了八年的狗，但狗跑丢的那晚崩溃了。爱可以完全不像爱的样子。另一个镜像是那个矮个子木偶女人——动作精确、机械、毫无情感——暗示了默尔索的一种可能的未来。默尔索跟她的区别在于——他有感受力，他只是不表演。</p>
-  <p>最后那段星空下的独白完成了弧线的闭合。一个拒绝意义的人，在死亡面前找到了一种不需要意义就能成立的幸福——荒谬哲学最温暖的一个落脚点。</p>
+  <p>第一部的默尔索是一个被动的感知器，一种<strong>前语言的纯粹在场</strong>。他完整地活在每一个瞬间里，但不把这些瞬间串联成一个“人生”。</p>
+  <p>第二部的庭审打破了这种状态。他第一次被迫从外部看自己。转折发生在死囚牢房里跟神甫的对峙，全书唯一一次默尔索用语言来为自己的存在方式辩护。他第一次把自己一直在做的事，不撒谎、不表演，从一种习惯升格为一种信念。</p>
+  <p>加缪安排了两个镜像人物。萨拉马诺和他的狗，是默尔索和母亲关系的变形镜：一个男人打了八年的狗，但狗跑丢的那晚崩溃了。爱可以完全不像爱的样子。另一个镜像是那个矮个子木偶女人，动作精确、机械、毫无情感，暗示了默尔索的一种可能的未来。默尔索跟她的区别在于，他有感受力，他只是不表演。</p>
+  <p>最后那段星空下的独白完成了弧线的闭合。一个拒绝意义的人，在死亡面前找到了一种不需要意义就能成立的幸福，荒谬哲学最温暖的一个落脚点。</p>
 </div>
 
 <div class="layer">
@@ -474,8 +546,8 @@
   <p>默尔索在最后一夜停止寻找答案。他接受死亡不会因为祈祷而撤回，世界也不会为任何人的命运提供解释。就在意义退场之后，星光、夜风、心跳和“此刻还活着”重新变得具体。</p>
   <p>那不是胜利，也不是宽恕。那是一种没有上诉对象之后的清醒：明知没有终极解释，仍然感受；明知会死，仍然承认活过；明知宇宙冷漠，仍然称它“温柔”。</p>
   <p>问题最后只剩下半秒钟：这是我在感受，还是我在表演？</p>
-  <p>如果答案是“我在感受”——那就好。</p>
-  <p>如果答案是“我在表演”——那也没关系。至少你知道了。</p>
+  <p>如果答案是“我在感受”，那就好。</p>
+  <p>如果答案是“我在表演”，那也没关系。至少你知道了。</p>
   <p>知道，就是自由的起点。</p>
 </div>
 

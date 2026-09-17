@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>报道伊斯兰 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>报道伊斯兰</h1>
-  <div class="author">爱德华·萨义德 · 媒体与专家如何决定我们观看世界其他地方的方式（1981/1997）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">报道伊斯兰</div>
+    <div class="cover-sub">萨义德 · 媒体与专家如何决定我们观看世界其他地方的方式（1981/1997）</div>
+    <div class="cover-meta">爱德华 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">核心问题：十几亿人口、横跨几十个国家的复杂世界，怎么会在美国公众的脑子里缩成一个单一、危险、非理性的"伊斯兰"...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">论证链：媒体报道需要框架 → 框架来自"诠释的共同体"（记者、专家、官员共享的一套预设） → 这套预设由利益和...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">全书的案例千头万绪，底下的机制是同一个：报道不是从事实到框架，是从框架到事实。"诠释的共同体"先备好剧本（伊斯...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">作者动机：萨义德是巴勒斯坦裔美国人，他在美国电视上看到的"伊斯兰"，覆盖的正是他的家人、他的世界。这本书的火气...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">全书最锋利的一件工具，是"诠释的共同体"这个概念。它解释了一个比"媒体撒谎"深得多的问题：为什么不需要任何人撒...</span>
+    </div>
+  </div>
+
   <p class="intro">《东方学》三部曲的收官之作，也是最好读的一部：不谈古典文献，直接盯着 1980 年前后的美国电视和报纸看。核心指控写在书名副题里：你以为你在"看"伊斯兰世界，其实你看到的每一帧，都是媒体和专家替你选好的。书里那句定义打头：今日的"伊斯兰教"一词，是虚构加上意识形态标签，再加上一丝半缕对一个宗教的指涉。</p>
 </div>
 
@@ -371,7 +439,7 @@
 
   <p>理论底子在第三章：他引维柯"人类的知识是由人类制造出来的"，引培根对"假相"的疑虑，说明"获取遥远异国事物的客观知识"这个理想本身在西方哲学里就充满疑难；可偏偏东方学家和电视专家对此"表现出令人不安的乐观与自信"。最该谦卑的领域，姿态最傲慢。</p>
 
-  <p>隐形假设要挑明：萨义德默认读者能同意"再现必然携带权力"，对于坚持"报道就是报道事实"的实证主义读者，本书的论证起点就成争议点。边界条件他自己划了：批评的是关于伊斯兰的知识生产，不是替伊斯兰世界的政权辩护——书里对沙特的伪善、对革命后伊朗的作为都有讥刺。但这条线在传播中经常被抹掉，支持者和反对者都乐意把他简化成"为伊斯兰辩护的人"，这个命运本身就是全书论点的一次演示：立场标签吃掉具体论证。</p>
+  <p>隐形假设要挑明：萨义德默认读者能同意"再现必然携带权力"，对于坚持"报道就是报道事实"的实证主义读者，本书的论证起点就成争议点。边界条件他自己划了：批评的是关于伊斯兰的知识生产，不是替伊斯兰世界的政权辩护，书里对沙特的伪善、对革命后伊朗的作为都有讥刺。但这条线在传播中经常被抹掉，支持者和反对者都乐意把他简化成"为伊斯兰辩护的人"，这个命运本身就是全书论点的一次演示：立场标签吃掉具体论证。</p>
 </section>
 
 <section class="layer">
@@ -380,7 +448,7 @@
 
   <p>全书的案例千头万绪，底下的机制是同一个：<strong>报道不是从事实到框架，是从框架到事实。</strong>"诠释的共同体"先备好剧本（伊斯兰=威胁、非理性、中世纪），记者带着剧本进场，符合的素材放大，不符合的无视，伊朗外长的让步建议就这样消失在直播里。</p>
 
-  <p>用这根线验书里的现象：为什么六人讨论会必然东拉西扯？因为剧本不允许讨论"再现"本身，只允许在"伊斯兰是否野蛮"的题目内正反辩论——题目本身就是剧本的一部分。为什么教士的证言被主持人怀疑？因为它偏离剧本，而偏离剧本的证言需要额外的证明责任。为什么专家永远是那几张面孔？因为专家的筛选标准不在懂不懂，在台词合不合剧本。书里的原话，那些真了解的人受限于职位只能说官方言论，"那些略知一二的人却会放言高论"。</p>
+  <p>用这根线验书里的现象：为什么六人讨论会必然东拉西扯？因为剧本不允许讨论"再现"本身，只允许在"伊斯兰是否野蛮"的题目内正反辩论，题目本身就是剧本的一部分。为什么教士的证言被主持人怀疑？因为它偏离剧本，而偏离剧本的证言需要额外的证明责任。为什么专家永远是那几张面孔？因为专家的筛选标准不在懂不懂，在台词合不合剧本。书里的原话，那些真了解的人受限于职位只能说官方言论，"那些略知一二的人却会放言高论"。</p>
 
   <p>这根线还能推出书外的现象：剧本机制不认阵营。任何议题一旦有了固定剧本（不管左右）都会重演同样的三件事：来宾名单窄化、反例消失、真正的新闻（比如让步信号）无人接住。萨义德批评的是美国媒体的伊斯兰剧本，方法论却是通用的病理切片。</p>
 </section>
@@ -393,11 +461,11 @@
 
   <p>作者盲点：两条。其一，全书对美国媒体的商业逻辑（收视率、成本、新闻周期）着墨少，归因几乎全给了意识形态与权力。但来宾名单窄化的一半原因可能只是制片人图省事，找说过的人最快。恶意的解释和懒惰的解释，他偏向了前者。其二，对伊斯兰世界内部的媒体和知识生产，他声明不讨论，这在论证上是干净的，但留下了一个对手必然攻击的缺口：只解剖西方的镜头，容易被读成只有西方在拍摄。</p>
 
-  <p>跨域映射：书里"1974 年之前很少有'穆斯林'，之后铺天盖地"的词频现象，和一切"标签先于认识"的过程同构。楼市有"刚需盘"，职场有"00后整顿职场"，健康版有"体质"——一个词一旦被媒体选中当容器，所有杂乱的焦虑都往里装，装满后这个词就"显得"无比真实。识别法：查这个词的启用时间。多数容器词都有一个清晰的诞生时刻，且总在某次集体焦虑之后。</p>
+  <p>跨域映射：书里"1974 年之前很少有'穆斯林'，之后铺天盖地"的词频现象，和一切"标签先于认识"的过程同构。楼市有"刚需盘"，职场有"00后整顿职场"，健康版有"体质"，一个词一旦被媒体选中当容器，所有杂乱的焦虑都往里装，装满后这个词就"显得"无比真实。识别法：查这个词的启用时间。多数容器词都有一个清晰的诞生时刻，且总在某次集体焦虑之后。</p>
 
   <p>行动触发：下次看争议议题的报道，学萨义德数三样东西：来宾名单（谁有资格说话）、提问清单（什么问题被问、什么问题从不被问）、消失的新闻（哪条不合剧本的信息被当场放过）。三样数完，剧本自动显形。这个方法不需要立场，只需要一支笔。</p>
 
-  <p>读者立场：这本书方法上最过硬的是伊朗一章的内容分析，今天传播学课堂还能直接用；最过时的是媒体图景——他面对的是三大电视网垄断解释权的时代，如今解释权碎成了算法信息流，剧本不再由精英共同体统一供应，而是每人一份定制剧本。这让他的诊断更普遍也更棘手：过去可以指着"麦克尼尔/雷勒"的来宾名单抗议，现在的名单藏在推荐算法里，连数都没法数。我最佩服的是他对亨廷顿那记反击的命名："无知的冲突"四个字，比一整篇驳论有效；最想提醒的是，读这本书别只用它照美国，它同样照得见任何把远方世界简化成单一形象的报道机器，包括我们自己每天刷的那些。</p>
+  <p>读者立场：这本书方法上最过硬的是伊朗一章的内容分析，今天传播学课堂还能直接用；最过时的是媒体图景，他面对的是三大电视网垄断解释权的时代，如今解释权碎成了算法信息流，剧本不再由精英共同体统一供应，而是每人一份定制剧本。这让他的诊断更普遍也更棘手：过去可以指着"麦克尼尔/雷勒"的来宾名单抗议，现在的名单藏在推荐算法里，连数都没法数。我最佩服的是他对亨廷顿那记反击的命名："无知的冲突"四个字，比一整篇驳论有效；最想提醒的是，读这本书别只用它照美国，它同样照得见任何把远方世界简化成单一形象的报道机器，包括我们自己每天刷的那些。</p>
 </section>
 
 <section class="layer">
@@ -432,7 +500,7 @@
 
   <p>先把流行的错误诊断摆出来：媒体偏见常被理解为记者不诚实、编辑有意图、幕后有指令。按这个诊断，解药是找到更诚实的记者。但萨义德数出来的账本不支持这个故事：伊朗报道里的记者大体没有造假，日期、画面、引语都真实；主持人质疑教士时是真诚的怀疑；制片人选专家时是真诚地找"权威"。每个环节的人都在按职业标准诚实工作，产品却是系统性的失真。</p>
 
-  <p>问题出在"共同体"三个字上。记者、专家、官员上同样的学校、读同样的报纸、参加同样的酒会，共享同一套不言自明的预设：什么算新闻、谁算专家、什么问题值得问。这套预设不需要下达，它像办公室里的着装默契，没人发过通知，新人来了自动学会。于是筛选在每个人意识不到的地方完成——主持人无视伊朗外长的让步，不是收了封口令，是那条信息在他的剧本里"不构成新闻"；制片人不请为革命说话的学者，不是禁令，是那些人不在他的"专家"名录里。失真是分布式的，没有主谋，每个节点只贡献一点点"理所当然"。</p>
+  <p>问题出在"共同体"三个字上。记者、专家、官员上同样的学校、读同样的报纸、参加同样的酒会，共享同一套不言自明的预设：什么算新闻、谁算专家、什么问题值得问。这套预设不需要下达，它像办公室里的着装默契，没人发过通知，新人来了自动学会。于是筛选在每个人意识不到的地方完成，主持人无视伊朗外长的让步，不是收了封口令，是那条信息在他的剧本里"不构成新闻"；制片人不请为革命说话的学者，不是禁令，是那些人不在他的"专家"名录里。失真是分布式的，没有主谋，每个节点只贡献一点点"理所当然"。</p>
 
   <p>攻一下这个概念：无主谋的失真，会不会成了无人负责的开脱：大家都无辜，批评落空？恰恰相反，这是它最狠的地方。有主谋的失真好治，换掉主谋就行；分布式的失真无处下手，因为要换的是整个共同体的"理所当然"。萨义德的账本式方法因此才显得必要：既然问不出主谋，就只能数结果，名单、提问、消失的新闻。数字不控诉任何个人，但让"空气"显形。</p>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>硅谷钢铁侠 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,40 @@
 </head>
 <body>
 <div class="container">
-  <div class="hero">
-    <div class="kicker">深度解读 · DEEP READING</div>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">硅谷钢铁侠</div>
+    <div class="cover-sub">青山 · 2026-07-08 初稿 · 2026-07-13 修订</div>
+    <div class="cover-meta">阿什利·万斯（Ashlee Vance）· 周恒星 译 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把故事讲一遍</span>
+      <span class="toc-desc">埃隆·马斯克大约1971年生于南非比勒陀利亚，出生年份书中未直接写明，由他17岁赴加拿大反推得出，引用时建议存...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">万斯写这本书，靠的是一手访谈，不是二手资料。他争取采访权的过程本身就是一个故事：马斯克起初不肯配合，约了一顿晚...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这本书的叙事是怎么搭起来的</span>
+      <span class="toc-desc">这本书不靠情节反转取胜，它靠的是把一个人放在越来越大的压力下，看他什么时候碎、什么时候反而更硬。叙事动力有四股...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">先声明一句：传记的作者动机和盲点都是读出来的，不是作者自述，下面这些是基于文本的推测，不是定论。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 压缩到一张餐巾纸上</span>
+      <span class="toc-desc">如果只能留一句话：伟大和残酷长在同一棵树上，砍掉残酷，远见可能也没了。这棵树就是第三层搭起来的那棵：根扎在童年...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 把最值钱的那一点写透</span>
+      <span class="toc-desc">第三层那条受害者变施害者的弧线，这一层从布朗那段往深挖。万斯写马斯克，最让人不舒服的一段，是他开除玛丽·贝思·...</span>
+    </div>
+  </div>
+
     <h1>硅谷钢铁侠</h1>
     <div class="author">阿什利·万斯（Ashlee Vance）· 周恒星 译</div>
     <div class="meta">青山 · 2026-07-08 初稿 · 2026-07-13 修订</div>
@@ -384,7 +457,7 @@
     <p>底层第一股是童年创伤。南非的校园霸凌和父亲的精神折磨，给了他两样东西：对痛苦的高耐受力，和不惧怕风险的性格。这两样是他后来能在2008年那种绝境里不崩盘的底子，也是他无法对他人痛苦共情的来路，开布朗那段就是这条线走到极端的样子。底层第二股是冒险基因和科幻想象。外祖父母满世界飞的家族血统，加上《指环王》和阿西莫夫，让他在十几岁就把"把人类送上火星"当成一个正经的人生目标，当成人生目标，不是修辞。</p>
     <p>上层第一股是"首要原理"思维。他在飞机上用一张表格推翻了"火箭就是法拉利"的行业常识，这是全书反复出现的动作：他不接受行业默认的假设，把问题拆到物理和成本的最底层重新算。这个思维方法让他能在三个完全不搭界的领域（支付、航天、汽车）都从零造出东西来。上层第二股是2008年的压力测试，这是全书叙事的最高峰。三次发射失败、特斯拉濒破产、离婚、媒体围剿全挤在一年，他没崩，反而更清晰。格雷西亚斯那句"压力越大他做得越好"是万斯给马斯克定的一个核心判断：这是个压力反常者，压力会把大多数人压垮，会把他磨得更锋利。</p>
     <p>核心张力只有一对：使命感对人性代价。马斯克要把人类变成多行星物种、摆脱化石能源，这个使命大到需要他赌上全部身家、牺牲婚姻、压榨员工、不顾自己健康。万斯把这一对张力拉满，让你既看到他为什么非这么做不可，也看到这么做要踩碎多少人的正常生活。莱莉那句"和我在一起意味着你选择了一条最艰难的路"，蒂尔那句"有问题的其实是这个世界，而不是埃隆"，斯米尔那句"被吹得天花乱坠的玩具"，三句话分属三方，正好把这对张力三角化。这条张力线没有解，万斯也没想解它，他把它留作整本书的悬而未决。贾斯汀那句话其实说穿了他：他害怕黑暗，一直向前。这话听着像励志，其实是诊断。他怕得比谁都厉害，于是只能用向前把恐惧压下去。这种把恐惧转化成行动的能力，是他能在2008年不崩的内在机制，也是他停不下来、对身边人温柔不起来的内在机制，一体两面。</p>
-    <p>马斯克的人物弧线是这本书最值得看的一条。常见的传记弧线是从坏变好或从好变坏，他都不走这条路。他从"被环境塑造的受害者"长成"主动塑造环境的施害者"。童年他被霸凌、被父亲折磨，是承受者。Zip2和PayPal时期他开始反击，被政变赶下台，学会了先动手。到SpaceX和特斯拉，他变成那个让别人承受的人，开除布朗、夺权艾伯哈德、逼员工加班。他用自己童年受过的那套高压，去压身边的人。这条弧线的可怕之处在于，它不是一个失败者的反噬，是一个成功者的复制：他没觉得自己童年苦所以要让别人少苦，他觉得自己童年苦所以扛得住，那别人也该扛得住。这条创伤代际传递的心理学机制——认同施害者、把公司当家庭载体——第八层单独挖。这里先记住弧线的形状：受害者长成施害者，不止对员工，夺权艾伯哈德也是同一逻辑。</p>
+    <p>马斯克的人物弧线是这本书最值得看的一条。常见的传记弧线是从坏变好或从好变坏，他都不走这条路。他从"被环境塑造的受害者"长成"主动塑造环境的施害者"。童年他被霸凌、被父亲折磨，是承受者。Zip2和PayPal时期他开始反击，被政变赶下台，学会了先动手。到SpaceX和特斯拉，他变成那个让别人承受的人，开除布朗、夺权艾伯哈德、逼员工加班。他用自己童年受过的那套高压，去压身边的人。这条弧线的可怕之处在于，它不是一个失败者的反噬，是一个成功者的复制：他没觉得自己童年苦所以要让别人少苦，他觉得自己童年苦所以扛得住，那别人也该扛得住。这条创伤代际传递的心理学机制，认同施害者、把公司当家庭载体，第八层单独挖。这里先记住弧线的形状：受害者长成施害者，不止对员工，夺权艾伯哈德也是同一逻辑。</p>
     <p>一种读法，未必是万斯本意：他想说"伟大"和"善良"在同一个普通人身上很难兼得，但在一个把使命感推到极端的人身上几乎不可能兼得。马斯克的远见是真的，他的残酷也是真的，这两件事长在同一棵树上，砍掉残酷，远见可能也没了。万斯没给"这样值不值"的答案，他更像在提示一个问题：当你身边出现一个真要拯救人类、但要用身边人当燃料的人，你愿意给他多少授权。这是这本书留给读者的真正问题。这个问题放在今天更有现实感。Twitter收购之后马斯克公开裁员一半、公开站队政治，社会给他的授权明显在缩水。万斯写书时还在理解他的窗口里，那个窗口现在变窄了，这本书的结论也得更小心地用。</p>
     <p>这本书的叙事动力没有看起来那么深，它就是跟着一个极端人格的轨迹走，靠人格本身的张力撑场，不靠复杂的结构。把它当一部人格史诗读，比当一部商业分析读更对路。这本书的长处是把一个极端人格写活，短板是它对系统性和行业结构的着墨相对浅，那些想从中读出商业方法论的人多半会失望。</p>
   </div>

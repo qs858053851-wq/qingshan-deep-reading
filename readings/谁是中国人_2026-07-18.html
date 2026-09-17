@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>谁是中国人 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>谁是中国人</h1>
-  <div class="author">林泉忠 · 透视台湾人与香港人的身份认同（2017）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">谁是中国人</div>
+    <div class="cover-sub">透视台湾人与香港人的身份认同（2017）</div>
+    <div class="cover-meta">林泉忠 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这是一本时评文集，文章多出自《明报》等专栏，按题分三部：第一部台湾（"告别中国"的历史拐点），第二部香港（"后...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">全书几十篇文章，反复验证的是同一个命题：身份认同的方向，由对待方式决定，不由实力对比决定。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">作者动机：自序的标题已经写明："当'崛起中国'遇上'太阳伞'"，他的研究历程正好横跨认同变迁最剧烈的年代，而他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">全书数据里最扎眼的是那个 0.1%：台湾人认为中华人民共和国是"祖国"的比例。但最值得端详的不是数字本身，是"...</span>
+    </div>
+  </div>
+
   <p class="intro">作者的履历本身就是这本书的方法：生于福建、长于香港、留学日本、任教冲绳与台湾，长年研究"边陲东亚"。他的评论文集围着一个悖论打转：汉唐盛世万邦来朝，为什么今天国力迎来高峰，香港与台湾对"中国人"这个身份的认同反而不增反减？</p>
 </div>
 
@@ -354,7 +418,7 @@
 
   <p>自序里作者把全书的问题意识列成四问，值得原样转述：一、当年万邦来朝，为何"中国崛起"迎来高峰之际，已回归的香港与未统一的台湾向心力不增反减？二、英国殖民香港一个半世纪未曾出现"港独"思潮，为何回归之后反而爆发史上最大规模抗争、激发本土意识？三、大陆经济吸引力理应更吸引经济低迷的台湾，为何实际引发的是更大的戒心？四、台湾人认为中华人民共和国是"祖国"的仅有 0.1%，香港年轻人的这一认知也在急速下降。"祖国"这个词，为何在两岸三地出现截然不同的认知？</p>
 
-  <p>他的分析工具箱里最重要的两件。其一是"边陲东亚"框架：台湾、香港、冲绳这类经历过归属变更的边陲地区，与"中心"存在结构性的先天矛盾，中心压力越大，"去边陲化"（要求自主）的反弹越强；2014 年三地不约而同的"造反"（太阳花、雨伞、冲绳反基地普选），在他看来是同一个结构的三次发作。其二是安德森《想象的共同体》——他早在 2000 年就提出"香港共同体"概念，把香港人认同定位为"准民族主义"：有强烈的我群边界，但尚未走到独立诉求。</p>
+  <p>他的分析工具箱里最重要的两件。其一是"边陲东亚"框架：台湾、香港、冲绳这类经历过归属变更的边陲地区，与"中心"存在结构性的先天矛盾，中心压力越大，"去边陲化"（要求自主）的反弹越强；2014 年三地不约而同的"造反"（太阳花、雨伞、冲绳反基地普选），在他看来是同一个结构的三次发作。其二是安德森《想象的共同体》，他早在 2000 年就提出"香港共同体"概念，把香港人认同定位为"准民族主义"：有强烈的我群边界，但尚未走到独立诉求。</p>
 
   <p>书里的关键事实线：台湾方面，中研院调查显示在"中国崛起飞跃期"（GDP 相继超越 G7 各国、2010 年跃居世界第二），台湾社会对大陆的认同不增反减；断交潮下，民调里"宁可邦交国归零也不愿砸钱"的比例高达 99.5%。香港方面，港人自认"中国人"的比例在 2008 年北京奥运时达到历史新高，随后一路下行，2014 年普选方案落空与雨伞运动之后，年轻世代转向本土主义。他由此点出一个常被忽略的时间点：香港认同的转折不在回归那天，在 2008 年之后。认同曾经真实地升上去过，又被具体的事一件件消耗掉。</p>
 

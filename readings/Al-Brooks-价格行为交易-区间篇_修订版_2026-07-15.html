@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al Brooks 价格行为交易（区间篇）—— 九层解书</title>
+<title>Al Brooks 价格行为交易（区间篇）， 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -342,9 +383,32 @@
 <div class="container">
 
 <!-- Hero -->
-<div class="hero">
-  <h1>Al Brooks 价格行为交易<br>（区间篇）</h1>
-  <div class="subtitle">Trading Price Action: Trading Ranges</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">Al Brooks 价格行为交易 （区间篇）</div>
+    <div class="cover-sub">Trading Price Action: Trading Ranges</div>
+    <div class="cover-meta">阿尔·布鲁克斯 (Al Brooks) 著 · 元宵版译本 九层解书 · 青山 · 05-24 初稿 · 07-15 修订 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05</span>
+      <span class="toc-desc">核心问题：当市场不再趋势运行，而是在一个区间内来回震荡时，交易者如何识别、评估并从中获利？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">全书的论证可以压缩为一条主线：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20</span>
+      <span class="toc-desc">盲点1：对"随机性"的低估。 Brooks 的方法论建立在"市场有记忆、模式可重复"的假设上。但现代量化金融的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 30</span>
+      <span class="toc-desc">前面几层反复按下不表的那道"数学题"，现在摊开。</span>
+    </div>
+  </div>
+
   <div class="meta">阿尔·布鲁克斯 (Al Brooks) 著 · 元宵版译本<br>九层解书 · 青山 · 05-24 初稿 · 07-15 修订</div>
 </div>
 
@@ -359,7 +423,7 @@
 
     <p><strong>核心问题</strong>：当市场不再趋势运行，而是在一个区间内来回震荡时，交易者如何识别、评估并从中获利？</p>
 
-    <p><strong>核心答案</strong>：交易区间不是"没有趋势"的混乱状态，而是一种可被量化、分类、预测的两向博弈结构——通过识别区间的边界（支撑/阻力）、测量运动目标、管理回撤序列，交易者可以在80%的突破失败概率中找到高胜率入场点。</p>
+    <p><strong>核心答案</strong>：交易区间不是"没有趋势"的混乱状态，而是一种可被量化、分类、预测的两向博弈结构，通过识别区间的边界（支撑/阻力）、测量运动目标、管理回撤序列，交易者可以在80%的突破失败概率中找到高胜率入场点。</p>
 
     <h3>章节骨架</h3>
 
@@ -371,19 +435,19 @@
       <tr><td>第二部分：磁力位</td><td>测量运动、等距目标、前期高低点</td><td>价格被"吸"向特定目标</td></tr>
       <tr><td>第三部分：回撤</td><td>第一回撤序列、高低点1/2/3/4</td><td>趋势中的"休息站"</td></tr>
       <tr><td>第四部分：交易区间</td><td>区间的识别、内部结构、突破策略</td><td>把混沌框进边界</td></tr>
-      <tr><td>第五部分：订单与交易管理</td><td>交易者方程、概率、止损止盈</td><td>入场前的最后一道门槛——按下不表</td></tr>
+      <tr><td>第五部分：订单与交易管理</td><td>交易者方程、概率、止损止盈</td><td>入场前的最后一道门槛，按下不表</td></tr>
     </table>
 
     <h3>论证结构</h3>
 
     <p><strong>类型：归纳型 + 案例型。</strong> Al Brooks 不是从公理推导定理，而是从数万小时的图表阅读中提炼模式。每一章都是"先看图→识别模式→统计概率→给出规则"的循环。全书没有一条数学公式需要推导，但每一条规则背后都有概率统计的支撑。</p>
 
-    <h3>写作姿态</h3>
+    <h3>叙述视角与专业底色</h3>
 
     <p>Al Brooks 在对一个<strong>已经会看K线但还在亏钱</strong>的交易者说话。语气不是大学教授的"让我教你"，而是老交易员的"听我说，市场是这样的"。他反复说"大多数交易者会在这里犯错"，因为他假设读者正在实时看图、正在犹豫要不要入场。这本书不是让你"理解"价格行为，是让你"学会在图表上看到"价格行为。</p>
 
     <div class="highlight-box">
-      <p><strong>关键认知：</strong>这本书的底层假设是——市场在任何时刻都只有三种状态：上涨趋势、下跌趋势、交易区间。而交易区间是最常见、最难交易、也最容易被新手忽视的状态。全书的核心任务，就是把"交易区间"从"看不懂的震荡"变成"可操作的策略"。</p>
+      <p><strong>关键认知：</strong>这本书的底层假设是，市场在任何时刻都只有三种状态：上涨趋势、下跌趋势、交易区间。而交易区间是最常见、最难交易、也最容易被新手忽视的状态。全书的核心任务，就是把"交易区间"从"看不懂的震荡"变成"可操作的策略"。</p>
     </div>
   </div>
 </div>
@@ -407,13 +471,13 @@
 
     <h4>三个最有说服力的证据</h4>
 
-    <p><strong>证据1：80%突破失败法则。</strong> Brooks 没有给出这个数据的统计来源，但他在书中反复强调——基于他30年的日内交易经验，绝大多数突破尝试都会失败并回到区间。这不是学术论文的严谨统计，而是一个老交易员用真金白银验证过的生存法则。他说："如果你在每个突破处都追涨，你会在一个月内爆仓。"</p>
+    <p><strong>证据1：80%突破失败法则。</strong> Brooks 没有给出这个数据的统计来源，但他在书中反复强调，基于他30年的日内交易经验，绝大多数突破尝试都会失败并回到区间。这不是学术论文的严谨统计，而是一个老交易员用真金白银验证过的生存法则。他说："如果你在每个突破处都追涨，你会在一个月内爆仓。"</p>
 
-    <p><strong>证据2：测量运动的自证性。</strong> 当价格从区间突破后，Brooks 提出可以用"第一腿的等距投影"预测目标位。这个方法的惊人之处在于——它不是事后解释，而是事前预测。如果市场真的在"记忆"之前的波动幅度，那么这暗示着一种深层的市场结构，而非随机游走。</p>
+    <p><strong>证据2：测量运动的自证性。</strong> 当价格从区间突破后，Brooks 提出可以用"第一腿的等距投影"预测目标位。这个方法的惊人之处在于，它不是事后解释，而是事前预测。如果市场真的在"记忆"之前的波动幅度，那么这暗示着一种深层的市场结构，而非随机游走。</p>
 
     <p><strong>证据3：高低点序列的可预测性。</strong> 在趋势中的回撤，Brooks 识别出 High/Low 1, 2, 3, 4 的模式。High 1 是趋势中的第一个回撤低点，通常是最佳入场点；High 2 是第二个，仍然可靠；High 3 和 4 则暗示趋势可能衰竭。这种模式不是玄学，而是市场参与者心理（恐惧与贪婪）在价格上的投影。</p>
 
-    <div class="marker">这三个证据之外，Brooks 还留了一道"入场前的数学门槛"——证据先陈列到这里，按下不表，第八层摊开。</div>
+    <div class="marker">这三个证据之外，Brooks 还留了一道"入场前的数学门槛"，证据先陈列到这里，按下不表，第八层摊开。</div>
 
     <h4>隐形假设</h4>
 
@@ -441,7 +505,7 @@
 <div class="layer">
   <div class="layer-header">
     <div class="layer-number">Layer 05</div>
-    <div class="layer-title">Q-A 链 —— 复现论证骨架</div>
+    <div class="layer-title">Q-A 链 ， 复现论证骨架</div>
   </div>
   <div class="layer-content">
     <h3>把这本书的方法论翻成一串问题</h3>
@@ -459,9 +523,9 @@
     <div class="qa-block">
       <div class="qa-question">Q2：为什么80%的突破会失败？这个概率是怎么来的？</div>
       <div class="qa-answer">
-        <div class="conclusion">因为机构需要流动性，而突破是诱导散户跟风的最佳工具——散户追涨杀跌提供的流动性，正是机构反向建仓/平仓的对手盘。</div>
+        <div class="conclusion">因为机构需要流动性，而突破是诱导散户跟风的最佳工具，散户追涨杀跌提供的流动性，正是机构反向建仓/平仓的对手盘。</div>
         <div class="formal">机构目标 = 以最优价格建仓/平仓 → 需要对手盘 → 制造假突破诱导散户 → 散户止损 = 机构获利</div>
-        <div class="step">这个80%的经验来源与证据本体，第二层证据1已细说。骨架上只需一句：它不是精确统计，而是思维默认值——先假设突破会失败，直到出现强证据表明是真突破。</div>
+        <div class="step">这个80%的经验来源与证据本体，第二层证据1已细说。骨架上只需一句：它不是精确统计，而是思维默认值，先假设突破会失败，直到出现强证据表明是真突破。</div>
         <div class="boundary">失效条件：重大消息驱动、机构真实意图就是单向突破（如央行干预）。</div>
       </div>
     </div>
@@ -469,9 +533,9 @@
     <div class="qa-block">
       <div class="qa-question">Q3：怎么判断一个突破是"真的"还是"假的"？</div>
       <div class="qa-answer">
-        <div class="conclusion">看突破后的"跟随"——真突破有持续的同向动能（大阳线/阴线、放量、无长影线），假突破则迅速回撤、出现反转K线、成交量萎缩。</div>
+        <div class="conclusion">看突破后的"跟随"，真突破有持续的同向动能（大阳线/阴线、放量、无长影线），假突破则迅速回撤、出现反转K线、成交量萎缩。</div>
         <div class="formal">真突破 = 强动能棒 + 无回撤跟随 + 收盘在区间外 | 假突破 = 弱动能棒 + 长影线 + 迅速回到区间内</div>
-        <div class="step">Brooks 给出具体信号：突破棒的收盘价（收盘在高位=强，收盘在中部=弱）、突破后的第二根棒（是否继续同向）、突破的幅度（小幅突破更可能是假突破）。他还强调"时间"——如果价格在突破后30分钟内回到区间，假突破的概率极高。</div>
+        <div class="step">Brooks 给出具体信号：突破棒的收盘价（收盘在高位=强，收盘在中部=弱）、突破后的第二根棒（是否继续同向）、突破的幅度（小幅突破更可能是假突破）。他还强调"时间"，如果价格在突破后30分钟内回到区间，假突破的概率极高。</div>
         <div class="boundary">失效条件：在极度波动市场中，即使是真突破也可能迅速回撤（波动性假突破）。</div>
       </div>
     </div>
@@ -479,9 +543,9 @@
     <div class="qa-block">
       <div class="qa-question">Q4：测量运动（Measured Move）为什么能预测目标位？</div>
       <div class="qa-answer">
-        <div class="conclusion">因为市场参与者在"记忆"之前的波动幅度，并在相似情境下复制这种行为——第一腿的高度成为第二腿的心理锚点。</div>
+        <div class="conclusion">因为市场参与者在"记忆"之前的波动幅度，并在相似情境下复制这种行为，第一腿的高度成为第二腿的心理锚点。</div>
         <div class="formal">目标位 = 突破点 ± 第一腿高度 | 第一腿 = 区间高度或前一波段高度</div>
-        <div class="step">等距投影的证据与"市场记忆"机制，第二层证据2已细说。这里只留用法：把测量目标当"利润参考位"而非绝对预测——到达目标位后重新评估是否继续持有。</div>
+        <div class="step">等距投影的证据与"市场记忆"机制，第二层证据2已细说。这里只留用法：把测量目标当"利润参考位"而非绝对预测，到达目标位后重新评估是否继续持有。</div>
         <div class="boundary">失效条件：趋势强度远超预期时，价格会越过测量目标继续运行；或趋势极弱时，在到达目标前就已反转。</div>
       </div>
     </div>
@@ -489,9 +553,9 @@
     <div class="qa-block">
       <div class="qa-question">Q5：为什么第一回撤（High/Low 1）是最好的入场点？</div>
       <div class="qa-answer">
-        <div class="conclusion">因为第一回撤代表趋势的"首次呼吸"——趋势力量尚未衰竭，回撤只是获利盘了结，后续继续原方向的概率最高。</div>
+        <div class="conclusion">因为第一回撤代表趋势的"首次呼吸"，趋势力量尚未衰竭，回撤只是获利盘了结，后续继续原方向的概率最高。</div>
         <div class="formal">High 1 胜率 > High 2 > High 3 > High 4 | High 3+ 暗示趋势可能反转</div>
-        <div class="step">High/Low 1-4 序列的证据本体，第二层证据3已细说。骨架只需一句：序列的本质是"动能递减"——每次回撤后的反弹力度在减弱，High 3 以后趋势随时可能结束。</div>
+        <div class="step">High/Low 1-4 序列的证据本体，第二层证据3已细说。骨架只需一句：序列的本质是"动能递减"，每次回撤后的反弹力度在减弱，High 3 以后趋势随时可能结束。</div>
         <div class="boundary">失效条件：在极强趋势中，可能根本没有明显回撤（直线行情），此时等待回撤会错过整个波段。</div>
       </div>
     </div>
@@ -500,7 +564,7 @@
       <div class="qa-question">Q6：交易者方程（Trader's Equation）到底在算什么？</div>
       <div class="qa-answer">
         <div class="conclusion">它是每笔入场前的最后一道数学门槛：过线才做，不过线不做。</div>
-        <div class="step">止损、目标、胜率——三个数字怎么拼成一道判断题，这道题又为什么是职业与业余的分水岭，按下不表，第八层摊开。</div>
+        <div class="step">止损、目标、胜率，三个数字怎么拼成一道判断题，这道题又为什么是职业与业余的分水岭，按下不表，第八层摊开。</div>
         <div class="boundary">失效条件：如果你无法准确估计胜率（如全新市场环境），交易者方程会给出错误信号；或如果你的心理承受不了连续止损，即使数学期望为正也会被迫中断。</div>
       </div>
     </div>
@@ -510,7 +574,7 @@
       <div class="qa-answer">
         <div class="conclusion">限价单适用于区间边界反向交易（高胜率、小利润），止损单适用于突破确认后的趋势跟随（低胜率、大利润）。</div>
         <div class="formal">区间边界 + 反转信号 → 限价单（低买高卖）| 突破确认 + 趋势动能 → 止损单（追涨杀跌）</div>
-        <div class="step">Brooks 是限价单的拥趸。他认为，在区间顶部挂限价单做空、在底部挂限价单做多，是"像机构一样交易"——因为机构就是这样获取流动性的。止损单入场虽然看起来更"安全"（确认后再进），但实际上你已经错过了最好的价格，而且往往买在假突破的顶端。</div>
+        <div class="step">Brooks 是限价单的拥趸。他认为，在区间顶部挂限价单做空、在底部挂限价单做多，是"像机构一样交易"，因为机构就是这样获取流动性的。止损单入场虽然看起来更"安全"（确认后再进），但实际上你已经错过了最好的价格，而且往往买在假突破的顶端。</div>
         <div class="boundary">失效条件：极速行情中限价单可能无法成交；或真突破时限价单会让你错过整段行情。</div>
       </div>
     </div>
@@ -518,10 +582,10 @@
     <div class="qa-block">
       <div class="qa-question">Q8：为什么大多数交易者亏钱，即使他们知道这些规则？</div>
       <div class="qa-answer">
-        <div class="conclusion">因为知道和做到之间隔着情绪——恐惧让你在该入场时犹豫，贪婪让你该出场时幻想，自负让你在该止损时扛单。</div>
+        <div class="conclusion">因为知道和做到之间隔着情绪，恐惧让你在该入场时犹豫，贪婪让你该出场时幻想，自负让你在该止损时扛单。</div>
         <div class="formal">知识 × 情绪管理 = 实际表现 | 情绪管理 ≈ 0 时，知识再丰富也 ≈ 0</div>
         <div class="step">Brooks 在书中反复警告"交易心理学"的重要性。他说，你可以背下所有规则，但在实盘看到浮亏时，你的杏仁核会劫持前额叶。他的解决方案是：严格的交易计划（入场前写好止损和目标）、小额起步（减少情绪压力）、以及接受"亏损是交易的一部分"。</div>
-        <div class="boundary">失效条件：没有——情绪管理永远是交易的瓶颈，无论你的策略多完美。</div>
+        <div class="boundary">失效条件：没有，情绪管理永远是交易的瓶颈，无论你的策略多完美。</div>
       </div>
     </div>
   </div>
@@ -531,22 +595,22 @@
 <div class="layer">
   <div class="layer-header">
     <div class="layer-number">Layer 06</div>
-    <div class="layer-title">灵魂提取 —— 超越作者</div>
+    <div class="layer-title">灵魂提取 ， 超越作者</div>
   </div>
   <div class="layer-content">
     <h3>作者没看到什么？</h3>
 
-    <p><strong>盲点1：对"随机性"的低估。</strong> Brooks 的方法论建立在"市场有记忆、模式可重复"的假设上。但现代量化金融的大量研究表明，价格序列接近随机游走，任何"模式"都可能是事后归因。Brooks 没有正面回应这个挑战——他的辩护是"我靠这个赚了30年"，但这是一个幸存者偏差的论证。那些用同样方法亏光的人不会写书。</p>
+    <p><strong>盲点1：对"随机性"的低估。</strong> Brooks 的方法论建立在"市场有记忆、模式可重复"的假设上。但现代量化金融的大量研究表明，价格序列接近随机游走，任何"模式"都可能是事后归因。Brooks 没有正面回应这个挑战，他的辩护是"我靠这个赚了30年"，但这是一个幸存者偏差的论证。那些用同样方法亏光的人不会写书。</p>
 
-    <p><strong>盲点2：对"市场结构变化"的忽视。</strong> Brooks 的方法成型于20世纪90年代到21世纪初的场内交易时代。如今，高频交易、算法交易、零佣金散户涌入，市场的微观结构已经改变。一个算法可以在毫秒级别制造并撤销数千个假突破——Brooks 的"看30分钟确认"在纳秒级竞争中显得太慢了。</p>
+    <p><strong>盲点2：对"市场结构变化"的忽视。</strong> Brooks 的方法成型于20世纪90年代到21世纪初的场内交易时代。如今，高频交易、算法交易、零佣金散户涌入，市场的微观结构已经改变。一个算法可以在毫秒级别制造并撤销数千个假突破，Brooks 的"看30分钟确认"在纳秒级竞争中显得太慢了。</p>
 
-    <p><strong>盲点3：对"资金管理"的轻描淡写。</strong> 全书的核心是"何时入场、何时出场"，但对"用多少资金入场"（仓位管理）讨论甚少。Kelly 公式、最优f、固定比例法——这些决定长期生存的工具被一笔带过。实际上，即使你的胜率和盈亏比都很优秀，错误的仓位管理仍然会让你爆仓。</p>
+    <p><strong>盲点3：对"资金管理"的轻描淡写。</strong> 全书的核心是"何时入场、何时出场"，但对"用多少资金入场"（仓位管理）讨论甚少。Kelly 公式、最优f、固定比例法，这些决定长期生存的工具被一笔带过。实际上，即使你的胜率和盈亏比都很优秀，错误的仓位管理仍然会让你爆仓。</p>
 
     <h3>跨域映射</h3>
 
-    <p><strong>价格行为 ↔ 生态学捕食策略（自然域）。</strong> Brooks 描述的"机构制造假突破诱导散户"，与生态学中的"攻击性拟态"（aggressive mimicry）惊人相似——某些捕食者会模仿猎物的信号来诱捕猎物。机构是捕食者，散户是猎物，K线形态是信号。这个映射不是比喻，是结构同构。</p>
+    <p><strong>价格行为 ↔ 生态学捕食策略（自然域）。</strong> Brooks 描述的"机构制造假突破诱导散户"，与生态学中的"攻击性拟态"（aggressive mimicry）惊人相似，某些捕食者会模仿猎物的信号来诱捕猎物。机构是捕食者，散户是猎物，K线形态是信号。这个映射不是比喻，是结构同构。</p>
 
-    <p><strong>交易区间 ↔ 热力学平衡态（物理域）。</strong> 交易区间是多空力量的动态平衡，类似热力学中的平衡态——系统没有净能量流动，但内部仍在剧烈碰撞。突破则是"相变"——当外部能量（消息、资金流）超过阈值，系统跃迁到新状态。这个映射解释了为什么"区间持续时间"与"突破后的运行幅度"往往正相关（能量积累越多，释放越猛）。</p>
+    <p><strong>交易区间 ↔ 热力学平衡态（物理域）。</strong> 交易区间是多空力量的动态平衡，类似热力学中的平衡态，系统没有净能量流动，但内部仍在剧烈碰撞。突破则是"相变"，当外部能量（消息、资金流）超过阈值，系统跃迁到新状态。这个映射解释了为什么"区间持续时间"与"突破后的运行幅度"往往正相关（能量积累越多，释放越猛）。</p>
 
     <p><strong>交易者方程 ↔ 民宿经营决策（经营域）。</strong> 一场乡建活动办不办、一间房型改不改造，与一笔交易做不做同构：成功率 × 带来的溢价 − 失败率 × 沉没成本，期望为正才动手。经营者和交易者一样，最常见的亏损不是算错了，而是从头到尾根本没算。</p>
 
@@ -555,11 +619,11 @@
     <p>读完这本书，你可以立即做的不同的事：</p>
 
     <ul>
-      <li><strong>你可以</strong>打开任意一张图表，用Brooks的框架问自己："现在是在趋势中还是在区间内？"——这个简单的问题能过滤掉80%的劣质交易。</li>
-      <li><strong>你可以</strong>在下次想追涨突破时，强制自己等待30分钟——如果价格还在突破方向运行，再考虑入场；如果回到区间，你就避免了一次假突破陷阱。</li>
-      <li><strong>你可以</strong>在每张交易计划单上先写下三个数字：止损幅度、目标幅度、估计胜率——这三个数怎么拼成"做/不做"的判断题，第八层摊开。</li>
-      <li><strong>你可以</strong>把"80%突破失败"当作默认假设，把"真突破"当作需要强证据才能接受的例外——这个思维翻转本身就是防御性交易的起点。</li>
-      <li><strong>你可以</strong>在民宿下一次上活动或改房型前，照同样的三个数字过一遍：成功率、溢价、沉没成本——期望为正才动手，不为"感觉会火"下注。</li>
+      <li><strong>你可以</strong>打开任意一张图表，用Brooks的框架问自己："现在是在趋势中还是在区间内？"，这个简单的问题能过滤掉80%的劣质交易。</li>
+      <li><strong>你可以</strong>在下次想追涨突破时，强制自己等待30分钟，如果价格还在突破方向运行，再考虑入场；如果回到区间，你就避免了一次假突破陷阱。</li>
+      <li><strong>你可以</strong>在每张交易计划单上先写下三个数字：止损幅度、目标幅度、估计胜率，这三个数怎么拼成"做/不做"的判断题，第八层摊开。</li>
+      <li><strong>你可以</strong>把"80%突破失败"当作默认假设，把"真突破"当作需要强证据才能接受的例外，这个思维翻转本身就是防御性交易的起点。</li>
+      <li><strong>你可以</strong>在民宿下一次上活动或改房型前，照同样的三个数字过一遍：成功率、溢价、沉没成本，期望为正才动手，不为"感觉会火"下注。</li>
     </ul>
   </div>
 </div>
@@ -576,9 +640,9 @@
       <div class="napkin-formula">
         区间盈利 = 边界反打 + 测量目标 + 回撤顺势
       </div>
-      <div class="marker">三个因子即第二层的三个证据：80%假突破 → 边界反打；磁力位 → 测量目标；High/Low 序列 → 回撤顺势。<br>入场闸门（交易者方程）只是门槛条件，不进公式——第八层摊开。</div>
+      <div class="marker">三个因子即第二层的三个证据：80%假突破 → 边界反打；磁力位 → 测量目标；High/Low 序列 → 回撤顺势。<br>入场闸门（交易者方程）只是门槛条件，不进公式，第八层摊开。</div>
       <div class="napkin-one-liner">
-        市场80%时间在区间内，80%突破会失败——<br>
+        市场80%时间在区间内，80%突破会失败，<br>
         在边界反向交易，在突破后测量目标，在回撤中顺势入场。
       </div>
     </div>
@@ -607,7 +671,7 @@
 │                       └─────────┘                       │
 │                                                         │
 │   ┌─────────────────────────────────────────────────┐   │
-│   │  入场前还有最后一道数学门槛——按下不表，第八层摊开   │   │
+│   │  入场前还有最后一道数学门槛，按下不表，第八层摊开   │   │
 │   └─────────────────────────────────────────────────┘   │
 │                                                         │
 └─────────────────────────────────────────────────────────┘
@@ -616,7 +680,7 @@
     <h3>一句话</h3>
 
     <p style="font-size: 18px; font-weight: 600; text-align: center; margin: 24px 0;">
-      边界反打、测量目标、回撤顺势——三根线各自能用，<br>
+      边界反打、测量目标、回撤顺势，三根线各自能用，<br>
       但它们为什么最终汇进同一道数学题，第八层摊开。
     </p>
 
@@ -645,15 +709,15 @@
 
     <p>让我用一个具体的场景来说明。</p>
 
-    <p>假设你正在看一张K线图，价格已经在一个区间内上下震荡了两个小时。区间顶部是100，底部是90。突然，价格向上突破到101——一根阳线，看起来很有力。你的直觉告诉你："突破了！要涨了！快买！"</p>
+    <p>假设你正在看一张K线图，价格已经在一个区间内上下震荡了两个小时。区间顶部是100，底部是90。突然，价格向上突破到101，一根阳线，看起来很有力。你的直觉告诉你："突破了！要涨了！快买！"</p>
 
     <p>但 Brooks 会告诉你：等等。</p>
 
-    <p>他说，80%的突破会失败。这个数字不是从哪篇学术论文里来的，是他用三十年真金白银换来的经验。为什么？因为机构需要流动性。机构要平仓多单、开仓空单，需要有人接盘。而最好的诱捕工具，就是一个看起来很有力的突破——它会让散户追涨，让空头止损，从而为机构提供充足的对手盘。</p>
+    <p>他说，80%的突破会失败。这个数字不是从哪篇学术论文里来的，是他用三十年真金白银换来的经验。为什么？因为机构需要流动性。机构要平仓多单、开仓空单，需要有人接盘。而最好的诱捕工具，就是一个看起来很有力的突破，它会让散户追涨，让空头止损，从而为机构提供充足的对手盘。</p>
 
     <p>所以那个突破到101的阳线，很可能是一个陷阱。价格会在几分钟或几十分钟内回到区间内，把那些追涨的人套在山顶。</p>
 
-    <p>Brooks 的应对策略是反直觉的：在区间顶部挂限价单做空，在区间底部挂限价单做多。不是在突破后追，而是在突破前埋伏。这听起来像"逆势交易"，但 Brooks 说，这才是"像机构一样交易"——因为机构就是这样获取流动性的。</p>
+    <p>Brooks 的应对策略是反直觉的：在区间顶部挂限价单做空，在区间底部挂限价单做多。不是在突破后追，而是在突破前埋伏。这听起来像"逆势交易"，但 Brooks 说，这才是"像机构一样交易"，因为机构就是这样获取流动性的。</p>
 
     <p>当然，不是所有突破都是假的。有些突破是真的，价格会一去不回头。Brooks 也给了判断标准：看突破后的"跟随"。真突破有持续的同向动能，收盘价在高位，第二根棒继续同向。假突破则迅速回撤，出现长影线，成交量不匹配。</p>
 
@@ -663,21 +727,21 @@
 
     <p>假设你的止损设在98（区间底部下方2个点），目标设在106（基于测量运动的等距投影），那么你的风险是3个点，reward是5个点。如果你估计这个突破成功的概率是50%，那么期望 = 0.5×5 - 0.5×3 = 1。期望为正，值得做。</p>
 
-    <p>但如果你的止损只能设在100（突破点下方1个点），目标还是5个点，胜率50%，期望 = 0.5×5 - 0.5×1 = 2。期望更高，更值得做——但你的止损太紧，很可能被正常波动扫掉。</p>
+    <p>但如果你的止损只能设在100（突破点下方1个点），目标还是5个点，胜率50%，期望 = 0.5×5 - 0.5×1 = 2。期望更高，更值得做，但你的止损太紧，很可能被正常波动扫掉。</p>
 
     <p>交易者方程强迫你在入场前回答三个问题：我最多亏多少？我目标赚多少？我有多大把握？三个数字缺一不可。大多数亏钱的交易者，不是因为答案错了，是因为他们根本没问这些问题。</p>
 
-    <p>Brooks 的方法论有一个更深层的结构，他自己在书中没有明言，但贯穿始终：市场在任何时刻都处于三种状态之一——上涨、下跌、区间。而区间是最常见、最被忽视、也最能决定长期盈亏的状态。</p>
+    <p>Brooks 的方法论有一个更深层的结构，他自己在书中没有明言，但贯穿始终：市场在任何时刻都处于三种状态之一，上涨、下跌、区间。而区间是最常见、最被忽视、也最能决定长期盈亏的状态。</p>
 
     <p>为什么？因为趋势是稀缺的。真正流畅的上涨或下跌，只占市场时间的20%左右。其余80%的时间，价格在某个范围内来回震荡。如果你只会在趋势中赚钱，那么你有80%的时间在亏钱或等待。</p>
 
     <p>Brooks 的解决方案是：把区间当作"主场"。学会识别区间的边界（前期高低点、支撑阻力），学会在边界处反向交易，学会接受"小利润、高频率"的模式。这不是"赚快钱"，这是"持续赚钱"。</p>
 
-    <p>另外两根线——测量运动和回撤序列——前面已经细说过（第二层、第五层），这里各留一句就够：测量目标是参考位不是预言，到位后重新评估去留；High/Low 1-4 的本质是动能递减，High 1 最可靠，High 3 以后趋势随时可能反转。</p>
+    <p>另外两根线，测量运动和回撤序列，前面已经细说过（第二层、第五层），这里各留一句就够：测量目标是参考位不是预言，到位后重新评估去留；High/Low 1-4 的本质是动能递减，High 1 最可靠，High 3 以后趋势随时可能反转。</p>
 
     <p>读完整本书，我有一个强烈的感受：Brooks 不是在教你"如何预测市场"，他是在教你"如何与市场的不确定性共处"。他反复强调的"80%突破失败"、"交易者方程"、"止损必须严格执行"，本质上都是在说同一件事：接受你无法控制的东西（市场的方向），专注于你能控制的东西（风险、仓位、纪律）。</p>
 
-    <p>这也是第六层那个映射的落点——交易区间是热力学的平衡态，突破是相变。Brooks 的交易策略，本质上是在平衡态中做"微操作"（在边界处低买高卖），在相变时做"方向性押注"（确认突破后顺势跟进）。</p>
+    <p>这也是第六层那个映射的落点，交易区间是热力学的平衡态，突破是相变。Brooks 的交易策略，本质上是在平衡态中做"微操作"（在边界处低买高卖），在相变时做"方向性押注"（确认突破后顺势跟进）。</p>
 
     <p>但无论你用哪种比喻，核心不变：交易不是关于"对"或"错"，而是关于"期望"。单笔交易的结果不重要，重要的是你长期执行这个策略，总体是赚还是亏。</p>
 
@@ -701,7 +765,7 @@
 <!-- Layer 9: 金句收尾 -->
 <div class="closing">
   <div class="closing-quote">
-    你不是在和市场对赌，你是在和一群试图让你觉得自己在预测方向的人对赌——而他们知道，方向从来不可预测，概率才是唯一真实的货币。
+    你不是在和市场对赌，你是在和一群试图让你觉得自己在预测方向的人对赌，而他们知道，方向从来不可预测，概率才是唯一真实的货币。
   </div>
   <div class="closing-author">青山 · 2026-05-24</div>
 </div>

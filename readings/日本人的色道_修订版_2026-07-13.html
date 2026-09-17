@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>日本人的色道 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,10 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-<h1 class="book-title">日本人的色道</h1>
-<p class="book-sub">郝祥满 著 · 以"好色之道"为切口解读日本民族性 · 九层解读 · 07-10 初稿 · 07-13 修订</p>
-</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">日本人的色道</div>
+    <div class="cover-sub">先说书名这两个字："色道"。日本人爱称"道"，茶道、花道、武道、武士道、剑道、柔道、弓道，情色这一行也分出了色道、艳道、众道、若众道、阳道一系列说法。更怪的是，"色道"竟被收进《日...</div>
+    <div class="cover-meta">青山 读 · 日本人的色道 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先说书名这两个字："色道"。日本人爱称"道"，茶道、花道、武道、武士道、剑道、柔道、弓道，情色这一行也分出了色...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">把郝祥满的推理理成一条线。最底下那块基石：日本性文化从神道打底，《古事记》开篇二神交合生出国土，性是创世仪式，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这两三根线在牵</span>
+      <span class="toc-desc">八章看着铺了各色人等、纵贯古今，从神话里的神到现代的女中学生，千头万绪。可把这些案例往下压，真正牵动全书的就三...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 这件事的根，到底扎在哪</span>
+      <span class="toc-desc">顺着第二根线，往井底再钻几层。表象摆在最上面：武士死前要做爱。木曾义仲赴死路上绕去和女人最后一次欢爱，迟迟不出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着问答，把作者的推理走一遍</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">郝祥满的劲儿，是两个结。明面上的结是"日本人为什么好色"，他研究日本文化，常被人问，越问越要解。可底下还有个更...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 合上书，能带走的最小一副</span>
+      <span class="toc-desc">一句话：日本人的色远比淫乱复杂：神把性当创世仪式、武士把性和死焊成通向超越的链、体制给性开制度通道，三样叠出来...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 合上书，最想跟人讲的那一点</span>
+      <span class="toc-desc">第四层挖到三样东西叠在一起就打住了，那条线现在摊开。性和死，乍看是两极。一个是生机最盛的时候，一个是生机归零的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 用一句话封印这本书</span>
+      <span class="toc-desc">合上这本书，能带走的那一句，落在性与死焊成的那个点上。郝祥满铺了八章性风俗，可他真正点破的，是日本把生的峰值和...</span>
+    </div>
+  </div>
+
 
 <div class="layer">
 <div class="layer-num">Layer 01</div>
@@ -421,7 +504,7 @@
 
 <p>再往下一层，道理。人面对必死性，出路无非两条。一条是现世的忘我：用一个比死亡更强的当下体验把死盖住，性高潮是最现成、最强的那个。一条是来世的超越：把死当成通向另一扇门的通道，信仰接手。这两条路在大多数文化里是分开走的：西方用信仰超死，性反倒和罪绑在一起；儒家讳言死也讳言性，两头都捂住。日本特别的地方在它把两条路焊成了一条：性是现世的忘我，死是来世的通道，性、死、超越连成一链。</p>
 
-<p>再往下，基岩。日本能焊这条链，别的文化焊不上，是因为三样东西叠在了一起：武士阶层的死是日常的、近身的，明天上阵可能就回不来，这一刀逼着人天天处理死；神道给性去了罪，性可以作为神圣的修炼，不必背道德债；佛教的净土和来世观，让死成了通向极乐的通道，不可怕，可向往。三样叠起来，"性、死、超越"就绑成了一条链。这三样怎么同时在场、彼此咬合——按下不表，第八层细说。</p>
+<p>再往下，基岩。日本能焊这条链，别的文化焊不上，是因为三样东西叠在了一起：武士阶层的死是日常的、近身的，明天上阵可能就回不来，这一刀逼着人天天处理死；神道给性去了罪，性可以作为神圣的修炼，不必背道德债；佛教的净土和来世观，让死成了通向极乐的通道，不可怕，可向往。三样叠起来，"性、死、超越"就绑成了一条链。这三样怎么同时在场、彼此咬合，按下不表，第八层细说。</p>
 
 <p>往下还能再钻一道裂缝。为什么这条链焊得这么牢、这么日常？因为武士道的死是日常的。当死是日常，"忘死"也必须是日常的，不能等到临死才找出口。于是性从"享乐"升级成"日常修炼"，从临死前的一回，变成随时可取的忘死工具。性在日本文化里这么显眼、这么制度化，根子在这里：它替一个死在近身的阶层做日常的心理维护。死随时在门口，忘死的工具也就随时在手边。</p>
 
@@ -512,7 +595,7 @@
 <p>这两处映射结构都对得齐。先讲清那个领域的事，再点一句：这跟书里说的是一回事。色道的特异性不在某一根线独有，在三根线同时在场、彼此咬合。</p>
 
 <h3>读完能做什么不同</h3>
-<p>落到你能用的。做文化对照，要比底层结构。表面风俗只是入口。遇到一个中日或中外的文化差异，先问两边在源头处对这件事的基本预设是什么。中国源头处性是要防的禁忌，日本源头处性是创世仪式，预设不同，后面所有风俗差异都从这一处分叉。这一招比逐条比风俗更省力，也更抓根。再一个，看一个社会现象（不限于性，任何制度化了的顽固现象），区分"文化鼓励"和"管不了"。判据是：有没有发过禁令，禁令执行了没有。发过禁令禁不住，更可能是治理能力问题，把"管不了"美化成"文化选择"会看走眼。做乡村运营也用得上这条：一个村里某样风气顽固，先别归因到"村民就这性格"，问三根线各是什么——是文化去罪、是利益通道、还是有美学加成？三根线分清，着力点才准。还有一招接你读《禁忌与惰性》的习惯：理解一个传统的顽固，找它的几根独立的线（去罪、美学、制度通道各是什么），看哪根在松动，传统就在变哪面。这两本书合起来给你一个对照工具——同样是"性"这一件事，中国是禁忌加惰性压住它，日本是去罪加死性加纵容放开它，结构不同，干预的着力点就不同。</p>
+<p>落到你能用的。做文化对照，要比底层结构。表面风俗只是入口。遇到一个中日或中外的文化差异，先问两边在源头处对这件事的基本预设是什么。中国源头处性是要防的禁忌，日本源头处性是创世仪式，预设不同，后面所有风俗差异都从这一处分叉。这一招比逐条比风俗更省力，也更抓根。再一个，看一个社会现象（不限于性，任何制度化了的顽固现象），区分"文化鼓励"和"管不了"。判据是：有没有发过禁令，禁令执行了没有。发过禁令禁不住，更可能是治理能力问题，把"管不了"美化成"文化选择"会看走眼。做乡村运营也用得上这条：一个村里某样风气顽固，先别归因到"村民就这性格"，问三根线各是什么，是文化去罪、是利益通道、还是有美学加成？三根线分清，着力点才准。还有一招接你读《禁忌与惰性》的习惯：理解一个传统的顽固，找它的几根独立的线（去罪、美学、制度通道各是什么），看哪根在松动，传统就在变哪面。这两本书合起来给你一个对照工具，同样是"性"这一件事，中国是禁忌加惰性压住它，日本是去罪加死性加纵容放开它，结构不同，干预的着力点就不同。</p>
 </div>
 
 <div class="layer">

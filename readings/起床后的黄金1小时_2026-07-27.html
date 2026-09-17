@@ -1,24 +1,31 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>起床后的黄金1小时 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -75,6 +82,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -88,14 +106,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -104,7 +122,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -113,7 +131,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -123,7 +141,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -131,12 +149,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -152,7 +170,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -167,7 +184,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -262,9 +278,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -272,6 +287,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -324,6 +356,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -331,7 +372,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>起床后的黄金1小时</h1><div class="author">池田千惠 · 给未来保留一块时间</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">起床后的黄金1小时</div>
+    <div class="cover-sub">给未来保留一块时间</div>
+    <div class="cover-meta">池田千惠 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 书名讲早起，正文讲什么</span>
+      <span class="toc-desc">池田千惠真正处理的问题，是重要但不紧急的事为何总被推迟。每天有邮件、会议、家务和他人的请求索取注意，学习、写作...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 哪些方法撑得住</span>
+      <span class="toc-desc">把一周事项着色后，人能看到时间到底流向未来积累、眼前交付、他人催促还是无意义消耗。颜色没有客观真理，它的作用是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 真正牵动方法的三件事</span>
+      <span class="toc-desc">第一根线是时间边界。作者用断网、专用纸笔和固定地点减少启动选择，也阻止外部请求临时占位。她自己承认夜型与家庭条...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 重要的事为何总输给急事</span>
+      <span class="toc-desc">消息会响，会议有开始时间，逾期有人追问。完成以后，回复、勾选和他人反应立即给出奖励。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六问把晨间仪式放回现实</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者的急迫与方法的限度</span>
+      <span class="toc-desc">作者有二十多年早起经验，她想保护那些总被工作与家庭压到最后的长期愿望。书的亲切处在细节：专用纸笔、断网、一题一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">一句话：每天先给没有人催的未来做一件小事，再让结果修改计划。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 无人委托的劳动，会暴露愿望是否真属于自己</span>
+      <span class="toc-desc">有期限、有考核的任务容易完成，因为做什么和为何做已经由外部写好。播种任务没有人催，它逼出一个更难的问题：当没有...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">作者二十六年早起、十一年研究、考试、求职和手账销售属于个人自述。“睡眠九十分钟一周期”、十天到两周形成习惯、季...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">书名讲早起，正文讲什么</h2>
 <p>池田千惠真正处理的问题，是重要但不紧急的事为何总被推迟。每天有邮件、会议、家务和他人的请求索取注意，学习、写作、职业转向与长期关系却没有立即期限。忙碌的一天结束，眼前任务完成了，未来仍没有被建设。</p>
 <p>她把起床后一小时分成两段。前半小时写出事项、按四色分类并拆成下一步；后半小时只推进一项“播种”。红色代表重要不紧急的播种，绿色是重要且紧急的收获，蓝色是紧急但不重要的疏苗，黑色是两者皆非的风干。</p>

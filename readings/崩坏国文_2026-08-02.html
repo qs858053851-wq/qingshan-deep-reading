@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>崩坏国文 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">崩坏国文</div>
+    <div class="cover-sub">长安水边多鲁蛇？唐代文学与它们的作者</div>
+    <div class="cover-meta">谢金鱼 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">把课本里的唐代大文豪，一个一个打回原形：原来他们也是会焦虑、会贪吃、会写废文、会怕绝后的普通人。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">谢金鱼做历史普及网站做了十几年，她最不能忍的，是课本和影视剧合谋制造的「历史失真」：人物被压扁成符号，韩愈只剩...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">圣贤也是人，史料里全写着。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 课本把你和韩愈隔开的那堵墙，其实是一层滤镜</span>
+      <span class="toc-desc">课本里的韩愈，须发皆白，凛然不可犯。课本里的白居易，忧国忧民，字字是泪。课本里的柳宗元，冷峻孤高，是「唐宋八大...</span>
+    </div>
+  </div>
+
   <h1>崩坏国文</h1>
   <div class="author">谢金鱼 · 长安水边多鲁蛇？唐代文学与它们的作者</div>
 </div>
@@ -354,7 +419,7 @@
   <p>把课本里的唐代大文豪，一个一个打回原形：原来他们也是会焦虑、会贪吃、会写废文、会怕绝后的普通人。</p>
   <p>回答：韩愈、柳宗元、元稹、白居易这「韩柳元白」四人，在国文课本里是道貌岸然的文坛宗师；这本书用他们的书信、食谱、诗作和传记史料，把「圣贤」还原成「人」：韩愈吃生猛海鲜吓得要死，柳宗元爱吃蛙肉还劝朋友试，白居易一肚子委屈天天写诗抱怨，元稹在酒里想见再也见不到的人。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>作者谢金鱼是「故事：写给所有人的历史」网站的共同创办人，自称「一流的吐槽家、二流的美食家、三流的小说家跟不入流的史学家」。她写历史普及十几年，风格是用现代人的视角翻译史料：把唐代诗人的哀怨翻成「让哥哀伤的不是吃不饱穿不暖，是空虚」，把柳宗元的焦虑翻成「我真的好想娶老婆、好怕绝后啊」。书名《崩坏国文》就是这个意思：把国文课本里那些高不可攀的雕像，亲手崩坏给你看。</p>
   <p>书分两部。第一部「长安水边多鲁蛇」讲韩柳元白四个人的饮食、爱情与日常；第二部「人生无常，盛衰何恃」讲更广的唐代人物群像，上官婉儿和她的老板们、魏征的两张脸、安禄山与没有声音的胡人。每章一个主题，考据扎实（每章都附参考书目），行文却全是人话。</p>
 
@@ -363,7 +428,7 @@
   <p><strong>白居易的废文人生。</strong>白居易是唐代朋友圈重度使用者：吃饭写诗、喝茶写诗、陪孩子玩写诗、太太叫他穿暖一点也写诗。被贬到江州（就是写《琵琶行》的地方），他一会儿写信给元稹说「江州的鱼很鲜美，酒也很香醇」，一会儿又写「看到锅里的炖鳖好恶心好哀伤」：前后矛盾，把朋友都搞糊涂了。谢金鱼的翻译：「让哥哀伤的不是吃不饱穿不暖，是空虚！」这种假掰文青情调，放在今天一点也不陌生。</p>
   <p><strong>柳宗元的焦虑。</strong>三十三岁之前是翩翩公子，永贞革新失败后被贬，从此成了「鲁蛇」：怕娶不到老婆、怕生不出儿子、在贬所患得患失。他和韩愈的交情倒是真金，两人政治理念对立，但韩愈在柳宗元死后收养了他的孩子。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一个穿越回唐代的吐槽役，把史料当八卦讲：考据严谨（引诗引信都标出处），语气轻快（「才怪」「哭哭」「假掰文青」张口就来）。她没在戏说，就是把课本删掉的「人味」从史料里翻出来：那些书信和诗里本来就有抱怨、有欲望、有小心思，只是课本把它们过滤成了崇高。</p>
 </div>
 

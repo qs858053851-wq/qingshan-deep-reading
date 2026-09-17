@@ -4,28 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="《王鼎钧回忆录四部曲》修订版讲书稿">
-<title>《王鼎钧回忆录四部曲》——讲书课（修订版）</title>
+<title>《王鼎钧回忆录四部曲》，讲书课（修订版）</title>
 
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -82,6 +89,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -95,14 +113,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -111,7 +129,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -120,7 +138,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -130,7 +148,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -138,12 +156,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -159,7 +177,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -174,7 +191,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -269,9 +285,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -279,6 +294,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -331,6 +363,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -341,12 +382,12 @@
 </head>
 <body>
 <div class="container">
-<header>
-  <div class="book-title">王鼎钧回忆录四部曲</div>
-  <div class="author">王鼎钧 著 ·《昨天的云》/《怒目少年》/《关山夺路》/《文学江湖》</div>
-  <div class="tagline">一个人被时代碾了一辈子，<br>最后他没有变坏，只是把昨天的云，重新画了出来。</div>
-  <div class="version">06-15 初稿 · 07-14 修订</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">王鼎钧回忆录四部曲</div>
+    <div class="cover-sub">一个人被时代碾了一辈子， 最后他没有变坏，只是把昨天的云，重新画了出来。</div>
+    <div class="cover-meta">王鼎钧 著 ·《昨天的云》/《怒目少年》/《关山夺路》/《文学江湖》 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
 
 <section class="lecture" id="layer-1">
 <div class="lecture-label">第 01 层</div>
@@ -356,20 +397,20 @@
 
 <p>这个少年叫王鼎钧。到了晚年，他用四本书、七十多万字，重新走过童年、抗战、内战和台湾三十年。四卷连起来，写的是一个二十世纪中国人怎样失去故乡、家人和归路，又怎样把个人记忆交给后来的人。</p>
 
-<div class="marker">1925—1937 · 有根的童年</div>
+<div class="marker">1925，1937 · 有根的童年</div>
 <p>《昨天的云》从山东兰陵写起。王鼎钧生在一个乡绅家庭，父亲守旧谨慎，母亲虔诚体弱。家里信基督教，空房常供过路的传教士落脚。兰陵在他的笔下既有典故，也有日常：荀子、兰陵美酒、乡间的麦田，都不是供人怀古的陈设，而是一个孩子脚下真实的土地。</p>
 
 <p>他写麦熟时的原野：“放射着神奇的光芒，浴在那光芒里的人，自以为看见了人间的奇花异卉。”这样的句子让人先看见一个完整世界，后来世界破碎，分量才出来。《昨天的云》不是急着写乱，而是先写“有过”。家、母亲、乡音和土地都确实存在过，失去才不只是一个抽象名词。</p>
 
-<div class="marker">1937—1942 · 战争进入家门</div>
+<div class="marker">1937，1942 · 战争进入家门</div>
 <p>抗战爆发后，日军占领兰陵，全家迁到乡下。战争最初是远处的消息，随后变成大兵扰民、学业中断和全家躲避。正常生活不是一下子消失的，它先变得不稳，再变得无法维持。父母最后决定送长子去后方求学，也替一家人在乱世里多留一条路。那场黎明的告别，是《昨天的云》的收束，也是此后所有漂泊的起点。</p>
 
-<div class="marker">1942—1945 · 流亡学生睁开眼睛</div>
+<div class="marker">1942，1945 · 流亡学生睁开眼睛</div>
 <p>《怒目少年》写他在大后方做流亡学生的三年。政府办学校收容沦陷区青年，免学费，也给少量生活费；学生睡在有跳蚤的住处，雪从破窗飘进来，饭里有稻壳、碎石子，甚至老鼠屎。苦难在书里很具体，却没有盖住少年精神上的变化。</p>
 
 <p>“怒目”是两股怒气。一股朝外，来自侵略；一股朝内，来自亲眼所见的腐败、不公和愚昧。他在不同思潮之间摇摆，读书，争辩，也开始怀疑从前相信的东西。这三年不只是逃难史，还是人格“长身体”的时期：一个乡土家庭里的孩子，第一次独自判断国家、制度与人。</p>
 
-<div class="marker">1945—1949 · 胜利以后，关山无路</div>
+<div class="marker">1945，1949 · 胜利以后，关山无路</div>
 <p>《关山夺路》从抗战胜利写起。胜利没有把他送回家，反而把他推入内战。兰陵在国军与共军之间反复易手，父亲托人捎来四个字：“不要回家。”此后，家人的消息断了。他为了活下去入伍，做过宪兵，在军营里挨过打，也在炮火与溃败中辗转。</p>
 
 <p>书中写到，他从陕西到沈阳，再到天津、上海，前后奔波六千七百公里。空间越走越远，归路却越来越窄。他原本倾向国民党，后来一路看见军队与政权怎样失去人心。他没有把事后的结论塞回当年的自己，反而承认内战结束前夕，他的“人格已经破碎”，到了台湾多年仍未完全重建。写《关山夺路》，他自称用掉了“等了一辈子的自由”：等到晚年和海外，才有条件把两边的材料与自己的见闻放在一起，不替任何一方粉饰。</p>
@@ -525,7 +566,7 @@
   本文依据原初稿所引四部曲内容修订，未逐页回查原书版本。书名、人生阶段、一九四二年离家、一九四九年赴台、六千七百公里等沿用初稿口径；引号内句子保留原稿所录，正式引用时宜再核对具体版本与页码。关于“三根线”、公式、跨域映射及第八层分析，均为本文读法，不冒充作者自述。
 </div>
 
-<blockquote>时代可以夺走你的一切，唯独夺不走你如实记住它的那份清醒——记住，就是不肯认输。</blockquote>
+<blockquote>时代可以夺走你的一切，唯独夺不走你如实记住它的那份清醒，记住，就是不肯认输。</blockquote>
 </section>
 
 <footer>青山 · 06-15 初稿 · 07-14 修订</footer>

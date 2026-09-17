@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>白崇禧先生访问记录（上册）· 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,12 +380,52 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-<div class="kicker">九层解书 · 口述历史</div>
-<h1>白崇禧先生访问记录</h1>
-<div class="sub">上册。白崇禧亲口讲述早年、统一广西、北伐、清党、抗日战争与战后判断。它保存了一位核心当事人的思路，也保存了他如何为自己辩护。</div>
-<div class="meta"><b>郭廷以校阅；贾廷诗、马天纲、陈三井、陈存恭访问记录</b>　·　中央研究院近代史研究所　·　竖排扫描版全文 OCR　·　2026-08-22</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">白崇禧先生访问记录</div>
+    <div class="cover-sub">中央研究院近代史研究所　·　竖排扫描版全文 OCR　·　2026-08-22</div>
+    <div class="cover-meta">郭廷以校阅；贾廷诗、马天纲、陈三井、陈存恭访问记录 · 解读主理：青山 · 日期：2026-08-22 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 一个将领怎样整理自己的一生</span>
+      <span class="toc-desc">白崇禧出生于广西桂林南乡山尾村的回民家庭，自述祖先在明初迁入广西。他先读广西陆军小学，因疟疾中断，又进入初级师...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 口述怎样成为史料</span>
+      <span class="toc-desc">白崇禧讲陆荣廷时代的招安、鸦片运输和田南警备，能够说出部队、渡口和同学关系。这些细节很难从中央档案完整找到。它...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这份口述里反复起作用的四件事</span>
+      <span class="toc-desc">白崇禧遇到政治问题时，习惯先问兵力、时间、交通和指挥统一。统一广西时如此，北伐和抗战也如此。四平追击和先剿共后...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 为什么军事正确无法自动变成政治结果</span>
+      <span class="toc-desc">军队行动需要指定敌人、时间和地域，命令必须可以执行。白崇禧的优势就在这种清晰。他能把北伐路线、龙潭增援和武汉防...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八问读懂白崇禧的叙述位置</span>
+      <span class="toc-desc">访问持续一百二十八次，提问者先掌握史事，再请白崇禧补充和评论。白会准备资料，旧部也参与讨论，整理稿还交本人核阅...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出白崇禧的讲述再看一次</span>
+      <span class="toc-desc">郭廷以设计口述历史计划，是因为民国战乱造成档案散失，许多决策经验只存在于当事人记忆。研究所访问七十多位军政、外...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 把上册压到一张纸上</span>
+      <span class="toc-desc">他的清醒和盲点都从这四项交会处出现。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 当见证人同时也是被告</span>
+      <span class="toc-desc">知道自己正在留下历史，会提高叙述质量，也会改变叙述。白崇禧有备而来。他把早年、统一广西、北伐和抗战组织成一条职...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 留下一句话</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 <section class="layer" id="layer-1">
 <div class="layer-num">第一层</div>
 <h2 class="layer-title">一个将领怎样整理自己的一生</h2>

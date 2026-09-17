@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>西藏生死书 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="layer-no">深度解读</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">西藏生死书</div>
+    <div class="cover-sub">1992 · The Tibetan Book of Living and Dying</div>
+    <div class="cover-meta">索甲仁波切 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04</span>
+      <span class="toc-desc">1992 年，一位在西方生活多年的藏族喇嘛用英文写了一本关于死亡的书，达赖喇嘛为它作序。此后三十年，它被译成几...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07</span>
+      <span class="toc-desc">把全书的论证抽出来，其实是一条链：死亡确定会来而且时间不定 → 人怕死是因为身份建立在死亡能一次拿走的东西上 ...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">七百多页的书，讲禅修、讲业力、讲临终陪伴、讲死后世界、讲社会改革，看起来千头万绪。但把枝叶全部剥掉，底下真正干...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 13</span>
+      <span class="toc-desc">全书最深的一句话在第四章："生和死就在心中，不在别处。"就拿它当井口，往下挖，看这句话到底踩在什么上面。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16</span>
+      <span class="toc-desc">不矛盾，但这个问题问到了书里最容易被读岔的地方。书里要拆掉的"我"，是那个拼装出来的身份包；要认识的"自己"，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">这本书的自序几乎是一封情书，收信人是作者的上师蒋扬钦哲。索甲六个月大就被认证为转世者，在上师身边长大，逃罚时会...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 22</span>
+      <span class="toc-desc">如果只能留一句话：怎么活，就怎么死，死亡带不走的，只有你已经变成的那个东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 25</span>
+      <span class="toc-desc">读这本书，真正让我在某一页停下来的，是第七章里一个不起眼的对照，比所有临终故事都更抓人。索甲说：入睡，类似临终...</span>
+    </div>
+  </div>
+
   <div class="booktitle">西藏生死书</div>
   <div class="meta">索甲仁波切 · 1992 · The Tibetan Book of Living and Dying</div>
   <div class="oneline">一本用死亡这面镜子照出"生命该怎么活"的书：把藏传佛教最深的心性修持和中阴教法，翻译成现代人听得懂、临终床前用得上的语言。</div>
@@ -361,7 +442,7 @@
 
   <p>第二场死亡刚好是另一个极端。喇嘛左顿是师母的老师，一位魁梧得像爷爷的禅定老修行。临终前他拒绝被抬去寺庙，理由很实在：不想留下一具尸体让别人清理。师母急着要去请上师来，他拉住她的袖子说了一句话："不要烦他，没有必要。我与上师之间，是没有距离的。"说完凝视天空，就走了。更让人愣住的是后面：上师蒋扬钦哲赶到，看了看，说他还停在某个禅定境界里，笑着唤他："拉根，不要停在那个境界了！让我引导你。"然后发生了索甲自己说"如果不是亲眼看见，我绝不会相信"的一幕：已经断气的喇嘛左顿竟然回来了，跟着上师念"阿"字，第一声洪亮，第二声转弱，第三声无声，人才真正离去。这一幕是七岁孩子的记忆加上几十年后的追述，没有第三方记录，信不信由你。但它在书里的作用很清楚：修行到家的人，可以把死亡当成一件从容办完的事。</p>
 
-  <p>还有第三场，作者把它放在全书快结束的地方，像压轴。文革期间，一位闭关多年的老堪布被红卫兵逮捕，绑在一匹病马背上押去劳改营。一路上他不喊冤也不求饶，只是唱歌，唱修行人的"经验之歌"。押送的红卫兵沉默了，路边的僧人哭了。快到营门时，歌声停了，老堪布闭上眼——跨进营门的时候，人已经安然走了。批斗、羞辱、劳改，一样都没落到他身上。索甲用这个故事说的是：这套关于死亡的功夫，在最极端的暴力面前依然管用。</p>
+  <p>还有第三场，作者把它放在全书快结束的地方，像压轴。文革期间，一位闭关多年的老堪布被红卫兵逮捕，绑在一匹病马背上押去劳改营。一路上他不喊冤也不求饶，只是唱歌，唱修行人的"经验之歌"。押送的红卫兵沉默了，路边的僧人哭了。快到营门时，歌声停了，老堪布闭上眼，跨进营门的时候，人已经安然走了。批斗、羞辱、劳改，一样都没落到他身上。索甲用这个故事说的是：这套关于死亡的功夫，在最极端的暴力面前依然管用。</p>
 
   <h3>从故事到一整套系统</h3>
 
@@ -386,7 +467,7 @@
 
   <h3>他拿出了什么证据</h3>
 
-  <p>第一类证据是佛经故事，最有名的是乔达弥。年轻的母亲抱着刚死的婴儿满城求药，求到佛陀面前。佛陀说，可以，你去找一户从来没死过人的人家，要一粒芥菜籽来。乔达弥挨家挨户地问，家家都有过丧事。她抱着孩子走了一天，明白过来了：不是她的孩子出了意外，是她一直活在"死亡不会轮到我家"的错觉里。这个故事在书里承担的功能，是把"无常"从道理变成体感——道理人人会点头，体感才逼人改变。</p>
+  <p>第一类证据是佛经故事，最有名的是乔达弥。年轻的母亲抱着刚死的婴儿满城求药，求到佛陀面前。佛陀说，可以，你去找一户从来没死过人的人家，要一粒芥菜籽来。乔达弥挨家挨户地问，家家都有过丧事。她抱着孩子走了一天，明白过来了：不是她的孩子出了意外，是她一直活在"死亡不会轮到我家"的错觉里。这个故事在书里承担的功能，是把"无常"从道理变成体感，道理人人会点头，体感才逼人改变。</p>
 
   <p>第二类证据是作者的亲历见证：桑腾、喇嘛左顿，还有一件更远的事。1952 年在康区，他老师的父亲索南南杰死后"身体化成虹光"，索甲强调"许多人都亲眼看到""这不是古老的历史"。这类证据要打个记号。它们对作者是亲历事实，对读者是无法核验的宗教异象报告：七岁孩童的记忆、几十年后的转述、信众圈内的集体见证。书里最戏剧性的段落，恰恰是证据上最薄的段落。这类陈述的性质跟"临终关怀让病人更安详"不一样，后者可以查，前者只能信或不信。我并不是指作者说谎，只是把两类话分开放。</p>
 
@@ -394,7 +475,7 @@
 
   <h3>没说出口的前提</h3>
 
-  <p>整本书有一个不出场却撑着一切的地基：轮回和业力是真的。如果死亡就是彻底的熄灭，那"死亡时刻的机会""中阴的地图""帮助亡者"就全部落空，这本书就只剩下第二篇的临终陪伴技巧还站得住。索甲自己知道这一点，他在第六章正面处理过：有人说无法相信没有证据的东西，他引伏尔泰回答——出生两次并不比出生一次更令人惊奇。这是一个漂亮的哲学反问，但要看清它的性质：它论证的是"轮回不能被排除"，不是"轮回被证明了"。全书真正的隐形假设还有一条：存在一个不生不灭的心性，而且人可以在活着时认出它。这一条连佛教内部都要靠师徒之间的"直指"来传递，无法拿到桌面上验证。</p>
+  <p>整本书有一个不出场却撑着一切的地基：轮回和业力是真的。如果死亡就是彻底的熄灭，那"死亡时刻的机会""中阴的地图""帮助亡者"就全部落空，这本书就只剩下第二篇的临终陪伴技巧还站得住。索甲自己知道这一点，他在第六章正面处理过：有人说无法相信没有证据的东西，他引伏尔泰回答，出生两次并不比出生一次更令人惊奇。这是一个漂亮的哲学反问，但要看清它的性质：它论证的是"轮回不能被排除"，不是"轮回被证明了"。全书真正的隐形假设还有一条：存在一个不生不灭的心性，而且人可以在活着时认出它。这一条连佛教内部都要靠师徒之间的"直指"来传递，无法拿到桌面上验证。</p>
 
   <h3>在哪里会失效</h3>
 
@@ -425,7 +506,7 @@
 
   <h3>用三根线把全书推回来</h3>
 
-  <p>检验一下。临终陪伴的所有技巧（倾听、不说教、让对方把话说完）从第三根线来；禅修章从第一根线来；死亡过程、中阴地图、颇瓦法从第二根线来；最后的社会呼吁是第三根线放大到制度尺度。三根线彼此不能互相替代：拿掉第一根，"认出光明"就没有可认的对象；拿掉第二根，修行和死亡就接不上头，心性变成纯哲学；拿掉第三根，全书后半部凭空消失。也要诚实说：这三根线里，第一、二根的真伪没法从外部验证，它们是教法，不是观测结果；能在读者自己身上验证的，只有第三根的前半段——陪过临终者的人大都体会过那种"轮到我怎么办"的震动。所以这本书拆到底是这样一个结构：一个可以体验的入口（无常与慈悲），通向一套只能信受的地图（心性与中阴）。</p>
+  <p>检验一下。临终陪伴的所有技巧（倾听、不说教、让对方把话说完）从第三根线来；禅修章从第一根线来；死亡过程、中阴地图、颇瓦法从第二根线来；最后的社会呼吁是第三根线放大到制度尺度。三根线彼此不能互相替代：拿掉第一根，"认出光明"就没有可认的对象；拿掉第二根，修行和死亡就接不上头，心性变成纯哲学；拿掉第三根，全书后半部凭空消失。也要诚实说：这三根线里，第一、二根的真伪没法从外部验证，它们是教法，不是观测结果；能在读者自己身上验证的，只有第三根的前半段，陪过临终者的人大都体会过那种"轮到我怎么办"的震动。所以这本书拆到底是这样一个结构：一个可以体验的入口（无常与慈悲），通向一套只能信受的地图（心性与中阴）。</p>
 
   <p>三根线的独立性还有一个旁证：它们各自可以单独变动。基督教的临终关怀有第三根线（陪伴与爱），却没有第二根（死亡过程的分解地图），所以它安慰临终者靠的是"去向天堂"，而这本书靠的是"认出光明"，两种陪伴的话术完全不同。反过来，禅宗有第一根线（明心见性），却不强调第二根线的中阴细节，所以禅师论死往往一句"生死一如"就收，不给地图。只有藏传佛教把三根线拧在一起，才长出这本书的样子：既有哲学，又有死亡时刻表，还有一整套床边的手艺。你在别处找不到完全一样的组合，这也解释了它为什么恰好由一个藏族喇嘛写给西方，而西方自己没长出来。</p>
 </div>
@@ -537,7 +618,7 @@
     <div class="note">三个因子就是第三层的三根线：心分两层（认得哪层）、死亡是有窗口的过程（熟不熟）、渡人即自渡（慈悲）。<br>任何一项为零，乘积为零：只有见地没练过，窗口一闪就过；练得熟却只顾自己，我执会在最后关头反扑。</div>
   </div>
 
-  <p>如果只能留一句话：<strong>怎么活，就怎么死——死亡带不走的，只有你已经变成的那个东西。</strong></p>
+  <p>如果只能留一句话：<strong>怎么活，就怎么死，死亡带不走的，只有你已经变成的那个东西。</strong></p>
 
   <p>如果只能留一张图，是这张四段过渡图。整本书讲的就是：在第一段里练熟，才能在第二段的窄窗前认得出来。</p>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>世界宗教简史 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · 九层</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">世界宗教简史</div>
+    <div class="cover-sub">原书《世界各民族历史上的宗教》· 中央编译出版社 2011 · 768 页 · 07-10 初稿 · 07-13 修订</div>
+    <div class="cover-meta">[苏] 谢·亚·托卡列夫 著 · 魏庆征 译 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">托卡列夫这本《世界宗教简史》，原书叫《世界各民族历史上的宗教》，是苏联学界给人类宗教画的一张大地图。从尼安德特...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">托卡列夫的论证链可以这样抽出来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在牵动全书的那几根线</span>
+      <span class="toc-desc">这本书看着从尼安德特人讲到伊斯兰教，纵跨几十万年、遍及五大洲，千头万绪。但拆到底，真正在牵动全书的线，我数有四...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层横着看，有四根线。这一层竖着挖，选最深的那根，挖到不能再问为止。最深的那根，是恩格斯那句定义：宗教是支配...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，串起全书的逻辑</span>
+      <span class="toc-desc">把托卡列夫的论证一根根抽出来，每个都长成一个问题。从"宗教是不是和人一起来的"问到"这套解释什么时候失灵"，一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">托卡列夫"不写不行"的那股劲儿，是用唯物史观给全人类宗教现象一个统一的、科学的解释。在他看来，宗教解释的阵地如...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 餐巾纸</span>
+      <span class="toc-desc">如果这本书只能留下一个公式，是这个：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 人跪拜的，是自己造出来又控制不了的东西</span>
+      <span class="toc-desc">宗教这本书读到最深处，会撞见一个反直觉的事：人跪拜的神，其实是人自己造的。人造出来的力量，独立了，反过来统治人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印</span>
+      <span class="toc-desc">人跪拜的，从来是自己造出来又控制不了的东西。</span>
+    </div>
+  </div>
+
   <h1>世界宗教简史</h1>
   <div class="author">[苏] 谢·亚·托卡列夫 著 · 魏庆征 译</div>
   <div class="meta">原书《世界各民族历史上的宗教》· 中央编译出版社 2011 · 768 页 · 07-10 初稿 · 07-13 修订</div>
@@ -381,7 +466,7 @@
 
   <p>这个结束语让全书的立场比"宗教是经济基础的反映"这句话复杂得多。托卡列夫既坚持唯物史观的大框架，又承认宗教作为意识形态有自己的相对独立性、有自己的传承惯性、有隐没在深层的根源。这是苏联学派内部一个相当审慎的声音，也是这本书比一本单纯宣传册更有读头的地方。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>托卡列夫是站在讲台上对读者讲一门课。语气是教师的、知识性的，偶尔露出批判的锋芒，对资产阶级宗教永恒论、对那种认为宗教是僧侣捏造的"欺骗说"都开了火，但整体是学术性的、平和的。他在对谁说话？在对需要建立"科学的宗教观"的普通读者和知识界说话。这本书的意识形态任务很明确，用唯物史观统一解释全人类宗教现象，为反宗教斗争提供理论武器。但托卡列夫的学术教养让他在执行这个任务时保持了相当的审慎和材料丰富度，没有把它做成一本简单的宣传册。这份审慎，尤其是结束语里对机械还原论的自我修正，是读这本书最该盯住的东西。</p>
 </section>
 
@@ -397,7 +482,7 @@
 
   <h3>三个关键证据</h3>
 
-  <p>第一个，考古序列。这是全书最硬的证据——旧石器、新石器、青铜时代三段宗教形态正好对应三段社会经济形态，证明宗教形态更替跟着经济基础走。第一层细说。</p>
+  <p>第一个，考古序列。这是全书最硬的证据，旧石器、新石器、青铜时代三段宗教形态正好对应三段社会经济形态，证明宗教形态更替跟着经济基础走。第一层细说。</p>
 
   <p>第二个，犹太教一神化。犹太教从部族神雅赫维演化成独一神，托卡列夫说这不是思想自觉，是政治集权的反映。他引恩格斯一句话，神的统一性不过是统一的东方专制君主的反映。一个统一的政治权力，需要一个统一的神来对应。犹太人在巴比伦之囚后，祭司集团把一神教推到登峰造极，正好对应他们被放逐后需要靠统一宗教认同来凝聚的处境。</p>
 
@@ -484,7 +569,7 @@
     <div class="q">Q3 为什么不同时代不同民族的神长得不一样？</div>
     <div class="a">
       <p>结论：因为社会经济形态不一样，宗教形态跟着社会形态走。</p>
-      <p>怎么想到的：考古序列三段——狩猎图腾、农业女神、阶级太阳崇拜——各对应一种社会经济基座，每一个神的样子都是那个社会最关心、最无力掌控的那件事的投影。第一层细说。</p>
+      <p>怎么想到的：考古序列三段，狩猎图腾、农业女神、阶级太阳崇拜，各对应一种社会经济基座，每一个神的样子都是那个社会最关心、最无力掌控的那件事的投影。第一层细说。</p>
       <p>边界：这是大方向的对应。落到具体观念，对应链条常常断在历史深处，托卡列夫自己在结束语承认。</p>
     </div>
   </div>
@@ -493,7 +578,7 @@
     <div class="q">Q4 一神教怎么来的，为什么犹太教偏偏搞出严格一神？</div>
     <div class="a">
       <p>结论：一神教是政治集权的观念对应，犹太教的一神化是被放逐民族靠宗教认同凝聚的结果。</p>
-      <p>怎么想到的：恩格斯那句话——神的统一性是统一的东方专制君主的反映——被托卡列夫用来解释犹太教从部族神到独一神的演化，犹太人巴比伦之囚后靠统一宗教认同凝聚。第二层细说。</p>
+      <p>怎么想到的：恩格斯那句话，神的统一性是统一的东方专制君主的反映，被托卡列夫用来解释犹太教从部族神到独一神的演化，犹太人巴比伦之囚后靠统一宗教认同凝聚。第二层细说。</p>
       <p>边界：一神教倾向也见于埃及、巴比伦、伊朗，但都没成功确立严格一神，因为有地方祭仪的抵制。犹太教能确立，特殊历史处境起了决定作用，光靠政治集权解释不了。</p>
     </div>
   </div>
@@ -502,7 +587,7 @@
     <div class="q">Q5 基督教一开始是穷人的宗教，怎么变成罗马国教的？</div>
     <div class="a">
       <p>结论：阶级社会里宗教功能有双重性，同一个宗教在不同阶级位置上功能相反，基督教从被压迫者的叹息翻面成了统治工具。</p>
-      <p>怎么想到的：基督教从下层人民的慰藉到罗马国教的过程，是"宗教功能由社会位置决定"最完整的演示——马克思那句话两层（鸦片和叹息）都留着。第二层细说。</p>
+      <p>怎么想到的：基督教从下层人民的慰藉到罗马国教的过程，是"宗教功能由社会位置决定"最完整的演示，马克思那句话两层（鸦片和叹息）都留着。第二层细说。</p>
       <p>边界：翻面是几百年的过程，逐步完成。而且翻面后"叹息"那一面没有完全消失，中世纪异端运动、农民起义常常用基督教语言抗议。功能双重性是长期的。</p>
     </div>
   </div>
@@ -551,7 +636,7 @@
   <h3>读完能做什么不同的事</h3>
   <p>看完这本书，再看任何宗教现象，可以先问一句：这个神、这个仪式，对应的社会力量是什么？人在这件事上对什么无力？问到底，往往能看到神背后是某种人还没掌握的自然力量，或某种人还没能改变的社会结构。这套问法也可以挪到看制度和政策上，一个制度把什么神圣化、把谁的统治正当化，背后往往有类似宗教的逻辑。但也要记住托卡列夫自己在结束语划的边界，别把每个观念硬还原到物质基础，给相对独立性留空间，否则你会把活生生的宗教现象压扁成一个经济公式，那恰恰是托卡列夫警告过的简单化。</p>
 
-  <p>落到不同域里看，同一个结构反复出现。看印度教种姓制度，它把婆罗门的特权神圣化成神的意志——制度替谁说话、把什么神圣化，这一问就看得见。落到交易上，交易者造出一套交易系统，系统独立后反过来支配交易者的决策，你开始给系统的每次亏损找理由、给每个缺陷找解释，就像人给神找意义，你造的规则反过来管住你，你还维护它。落到民宿运营上，一套运营标准最初是你定的工具，后来标准独立化，反过来绑架你，你改不动它还替它找合理性，和人在宗教里跪拜自己的产物是同一个动作。三个域错开看，结构是同一个：人把造出来的东西推上神坛，再跪拜它。</p>
+  <p>落到不同域里看，同一个结构反复出现。看印度教种姓制度，它把婆罗门的特权神圣化成神的意志，制度替谁说话、把什么神圣化，这一问就看得见。落到交易上，交易者造出一套交易系统，系统独立后反过来支配交易者的决策，你开始给系统的每次亏损找理由、给每个缺陷找解释，就像人给神找意义，你造的规则反过来管住你，你还维护它。落到民宿运营上，一套运营标准最初是你定的工具，后来标准独立化，反过来绑架你，你改不动它还替它找合理性，和人在宗教里跪拜自己的产物是同一个动作。三个域错开看，结构是同一个：人把造出来的东西推上神坛，再跪拜它。</p>
 </section>
 
 <section class="layer">
@@ -562,7 +647,7 @@
   <div class="napkin">
     <div class="formula">宗教 = 软弱无力 × 形态更替<br>× 功能两面性 × 相对独立性</div>
   </div>
-  <p>四根线各有分工：软弱无力解释宗教为什么生，形态更替解释为什么变，功能两面性解释阶级社会里为什么两面占，相对独立性解释为什么顽固。加工齿轮是"观念颠倒"——人把无力掌控的力量想象成超自然力量，叫它神——它不单独成一根线，是四根线共用的那个机制。</p>
+  <p>四根线各有分工：软弱无力解释宗教为什么生，形态更替解释为什么变，功能两面性解释阶级社会里为什么两面占，相对独立性解释为什么顽固。加工齿轮是"观念颠倒"，人把无力掌控的力量想象成超自然力量，叫它神，它不单独成一根线，是四根线共用的那个机制。</p>
 
   <p>如果只能用一句话概括这本书：人跪拜的，是自己造出来又控制不了的力量。</p>
 
@@ -570,7 +655,7 @@
   <div class="napkin">
     <div class="formula" style="font-size:20px;">人间的力量 →（幻想反映）→ 超人间的力量（神）<br><span style="font-size:15px;color:var(--mid);font-weight:500;">人还没掌握的自然 · 人还没能改变的社会</span></div>
   </div>
-  <p>箭头两边，一边是真实的人间力量，一边是观念里的神。箭头本身，是人因为无力而做的那个颠倒。宗教的全部秘密，在这张图里。这张图也可以倒着看：当人间的力量被人掌握了，人对它不再无力，那个对应的神会怎样？雷神遇上了避雷针，雨神遇上了灌溉农业——神和人掌控力量的速度之间，有怎样的关系？证据摆在这里，结局按下不表，第八层细说。</p>
+  <p>箭头两边，一边是真实的人间力量，一边是观念里的神。箭头本身，是人因为无力而做的那个颠倒。宗教的全部秘密，在这张图里。这张图也可以倒着看：当人间的力量被人掌握了，人对它不再无力，那个对应的神会怎样？雷神遇上了避雷针，雨神遇上了灌溉农业，神和人掌控力量的速度之间，有怎样的关系？证据摆在这里，结局按下不表，第八层细说。</p>
 
   <p>这张图也能正向看：人掌控了的力量不会变成神，人掌控不了的力量才会。神站在人无力感的边界上，是那条边界的标记。神的多寡，量的是人无力的范围，人能耐越大，神的领地越小。</p>
 </section>

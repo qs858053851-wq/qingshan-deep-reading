@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>神风特攻队、樱花与民族主义 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>神风特攻队、樱花与民族主义</h1>
-  <div class="meta">大贯惠美子《日本历史上美学的军国主义化》 · 商务印书馆 2016 石峰译本 · 青山深度阅读</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">神风特攻队、樱花与民族主义</div>
+    <div class="cover-sub">商务印书馆 2016 石峰译本 · 青山深度阅读</div>
+    <div class="cover-meta">大贯惠美子《日本历史上美学的军国主义化》 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先交代这本书的问题。大贯惠美子是日裔美国人类学家，她想不通一件事：神风特攻队的队员，许多是马克思主义者或基督徒...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">核心论证链：樱花本是多义的民间象征 → 明治国家再造天皇制，需要可感的象征 → 樱花被一步步改写成"为天皇飘落...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 国家是怎么让青年赴死的：三道工序</span>
+      <span class="toc-desc">这本书最硬的发现，是国家制造献身者的工艺流程。大贯把它拆成三道工序：再造传统、美学化、象征误识。三道工序环环相...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">全书最深的问题，比"国家怎么骗人"还要再底下一层：人为什么愿意为抽象的东西死？为父母死、为孩子死，好懂；为"日...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起这架机器的运转</span>
+      <span class="toc-desc">结论：明治国家有意识地征用了它，用几十年时间，经过神社、军徽、教科书、校歌一步步完成换装。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者为什么非写不可。大贯惠美子是日裔美国人，在威斯康星大学教人类学。这本书她写了十几年。驱动她的那个问题很私人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸说完这本书</span>
+      <span class="toc-desc">一句话：一个国家要青年人自愿去死，靠的不是命令，而是先造一朵人人熟悉的花，再把死说成花，最后让每个人在花心看见...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 最值钱的那一点：理想主义为什么不设防</span>
+      <span class="toc-desc">一九四五年春，京都车站。中尾武德挤在人群里，看见阵亡者的家属排队领取骨灰盒。白色的木盒，上面贴着名字。家属们抱...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇基于商务印书馆 2016 年石峰译本扫描版 OCR 全文（约 48 万字），OCR 有 5%，10% 噪点...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -438,7 +522,7 @@
   <div class="qa">
     <div class="q">Q2　国家怎么让人去死，又不下赤裸裸的送死命令？</div>
     <div class="a"><p><em>结论</em>：把死美学化。死亡被翻译成"像樱花一样散落"，还附带再生承诺。</p>
-    <p><em>怎么想到的</em>：直说的命令制造恐惧，恐惧制造逃跑；美的叙事制造向往。前面三道工序里的每一步——盔甲照、"出阵"、樱花枝——都是往同一个方向使劲：给死上釉。</p>
+    <p><em>怎么想到的</em>：直说的命令制造恐惧，恐惧制造逃跑；美的叙事制造向往。前面三道工序里的每一步，盔甲照、"出阵"、樱花枝，都是往同一个方向使劲：给死上釉。</p>
     <p><em>边界</em>：强制仍在背景里。基地里的体罚、赤纸的征召、并不算高的自愿率（Q4 细算），说明美学化只管心；管不了身的那部分，另有一套。</p></div>
   </div>
 
@@ -486,9 +570,9 @@
 
   <p><strong>作者没看到什么。</strong>三个盲点要诚实指出。其一，五人样本全是会写字的精英，这等于从"日记的幸存者偏差"里取样：不写日记的普通队员、莽撞的志愿兵，他们的内心世界在这本书里是沉默的。其二，"误识"是她的分析框架，队员们没法为自己辩护，替死者宣布"你们被迷惑了"，这本身带着一点方法论上的傲慢。关行男明说自己清楚为谁而死，这个案例其实顶到了框架的边缘。其三，她把"为国家死"和"为国王与国家死"分得太干净，可林市造自己先在日记里写"将为天皇捐躯"、后来又收回，认同是流动的、来回摆的，可能不是一次性的站错队。我在这里的表态：这三条不伤书的主结论，但她对"二分"的自信，比她的材料允许的要多一点。</p>
 
-  <p><strong>放到别的领域，是同一回事吗。</strong>挑两个结构真对得上的。第一个是组织管理。一家公司把"奋斗"讲成一种美：凌晨的办公楼叫"奋斗者的灯火"，过劳被称作"燃烧"，裁员时的牺牲被说成"毕业"。这和樱花工艺同构：公司不需要摁着员工签字，只须把"奉献"造出一种美感，员工自己的理想主义会替它填上意义。识别点也同构：看一家公司在美化牺牲时，有没有同时把代价藏起来。第二个是教育和个人成长。任何"美丽的牺牲"话术——为某个大词放弃健康、关系、判断力——都值得过一次靖国神社检测：这个美是谁造的？它承诺的"再生"（荣誉、意义、不朽）在哪个实体装置里兑现？那个装置可靠吗？这两个映射我都掂量过，结构对得上才写；对不上的，比如硬套到商业竞争或两性关系，就不写。</p>
+  <p><strong>放到别的领域，是同一回事吗。</strong>挑两个结构真对得上的。第一个是组织管理。一家公司把"奋斗"讲成一种美：凌晨的办公楼叫"奋斗者的灯火"，过劳被称作"燃烧"，裁员时的牺牲被说成"毕业"。这和樱花工艺同构：公司不需要摁着员工签字，只须把"奉献"造出一种美感，员工自己的理想主义会替它填上意义。识别点也同构：看一家公司在美化牺牲时，有没有同时把代价藏起来。第二个是教育和个人成长。任何"美丽的牺牲"话术，为某个大词放弃健康、关系、判断力，都值得过一次靖国神社检测：这个美是谁造的？它承诺的"再生"（荣誉、意义、不朽）在哪个实体装置里兑现？那个装置可靠吗？这两个映射我都掂量过，结构对得上才写；对不上的，比如硬套到商业竞争或两性关系，就不写。</p>
 
-  <p><strong>读完该做什么不同的事。</strong>一个具体动作：下次遇到任何把牺牲讲得很美的叙事——公司的、运动的、家庭的、国家的——先别感动，问两句话。第一，这个美是谁造的，造它花了多少工夫？第二，它让什么代价变得看不见了？两句话都问完，再决定要不要感动。这个动作小，但它针对的正是误识发生的那个瞬间：美先撞进来、思考还没上岗的那几秒。</p>
+  <p><strong>读完该做什么不同的事。</strong>一个具体动作：下次遇到任何把牺牲讲得很美的叙事，公司的、运动的、家庭的、国家的，先别感动，问两句话。第一，这个美是谁造的，造它花了多少工夫？第二，它让什么代价变得看不见了？两句话都问完，再决定要不要感动。这个动作小，但它针对的正是误识发生的那个瞬间：美先撞进来、思考还没上岗的那几秒。</p>
 </div>
 
 <div class="layer">
@@ -532,7 +616,7 @@
 
   <p>再往下追一步，追到康德。这大概是全书最让人后背发凉的一处。林市造这样的青年，读"公意"，读"人是目的"，这些概念在他们心里有最高的信誉。操盘手不需要发明新词，只须把这些高贵的旧词接过来用：个人的献身被说成通向"公意"的阶梯。青年一听，词是熟悉的词，信誉是康德的信誉，警惕就卸了。谁会想到要审查康德呢？大贯点破的这层纸，适用于一切时代：最危险的挪用，挪用的一定是最受尊敬的概念，因为只有最高信誉的词，才值得被挪用。粗鄙的口号只能动员不思考的人，高贵的词才能动员思考的人。一个社会的精英被征用时，用的是它自己的词典。</p>
 
-  <p>所以中尾武德在京都车站的那个瞬间，才是全书真正的临界点。他不是识破了某一个谎言，他是看见整个装置停电：白盒子空了，"我在神社等你"空了，靖国的樱花再开，开的也只是花。装置依赖的一切——花的古意、死的美感、再生的承诺——在一张写着名字的纸面前全部现形。可接下来发生的事更有意思：中尾没有变成一个反战斗士。他做完介绍致辞，回家后长久地沉默。装置失效了，可失效不等于拆毁，他只是再也装不进去了。清醒没有给他力量，只给了他荒凉。这本书诚实的地方就在这里：它不给你一个"知识使人自由"的安慰。知识只使人看见盒子是空的，盒子还得抱回家。</p>
+  <p>所以中尾武德在京都车站的那个瞬间，才是全书真正的临界点。他不是识破了某一个谎言，他是看见整个装置停电：白盒子空了，"我在神社等你"空了，靖国的樱花再开，开的也只是花。装置依赖的一切，花的古意、死的美感、再生的承诺，在一张写着名字的纸面前全部现形。可接下来发生的事更有意思：中尾没有变成一个反战斗士。他做完介绍致辞，回家后长久地沉默。装置失效了，可失效不等于拆毁，他只是再也装不进去了。清醒没有给他力量，只给了他荒凉。这本书诚实的地方就在这里：它不给你一个"知识使人自由"的安慰。知识只使人看见盒子是空的，盒子还得抱回家。</p>
 
   <p>合上书，那架机器并没有停在一九四五年。它不需要樱花，不需要靖国神社，不需要军部。它只需要三样东西：一样人人熟悉的美好象征，一套把牺牲说成美的说法，一群认真到愿意自己往象征里填意义的年轻人。这三样东西凑齐的地方，今天还有，明天也还会有。认不出它，是因为我们总以为它会喊口号。它从来不喊口号。它递花。</p>
 
@@ -547,7 +631,7 @@
 
 <div class="truth">
   <div class="t">事实边界</div>
-  <p>本篇基于商务印书馆 2016 年石峰译本扫描版 OCR 全文（约 48 万字），OCR 有 5%–10% 噪点，引文均以短片段在原文中定位核实，个别字词以文意校读。几处口径说明：学徒出阵送行人数，书中有"六千"与"一万"两说（场次与来源不同），本篇按场合分别采用；"仅约三分之二自愿"为战争末期队员口径。林市造校名，日记节与传记节不一致，本篇以传记节"东京帝国大学"为准。书中"队员不以天皇名义而死"一条语义在 OCR 中存疑，本篇未引用。上原良司的遗书流传很广，但不属于本书研究的五人，本篇未混入。误识机制、三道工序是作者的分析框架，本篇沿用并标明；青年们无法为自己辩护，读日记的解读终究隔着一层。</p>
+  <p>本篇基于商务印书馆 2016 年石峰译本扫描版 OCR 全文（约 48 万字），OCR 有 5%，10% 噪点，引文均以短片段在原文中定位核实，个别字词以文意校读。几处口径说明：学徒出阵送行人数，书中有"六千"与"一万"两说（场次与来源不同），本篇按场合分别采用；"仅约三分之二自愿"为战争末期队员口径。林市造校名，日记节与传记节不一致，本篇以传记节"东京帝国大学"为准。书中"队员不以天皇名义而死"一条语义在 OCR 中存疑，本篇未引用。上原良司的遗书流传很广，但不属于本书研究的五人，本篇未混入。误识机制、三道工序是作者的分析框架，本篇沿用并标明；青年们无法为自己辩护，读日记的解读终究隔着一层。</p>
 </div>
 
 <div class="quote-block">

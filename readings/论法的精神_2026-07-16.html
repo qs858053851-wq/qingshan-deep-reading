@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>论法的精神 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">论法的精神</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">论法的精神</div>
+    <div class="cover-sub">许明龙 译 · 原著 1748</div>
+    <div class="cover-meta">[法] 孟德斯鸠 著 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先破一个题。这本书叫"论法的精神"，但它几乎不讨论具体法条。孟德斯鸠开篇第一句就把"法"的地基挪了位："从最广...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这本书的论证方式在当时是革命性的。霍布斯、洛克从抽象人性出发演绎出"最好的政体"，孟德斯鸠反着来：他把希腊、罗...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">全书政治设计的地基是一句对人性的死心话："自古以来的经验表明，所有拥有权力的人，都倾向于滥用权力，而且不用到极...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第十一章开头，孟德斯鸠先扫了一圈流行的自由观：有人说自由是能废黜统治者，有人说是能选举，有人说是能带武器。他总...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">新在"原则"这个维度。亚里士多德按掌权人数分正体变体，孟德斯鸠追问的是每种政体靠什么人心燃料运转：品德、荣宠、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">先把错的说死。第十四章的机制是 18 世纪体液学说的残余：冷空气收缩人体纤维所以北方人勇敢，热空气松弛纤维所以...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：别问哪种制度最好，先问你这块地上，什么拴得住权力。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">全书六编三十一章，给"专制"下定义的那一节只有一句话，短到自成一节："路易斯安那的蛮人想要果子的时候，就把果树...</span>
+    </div>
+  </div>
+
   <div class="meta">[法] 孟德斯鸠 著 · 许明龙 译 · 原著 1748</div>
   <div class="oneliner">书里给"专制"下的定义只有一句话："路易斯安那的蛮人想要果子的时候，就把果树从根部砍倒，然后采摘。"整整二十年的写作，六编三十一章，都是在回答怎么才能不砍树。</div>
 </div>
@@ -353,8 +434,8 @@
   <p>先破一个题。这本书叫"论法的精神"，但它几乎不讨论具体法条。孟德斯鸠开篇第一句就把"法"的地基挪了位："从最广泛的意义上来说，法是源于事物本性的必然关系。"法不是立法者的命令，是一张关系网上的结，它和这个国家的政体、气候、土壤、疆域、宗教、贸易、风俗全都连着筋。所以研究法，就得"从所有这些方面去审视法律"，这个关系总和，他称之为"法的精神"。一句话给这本书定性：它不教你什么法律是好的，它教你问：<strong>这条法律，长在什么土壤里？</strong></p>
 
   <h3>骨架：六编三十一章，前热后冷</h3>
-  <p><strong>第一编（1–8 章）是政体论</strong>，全书的发动机。他把政体分三种，每种配一个"原则"。原则不是纸面制度，是推动它运转的人心燃料：共和政体靠品德（他专门声明：指爱国爱平等的政治品德，不是道德课），君主政体靠荣宠（各人自以为在追求体面和私利，"实际上却都向着公共利益会聚"），专制政体靠畏惧（"必须以畏惧窒息一切勇气，扑灭野心于萌芽状态"）。第八章讲腐化："每一种政体的腐化几乎都始于原则的腐化"，制度多半先烂在人心，然后才塌在纸面。</p>
-  <p><strong>第二编（9–13 章）是自由论</strong>，全书最著名的部分在第十一章：先给自由定义，再拿英格兰政制讲分权，第三层专门拆。<strong>第三编（14–19 章）是环境论</strong>，气候、土壤、民族的"普遍精神"怎么塑造法律，包括那段著名的冷冻羊舌实验和"炎热地区的人怯懦如同老人，寒冷地区的人骁勇如同少年"，是全书最有争议的部分，第六层算总账。<strong>第四编（20–23 章）讲商业与人口</strong>："贸易可以医治破坏性的偏见……凡是有贸易的地方，习俗必定温良"。但他自己马上补了反题：纯粹的贸易精神会把"一切人道行为、伦理道德全都可以用来做买卖"。<strong>第五编（24–26 章）讲宗教</strong>，开宗明义："我是作为一个政治著作家，而完全不是作为神学家撰写本书的"：不问哪个教是真的，只问哪个教对尘世生活有用，宗教社会学从这句话起步。<strong>第六编（27–31 章）</strong>是几乎没人读的法制史考据：罗马继承法、法兰克封建法的起源，占了全书近三成篇幅。这个"被折叠的下半身"其实是前五编的实证工场：法有历史生成，不是从天而降，他真的一条条挖给你看。</p>
+  <p><strong>第一编（1，8 章）是政体论</strong>，全书的发动机。他把政体分三种，每种配一个"原则"。原则不是纸面制度，是推动它运转的人心燃料：共和政体靠品德（他专门声明：指爱国爱平等的政治品德，不是道德课），君主政体靠荣宠（各人自以为在追求体面和私利，"实际上却都向着公共利益会聚"），专制政体靠畏惧（"必须以畏惧窒息一切勇气，扑灭野心于萌芽状态"）。第八章讲腐化："每一种政体的腐化几乎都始于原则的腐化"，制度多半先烂在人心，然后才塌在纸面。</p>
+  <p><strong>第二编（9，13 章）是自由论</strong>，全书最著名的部分在第十一章：先给自由定义，再拿英格兰政制讲分权，第三层专门拆。<strong>第三编（14，19 章）是环境论</strong>，气候、土壤、民族的"普遍精神"怎么塑造法律，包括那段著名的冷冻羊舌实验和"炎热地区的人怯懦如同老人，寒冷地区的人骁勇如同少年"，是全书最有争议的部分，第六层算总账。<strong>第四编（20，23 章）讲商业与人口</strong>："贸易可以医治破坏性的偏见……凡是有贸易的地方，习俗必定温良"。但他自己马上补了反题：纯粹的贸易精神会把"一切人道行为、伦理道德全都可以用来做买卖"。<strong>第五编（24，26 章）讲宗教</strong>，开宗明义："我是作为一个政治著作家，而完全不是作为神学家撰写本书的"：不问哪个教是真的，只问哪个教对尘世生活有用，宗教社会学从这句话起步。<strong>第六编（27，31 章）</strong>是几乎没人读的法制史考据：罗马继承法、法兰克封建法的起源，占了全书近三成篇幅。这个"被折叠的下半身"其实是前五编的实证工场：法有历史生成，不是从天而降，他真的一条条挖给你看。</p>
 
   <h3>成书与命运</h3>
   <p>孟德斯鸠是波尔多的世袭庭长，卖掉官职周游欧洲，在英国住了两年，回来把二十年的观察写成此书，1748 年匿名出版。教会把它列入禁书目录，他专门写了《为〈论法的精神〉辩护》回击。四十年后，这本书的分权学说被一群美洲殖民地的起草人搬进了一部成文宪法。他生前没能看到自己的书从"论"变成"法"。</p>
@@ -411,7 +492,7 @@
 
   <div class="qa">
     <div class="q">二问：说民主靠"品德"，是不是要求人人当圣人？</div>
-    <p>他专门辟过谣：这里的品德是政治品德，就是爱共和国、爱平等，跟伦理和宗教无关。而且他连品德都要设限——民主的腐化恰恰常来自品德的变形，"极端平等精神"，人人都想指挥、谁也不肯服从。他给的分寸是："真正的平等精神既不是人人都发号施令，也不是人人都俯首听命，而是服从与我们平等的人，领导与我们平等的人。"美德本身也需要极限，这句话出自一个歌颂共和品德的人之口，分量更重。</p>
+    <p>他专门辟过谣：这里的品德是政治品德，就是爱共和国、爱平等，跟伦理和宗教无关。而且他连品德都要设限，民主的腐化恰恰常来自品德的变形，"极端平等精神"，人人都想指挥、谁也不肯服从。他给的分寸是："真正的平等精神既不是人人都发号施令，也不是人人都俯首听命，而是服从与我们平等的人，领导与我们平等的人。"美德本身也需要极限，这句话出自一个歌颂共和品德的人之口，分量更重。</p>
   </div>
 
   <div class="qa">
@@ -421,7 +502,7 @@
 
   <div class="qa">
     <div class="q">四问：分权那一章，司法权为什么被他说成"有等于无"？</div>
-    <p>因为他把司法设计成了非常设的：由民众临时抽选的陪审法院行使，案毕即散。这样"令人畏惧的司法权……在某种意义上就变得看不见乃至不存在了"，人们"惧怕的不是法官，而是司法制度"。司法的权威要大，司法者个人的存在感要小——真正的政治博弈留给立法与行政两权，司法只守那条谁也绕不开的底线。</p>
+    <p>因为他把司法设计成了非常设的：由民众临时抽选的陪审法院行使，案毕即散。这样"令人畏惧的司法权……在某种意义上就变得看不见乃至不存在了"，人们"惧怕的不是法官，而是司法制度"。司法的权威要大，司法者个人的存在感要小，真正的政治博弈留给立法与行政两权，司法只守那条谁也绕不开的底线。</p>
   </div>
 
   <div class="qa">
@@ -443,7 +524,7 @@
   <p>先把错的说死。第十四章的机制是 18 世纪体液学说的残余：冷空气收缩人体纤维所以北方人勇敢，热空气松弛纤维所以南方人怯懦耽欲。他还冷冻了一条羊舌在显微镜下看纤维收缩，当作证明。这套生理学全盘作废，更糟的是它的推论：把亚洲的专制、南方民族的"委靡"归因于气候，暗含一条"南方=柔弱=宜奴役"的地理等级链，后来被殖民主义整套征用。这是全书最需要戴着手套读的部分。但账要算两面：他追问的问题（为什么不同水土长出不同制度）是真问题；而且他没把气候写成终审判决，"物质因素越是让人趋向静止，道德因素就越应让人远离这些物质因素"，好立法者的职责恰恰是逆着气候干。剥掉过时的机制，保留问题的意识，这是读一切带硬伤的经典的通用姿势。</p>
 
   <h3>第二笔账：他的"中国"，照见的是欧洲</h3>
-  <p>全书对中国的判决很重："中国是一个以畏惧为原则的专制国家。"证据链却全是二手：杜赫德神甫的《中华帝国全志》、安森勋爵的航海记、几次与旅欧华人的交谈。传教士说中国政体兼容畏惧、荣宠与品德，令人赞叹。这等于说他的三分法在中国失效，所以他专辟一节反驳，采信商人和航海者的负面记述："对于一个如果不使用棍棒，人民便什么也不干的国家而言，我不明白他们所说的荣宠是什么。"他看漏的东西现在看得很清楚：科举、文官制、谏议传统、儒家对君权的道德约束，这些制衡性的事实都不在他的材料里。但真正有意思的地方在后头：<strong>伏尔泰用同一批传教士材料，得出了完全相反的结论</strong>——中国是开明治理的典范。同一个中国，一边读出专制样本，一边读出理想国。这说明 18 世纪欧洲书桌上的"中国"根本不是一个被认识的对象，是一块投影屏，谁需要什么论据，就在上面照出什么。顺带一提，他也有看得准的地方：第十九章写中国把"宗教、法律、习俗和风尚融为一体"、以礼仪而非刑罚治理，这个观察至今站得住。</p>
+  <p>全书对中国的判决很重："中国是一个以畏惧为原则的专制国家。"证据链却全是二手：杜赫德神甫的《中华帝国全志》、安森勋爵的航海记、几次与旅欧华人的交谈。传教士说中国政体兼容畏惧、荣宠与品德，令人赞叹。这等于说他的三分法在中国失效，所以他专辟一节反驳，采信商人和航海者的负面记述："对于一个如果不使用棍棒，人民便什么也不干的国家而言，我不明白他们所说的荣宠是什么。"他看漏的东西现在看得很清楚：科举、文官制、谏议传统、儒家对君权的道德约束，这些制衡性的事实都不在他的材料里。但真正有意思的地方在后头：<strong>伏尔泰用同一批传教士材料，得出了完全相反的结论</strong>，中国是开明治理的典范。同一个中国，一边读出专制样本，一边读出理想国。这说明 18 世纪欧洲书桌上的"中国"根本不是一个被认识的对象，是一块投影屏，谁需要什么论据，就在上面照出什么。顺带一提，他也有看得准的地方：第十九章写中国把"宗教、法律、习俗和风尚融为一体"、以礼仪而非刑罚治理，这个观察至今站得住。</p>
 
   <h3>一处大误读："三权分立"其实该叫"三权分权"</h3>
   <p>这是译者附言里最值钱的辨析，值得单独立一节。孟德斯鸠的原意是反对"合"（一个人或一个机构独揽两种以上权力）；他从没主张三权"分立"成三足鼎立、互不往来。原文写得明白：三权"在事物的必然运动的推动下，不得不前进，而且是一同前进"。这是被迫协同的三匹马，不是对峙的三国。美国宪法里的 checks and balances（制衡）比"分立"二字更接近他的图纸。这个纠偏的现实意义在于：很多对分权制度的批评（"三权分立就是互相扯皮、效率低下"）打的其实是那个误译出来的稻草人。孟德斯鸠要的从来就不叫慢，他要的是任何一匹马都拖不走整驾马车。</p>
@@ -452,7 +533,7 @@
   <p>一件：把"原则腐化"当体检表用。看一个组织的兴衰，别只看章程改没改，先问它赖以运转的那股人心还在不在：创业公司的干劲、老字号的手艺自尊、机构的职业荣誉，这些就是孟德斯鸠说的"原则"，它们先于制度死亡。另一件：评价任何一条规则前，先问它长在什么土壤里。别人家的好制度直接搬，最常见的下场就是水土不服。这本书从头到尾只教这一个动作：先看土，再谈法。</p>
 
   <h3>我的立场</h3>
-  <p>这本书我把它和卢梭对照着收。两人同是启蒙巨人，走的是相反的路：卢梭要重订社会契约、唤醒人性之善，孟德斯鸠不相信任何蓝图、只肯用结构看住人性之恶；卢梭的文字是火，孟德斯鸠的文字是尺。两百多年下来，我的判断是尺比火耐用——用火的革命常常烧到自己，用尺的宪政至今在量。但火的那一边不能扔：没有卢梭式的热望，孟德斯鸠的结构主义会冷却成"存在即合理"的辩护词，他自己那句"别去碰它"就滑在这个边上。制度要靠尺来画，可要不要画一张新图，得先有人敢烧。两个都读，别只挑一头。</p>
+  <p>这本书我把它和卢梭对照着收。两人同是启蒙巨人，走的是相反的路：卢梭要重订社会契约、唤醒人性之善，孟德斯鸠不相信任何蓝图、只肯用结构看住人性之恶；卢梭的文字是火，孟德斯鸠的文字是尺。两百多年下来，我的判断是尺比火耐用，用火的革命常常烧到自己，用尺的宪政至今在量。但火的那一边不能扔：没有卢梭式的热望，孟德斯鸠的结构主义会冷却成"存在即合理"的辩护词，他自己那句"别去碰它"就滑在这个边上。制度要靠尺来画，可要不要画一张新图，得先有人敢烧。两个都读，别只挑一头。</p>
 </div>
 
 <div class="layer">
@@ -461,7 +542,7 @@
 
   <div class="napkin">
     <div class="formula">自由 ＝ 权力互相拴住 × 法律长对土壤</div>
-    <div class="note">第一个因子（第一根线）：人人都会滥权用到极限，所以只能以权力制止权力——不靠好人，靠好结构；<br>第二个因子（第二根线）：结构不能凭空搭，法是关系网上的结，得看气候、宗教、风俗、贸易这片土；<br>缺第一项是仁政赌局，缺第二项是水土不服的移植手术。</div>
+    <div class="note">第一个因子（第一根线）：人人都会滥权用到极限，所以只能以权力制止权力，不靠好人，靠好结构；<br>第二个因子（第二根线）：结构不能凭空搭，法是关系网上的结，得看气候、宗教、风俗、贸易这片土；<br>缺第一项是仁政赌局，缺第二项是水土不服的移植手术。</div>
   </div>
 
   <p>一句话版本：别问哪种制度最好，先问你这块地上，什么拴得住权力。</p>
@@ -478,7 +559,7 @@
                           ▼
         立法 ⇄ 行政 ⇄（隐形的）司法
         两院互否 · 逐年批军费 · 陪审临时抽选
-        —— 三匹被迫同行的马，谁也拖不走马车 ——
+        ， 三匹被迫同行的马，谁也拖不走马车 ，
   </pre>
 </div>
 

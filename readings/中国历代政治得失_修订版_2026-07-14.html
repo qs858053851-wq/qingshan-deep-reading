@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中国历代政治得失 · 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -345,9 +386,140 @@
 <div class="container">
 
 <!-- HERO -->
-<div class="hero">
-  <h1>中国历代政治得失</h1>
-  <div class="author">钱穆 著｜1952 年讲演，1955 年增订｜三联书店「钱穆作品系列」<br>九层解书 · 修订版</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中国历代政治得失</div>
+    <div class="cover-sub">核心问题 ：中国两千年传统政治，能不能用「专制黑暗」四个字一笔勾销？</div>
+    <div class="cover-meta">钱穆 著｜1952 年讲演，1955 年增订｜三联书店「钱穆作品系列」 九层解书 · 修订版 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">核心问题：中国两千年传统政治，能不能用「专制黑暗」四个字一笔勾销？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">前言里钱穆摆了七条治学原则，看着零散，其实是一根逻辑链，可以这样串起来：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书横看五个朝代、纵切四个切面，二十个格子填满了，看着千头万绪。但拆到底，真正在牵动全局的，只有三根线。抓住...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第四层只追问判准，不复述清代案例。钱穆把「制度」与「法术」分开：前者的真实用意可以公开审视，后者必须靠隐匿真实...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 17</span>
+      <span class="toc-desc">明以前不是，明以后越来越是，清代最极端。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">证据主场在第二层：汉代皇室与相府分工、唐代门下封驳、明代废相，三点连成「分权存在，审核存在，纠错消失」的结构变...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 23</span>
+      <span class="toc-desc">钱穆的辩护只证明了「事实上没有独裁」，却没有证明「皇帝制度在法理上不能独裁」。皇帝终究握有随时收回相权的终极权...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 25</span>
+      <span class="toc-desc">它提供了一把必要但不充分的防伪检测尺。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 29</span>
+      <span class="toc-desc">钱穆举摇篮比喻：壮年人不睡摇篮，不等于婴儿睡摇篮就是错。今天我们不要皇帝，不等于汉唐有皇帝就是黑暗。他主张先听...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 31</span>
+      <span class="toc-desc">但「当时人的意见」本身也不是真空的。能留下来的「历代名臣奏议」，大多是精英阶层的声音，农民、胥吏、士兵的声音几...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 33</span>
+      <span class="toc-desc">科举解决了政权开放的问题，却制造了政权臃肿的新病。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 37</span>
+      <span class="toc-desc">汉代察举还带着推荐的弹性，到唐代变成「怀牒自列」：任何人凭本事报考，政权向全社会敞开。这一步比西方早了近千年。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 39</span>
+      <span class="toc-desc">若把这一判断搬到今天，则意味着任何「开放准入」的制度，如果没有配套的「退出通道」和「替代赛道」，迟早会臃肿。这...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 41</span>
+      <span class="toc-desc">制度崩坏不只来自设计错误，也来自维持制度的激励与人事条件逐步变化。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 45</span>
+      <span class="toc-desc">府兵制是第八层「积久成弊」叙事的唯一主场。本问只保留因果链：荣誉与短期服役的激励逐步消失，执行偏差累积，替代方...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 47</span>
+      <span class="toc-desc">但「人事松懈」几乎是所有长期制度的宿命。钱穆反复说「制度是死的，人事是活的」，这意味着再精妙的设计也有保质期。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 49</span>
+      <span class="toc-desc">宋的弱不在外患强，在内部把权力收得太狠，把自己的手脚捆住了。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 53</span>
+      <span class="toc-desc">唐亡于藩镇割据（地方太强），宋太祖杯酒释兵权、派文臣知州、设转运使收财权：全是在矫唐之弊。但矫枉过正：地方不留...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 55</span>
+      <span class="toc-desc">宋代的问题在今天依然有镜像：任何高度中央集权的组织，末端响应力都是它的软肋。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 57</span>
+      <span class="toc-desc">坏在把一个制度性的纠错机制消灭了，换成了一个纯粹依赖个人品质的结构。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 61</span>
+      <span class="toc-desc">汉唐的格局是皇帝出了问题还有宰相兜底，宰相出了问题可以换宰相而不动皇帝。明废相后，一切归皇帝独断，而内阁大学士...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 63</span>
+      <span class="toc-desc">这一判断的前提是「宰相制度本身是好的」。但宰相也可能被架空（东汉的外戚大将军就架空了宰相），所以关键不在有没有...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 65</span>
+      <span class="toc-desc">明代是制度坏了但仍是制度，清代则连制度的资格都失去了：它变成了法术。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 69</span>
+      <span class="toc-desc">清代案例留给第八层完整展开。本问只保留判断：当规则以公共制度之名运行，却必须隐藏服务一族利益的真实目的时，问题...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 71</span>
+      <span class="toc-desc">这一判断带有强烈的价值立场。从满洲统治者的角度看，他们的安排也有其「合理性」：少数民族维持统治的安全焦虑。钱穆...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 73</span>
+      <span class="toc-desc">制度是活的：它有出生、成长、衰老和死亡，没有一项能永远好下去。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 77</span>
+      <span class="toc-desc">这是贯穿全书的母命题。钱穆反复举证：汉代察举制初设时合理，积久成门阀垄断；唐代府兵制精妙，太平久了就松懈崩溃；...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 79</span>
+      <span class="toc-desc">这一观点最大的盲区是：它解释了制度为什么会衰败，却没有给出「如何让制度自我更新」的方案。钱穆只是在历史的后视镜...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 82</span>
+      <span class="toc-desc">1952 年，钱穆在台中养病。五次讲演，十个小时。为什么一个病中的人会用仅有的精力去做这件事？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 85</span>
+      <span class="toc-desc">三个因子逐项对应第三层：分权对应「权力集中度」，开放对应「政权开放度」，公共生长对应「制度的公共性与生长性」。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 88</span>
+      <span class="toc-desc">钱穆在 1952 年讲了一个词，叫「法术」。不是道士画符，而是与「制度」相对的政治安排。他说，汉、唐、宋、明即...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- 第一层 -->
@@ -391,7 +563,7 @@
     <div class="logic-chain">传统政治 = 历史意见下的「有得有失」，≠ 时代意见下的「专制黑暗」</div>
     <p>这条链的要害在「历史意见 vs 时代意见」这对区分。钱穆打了个比方：一个壮年人不睡摇篮，不等于婴儿睡摇篮就是错的。今天我们要民主、不要皇帝，这是对的；但不能反过来说从有历史以来就不该有皇帝、凡有皇帝就是坏政治。拿当下的尺子去量两千年前的衣裳，量出来的不合身，错的是尺子。</p>
 
-    <p><strong>第二层只承担证据索引，不展开故事。</strong>汉代「六尚—十三曹」证明皇室与政府曾有组织分界；唐代「中书拟旨—门下封驳」证明皇帝命令要经过制度审核；科举则证明政权存在向社会开放的入口。三组证据在这里各说一次，到第五层只引用结论，不再复述细节；清代「制度—法术」与唐代府兵制的完整叙事留给第八层。</p>
+    <p><strong>第二层只承担证据索引，不展开故事。</strong>汉代「六尚，十三曹」证明皇室与政府曾有组织分界；唐代「中书拟旨，门下封驳」证明皇帝命令要经过制度审核；科举则证明政权存在向社会开放的入口。三组证据在这里各说一次，到第五层只引用结论，不再复述细节；清代「制度，法术」与唐代府兵制的完整叙事留给第八层。</p>
 
     <div class="sub-heading">隐形假设</div>
     <p>钱穆默认「制度」和「法术」可以两刀切开：为公的、能公开的、自根自生的，叫制度；为私的、藏私心的、硬移植来的，叫法术。靠这把刀，他才能把清代整个踢出「制度」的范畴。但「私心」由谁认定、「为公」按谁的标准，这把刀其实握在他自己手里。</p>
@@ -464,7 +636,7 @@
       </div>
       <div class="qa-section">
         <div class="qa-section-label">论证步</div>
-        <p>证据主场在第二层：汉代皇室与相府分工、唐代门下封驳、明代废相，三点连成「分权存在—审核存在—纠错消失」的结构变化。这里保留推理，不重讲案例。</p>
+        <p>证据主场在第二层：汉代皇室与相府分工、唐代门下封驳、明代废相，三点连成「分权存在，审核存在，纠错消失」的结构变化。这里保留推理，不重讲案例。</p>
       </div>
       <div class="qa-section">
         <div class="qa-section-label">边界</div>

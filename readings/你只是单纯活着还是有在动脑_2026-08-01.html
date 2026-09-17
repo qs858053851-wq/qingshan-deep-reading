@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>你只是单纯活着，还是有在动脑 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>你只是单纯活着，<br>还是有在动脑？</h1>
-  <div class="author">克莉丝汀·舒兹-莱斯　向下扎根！德国教育的公民思辨课 3 · 质疑所谓理所当然的事（繁体中译本）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">你只是单纯活着， 还是有在动脑？</div>
+    <div class="cover-sub">舒兹-莱斯　向下扎根！德国教育的公民思辨课 3 · 质疑所谓理所当然的事（繁体中译本）</div>
+    <div class="cover-meta">克莉丝汀 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先说结论：这是一本按时间顺序排的西方哲学史，从米利都的泰勒斯讲到维特根斯坦，附录里还给了五十四位哲学家的简历。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 两三百字讲一个哲学家，靠什么讲得住</span>
+      <span class="toc-desc">把康德压进两百字，正常情况下只会得到一堆术语。这本书没有全垮，靠的是三个手法。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一百多节背后，只有三根线</span>
+      <span class="toc-desc">这一根是全书的副标题，也是它对“哲学”这个词的实际定义：质疑所谓理所当然的事。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：小孩为什么会问，大人为什么不问了</span>
+      <span class="toc-desc">全书第一节的判断是：儿童是天生的哲学家。这话通常被当成一句好听的开场白，其实它提出了一个真问题，如果每个人小...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这本书问明白</span>
+      <span class="toc-desc">科学处理的是可以被检验、被推翻、被别人重做一遍的问题。哲学的多数问题不具备这个性质：什么是善、我是谁、世界有没...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">这一册的动机跟前两册连着。前两册讲权利和制度，这一册讲的是那两样东西背后的思考方式。一个不会质疑理所当然的人，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 第十章的位置，就是这一章的内容</span>
+      <span class="toc-desc">这本书的前九章是一条干净的时间线：前苏格拉底、古典希腊、中世纪、文艺复兴、理性主义与经验主义、启蒙、十九世纪、...</span>
+    </div>
+  </div>
+
   <div class="lead">两千五百年的西方哲学史，压缩成一百多个两三百字的小节。它的野心不大：让一个中学生相信，这些问题他也有资格想。</div>
 </div>
 
@@ -354,7 +434,7 @@
 
   <div class="sub">开头那一节，定了全书的调</div>
 
-  <p>第一章第一节的标题就是书名：你只是单纯活着，还是有在动脑？副标题是——<strong>为什么儿童是天生的哲学家。</strong></p>
+  <p>第一章第一节的标题就是书名：你只是单纯活着，还是有在动脑？副标题是，<strong>为什么儿童是天生的哲学家。</strong></p>
 
   <p>这个起手很聪明。它没有从“哲学是关于存在的学问”这类定义开始，而是从读者自己身上开始：你小时候不停地问为什么，那时候你就在干哲学；后来你不问了，那才是需要解释的事。</p>
 
@@ -372,7 +452,7 @@
     <tr><td>七 脑袋还是肚子</td><td>启蒙</td><td>卢梭的高贵的野蛮人与公共意志、伏尔泰、康德的批判与绝对命令</td></tr>
     <tr><td>八 上到令人头晕目眩的高处</td><td>十九世纪</td><td>费希特、谢林、黑格尔的辩证法、克尔凯郭尔、费尔巴哈、叔本华、功利主义、马克思、尼采、达尔文、弗洛伊德</td></tr>
     <tr><td>九 美丽新世界</td><td>二十世纪</td><td>存在主义、海德格尔、雅斯贝尔斯、萨特、维特根斯坦、罗素</td></tr>
-    <tr><td>十 还是缺了什么</td><td>—</td><td>女性在哪？最早的女哲学家、汉娜·阿伦特、西蒙娜·德·波伏娃</td></tr>
+    <tr><td>十 还是缺了什么</td><td>，</td><td>女性在哪？最早的女哲学家、汉娜·阿伦特、西蒙娜·德·波伏娃</td></tr>
     <tr><td>十一 落入无底深渊，还是飞上新的高峰</td><td>今天</td><td>所有问题都被想过了吗、克隆与人造人</td></tr>
   </table>
 
@@ -388,7 +468,7 @@
 
   <p>台湾版有三篇导读，其中总导读把这套书的用意讲得很准。写导读的沈清楷指出：所谓“基本”知识，指的是每个人都要会的，很可能是我们自以为会、其实不懂或早已遗忘的东西；而“基本”知识也可能代表一种“理所当然”的知识，可那些我们以为理所当然的事情，却可能是有问题的，甚至早已成为我们思考或推论的前提。</p>
 
-  <p>这段话正好解释了这一册的副标题：质疑所谓理所当然的事。<strong>哲学在这套书里不是一门学科，是一个动作——把默认值拿出来看看。</strong></p>
+  <p>这段话正好解释了这一册的副标题：质疑所谓理所当然的事。<strong>哲学在这套书里不是一门学科，是一个动作，把默认值拿出来看看。</strong></p>
 </div>
 
 <div class="layer">
@@ -411,7 +491,7 @@
 
   <p>莱布尼茨那节叫“饼干还是碎屑”，讲单子；黑格尔那两节叫“一加一如何等于三”，讲辩证法；弗洛伊德那节问“发号施令的是谁，是本我还是自我”。<strong>每个抽象概念都被换算成了一件读者身上真实发生过的事。</strong></p>
 
-  <p>她还用了一个文学入口：讲“没有语言的思考行不行”，用的是长袜子皮皮和她那个自造词 Spunk——一个小女孩发明了一个词，然后满世界找这个词该指什么。这一节等于用一个儿童故事讲了语言与世界的关系。</p>
+  <p>她还用了一个文学入口：讲“没有语言的思考行不行”，用的是长袜子皮皮和她那个自造词 Spunk，一个小女孩发明了一个词，然后满世界找这个词该指什么。这一节等于用一个儿童故事讲了语言与世界的关系。</p>
 
   <div class="sub">手法三 · 让问题接力，而不是让人物排队</div>
 
@@ -478,7 +558,7 @@
 
   <div class="sub">第一层 · 看得见的</div>
 
-  <p>全书第一节的判断是：儿童是天生的哲学家。这话通常被当成一句好听的开场白，其实它提出了一个真问题——<strong>如果每个人小时候都在问“为什么”，那停下来的那个人身上发生了什么？</strong></p>
+  <p>全书第一节的判断是：儿童是天生的哲学家。这话通常被当成一句好听的开场白，其实它提出了一个真问题，<strong>如果每个人小时候都在问“为什么”，那停下来的那个人身上发生了什么？</strong></p>
 
   <div class="sub">第二层 · 底下的机制：现成答案是一种省力装置</div>
 
@@ -494,7 +574,7 @@
 
   <p>因为真正的思考极耗资源。要想清楚一件小事，得调动注意力、得容忍不确定、得承认自己不懂、还得冒着想出一个让自己不舒服的结论的风险。而现成答案的成本接近于零，一句话就打发了。</p>
 
-  <p>更要紧的是，这笔节省是<strong>不可见</strong>的。你不会觉得自己在偷懒，你会觉得自己“已经知道了”。这就是那篇导读点出的东西：那些我们以为理所当然的事情，早已成为我们思考或推论的前提——<strong>它们不是被我们相信的，是被我们跳过的。</strong></p>
+  <p>更要紧的是，这笔节省是<strong>不可见</strong>的。你不会觉得自己在偷懒，你会觉得自己“已经知道了”。这就是那篇导读点出的东西：那些我们以为理所当然的事情，早已成为我们思考或推论的前提，<strong>它们不是被我们相信的，是被我们跳过的。</strong></p>
 
   <div class="sub">第四层 · 触底：哲学是主动把省下的那笔钱重新花出去</div>
 
@@ -504,7 +584,7 @@
 
   <p>这句话同时解释了哲学的三个特征。它为什么费劲：因为它在做一件大脑专门设法避免的事。它为什么不实用：因为它拆的正是让日常运转起来的那套省力装置。它为什么只能是少数时刻的事：<strong>一个把所有默认值都重新算一遍的人，会瘫在原地。</strong></p>
 
-  <p>所以那句“儿童是天生的哲学家”只对了一半。儿童不是在做哲学，儿童是还没装上那套装置。真正的哲学是装上之后，再主动挑一处拆开看——<strong>知道拆开会费劲，也知道自己拆不了全部。</strong></p>
+  <p>所以那句“儿童是天生的哲学家”只对了一半。儿童不是在做哲学，儿童是还没装上那套装置。真正的哲学是装上之后，再主动挑一处拆开看，<strong>知道拆开会费劲，也知道自己拆不了全部。</strong></p>
 
   <p>到这一层，讲的已经不只是哲学，是凡认真想一件事都要付的那笔成本。为什么复盘难做、为什么承认自己错了那么费劲、为什么开会时没人质疑那个大家都默认的前提，全是同一件事：<strong>拆默认值要花钱，而不拆是免费的。</strong></p>
 
@@ -579,7 +659,7 @@
 
   <div class="sub">她没看见的</div>
 
-  <p><strong>这本书讲的是欧洲人怎么思考。</strong>第二层已经说过这个取景框。补一句：对中文读者来说，损失比对德国读者更大——书里那条“提出问题、给出体系、被下一个人推翻”的链条，是西方哲学特有的形态；中国思想传统的运作方式不是这样，它更多靠注疏、靠对经典的重新解释来推进。<strong>用这本书的形状去看中国哲学，会觉得那边什么也没发生，而这是形状的问题。</strong></p>
+  <p><strong>这本书讲的是欧洲人怎么思考。</strong>第二层已经说过这个取景框。补一句：对中文读者来说，损失比对德国读者更大，书里那条“提出问题、给出体系、被下一个人推翻”的链条，是西方哲学特有的形态；中国思想传统的运作方式不是这样，它更多靠注疏、靠对经典的重新解释来推进。<strong>用这本书的形状去看中国哲学，会觉得那边什么也没发生，而这是形状的问题。</strong></p>
 
   <p><strong>她把哲学讲成了一门可以旁观的学问。</strong>整本书的语法是“某某认为”，读者始终在观众席上。可按她自己第一节的说法，哲学是每个人都在做的事。<strong>一本论证哲学属于所有人的书，通篇却在介绍专业人士的想法</strong>，这个张力她没有处理。</p>
 
@@ -605,7 +685,7 @@
 
   <p>不服的两处。一是第二层说过的那个隐藏成本：读完两百字的康德，人会以为自己知道康德在说什么了，而这本书没有提醒读者这件事。二是它对论证的处理。哲学最值钱的是理由不是结论，而两百字只装得下结论。<strong>这本书教出来的是一群知道很多观点、但没练过怎么支持一个观点的读者。</strong></p>
 
-  <p>给读者的读法建议：第一章值得慢读，它是全书唯一一处直接讲“你”而不是讲别人的地方。第二、三章（前苏格拉底到亚里士多德）写得最好，因为那个阶段的问题最原始、最容易用日常语言讲清。第四章（中世纪）可以快读。第六到第九章当索引翻，看到感兴趣的人名再去找原文。第十章我建议单独看，理由在下一层。</p>
+  <p>给先生的读法建议：第一章值得慢读，它是全书唯一一处直接讲“你”而不是讲别人的地方。第二、三章（前苏格拉底到亚里士多德）写得最好，因为那个阶段的问题最原始、最容易用日常语言讲清。第四章（中世纪）可以快读。第六到第九章当索引翻，看到感兴趣的人名再去找原文。第十章我建议单独看，理由在下一层。</p>
 </div>
 
 <div class="layer">
@@ -624,7 +704,7 @@
   <div class="sub">一张图</div>
 
 <pre>
-   「我」这个词在哪儿 ——两千五百年的位移
+   「我」这个词在哪儿 ，两千五百年的位移
 
    前苏格拉底   苏格拉底   中世纪    笛卡尔    康德之后   十九世纪末
       │            │         │         │         │          │
@@ -657,7 +737,7 @@
 
   <p>如果女性哲学家能被编进各自的时代，就不需要有第十章。它之所以存在，是因为编者在排完九章之后，看着自己排出来的东西，发现里面几乎没有女人。<strong>第十章是一次补救动作，而补救动作暴露的是它要补救的那个东西。</strong></p>
 
-  <p>这一手比很多正面讨论都有力，因为它没有讲道理，它让你自己看见。一个读者读完前九章不会觉得有什么不对——哲学史本来就长这样。直到翻到第十章的章名，才反应过来：等一下，刚才那九章里，人呢？</p>
+  <p>这一手比很多正面讨论都有力，因为它没有讲道理，它让你自己看见。一个读者读完前九章不会觉得有什么不对，哲学史本来就长这样。直到翻到第十章的章名，才反应过来：等一下，刚才那九章里，人呢？</p>
 
   <p>这个说法我攻了两下。</p>
 
@@ -669,11 +749,11 @@
 
   <p>第二个疑问我没能答干净：<strong>那到底该怎么排？</strong></p>
 
-  <p>把她们编进各自的时代？听上去公道，可这样做会抹掉一件重要的事实——她们之所以那么少，是因为在两千年里女性不被允许读书、不被允许进学院、不被允许署名。<strong>把她们平滑地插进时间线，等于假装这个排除从来没有发生过。</strong>那么读者会看到一部人数悬殊但看似正常的哲学史，而人数悬殊本身恰恰是最该被解释的现象。</p>
+  <p>把她们编进各自的时代？听上去公道，可这样做会抹掉一件重要的事实，她们之所以那么少，是因为在两千年里女性不被允许读书、不被允许进学院、不被允许署名。<strong>把她们平滑地插进时间线，等于假装这个排除从来没有发生过。</strong>那么读者会看到一部人数悬殊但看似正常的哲学史，而人数悬殊本身恰恰是最该被解释的现象。</p>
 
   <p>不编进去、单设一章？就是这本书的做法，它的问题上面已经说了。</p>
 
-  <p>两个选项都是坏的，而且没有第三个。这本书选的那个，至少把缺口摆在了明处——那个章名不是“女哲学家”，是“还是缺了什么”。<strong>它没有假装这一章是圆满的补充，它承认了自己在打补丁。</strong>在两个坏选项里，这是较不坏的那个。</p>
+  <p>两个选项都是坏的，而且没有第三个。这本书选的那个，至少把缺口摆在了明处，那个章名不是“女哲学家”，是“还是缺了什么”。<strong>它没有假装这一章是圆满的补充，它承认了自己在打补丁。</strong>在两个坏选项里，这是较不坏的那个。</p>
 
   <p>同样的两难，修家谱的人碰得最多。</p>
 
@@ -687,7 +767,7 @@
 
   <p>我见过的处理里，最诚实的是第三种：世系照旧，但在卷首加一段说明，写清楚为什么这本谱里女性只有姓氏，那是什么时代的规矩，谁在什么时候决定这么记的。<strong>不修补空白，而是给空白配一份说明书。</strong></p>
 
-  <p>这本书的第十章，实际上干的就是这件事。它没能力重排两千五百年，它能做的是在排完之后加一章，标题叫“还是缺了什么”——那不是一份补充名单，那是一份说明书。</p>
+  <p>这本书的第十章，实际上干的就是这件事。它没能力重排两千五百年，它能做的是在排完之后加一章，标题叫“还是缺了什么”，那不是一份补充名单，那是一份说明书。</p>
 
   <p>所以从这一层可以带走一件很实用的东西：<strong>下次看到任何一份清单、榜单、名录、教材目录，多看一眼它是怎么分类的，以及有没有一个叫“其他”“特别”“附”的类别。</strong>那个类别里装着的，往往就是这份清单没能力正面处理的问题。而一份把这个类别叫做“还是缺了什么”的清单，比一份假装没有缺口的清单，诚实得多。</p>
   </div>
@@ -695,7 +775,7 @@
 
 <div class="boundary">
   <h4>事实边界</h4>
-  <p>本篇依据《向下扎根！德国教育的公民思辨课 3——你只是单纯活着，还是有在动脑？质疑所谓理所当然的事》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书十一章的结构、各节标题、附录五十四位哲学家简历这些信息，均出自原书目录；我通读了目录与导读，<strong>各节的正文未逐节细读</strong>。本篇引述的都是原书标题，节内的具体讲法若要引用，请翻原书对应页。</p>
+  <p>本篇依据《向下扎根！德国教育的公民思辨课 3，你只是单纯活着，还是有在动脑？质疑所谓理所当然的事》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书十一章的结构、各节标题、附录五十四位哲学家简历这些信息，均出自原书目录；我通读了目录与导读，<strong>各节的正文未逐节细读</strong>。本篇引述的都是原书标题，节内的具体讲法若要引用，请翻原书对应页。</p>
   <p>第一层与第六层引用的“基本知识”“理所当然”那几段，出自中译本总导读（沈清楷撰），不是原书正文。</p>
   <p><strong>第八层要单独说明：</strong>第十章的章名与各节标题出自原书目录，其中明确写到的人物是汉娜·阿伦特（书中译作汉娜·鄂兰）与西蒙娜·德·波伏娃（书中译作西蒙·波娃）。<strong>“最早的女哲学家”与“从灵视到智慧”这两节具体写了谁，我没有核对正文，本篇因此没有列举人名。</strong>附录那五十四位哲学家里女性占几位，我也没有清点。第八层关于“单设一章的代价”“两个坏选项”的分析，是我的判断，不是原书的说法。</p>
   <p>第三层的三根线、第四层的下钻、第五层对洞穴比喻与绝对命令的辨析（尤其“己所不欲”与康德普遍法则的差别）、第六层关于本书局限的判断，都是我读下来的看法。第八层拿家谱作类比是我举的一般现象，不指任何具体家族。</p>

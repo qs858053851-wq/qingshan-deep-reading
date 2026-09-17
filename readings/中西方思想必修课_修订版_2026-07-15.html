@@ -3,27 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>《中西方思想必修课》——九层解书</title>
+<title>《中西方思想必修课》，九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,13 +380,18 @@
 </head>
 <body>
 <div class="container">
-<div class="hero"><div class="kicker">QINGSHAN DEEP READING</div><h1>《中西方思想必修课》——九层解书</h1></div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中西方思想必修课，九层解书</div>
+    <div class="cover-sub">作者 ：王德峰  文本来源 ： 中西方思想必修课 王德峰.pdf ，已抽取文本约 29.8 万字  书籍类型 ：论证型思想讲义  核心主题 ：在中西思想互照中，重新追问现代人的精神...</div>
+    <div class="cover-meta">青山 读 · 中西方思想必修课，九层解书 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div><h1>《中西方思想必修课》，九层解书</h1></div>
 <p><strong>作者</strong>：王德峰 <strong>文本来源</strong>：<code>中西方思想必修课 王德峰.pdf</code>，已抽取文本约 29.8 万字 <strong>书籍类型</strong>：论证型思想讲义 <strong>核心主题</strong>：在中西思想互照中，重新追问现代人的精神家园。 <strong>核心观点</strong>：中国思想以生命安顿为本，西方思想以理性求真为本；两条路都走到现代危机处，真正的问题不是谁胜谁负，而是人如何在资本、技术、虚无和传统断裂中重新立住。</p>
 <hr>
 <h2>第一层：骨架扫描</h2>
 <p><strong>核心问题</strong>：现代人如何安顿生命？</p>
 <p><strong>核心答案</strong>：要同时理解中国的生命情感传统与西方的理性求真传统，在两者的互相批判中重建精神家园。</p>
-<p>这本书表面上叫“中西方思想必修课”，很容易被误读成一门知识课：孔子讲什么，老子讲什么，柏拉图讲什么，康德讲什么，海德格尔讲什么。若只这样读，它会变成一张大而全的思想史清单。真正的读法要反过来：王德峰不是在给我们摆一桌哲学名词，而是在追问一个非常现实的问题——现代人为什么越来越无家可归？这里的“家”不是房子，而是生命可以安顿的地方。你知道自己为什么活，知道痛苦往哪里放，知道责任从哪里来，知道自由不是随便乱动，而是有根地行动。</p>
+<p>这本书表面上叫“中西方思想必修课”，很容易被误读成一门知识课：孔子讲什么，老子讲什么，柏拉图讲什么，康德讲什么，海德格尔讲什么。若只这样读，它会变成一张大而全的思想史清单。真正的读法要反过来：王德峰不是在给我们摆一桌哲学名词，而是在追问一个非常现实的问题，现代人为什么越来越无家可归？这里的“家”不是房子，而是生命可以安顿的地方。你知道自己为什么活，知道痛苦往哪里放，知道责任从哪里来，知道自由不是随便乱动，而是有根地行动。</p>
 <p>全书分三大部分。</p>
 <p>第一部分讲古代思想的中西比较。中国从孔子、老子、《大学》《中庸》、祖先崇拜和五伦关系说起，核心是“一个世界”：天道不在彼岸，而在人伦、情感、生活和历史里。西方从希腊哲学到基督教，核心是“两个世界”：感性世界之外有理念、逻各斯、上帝和救赎。中国问的是“人生如何安顿”，西方问的是“真理如何确立”。</p>
 <p>第二部分讲近代思想的中西比较。中国路线是孟子心学、禅宗、宋明理学、陆王心学，核心是道德主体的建立。西方路线是宗教改革、笛卡尔、休谟、康德、黑格尔，核心是理性主体的建立。中国的主体性更多来自生命情感、良知、本心；西方的主体性更多来自理性、自由、历史和制度。</p>
@@ -373,26 +419,26 @@
 <p>但这些边界不削弱它的价值。它的价值不在细节百科，而在给你一条总线：现代人的问题，不只是缺知识、缺技术、缺制度，也缺一个能承受自由的心。</p>
 <blockquote>关键洞察：现代性真正可怕的地方，不是机器太强，而是人越来越像机器理解自己。</blockquote>
 <hr>
-<h2>第三层：底层逻辑——降秩</h2>
+<h2>第三层：底层逻辑，降秩</h2>
 <p>全书看起来很大，孔孟老庄、柏拉图、基督教、禅宗、阳明、康德、黑格尔、马克思、尼采、海德格尔都出现了。但把它降秩之后，真正独立的生成器只有三个。</p>
-<h3>生成器一：世界结构——一个世界，还是两个世界</h3>
+<h3>生成器一：世界结构，一个世界，还是两个世界</h3>
 <p>中国思想大体是一个世界。天道不在另一个彼岸世界，而在人伦、身体、节气、历史、情感和生活中显现。孔子的仁、老子的道、《大学》的明明德、《中庸》的诚、祖先崇拜、家族本位，都在这个结构里。你不需要逃离生活去找真理，生活本身就是道显现的地方。</p>
 <p>西方思想大体是两个世界。希腊哲学把感性世界和理念世界分开，基督教把尘世和上帝之国分开，近代理性又把现象和主体条件分开。两个世界结构让西方拥有强大的超越能力。它能说：眼前如此，不代表真理如此；现实不合理，就要用理念、信仰、理性、制度去改造现实。</p>
 <p>这个生成器可以推出全书许多论点。为什么中国重人伦？因为天道就在关系中。为什么西方重科学？因为真理不等同于感性经验，要通过理性结构把握。为什么中国重安心立命？因为生命本身就是道的场所。为什么西方容易走向改造世界？因为现实只是低一级的世界，可以被更高理念审判。</p>
 <p>它也有预测力。一个世界结构容易重视调和、平衡、情境和关系，也容易缺少外在制度的硬约束。两个世界结构容易生成科学、法权、革命和批判，也容易把现实世界视作待加工材料。</p>
-<h3>生成器二：主体结构——生命情感主体，还是理性主体</h3>
+<h3>生成器二：主体结构，生命情感主体，还是理性主体</h3>
 <p>中国的主体不是先从“我思”开始，而是从“我心”开始。这个心不是情绪，不是脑科学对象，而是人能感到羞恶、恻隐、敬畏、安与不安的根。孟子的四端、禅宗的自性、阳明的良知，都属于这一路。中国式主体性不是“我凭理性证明我存在”，而是“我在良知发动处知道自己该如何做人”。</p>
 <p>西方近代主体从理性开始。笛卡尔说我思故我在，康德说经验和自由都要有先验主体作为条件，黑格尔说历史是理性展开自身。理性主体的力量，是能建立科学、法权、制度和历史进步叙事。它让人从教会、等级、传统权威中站出来。</p>
 <p>这个生成器解释了第二部分的大部分内容。为什么王德峰重视禅宗和阳明？因为它们完成了中国主体性的群众化和道德化。为什么他重视康德和黑格尔？因为它们完成了西方理性主体的哲学化和历史化。为什么他对程朱理学有保留？因为理一旦被对象化，就可能变成外在教条；良知若能从心中发动，才有主体性。</p>
 <p>它也能解释现代中国的难题：传统家族和礼教松了，外在秩序不再稳固；但真正的道德主体还没长成，人就容易变成欲望主体、消费主体、流量主体。换句话说，旧屋塌了，新人还没站起来。</p>
-<h3>生成器三：现代病灶——资本技术系统制造无家可归</h3>
+<h3>生成器三：现代病灶，资本技术系统制造无家可归</h3>
 <p>第三个生成器，是资本与技术。王德峰把现代世界的统一，不归功于某种温柔的文明交流，而归因于资本增殖。资本要增殖，就要市场、资源、效率、技术、可计算性。它把世界连成整体，也把人和自然抽象成资源。</p>
 <p>现代科学在这里不再只是“聪明人发现自然规律”，而与资本的效率原则相连。自然被量化，劳动被量化，身体被量化，教育被量化，管理被量化。量化本身不坏，坏的是人最后只剩可量化的部分。鱼一旦只被理解为蛋白质，河流就只剩水资源，土地就只剩资产，人就只剩人力资源。</p>
 <p>这个生成器解释第三部分。严复、五四为什么焦虑？因为中国被卷进一个以强弱、先进落后、效率为尺度的世界。现代新儒家为什么追问“老内圣如何开新外王”？因为只有内在心性，没有现代制度和科学，中国会被动挨打；只有外在制度和科学，没有内在心性，人会被技术文明吞掉。尼采、马克思、海德格尔为什么重要？因为他们从不同方向揭开现代文明的病：价值坍塌、资本统治、存在遗忘。</p>
 <p>三个生成器合在一起，就能反向生成全书：世界结构决定真理在哪里，主体结构决定人如何站起来，现代病灶决定今天为什么必须重读中西思想。</p>
 <blockquote>关键洞察：这本书真正比较的不是中国和西方，而是三种“人如何不散掉”的办法：靠人伦，靠理性，靠重新记起存在。</blockquote>
 <hr>
-<h2>第四层：追本——纵向深钻</h2>
+<h2>第四层：追本，纵向深钻</h2>
 <p>选全书最核心的一根线，就是“无家可归”。这不是书中某个孤立章节，而是贯穿全书的暗线。</p>
 <h3>表象：现代人焦虑</h3>
 <p>表面看，现代人焦虑是因为工作太忙、竞争太激烈、信息太多、房价太高、关系太脆、未来太不确定。这些都是真的，但它们还不是根。它们像水面上的浪，浪很大，可浪不是海本身。</p>
@@ -407,11 +453,11 @@
 <p>裂缝更深：为什么对象化会导致虚无？因为意义不是对象属性。你不能像测温度那样测意义。意义只在参与、承担、爱、敬畏、创造、牺牲中出现。</p>
 <h3>公理：人不是只会计算的存在</h3>
 <p>触底处，是一个公理：人不是只会计算的存在。人需要真理，可正确的知识填不满它；人需要自由，可自由从来不是选项多寡的问题；人需要效率，可效率回答不了为什么活；人需要独立，可独立不该取消关系；人需要现代化，可现代化不能以精神荒漠为代价。</p>
-<p>中国思想提醒我们，生命情感不是低级东西，而是人和世界相连的根。西方现代批判提醒我们，理性和技术一旦忘记自身边界，就会反过来统治人。至于海德格尔那句"重新记起存在"，正是冲着这条下坠路线来的——这里先按下不表，第八层摊开细说。</p>
+<p>中国思想提醒我们，生命情感不是低级东西，而是人和世界相连的根。西方现代批判提醒我们，理性和技术一旦忘记自身边界，就会反过来统治人。至于海德格尔那句"重新记起存在"，正是冲着这条下坠路线来的，这里先按下不表，第八层摊开细说。</p>
 <p>这就是这本书的下坠路线：焦虑不是根，断裂才是；断裂不是根，对象化才是；对象化不是根，把人误认为纯计算者才是。</p>
 <blockquote>关键洞察：现代人不是没有房子，而是把整个世界都变成工具之后，自己也没地方住了。</blockquote>
 <hr>
-<h2>第五层：Q-A 链——复现论证骨架</h2>
+<h2>第五层：Q-A 链，复现论证骨架</h2>
 <h3>Q1：为什么中西比较不能只比制度、技术和经济？</h3>
 <p><em>结论</em>：因为制度和技术只是文明的表层动作，真正决定动作方向的是世界观和人生观。</p>
 <p><em>形式化</em>：<code>文明动作 = 制度/技术/经济；文明方向 = 真理观 + 人性观 + 终极关怀</code></p>
@@ -449,7 +495,7 @@
 <p><em>边界</em>：不能借“安顿人”逃避专业性。好的现代方案必须同时有技术能力和心性根基。只有温情没有结构，会散；只有结构没有温情，会冷。</p>
 <blockquote>关键洞察：真正成熟的判断，不是反传统或反现代，而是能看出传统哪里救人、现代哪里伤人，反过来也一样。</blockquote>
 <hr>
-<h2>第六层：灵魂提取——超越作者</h2>
+<h2>第六层：灵魂提取，超越作者</h2>
 <h3>作者动机</h3>
 <p>王德峰不写不行的那股劲儿，是他看见现代中国人正在失去精神家园，却又找不到一条不自欺的路。</p>
 <p>如果只讲传统，容易变成怀旧。说家族好、仁义好、老庄好、阳明好，可现代人已经离开宗族社会，住在城市，进入市场，受教育、打工、创业、流动，旧秩序回不去了。如果只讲西方，容易变成崇拜。科学好、民主好、理性好、个人自由好，可西方自己也走到了虚无、战争、资本统治和技术异化。王德峰的焦虑正在这里：我们不能退回传统，也不能照搬西方；不能不要现代化，也不能让现代化吞掉人的心。</p>
@@ -469,8 +515,8 @@
 <p>第一，判断一个方案时，不只问“有效吗”，还问“它让人更完整，还是更工具化”。</p>
 <p>第二，遇到焦虑时，不只问“我缺什么资源”，还问“我接入了什么更长久的东西”。家庭、事业、地方、作品、修行、关系，都可能是根。没有根，资源越多越飘。</p>
 <p>第三，读中西思想时，不要急着站队。中国传统不是情怀仓库，西方思想不是先进套餐。要问：这个思想在解决哪种痛苦？它牺牲了什么？它今天还能不能转成行动？</p>
-<p>第四，做现代化事情时，给自己设一道门槛：不做只增加效率、不增加人味的优化。落到民宿和乡村运营上，就是每上一个新流程、新指标、新改造前，先问一句——它让村子里的人和住进来的人更能安住，还是只让这个地方更好被计算。工具要用，但不能让工具决定人是什么。</p>
-<blockquote>关键洞察：这本书真正给青山的不是哲学知识，而是一把筛子——凡事先筛掉“只把人当资源”的方案。</blockquote>
+<p>第四，做现代化事情时，给自己设一道门槛：不做只增加效率、不增加人味的优化。落到民宿和乡村运营上，就是每上一个新流程、新指标、新改造前，先问一句，它让村子里的人和住进来的人更能安住，还是只让这个地方更好被计算。工具要用，但不能让工具决定人是什么。</p>
+<blockquote>关键洞察：这本书真正给青山的不是哲学知识，而是一把筛子，凡事先筛掉“只把人当资源”的方案。</blockquote>
 <hr>
 <h2>第七层：餐巾纸压缩</h2>
 <h3>餐巾纸公式</h3>

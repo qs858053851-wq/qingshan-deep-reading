@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>江村经济 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">开弦弓村的田野切片与中国乡村经济的微观生态全景</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">太湖水网、农家收支账簿与合作缫丝厂的实证铁证</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 机制解剖</span><span class="toc-desc">农工相辅的家计结构与城乡财富单向流失机制</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 终极下钻</span><span class="toc-desc">土地极限、人口重压与资本匮乏的三重绝境下钻</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 衍生推演</span><span class="toc-desc">乡村工业化路径的成败推演与乡镇企业前夜预演</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">实证主义人类学的尺度反思与改良主义的历史局限</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">传统小农乡村家计与工业化转型的动态平衡模型</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">最值钱的一个问题：为什么守着太湖粮仓的江南富庶之民反而活不下去？</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">从江村到当代乡村振兴：产业链就地扎根与农民主体地位</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">开弦弓村的田野切片与中国乡村经济的微观生态全景</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">太湖水网、农家收支账簿与合作缫丝厂的实证铁证</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 机制解剖</span><span class="toc-desc">农工相辅的家计结构与城乡财富单向流失机制</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 终极下钻</span><span class="toc-desc">土地极限、人口重压与资本匮乏的三重绝境下钻</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 衍生推演</span><span class="toc-desc">乡村工业化路径的成败推演与乡镇企业前夜预演</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">实证主义人类学的尺度反思与改良主义的历史局限</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">传统小农乡村家计与工业化转型的动态平衡模型</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">最值钱的一个问题：为什么守着太湖粮仓的江南富庶之民反而活不下去？</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">从江村到当代乡村振兴：产业链就地扎根与农民主体地位</span></div>
     </div>
   </div>
 
@@ -455,7 +515,7 @@
     <div class="layer-tag">Layer 09 · 终局定音</div>
     <h1>从江村到当代乡村振兴：产业链就地扎根与农民主体地位</h1>
     
-<p>穿越近九十年的历史烟云，《江村经济》所揭示的真理在今天不仅没有过时，反而在当代乡村振兴、县域经济发展与乡村项目庄建设的伟大实践中，迸发出愈加夺目的思想光芒。</p>
+<p>穿越近九十年的历史烟云，《江村经济》所揭示的真理在今天不仅没有过时，反而在当代乡村振兴、县域经济发展与百美村庄建设的伟大实践中，迸发出愈加夺目的思想光芒。</p>
 <p>对于当代每一个投身乡村建设、民宿运营与在地文化挖掘的实干家，费孝通留下了三笔无比珍贵的精神遗产。第一，坚决确立农民的主体地位与利益共享机制。任何外部资本进入乡村，无论打着乡村文旅、高端民宿还是特色农业的旗号，如果仅仅把农民当作廉价服务员，把利润全部抽调回一线城市，其本质依然是不在地主的变种剥夺。真正的乡村振兴，必须像当年开弦弓丝厂一样，通过股份合作、在地就业与分红机制，把产业增值收益牢牢留在乡村本土，富民方能强村。</p>
 <p>第二，大力推动三产融合与在地价值链延伸。单纯依靠初级农产品种植，永远无法摆脱低附加值与价格波动的宿命。今天的乡村必须发扬农工相辅的历史智慧，将农产品深加工、在地手工艺创意、乡村民宿生态与在地研学体验深度咬合，打造出具有不可替代文化溢价的复合产品。让乡村不仅是粮食的供给地，更是高品质生活方式与文化体验的策源地。</p>
 <p>第三，始终秉持眼睛向下、脚踩泥土的田野精神。面对复杂多变的基层社会治理与市场经济浪潮，管理者与创业者切忌坐在空调房里闭门拍脑袋。我们要像费孝通那样，走进农户家门，算清老百姓的细碎账簿，倾听乡亲们的真实叹息与期盼。只有扎根这片土地最深厚的泥土，与乡村人民同呼吸共命运，我们才能在时代激荡的大潮中，找到乡村文明生生不息、历久弥新的永恒答案。</p>

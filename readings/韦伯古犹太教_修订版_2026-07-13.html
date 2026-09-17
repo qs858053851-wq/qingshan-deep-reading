@@ -6,25 +6,32 @@
   <title>韦伯《古犹太教》深度阅读</title>
   
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -81,6 +88,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -94,14 +112,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -110,7 +128,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -119,7 +137,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -129,7 +147,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -137,12 +155,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -158,7 +176,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -173,7 +190,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -268,9 +284,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -278,6 +293,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -330,6 +362,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,13 +381,48 @@
 </head>
 <body>
   <div class="container">
-    <header class="hero">
-      <h1>韦伯作品集 XI<br>古犹太教</h1>
-      <div class="hero-meta">
-        马克斯·韦伯（Max Weber）著 · 康乐、简惠美译 · 广西师范大学出版社<br>
-        深度阅读 · 青山 · 07-11 初稿 · 07-13 修订
-      </div>
-    </header>
+      <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">韦伯作品集 XI 古犹太教</div>
+    <div class="cover-sub">这本书在韦伯的作品序列里位置特殊。它写于 1917 到 1919 年间，是「世界诸宗教的经济伦理」系列的组成部分，与《新教伦理与资本主义精神》《中国的宗教》《印度教与佛教》并列。韦...</div>
+    <div class="cover-meta">青山 读 · 韦伯作品集 XI 古犹太教 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">这本书在韦伯的作品序列里位置特殊。它写于 1917 到 1919 年间，是「世界诸宗教的经济伦理」系列的组成部...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">证据一：契约作为社会组织机制。韦伯在第八章专门讨论「契约」。以色列以契约共同体形式存在，而非血缘共同体。各个支...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 牵动全书的那几根线</span>
+      <span class="toc-desc">以色列不是自然形成的民族国家。按韦伯的理解，它是一个通过契约组织起来的誓约共同体。各个支派、宗族、群体通过与耶...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">这是最表面的答案。耶和华不是抽象的自然力量，也不是可以通过巫术 manipulate 的神灵。耶和华是以色列的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">结论：因为古犹太教是理解基督教和西方文明理性化根源的关键环节。不清算这笔账，就无法理解清教伦理从哪里来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">韦伯写《古犹太教》，是为了完成他的「世界诸宗教的经济伦理」拼图。他已经解释了新教伦理，也分析了儒教、印度教、佛...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">一句话：四根线拧在一起，让一个近东小民族长出了一颗能改变世界史的种子，这颗种子后来落在了谁手里、怎么出的园子...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 同样的种子，不同的花园</span>
+      <span class="toc-desc">前面几层按下不表的东西，现在可以摊开了。韦伯这本书如果只留下一个洞见，我会留这个：犹太教和基督教同源，一个留在...</span>
+    </div>
+  </div>
+
 
     <section class="layer">
       <div class="layer-number">Layer 01</div>
@@ -362,7 +438,7 @@
 
       <h3>韦伯自己的答案</h3>
       <p>韦伯的答案是双重的。一方面，古犹太教发展出了一种<strong>现世内行动的理性伦理</strong>：它把世界看成被神创造的、历史的、可被改造的，而不是永恒的、神秘的、只能被顺应的。这种取向与亚洲的出离、遁世传统形成鲜明对比，成为西方文明的重要源头。</p>
-      <p>另一方面，这种伦理又和一种<strong>强烈的选民意识与仪式隔离</strong>绑定在一起。犹太人相信自己是与耶和华立约的选民，将来要恢复为地上的支配民族。这个信念让他们在礼仪上自我隔离，对内部讲兄弟伦理，对外部保持疏离，形成道德二元结构。同一株植物结出两种果实——这两种果实各自结成了什么，先按下不表，第八层摊开。</p>
+      <p>另一方面，这种伦理又和一种<strong>强烈的选民意识与仪式隔离</strong>绑定在一起。犹太人相信自己是与耶和华立约的选民，将来要恢复为地上的支配民族。这个信念让他们在礼仪上自我隔离，对内部讲兄弟伦理，对外部保持疏离，形成道德二元结构。同一株植物结出两种果实，这两种果实各自结成了什么，先按下不表，第八层摊开。</p>
 
       <h3>三篇骨架</h3>
       <p>全书分为三篇，外加绪论和附录。三篇分别对应三个历史阶段：以色列共同体形成期、犹太贱民民族形成期、法利赛主义与基督教兴起期。</p>
@@ -372,7 +448,7 @@
 
       <h3>韦伯的写作姿态</h3>
       <p>这本书的语气是冷峻的社会学分析。韦伯不站队耶和华信仰，也不为犹太教辩护。他把犹太教当成一个历史个案，用「理想型」的方法拆解它的社会结构、伦理取向和历史后果。但他也带着明显的比较意图：他要通过古犹太教来理解西方文明理性化的古代根源，也要通过它来理解为什么现代资本主义没有从犹太教内部产生。</p>
-      <p>这种姿态让《古犹太教》成为韦伯宗教社会学中最复杂、也最有争议的作品。后世学者批评他过度强调先知的理性化作用、低估圣经研究的成果、把「贱民民族」概念用得太硬。韦伯提出的问题——一个宗教如何通过伦理取向塑造一个民族的命运——仍是理解犹太教、基督教和西方现代性的关键入口。</p>
+      <p>这种姿态让《古犹太教》成为韦伯宗教社会学中最复杂、也最有争议的作品。后世学者批评他过度强调先知的理性化作用、低估圣经研究的成果、把「贱民民族」概念用得太硬。韦伯提出的问题，一个宗教如何通过伦理取向塑造一个民族的命运，仍是理解犹太教、基督教和西方现代性的关键入口。</p>
       <p>对今天的读者来说，这本书还有一个更实际的刺激：它让我们看见，边界感能让群体存续，也会限制它扩展。这个张力，到现在仍是理解宗教、民族与现代性关系的一个有效入口。</p>
     </section>
 
@@ -384,12 +460,12 @@
 
       <h3>核心论证链</h3>
       <ol>
-        <li><strong>前提一：以色列诞生于特定的社会地理环境。</strong>巴勒斯坦是沙漠与农耕的交界，贝都因游牧、城市商业、农民定居三种生活方式并存。这种环境让以色列社会兼具部落联盟与定居国家的双重特征。</li>
-        <li><strong>前提二：耶和华信仰通过契约机制把各个群体粘合起来。</strong>以色列并非自然形成的民族国家，它是一个以誓约共同体形式组织起来的联盟。各个支派通过与耶和华立约，形成宗教—政治共同体。</li>
-        <li><strong>前提三：祭司阶层和律法书推动了宗教的理性化。</strong>利未人、祭司、圣殿崇拜独占、牺牲与赎罪制度，逐步把耶和华信仰从地方性战神崇拜，提升为具有伦理规范和法律结构的宗教。</li>
+        <li><strong>第一项前提，以色列诞生于特定的社会地理环境。</strong>巴勒斯坦是沙漠与农耕的交界，贝都因游牧、城市商业、农民定居三种生活方式并存。这种环境让以色列社会兼具部落联盟与定居国家的双重特征。</li>
+        <li><strong>第二项前提，耶和华信仰通过契约机制把各个群体粘合起来。</strong>以色列并非自然形成的民族国家，它是一个以誓约共同体形式组织起来的联盟。各个支派通过与耶和华立约，形成宗教，政治共同体。</li>
+        <li><strong>第三项前提，祭司阶层和律法书推动了宗教的理性化。</strong>利未人、祭司、圣殿崇拜独占、牺牲与赎罪制度，逐步把耶和华信仰从地方性战神崇拜，提升为具有伦理规范和法律结构的宗教。</li>
         <li><strong>前提四：先知把宗教伦理推向普世化和历史化。</strong>先知不仅是预言者，更是神义论者。他们追问：为什么公义的耶和华让以色列受苦？这个问题把以色列的历史解释为神的审判与救赎计划。</li>
         <li><strong>前提五：俘囚期和第二以赛亚把选民意识从政治民族转化为宗教共同体。</strong>失去国家之后，犹太人不能再以政治疆界定义自己，只能以宗教礼仪和律法定义自己。这促成了仪礼隔离和贱民民族的形成。</li>
-        <li><strong>结论：古犹太教孕育了普世宗教的种子，但仪式隔离让它自己成为了一个「贱民民族」。</strong>这颗种子后来的去向，是全书最大的反转——证据先陈列在这里，按下不表，第八层摊开。</li>
+        <li><strong>结论：古犹太教孕育了普世宗教的种子，但仪式隔离让它自己成为了一个「贱民民族」。</strong>这颗种子后来的去向，是全书最大的反转，证据先陈列在这里，按下不表，第八层摊开。</li>
       </ol>
 
       <h3>三处关键证据</h3>
@@ -398,7 +474,7 @@
         <p>以色列既是以一再更新的仪式性的同盟追忆来发展其内在的政治史。</p>
       </div>
       <p><strong>证据二：先知对巫术和狂迷的斗争。</strong>韦伯反复强调，古犹太教的理性化并非自动发生，它是在与巴力崇拜、狂迷之道、占卜巫术的斗争中实现的。先知代表着一种理解耶和华的新方式：不靠巫术 manipulate 神，而靠伦理行为顺服神。</p>
-      <p><strong>证据三：仪礼隔离的双刃剑。</strong>失国之后的犹太人靠饮食、洁净、安息日等律法维持群体边界，这既是保护也是牢笼——这根线的完整展开在第三层细说。这里只陈列韦伯自己的定性：</p>
+      <p><strong>证据三：仪礼隔离的双刃剑。</strong>失国之后的犹太人靠饮食、洁净、安息日等律法维持群体边界，这既是保护也是牢笼，这根线的完整展开在第三层细说。这里只陈列韦伯自己的定性：</p>
       <div class="quote-block">
         <p>就社会学而言，犹太人到底是什么：一个贱民民族（Ein Pariavolk）。意思是，正如我们所得知于印度人的：一个在礼仪上，无论就形式或事实而言，与周遭社会环境区隔开来的客族（Gastvolk）。犹太人对周遭环境所抱持的态度的所有基本特征，都可以从他们这种贱民存在里推衍出来：特别是早在（中世纪的）强制隔离之前他们就已自愿性地生活于犹太人区（Ghetto），以及他们对内道德与对外道德的二元分法。</p>
       </div>
@@ -421,7 +497,7 @@
       <p class="lead">韦伯这本书表面上看是在讲以色列的历史、先知的故事、律法的细节，但往下追，真正牵动全书的是四根线。它们彼此不能替代，合在一起才能把韦伯的主要判断推回来。</p>
 
       <h3>第一根线：契约是把以色列粘成共同体的社会机制</h3>
-      <p>以色列不是自然形成的民族国家。按韦伯的理解，它是一个通过契约组织起来的誓约共同体。各个支派、宗族、群体通过与耶和华立约，承认耶和华是共同的战神和立法者，从而形成一个宗教—政治联盟。</p>
+      <p>以色列不是自然形成的民族国家。按韦伯的理解，它是一个通过契约组织起来的誓约共同体。各个支派、宗族、群体通过与耶和华立约，承认耶和华是共同的战神和立法者，从而形成一个宗教，政治联盟。</p>
       <p>这根线不能替代，因为你可以想象一个群体有共同血缘但没有契约，那它只是一个部落；你也可以想象有契约但没有共同的神，那它只是政治联盟。只有当契约、耶和华信仰、同盟仪式三者咬合，才会产生以色列这种特殊的共同体形式。</p>
       <p>契约的后果是深远的。它让以色列宗教具有了法律和伦理的取向：神与人之间的关系被理解成约的关系，违约就要受罚，守约就得祝福。这种法律关系为后来的律法书、先知伦理、神义论都埋下了种子。</p>
 
@@ -467,7 +543,7 @@
 
       <h3>第四层：理性伦理需要行动，但行动需要群体</h3>
       <p>挖到这里，触到韦伯最底层的判断：一种理性伦理要真正影响历史，必须靠一个具体的群体来承载。犹太教发展出了高度理性的现世内行动伦理，但这种伦理和犹太民族的身份绑定得太紧。</p>
-      <p>犹太教的发明是「普世一神 + 历史意识 + 伦理行动」的组合。这个组合极其强大，但它被装在一个特定的民族容器里。后来有人把这个组合从容器里倒了出来——谁倒的、怎么倒的，按下不表，第八层摊开。</p>
+      <p>犹太教的发明是「普世一神 + 历史意识 + 伦理行动」的组合。这个组合极其强大，但它被装在一个特定的民族容器里。后来有人把这个组合从容器里倒了出来，谁倒的、怎么倒的，按下不表，第八层摊开。</p>
 
       <h3>井底的基岩：理性化的种子需要合适的土壤</h3>
       <p>再往下已经没法问了。韦伯的基岩就是：理性化不是一条单行道。犹太教理性化了，但这种理性化导向的是仪式隔离和贱民处境，而不是现代资本主义或普世帝国。</p>
@@ -491,7 +567,7 @@
         <div class="qa-q">Q2：以色列共同体是怎么形成的？</div>
         <div class="qa-a">
           <p><strong>结论：</strong>以色列是通过契约组织起来的誓约共同体，而不是自然形成的血缘民族国家。</p>
-          <p><strong>怎么想到的：</strong>韦伯分析了近东的社会地理条件：贝都因游牧、城市商业、农民定居并存。在这个环境中，各个支派通过与耶和华立约形成宗教—政治联盟。契约让耶和华成为共同的战神和立法者，也让以色列宗教具有了法律和伦理取向。</p>
+          <p><strong>怎么想到的：</strong>韦伯分析了近东的社会地理条件：贝都因游牧、城市商业、农民定居并存。在这个环境中，各个支派通过与耶和华立约形成宗教，政治联盟。契约让耶和华成为共同的战神和立法者，也让以色列宗教具有了法律和伦理取向。</p>
           <p><strong>边界：</strong>韦伯的契约理论受到后来圣经研究的挑战。很多学者认为以色列的形成比韦伯描述的更复杂，祭司、文士、民间传统都发挥了作用。</p>
         </div>
       </div>
@@ -525,7 +601,7 @@
       <div class="qa-block">
         <div class="qa-q">Q6：为什么基督教能从犹太教中分离出来并普世化，而犹太教不能？</div>
         <div class="qa-a">
-          <p><strong>结论：</strong>因为基督教对犹太遗产做了一次关键的取舍。取了什么、舍了什么、是谁动的手——这是全书压轴的反转，按下不表，第八层摊开。</p>
+          <p><strong>结论：</strong>因为基督教对犹太遗产做了一次关键的取舍。取了什么、舍了什么、是谁动的手，这是全书压轴的反转，按下不表，第八层摊开。</p>
           <p><strong>边界：</strong>韦伯的解释侧重宗教伦理，但基督教的普世化也离不开罗马帝国、希腊化文化、城市网络等政治经济条件。</p>
         </div>
       </div>
@@ -559,12 +635,12 @@
       <h3>这本书在别处有什么用</h3>
       <p><strong>民族与流散群体：</strong>犹太人是历史上存续最久的流散群体之一。韦伯的分析表明，一个群体即使没有国家、土地、军队，也可以通过宗教礼仪和共同记忆维持认同。这对理解海外华人、亚美尼亚人、库尔德人等流散群体都有启发。</p>
       <p><strong>公司与团队：</strong>法利赛人根据相同理念组成兄弟团，遵守比祭司更严格的诫命，形成一种高承诺的小团体。这个框架可以直接用来看公司：一个团队的凝聚力往往来自「我们比外面的人标准更高」的自我要求，但同样的高标准也会让团队排斥新人、难以扩张。招人门槛和文化纯度，永远是一对要手动配平的变量。</p>
-      <p><strong>乡村运营（一个常见场景）：</strong>一个村子、一个村宿项目，本质上也是一个靠「边界技术」维持认同的共同体——节庆、方言、村规民约、公共仪式，都是它的「饮食律与安息日」。行动触发：下次进村驻场，先花半天盘点这个村靠哪些仪式维持「我们」的感觉；做民宿品牌时问同一个问题——哪些仪式感是护城河，哪些已经变成把新客人挡在门外的门槛。</p>
-      <p><strong>交易：</strong>交易系统里的纪律就是交易者的仪式隔离——不碰某类标的、固定的复盘流程、严格的止损律。它保护你在市场的大流散里活下来，但规则一旦僵化，也会让你错过结构性变化。行动触发：定期检视自己的交易戒律，分清哪条是保命的割礼，哪条只是路径依赖。</p>
+      <p><strong>乡村运营（先生的主场）：</strong>一个村子、一个村宿项目，本质上也是一个靠「边界技术」维持认同的共同体，节庆、方言、村规民约、公共仪式，都是它的「饮食律与安息日」。行动触发：下次进村驻场，先花半天盘点这个村靠哪些仪式维持「我们」的感觉；做民宿品牌时问同一个问题，哪些仪式感是护城河，哪些已经变成把新客人挡在门外的门槛。</p>
+      <p><strong>交易：</strong>交易系统里的纪律就是交易者的仪式隔离，不碰某类标的、固定的复盘流程、严格的止损律。它保护你在市场的大流散里活下来，但规则一旦僵化，也会让你错过结构性变化。行动触发：定期检视自己的交易戒律，分清哪条是保命的割礼，哪条只是路径依赖。</p>
 
       <h3>读完可以做什么不同的事</h3>
-      <p>看一个群体，先问它靠什么维持边界——血缘、语言、土地、宗教礼仪，还是共同政治目标？不同的边界技术会带来不同的存续能力和扩展能力。</p>
-      <p>看一个组织，思考它的核心叙事是循环的还是历史的。犹太—基督教传统把历史看成有方向的、可以被改变的，这与很多文明的循环史观不同。这种历史观是现代进步观念的重要来源，也是很多社会运动的深层动力。</p>
+      <p>看一个群体，先问它靠什么维持边界，血缘、语言、土地、宗教礼仪，还是共同政治目标？不同的边界技术会带来不同的存续能力和扩展能力。</p>
+      <p>看一个组织，思考它的核心叙事是循环的还是历史的。犹太，基督教传统把历史看成有方向的、可以被改变的，这与很多文明的循环史观不同。这种历史观是现代进步观念的重要来源，也是很多社会运动的深层动力。</p>
     </section>
 
     <section class="layer">
@@ -576,7 +652,7 @@
         <div class="napkin-note">四个因子就是第三层的四根线：契约把神人关系法律化，先知把地方战神推成普世伦理神，仪式隔离守住群体边界，选民末世论提供历史行动的激情。<br>（小注：近东地理环境、俘囚失国是点火条件，不进公式。）</div>
       </div>
 
-      <p><strong>一句话：</strong>四根线拧在一起，让一个近东小民族长出了一颗能改变世界史的种子——这颗种子后来落在了谁手里、怎么出的园子，第八层摊开。</p>
+      <p><strong>一句话：</strong>四根线拧在一起，让一个近东小民族长出了一颗能改变世界史的种子，这颗种子后来落在了谁手里、怎么出的园子，第八层摊开。</p>
 
       <div class="ascii-diagram">契约同盟 ──→ 神人关系法律化 · 伦理取向
 先知伦理 ──→ 地方战神 → 普世伦理神

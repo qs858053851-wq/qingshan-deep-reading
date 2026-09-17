@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>看见他人困境的理解能力 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>什么是难民、族群融合、<br>庇护政策或仇外心理？</h1>
-  <div class="author">克莉丝汀·舒兹-莱斯　向下扎根！德国教育的公民思辨课 4 · 看见他人困境的理解能力（繁体中译本）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">什么是难民、族群融合、 庇护政策或仇外心理？</div>
+    <div class="cover-sub">舒兹-莱斯　向下扎根！德国教育的公民思辨课 4 · 看见他人困境的理解能力（繁体中译本）</div>
+    <div class="cover-meta">克莉丝汀 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这一册的力量，几乎全在编排上</span>
+      <span class="toc-desc">先说它的编排，因为这一册的力量几乎全在编排上。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 最容易滑成说教的一册，她怎么没滑</span>
+      <span class="toc-desc">这是全套书里最容易滑向说教的一册。它基本没滑过去，靠的是三样东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这一册拆到底，三件事在起作用</span>
+      <span class="toc-desc">第一章整章在立这根线，办法是把时间拉长，第一层列的那串名单，从宗教改革一直排到船民。五百年里，欧洲人自己就是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 怕生这件事，是从哪儿长出来的</span>
+      <span class="toc-desc">第六章有一节的标题问得很妙：回到石器时代：害怕外人跟蜘蛛有什么关系？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个绕不开的问题</span>
+      <span class="toc-desc">移民是选择离开的人：为了工作、为了学业、为了气候。难民是不得不离开的人，留下来会有生命危险。法律上这条线决定一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 这本书之外，这几根线还能用在哪</span>
+      <span class="toc-desc">这一册的写作背景很明确：二〇一五年前后欧洲那一轮难民潮，以及随之而来的社会撕裂。德国当时接收了大量的人，社会内...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 只留一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 讲完他们有多惨，她掉头问了一句</span>
+      <span class="toc-desc">这本书的第二章讲难民从哪儿来、为什么逃：叙利亚的春天怎么变成了冬天，阿富汗和伊拉克发生了什么，为什么孩子会独自...</span>
+    </div>
+  </div>
+
   <div class="lead">这一册处理的是这套书里最烫手的题目。真正高明的是章节顺序：先讲你自己的祖辈也逃过难，再讲他们为什么逃，然后掉头问一句：这和我们有什么关系？</div>
 </div>
 
@@ -380,7 +460,7 @@
 
   <p>把八章的走向连起来看：<strong>先让你认出自己（一），再让你看清他们（二），然后掉头追因果（三），接着讲制度（四五），再回到你自己的恐惧（六七），最后落到能做什么（八）。</strong></p>
 
-  <p>要害在第三章的位置。多数讲难民的读物是“他们很惨—我们要有同情心”这个结构，同情心用完就完了。这本书在讲完惨状之后，问的是这些事跟你每天买的东西、跟你的国家做过的生意有没有关系。<strong>它把一个道德问题改写成了一个因果问题。</strong>我留到第八层单讲。</p>
+  <p>要害在第三章的位置。多数讲难民的读物是“他们很惨，我们要有同情心”这个结构，同情心用完就完了。这本书在讲完惨状之后，问的是这些事跟你每天买的东西、跟你的国家做过的生意有没有关系。<strong>它把一个道德问题改写成了一个因果问题。</strong>我留到第八层单讲。</p>
 
   <div class="sub">写作姿态：不回避难堪的措辞</div>
 
@@ -440,9 +520,9 @@
 
   <div class="sub">第一根：逃难是人类的常态，不是别人的意外</div>
 
-  <p>第一章整章在立这根线，办法是把时间拉长——第一层列的那串名单，从宗教改革一直排到船民。<strong>五百年里，欧洲人自己就是这些路上的主角。</strong></p>
+  <p>第一章整章在立这根线，办法是把时间拉长，第一层列的那串名单，从宗教改革一直排到船民。<strong>五百年里，欧洲人自己就是这些路上的主角。</strong></p>
 
-  <p>把时间拉长之后，“难民”这个身份的性质就变了：它并非某些民族的属性，任何人在特定处境下都会落入这个状态。她那句章名说得清楚——在哪些地方，邻人之所成了地狱。<strong>地狱不在人身上，在处境里。</strong></p>
+  <p>把时间拉长之后，“难民”这个身份的性质就变了：它并非某些民族的属性，任何人在特定处境下都会落入这个状态。她那句章名说得清楚，在哪些地方，邻人之所成了地狱。<strong>地狱不在人身上，在处境里。</strong></p>
 
   <p>这根线还有个副作用，它让第七章那些关于“什么是德国式”的追问有了着落。一个五百年里不断有人逃出去、也不断有人逃进来的地方，本来就没有一个纯粹的“我们”可供保卫。</p>
 
@@ -501,11 +581,11 @@
 
   <p><strong>一套宁可错杀的报警系统，它的误报成本从来不由拉响警报的人承担，而是由被警报指向的那个人承担。</strong></p>
 
-  <p>怕蜘蛛的人误判了，蜘蛛不在乎。怕陌生人的人误判了，那个被躲开、被多看两眼、被拒绝租房、被拒绝面试的人，承担了全部代价。<strong>而拉响警报的那一方，什么也没损失——他甚至不会知道自己判错了，因为“没出事”正好被当成警惕有效的证明。</strong></p>
+  <p>怕蜘蛛的人误判了，蜘蛛不在乎。怕陌生人的人误判了，那个被躲开、被多看两眼、被拒绝租房、被拒绝面试的人，承担了全部代价。<strong>而拉响警报的那一方，什么也没损失，他甚至不会知道自己判错了，因为“没出事”正好被当成警惕有效的证明。</strong></p>
 
   <p>这就是这类恐惧最难对付的地方：它自带一套让自己永远正确的反馈。躲开了，没出事，可见躲得对；接触了，也没出事，可见这个是例外。<strong>无论发生什么，这套判断都不会被修正。</strong></p>
 
-  <p>那一节的标题里藏着的答案也在这儿：害怕外人跟怕蜘蛛的关系，是两者都属于不需要证据就能成立的恐惧。而她紧接着那一节问的“对外人的恐惧也许是对自己的恐惧”，说的是同一件事的另一面——<strong>当一个人对自己的位置不确定时，那套报警系统会调得更敏感。</strong></p>
+  <p>那一节的标题里藏着的答案也在这儿：害怕外人跟怕蜘蛛的关系，是两者都属于不需要证据就能成立的恐惧。而她紧接着那一节问的“对外人的恐惧也许是对自己的恐惧”，说的是同一件事的另一面，<strong>当一个人对自己的位置不确定时，那套报警系统会调得更敏感。</strong></p>
 
   <p>挖到这儿就不只是难民的事了，凡是“先归类、再判断”的场合都算。招聘时看学校、看年龄、看性别；租房时看职业；相亲时看条件。每一次归类都省了判断的力气，而省下的那份力气，是从被归类的人身上扣的。</p>
 
@@ -519,9 +599,9 @@
   <div class="qa">
     <div class="q">Q1　难民和移民，到底怎么分？</div>
     <p class="a-lead">分的依据是“走不走得了”，不是“过得好不好”。</p>
-    <p>移民是选择离开的人：为了工作、为了学业、为了气候。难民是不得不离开的人，留下来会有生命危险。法律上这条线决定一切——难民享有庇护权，移民适用入境规则。</p>
+    <p>移民是选择离开的人：为了工作、为了学业、为了气候。难民是不得不离开的人，留下来会有生命危险。法律上这条线决定一切，难民享有庇护权，移民适用入境规则。</p>
     <p>难在中间地带。她专门有一节问：难民是由于气候、战争还是贫穷而逃，我们能做这种区分吗？一个国家的农田因为气候变化荒了，人饿得活不下去而离开，这算难民还是移民？<strong>现行的法律框架给不出好答案，因为它是按“谁在迫害你”设计的，而气候和贫穷没有一个可以指认的迫害者。</strong></p>
-    <p class="a-edge">她还放了一节讲“生活方式移民”——为了躲冬天搬去南欧的那些人。同样跨了国境，同样长期居留，但没人管他们叫移民。<strong>这个对照提醒读者：这些词的用法，跟人从哪儿来、有没有钱高度相关。</strong></p>
+    <p class="a-edge">她还放了一节讲“生活方式移民”，为了躲冬天搬去南欧的那些人。同样跨了国境，同样长期居留，但没人管他们叫移民。<strong>这个对照提醒读者：这些词的用法，跟人从哪儿来、有没有钱高度相关。</strong></p>
   </div>
 
   <div class="qa">
@@ -606,7 +686,7 @@
 
   <p>我最大的保留在这里：<strong>它把反对的声音默认成了恐惧和无知。</strong>整整一章讲恐惧，却没有一节认真处理“基于资源和承受力的反对”。这不只是不够全面，它会让最需要被说服的那批读者觉得自己被预先定性了。一本以“看见他人困境的理解能力”为副标题的书，在这一点上，对自己国内那部分人的困境理解得不够。</p>
 
-  <p>给读者的读法建议：第一章和第三章慢慢读，这本书的骨头都在这两章。第四、五章讲移民与庇护的制度区分，最有实用价值。第六章讲恐惧那部分可以单独抽出来看，跟难民问题剥得开。第二章的国别现状和第八章的德国做法翻翻就行，那些内容旧得最快。</p>
+  <p>给先生的读法建议：第一章和第三章慢慢读，这本书的骨头都在这两章。第四、五章讲移民与庇护的制度区分，最有实用价值。第六章讲恐惧那部分可以单独抽出来看，跟难民问题剥得开。第二章的国别现状和第八章的德国做法翻翻就行，那些内容旧得最快。</p>
 </div>
 
 <div class="layer">
@@ -636,7 +716,7 @@
                   ↓
         ⑤ 我为什么害怕：怕生·成见·石器时代的警报
                   ↓
-        ⑥ 我们该改什么："拜托你们融入——而我们呢？"
+        ⑥ 我们该改什么："拜托你们融入，而我们呢？"
 
         误报的代价，全部由被警报指向的那个人付。
 </pre>
@@ -665,7 +745,7 @@
 
   <p>这一问打中了这类写法的通病，但没有打中这一章。因为她问的一直是“有没有关系”，不是“你有没有罪”。全章八节没有一句要求读者忏悔，也没有一句给出赎罪的办法。<strong>它做的是把一条被日常经验切断的因果链重新接上，仅此而已。</strong>接上之后你怎么想，她没有规定。</p>
 
-  <p>这个区别看着细，其实是根本的。<strong>道德指控要求的是情绪，因果陈述要求的是判断。</strong>前者会引起防卫，后者只增加信息。一个读者完全可以承认这条链存在，同时仍然认为本国的接收能力有限——这两件事不矛盾，而这本书的这一章允许他这样。</p>
+  <p>这个区别看着细，其实是根本的。<strong>道德指控要求的是情绪，因果陈述要求的是判断。</strong>前者会引起防卫，后者只增加信息。一个读者完全可以承认这条链存在，同时仍然认为本国的接收能力有限，这两件事不矛盾，而这本书的这一章允许他这样。</p>
 
   <p>另一个方向的疑问更硬：<strong>因果链这么长，个人到底能负什么责？</strong>我买一部手机，中间隔着矿场、贸易商、代工厂、品牌方、渠道，我的那份责任稀释到几乎为零。要求一个中学生为刚果的矿难负责，既不公平也没道理。</p>
 
@@ -693,9 +773,9 @@
 
 <div class="boundary">
   <h4>事实边界</h4>
-  <p>本篇依据《向下扎根！德国教育的公民思辨课 4——什么是难民、族群融合、庇护政策或仇外心理？看见他人困境的理解能力》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书八章的结构与各节标题，均出自原书目录；我通读了目录与导读，<strong>各节的正文未逐节细读</strong>。本篇引述的都是原书标题，节内的具体内容、数据、国别现状若要引用，请翻原书对应页。</p>
+  <p>本篇依据《向下扎根！德国教育的公民思辨课 4，什么是难民、族群融合、庇护政策或仇外心理？看见他人困境的理解能力》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书八章的结构与各节标题，均出自原书目录；我通读了目录与导读，<strong>各节的正文未逐节细读</strong>。本篇引述的都是原书标题，节内的具体内容、数据、国别现状若要引用，请翻原书对应页。</p>
   <p>第一层与第六层引用的导读说法（“正视他人的苦难”“面对难民问题，没有人是局外人”“族群冲突是公民思辨最棘手的议题，也是无可取代的试金石”），出自中译本的三篇总导读与专文导读题目，不是原书正文。</p>
-  <p><strong>时效提醒：</strong>这一册的具体案例与政策描述集中在二〇一五年前后那一轮欧洲难民潮，此后各国政策已多次调整。本篇没有引述具体的人数、比例、年份等数据，正是因为它们最容易过时，也最容易被断章取义。读者若要用书中的数字，请以原书并对照近年资料为准。</p>
+  <p><strong>时效提醒：</strong>这一册的具体案例与政策描述集中在二〇一五年前后那一轮欧洲难民潮，此后各国政策已多次调整。本篇没有引述具体的人数、比例、年份等数据，正是因为它们最容易过时，也最容易被断章取义。先生若要用书中的数字，请以原书并对照近年资料为准。</p>
   <p>第三层的三根线、第四层关于恐惧机制的下钻（“误报成本由被指向的一方承担”）、第五层对“安全原籍国”与“生活方式移民”的辨析、第六层关于本书局限的判断（尤其“它把反对声音默认成恐惧和无知”这一条），都是我读下来的看法，不是原书写的。第八层拿上下游作类比是我举的一般现象，不指任何具体流域或企业。</p>
 </div>
 

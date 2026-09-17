@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>现代草民哲学读本 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">现代草民哲学读本</div>
+    <div class="cover-sub">日常随时烙哲学，用思考通乐人生</div>
+    <div class="cover-meta">沃草烙哲學作者群 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">一群台湾的年轻哲学工作者，把康德、罗尔斯、电车难题这些「学院货」搬进日常生活的现场：用它们来拆解婚姻平权、文言...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">这本书的胎教是 2014 年的太阳花运动。那场运动让台湾的年轻一代第一次大规模意识到：公共议题不是「站队」就能...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">哲学不是答案的仓库，是检查答案的工具。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 哲学没有标准答案，但有好答案和坏答案</span>
+      <span class="toc-desc">你有没有听过这句话：「哲学嘛，没有标准答案，怎么说都行。」说这话的人通常是在为自己「怎么说都行」开脱：而《现代...</span>
+    </div>
+  </div>
+
   <h1>现代草民哲学读本</h1>
   <div class="author">沃草烙哲學作者群 · 日常随时烙哲学，用思考通乐人生</div>
 </div>
@@ -354,16 +419,16 @@
   <p>一群台湾的年轻哲学工作者，把康德、罗尔斯、电车难题这些「学院货」搬进日常生活的现场：用它们来拆解婚姻平权、文言文存废、政治承诺、同性恋自然性这些吵翻天的现实议题。</p>
   <p>回答：哲学不在象牙塔里，它是每个草民都能用的思考工具。这本书是「沃草烙哲学」写作团队的文集：六章（价值、生活、政治、性别、自己、艺术）、二十多篇文章，每篇从一个人人都遇得到的争议出发，请出一位哲学家（康德、尼采、汉娜鄂兰、罗尔斯、笛卡儿），用大白话把他的理论讲透，再回头照现实议题。文章结尾各留两三个思考问题：不是考试，是「趁热打铁，让你也过过哲学瘾」。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>「烙哲学」是台湾的哲学普及网站，2014 年太阳花运动之后，台湾社会突然对「想清楚」有了需求：知识公共化、学术科普化成了风潮。一群年轻哲学人（多半是学院出身但不甘于待在象牙塔的）开始写日常语言的文章：不说「义务论」，说「康德绝对不说谎」；不说「无知之幕」，说「洪秀柱的超译」。</p>
   <p>书的结构是六章。价值章谈「我们该做什么」（康德不说谎、道德原则的例外、政治人物可以违背承诺吗、人生意义）；生活章谈「日子怎么过」（濠梁之辩、真理、纽康难题、超译尼采、鄂兰与庄子救上班族）；政治章谈「我们怎么共处」（抗争的礼貌、伪善、共和主义、无知之幕、选民的资格）；性别章谈「爱与婚姻」（同性伴侣和同性婚姻差在哪、同性恋自然吗、护家盟在想什么）；自己章谈「我是谁」（我思故我在、人格同一性）；艺术章谈「美是什么」（什么是艺术、作者已死、解读需不需要作者意图）。</p>
 
   <h3>几篇让人「原来如此」的文章</h3>
-  <p><strong>为什么康德绝对不说谎？</strong>纳粹时期，盖世太保上门问你：犹太人朋友藏哪了？几乎所有人都会选择撒谎救人：但康德说：不行。他的冷酷背后站着一个原则：「普遍性」——如果每个人都可以为了自己的目的撒谎，那语言就失去了互信的根基，盖世太保也不会再相信任何人的话，撒谎这件事，无法被普遍化。文章没有停在「康德很冷酷」，而是接着问：那「善意的谎言」错在哪？说真话害死人要负责吗？（康德说不用：那是意外。）最后给出伦理学的本质：没有客观标准能裁决「应该」，只有「哪种原则能更漂亮地解释我们的道德直觉」。</p>
+  <p><strong>为什么康德绝对不说谎？</strong>纳粹时期，盖世太保上门问你：犹太人朋友藏哪了？几乎所有人都会选择撒谎救人：但康德说：不行。他的冷酷背后站着一个原则：「普遍性」，如果每个人都可以为了自己的目的撒谎，那语言就失去了互信的根基，盖世太保也不会再相信任何人的话，撒谎这件事，无法被普遍化。文章没有停在「康德很冷酷」，而是接着问：那「善意的谎言」错在哪？说真话害死人要负责吗？（康德说不用：那是意外。）最后给出伦理学的本质：没有客观标准能裁决「应该」，只有「哪种原则能更漂亮地解释我们的道德直觉」。</p>
   <p><strong>洪秀柱、无知之幕、承诺的张力。</strong>政治人物竞选时承诺 A，上台后做 B，这是「违背承诺」吗？文章请出罗尔斯：无知之幕的意义不在「让每个人选择时假装不知道自己的位置」，而在「承诺的张力」：如果你知道将来可能反悔，当初就不该承诺；而政治人物最大的问题，是承诺时就知道自己做不到。柱柱姐的「先知说」被超译来超译去，最后文章用罗尔斯把「承诺」这个动作拆开看：承诺的效力，恰恰在于它限制了未来的你。</p>
-  <p><strong>「我思故我在」的神推论。</strong>笛卡儿那句被念烂的话，其实藏着两个不同的推论：「我思」推出「我在」，逻辑上站得住吗？文章把「我思故我在」拆成逻辑链条慢慢验：我怀疑 → 我在怀疑 → 有个「我」在怀疑？，这里跳了一步，这一步跳得对不对，哲学吵了几百年。读完之后你会发现，那句背了两百年的名言，你其实从没真的想通过。</p>
+  <p><strong>「我思故我在」的神推论。</strong>笛卡儿那句被念烂的话，其实藏着两个不同的推论：「我思」推出「我在」，逻辑上站得住吗？文章把「我思故我在」拆成逻辑链条慢慢验：我怀疑 → 我在怀疑 → 有个「我」在怀疑？这里跳了一步，这一步跳得对不对，哲学吵了几百年。读完之后你会发现，那句背了两百年的名言，你其实从没真的想通过。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一群年轻人，在社交网站上跟你讨论问题：口语、幽默（「不知道康德如果生在当代会不会被亏９４狂」）、不端着。但他们较真：每篇文章都遵守「思考三规则」：主张要附理由、理由不能和明显事实冲突、理由之间不能互相矛盾。他们不告诉你该站在哪一边，只演示「想清楚」长什么样。</p>
 </div>
 
@@ -411,14 +476,14 @@
   │  「同性婚姻会毁掉家庭价值」                 │
   │    │                                       │
   │    ▼                                       │
-  │  ① 理由呢？，主张必须附理由               │
+  │  ① 理由呢？主张必须附理由               │
   │    │                                       │
   │    ▼                                       │
   │  ② 理由和事实冲突吗？：                 │
   │     其他国家的数据支持吗？                 │
   │    │                                       │
   │    ▼                                       │
-  │  ③ 理由自相矛盾吗？，                    │
+  │  ③ 理由自相矛盾吗？                    │
   │     「传统」一边说要保护，                  │
   │      一边自己也在变                        │
   │    │                                       │

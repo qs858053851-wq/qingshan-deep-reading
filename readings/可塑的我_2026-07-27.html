@@ -1,23 +1,30 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>可塑的我 · 深度解读</title><style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -74,6 +81,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -87,14 +105,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -103,7 +121,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -112,7 +130,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -122,7 +140,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -130,12 +148,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -151,7 +169,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -166,7 +183,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -261,9 +277,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -271,6 +286,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -323,13 +355,67 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
       padding-right: 20px;
     }
   }
-</style></head><body><main class="container"><header class="hero"><h1>可塑的我</h1><div class="author">陈婕君 · 自我发展心理学的35堂课</div></header>
+</style></head><body><main class="container">  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">可塑的我</div>
+    <div class="cover-sub">自我发展心理学的35堂课</div>
+    <div class="cover-meta">陈婕君 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 这本书到底在讲什么</span>
+      <span class="toc-desc">陈婕君用三十五课回答一个问题：成年人为何在工作、关系和生活里反复失控，已经形成的自己还能不能改变。七个部分从人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 作者凭什么这么说</span>
+      <span class="toc-desc">第一个案例是“小马总被闺密背叛”。她用过度给予试探别人会不会照顾自己，有边界的人被推远，爱占便宜的人留下，结果...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 真正起作用的是哪三步</span>
+      <span class="toc-desc">第一步是旧经验形成预期。一个人曾在求助时被拒绝，后来可能先假定别人不会帮；童年不是判决书，却会提供默认读法。米...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 掌控为什么不等于控制</span>
+      <span class="toc-desc">人希望节点、伴侣和身体都配合自己，偏离便觉得失败。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六个问题，把改变落到地上</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者写作的急迫感来自咨询室：很多人把当前痛苦当成“我就是这样”，她想把固定身份改写成可观察的反应模式。全书最稳...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 全书只剩一个公式</span>
+      <span class="toc-desc">一句话：人格的稳定是旧经验的惯性，改变要让现实提供新的经验。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 改变的尺度，是更接近事实</span>
+      <span class="toc-desc">自我发展很容易被写成一种胜利叙事：敢表达便会被尊重，立边界便能换来健康关系，自己决定便会得到好结果。现实没有这...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇按原书的心理动力学与发展视角讨论“预期、关系和行动”，它们是理解个体经验的框架，不是单一因果定律。书中案例...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">这本书到底在讲什么</h2><p>陈婕君用三十五课回答一个问题：成年人为何在工作、关系和生活里反复失控，已经形成的自己还能不能改变。七个部分从人生阶段、事业、人际关系讲到“心理基因”、情绪能力和心理练习，把常见的失控场景逐项摊开。</p><p>A女士看见银行柜员工作可能被替代，却不知道还能做什么；B女士把换工作、结婚与分手的决定交给小姑，免去担责，也持续失去掌控。作者借这些咨询故事说明，失控有时来自看不见选择，有时来自把选择交出去。她所谓的掌控，不是让现实按计划发展，而是变化出现后仍能面对事实、调整动作、承担后果。</p><p>全书理论中心是“心理基因”，指早期关系、信念、情绪处理和防御方式留下的惯性。这个名字容易让人误以为是生物基因，实际上是作者的整合说法。后半部把改变写成心理健身：每天出现十分钟，练习觉察与耐受。写作姿态像咨询师把常见模式整理成自助课，实用，但临床案例和发展理论不能当作人人适用的定论。</p></section>
 <section class="layer"><div class="kicker">Layer 02</div><h2 class="layer-title">作者凭什么这么说</h2><p>第一个案例是“小马总被闺密背叛”。她用过度给予试探别人会不会照顾自己，有边界的人被推远，爱占便宜的人留下，结果再次支持“别人都会背叛我”。案例说明旧预期会参与选择关系对象，但也要防止把他人的伤害责任推回受害者。</p><p>第二组材料来自米西的成长观察。母亲离开时她哭，能接受他人安抚；母亲回来后很快稳定，重新探索。面对跷跷板难题，她求助、接受母亲不代做，再利用提示自己解决。作者用它说明安全感不等于永不焦虑，而是受挫后能恢复、求助和继续行动。</p><p>第三个办法很小：想靠冰激凌逃开焦虑时，先陪情绪待五分钟，再逐渐延长。它没有许诺消灭焦虑，只训练人在不舒服时多留一会儿，扩大可选择的时间。全书许多练习都服从这个思路。</p><p>这套解释有个前提：成年困境在相当程度上由早期关系与惯性反应延续，而且新经验能修改它们。临床案例支持理解，不构成随机对照证据；经济条件、组织制度、疾病和偶发事件也会制造失控。“心理基因”适合作为观察框架，不宜拿来给自己定型。严重抑郁、创伤、成瘾、躁狂或自伤风险不能靠自助练习处理。</p></section>
 <section class="layer"><div class="kicker">Layer 03</div><h2 class="layer-title">真正起作用的是哪三步</h2><p>第一步是旧经验形成预期。一个人曾在求助时被拒绝，后来可能先假定别人不会帮；童年不是判决书，却会提供默认读法。米西能求助、受挫后继续探索，展示的是另一种默认。</p><p>第二步是预期参与制造现实。小马的试探筛选了留下来的人，灰姑娘式员工不谈署名与分配，事后再等领导发现委屈。她们承受的伤害并非虚构，但自己的应对会改变下一幕出现的概率。</p><p>第三步是用小行动提供不同证据。事前谈清贡献、把决定写成自己的理由、陪焦虑待五分钟，这些动作不会立刻改造人格，却会让旧预期第一次遇到反例。三步能解释全书主流程，不能包办外部制度和他人的责任。</p></section>

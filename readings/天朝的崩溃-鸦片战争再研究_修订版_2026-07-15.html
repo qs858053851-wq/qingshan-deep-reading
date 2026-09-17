@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>天朝的崩溃：鸦片战争再研究 — 茅海建</title>
+<title>天朝的崩溃：鸦片战争再研究 ， 茅海建</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,30 +380,31 @@
 </head>
 <body><main>
 
-<h1>天朝的崩溃：鸦片战争再研究</h1>
-<div class="subtitle">茅海建 著 · 三联书店 2005年第二版</div>
-<div class="meta">2026-05-16 初稿 · 2026-07-15 修订 · 深度阅读笔记 · 全书 614 页 / 约 45 万字 · 8 章 + 绪论 + 附录</div>
-
-<h2>一、这本书在回答什么问题</h2>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">天朝的崩溃：鸦片战争再研究</div>
+    <div class="cover-sub">茅海建 著 · 三联书店 2005年第二版</div>
+    <div class="cover-meta">2026-05-16 初稿 · 2026-07-15 修订 · 深度阅读笔记 · 全书 614 页 / 约 45 万字 · 8 章 + 绪论 + 附录 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div><h2>一、这本书在回答什么问题</h2>
 
 <p class="core-q">核心问题：鸦片战争的失败，到底该归结于中国的落后和保守，还是归结于琦善等人的"卖国"？当时中国的正确出路，到底是彻底改弦更张，还是只需重用林则徐？</p>
 
-<p>茅海建给出的回答很明确：<strong>这是一场必败的战争</strong>。不管谁来指挥，不管主战还是主和，清朝的体制本身就决定了失败。琦善不是卖国贼，林则徐也不是救世主——他们都只是"天朝"体制下的官员，无法超越自己所处的时代。</p>
+<p>茅海建给出的回答很明确：<strong>这是一场必败的战争</strong>。不管谁来指挥，不管主战还是主和，清朝的体制本身就决定了失败。琦善不是卖国贼，林则徐也不是救世主，他们都只是"天朝"体制下的官员，无法超越自己所处的时代。</p>
 
-<p>这个结论之所以重要，是因为它拆掉了中国人一百五十年来最舒适的一个解释框架——<strong>"奸臣模式"</strong>。这个框架到底怎么运作、替谁挡了刀、又让中国付出了什么代价，先按下不表（3.2 与第五节细说）。</p>
+<p>这个结论之所以重要，是因为它拆掉了中国人一百五十年来最舒适的一个解释框架，<strong>"奸臣模式"</strong>。这个框架到底怎么运作、替谁挡了刀、又让中国付出了什么代价，先按下不表（3.2 与第五节细说）。</p>
 
 <h2>二、全书结构</h2>
 
 <div class="structure-box">
-<pre>绪论  由琦善卖国而想到的 ——— 破题：推翻"奸臣模式"
-第一章 清朝的军事力量 ————— 硬件对比：武器、兵力、军制
-第二章 骤然而至的战争 ————— 禁烟如何走向战争
-第三章 "剿""抚""剿"的回旋 —— 道光帝的摇摆与琦善、伊里布
-第四章 广州的战局 ——————— 杨芳、奕山的骗局
-第五章 东南壁垒的倾塌 ————— 厦门、定海、镇海、宁波连败
-第六章 "抚"议再起 ——————— 刘韵珂的"十可虑"与谈判
-第七章 平等与不平等 ——————— 南京条约的重新审视
-第八章 历史的诉说 ——————— 战后各人物命运与全书总结</pre>
+<pre>绪论  由琦善卖国而想到的 ， 破题：推翻"奸臣模式"
+第一章 清朝的军事力量 ， 硬件对比：武器、兵力、军制
+第二章 骤然而至的战争 ， 禁烟如何走向战争
+第三章 "剿""抚""剿"的回旋 ， 道光帝的摇摆与琦善、伊里布
+第四章 广州的战局 ， 杨芳、奕山的骗局
+第五章 东南壁垒的倾塌 ， 厦门、定海、镇海、宁波连败
+第六章 "抚"议再起 ， 刘韵珂的"十可虑"与谈判
+第七章 平等与不平等 ， 南京条约的重新审视
+第八章 历史的诉说 ， 战后各人物命运与全书总结</pre>
 </div>
 
 <p>结构设计暗含一个推进逻辑：先用绪论挑明立场，再用第一章的硬数据打底，然后从第二章到第六章按时间线展开战争全过程，第七章跳出叙事做制度分析，第八章回到每个人物的命运，形成闭环。</p>
@@ -381,7 +423,7 @@
 <tr><td>私自割让香港</td><td>琦善仅有允英人"寄寓"香港之意，无"割让"之举；且非"私许"，有请旨奏折在案</td></tr>
 </table>
 
-<p>更深层的分析：琦善是一个墨守"天朝"观念的官员。他在给义律的照会中满篇"恭顺""大皇帝恩施"的天朝语言，连巴麦尊看了都大怒——这样一个人，怎么可能去"卖国"给连他都瞧不起的"化外蛮夷"？</p>
+<p>更深层的分析：琦善是一个墨守"天朝"观念的官员。他在给义律的照会中满篇"恭顺""大皇帝恩施"的天朝语言，连巴麦尊看了都大怒，这样一个人，怎么可能去"卖国"给连他都瞧不起的"化外蛮夷"？</p>
 
 <blockquote>
 <p>"他没有卖国的动机。"</p>
@@ -417,15 +459,15 @@
 
 <h3>3.4 信息封闭比军事差距更致命</h3>
 
-<div class="marker">时间回拨 · 1838—1840 · 禁烟议起到定海开战</div>
+<div class="marker">时间回拨 · 1838，1840 · 禁烟议起到定海开战</div>
 
 <p>整本书中最让人感到窒息的，不是武器差距，而是<strong>信息黑洞</strong>：</p>
 
 <ul>
-<li>29 份议复黄爵滋禁烟奏折的官员中，基本没有提到英国——他们根本不知道禁烟的终极障碍是英国</li>
-<li>"天朝"体制规定，除广东外，各地官员不得收受外国文书——英军的巴麦尊国书在福建、浙江、江苏被反复退回</li>
+<li>29 份议复黄爵滋禁烟奏折的官员中，基本没有提到英国，他们根本不知道禁烟的终极障碍是英国</li>
+<li>"天朝"体制规定，除广东外，各地官员不得收受外国文书，英军的巴麦尊国书在福建、浙江、江苏被反复退回</li>
 <li>道光帝不知道南中国主要海口已被英军封锁，还在讨论是否实行封海政策</li>
-<li>鸦片战争的谕旨被抄入"剿捕档"——军机处把对英战争归类为平叛镇反</li>
+<li>鸦片战争的谕旨被抄入"剿捕档"，军机处把对英战争归类为平叛镇反</li>
 </ul>
 
 <p>曾国藩在定海开战当天还在日记里检讨自己读书不够勤勉。北京大部分官员根本不知道南方已经开战。</p>
@@ -439,8 +481,8 @@
 <p>后果：杨芳和奕山被推上绝路，只能造假。"广州到北京的河川山岭，成为谎话的天然屏障。整个广州战局，完全成为一个骗局。"</p>
 
 <ul>
-<li><strong>杨芳</strong>——这位征战 55 年、擒获张格尔的三等果勇侯，到广州后用"马桶御炮""纸扎草人""建道场祷鬼神"来应对英军。两周后他弄清了一个事实：他手中并无制服"夷人"的招术。</li>
-<li><strong>奕山</strong>——最终私下签城下之盟、赔款六百万两，然后向道光帝报告说英军"乞恩通商""恳请大皇帝施恩"。</li>
+<li><strong>杨芳</strong>，这位征战 55 年、擒获张格尔的三等果勇侯，到广州后用"马桶御炮""纸扎草人""建道场祷鬼神"来应对英军。两周后他弄清了一个事实：他手中并无制服"夷人"的招术。</li>
+<li><strong>奕山</strong>，最终私下签城下之盟、赔款六百万两，然后向道光帝报告说英军"乞恩通商""恳请大皇帝施恩"。</li>
 <li>大黄滘炮台守将在开战前跟英军商量：<em>"你也不要放炮，我也不要放炮，谁都不要放炮。我可以放六次没有炮弹的炮，给皇帝留面子，然后走掉。"</em></li>
 </ul>
 
@@ -454,7 +496,7 @@
 <p>"他们对今天看来为'平等'的条款往往愤愤不平，而对今天看来为'不平等'的待遇却浑然不觉。"</p>
 </blockquote>
 
-<p>江苏布政使李星沅看完条约，最无法接受的不是割地赔款，而是<strong>"夷妇与大皇帝并书"</strong>——维多利亚女王的名字与道光帝并列出现在同一份文件上。这才是"天朝"人最无法忍受的"不平等"。</p>
+<p>江苏布政使李星沅看完条约，最无法接受的不是割地赔款，而是<strong>"夷妇与大皇帝并书"</strong>，维多利亚女王的名字与道光帝并列出现在同一份文件上。这才是"天朝"人最无法忍受的"不平等"。</p>
 
 <h3>3.7 战后：没有醒来</h3>
 
@@ -463,12 +505,12 @@
 <p>第八章追踪每个人物的战后命运，得出最沉痛的结论：<strong>这场战争白打了</strong>。</p>
 
 <ul>
-<li><strong>琦善</strong>——复出后官至协办大学士，11 年间"看不出任何由于这场战争而发生的旨趣变化"</li>
-<li><strong>林则徐</strong>——复出后主要围绕传统事务，"当时中国最急迫的任务被放在一旁"。蒋廷黻认为林是"知道了不说，知道了不做"；茅海建更进一步：也可能"林则徐的思想被今人夸张了"</li>
-<li><strong>道光帝</strong>——到死都没有意识到这场战争的真正意义</li>
+<li><strong>琦善</strong>，复出后官至协办大学士，11 年间"看不出任何由于这场战争而发生的旨趣变化"</li>
+<li><strong>林则徐</strong>，复出后主要围绕传统事务，"当时中国最急迫的任务被放在一旁"。蒋廷黻认为林是"知道了不说，知道了不做"；茅海建更进一步：也可能"林则徐的思想被今人夸张了"</li>
+<li><strong>道光帝</strong>，到死都没有意识到这场战争的真正意义</li>
 </ul>
 
-<p>茅海建拿日本做对比：日本在"黑船事件"中同样屈辱地签了不平等条约，但"安政五国条约"的失败成了明治维新之母。而中国——</p>
+<p>茅海建拿日本做对比：日本在"黑船事件"中同样屈辱地签了不平等条约，但"安政五国条约"的失败成了明治维新之母。而中国，</p>
 
 <blockquote>
 <p>"它似乎仍未从'天朝'的迷梦中醒来，勇敢地进入全新的世界，而是依然如故，就像一切都未发生。"</p>
@@ -478,7 +520,7 @@
 
 <h3>档案考证 vs. 道德批判</h3>
 
-<p>茅海建这本书最锋利的地方在于方法：他不再用忠奸框架讲故事，而是回到档案原文——中英双方的奏折、照会、日记、军事记录、审讯供词——逐条比对，逐事考证。每一个被传说覆盖的事件，他都剥开去找原始文件。</p>
+<p>茅海建这本书最锋利的地方在于方法：他不再用忠奸框架讲故事，而是回到档案原文，中英双方的奏折、照会、日记、军事记录、审讯供词，逐条比对，逐事考证。每一个被传说覆盖的事件，他都剥开去找原始文件。</p>
 
 <p>典型如"私割香港"一案（案情本身 3.1 已细说）：单这一件事，他就用琦善奏折、义律照会、英国档案等六个来源交叉验证，才下结论。</p>
 
@@ -494,7 +536,7 @@
 
 <h2>五、全书最硬的一句话</h2>
 
-<p>第一节按下不表的那个问题——"奸臣模式"到底替谁挡了刀、让中国付出了什么代价——现在摊开。</p>
+<p>第一节按下不表的那个问题，"奸臣模式"到底替谁挡了刀、让中国付出了什么代价，现在摊开。</p>
 
 <div class="verdict">
 <div class="verdict-title">茅海建的终极判断</div>
@@ -502,7 +544,7 @@
 <p>"忠奸的理论所能得出的最终结论是，鸦片战争所暴露出来的，不是'天朝'的弊陋，不是中华的落伍；反而是证明了中国的圣贤经典、天朝制度的正确性。于是，中国此时的任务，不是改革旧体制，而是<strong>加强旧体制</strong>。"</p>
 </div>
 
-<p>这是全书的锁喉之论。它解释了为什么鸦片战争之后，清朝用了二十年才走到洋务运动——因为"奸臣模式"提供了一个不需要改革的舒适解释，让体制躲过了自我反省。</p>
+<p>这是全书的锁喉之论。它解释了为什么鸦片战争之后，清朝用了二十年才走到洋务运动，因为"奸臣模式"提供了一个不需要改革的舒适解释，让体制躲过了自我反省。</p>
 
 <h2>六、这本书对今天说了什么</h2>
 
@@ -512,13 +554,13 @@
 <p>"一个民族对自己历史的自我批判，正是它避免重蹈历史覆辙的坚实保证。"</p>
 </blockquote>
 
-<p>他没有做进一步的延伸，但书里的逻辑可以往四个不同的场子里搬——每个场子搬一条：</p>
+<p>他没有做进一步的延伸，但书里的逻辑可以往四个不同的场子里搬，每个场子搬一条：</p>
 
 <ol>
-<li><strong>组织复盘（民宿/乡村运营）</strong>：把失败归咎于某个人，是最廉价的复盘——3.2 细说的"奸臣模式"三层功能，在任何团队里照样运转。行动触发：村宿出现客诉或亏损时，复盘会先问流程和结构哪里坏了，禁止以"都怪某某"收场；换人之前，先回答"换了人这件事就不会再发生吗"。</li>
-<li><strong>交易</strong>：信息封闭比判断失误更危险——道光帝不蠢，但他的每个决策都建立在层层过滤后的失真情报上（3.4 细说）。行动触发：交易日志只记一手数据——成交价、仓位、下单前的原始计划；事后的解释和情绪单独隔开记，不许混进事实栏。</li>
-<li><strong>健康</strong>：不服输的情结不能替代冷静的自我诊断——"中国当时还不至于败"的执念，个人版就是"我还扛得住"。行动触发：体检指标连续两次异常就去就医复查，不用感觉良好来否决数据。</li>
-<li><strong>国家与个人的镜像</strong>：失败不可怕，不反省才可怕——同样是被迫签约，日本把它变成明治维新之母，清朝"就像一切都未发生"（3.7 细说）。同一次亏损、同一次差评，可以是学费，也可以白交，分岔点只在是否反省。</li>
+<li><strong>组织复盘（民宿/乡村运营）</strong>：把失败归咎于某个人，是最廉价的复盘，3.2 细说的"奸臣模式"三层功能，在任何团队里照样运转。行动触发：村宿出现客诉或亏损时，复盘会先问流程和结构哪里坏了，禁止以"都怪某某"收场；换人之前，先回答"换了人这件事就不会再发生吗"。</li>
+<li><strong>交易</strong>：信息封闭比判断失误更危险，道光帝不蠢，但他的每个决策都建立在层层过滤后的失真情报上（3.4 细说）。行动触发：交易日志只记一手数据，成交价、仓位、下单前的原始计划；事后的解释和情绪单独隔开记，不许混进事实栏。</li>
+<li><strong>健康</strong>：不服输的情结不能替代冷静的自我诊断，"中国当时还不至于败"的执念，个人版就是"我还扛得住"。行动触发：体检指标连续两次异常就去就医复查，不用感觉良好来否决数据。</li>
+<li><strong>国家与个人的镜像</strong>：失败不可怕，不反省才可怕，同样是被迫签约，日本把它变成明治维新之母，清朝"就像一切都未发生"（3.7 细说）。同一次亏损、同一次差评，可以是学费，也可以白交，分岔点只在是否反省。</li>
 </ol>
 
 <hr>

@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>大明王朝1566 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -250,6 +285,13 @@
     color: var(--brand);
     margin-bottom: 12pt;
     letter-spacing: 1pt;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
   .napkin-caption {
     font-size: 11pt;
@@ -267,6 +309,65 @@
     color: var(--dark-warm);
     border-radius: 0 4pt 4pt 0;
     line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -288,48 +389,48 @@
 
   <div class="toc">
     <h2>目 录</h2>
-    <a class="toc-item" href="#layer01">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">剖析传统封建王朝的治理死局，一部将财税亏空、皇权心术与苍生浩劫写透的史诗典范</span>
-    </a>
-    <a class="toc-item" href="#layer02">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">外贸丝绸三十万匹亏空、九县绝户淹田大案与海瑞天下第一疏的制度铁证</span>
-    </a>
-    <a class="toc-item" href="#layer03">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 机制解剖</span>
       <span class="toc-desc">大明帝国权力运转的三大咬合齿轮：内廷司礼监、外廷内阁与地方兼并资本</span>
-    </a>
-    <a class="toc-item" href="#layer04">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 终极下钻</span>
       <span class="toc-desc">从忠臣奸臣之辨到制度死结，传统士大夫的道德悲歌与海瑞的旷世孤独</span>
-    </a>
-    <a class="toc-item" href="#layer05">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 衍生推演</span>
       <span class="toc-desc">六大核心推演：从大明财政危机看大型复杂系统的制度腐化防御</span>
-    </a>
-    <a class="toc-item" href="#layer06">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 破界审视</span>
       <span class="toc-desc">在赞叹权谋史诗的同时，警惕厚黑学崇拜与虚无主义解毒</span>
-    </a>
-    <a class="toc-item" href="#layer07">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
       <span class="toc-desc">传统皇权财政汲取与地方士绅兼并死结动力学模型</span>
-    </a>
-    <a class="toc-item" href="#layer08">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">最值钱的一个问题：如果一家集团总账亏了五千万，老板既不肯降低个人消费，又不肯裁掉高管亲戚，怎么填平这笔账？</span>
-    </a>
-    <a class="toc-item" href="#layer09">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">仰望历史长夜中的海瑞风骨，守望人间朗朗正道的永恒光芒</span>
-    </a>
+    </div>
   </div>
 
   <div class="section" id="layer01">
     <div class="layer-tag">Layer 01 · 论证全景</div>
     <h1>剖析传统封建王朝的治理死局，一部将财税亏空、皇权心术与苍生浩劫写透的史诗典范</h1>
-    <p>传统历史文学与演义评书往往习惯于将古代王朝的败亡归结为奸臣当道或昏君误国，仿佛只要斩杀了严嵩、起用了清流名臣，天下便立刻能重归四海升平的贞观之治。著名剧作家与历史学者刘和平读者在这部被公认为当代华语历史长篇巅峰的巨著中，以惊心动魄的宏大格局与深刻入骨的政治哲学反思，彻底砸碎了这种非黑即白的幼稚脸谱化想象。</p>
+    <p>传统历史文学与演义评书往往习惯于将古代王朝的败亡归结为奸臣当道或昏君误国，仿佛只要斩杀了严嵩、起用了清流名臣，天下便立刻能重归四海升平的贞观之治。著名剧作家与历史学者刘和平先生在这部被公认为当代华语历史长篇巅峰的巨著中，以惊心动魄的宏大格局与深刻入骨的政治哲学反思，彻底砸碎了这种非黑即白的幼稚脸谱化想象。</p>
     <p>刘和平先生将全书的核心戏剧冲突精确锚定在嘉靖末年一项旨在填补国库巨大财政亏空的经济国策上，即改稻为桑。大明王朝开局便面临着触目惊心的财政绝境，宫廷修道挥霍无度、吏治败坏贪腐横行、东南倭寇与北方鞑靼军费浩繁，国库亏空高达几百万两白银。中枢为了增加生丝出口换取西洋白银弥补亏空，强令浙江百姓将粮田改为桑田，看似一项利国利民的宏伟外贸规划，却在层层权力的贪婪吮吸与盘剥下，瞬间异化为一场官商勾结毁堤淹田、强买民田的惨绝人寰的人间浩劫。</p>
     <p>全书在嘉靖皇帝深不可测的帝王心术、严党与清流殊死搏杀的朝堂死斗、地方封疆大吏的夹缝周旋以及底层海瑞以死抗争的九曲回肠中展开，将中国传统帝制两千年制度运作的深层密码与人性悲剧剖析得淋漓尽致。</p>
   </div>

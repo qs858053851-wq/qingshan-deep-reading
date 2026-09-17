@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>瑜伽经 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="series">解书 · 2026-07-16</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">瑜伽经</div>
+    <div class="cover-sub">毗耶娑 注 · 黄宝生 译</div>
+    <div class="cover-meta">钵颠阇利 著 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先说清你手里这本书是什么。它是两层夹心：里层是钵颠阇利的《瑜伽经》本身，四章、一百九十四条经文，每条短则四五个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这部经的论证骨架，毗耶娑自己交了底：仿照医典。"正如医典有四部分：患病、病因、康复和药物，这部经同样有四部分：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">结论：因为问题不在心想错了什么，在于观众把心的一切活动都当成了自己；正确的戏也是戏。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">一句话：你的心是一池晃动的水，晃动时你以为月亮在水里；《瑜伽经》教你让水彻底静下来，好认出月亮从来在天上，水...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">做一道简单的算术题。这部瑜伽的元典共一百九十四条经文，其中直接谈论身体姿势的有几条？三条。第 2.46 到 2...</span>
+    </div>
+  </div>
+
   <h1>瑜伽经</h1>
   <div class="author">钵颠阇利 著 · 毗耶娑 注 · 黄宝生 译</div>
 </div>
@@ -361,7 +430,7 @@
   <p>那问题出在哪？出在观众看戏看入了迷，忘了自己是观众，以为自己就是戏里那个角色。心在感知、在痛苦、在欲求，观众隔得太近，把心的波动当成了自己的波动。书里用了个很妙的比喻：磁石。磁石本身不动，只是"仅仅凭借邻近"就让铁屑动起来；原人也不做什么，只因挨着心，心的活动就仿佛成了他的经历。痛苦由此而来。所以解脱的路线图也就清楚了：让心静下来、停下来，观众自然认出"哦，动的从来不是我"，这个认出叫"明辨"，认出之后观众独立出来，叫"独存"，就是这部经的解脱。</p>
 
   <div class="marker">第一章 · 入定：先给心做一份体检报告</div>
-  <p>第一章像一份心的体检报告。心的活动被归成五类：正确的认知、颠倒的认知、语言堆出来的妄想、睡眠、记忆。注意，连"正确的认知"和"睡眠"也在被抑止之列，这本书要停的不是错误思维，是思维本身。停的方法给了两味药：修行和离欲。修行是"努力保持稳定"，且必须"长期的、不间断的、真诚的"，一句话把所有速成幻想堵死；离欲是不贪求，浅的离欲是对看得见的东西（"女人、食物、饮料和权力"，经文原话）不动心，最高的离欲，连"升天国、成仙"这种听来的好处也不动心。然后是一整套入定的分级：从还带着思考的浅定，一级级剥，剥掉思考、剥掉观察、剥掉欢喜，最后连"我在入定"这个感觉也剥掉，叫无种子入定——心彻底停机，只剩观众。</p>
+  <p>第一章像一份心的体检报告。心的活动被归成五类：正确的认知、颠倒的认知、语言堆出来的妄想、睡眠、记忆。注意，连"正确的认知"和"睡眠"也在被抑止之列，这本书要停的不是错误思维，是思维本身。停的方法给了两味药：修行和离欲。修行是"努力保持稳定"，且必须"长期的、不间断的、真诚的"，一句话把所有速成幻想堵死；离欲是不贪求，浅的离欲是对看得见的东西（"女人、食物、饮料和权力"，经文原话）不动心，最高的离欲，连"升天国、成仙"这种听来的好处也不动心。然后是一整套入定的分级：从还带着思考的浅定，一级级剥，剥掉思考、剥掉观察、剥掉欢喜，最后连"我在入定"这个感觉也剥掉，叫无种子入定，心彻底停机，只剩观众。</p>
 
   <div class="marker">第二章 · 方法：诊断书与八级台阶</div>
   <p>第二章先下诊断：人生的病根叫"烦恼"，共五种：无知、自我性、贪欲、憎恨、执著，其中无知是另外四个的地基。无知的定义精确得像手术记录："将无常、不净、苦和非我，呈现为常、净、乐和我。"把会消失的当成永恒的，把身体当成干净的，把苦的当成乐的，把不是我的（心）当成我，四项认错，全部人生问题由此展开。这一章还有全书最狠的一句话："对于有分辨力的人，一切皆苦。"为什么连快乐也算苦，第五层细说。诊断完了开方子，就是著名的瑜伽八支：自制（不杀生、诚实、不偷盗、梵行、不执取）、遵行（纯洁、知足、苦行、诵习、敬仰自在天）、坐姿、调息、制感。这前五支叫"外支"，管的是行为和身体。坐姿的全部要求只有一句："稳定和舒适。"制感讲了个漂亮的比喻：蜜蜂随蜂王，蜂王停，整群蜜蜂就停；心一收，五官自动跟着收，不用一个一个去管。</p>
@@ -465,12 +534,12 @@
     <div class="sub">止：让心的波动停下来，八支是止的工程学。辨：认出观众不是银幕，这是唯一真正的药。止为辨扫路，辨为止封顶。</div>
   </div>
 
-  <p>一句话：你的心是一池晃动的水，晃动时你以为月亮在水里；《瑜伽经》教你让水彻底静下来，好认出月亮从来在天上——水是心，月亮是你。</p>
+  <p>一句话：你的心是一池晃动的水，晃动时你以为月亮在水里；《瑜伽经》教你让水彻底静下来，好认出月亮从来在天上，水是心，月亮是你。</p>
 
   <pre class="ascii">
         独 存（观众起身，戏散）
           ▲
-        明辨：原人 ≠ 心    ←—— 唯一的药
+        明辨：原人 ≠ 心    ←， 唯一的药
           ▲
   ┌── 内三支：专注 → 沉思 → 入定（总御）
   │     ▲   （途中岔路：神通，是障碍）

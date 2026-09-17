@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>制造消费者 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">商品拜物教、符号消费与现代人欲望工业的百年殖民史</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">十九世纪百货商场圣殿、福特制五美元日薪与爱德华·伯内斯公关术</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">产能过剩危机、广告心理战与商品符号阶层区隔</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从商场橱窗到自我异化、情感商品化与生活方式幻象</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析消费主义控制、极简主义陷阱与重建主体性</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">加卢佐的批判理论源流、现代电商算法映射与生活实践</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">消费主义欲望制造机百年演进与控制闭环图谱</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从橱窗里的红舞鞋到流水线工人的一日循环</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与消费社会学思想史事实考据</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">商品拜物教、符号消费与现代人欲望工业的百年殖民史</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">十九世纪百货商场圣殿、福特制五美元日薪与爱德华·伯内斯公关术</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">产能过剩危机、广告心理战与商品符号阶层区隔</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从商场橱窗到自我异化、情感商品化与生活方式幻象</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析消费主义控制、极简主义陷阱与重建主体性</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">加卢佐的批判理论源流、现代电商算法映射与生活实践</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">消费主义欲望制造机百年演进与控制闭环图谱</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从橱窗里的红舞鞋到流水线工人的一日循环</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与消费社会学思想史事实考据</span></div>
     </div>
   </div>
 
@@ -348,7 +408,7 @@
     <div class="layer-tag">Layer 01 · 论证全景</div>
     <h1>商品拜物教、符号消费与现代人欲望工业的百年殖民史</h1>
     
-<p>在十九世纪中叶以前，人类社会的绝大多数物质生产都受制于生存的自然边界：物品被制造出来是为了满足具体而有限的使用价值，鞋子穿破了修补，衣服代代相传，欲望是一个有明确饱腹感的生理常数。法国学者安东尼·加卢佐在《制造消费者》中，运用深邃的社会学与历史唯物主义手术刀，彻底拆解了过去一百五十年来工业资本主义最隐秘的胜利——资本主义不仅生产了铺天盖地的工业品，更关键的是，它通过广告、百货商场、大众传媒和生活方式的全面规训，从零开始凭空制造出了现代消费者这一人类物种。</p>
+<p>在十九世纪中叶以前，人类社会的绝大多数物质生产都受制于生存的自然边界：物品被制造出来是为了满足具体而有限的使用价值，鞋子穿破了修补，衣服代代相传，欲望是一个有明确饱腹感的生理常数。法国学者安东尼·加卢佐在《制造消费者》中，运用深邃的社会学与历史唯物主义手术刀，彻底拆解了过去一百五十年来工业资本主义最隐秘的胜利，资本主义不仅生产了铺天盖地的工业品，更关键的是，它通过广告、百货商场、大众传媒和生活方式的全面规训，从零开始凭空制造出了现代消费者这一人类物种。</p>
 <p>全书的核心命题指出，消费主义绝非人类自古以来的贪婪天性，而是一套为了消化第二次工业革命巨大过剩产能而专门发明的文化控制机器。从十九世纪巴黎的玻璃顶棚百货大楼，到二十世纪初流水线时代的福特主义，再到战后郊区中产阶级的电视广告轰炸，资本主义系统性地切断了人与生产工具、社区传统和自我价值的有机联系。它把人类对归属感、尊严、爱情和阶层跃升的崇高渴望，全部转译为对特定商品符号的占有欲。现代人以为自己在自由地选择生活，实际上只是在一个被精心编码的欲望矩阵中，按月支付赎金以维持虚幻的自我认同。</p>
 <div class="highlight-box">
 <strong>核心洞见：</strong>消费主义的本质不是满足人类既有的欲望，而是通过在日常生活中制造永久性的焦虑与匮乏感，将人类的灵魂改造成维持资本再生产循环的永动机。
@@ -393,7 +453,7 @@
 <h2>第二步 运作方式：去语境化的商品奇观与生产苦难的彻底隐形</h2>
 <p>当我们拿到一件包装精美的快时尚衣物或电子产品时，工业流水线上的漫长工时、第三世界工人的恶劣环境以及庞大的碳排放全被洗刷得干干净净。商品在商场柔光和网红滤镜下变成了一个纯粹的欲望客体，我们被剥夺了看见真实生产过程的机会，只能在商品的符号幻象中完成投射。</p>
 <h2>第三步 基本道理：你买的不是物品本身，而是那个使用该物品的理想自我</h2>
-<p>购买昂贵的跑鞋是为了成为那个自律健康的跑者，购买全套露营装备是为了成为那个亲近自然、无拘无束的探险家。资本主义最精妙的把戏在于，它把漫长艰难的个人成长与人格修炼，偷换成了一次简单的扫码支付——只要占有了道具，你就误以为自己已经拥有了某种人生。</p>
+<p>购买昂贵的跑鞋是为了成为那个自律健康的跑者，购买全套露营装备是为了成为那个亲近自然、无拘无束的探险家。资本主义最精妙的把戏在于，它把漫长艰难的个人成长与人格修炼，偷换成了一次简单的扫码支付，只要占有了道具，你就误以为自己已经拥有了某种人生。</p>
 <h2>第四步 底层限制与悖论：消费快感的边际递减与永久性精神贫困</h2>
 <p>由于物品本身根本无法填补灵魂深处的空虚与孤独，拆开快递后的满足感只能维持数小时。随着商品迅速沦为日常琐碎，新的匮乏感与焦虑再次袭来，驱使人们投入下一轮更加狂热的加班与消费循环，直至被彻底榨干。</p>
 
@@ -475,7 +535,7 @@
     
 <p>在安徒生的著名童话《红舞鞋》中，穿上红舞鞋的小女孩珈伦在舞会上光彩夺目，但很快，红舞鞋掌握了她身体的控制权，带着她不知疲倦地旋转跳跃，穿过荆棘与墓地，哪怕双脚流血、精疲力竭，也无法停下脚步，直到最后不得不请求刽子手砍断双脚。加卢佐在书中向我们展示的，正是这双红舞鞋在过去一百五十年里，如何被资本主义量产并套在了全人类的脚上。</p>
 <p>清晨七点，闹钟响起，一个普通的现代白领在疲惫中惊醒。他喝下一杯标榜着唤醒活力的高级挂耳咖啡，穿上一套剪裁得体但价格昂贵的新中产职业套装，挤进窒息的早高峰地铁。在办公室里，他面对着永无休止的表格、会议与绩效指标，从事着极其细分、无法看到最终成果的原子化工作。他感到空虚、压抑，仿佛自己只是一台大型机房里随时可以被替换的风扇。</p>
-<p>晚上八点，他拖着被抽空的躯壳走出写字楼。大街上霓虹闪烁，商场巨大的玻璃幕墙里展示着光鲜亮丽的模特与一尘不染的理想生活。他走进一家精酿酒馆，或者在回家的出租车上打开手机。屏幕亮起，博主正在精致的北欧风公寓里展示最新款的降噪耳机与露营帐篷，文案深情地写着：“爱自己，是终身浪漫的开始。”在这一瞬间，一整天的屈辱与疲惫找到了出口——他点击了购买，完成了支付。当支付成功的提示音响起时，他感到自己重新变回了一个体面、有尊严且热爱生活的人。</p>
+<p>晚上八点，他拖着被抽空的躯壳走出写字楼。大街上霓虹闪烁，商场巨大的玻璃幕墙里展示着光鲜亮丽的模特与一尘不染的理想生活。他走进一家精酿酒馆，或者在回家的出租车上打开手机。屏幕亮起，博主正在精致的北欧风公寓里展示最新款的降噪耳机与露营帐篷，文案深情地写着：“爱自己，是终身浪漫的开始。”在这一瞬间，一整天的屈辱与疲惫找到了出口，他点击了购买，完成了支付。当支付成功的提示音响起时，他感到自己重新变回了一个体面、有尊严且热爱生活的人。</p>
 <p>然而，当包裹送达、拆开塑料包装的那一刻，短暂的兴奋迅速褪去。耳机挂在脖子上，并没有带来内心的平静；露营帐篷堆在阳台角落，落满了灰尘。下个月的信用卡账单准时送达，上面的数字提醒他：明天早上七点，闹钟依然会响起，他必须更加卖力地在工位上忍受折磨，因为只有这样，他才能赚够下一次换取尊严的赎金。这就是消费主义最残酷的戏法：它先在生产端剥夺你的灵魂，再在消费端向你高价兜售灵魂的塑料仿制品，让你在旋转跳跃的永动机里，直到耗尽最后一滴生命力。</p>
 
   </div>
@@ -486,7 +546,7 @@
     
 <div class="closing-quote">
   <p>真正的自由从来不是在货架上挑选商品的大同小异，而是在认清欲望制造的机关之后，勇敢地夺回自己不被明码标价的生活。</p>
-  <div class="closing-author">—— 《制造消费者》社会批判终局定音</div>
+  <div class="closing-author">， 《制造消费者》社会批判终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与学术考据说明</h3>

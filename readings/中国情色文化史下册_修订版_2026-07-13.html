@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中国情色文化史 · 下册 — 解读</title>
+<title>中国情色文化史 · 下册 ， 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,48 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="kicker">深度解读 · 九层</div>
-  <h1>中国情色文化史 · 下册</h1>
-  <div class="author">刘达临 著 · 人民日报出版社 2003</div>
-  <div class="meta">覆盖：宋元 → 明 → 清 → 近代 → 结论章 · 全书理论收束 · 2026-07-06 初稿 · 2026-07-13 修订</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中国情色文化史 · 下册</div>
+    <div class="cover-sub">覆盖：宋元 → 明 → 清 → 近代 → 结论章 · 全书理论收束 · 2026-07-06 初稿 · 2026-07-13 修订</div>
+    <div class="cover-meta">刘达临 著 · 人民日报出版社 2003 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">刘达临这部《中国情色文化史》下册从宋代讲到清末，再加一个独立的结论章，是全书的"压抑半程"加理论收束。它要回答...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">下册的论证链条比上册复杂，因为它要同时讲"压抑怎么来"和"该往哪去"。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，这四根线在牵动下册</span>
+      <span class="toc-desc">上册找到三根线：经济基础、双重结构、房中术技术谱系。下册接上这三根线，看它们在宋代以后怎么走，同时长出第四根线...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层横着看，找到四根线。这一层竖着挖：挑下册独有的那根线（压制-反弹律），像往井里下探，一层一层往下坠，一直...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，串起下册的逻辑</span>
+      <span class="toc-desc">把下册的论证一根一根抽出来，每根长成一个问题。顺着问答往下走，作者的推理就一步步复现出来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">刘达临在结论章自问"我们恣意地去研究它、发掘它是为了什么？"他给的答案不是讲历史，是"鉴古知今，古为今用，不了...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸压缩下册</span>
+      <span class="toc-desc">性作为自然本能不可压制，压制强度几乎全部转化为反弹强度；压得越狠，反弹越疯。明清春宫画和性小说在禁锢最严酷时反...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 压得越狠，长得越疯</span>
+      <span class="toc-desc">第四层按下不表的“压制，反弹”悖论，现在摊开。一个反直觉的事实先摆出来：明清春宫画在性禁锢最严酷时发展到了顶峰...</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">Layer 01</div>
@@ -361,15 +438,15 @@
 
   <p>下册按主题分期呈现（扫描版把章节页眉打乱了，编号体系已经不可靠，所以用主题分期）：</p>
 
-  <p>第一段"宋元——性禁锢时代的开端"。核心判断：宋代是中国性文化史的大转折点，"由盛转衰、由开放转禁锢"。思想根源归到程朱理学"存天理灭人欲"，礼教"男女授受不亲"从孔孟经《礼记》到司马光《书仪》一路规范化。但制度与实践有落差：统治阶层一面立礼教紧箍咒，一面自己带头狎妓，宋徽宗微行嫖名妓李师师，还和词人周邦彦"共享"同一妓女（《贵耳集》记周邦彦躲床下填词自嘲，徽宗读后反而召他复官）。缠足在宋代开始推广，贞节观出现早期极端案例（五代"寡妇断臂"、元代"乳疡不医"的马氏）。</p>
+  <p>第一段"宋元，性禁锢时代的开端"。核心判断：宋代是中国性文化史的大转折点，"由盛转衰、由开放转禁锢"。思想根源归到程朱理学"存天理灭人欲"，礼教"男女授受不亲"从孔孟经《礼记》到司马光《书仪》一路规范化。但制度与实践有落差：统治阶层一面立礼教紧箍咒，一面自己带头狎妓，宋徽宗微行嫖名妓李师师，还和词人周邦彦"共享"同一妓女（《贵耳集》记周邦彦躲床下填词自嘲，徽宗读后反而召他复官）。缠足在宋代开始推广，贞节观出现早期极端案例（五代"寡妇断臂"、元代"乳疡不医"的马氏）。</p>
 
-  <p>第二段"明——礼教高压与性文化实际繁荣并行"，是全书篇幅最大的部分，也是作者"反作用力与作用力成正比"论点的主战场。朱元璋极端专制加文字狱（胡惟庸案株连三万、蓝玉案株连一万五），中后期宦官政治（魏忠贤）；郑和下西洋早于哥伦布近百年，李时珍、徐霞客、徐光启、宋应星却因"雕虫小技"评价被埋没；贞节牌坊制度化，烈女数字从唐51人、宋267人暴涨到明近3.6万人；梅毒从个案记载到明代形成明确医学诊断（陈司成《霉疮秘录》1632年，中国第一部梅毒专著）；《金瓶梅》成书于万历年间；春宫画从明代进入鼎盛期并影响日本浮世绘；明代男风鼎盛（明武宗豹房男宠、严嵩严世蕃父子）。</p>
+  <p>第二段"明，礼教高压与性文化实际繁荣并行"，是全书篇幅最大的部分，也是作者"反作用力与作用力成正比"论点的主战场。朱元璋极端专制加文字狱（胡惟庸案株连三万、蓝玉案株连一万五），中后期宦官政治（魏忠贤）；郑和下西洋早于哥伦布近百年，李时珍、徐霞客、徐光启、宋应星却因"雕虫小技"评价被埋没；贞节牌坊制度化，烈女数字从唐51人、宋267人暴涨到明近3.6万人；梅毒从个案记载到明代形成明确医学诊断（陈司成《霉疮秘录》1632年，中国第一部梅毒专著）；《金瓶梅》成书于万历年间；春宫画从明代进入鼎盛期并影响日本浮世绘；明代男风鼎盛（明武宗豹房男宠、严嵩严世蕃父子）。</p>
 
-  <p>第三段"清——末代封建王朝"，把性禁锢推向顶峰又出现公开挑战。贞节观绝对化（安徽休宁县2200余名"节烈"妇女、各地设"全节堂""清节堂"）；雍正废除延续千年的乐籍制度，反而因没安置从良妓女生计、没铲除土壤，导致私娼大盛；太监制度与净身过程（清朝宫禁太监总额限定3000人，比明朝少得多）；《大清律例》首次把"淫词小说"与"造妖书妖言"同罪入律，比《大明律》严酷得多；藏传佛教"欢喜天"图像史（雍和宫由雍正潜邸改建后设"欢喜天"，乾隆年间宫中曾铸两套铜佛各约八千尊）；李汝珍《镜花缘》的女性主义批判（反缠足、反纳妾、主张男女平等参政，胡适极高评价）；袁枚"随园女弟子"至今可考27人；缠足在清代的兴废拉锯（顺治康熙两次严诏禁止禁不住，乾隆转而严禁旗女缠足，汉人却越缠越盛）；叶德辉1903至04年辑印《双梅景暗丛书》整理古代房中术典籍。</p>
+  <p>第三段"清，末代封建王朝"，把性禁锢推向顶峰又出现公开挑战。贞节观绝对化（安徽休宁县2200余名"节烈"妇女、各地设"全节堂""清节堂"）；雍正废除延续千年的乐籍制度，反而因没安置从良妓女生计、没铲除土壤，导致私娼大盛；太监制度与净身过程（清朝宫禁太监总额限定3000人，比明朝少得多）；《大清律例》首次把"淫词小说"与"造妖书妖言"同罪入律，比《大明律》严酷得多；藏传佛教"欢喜天"图像史（雍和宫由雍正潜邸改建后设"欢喜天"，乾隆年间宫中曾铸两套铜佛各约八千尊）；李汝珍《镜花缘》的女性主义批判（反缠足、反纳妾、主张男女平等参政，胡适极高评价）；袁枚"随园女弟子"至今可考27人；缠足在清代的兴废拉锯（顺治康熙两次严诏禁止禁不住，乾隆转而严禁旗女缠足，汉人却越缠越盛）；叶德辉1903至04年辑印《双梅景暗丛书》整理古代房中术典籍。</p>
 
-  <p>第四段"近代过渡——新旧交替中的性婚姻变革"。太平天国以法令厉行禁娼（娼妓"合家剿洗"、明知故犯者"斩首不留"）、推行一夫一妻、废除买卖婚姻、颁"解放缠足令"、设计婚姻登记制度发"合挥"婚书（写明双方姓名年岁及"配偶"二字，盖龙凤印，相当于现代结婚证书），但起义不过十几年领导层迅速腐化，诸王纳妾数百、东王杨秀清府中"大蓄男妓"，与开国禁令形成尖锐反差。晚清戊戌前后的"不缠足运动"（康有为1883年首创《不缠足会草例》、梁启超《变法通议·论女学》力陈"缠足一日不变，女学一日不兴"）开启近代妇女解放的组织化先声。</p>
+  <p>第四段"近代过渡，新旧交替中的性婚姻变革"。太平天国以法令厉行禁娼（娼妓"合家剿洗"、明知故犯者"斩首不留"）、推行一夫一妻、废除买卖婚姻、颁"解放缠足令"、设计婚姻登记制度发"合挥"婚书（写明双方姓名年岁及"配偶"二字，盖龙凤印，相当于现代结婚证书），但起义不过十几年领导层迅速腐化，诸王纳妾数百、东王杨秀清府中"大蓄男妓"，与开国禁令形成尖锐反差。晚清戊戌前后的"不缠足运动"（康有为1883年首创《不缠足会草例》、梁启超《变法通议·论女学》力陈"缠足一日不变，女学一日不兴"）开启近代妇女解放的组织化先声。</p>
 
-  <p>第五段"结论章——历史的启示和结论"，全书论证的收束章，以16条编号论点系统总结。这是刘达临本人性学理论框架最集中的表达，也是全书落脚点。16条可归四组：性的本体论（1-5条）、性文化演变规律（6-10条）、面向当下的判断（11-14条）、政策主张（15-16条）。最核心的三句：第6条"开放→禁锢→再开放，不是简单重复，而是螺旋形上升"；第8条"反作用力往往和作用力成正比"；第16条"我们提倡健康的性开放……有两大敌人，一是性保守，二是性放纵，我们应该在两线作战"。</p>
+  <p>第五段"结论章，历史的启示和结论"，全书论证的收束章，以16条编号论点系统总结。这是刘达临本人性学理论框架最集中的表达，也是全书落脚点。16条可归四组：性的本体论（1-5条）、性文化演变规律（6-10条）、面向当下的判断（11-14条）、政策主张（15-16条）。最核心的三句：第6条"开放→禁锢→再开放，不是简单重复，而是螺旋形上升"；第8条"反作用力往往和作用力成正比"；第16条"我们提倡健康的性开放……有两大敌人，一是性保守，二是性放纵，我们应该在两线作战"。</p>
 
   <div class="marker">姿态 · 从讲历史到给当下开药方</div>
   <h3>论证结构与写作姿态</h3>
@@ -629,7 +706,7 @@
   <div class="layer-num">Layer 08</div>
   <h2 class="layer-title">压得越狠，长得越疯</h2>
 
-  <p>第四层按下不表的“压制—反弹”悖论，现在摊开。一个反直觉的事实先摆出来：明清春宫画在性禁锢最严酷时发展到了顶峰，《金瓶梅》在万历年间理学高压期成书，中国古代性小说在明清两代达到顶峰。禁锢和繁荣同时到达顶峰。这不是某一个人的猎奇观察，是刘达临在全书里反复坐实的一个判断，他在结论章第8条说"反作用力往往和作用力成正比"，明清两代就是这句话的史实验证。</p>
+  <p>第四层按下不表的“压制，反弹”悖论，现在摊开。一个反直觉的事实先摆出来：明清春宫画在性禁锢最严酷时发展到了顶峰，《金瓶梅》在万历年间理学高压期成书，中国古代性小说在明清两代达到顶峰。禁锢和繁荣同时到达顶峰。这不是某一个人的猎奇观察，是刘达临在全书里反复坐实的一个判断，他在结论章第8条说"反作用力往往和作用力成正比"，明清两代就是这句话的史实验证。</p>
 
   <p>这个反直觉的事实逼出一个问题：为什么压得越狠反而长得越疯？常识以为压就能压住，禁锢严了性就该收敛。但历史给出的答案相反：禁锢越严，台面下的性文化越繁荣。压和长不是反比关系，是正比关系。</p>
 
@@ -665,7 +742,7 @@
 
 <section class="quote">
   <p class="layer-num">Layer 09</p>
-  <p class="line">压得越狠，长得越疯——禁锢从来不消灭性，只改变它的形状。</p>
+  <p class="line">压得越狠，长得越疯，禁锢从来不消灭性，只改变它的形状。</p>
   <p class="sign">青山 · 2026-07-06 初稿 · 2026-07-13 修订</p>
 </section>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>大唐西域记今译 · 深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,13 +381,44 @@
 <body>
 <div class="container">
 
-  <section class="hero">
-    <h1 class="hero-book">大唐西域记今译</h1>
-    <div class="hero-author">[唐] 玄奘 著 · 辩机 编次 / 季羡林 等今译</div>
-    <div class="hero-desc">
-      这是一部大唐帝国最高等级的欧亚地缘政治、山川道里与宗教社会学实地情报报告。玄奘用双脚丈量了一百一十个亲历国与二十八个传闻国，在万余里山河间绘制了七世纪欧亚大陆腹地的文明拼图。
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">大唐西域记今译</div>
+    <div class="cover-sub">唐贞观初年，国家初定，西北边境禁令严苛。二十八岁的沙门玄奘因感国内佛经译本互有抵牾，决意西赴印度求取《瑜伽师地论》全本。朝廷未许其出境申请，玄奘遂混于饥民之中潜出长安，经凉州、瓜州...</div>
+    <div class="cover-meta">青山 读 · 大唐西域记今译 · 解读主理：青山 · 日期：2026-08-31 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 万余里西行之路与七世纪欧亚世界图景</span>
+      <span class="toc-desc">唐贞观初年，国家初定，西北边境禁令严苛。二十八岁的沙门玄奘因感国内佛经译本互有抵牾，决意西赴印度求取《瑜伽师地...</span>
     </div>
-  </section>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 精确的空间测度与制度图谱</span>
+      <span class="toc-desc">玄奘在《大唐西域记》中展现的不仅是一位高僧的巡礼眼光，更是一套极其严谨的帝国地理学与政治社会学考察方法。全书对...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 塑造西域与印度历史的三股深层力量</span>
+      <span class="toc-desc">通读《大唐西域记》，可以清晰提炼出推动当时欧亚内陆运转的三条内在脉络：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 走出佛国光环看帝国外交与时代盲区</span>
+      <span class="toc-desc">玄奘撰写此书的核心动力，一方面是向朝廷交卸取经使命、报答唐太宗资助译经的政治承诺，另一方面则是为大唐经略西北边...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 全书骨架浓缩</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 从求法私行到帝国战略蓝图的蜕变</span>
+      <span class="toc-desc">后世谈起玄奘西行，往往被《西游记》的神话色彩或单纯的高僧殉道叙事所遮蔽。如果退回到贞观年间的政治现实中审视，就...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 最终判断</span>
+      <span class="toc-desc">本文依据唐代玄奘著、辩机编次之《大唐西域记》原文，并参考季羡林等学者今译注本。文中所述玄奘西行路线、停留年份、...</span>
+    </div>
+  </div>
+
 
   <!-- 第一层 -->
   <section class="layer">

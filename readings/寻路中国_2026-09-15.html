@@ -6,25 +6,32 @@
 <title>寻路中国 · 深度解读</title>
 
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -34,21 +41,16 @@
     @top-right {
       content: string(section-title);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
       letter-spacing: 0.5pt;
     }
     @bottom-center {
-      content: counter(page) "   ·   " string(book-name);
+      content: counter(page);
       font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #6b6a64;
     }
-  }
-
-  @page:first {
-    @top-right { content: ""; }
-    @bottom-center { content: ""; }
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -86,6 +88,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -121,114 +134,118 @@
     font-weight: 700;
     color: var(--near-black);
     line-height: 1.22;
+    letter-spacing: 1.5pt;
     margin-bottom: 18pt;
-    string-set: book-name content();
   }
   .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
-    line-height: 1.8;
-    margin-bottom: 28pt;
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
     padding-left: 14pt;
-    border-left: 3pt solid var(--brand);
+    border-left: 2.5pt solid var(--brand);
   }
   .cover-meta {
-    font-size: 11pt;
+    font-family: var(--serif);
+    font-size: 10.5pt;
     color: var(--stone);
-    line-height: 1.9;
-    border-top: 0.5pt solid var(--border-soft);
-    padding-top: 16pt;
-    margin-top: 24pt;
-  }
-  .cover-meta strong {
-    color: var(--dark-warm);
-    font-weight: 700;
+    line-height: 1.8;
+    margin-top: 14pt;
   }
 
   .toc {
-    padding: 20pt 0 30pt;
-    margin-bottom: 32pt;
-    border-bottom: 0.8pt solid var(--border);
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
     page-break-after: always;
   }
-  .toc-title {
+  .toc h2 {
     font-family: var(--title-font);
-    font-size: 20pt;
-    color: var(--brand);
+    font-size: 22pt;
+    font-weight: 700;
     margin-bottom: 20pt;
-    letter-spacing: 2pt;
-    font-weight: 700;
-  }
-  .toc-list {
-    list-style: none;
-  }
-  .toc-item {
-    margin-bottom: 14pt;
-    line-height: 1.6;
-  }
-  .toc-link {
-    text-decoration: none;
     color: var(--near-black);
-    font-weight: 700;
-    font-family: var(--title-font);
-    font-size: 13pt;
-  }
-  .toc-link:hover {
-    color: var(--brand);
-  }
-  .toc-desc {
-    display: block;
-    font-size: 11pt;
-    color: var(--stone);
-    margin-top: 3pt;
-    font-family: var(--serif);
-    font-weight: normal;
-  }
-
-  .section {
-    margin-bottom: 40pt;
-    padding-bottom: 30pt;
-    border-bottom: 0.5pt solid var(--border-soft);
-  }
-  .layer-tag {
-    display: inline-block;
-    background: var(--tag-bg);
-    color: var(--brand);
-    font-family: var(--title-font);
-    font-size: 10pt;
-    font-weight: 700;
-    padding: 3pt 10pt;
-    border-radius: 2pt;
-    margin-bottom: 12pt;
     letter-spacing: 1pt;
   }
-  h1 {
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    color: var(--dark-warm);
+  }
+  .toc-name {
     font-family: var(--title-font);
-    font-size: 20pt;
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag, .layer-num {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
     color: var(--near-black);
     line-height: 1.35;
+    letter-spacing: 1pt;
     margin-bottom: 18pt;
     string-set: section-title content();
   }
+
   h2 {
     font-family: var(--title-font);
-    font-size: 16pt;
-    color: var(--brand);
-    margin-top: 24pt;
-    margin-bottom: 12pt;
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
     line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
   }
-  h3.marker {
+
+  h3, .marker {
     display: block;
     font-family: var(--title-font);
-    font-size: 14pt;
-    color: var(--dark-warm);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
     margin-top: 28pt;
     margin-bottom: 12pt;
     padding-left: 10pt;
     border-left: 3pt solid var(--brand);
-    line-height: 1.45;
+    line-height: 1.4;
   }
 
   p {
@@ -236,127 +253,122 @@
     text-align: justify;
   }
 
-  .qa-item {
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
     background: var(--ivory);
-    border: 0.8pt solid var(--border);
     border-left: 3.5pt solid var(--brand);
-    padding: 16pt 20pt;
-    margin-bottom: 20pt;
-    border-radius: 2pt;
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
   }
-  .qa-q {
-    font-family: var(--title-font);
-    font-size: 13pt;
-    font-weight: 700;
-    color: var(--brand);
-    margin-bottom: 8pt;
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
   }
-  .qa-a {
-    font-size: 12pt;
-    color: var(--near-black);
-    line-height: 1.8;
-  }
-  .qa-bound {
-    font-size: 10.5pt;
+  .src, .quote-src {
+    font-size: 9.5pt;
     color: var(--stone);
     margin-top: 8pt;
-    padding-top: 6pt;
-    border-top: 0.5pt dashed var(--border-soft);
   }
 
   .napkin {
-    background: #ffffff;
-    border: 1.2pt solid var(--near-black);
-    padding: 24pt;
     margin: 24pt 0;
-    box-shadow: 0 4px 16pt rgba(0,0,0,0.04);
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
   }
-  .napkin-title {
+  .napkin-formula {
+    text-align: center;
     font-family: var(--title-font);
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
     margin-bottom: 12pt;
-    text-align: center;
-  }
-  .napkin-formula {
-    background: var(--tag-bg);
-    color: var(--brand);
-    font-family: monospace;
-    font-size: 11.5pt;
-    font-weight: 700;
-    padding: 10pt;
-    text-align: center;
-    border-radius: 2pt;
-    margin-bottom: 14pt;
+    letter-spacing: 1pt;
   }
   .napkin-core {
     font-size: 12pt;
-    line-height: 1.75;
-    margin-bottom: 16pt;
-    color: var(--dark-warm);
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
-  .ascii-box {
-    background: #23272e;
-    color: #abb2bf;
-    font-family: "Courier New", Courier, monospace;
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
     font-size: 10pt;
     line-height: 1.45;
-    padding: 14pt;
-    border-radius: 3pt;
+    color: var(--olive);
     overflow-x: auto;
-    white-space: pre;
-  }
-
-  .engine-box {
-    background: var(--ivory);
-    border: 1pt solid var(--border);
-    padding: 22pt;
-    margin: 24pt 0;
-    border-radius: 3pt;
-  }
-  .engine-step {
-    margin-bottom: 16pt;
-  }
-  .engine-label {
-    font-family: var(--title-font);
-    font-weight: 700;
-    color: var(--brand);
-    font-size: 12pt;
-    margin-bottom: 4pt;
-  }
-
-  .closing-quote {
-    margin: 36pt 0 24pt;
-    padding: 24pt 0;
-    border-top: 1.5pt solid var(--near-black);
-    border-bottom: 1.5pt solid var(--near-black);
-    text-align: center;
-    font-family: var(--title-font);
-    font-size: 18pt;
-    line-height: 1.6;
-    color: var(--near-black);
-  }
-  .closing-sign {
-    display: block;
-    margin-top: 12pt;
-    font-size: 11pt;
-    color: var(--stone);
-    font-family: var(--serif);
-    text-align: right;
+    white-space: pre-wrap;
   }
 
   .facts-boundary {
-    background: #eae8dd;
+    margin-top: 28pt;
     padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
     font-size: 10.5pt;
-    color: var(--olive);
-    line-height: 1.7;
-    border-radius: 2pt;
-    margin-top: 24pt;
+    color: var(--stone);
+    line-height: 1.75;
   }
-  .facts-boundary strong {
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
     color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -387,39 +399,39 @@
   <div class="toc-title">目 录</div>
   <ul class="toc-list">
     <li class="toc-item">
-      <a class="toc-link" href="#layer01">Layer 01 · 论证全景</a>
+      <span>Layer 01 · 论证全景</div>
       <span class="toc-desc">大转型时代的微观切片：一个异乡人眼中的当代中国真实肌理</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer02">Layer 02 · 核心论据</a>
+      <span>Layer 02 · 核心论据</div>
       <span class="toc-desc">三岔村空心化、丽水开发区工厂与驾照考试的历史田野链</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer03">Layer 03 · 机制解剖</a>
+      <span>Layer 03 · 机制解剖</div>
       <span class="toc-desc">解释生成器：乡土秩序解体、草根创业韧性与城镇化冲刺的三维交织</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer04">Layer 04 · 终极下钻</a>
+      <span>Layer 04 · 终极下钻</div>
       <span class="toc-desc">从拉链扣生产下钻至全球化红利与第一代农民工的身份悬浮</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer05">Layer 05 · 衍生推演</a>
+      <span>Layer 05 · 衍生推演</div>
       <span class="toc-desc">七大核心递进追问：乡土人情裂变、教育代际流动与工业化代价</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer06">Layer 06 · 破界审视</a>
+      <span>Layer 06 · 破界审视</div>
       <span class="toc-desc">跳出猎奇与偏见，审视非虚构写作的同理心力量与中国叙事</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer07">Layer 07 · 餐巾纸仪表盘</a>
+      <span>Layer 07 · 餐巾纸仪表盘</div>
       <span class="toc-desc">当代中国转型期社会流动与微观心理极简生成器</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer08">Layer 08 · 讲解引擎</a>
+      <span>Layer 08 · 讲解引擎</div>
       <span class="toc-desc">最值钱的认知跃迁：为什么完全没有商业规划与现代管理的小农，能赤手空拳建起全球最大的产业带？</span>
     </li>
     <li class="toc-item">
-      <a class="toc-link" href="#layer09">Layer 09 · 终局定音</a>
+      <span>Layer 09 · 终局定音</div>
       <span class="toc-desc">致敬大时代中的平凡英雄：在变动不居的土地上寻找心灵的家园</span>
     </li>
   </ul>

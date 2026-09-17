@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>文心雕龙今译 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">文心雕龙今译</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">文心雕龙今译</div>
+    <div class="cover-sub">周振甫 今译 · 中华书局</div>
+    <div class="cover-meta">刘勰 原著（约成书于公元 501 年前后） · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02</span>
+      <span class="toc-desc">它要回答的问题一句话能说完：文章的好坏，究竟有没有根据？它给的答案也是一句话：有，根据在三样东西里：天地、人心...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04</span>
+      <span class="toc-desc">全书的论证链可以拉成一条线：文与天地同在（日月山川都是"文"）→ 人是天地之心，人心一动，语言就生，语言成章就...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">五十篇，讲了几十种文体、上百个作家、几百条写作经验，看着千头万绪。拆到底，底下就三根线，五十篇全是从这三根线上...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08</span>
+      <span class="toc-desc">三根线里，第一根埋得最深。顺着它往下挖，看能挖到哪。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">结论：书名本身就是全书立场的压缩，用心（文心）与工艺（雕龙）缺一不可。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">《序志》里他自己交了底，两条。一条是梦：三十多岁时梦见自己捧着丹漆礼器，跟着孔子往南走，醒来认定圣人托付了他什...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14</span>
+      <span class="toc-desc">一句话：文章是天地借人心的显影；显影要真，手艺要新，次序不能乱。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16</span>
+      <span class="toc-desc">第一层留过一句话：一部要给浮华文风纠偏的书，自己穿着最华丽的衣服出场，用意后面拆。现在拆。</span>
+    </div>
+  </div>
+
   <div class="meta">刘勰 原著（约成书于公元 501 年前后）· 周振甫 今译 · 中华书局</div>
   <div class="oneline">一个借住在寺庙里的穷书生，用最华丽的文体，写了一部给全部中国文章立法的书。</div>
   <div class="notice">说明：所据 PDF 文件损坏无法读取，本篇基于公版原典与公开信息写成，非逐页精读周译本，周振甫的具体译文措辞请以纸本为准。</div>
@@ -359,7 +440,7 @@
 
   <div class="marker">全书的架子</div>
 
-  <p>五十篇分四大块，结构是他自己在末篇《序志》里交代的。头五篇（《原道》到《辨骚》）是全书的地基，他自称"文之枢纽"：文从哪来、以什么为范本、面对新变怎么办，先立总纲。第二块二十篇是文体论，把当时存在的每一种文体——诗、乐府、赋、颂、铭、诔、章、表、书、记——逐个过堂，每体都按同一套流程：先讲起源，再解名义，再选代表作，最后总结写法。第三块约十九篇是创作论，全书最精华的部分：《神思》讲构思，《体性》讲风格与人的关系，《风骨》讲力量感，《通变》讲继承和创新，《情采》讲内容与文采，《声律》《丽辞》《比兴》《夸饰》一路讲到具体技法。第四块是批评论：《时序》讲文学随时代变迁，《知音》讲鉴赏为什么难，《才略》历评作家，《程器》谈文人的品行，末了《序志》自述写作缘起。</p>
+  <p>五十篇分四大块，结构是他自己在末篇《序志》里交代的。头五篇（《原道》到《辨骚》）是全书的地基，他自称"文之枢纽"：文从哪来、以什么为范本、面对新变怎么办，先立总纲。第二块二十篇是文体论，把当时存在的每一种文体，诗、乐府、赋、颂、铭、诔、章、表、书、记，逐个过堂，每体都按同一套流程：先讲起源，再解名义，再选代表作，最后总结写法。第三块约十九篇是创作论，全书最精华的部分：《神思》讲构思，《体性》讲风格与人的关系，《风骨》讲力量感，《通变》讲继承和创新，《情采》讲内容与文采，《声律》《丽辞》《比兴》《夸饰》一路讲到具体技法。第四块是批评论：《时序》讲文学随时代变迁，《知音》讲鉴赏为什么难，《才略》历评作家，《程器》谈文人的品行，末了《序志》自述写作缘起。</p>
 
   <p>用一个比方，这书的结构像一部完整的法典：枢纽论是宪法总则，文体论是分则条文，创作论是立法原理，批评论是司法解释。中国此前不是没有文论，曹丕《典论·论文》、陆机《文赋》都在，但都是单篇短章，各说一面。刘勰自己点评过这些前辈：各照隅隙，鲜观衢路，意思是都只照亮了墙角，没人看过十字路口的全景。他这五十篇，是第一次有人把"文章"当成一个完整的世界来立法。鲁迅后来把它跟亚里士多德《诗学》并举，东西方各一部，这个位置至今没人挪动过。</p>
 
@@ -389,7 +470,7 @@
 
   <div class="marker">第一根线 · 文是天地的显影</div>
 
-  <p>先问一个怪问题：一部教人写文章的书，为什么第一篇是宇宙论？《原道》开篇不谈技法，谈日月："日月叠璧，以垂丽天之象；山川焕绮，以铺理地之形。"日月是天上的文，山川是地上的文，虎豹的斑纹、云霞的颜色，都是文。然后才轮到人：人是天地之心，心里一动，话就出来了，话成了章，就是人的文。这一步棋的用意，是把"文"从人造的装饰品，改判成天地本有的东西——美是存在自己带的花纹，用不着谁来添。</p>
+  <p>先问一个怪问题：一部教人写文章的书，为什么第一篇是宇宙论？《原道》开篇不谈技法，谈日月："日月叠璧，以垂丽天之象；山川焕绮，以铺理地之形。"日月是天上的文，山川是地上的文，虎豹的斑纹、云霞的颜色，都是文。然后才轮到人：人是天地之心，心里一动，话就出来了，话成了章，就是人的文。这一步棋的用意，是把"文"从人造的装饰品，改判成天地本有的东西，美是存在自己带的花纹，用不着谁来添。</p>
 
   <p>这根线管得很远。第四十六篇《物色》，讲四季景物怎么牵动人心，"情以物迁，辞以情发"，春天一来心就舒展，落叶一飘意就沉下去。从第一篇的日月山川，到第四十六篇的一叶一虫，是同一根线：外面的世界一直在"显影"，写作是把这个显影收进字里。把这根线抽掉，试试看：文没了来历，全书立刻降格成一本高级写作手册，《原道》《征圣》《宗经》《物色》全部没了着落。</p>
 
@@ -511,7 +592,7 @@
 
   <div class="marker">跨出去 · 两处对得上的</div>
 
-  <p>《通变》那套"体有常、数无方"，做产品的人天天在过这道关。一家老字号餐馆，招牌菜的味型是"体"，动了它老客就散；摆盘、场地、点单方式是"数"，不变新客就不来。倒闭的老字号多半死在两头：要么把摆盘当祖宗，什么都不许动；要么把味型也"创新"掉，老店变成了谁都不是。刘勰那句判词放在这里一字不用改：通变则久。这不是比附，结构严格对得上——都是在"根性不可动"和"表达必须动"之间画线，画错线的死法也一模一样。</p>
+  <p>《通变》那套"体有常、数无方"，做产品的人天天在过这道关。一家老字号餐馆，招牌菜的味型是"体"，动了它老客就散；摆盘、场地、点单方式是"数"，不变新客就不来。倒闭的老字号多半死在两头：要么把摆盘当祖宗，什么都不许动；要么把味型也"创新"掉，老店变成了谁都不是。刘勰那句判词放在这里一字不用改：通变则久。这不是比附，结构严格对得上，都是在"根性不可动"和"表达必须动"之间画线，画错线的死法也一模一样。</p>
 
   <p>"六观"对得上今天所有专业评审的评分表。招投标评审、论文外审、面试打分，本质都是刘勰那一手：把"我觉得好"拆成六个先后有序的检查位，用程序压住偏好。他连失灵的原因都提前写好了：贵古贱今（迷信老牌子）、崇己抑人（同行相轻）、信伪迷真（看包装下单）。今天任何评审现场坐一下午，这三种病一个不少。</p>
 
@@ -530,7 +611,7 @@
 
   <div class="napkin">
     <div class="formula">好文章 = 道之显（有根） × 情之真（有命） × 通变之术（有寿）</div>
-    <div class="note">三个因子就是第三层的三根线，一一对应。这是乘法：任何一项为零，全式归零——情是假的，根再正、技再新，也是零。宗经的那点余数，是第一个因子里的时代色，不单独立项。</div>
+    <div class="note">三个因子就是第三层的三根线，一一对应。这是乘法：任何一项为零，全式归零，情是假的，根再正、技再新，也是零。宗经的那点余数，是第一个因子里的时代色，不单独立项。</div>
   </div>
 
   <p>一句话：文章是天地借人心的显影；显影要真，手艺要新，次序不能乱。</p>

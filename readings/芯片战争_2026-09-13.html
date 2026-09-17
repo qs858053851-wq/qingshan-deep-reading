@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>芯片战争 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">沙子变黄金、摩尔定律军备竞赛与半导体咽喉点地缘大博弈</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">苏联硅谷仿制陷阱、ASML极紫外光刻机奇迹与台积电晶圆代工霸权</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">摩尔定律经济学、制程微缩物理极限与单点垄断锁定</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从一粒海滩细沙到百亿晶体管、制导炸弹与人工智能霸权</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析美日半导体恩怨、台积电地缘困局与AI算力竞争</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">米勒历史学者视角、当代科技冷战映射与个人认知锚定</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">全球半导体产业链咽喉点与地缘博弈全景图</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从海滩上一粒平平无奇的沙子到统治AI大模型的微观城市</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与半导体地缘政治思想史考据说明</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">沙子变黄金、摩尔定律军备竞赛与半导体咽喉点地缘大博弈</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">苏联硅谷仿制陷阱、ASML极紫外光刻机奇迹与台积电晶圆代工霸权</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">摩尔定律经济学、制程微缩物理极限与单点垄断锁定</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从一粒海滩细沙到百亿晶体管、制导炸弹与人工智能霸权</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析美日半导体恩怨、台积电地缘困局与AI算力竞争</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">米勒历史学者视角、当代科技冷战映射与个人认知锚定</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">全球半导体产业链咽喉点与地缘博弈全景图</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从海滩上一粒平平无奇的沙子到统治AI大模型的微观城市</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与半导体地缘政治思想史考据说明</span></div>
     </div>
   </div>
 
@@ -348,7 +408,7 @@
     <div class="layer-tag">Layer 01 · 论证全景</div>
     <h1>沙子变黄金、摩尔定律军备竞赛与半导体咽喉点地缘大博弈</h1>
     
-<p>在二十一世纪的今天，人类文明最关键的战略资源早已不再是石油、钢铁或煤炭，而是被刻蚀在指甲盖大小硅片上的数以百亿计的微型晶体管。塔夫茨大学国际史副教授克里斯·米勒在《芯片战争》中，以横跨大半个世纪的宏大史诗视野，绘制出了一部精密半导体技术如何重塑全球地缘政治、大国兴衰与军事霸权的惊心动魄画卷。全书的核心命题指出：整个现代文明的运转体系——从智能手机、云计算中心到隐形战斗机与精准制导导弹——全部建立在一个极其脆弱、高度垄断且不可替代的全球半导体供应链之上。</p>
+<p>在二十一世纪的今天，人类文明最关键的战略资源早已不再是石油、钢铁或煤炭，而是被刻蚀在指甲盖大小硅片上的数以百亿计的微型晶体管。塔夫茨大学国际史副教授克里斯·米勒在《芯片战争》中，以横跨大半个世纪的宏大史诗视野，绘制出了一部精密半导体技术如何重塑全球地缘政治、大国兴衰与军事霸权的惊心动魄画卷。全书的核心命题指出：整个现代文明的运转体系，从智能手机、云计算中心到隐形战斗机与精准制导导弹，全部建立在一个极其脆弱、高度垄断且不可替代的全球半导体供应链之上。</p>
 <p>米勒深刻剖析了芯片产业从早期车库实验室狂人（肖克利八叛徒、仙童半导体与英特尔诞生），到冷战时期美国凭借精确制导芯片击溃苏联机械化军团，再到日本半导体崛起与被遏制，直至今天台积电（TSMC）与荷兰ASML光刻机构筑起现代科技最高咽喉点（Chokepoints）的完整历史演变。半导体产业的残酷规律在于摩尔定律带来的指数级资本开支军备竞赛：随着制程推进到纳米尺度，制造难度逼近物理学极限，全球分工被迫走向极端的专精与单点垄断。这种高度集中在极少数地理节点的脆弱结构，使芯片成为了当代大国博弈中最锋利的经济与军事制高点。</p>
 <div class="highlight-box">
 <strong>核心洞见：</strong>芯片不是普通的工业品，而是凝聚了物理学、材料学与精密工程人类极限的微观地缘奇迹；谁控制了最先进芯片的制造光刻咽喉，谁就掌握了主宰二十一世纪全球秩序的终极杠杆。
@@ -475,7 +535,7 @@
     <h1>从海滩上一粒平平无奇的沙子到统治AI大模型的微观城市</h1>
     
 <p>漫步在阳光明媚的海滩上，你弯下腰抓起一把湿润的细沙，任由粗糙的沙粒从指缝间滑落。在你的常识直觉里，这是大自然中最廉价、最平庸且取之不尽的矿物碎屑，没有任何神秘可言。它唯一的用途似乎只是用来搅拌混凝土或铺设路基。你拍拍手上的沙尘，转身离去。</p>
-<p>然而，如果我们将这把沙子送入全球半导体的现代工业炼金炉中，一场人类历史上最不可思议的微观奇迹将徐徐展开。首先，沙子中的二氧化硅在数千度的高温电弧炉中被化学还原，并经过极端复杂的化学提纯，达到纯度高达99.999999999%（小数点后九个九）的电子级多晶硅。随后，这块纯净的硅被拉制成一根数百公斤重、原子排列分毫不差的单晶硅棒，并被金刚石线锯切割成薄如蝉翼的镜面圆盘——晶圆。</p>
+<p>然而，如果我们将这把沙子送入全球半导体的现代工业炼金炉中，一场人类历史上最不可思议的微观奇迹将徐徐展开。首先，沙子中的二氧化硅在数千度的高温电弧炉中被化学还原，并经过极端复杂的化学提纯，达到纯度高达99.999999999%（小数点后九个九）的电子级多晶硅。随后，这块纯净的硅被拉制成一根数百公斤重、原子排列分毫不差的单晶硅棒，并被金刚石线锯切割成薄如蝉翼的镜面圆盘，晶圆。</p>
 <p>接下来，这个晶圆被送入价值十余亿人民币的ASML光刻机净化室中。在比外太空还要一尘不染的超净真空环境中，一束波长比头发丝细数千倍的极紫外光，以超音速扫描穿透经过精密设计的电路掩膜版。在仅有一片指甲盖大小的微小硅片上，光束层层雕刻出由八百亿个晶体管组成的微观大都市。在这座微观城市里，由金属铜构成的立交桥互联线路多达上百层，导线的宽度只有几个纳米，仅仅相当于人类DNA双螺旋链的直径。</p>
 <p>当这块芯片被封装通电时，八百亿个开关在原子尺度上以每秒数十亿次的速度协同开合，运算着能够理解人类语言、预测全球气候、操控导弹轨迹的澎湃算力。从海滩上一把被随意踢开的廉价沙子，到主宰人类大国兴衰与未来AI命运的终极神器，这跨越数万公里的全球精密产业链，是人类文明迄今为止创造的最伟大、也最令人敬畏的微观工业奇迹。</p>
 
@@ -487,7 +547,7 @@
     
 <div class="closing-quote">
   <p>人类用几万年学会了用钢铁征服宏观大陆，却在过去五十年里，将整个文明的命运与霸权全部押注在微观硅晶的几纳米迷宫之中。</p>
-  <div class="closing-author">—— 《芯片战争》现代科技史终局定音</div>
+  <div class="closing-author">， 《芯片战争》现代科技史终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与历史考据说明</h3>

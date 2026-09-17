@@ -4,25 +4,32 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>奥义书 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -79,6 +86,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -92,14 +110,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -108,7 +126,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -117,7 +135,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -127,7 +145,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -135,12 +153,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -156,7 +174,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -171,7 +188,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -266,9 +282,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -276,6 +291,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -328,6 +360,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -335,7 +376,48 @@
     }
   }
 </style></head><body><div class="container">
-<div class="hero"><h1>奥义书</h1><div class="author">黄宝生 译 · 商务印书馆 · 2010</div><div class="intro">这不是一部从第一章推到最后一章的哲学专著。它是十三种古老文本的合流：祭司、国王、隐士、父亲和少年，在几百年里反复追问同一件事——如果眼前的一切都会毁灭，什么才是那个不随毁灭而毁灭的东西？他们给它两个名字：从宇宙一边看，叫“梵”；从人的里面看，叫“自我”。奥义书最惊人的一步，是说这两个名字指向同一个东西。</div></div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">奥义书</div>
+    <div class="cover-sub">商务印书馆 · 2010</div>
+    <div class="cover-meta">黄宝生 译 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先把历史背景说清。早期吠陀人面对世界的办法，是向神祈求：要雨就祭雨神，要胜利就祭战神。后来祭礼越来越复杂，婆罗...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">《泰帝利耶奥义书》把人分成五层：食物构成的身体、气息、思想、知识和欢喜。粗的身体由食物长成，显然会坏；气息、情...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">奥义书的内容看着很杂：创世、呼吸、食物、梦、死亡、祭礼、业报、瑜伽，甚至生殖和待客之道。但这些议题并非散落的珠...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第一层：外面的东西保不住。《弥勒奥义书》的巨车王把王位交给儿子，进森林苦行。他列举身体里的血肉、泪尿、胆汁，又...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论　祭祀可以换取有限福报，无法消除有限性本身。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">奥义书背后的焦虑很具体：祭礼系统已经庞大到能解释每一个动作，却解释不了人为什么还是会老、会失去、会死。祭司拥有...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话：你终日向世界索取答案，奥义书却让问题回头：那个索取、恐惧、会死的“你”，究竟认对了吗？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">《大森林奥义书》里有一场两千七百年前的夫妻谈话。</span>
+    </div>
+  </div>
+<div class="intro">这不是一部从第一章推到最后一章的哲学专著。它是十三种古老文本的合流：祭司、国王、隐士、父亲和少年，在几百年里反复追问同一件事，如果眼前的一切都会毁灭，什么才是那个不随毁灭而毁灭的东西？他们给它两个名字：从宇宙一边看，叫“梵”；从人的里面看，叫“自我”。奥义书最惊人的一步，是说这两个名字指向同一个东西。</div></div>
 
 <div class="layer"><div class="layer-no">第一层</div><div class="layer-title">先看清：这十三种书在共同追问什么</div>
 <div class="kv"><div class="k">核心问题</div><div class="v">世界和人的最深处，是否有一个共同而不灭的根？</div></div>
@@ -346,7 +428,7 @@
 <ul><li><strong>早期散文奥义书</strong>：《大森林》《歌者》《泰帝利耶》《爱多雷耶》《㤭尸多基》。这里思想仍带着祭礼和神话的旧外衣，却已提出“梵我同一”“业与转生”等决定性观念。</li><li><strong>中期诗体奥义书</strong>：《由谁》《伽陀》《自在》《白骡》《剃发》。表达更凝练，也更接近哲学诗。《伽陀》让少年向死神追问死后是否仍有自我，《自在》用十八颂同时安顿行动、知识和弃绝。</li><li><strong>较晚散文奥义书</strong>：《疑问》《蛙氏》《弥勒》。这里分类更细，瑜伽、意识四态、身体与心的层次逐渐成形，已经能看见后世数论、瑜伽与吠檀多哲学的胚胎。</li></ul>
 <h3>全书真正的主线</h3>
 <p>若按思想发生的顺序复述，主线是这样的：人先相信外界由众神主宰，于是靠祭祀交换福报；后来发现祭礼再繁复，也拦不住衰老、失去和死亡；问题便从“怎样讨好神”转为“谁在看、谁在想、谁经历生死”；继续追问，身体、感官、思想都在变化，仍不能算最后的自我；最终找到一个既是认识者又无法被当成对象认识的根，称为阿特曼；再把它与宇宙万物的根梵连在一起，得到“它是你”“我就是梵”；人的困境由此也被重写：束缚来自把会变的身体、欲望和身份误当成自己，解脱则是认出那个不变的根。</p>
-<h3>写作姿态</h3>
+<h3>叙述视角与专业底色</h3>
 <p>它不像现代哲学家证明定理，更像一群人在黑暗中反复摸同一堵墙。一个父亲让儿子把盐溶在水里，一个国王问梦中是谁在照亮梦境，一个少年拒绝死神送来的美女与长寿，一个妻子追问丈夫：财富若不能让我不死，我要它干什么？这些不是论证的装饰。奥义书的思想本来就生在问答、仪式和譬喻里，画面先抵达，概念随后才慢慢长出来。</p></div>
 
 <div class="layer"><div class="layer-no">第二层</div><div class="layer-title">这些结论凭什么成立</div>

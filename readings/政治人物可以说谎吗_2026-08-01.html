@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>政治人物可以说谎吗 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>政治人物可以说谎吗？<br>良心要多少才不算太多？</h1>
-  <div class="author">克莉丝汀·舒兹-莱斯　向下扎根！德国教育的公民思辨课 2 · 参与讨论的基本知识（繁体中译本）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">政治人物可以说谎吗？ 良心要多少才不算太多？</div>
+    <div class="cover-sub">舒兹-莱斯　向下扎根！德国教育的公民思辨课 2 · 参与讨论的基本知识（繁体中译本）</div>
+    <div class="cover-meta">克莉丝汀 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先给一句能带走的：这本书把“政治”这个词从新闻联播里拽了出来，摆回到你身边。第一章第二节的标题就说明了一切，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 她凭什么说这些安排是必要的</span>
+      <span class="toc-desc">一本讲制度的书，最容易滑成介绍手册：这个机构管这个，那个机构管那个。这本书没有全滑过去，因为她在几个关键处给出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一百多个小节背后，只有三件事在反复出现</span>
+      <span class="toc-desc">这一根最明显，也最容易被当成常识背过去。它在这本书里出现了至少四层。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：权力为什么非拆开不可</span>
+      <span class="toc-desc">分权、联邦制、两院、媒体监督，全都在做同一件事：不让任何一方说了算。学生时代背这些概念时，通常的解释是“防止专...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这套东西问明白</span>
+      <span class="toc-desc">竞选期间的承诺天然带着水分，因为它们要在一个人还没上台、还不知道会拿到多少席位、还不知道要跟谁组阁的时候说出口...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">这套书的写作动机，中译本的总导读说得比原书更清楚。写导读的沈清楷指出：即使一个再完善的制度，如果不被监督、无法...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 你举手的时候，到底代表谁</span>
+      <span class="toc-desc">这本书的书名，一半来自第三章里一节的标题：党团纪律，良心要多少才不算太多？</span>
+    </div>
+  </div>
+
   <div class="lead">这是那套德国公民读本的政治篇。它不教立场，它教一件更基础的事：一个国家里的权力被切成了多少块，每一块归谁，谁在监督谁，钱从哪儿来。</div>
 </div>
 
@@ -350,7 +430,7 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>
 
-  <p>先给一句能带走的：<strong>这本书把“政治”这个词从新闻联播里拽了出来，摆回到你身边。</strong>第一章第二节的标题就说明了一切——政治是什么？不只有我，而是我们；任何人都无法独自过活。</p>
+  <p>先给一句能带走的：<strong>这本书把“政治”这个词从新闻联播里拽了出来，摆回到你身边。</strong>第一章第二节的标题就说明了一切，政治是什么？不只有我，而是我们；任何人都无法独自过活。</p>
 
   <p>接下来那一节更妙：那和我有什么关系？关于学校、派对巴士以及祖母的养老院。三个例子，一个中学生的全部生活半径，而这三样东西的存在方式全由政治决定。</p>
 
@@ -453,7 +533,7 @@
 
   <p>第六、七两章合起来是这根线，而且写得比多数成人读物都直白。</p>
 
-  <p>第六章问的是谁在影响决策：游说团体在议会长廊做什么，协会有什么用，政治人物听哪些人的话（她用了“厨房内阁”这个词来说那些非正式的顾问圈子），工商界到底有多大影响力，以及那句最直接的——政策是可以用钱买的吗。</p>
+  <p>第六章问的是谁在影响决策：游说团体在议会长廊做什么，协会有什么用，政治人物听哪些人的话（她用了“厨房内阁”这个词来说那些非正式的顾问圈子），工商界到底有多大影响力，以及那句最直接的，政策是可以用钱买的吗。</p>
 
   <p>第七章问的是钱从哪儿来：政党怎么筹措经费，税收有什么用，避税天堂在哪里，什么是国家财产，公务员有什么用处。</p>
 
@@ -476,13 +556,13 @@
 
   <div class="sub">第一层 · 看得见的</div>
 
-  <p>分权、联邦制、两院、媒体监督，全都在做同一件事：不让任何一方说了算。学生时代背这些概念时，通常的解释是“防止专制”。这个解释没错，也没什么用，因为它把问题推给了坏人假设——好像只要掌权的是好人，就不必这么麻烦。</p>
+  <p>分权、联邦制、两院、媒体监督，全都在做同一件事：不让任何一方说了算。学生时代背这些概念时，通常的解释是“防止专制”。这个解释没错，也没什么用，因为它把问题推给了坏人假设，好像只要掌权的是好人，就不必这么麻烦。</p>
 
   <div class="sub">第二层 · 底下的机制：自己没法监督自己</div>
 
   <p>往下一层就清楚了。制度设计的困难从来不在防坏人，坏人可以换掉。困难在于：<strong>就算这个人品行端正、真心为公，他也没办法可靠地监督自己。</strong></p>
 
-  <p>原因很实在。一个人做一件事，同时也是评价这件事该怎么做的人，他会不自觉地把标准调到自己够得着的地方。这不需要动机不纯，只需要他是人。这本书那句“谁来监督这些监督者”，问的正是这件事的普遍性——连媒体这个专职监督者也不例外。</p>
+  <p>原因很实在。一个人做一件事，同时也是评价这件事该怎么做的人，他会不自觉地把标准调到自己够得着的地方。这不需要动机不纯，只需要他是人。这本书那句“谁来监督这些监督者”，问的正是这件事的普遍性，连媒体这个专职监督者也不例外。</p>
 
   <div class="sub">第三层 · 再底下：制度不赌人品，只赌利益方向</div>
 
@@ -490,7 +570,7 @@
 
   <p>这就是各种分权安排的真正原理。在野党盯执政党，图的是揭出问题对它有好处；参议院卡众议院，因为它代表的是各邦的利益；记者追着官员问，因为独家报道是他的饭碗。三者都跟高尚与否无关。<strong>整套设计押的从来不是谁的品德，押的是不同位置上的人有不同的算盘。</strong></p>
 
-  <p>这样一想，那句“国家为何可以独占暴力”就通了：把动手的权力集中给一个机构，同时用另外几个机构盯着它——集中和分散原是同一个方案的两面。</p>
+  <p>这样一想，那句“国家为何可以独占暴力”就通了：把动手的权力集中给一个机构，同时用另外几个机构盯着它，集中和分散原是同一个方案的两面。</p>
 
   <div class="sub">第四层 · 触底：一个人长期反对自己的利益，是靠不住的</div>
 
@@ -543,7 +623,7 @@
     <p class="a-lead">用处不在制度细节上，在它演示的那套追问方式上。</p>
     <p>联邦参议院怎么构成、百分之五门槛怎么算、调解委员会怎么运作，这些都是德国的具体做法，换个国家全不一样。但它每一节问问题的方式是通用的：这件事归谁管？出了问题找谁？他的权力从哪儿来？谁能拦住他？钱从哪儿来，花到哪儿去？</p>
     <p><strong>这五问可以用在任何一套制度上</strong>，也可以用在一个公司、一所学校、一个业主委员会上。制度知识会过期，追问的顺序不会。</p>
-    <p class="a-edge">另外它还有一层用处：读完你会知道一套成熟的制度有多少个零件。这能防住两种常见的偷懒——以为换个人就能解决问题，以及以为制度是可以整套照搬的。</p>
+    <p class="a-edge">另外它还有一层用处：读完你会知道一套成熟的制度有多少个零件。这能防住两种常见的偷懒，以为换个人就能解决问题，以及以为制度是可以整套照搬的。</p>
   </div>
 
   <div class="qa">
@@ -594,7 +674,7 @@
 
   <p>不服的一处：第五章讲各种“主义”写得太薄。两百字讲资本主义、自由主义、社会主义、共产主义的分别，结果只能是一堆标签，而标签正是这套书别处一直在拆的东西。这一章要么该写长，要么该不写。</p>
 
-  <p>给读者的读法建议：这一册的第三、四章（谁在统治、怎么防止权力集中）和第六、七章（谁在影响、谁来付钱）是骨，值得逐节看；第八、九章的安全与外交部分资料性强、时代感重，可以快读；第五章可以跳。</p>
+  <p>给先生的读法建议：这一册的第三、四章（谁在统治、怎么防止权力集中）和第六、七章（谁在影响、谁来付钱）是骨，值得逐节看；第八、九章的安全与外交部分资料性强、时代感重，可以快读；第五章可以跳。</p>
 </div>
 
 <div class="layer">
@@ -646,7 +726,7 @@
 
   <p>可现实里存在党团纪律。德语里区分得很细：强迫议员按党的意思投票是违宪的，做不得；但党团可以要求“纪律”，靠的是说服、党内的位置、下一次候选名单上的排序、委员会里的席位。<strong>没有人能命令他，但每个人都知道违逆的代价。</strong></p>
 
-  <p>于是一个国家在同一件事上写下了两条互相矛盾的规矩，而且两条都是认真的。这就是这一节问“良心要多少才不算太多”的由来——它问的并非一个人该不该有良心，而是在一个必须协同行动的机构里，个人判断可以占多大的比例。</p>
+  <p>于是一个国家在同一件事上写下了两条互相矛盾的规矩，而且两条都是认真的。这就是这一节问“良心要多少才不算太多”的由来，它问的并非一个人该不该有良心，而是在一个必须协同行动的机构里，个人判断可以占多大的比例。</p>
 
   <p>先看两个极端，就知道为什么这个矛盾不能被消除。</p>
 
@@ -684,9 +764,9 @@
 
 <div class="boundary">
   <h4>事实边界</h4>
-  <p>本篇依据《向下扎根！德国教育的公民思辨课 2——政治人物可以说谎吗？良心要多少才不算太多？》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书结构、十章各节的标题，均出自原书目录；我通读了目录与总导读，<strong>各节的正文未逐节细读</strong>。本篇引述的各节标题都是原书标题，节内的具体内容与数据若要引用，请翻原书对应页。</p>
+  <p>本篇依据《向下扎根！德国教育的公民思辨课 2，政治人物可以说谎吗？良心要多少才不算太多？》繁体中译本（作者克莉丝汀·舒兹-莱斯）。全书结构、十章各节的标题，均出自原书目录；我通读了目录与总导读，<strong>各节的正文未逐节细读</strong>。本篇引述的各节标题都是原书标题，节内的具体内容与数据若要引用，请翻原书对应页。</p>
   <p>第六层引用的“制度会从让人自由变成让人成为奴隶”“效益性的反省与价值面的反省”“依法行政导致恶法亦法”等说法，出自中译本总导读（沈清楷撰），不是原书正文。</p>
-  <p><strong>第八层要单独说明：</strong>德国基本法关于议员“不受委托和指令的约束、只服从自己的良知”的规定，以及德语中“党团纪律”与“党团强制”的区分（后者违宪），是德国宪法学的通行常识，<strong>我按一般了解写入，没有核对原书第三章那一节具体写了什么、也没有核对基本法条文原文</strong>。若要引用条文，请以基本法原文为准。文中关于“两个极端各自的后果”的推演，以及“良心是有限资源”这个说法，都是我的分析，不是原书写的。</p>
+  <p><strong>第八层要单独说明：</strong>德国基本法关于议员“不受委托和指令的约束、只服从自己的良知”的规定，以及德语中“党团纪律”与“党团强制”的区分（后者违宪），是德国宪法学的通行常识，<strong>我按一般了解写入，没有核对原书第三章那一节具体写了什么、也没有核对基本法条文原文</strong>。先生若要引用条文，请以基本法原文为准。文中关于“两个极端各自的后果”的推演，以及“良心是有限资源”这个说法，都是我的分析，不是原书写的。</p>
   <p>第三层的三根线、第四层的下钻、第六层关于本书局限的判断，同样是我读下来的看法。第八层结尾的办公室例子是我举的一般现象，不指任何具体单位。</p>
 </div>
 

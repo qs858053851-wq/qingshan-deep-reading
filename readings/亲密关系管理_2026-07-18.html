@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>亲密关系管理 · 青山解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,13 +381,36 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="hero-kicker">青山解书</div>
-  <h1 class="hero-title">亲密关系管理</h1>
-  <div class="hero-author">陈历杰 著 · 中信出版集团</div>
-  <div class="hero-meta">2021 年 · 中国 · 方法论（副题：如何理性应对亲密关系中的冲突）</div>
-  <p class="hero-lede">一个前法官在法庭上看了太多夫妻反目，跑去海外读了个 MBA，回来开了个情感咨询工作室。他把公司管理那套工具，目标四象限、SWOT、期望值管理、底线管理、博弈策略，整套搬进了婚姻。这本书回答的问题很硬：爱情到底能不能、该不该，用管理的方式来经营？</p>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">亲密关系管理</div>
+    <div class="cover-sub">核心问题： 为什么那么多相爱的人，最后却过不下去？作者的答案：缺的不是爱，是管理亲密关系的智慧。</div>
+    <div class="cover-meta">青山 读 · 亲密关系管理 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">核心问题：为什么那么多相爱的人，最后却过不下去？作者的答案：缺的不是爱，是管理亲密关系的智慧。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他这套"管理爱情"的法子，站得住吗</span>
+      <span class="toc-desc">这本书的论证链不复杂，但每一步都要验。第一项前提，亲密关系的破裂，多半不在感情上，在技术和方法的缺位；第二项前提，技术...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 七个问题，把这本书的骨架走一遍</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 压到一张餐巾纸上</span>
+      <span class="toc-desc">一句话：一个前法官把法庭上看来的婚姻崩盘案例，翻译成一整套管理学工具，教你别把一手好牌打烂。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 合上书，最想跟你掰开的那件事</span>
+      <span class="toc-desc">前面几层，我一直把一件最根本的事压着没展开：这本书的核心动作，把公司那套，搬进婚姻。现在该说透了。</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层</div>
@@ -368,14 +432,14 @@
 
   <div class="interlude">
     <p><strong>这本书在说什么。</strong>它不谈"爱"，谈"经营"。作者的底色是个法官，他在法庭上看到的，是无数本可以避免的崩盘。所以他的姿态很务实：别跟我谈灵魂伴侣，先学会别把一手好牌打烂。写作的口吻像咨询室里的前辈，案例比道理多，步骤比感慨多。</p>
-    <p><strong>论证结构：</strong>案例型 + 工具型。每一讲用一个真实咨询案例带出工具，再拆步骤。它的力量不在理论深度，在可操作性——读完你能立刻拿去用的东西，比多数情感书都多。</p>
+    <p><strong>论证结构：</strong>案例型 + 工具型。每一讲用一个真实咨询案例带出工具，再拆步骤。它的力量不在理论深度，在可操作性，读完你能立刻拿去用的东西，比多数情感书都多。</p>
   </div>
 </section>
 
 <section class="layer">
   <div class="layer-num">第二层</div>
   <h2 class="layer-title">他这套"管理爱情"的法子，站得住吗</h2>
-  <p>这本书的论证链不复杂，但每一步都要验。<strong>前提一：</strong>亲密关系的破裂，多半不在感情上，在技术和方法的缺位；<strong>前提二：</strong>技术和方法可以学，可以练；<strong>前提三：</strong>管理学那套工具，经过翻译，恰好能补上大多数人缺的那块；<strong>结论：</strong>所以，爱情可以也应该被管理。这条链的关键证据有三个。</p>
+  <p>这本书的论证链不复杂，但每一步都要验。<strong>第一项前提，</strong>亲密关系的破裂，多半不在感情上，在技术和方法的缺位；<strong>第二项前提，</strong>技术和方法可以学，可以练；<strong>第三项前提，</strong>管理学那套工具，经过翻译，恰好能补上大多数人缺的那块；<strong>结论：</strong>所以，爱情可以也应该被管理。这条链的关键证据有三个。</p>
   <p><strong>证据一：四象限分清"要苹果还是要梨"。</strong>那个抱怨不公平的妻子，丈夫提出"雇保姆""做全职太太"两个看似公平的方案都被否了。后来才明白，她要的哪里是公平，是感激和欣赏。这个案例很硬，因为它点破了一个普遍的错觉：我们吵架时用的词（公平、尊重、钱），往往不是心里真正要的那个词（被看见、被感激、被心疼）。工具的价值不在分类，在逼你把"要什么"问到底。</p>
   <p><strong>证据二：出轨博弈策略的"针锋相对"。</strong>这是全书最有争议也最有力的设计。那对夫妻，男方孕期出轨，女方抓到后情绪崩溃。作者没有劝和，他先把代价摆上桌面：净身出户条款、随时查手机、解释不清的异性好友一律删除。他的逻辑很冷：只有让对方真切感到背叛的成本，原谅才有意义，信任才能重建。这个证据硬在，它说穿了"原谅就是算了"的温情幻想。原谅没有成本，背叛就没有成本。</p>
   <p><strong>证据三：鄙视是婚姻的"头号杀手"。</strong>戈特曼 40 年研究几千对夫妻，5 分钟观察就能以 96% 的准确率预测离婚。四骑士里，鄙视最致命，因为鄙视直接摧毁一个人的自尊，让修复变得不可能。那个被丈夫贬到重度抑郁的女来访者，最后是靠"确定边界、学会爱自己"翻过来的，分开后状态反而好了。这个证据是全书的分水岭：它说明作者不认为所有关系都该救，有些关系，底线管理比冲突管理更重要。</p>
@@ -410,7 +474,7 @@
 
   <div class="qa">
     <div class="qa-q">Q4：伴侣出轨了，该不该原谅？</div>
-    <p class="qa-a"><span class="qa-label">结论：</span>原谅可以，但必须先让对方付出代价——全书最冷也最对的判断。</p>
+    <p class="qa-a"><span class="qa-label">结论：</span>原谅可以，但必须先让对方付出代价，全书最冷也最对的判断。</p>
     <p class="qa-a"><span class="qa-label">怎么想到的：</span>借博弈论的"针锋相对"策略：对合作善意，对背叛报复，对求和包容。那对孕期出轨的夫妻，作者没有劝女方"想开点"，而是先立规矩：净身出户条款、随时查手机、异性好友解释不清就删。逻辑是：只有让对方真切感到背叛的成本，原谅才有意义。无代价的原谅等于默许。</p>
     <p class="qa-a"><span class="qa-label">边界：</span>这个策略的前提是双方都想继续。如果一方已经不想过了，代价条款就只是分手协议的前奏。作者也承认：不是所有的婚姻都该救。</p>
   </div>

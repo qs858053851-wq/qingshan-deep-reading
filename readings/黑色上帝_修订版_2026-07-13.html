@@ -6,25 +6,32 @@
   <title>黑色上帝：犹太教、基督教和伊斯兰教的起源 | 青山解书</title>
   
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -81,6 +88,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -94,14 +112,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -110,7 +128,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -119,7 +137,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -129,7 +147,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -137,12 +155,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -158,7 +176,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -173,7 +190,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -268,9 +284,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -278,6 +293,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -330,6 +362,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,14 +381,56 @@
 </head>
 <body>
   <div class="container">
-    <header class="hero">
-      <div class="hero-label">青山解书</div>
-      <h1 class="hero-title">黑色上帝</h1>
-      <div class="hero-meta">犹太教、基督教和伊斯兰教的起源 · 朱利安·鲍尔迪 著 · 谢世坚 译 · 广西师范大学出版社 2004 · 2026-07-11 初稿 · 2026-07-13 修订</div>
-      <div class="hero-intro">
-        <p>这本书要回答的问题很大：今天统治了半个世界的三大一神教，它们的上帝是从哪里来的？鲍尔迪给出的答案是：这三大一神教的上帝，扎根在一片比希腊哲学更古老的土壤里，即非洲之角、阿拉伯半岛、北非和古埃及共享的闪含（Afroasiatic）宗教传统。那里面有一位黑色的风暴之神，掌管雨水和丰产，后来他被一分为二，一半成了《圣经》里的耶和华，一半成了蛇与恶魔。</p>
-      </div>
-    </header>
+      <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">黑色上帝</div>
+    <div class="cover-sub">这本书要回答的问题很大：今天统治了半个世界的三大一神教，它们的上帝是从哪里来的？鲍尔迪给出的答案是：这三大一神教的上帝，扎根在一片比希腊哲学更古老的土壤里，即非洲之角、阿拉伯半岛、...</div>
+    <div class="cover-meta">青山 读 · 黑色上帝 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">如果要一句话说清，鲍尔迪在这本书里做了一件很大胆的事：他把犹太教、基督教和伊斯兰教的上帝，放回非洲和西亚交界的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">鲍尔迪的论证链可以简化成四步。第一步，语言学家已经证明，从北非到西亚存在着一个"闪含语系"，六个语族在很久以前...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动全书的那几根线</span>
+      <span class="toc-desc">鲍尔迪的书看起来材料庞杂：也门、埃及、北非、尼日利亚、埃塞俄比亚，几十个民族，几百种仪式。但读到底，真正在牵动...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">鲍尔迪比较了那么多民族、那么多仪式，最后停在了一个结论：闪含宗教的核心是二元对立，而二元对立的根是一位黑色的风...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着问答，把作者的推理走一遍</span>
+      <span class="toc-desc">结论：因为宗教和语言一样，都是一群人长期共同生活的产物，所以同源语言里很可能保存着同源神话。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">鲍尔迪写这本书，表面上是做学问，骨子里有一股不满。他不满的是：比较神话学研究了上百年印欧语系，却几乎没人认真看...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能带走一张纸</span>
+      <span class="toc-desc">一句话：犹太教、基督教和伊斯兰教的上帝，最初可能是非洲和西亚干旱地区农民抬头看到的那片黑色乌云，它既带来毁灭，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 合上书后最想讲的那一点</span>
+      <span class="toc-desc">前面几层按下不表的那道裂缝，现在可以摊开了。这本书里最让我停下来的，与其说是它证明了什么，不如说是一个让人不舒...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 17</span>
+      <span class="toc-desc">本篇中关于也门民间宗教、奥罗莫人的瓦卡信仰、古埃及塞特神、豪萨人的"波里"神灵附体、以及割礼/献祭/神圣婚礼等...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19 · 一句话封印这本书</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 
     <main>
 
@@ -411,7 +494,7 @@
         <h3>第三根线  暴力更新</h3>
         <p>这是全书最有冲击力的一根线。闪含宗教拒绝静态地崇拜一个永恒的神，它通过一次又一次的"杀死"来实现更新。年迈的黑色风暴神必须被年轻的英雄杀死；被献给神的少女必须被救下，然后和英雄结婚；男孩必须经过割礼，象征性地"杀死"自己童年的身体，才能变成男人；长子本来要献给神，后来用动物代替；国王死后要有人殉葬，因为旧的权力必须被带入地下，新的权力才能升起。</p>
 
-        <p>这种"暴力更新"的逻辑，和农业周期完全同步。旱季结束，雨季到来，旧的干旱必须"死"，新的雨水才能"生"。黑色风暴神带来暴雨，暴雨不能永远下，所以风暴神自己也要被杀死，然后转化为平静的丰产之水。年轻英雄是红色的，因为鲜血是转化的媒介。割礼流血，献祭流血，婚礼前也要先流血——血不是残忍，而是连接两个状态的通道。</p>
+        <p>这种"暴力更新"的逻辑，和农业周期完全同步。旱季结束，雨季到来，旧的干旱必须"死"，新的雨水才能"生"。黑色风暴神带来暴雨，暴雨不能永远下，所以风暴神自己也要被杀死，然后转化为平静的丰产之水。年轻英雄是红色的，因为鲜血是转化的媒介。割礼流血，献祭流血，婚礼前也要先流血，血不是残忍，而是连接两个状态的通道。</p>
 
         <p>这三根线能不能解释全书？大体可以。也门人的仪式性狩猎是为了求雨；奥罗莫人的瓦卡是黑色雨神的活态版本；埃及的塞特是黑色风暴神的另一种化身；豪萨人的波里崇拜保留了二元神灵体系；奥莫语各民族的国王拥有呼风唤雨的能力，还要举行神圣婚礼；希伯来圣经里的耶和华在云中显身、用洪水审判世界、与挪亚立约时把虹放在云里、要求亚伯拉罕行割礼、设立逾越节用动物代替长子。这些都可以被解释为同一套逻辑在不同历史阶段的变奏。</p>
 
@@ -620,7 +703,7 @@
     <footer class="footer">
       <div class="footer-inner">
         <span>青山 · 2026-07-11</span>
-        <span>青山深度阅读</span>
+        <span>解书于 MyAgents</span>
       </div>
     </footer>
   </div>

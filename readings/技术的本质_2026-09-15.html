@@ -5,26 +5,32 @@
 <meta charset="UTF-8">
 <title>技术的本质 · 深度解读</title>
 <style>
-
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -81,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -158,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -173,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -196,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -236,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -251,6 +285,13 @@
     color: var(--brand);
     margin-bottom: 12pt;
     letter-spacing: 1pt;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
   .napkin-caption {
     font-size: 11pt;
@@ -268,6 +309,65 @@
     color: var(--dark-warm);
     border-radius: 0 4pt 4pt 0;
     line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -289,42 +389,42 @@
 
   <div class="toc">
     <h2>目 录</h2>
-    <a class="toc-item" href="#layer01">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">击碎天才孤岛神话，创立技术的达尔文组合演化论</span>
-    </a>
-    <a class="toc-item" href="#layer02">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">喷气式发动机、雷达诞生与蒸汽机核心构件的解剖学证据</span>
-    </a>
-    <a class="toc-item" href="#layer03">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 机制解剖</span>
       <span class="toc-desc">技术演进的三大动力齿轮与自创生网络涌现</span>
-    </a>
-    <a class="toc-item" href="#layer04">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 终极下钻</span>
       <span class="toc-desc">技术与经济的代谢共生：人类从自然主宰者到系统伺服者的哲学沉思</span>
-    </a>
-    <a class="toc-item" href="#layer05">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 衍生推演</span>
       <span class="toc-desc">六大核心推演：从硬科技创业破局到大国科技竞争的卡脖子真相</span>
-    </a>
-    <a class="toc-item" href="#layer06">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 破界审视</span>
       <span class="toc-desc">破除纯粹唯技术论宿命，捍卫人文价值对技术演进的伦理校准</span>
-    </a>
-    <a class="toc-item" href="#layer07">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
       <span class="toc-desc">技术演进速度与自组织繁荣度模型公式</span>
-    </a>
-    <a class="toc-item" href="#layer08">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">最值钱的一个问题：为什么人类在几千年前就发明了轮子和箱子，却直到五十年前才把轮子装在行李箱上？</span>
-    </a>
-    <a class="toc-item" href="#layer09">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">在造物的合唱中感知技术的脉搏，做一名清醒而谦逊的文明同行者</span>
-    </a>
+    </div>
   </div>
 
   <div class="section" id="layer01">

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中世和近世日本社会生活 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>中世和近世日本社会生活</h1>
-  <div class="author">威廉·E.迪尔 著 · 商务印书馆「古代社会生活史手册」系列 · 覆盖 1185–1868</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中世和近世日本社会生活</div>
+    <div class="cover-sub">E.迪尔 著 · 商务印书馆「古代社会生活史手册」系列 · 覆盖 1185，1868</div>
+    <div class="cover-meta">威廉 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">从镰仓幕府建立到德川幕府倒台，差不多七百年。我们对这七百年的印象基本被武士包办了：刀、切腹、忠诚、樱花。迪尔这...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">结论：差在一个要害上。日本的封臣只是替远方主人管地的经理人，地不是他的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">验证一下。双轨统治解释了七百年里"改朝"从不"换代"的怪象：将军换了一茬又一茬，天皇家从没断过。身份制解释了从...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第一层按下的那件事，现在讲。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">迪尔的动机写在序言里：他受不了"武士包办日本史"的写法。这个不满是有生产力的，全书最好的部分（贱民、一揆、町人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">本篇依据商务印书馆中译本的扫描版文本写成，原文 OCR 噪声较重，专名已尽量回正。断代采用本书口径（中世 11...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -394,7 +466,7 @@
     <div class="q">Q3 · 武士道听着古老，它到底是什么年代的产物？</div>
     <div class="a">
       <p>结论：恰恰是武士没仗可打的年代。武士道文本的密集出现，是失业焦虑的产物。</p>
-      <p>怎么想到的：看成书年代就够了。《五轮书》约 1643 年，《叶隐》1716 年，全在德川的长期和平里。书里点破了机制：德川将军把确立武士行为准则，当作激励武士为政府服务的办法。仗打完了，武士从战士变成领俸禄的官僚，可他的全部身份认同建立在"随时赴死"上。于是《叶隐》开篇反复念叨"武士之道即求死之道"——越是死不成的年代，越要把死挂在嘴上。意义感这个东西，现实里断了供，就会在纸面上加倍生产。</p>
+      <p>怎么想到的：看成书年代就够了。《五轮书》约 1643 年，《叶隐》1716 年，全在德川的长期和平里。书里点破了机制：德川将军把确立武士行为准则，当作激励武士为政府服务的办法。仗打完了，武士从战士变成领俸禄的官僚，可他的全部身份认同建立在"随时赴死"上。于是《叶隐》开篇反复念叨"武士之道即求死之道"，越是死不成的年代，越要把死挂在嘴上。意义感这个东西，现实里断了供，就会在纸面上加倍生产。</p>
       <p>边界：武士道的源头（弓马之道）确实更早，这里说的是它被系统化、文本化的时间。</p>
     </div>
   </div>
@@ -442,7 +514,7 @@
 
   <div class="napkin">
     <div class="formula">德川日本 ＝ 名分与实权分家 × 身份钉死 × 人钱照流</div>
-    <div class="note">天皇将军分工是政治骨架，士农工商是社会骨架，参勤交代带起的人流钱流是暗河——暗河最后掏空了前两者。</div>
+    <div class="note">天皇将军分工是政治骨架，士农工商是社会骨架，参勤交代带起的人流钱流是暗河，暗河最后掏空了前两者。</div>
   </div>
 
   <p>验证一下。双轨统治解释了七百年里"改朝"从不"换代"的怪象：将军换了一茬又一茬，天皇家从没断过。身份制解释了从发型到餐具的一切日常刻度，也解释了一揆的烈度，钉得越死，炸得越响。人钱照流解释了江户的繁荣、商人的坐大、武士的负债。三根线拧在一起，就是幕末的死局：靠身份制供养的武士阶层，在商品经济里破了产，最后倒幕的主力恰恰是穷武士。</p>
@@ -498,12 +570,12 @@
   <div class="layer-title">事实边界</div>
   <div class="factline">
     <h4>事实边界</h4>
-    <p>本篇依据商务印书馆中译本的扫描版文本写成，原文 OCR 噪声较重，专名已尽量回正。断代采用本书口径（中世 1185–1615，近世 1615–1868），不同学者另有分法。农民占比八成到八成半、六万三千个村庄、室町近七成税率、贱民约三十八万、御家人约两千、《五轮书》约 1643 年、《叶隐》1716 年、伊势二十年式年迁宫，均出自原书，属手册类约数；东海道里程与驿站数为英文原书口径。第四层"幕府不敢改税基"的归因、第三层三根线的提法是我的读法，作者本人只陈列现象并以"具有讽刺意味的是"点题，未做此论断。</p>
+    <p>本篇依据商务印书馆中译本的扫描版文本写成，原文 OCR 噪声较重，专名已尽量回正。断代采用本书口径（中世 1185，1615，近世 1615，1868），不同学者另有分法。农民占比八成到八成半、六万三千个村庄、室町近七成税率、贱民约三十八万、御家人约两千、《五轮书》约 1643 年、《叶隐》1716 年、伊势二十年式年迁宫，均出自原书，属手册类约数；东海道里程与驿站数为英文原书口径。第四层"幕府不敢改税基"的归因、第三层三根线的提法是我的读法，作者本人只陈列现象并以"具有讽刺意味的是"点题，未做此论断。</p>
   </div>
 </div>
 
 <div class="finale">
-  <div class="quote">德川幕府用两百年证明了一件事：你可以把所有人钉在原地，但钉不住钱——最后是钱替所有人挪了位。</div>
+  <div class="quote">德川幕府用两百年证明了一件事：你可以把所有人钉在原地，但钉不住钱，最后是钱替所有人挪了位。</div>
   <div class="sign">青山 · 2026-07-17</div>
 </div>
 

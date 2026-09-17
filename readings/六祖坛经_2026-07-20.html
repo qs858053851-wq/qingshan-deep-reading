@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>六祖坛经 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>六祖坛经</h1>
-  <div class="author">惠能 口述 · 法海 集录</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">六祖坛经</div>
+    <div class="cover-sub">宗宝本 · 十品 · 深度解读</div>
+    <div class="cover-meta">惠能 口述 · 法海 集录 · 解读主理：青山 · 日期：2026-07-20 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书最反常的地方，是它自己就是一部佛经，但作者是个不识字的文盲。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">惠能面对的最大质疑，不是"你说得对不对"，是"你凭什么说"。一个不识字、没受过正规佛学训练、连正式僧籍都是四十...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书看着千头万绪。十品，讲了般若、坐禅、忏悔、念佛、戒定慧、三身四智、三十六对法……但拆到底，真正在牵动全书...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第三层拆出两根线，更深的那根是"佛性本有"。这根线底下还压着一个更根本的东西：惠能凭什么敢把"心是可信的"押到...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">惠能的推理不是从书本里搬来的，是他自己一步步问出来的。我把他的思路还原成七个问题，顺着问下去，整本书的逻辑自己...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">惠能写这本书，没想给佛教加一部经典。他看见的是当时佛教的一个大问题：太多人把佛法当成知识在学，把修行当成形式在...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">这本书如果只能留下一个公式：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">前面几层，有一句话我一直没展开：风幡之辩。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27</span>
+      <span class="toc-desc">这本书讲的，是你本来就是。</span>
+    </div>
+  </div>
+
   <div class="meta">宗宝本 · 十品 · 深度解读</div>
 </div>
 
@@ -376,7 +460,7 @@
 
 <p>弘忍年纪大了，要传衣钵。他把门人叫来，说：你们各作一首偈给我看，谁悟了大意，衣法就传给谁，就是第六代祖。</p>
 
-<p>所有人都觉得这事跟自己没关系。因为寺里有个人叫神秀——上座、教授师，学问最好，威望最高。大家都说：我们作什么偈，等着神秀上座接法就是了。</p>
+<p>所有人都觉得这事跟自己没关系。因为寺里有个人叫神秀，上座、教授师，学问最好，威望最高。大家都说：我们作什么偈，等着神秀上座接法就是了。</p>
 
 <p>神秀自己也知道所有人都在等他。他作了一首偈，但不敢直接交给师父。怕交上去被看出"求祖位"的野心，怕不交又错过机会。前后四天，十三次走到堂前想递，都"心中恍惚，遍身汗流"，没递出去。最后他半夜三更，自己拿灯，把偈写在了南廊的墙上：</p>
 
@@ -396,7 +480,7 @@
 
 <p>弘忍知道他是真悟了，把顿教法门和衣钵传给他，说：你是第六代祖。衣钵是争端的源头，你拿着它，命如悬丝，赶紧走，往南去。</p>
 
-<div class="marker">661–676 年 · 大庾岭、猎人队，十五年隐姓埋名</div>
+<div class="marker">661，676 年 · 大庾岭、猎人队，十五年隐姓埋名</div>
 
 <p>惠能带着衣钵南逃，几百人在后面追。追到大庾岭，有个叫惠明的和尚，原来是四品将军，跑得最快，先追上了。惠能把衣钵扔在石头上，自己躲进草里。惠明去提衣钵，提不动。他喊：行者行者，我是为法来的，不是为衣钵来的。</p>
 
@@ -418,7 +502,7 @@
 
 <p>核心张力就在这儿：一个最没资格讲佛法的人（文盲、南方人、不是正式僧），讲出了中国佛教最有资格叫"经"的话。他凭什么？他自己给出的答案是：佛性不在文字里，不在身份里，不在寺院里，在你自己心里。所以一个文盲可以比一千个博学的僧人更懂佛法。</p>
 
-<p>作者视角（惠能本人，加上记录者法海）很明确：站在"顿教"这一边，反对渐修、反对靠形式、反对向外求。语气是平实的、口语的、直击要害的——这本身就是他要表达的东西的一部分。</p>
+<p>作者视角（惠能本人，加上记录者法海）很明确：站在"顿教"这一边，反对渐修、反对靠形式、反对向外求。语气是平实的、口语的、直击要害的，这本身就是他要表达的东西的一部分。</p>
 
 <div class="layer" id="layer2">
   <div class="layer-num">第二层</div>
@@ -474,7 +558,7 @@
 
 <p>第三层拆出两根线，更深的那根是"佛性本有"。这根线底下还压着一个更根本的东西：惠能凭什么敢把"心是可信的"押到底？我们顺着这个往下钻，一层一层来。</p>
 
-<p><strong>第一层：看得见的表面——他让人别往外求，往内看。</strong>这是惠能所有教导的共同指向。念佛的，他让回头；念经的，他让回头；打坐的，他也让回头。方向一致：你的心就是你要找的东西。</p>
+<p><strong>第一层：看得见的表面，他让人别往外求，往内看。</strong>这是惠能所有教导的共同指向。念佛的，他让回头；念经的，他让回头；打坐的，他也让回头。方向一致：你的心就是你要找的东西。</p>
 
 <p>往下问一句：为什么往内看就行？</p>
 
@@ -482,7 +566,7 @@
 
 <p>往下再问：凭什么说烦恼是云不是污点？</p>
 
-<p><strong>第三层：因为烦恼来的时候，你知道它来了。</strong>这是惠能整个体系里最硬的一步，也是最容易被忽略的一步。你生气的时候，你知道自己在生气；你贪的时候，你知道自己在贪。这个"知道"，本身没生气、没贪。它一直在那，从来没被污染过。如果心真的被烦恼污染了，这个"知道"也不可能干净——它也会生气、也会贪，那你就不会知道自己生气了。</p>
+<p><strong>第三层：因为烦恼来的时候，你知道它来了。</strong>这是惠能整个体系里最硬的一步，也是最容易被忽略的一步。你生气的时候，你知道自己在生气；你贪的时候，你知道自己在贪。这个"知道"，本身没生气、没贪。它一直在那，从来没被污染过。如果心真的被烦恼污染了，这个"知道"也不可能干净，它也会生气、也会贪，那你就不会知道自己生气了。</p>
 
 <p>惠能没把这个推理写成论文，但他所有的话都踩在这个支点上。他说"于念而无念"，说的就是这个：念起了，你知道念起了，这个知道本身不染着。他说"自性本自清净"，说的也是这个：清净的，是你知道情绪的那个东西，不是你的情绪。</p>
 
@@ -534,7 +618,7 @@
 <div class="a-label">怎么想到的</div>
 <p>神秀的偈把心比作明镜台，会落灰，要天天擦。这背后是对心的不信任：心是会被污染的，所以得修。惠能的偈直接说"本来无一物"，灰根本不存在。这不是文字游戏，是两个完全不同的起点：一个认为烦恼是心的污点，要清除；一个认为烦恼是心的浮云，会来会走，云不是天。</p>
 <div class="a-label">边界</div>
-<p>神秀的路不是错路。对大多数人来说，"时时勤拂拭"比"本来无一物"更可操作。惠能自己也说"法无顿渐，人有利钝"。但如果你把神秀的路当成终点，就停在了门外——这是弘忍说他"未见本性"的原因。</p>
+<p>神秀的路不是错路。对大多数人来说，"时时勤拂拭"比"本来无一物"更可操作。惠能自己也说"法无顿渐，人有利钝"。但如果你把神秀的路当成终点，就停在了门外，这是弘忍说他"未见本性"的原因。</p>
 </div>
 </div>
 
@@ -556,7 +640,7 @@
 <div class="a-label">结论</div>
 <p>能去，但"西方"不在十万八千里外，在你自己心里。</p>
 <div class="a-label">怎么想到的</div>
-<p>韦刺史问惠能：僧人念佛求生西方，能去吗？惠能说："东方人造罪念佛求生西方，西方人造罪念佛求生何国？"意思是，如果西方是一个外面的地方，那西方人造罪怎么办？他给的答案是"随其心净，即佛土净"——心净了，当下就是西方；心不净，念多少佛也到不了。</p>
+<p>韦刺史问惠能：僧人念佛求生西方，能去吗？惠能说："东方人造罪念佛求生西方，西方人造罪念佛求生何国？"意思是，如果西方是一个外面的地方，那西方人造罪怎么办？他给的答案是"随其心净，即佛土净"，心净了，当下就是西方；心不净，念多少佛也到不了。</p>
 <div class="a-label">边界</div>
 <p>这是"唯心净土"的路，跟净土宗的"他力往生"是两条不同的路。惠能没否定念佛，他否定的是"以为念佛就能往生"的机械想法。但对真正信他力的人来说，这个答案是不解渴的。</p>
 </div>
@@ -623,7 +707,7 @@
 
 <div class="ascii">        云（烦恼）
    ☁  ☁   ☁
- ————————————————
+ ，
         天（自性）
    一直在那，从没脏过
 
@@ -672,7 +756,7 @@
 
 <div class="fact-box">
 <div class="fb-title">事实边界</div>
-<p>本篇解读基于宗宝本《六祖坛经》（十品），惠能生平、两首偈、风幡之辩等核心情节出自原书原文。惠能生卒年（638–713）、得法年份（661 年前后）、出山年份（676 年）为学界通行说法，具体年份不同版本有出入。"心是可信的"这一底层假设的展开，是我顺着文本逻辑的推演，非惠能原话。风幡之辩与量子力学的对照，是跨域映射，不是惠能本意。</p>
+<p>本篇解读基于宗宝本《六祖坛经》（十品），惠能生平、两首偈、风幡之辩等核心情节出自原书原文。惠能生卒年（638，713）、得法年份（661 年前后）、出山年份（676 年）为学界通行说法，具体年份不同版本有出入。"心是可信的"这一底层假设的展开，是我顺着文本逻辑的推演，非惠能原话。风幡之辩与量子力学的对照，是跨域映射，不是惠能本意。</p>
 </div>
 
 <div class="golden">

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>犹太教的本质 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -338,14 +379,48 @@
 </style>
 </head>
 <body>
-<header class="hero">
-<div class="container">
-<div class="kicker">深度解读 · 青山</div>
-<h1>犹太教的本质</h1>
-<div class="author">利奥·拜克 (Leo Baeck, 1873–1956)　著</div>
-<div class="meta">山东大学出版社 2002 中译本 · 07-10 初稿 · 07-13 修订</div>
-</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">犹太教的本质</div>
+    <div class="cover-sub">山东大学出版社 2002 中译本 · 07-10 初稿 · 07-13 修订</div>
+    <div class="cover-meta">利奥·拜克 (Leo Baeck, 1873，1956)　著 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 这本书到底在讲什么</span>
+      <span class="toc-desc">1905 年，德国一位犹太教拉比坐不住了。他叫利奥·拜克，看不下去一件事：当时最有名的新教神学家哈纳克刚出了一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 作者凭什么这么说</span>
+      <span class="toc-desc">拜克的论证不走直线，走翻转链。他从根上换了一套衡量宗教的尺子，再用这把尺子量过来，犹太教成了“自由的宗教”，基...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 真正在牵动全书的那几根线</span>
+      <span class="toc-desc">这本书面着千头万绪：三篇、十几个核心概念、论辩回应哈纳克的每一条。但往下拆，真正在底下起作用的线就那么几根。把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层横着看，找出四根线。这一层竖着挖，挑最深的那根，诫律即自由，一路往下，看能坠到多深。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 顺着问答，把作者的推理走一遍</span>
+      <span class="toc-desc">结论：因为犹太教的核心是上帝通过诫命和人建立伦理关系，律法是这种关系的活表达。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">拜克写这本书的劲，是尊严。1900 年前后，德国学界的主流叙事是基督教超越了犹太教，把人类从律法的枷锁里解放出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 如果只能记住一个公式</span>
+      <span class="toc-desc">如果这本书只能留下一个公式：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 自由是练出来的</span>
+      <span class="toc-desc">前面第四层挖到“诫律即自由”这口井，挖到一半按下不表。现在摊开。</span>
+    </div>
+  </div>
+
 <main class="container">
 
 <section>
@@ -366,7 +441,7 @@
 
 <p>第三篇“犹太教的维护”是收尾，论辩也最猛。拜克正面接“律法主义”这个指控：“托拉”原文意思是“教导”，被翻成希腊文 nomos（律法）才带上束缚味；保罗利用这个翻译歧义，搭出“律法对抗信仰”的对立。律法是保护宗教的“护栏”，本质在伦理不在仪式。</p>
 
-<p>论证是论辩型的。拜克正文几乎不点哈纳克的名，但每一条都针对他贬低犹太教的那个论点，逐条翻转。姿态是一个德国拉比，在被主流文化贬低的时候，不示弱也不撒娇，用学问把对方的每个论点逐一驳回去。语气是学者式的冷静，底下有一股劲——你把我说成僵化，我偏要证明我这一支才是“自由的宗教”。</p>
+<p>论证是论辩型的。拜克正文几乎不点哈纳克的名，但每一条都针对他贬低犹太教的那个论点，逐条翻转。姿态是一个德国拉比，在被主流文化贬低的时候，不示弱也不撒娇，用学问把对方的每个论点逐一驳回去。语气是学者式的冷静，底下有一股劲，你把我说成僵化，我偏要证明我这一支才是“自由的宗教”。</p>
 
 <p>这本书今天还值得读，妙处不在辩护本身，在拜克翻转了“自由”这个词的方向。两千年基督教传统把“自由”和“摆脱律法”绑在一起；拜克说反了，没有诫命的那种“依赖感”才是被动的，诫律让人意识到自己是自由的行动者。这个翻转跟康德“自律即自由”暗通，也接得上一组老问题：自由到底是“免于约束”，还是“通过约束成为自己”？一个世纪前的神学论辩，给这个老问题一个很硬的答案。</p>
 
@@ -462,17 +537,17 @@
 <div class="layer-num">第四层</div>
 <h2 class="layer-title">顺着最深那根线，一路挖到底</h2>
 
-<p>第三层横着看，找出四根线。这一层竖着挖，挑最深的那根——诫律即自由——一路往下，看能坠到多深。</p>
+<p>第三层横着看，找出四根线。这一层竖着挖，挑最深的那根，诫律即自由，一路往下，看能坠到多深。</p>
 
 <p>先停在表面。诫律，十条诫命、六百十三条律法、饮食规矩、安息日不可做工，看着就是束缚。哈纳克说这是“律法宗教”的枷锁，基督教带来了摆脱律法的福音。这是多数人对“律法”的第一感：规则越多，自由越少。</p>
 
 <p>往下一层。拜克说，恰恰相反。人愈认识诫律，愈意识到自己是自由的行动者。为什么？因为诫律是对“你”说的，“你应当”“你不可”。一个被命运决定的木偶，不需要被诫命；只有自由的主体，诫命才有意义。诫律的存在，本身就是对人是自由主体的承认。你被要求，说明你能够。康德看穿了这个：义务的命令不是束缚自由，是自由的形式。</p>
 
-<p>再往下，触及一个悖论。诫律是自由的条件，那人是先有自由才被诫命，还是先有诫命才长出自由？人既是被造的，又是创造者——这个矛盾怎么解，自由的实质到底是不是“给自己立法”，康德的底下怎么接，两类约束怎么分——这口井还能再坠一层，而且是全书最深的一层。按下不表，第八层摊开。</p>
+<p>再往下，触及一个悖论。诫律是自由的条件，那人是先有自由才被诫命，还是先有诫命才长出自由？人既是被造的，又是创造者，这个矛盾怎么解，自由的实质到底是不是“给自己立法”，康德的底下怎么接，两类约束怎么分，这口井还能再坠一层，而且是全书最深的一层。按下不表，第八层摊开。</p>
 
 <h3>两口井，挖到底不一样</h3>
 
-<p>同一个问题——人能不能靠自己得救——两边的井挖到底，基岩不同。基督教那口井的基岩是人是被动的，恩典从外面来，律法之所以是枷锁，是因为人本来就没有力量履行它；拜克这口井的基岩是人是主动的，自由从里面长出来，诫律之所以是自由的形式，是因为人本来就有力量履行它。这场争论表面是律法多还是少，底下是关于人是什么。分歧的结局，第八层细说。</p>
+<p>同一个问题，人能不能靠自己得救，两边的井挖到底，基岩不同。基督教那口井的基岩是人是被动的，恩典从外面来，律法之所以是枷锁，是因为人本来就没有力量履行它；拜克这口井的基岩是人是主动的，自由从里面长出来，诫律之所以是自由的形式，是因为人本来就有力量履行它。这场争论表面是律法多还是少，底下是关于人是什么。分歧的结局，第八层细说。</p>
 
 </section>
 
@@ -566,7 +641,7 @@
 
 <p>下次见到“中保”结构，有人替你承担、替你决定、替你赎罪，多问一句：它是在帮我，还是在替我活。中保有一面是慈悲，另一面是取消你的伦理主体性。这世上最贵的代劳，是替你承担做人责任的那种。</p>
 
-<p>放到民宿运营上也是一样。一套好的服务 SOP 是成全型约束，让新员工几天内获得自由接待客人的能力；纯形式的打卡填表是消磨型约束，耗掉时间不长本事。托管方替你做所有运营决定，你的运营能力就萎缩——中保的一面是省心，另一面是取消你做主人的能力。拜克一个世纪前点破的“代劳取消主体性”，在乡村运营里是一笔一笔算得到的账。</p>
+<p>放到民宿运营上也是一样。一套好的服务 SOP 是成全型约束，让新员工几天内获得自由接待客人的能力；纯形式的打卡填表是消磨型约束，耗掉时间不长本事。托管方替你做所有运营决定，你的运营能力就萎缩，中保的一面是省心，另一面是取消你做主人的能力。拜克一个世纪前点破的“代劳取消主体性”，在乡村运营里是一笔一笔算得到的账。</p>
 
 <p>这几件事串起来是一条线：命名替你想、约束被当枷锁、代劳替你活，三样都是主体性被代走的不同面目。拜克一个世纪前的神学论辩，落到现代人身上，是这么几条用得上的规矩。</p>
 
@@ -577,7 +652,7 @@
 <h2 class="layer-title">如果只能记住一个公式</h2>
 
 <p>如果这本书只能留下一个公式：</p>
-<div class="napkin">犹太教的本质 = 伦理量出的一神教 × 自由主体 × 诫律即自由<div style="font-size:13px;font-weight:400;color:var(--mid);margin-top:16px;letter-spacing:0">三根哲学线撑起本质；第四根线——"律法主义"标签的根基是翻译事故（托拉→nomos）——是历史包袱，不进公式</div></div>
+<div class="napkin">犹太教的本质 = 伦理量出的一神教 × 自由主体 × 诫律即自由<div style="font-size:13px;font-weight:400;color:var(--mid);margin-top:16px;letter-spacing:0">三根哲学线撑起本质；第四根线，"律法主义"标签的根基是翻译事故（托拉→nomos），是历史包袱，不进公式</div></div>
 
 <p>一句话：犹太教是伦理一神教，上帝通过诫命和人建立关系，诫律给人搭自由的台阶，人是伦理主体，不需要中保。</p>
 
@@ -640,7 +715,7 @@
 <h4>事实边界</h4>
 <p>· 本书德文初版 1905 年（回应哈纳克 1900 年《基督教的本质》），1922 年大幅修订成书，1948 年出英文版。中译本据山东大学出版社 2002 年版，OCR 文本有形近字噪点（如“狐太”即“犹太”），引文据可读中文整理。</p>
 <p>· 译者序（傅永军）对拜克思想的概括属二手学术解读，非拜克原文；译者序称“最著名著作写于 1936 年”一说存疑，本文版本年代以 1905 / 1922 为准。</p>
-<p>· 拜克生平（1873–1956，1943 年入特雷森城集中营）据学界共识；与纳粹阴影相关的历史处境判断为解读者的推论。</p>
+<p>· 拜克生平（1873，1956，1943 年入特雷森城集中营）据学界共识；与纳粹阴影相关的历史处境判断为解读者的推论。</p>
 </div>
 </section>
 

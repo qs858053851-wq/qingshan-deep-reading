@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>崩溃 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>崩溃</h1>
-  <div class="author">贾雷德·戴蒙德　Collapse: How Societies Choose to Fail or Succeed, 2005</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">崩溃</div>
+    <div class="cover-sub">戴蒙德　Collapse: How Societies Choose to Fail or Succeed, 2005</div>
+    <div class="cover-meta">贾雷德 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">他从一个漂亮的对照开场。蒙大拿的乌尔斯牧场和格陵兰的加登牧场，纬度相近、气候相似、地形相仿，两处的优势和劣势出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么把这些事说成因果</span>
+      <span class="toc-desc">几百年前的社会为什么垮，谁也没在现场。这本书的说服力全看他怎么处理证据，所以这一层要看的是他的手艺，以及他手艺...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 十几个案例拆到底，三件事在起作用</span>
+      <span class="toc-desc">这一刀是全书最要紧的一次切割：摊上什么归一栏，怎么应对归另一栏，两栏不能混着算。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：看得见的悬崖，为什么还是走过去了</span>
+      <span class="toc-desc">这本书真正难的问题只有一个，就是序曲里那句：为什么过去的社会看不见自己正一步步走向毁灭，而今天我们回头看却觉得...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把这本书问明白</span>
+      <span class="toc-desc">《枪炮》的答案是环境禀赋：可驯化的动植物、大陆轴线的走向、彼此隔绝的程度，决定了不同大陆的发展速度。那本书里，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">他的底子是生理学和鸟类学，真正的功课做在新几内亚，几十年的田野。这个背景决定了他看社会的角度更像看生态系统：谁...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 格陵兰的领主，每做一件对的事，就削弱自己一分</span>
+      <span class="toc-desc">格陵兰的维京人是这本书里最完整的一个案例，也是最让人难受的一个。他们在那座岛上活了大约四百年，然后一个不剩。</span>
+    </div>
+  </div>
+
   <div class="lead">书名容易骗人。它真正问的不是社会为什么会垮，而是同样一手烂牌，为什么有的社会打赢了。答案落在副标题上：<strong>选择</strong>。</div>
 </div>
 
@@ -433,7 +513,7 @@
 
   <blockquote>我常常问自己这么一个问题：“复活节岛岛民在砍下岛上最后一棵树的那一刻，曾说过什么？”他们是否像现代的伐木工人那样叫喊道：“我们关心的是生计，不是树木！”或者：“问题就交给科技去解决吧。别担心，我们可以找出木头的替代品。”又或是振振有词：“怎见得复活节岛其他地方也都没有树木了？我们得进行更进一步的研究。禁止伐木未免言之过早，真是杞人忧天。”</blockquote>
 
-  <p><strong>这个案例必须带一句提醒：它是全书争议最大的一个。</strong>书出版后，有考古学家提出岛上棕榈的消失与波利尼西亚鼠啃食种子有关，也有人重估年代、认为欧洲人接触后的奴隶劫掠和传染病才是人口崩溃的主因。这些反驳在这本书里没有被处理过。读者要用这个案例，得知道它站在学术争议的中间。</p>
+  <p><strong>这个案例必须带一句提醒：它是全书争议最大的一个。</strong>书出版后，有考古学家提出岛上棕榈的消失与波利尼西亚鼠啃食种子有关，也有人重估年代、认为欧洲人接触后的奴隶劫掠和传染病才是人口崩溃的主因。这些反驳在这本书里没有被处理过。先生要用这个案例，得知道它站在学术争议的中间。</p>
 
   <div class="sub">证据二 · 同一个岛，两种结局</div>
 
@@ -443,7 +523,7 @@
 
   <p>环境这个变量被固定住了，结果却相反。这一下就把“环境决定论”排除掉了：<strong>决定命运的是这两群人各自怎么活。</strong>至于维京人具体错在哪儿，是全书最要紧的一段分析，我留到第八层单讲。</p>
 
-  <p>另一组同样性质的对照是伊斯帕尼奥拉岛：多米尼加和海地共享一个岛、一片生态，今天从卫星照片上都能看出边界——一边有林，一边光秃。他在这一章特意留了一个口子：<strong>个人也有扭转一国局势的力量</strong>，指的是多米尼加那位以铁腕推行环保的领导人。这句话对一本讲结构和环境的书来说，是很大的让步。</p>
+  <p>另一组同样性质的对照是伊斯帕尼奥拉岛：多米尼加和海地共享一个岛、一片生态，今天从卫星照片上都能看出边界，一边有林，一边光秃。他在这一章特意留了一个口子：<strong>个人也有扭转一国局势的力量</strong>，指的是多米尼加那位以铁腕推行环保的领导人。这句话对一本讲结构和环境的书来说，是很大的让步。</p>
 
   <div class="sub">证据三 · 树轮：他怎么知道八百年前下没下雨</div>
 
@@ -576,7 +656,7 @@
     <div class="q">Q3　把卢旺达的种族屠杀讲成人口和土地问题，会不会太冷血？</div>
     <p class="a-lead">这是全书争议第二大的一章。要公道地读它，必须把他的自我设限一起读。</p>
     <p>他给的背景是：屠杀发生前，卢旺达年均人口增长率约百分之三，女性十五岁生第一胎，一般家庭五到八个孩子，土地已经被切分到无法再分。他引了一位图西族教师的话，那位教师的妻子和五个孩子中的四个被杀，他说：没有钱给孩子买鞋的人，把有钱给孩子买鞋的人杀了，自己的孩子就不必赤脚上学。</p>
-    <p>但他同时明确写了：人口压力不必然导致屠杀。他举了人口密度更高的孟加拉国、荷兰、比利时，还有柬埔寨——屠杀发生时那里的人口密度只有卢旺达的六分之一。</p>
+    <p>但他同时明确写了：人口压力不必然导致屠杀。他举了人口密度更高的孟加拉国、荷兰、比利时，还有柬埔寨，屠杀发生时那里的人口密度只有卢旺达的六分之一。</p>
     <p class="a-edge">政治学界的批评是，这一章低估了国家机器、殖民时期的族群划分和精英动员的作用。这个批评有道理。合适的读法是把资源压力当成埋在地下的雷，而不是按下引信的手。</p>
   </div>
 
@@ -622,7 +702,7 @@
 
   <p>这本书的直接触发点写在第一章里，是蒙大拿。那是不少美国人心里的好去处，山水好，人也和气，而他在那里看到了土壤盐碱化、矿业遗留的污染、外来物种、林火管理的失败、年轻人留不住。<strong>一个此刻看上去仍然美好的地方，各项指标已经在往下走。</strong>他把这个观察和他熟悉的古代崩溃案例摆在一起，就有了这本书。</p>
 
-  <p>所以他写作的动机与预言末日无关，他想搞明白一件更实用的事：那些没垮的社会做对了什么。他自陈的两把钥匙也很朴素——有没有长期计划，愿不愿意反省核心价值。</p>
+  <p>所以他写作的动机与预言末日无关，他想搞明白一件更实用的事：那些没垮的社会做对了什么。他自陈的两把钥匙也很朴素，有没有长期计划，愿不愿意反省核心价值。</p>
 
   <div class="sub">他没看见的</div>
 
@@ -650,11 +730,11 @@
 
   <p>被说服的：五点框架我服，尤其是把第五点单独拎出来当常量这一手。它给了一个可以反复使用的追问顺序，而且它把“环境决定论”和“全靠人努力”这两种懒惰的说法同时挡在了外面。</p>
 
-  <p>还有那句“社会的记忆短于灾难的周期”，是我读这本书最大的收获。它解释的事情远远超出环境的范围，而且它不指责任何人——每一代人都只能用自己经历过的东西来判断，这不算错，是限制。</p>
+  <p>还有那句“社会的记忆短于灾难的周期”，是我读这本书最大的收获。它解释的事情远远超出环境的范围，而且它不指责任何人，每一代人都只能用自己经历过的东西来判断，这不算错，是限制。</p>
 
   <p>不服的两处。一是复活节岛那一章的处理，前面已经说了。二是“这是一本乐观的书”这个自我定性。他的乐观建立在“第五点是可以改的”这个逻辑上，可全书用了六百页证明的恰恰是它极少被改。逻辑上的可能性和现实中的概率，他在这里换了个概念。</p>
 
-  <p>给读者的读法建议：这本书很厚，可以挑着读。序曲那二十页是全书的精华，五点框架和全书地图都在里面；案例部分挑格陵兰（第七、八章）和多米尼加与海地（第十一章）两组就够，它们是最强的对照实验；第十四章讲决策失误的四阶段是理论高点；第二版后记的吴哥是唯一一次把框架完整跑一遍的演示，很值得看。蒙大拿、中国、澳大利亚这几章时代感强，可以快读。</p>
+  <p>给先生的读法建议：这本书很厚，可以挑着读。序曲那二十页是全书的精华，五点框架和全书地图都在里面；案例部分挑格陵兰（第七、八章）和多米尼加与海地（第十一章）两组就够，它们是最强的对照实验；第十四章讲决策失误的四阶段是理论高点；第二版后记的吴哥是唯一一次把框架完整跑一遍的演示，很值得看。蒙大拿、中国、澳大利亚这几章时代感强，可以快读。</p>
 </div>
 
 <div class="layer">
@@ -709,7 +789,7 @@
 
   <p>答案在他们的社会结构里。格陵兰维京社会是领主社会：几个大农场主控制着最好的草场和最多的牲畜，佃农依附于他们，教会是身份认同的中心。这个社会的自我定义是<strong>“我们是欧洲人，是基督徒”</strong>，而因纽特人在他们眼里是异教徒、是野人。学他们的技术，等于承认自己是这块荒岛上的土著，而不是欧洲最北端的一个基督教前哨。</p>
 
-  <p>这不只是面子问题。看他们把有限的运力用在了什么地方：从欧洲运来的船，装的是教堂用的彩绘玻璃、青铜钟、法衣。他们缺的是铁和木材——铁做工具，木材造房子造船。<strong>他们用宝贵的舱位运来了身份的证明，而不是活下去的材料。</strong></p>
+  <p>这不只是面子问题。看他们把有限的运力用在了什么地方：从欧洲运来的船，装的是教堂用的彩绘玻璃、青铜钟、法衣。他们缺的是铁和木材，铁做工具，木材造房子造船。<strong>他们用宝贵的舱位运来了身份的证明，而不是活下去的材料。</strong></p>
 
   <p>还有一件更精细的事：他们的草场明明已经过度放牧了，为什么不减少牲畜？因为牲畜数量决定了一个领主能养多少佃农，而佃农的数量就是他的地位。<strong>减少牲畜，草场就能缓过来，可他也就不再是领主了。</strong></p>
 
@@ -725,7 +805,7 @@
 
   <p>第一个疑问最容易想到：<strong>这是不是事后诸葛？</strong>他们哪知道自己会死绝，谁也不会为一个五十年后的危机放弃眼前的地位。</p>
 
-  <p>这一问在别的案例上成立，在格陵兰不成立。因为参照答案不在五十年后，就在几十公里外，天天在演。问题不出在知识上，出在<strong>身份不允许他们承认那个答案有效</strong>。他们缺的并非信息，而是接受这条信息所需要付出的代价——那个代价是“我们不再是我们以为的那种人”。</p>
+  <p>这一问在别的案例上成立，在格陵兰不成立。因为参照答案不在五十年后，就在几十公里外，天天在演。问题不出在知识上，出在<strong>身份不允许他们承认那个答案有效</strong>。他们缺的并非信息，而是接受这条信息所需要付出的代价，那个代价是“我们不再是我们以为的那种人”。</p>
 
   <p>第二个疑问更硬：<strong>那怎么解释那些成功的社会？</strong>如果掌权者的短期利益总是和社会长期利益冲突，蒂科皮亚岛怎么撑了三千年，德川日本怎么能自上而下地把森林管起来？</p>
 

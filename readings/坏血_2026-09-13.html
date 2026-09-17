@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>坏血 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">造神运动、黑箱保密法与百亿美元独角兽的溃败</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">爱迪生机器虚假数据、西门子设备暗度陈仓与误诊血检报告</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">恐惧控制、教派崇拜与伪造直到成功毒性蔓延</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从黑色高领毛衣到实验室造假、法律恐吓与联邦调查局铁证</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析精英元老失明、吹哨人困境与医疗科技伦理底线</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">卡雷鲁调查记者立场、现代初创企业造假映射与读者认知护城河</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">希拉洛斯（Theranos）骗局权力结构与崩塌动力学全景图</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一滴指尖血到稀释样本与虚假癌症预警的致命赌局</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与硅谷商业法庭审判事实考据</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">造神运动、黑箱保密法与百亿美元独角兽的溃败</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">爱迪生机器虚假数据、西门子设备暗度陈仓与误诊血检报告</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">恐惧控制、教派崇拜与伪造直到成功毒性蔓延</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从黑色高领毛衣到实验室造假、法律恐吓与联邦调查局铁证</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析精英元老失明、吹哨人困境与医疗科技伦理底线</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">卡雷鲁调查记者立场、现代初创企业造假映射与读者认知护城河</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">希拉洛斯（Theranos）骗局权力结构与崩塌动力学全景图</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一滴指尖血到稀释样本与虚假癌症预警的致命赌局</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与硅谷商业法庭审判事实考据</span></div>
     </div>
   </div>
 
@@ -481,7 +541,7 @@
     <h1>从一滴指尖血到稀释样本与虚假癌症预警的致命赌局</h1>
     
 <p>假设你在体检中心抽血，护士不再拿粗大的针头扎进你的静脉抽满五管暗红色的血液，而是拿着一个极其微小的塑料弹簧针，在你手指尖轻轻一扎，挤出一小滴宛如晨露般的血珠。护士用一个小巧如胶囊的纳米容器把它装起来，放进一台微波炉大小、闪烁着现代感指示灯的精美仪器中。十五分钟后，屏幕上弹出一份详尽的报告，涵盖胆固醇、血糖、甲状腺功能乃至数十种早期癌症筛查。在这个场景里，你的常识直觉会告诉你：科技太伟大了，医疗变得体面、无痛且极其高效。你完全愿意为这样的体验买单，甚至为它的创造者献上崇高的敬意。</p>
-<p>然而，如果我们将视线推进到这台精美仪器的金属外壳内部，这套令人心醉的常识直觉会在几秒钟内彻底崩塌。在仪器的金属挡板后面，那台所谓的划时代爱迪生机器根本没有在运算，甚至连最基本的机械臂都频繁发生齿轮卡死与试剂漏液。为了让你拿到那份看似专业的化验单，工作人员在你不注意的瞬间，把装有那滴血的小胶囊偷偷送进了地下的暗室。在暗室里，实验员拿着移液枪，将这微不足道的几微升血液强行注入数十倍体积的生理盐水中进行疯狂稀释——因为只有稀释到足够多的液体量，才能勉强被他们秘密采购的传统西门子商业化验机识别。</p>
+<p>然而，如果我们将视线推进到这台精美仪器的金属外壳内部，这套令人心醉的常识直觉会在几秒钟内彻底崩塌。在仪器的金属挡板后面，那台所谓的划时代爱迪生机器根本没有在运算，甚至连最基本的机械臂都频繁发生齿轮卡死与试剂漏液。为了让你拿到那份看似专业的化验单，工作人员在你不注意的瞬间，把装有那滴血的小胶囊偷偷送进了地下的暗室。在暗室里，实验员拿着移液枪，将这微不足道的几微升血液强行注入数十倍体积的生理盐水中进行疯狂稀释，因为只有稀释到足够多的液体量，才能勉强被他们秘密采购的传统西门子商业化验机识别。</p>
 <p>在稀释的过程中，血液中原本浓度极低的抗体与酶分子被冲淡到了仪器探测的灵敏度极限之下。机器在嘈杂的背景噪声中吃力地捕捉信号，最终吐出的数据充满了离谱的系统误差。此时，坐在办公室里的霍姆斯和管理层明明知道这台机器每天都在掷骰子，但他们不仅没有叫停，反而修改了内部质控软件的判定代码，强行把那些严重失真的数据直接盖章认定为合格。这份盖了章的假报告随后被发送到了医生的诊室里：一位健康的母亲被告知体内的肿瘤标志物爆表，极度惊恐地准备接受切除手术；一位心脏病患者的真实血钾异常被完全漏报，随时面临猝死的险境。</p>
 <p>这就是希拉洛斯神话的全部真相。它从来没有征服微流控的物理法则，它只是征服了公众对科技奇迹的盲目渴望，并把普通人的生命健康作为筹码，押在了一场为了维持高估值而不得不持续下注的轮盘赌局中。科技的进步需要建立在尊重客观事实的基础之上，任何试图用精美公关和法务恐吓逾越科学规律的企图，最终都只能在现实的撞击下粉身碎骨。</p>
 
@@ -493,7 +553,7 @@
     
 <div class="closing-quote">
   <p>当商业野心彻底脱离了客观科学的引力约束，所谓的科技神话不过是一场由名流背书、资本合谋与自欺欺人共同构筑的现代巫术。</p>
-  <div class="closing-author">—— 《坏血》商业文明启示终局定音</div>
+  <div class="closing-author">， 《坏血》商业文明启示终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与法庭审判考据说明</h3>

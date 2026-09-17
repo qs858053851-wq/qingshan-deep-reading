@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>人类处于转折点 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,49 @@
 <body>
 <div class="container"><div class="wrap">
 
-<div class="hero">
-  <div class="kicker">深度解读</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">人类处于转折点</div>
+    <div class="cover-sub">Eduard Pestel（汉诺威）· 1974 年 8 月成稿 
+    第一个报告是 1972 年的《增长的极限》。这一本是来纠正它的。</div>
+    <div class="cover-meta">Mihajlo Mesarović（克利夫兰） · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">1972 年，罗马俱乐部发布第一个报告《增长的极限》。麻省理工的团队用福雷斯特的系统动力学，把整个世界当成一个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">一、南亚的五个情景。这是全书最扎实的一段，因为它把"乐观假设"堆到了荒唐的程度，然后看结果还是不是坏的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在牵动全书的是哪三根线</span>
+      <span class="toc-desc">这根线不是观点，是模型结构。而模型结构一变，结论就跟着全变。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 这件事的根，到底扎在哪</span>
+      <span class="toc-desc">这件事太熟悉了，熟悉到我们已经不觉得它需要解释。疫情来了才补公共卫生，河堤垮了才修河堤，房价失控了才出限购。事...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，把整本书的推理走一遍</span>
+      <span class="toc-desc">结论因为"增长"在不同地方指着相反的事，一个词底下藏着两笔账。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">梅萨罗维奇的身份值得说一句。他是搞多层次分层系统理论的学者，一辈子的功夫都在"怎么把一个大系统正确地切成层和块...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 全书只剩一个公式</span>
+      <span class="toc-desc">世界不会一起完蛋，它会一块一块地完；而你每拖一年，账不是多加一年，是又乘了一次。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">前面第二层，我摆了两个数字就走开了。现在回来讲它们。</span>
+    </div>
+  </div>
+
   <h1>人类处于转折点</h1>
   <div class="sub">给罗马俱乐部的第二个报告 · 梅萨罗维奇 &amp; 佩斯特尔</div>
   <div class="meta">
@@ -406,7 +488,7 @@
   第十一章 · 结束语：那么我们该怎么办
   </blockquote>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
 
   <p>比第一个报告克制得多，也难读得多。第一个报告是一记警钟，这一本是一份会议材料：图表密、限定语多、"如果……那么……"满篇。有意思的是它同时又不掩饰道德判断，第十章末尾几乎在质问读者：如果我们少消耗一点能源、少占一点东西，好让别人能活，那我们的生活水平会怎么变？然后自己回答：会变的是道德水平。</p>
 
@@ -419,7 +501,7 @@
 
   <div class="lead">这本书的证据不来自史料，来自计算机跑出来的情景。所以它的说服力有个特殊结构：结论的可靠性，全部押在模型结构的可靠性上。而作者自己非常清楚这一点。</div>
 
-  <h3>论证链</h3>
+  <h3>核心论证逻辑</h3>
   <blockquote>
   世界各地区在功能上互相依赖，任一部分的病态增长会危及整体<br>
   ↓<br>
@@ -431,7 +513,7 @@
   ↓<br>
   局部危机的解决办法必须是全局的（新的国际分工、地区间平衡）<br>
   ↓<br>
-  且必须提前动手——因为危机成灾的速度，远快于对策见效的速度
+  且必须提前动手，因为危机成灾的速度，远快于对策见效的速度
   </blockquote>
 
   <h3>三个证据</h3>
@@ -466,7 +548,7 @@
 
   <h3>什么情况下他们会失效</h3>
 
-  <p><strong>一个大口子：技术进步的速率被当成了外生的。</strong>模型里技术投入是参数，不是内生变量。所以它算不出这样的事：油价高企二十年，会催生出页岩气革命和光伏成本下降百分之九十。1974 年的太阳能在他们笔下要占世界陆地百分之一、花二十到五十万亿美元；今天光伏的度电成本已经低于新建燃煤。这一条判错了，而且错在乐观的方向——他们低估了技术。</p>
+  <p><strong>一个大口子：技术进步的速率被当成了外生的。</strong>模型里技术投入是参数，不是内生变量。所以它算不出这样的事：油价高企二十年，会催生出页岩气革命和光伏成本下降百分之九十。1974 年的太阳能在他们笔下要占世界陆地百分之一、花二十到五十万亿美元；今天光伏的度电成本已经低于新建燃煤。这一条判错了，而且错在乐观的方向，他们低估了技术。</p>
 
   <p><strong>另一个口子：南亚的灾难没有按情景二发生。</strong>1980 年代该开始的大饥荒没有来，绿色革命的第二波、生育率的自发下降、以及南亚自己搞成的出口工业（很接近他们的第五情景，只是无人组织，自发长出来的）改变了轨迹。这说明模型里"人口-粮食"那条因果链，比现实中的链条刚硬。</p>
 
@@ -622,7 +704,7 @@
   <div class="qa">
     <div class="q">Q7 · 结束语给出的三条建议，哪一条最不可能实现？</div>
     <p><span class="tag">结论</span>第三条。而它恰恰是唯一一条真正能起作用的。</p>
-    <p><span class="tag">怎么想到的</span>三条是：弥合"人与自然"和"南北贫富"这两个差距；发展出地区性的共同命运感，让"理想的解决方案"出于必要而不是出于善意；建立全球性的预见和调整机制，在危机发作之前动手。前两条是价值倡导，可以慢慢来；第三条是制度建设，需要现在就把权力和资源交给一个还没发生的问题。他们自己也说得很清楚：公众和决策者必须"听从理智放弃自己习以为常的做法，即建立在'问题拖延解决就是解决了一半'这一信念上的做法"。这句话点破了整件事的心理底盘——拖延不是懒，是一种真诚的信念。</p>
+    <p><span class="tag">怎么想到的</span>三条是：弥合"人与自然"和"南北贫富"这两个差距；发展出地区性的共同命运感，让"理想的解决方案"出于必要而不是出于善意；建立全球性的预见和调整机制，在危机发作之前动手。前两条是价值倡导，可以慢慢来；第三条是制度建设，需要现在就把权力和资源交给一个还没发生的问题。他们自己也说得很清楚：公众和决策者必须"听从理智放弃自己习以为常的做法，即建立在'问题拖延解决就是解决了一半'这一信念上的做法"。这句话点破了整件事的心理底盘，拖延不是懒，是一种真诚的信念。</p>
     <p><span class="tag">边界</span>五十年后回看，第三条其实部分建成了：IPCC、粮农组织的预警系统、金融体系的压力测试，都是"提前预见"的制度化。所以不是完全没戏。但它们的共同弱点也印证了这本书：预见能力建起来了，行动能力没跟上。</p>
   </div>
 
@@ -644,7 +726,7 @@
 
   <p>所以这本书的那股劲儿是双重的。一半是学者的：<strong>手上有更好的工具，而世界正在拿一个更差的工具下判断。</strong>另一半是实打实的：南亚那些数字，他们是真的算了、真的信、真的觉得会死很多人。佩斯特尔那边是汉诺威工大的工程学者，后来当了下萨克森州的科学部长，一直往实践里推。</p>
 
-  <p>值得一提的是，梅萨罗维奇的那套一般系统论方案，同一时期在莫斯科被萨多夫斯基仔细批评过——批的正是"一般性水平选不准"。而这本书某种意义上是他的回答：他不再追求"关于一切系统的理论"，他挑了一个具体系统，把层和块钉死，然后算给你看。</p>
+  <p>值得一提的是，梅萨罗维奇的那套一般系统论方案，同一时期在莫斯科被萨多夫斯基仔细批评过，批的正是"一般性水平选不准"。而这本书某种意义上是他的回答：他不再追求"关于一切系统的理论"，他挑了一个具体系统，把层和块钉死，然后算给你看。</p>
 
   <h3>他们没看到的</h3>
 
@@ -672,7 +754,7 @@
 
   <h3>我的看法</h3>
 
-  <p>这本书比《增长的极限》高明得多，传播上却输得一塌糊涂——而且输得有道理。它啰嗦、限定语多、满篇"如果"，想同时当学术著作和公众警示，两头都没占住。第五到第九章的分区情景，边际信息量递减得厉害；读完南亚那一节，后面几节大可以跳过去。</p>
+  <p>这本书比《增长的极限》高明得多，传播上却输得一塌糊涂，而且输得有道理。它啰嗦、限定语多、满篇"如果"，想同时当学术著作和公众警示，两头都没占住。第五到第九章的分区情景，边际信息量递减得厉害；读完南亚那一节，后面几节大可以跳过去。</p>
 
   <p>我最不同意的是它对"工具"的信心。全书最后落在"我们需要一个可信又可理解的计划工具"，这是整本书最软的一句话。五十年后我们有了远超他们想象的工具：气候模型、卫星遥感、实时供应链数据、算力便宜到白菜价。行动跟上了吗？工具从来不是瓶颈，这一点他们自己书里已经证明了，只是不肯认。</p>
 
@@ -687,7 +769,7 @@
     <div class="f">灾难规模<br>＝ 区域失衡 × （增长的形状错了）<sup>拖延年数</sup></div>
     <div class="note">三个因子，就是第三层那三根线：<br>
     「区域失衡」对应世界是十块互相咬着的；「增长的形状错了」对应增长是形状不是量；<br>
-    「拖延年数」在指数位上，对应危机的钟比对策的钟快——所以拖延不是加法，是乘法。</div>
+    「拖延年数」在指数位上，对应危机的钟比对策的钟快，所以拖延不是加法，是乘法。</div>
   </div>
 
   <h3>一句话</h3>
@@ -748,13 +830,13 @@
 
   <p>所以问题来了：既然代价是这么涨的，为什么人还是拖？</p>
 
-  <p>这个问题值得认真攻一下，因为最省事的答案——"人短视""人自私"——是错的，或者说，太浅了。</p>
+  <p>这个问题值得认真攻一下，因为最省事的答案，"人短视""人自私"，是错的，或者说，太浅了。</p>
 
   <p>真正的原因藏在两条曲线的错位里。<strong>代价是加速上涨的，而人的感受是平的。</strong>人对指数没有直觉，这一点心理学早有定论：让你估计一张纸对折五十次有多厚，几乎没人能答对（答案是超过地球到太阳的距离）。你的感受系统是按线性刻度做的，而这个世界上很多重要的账不是线性的。</p>
 
   <p>但还有一层更狠的，藏在这条曲线的<em>早期</em>。</p>
 
-  <p>加速上涨的曲线有个特点：它在早期非常平。平到什么程度？平到看起来完全不值得为它付出任何确定的代价。1974 年你去跟南亚各国政府说，现在就要在人口和农业上做出痛苦调整，他们看看眼前，粮食是紧，但没饿死人啊；而你要他们付的代价——减少工业投资、推行不受欢迎的政策——是确定的、立刻的、要选票的。</p>
+  <p>加速上涨的曲线有个特点：它在早期非常平。平到什么程度？平到看起来完全不值得为它付出任何确定的代价。1974 年你去跟南亚各国政府说，现在就要在人口和农业上做出痛苦调整，他们看看眼前，粮食是紧，但没饿死人啊；而你要他们付的代价，减少工业投资、推行不受欢迎的政策，是确定的、立刻的、要选票的。</p>
 
   <p>这就是陷阱的形状：<strong>越是应该早动手的时候，早动手看起来越不划算。</strong>等到划算得显而易见了，曲线已经翘起来了，那时候你付得起的代价已经买不到当年的效果。</p>
 
@@ -762,23 +844,23 @@
 
   <p>牙上有个小洞，补一下，几百块，半小时。你觉得不太疼，先放放。半年后要做根管，几千块，三次门诊。再放放，牙保不住了，拔掉种牙，上万块，疗程半年。</p>
 
-  <p>整个过程里，每一天你都在做同一个判断，而且每一天这个判断看起来都是对的：就这么点疼，为它专门请半天假，不值。你的疼痛是线性的、温和的，甚至有一段时间会自己消失——牙髓坏死之后就不疼了。</p>
+  <p>整个过程里，每一天你都在做同一个判断，而且每一天这个判断看起来都是对的：就这么点疼，为它专门请半天假，不值。你的疼痛是线性的、温和的，甚至有一段时间会自己消失，牙髓坏死之后就不疼了。</p>
 
   <p>而那一段不疼的日子，正是成本上涨最快的一段。</p>
 
   <p>这是这个类比真正承重的地方。它说的不只是"小病拖成大病"这种老生常谈，它说的是：<em>你的痛感曲线和你的账单曲线，不是同一条曲线，而且在最要命的那一段，它们的方向是相反的。</em>危机的平静期不是喘息，是账单跑得最快的时候。</p>
 
-  <p>南亚那两个数字之所以让人心里一沉，就在这儿。1974 到 1994 这二十年，从新闻里看不算特别糟——绿色革命有成效，没有出现书里描述的那种世界性大饥荒。看上去像是这本书危言耸听了。而按它算的那笔账，恰恰是那二十年里，账在最快地长。</p>
+  <p>南亚那两个数字之所以让人心里一沉，就在这儿。1974 到 1994 这二十年，从新闻里看不算特别糟，绿色革命有成效，没有出现书里描述的那种世界性大饥荒。看上去像是这本书危言耸听了。而按它算的那笔账，恰恰是那二十年里，账在最快地长。</p>
 
   <p>那么这带来的是什么？不是宿命论，是一个判据。而且是个很实用的判据。</p>
 
   <p>面对任何一件你正在拖的事，问自己一句：<strong>这件事的代价，随时间是平着走，还是往上翘？</strong></p>
 
-  <p>平着走的事，拖没关系，拖是理性的——留着精力和现金去应付别的。这类事情比想象中多：很多"待办"其实拖到最后自然消解了，因为它的代价是平的甚至是降的。</p>
+  <p>平着走的事，拖没关系，拖是理性的，留着精力和现金去应付别的。这类事情比想象中多：很多"待办"其实拖到最后自然消解了，因为它的代价是平的甚至是降的。</p>
 
   <p>往上翘的事，情况完全反过来。对这类事，<em>"再看看"这个选项本身就是最贵的选项，尽管它此刻标价为零。</em>它标价为零，正是因为曲线在早期是平的，而那正是你还买得起的时候。</p>
 
-  <p>怎么分辨？看这件事里有没有几个变量在互相喂食。有，就往上翘。孩子的教育问题、身体的某个指标、一段关系里没说出口的那件事、一个团队里被默许的坏习惯、一笔越滚越大的债——这些都有互相喂食的结构。而"把办公室重新装修一下"这种，没有。</p>
+  <p>怎么分辨？看这件事里有没有几个变量在互相喂食。有，就往上翘。孩子的教育问题、身体的某个指标、一段关系里没说出口的那件事、一个团队里被默许的坏习惯、一笔越滚越大的债，这些都有互相喂食的结构。而"把办公室重新装修一下"这种，没有。</p>
 
   <p>所以那两个数字，八十和三百，其实不是关于南亚的。</p>
 
@@ -788,7 +870,7 @@
 <div class="layer" style="border-bottom:none;padding-bottom:24px;">
   <div class="boundary">
     <h4>事实边界</h4>
-    <p style="margin:0;">本篇依据的是这本书中译本扫描件的本地 OCR 文本，噪点主要落在数字和译名上。书中引文（"它并不是一个'预言家'，而是一个工具""为解决一场就在家门口的危机所采取的措施将只能在十至二十年后见效""因为没有工业基础，南亚的经济将会被侵蚀掉"等）属于对 OCR 文本的转述整理，语义可靠但未必逐字等同原译文。关键数字——南亚五千万吨蛋白质缺口、五亿吨谷物进口、五亿儿童死亡、三千个核公园与两万四千座反应堆、每年一千五百万公斤钚 239、延迟代价百分之八十与百分之三百——均出自 OCR 文本，我未与纸本或英文原版核对，引用请自行复核。第二层与第八层里关于页岩革命、光伏成本、南亚出口工业实际走向的后见之明，以及第六层里梅萨罗维奇与萨多夫斯基的关联、佩斯特尔后来的公职，是我补的背景，书里没有。</p>
+    <p style="margin:0;">本篇依据的是这本书中译本扫描件的本地 OCR 文本，噪点主要落在数字和译名上。书中引文（"它并不是一个'预言家'，而是一个工具""为解决一场就在家门口的危机所采取的措施将只能在十至二十年后见效""因为没有工业基础，南亚的经济将会被侵蚀掉"等）属于对 OCR 文本的转述整理，语义可靠但未必逐字等同原译文。关键数字，南亚五千万吨蛋白质缺口、五亿吨谷物进口、五亿儿童死亡、三千个核公园与两万四千座反应堆、每年一千五百万公斤钚 239、延迟代价百分之八十与百分之三百，均出自 OCR 文本，我未与纸本或英文原版核对，引用请自行复核。第二层与第八层里关于页岩革命、光伏成本、南亚出口工业实际走向的后见之明，以及第六层里梅萨罗维奇与萨多夫斯基的关联、佩斯特尔后来的公职，是我补的背景，书里没有。</p>
   </div>
 </div>
 

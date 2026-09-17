@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>反脆弱 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · Layer 01–09</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">反脆弱</div>
+    <div class="cover-sub">Antifragile · 中信出版社 · 2026-07-07 初稿 · 2026-07-13 修订</div>
+    <div class="cover-meta">纳西姆·尼古拉斯·塔勒布 著 · 雨珂 译 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">塔勒布为这件事造了一个词，叫「反脆弱」。他先立三态:脆弱的东西怕波动，一震就碎(玻璃杯);强韧的东西扛得住，震...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">塔勒布的论证链可以拆成五步，每一步都替下一步垫砖。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三件事在起作用</span>
+      <span class="toc-desc">《反脆弱》七卷二十五章，加上胖子托尼的穿插，看下去也乱。可你把它抻开看，真正牵动全书的线就三根。把这三根捏在手...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">三根线里最深的是第一根，不对称性。我们顺着它往井底钻，看能坠到哪。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 九个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">结论:不够，因为强韧是「震完不变」，反脆弱是「震完更壮」，两者机制相反。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">塔勒布写这本书，表面是讲不确定性，底下的劲儿是一种切身的厌恶。他在黎巴嫩内战中长大，看着一个原本繁荣的国家在战...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">风险不可测，脆弱性可测。把注意力从猜事件转到量结构，你就从死路换到活路。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 你不需要一把更准的尺，你需要一把伞</span>
+      <span class="toc-desc">前面几层按下不表的那条活路，现在可以摊开了。有一种迷信深植在现代人脑子里:应对不确定性，关键是预测得准。分析师...</span>
+    </div>
+  </div>
+
   <h1>反脆弱</h1>
   <div class="author">纳西姆·尼古拉斯·塔勒布 著 · 雨珂 译</div>
   <div class="meta">Antifragile · 中信出版社 · 2026-07-07 初稿 · 2026-07-13 修订</div>
@@ -486,7 +567,7 @@
 
   <h3>井底看见什么</h3>
 
-  <p>坠到井底看见的，是比「要更努力预测」的呼吁更冷的一件事:预测这条路的尽头是堵死墙，出路是换条路:不再跟不确定性讲道理，而是改造自己让它打不倒你。这也是为什么塔勒布对整个预测行业那么愤怒:他们卖的是一个让人误以为已经安全、从而放弃做结构准备的产品，无效只是它的表面。误判「已安全」比知道自己不安全更危险，因为前者让你脱了盔甲站在战场上。书的真正落点很冷:风险不可测，脆弱性可测。把注意力从猜事件转到量结构，你就从死路换到活路。至于这条路走起来心理上有多难——止损为什么会让人像浪费一样难受，第八层单独去讲。</p>
+  <p>坠到井底看见的，是比「要更努力预测」的呼吁更冷的一件事:预测这条路的尽头是堵死墙，出路是换条路:不再跟不确定性讲道理，而是改造自己让它打不倒你。这也是为什么塔勒布对整个预测行业那么愤怒:他们卖的是一个让人误以为已经安全、从而放弃做结构准备的产品，无效只是它的表面。误判「已安全」比知道自己不安全更危险，因为前者让你脱了盔甲站在战场上。书的真正落点很冷:风险不可测，脆弱性可测。把注意力从猜事件转到量结构，你就从死路换到活路。至于这条路走起来心理上有多难，止损为什么会让人像浪费一样难受，第八层单独去讲。</p>
 
   <p>这条基岩还顺带解释了一个怪现象:既然预测反复失败，为什么预测行业不消亡?因为它有切身利害错配。卖预测的人不承担预测错的代价，错了你亏钱、他对了拿奖金，下行由你封顶、上行由他敞口，不对称性倒过来用了。一个行业靠这种错配活着，就有动力继续假装未来可测。所以塔勒布的愤怒在于他们错了还不付代价，付代价的是信他们的人。这也把第四层挖到的基岩和第七卷的伦理面接上了:预测行业的存续本身，就是切身利害缺失的一个活样本。</p>
 
@@ -585,17 +666,17 @@
 
   <h3>这个思想在别处其实是同一回事</h3>
 
-  <p>先讲一件别的事。卡尼曼在《思考，快与慢》里讲过一个东西叫「叙事谬误」:人天然把已发生的事编成「早该料到」的故事，关注少数已发生的大事，忽视无数没发生的事。塔勒布的火鸡是同一个结构在统计学里的版本:火鸡从1000天喂养数据里学不到自己将被杀，因为它只看见了已发生的事，看不见没发生的转折。一个是认知版，一个是统计版，同一回事，都把「已发生」当成了「全部」，都忽视「没发生」里藏着真正的风险。这两本书把两本书同读正好，卡尼曼告诉你人脑怎么把随机编成必然，塔勒布告诉你这种编故事在多大代价上让人对黑天鹅失防。</p>
+  <p>先讲一件别的事。卡尼曼在《思考，快与慢》里讲过一个东西叫「叙事谬误」:人天然把已发生的事编成「早该料到」的故事，关注少数已发生的大事，忽视无数没发生的事。塔勒布的火鸡是同一个结构在统计学里的版本:火鸡从1000天喂养数据里学不到自己将被杀，因为它只看见了已发生的事，看不见没发生的转折。一个是认知版，一个是统计版，同一回事，都把「已发生」当成了「全部」，都忽视「没发生」里藏着真正的风险。这两本书先生同读正好，卡尼曼告诉你人脑怎么把随机编成必然，塔勒布告诉你这种编故事在多大代价上让人对黑天鹅失防。</p>
 
   <p>再讲一件。道家讲「为学日益，为道日损」，修道靠减掉多余，不靠增添修法。塔勒布的否定法是同一个思路在决策里的版本:减法医疗比加法医疗安全，因为去掉坏习惯的下行封顶(去掉的东西本来就在)，加新疗法的下行敞口(副作用未知)。道家和塔勒布结构对得上，都信「减胜于加」。但要标一句:道家的「无为」还有形而上的层面(顺自然、不妄为)，塔勒布的「否定法」是纯方法论，两者结构同、不全等，只取结构同的那一面来映射。</p>
 
-  <p>还有一条接读者爱读的哈耶克。哈耶克批评建构理性，说社会秩序自发演化、人不要以为自己能用理性设计出完美秩序。塔勒布的反脆弱是这个立场更激进的版本:他比哈耶克更怀疑规则，连规则都想用时间来筛(林迪效应)。两人都反对自上而下的规划，都信试错和演化，结构真对得上。区别在哈耶克还信演化出来的规则有约束力，塔勒布更倾向让时间直接当裁判。这个映射接得上在卢梭与哈耶克之间来回对照的读法:塔勒布站在哈耶克那一侧，又比哈耶克多走了一步。</p>
+  <p>还有一条接先生爱读的哈耶克。哈耶克批评建构理性，说社会秩序自发演化、人不要以为自己能用理性设计出完美秩序。塔勒布的反脆弱是这个立场更激进的版本:他比哈耶克更怀疑规则，连规则都想用时间来筛(林迪效应)。两人都反对自上而下的规划，都信试错和演化，结构真对得上。区别在哈耶克还信演化出来的规则有约束力，塔勒布更倾向让时间直接当裁判。这个映射接得上先生的「卢梭vs哈耶克」思维底色:塔勒布站在哈耶克那一侧，又比哈耶克多走了一步。</p>
 
   <p>这三个映射都标一句:它们是我读出来的接点，不是塔勒布本书的自述。结构对得上才写，对不上的(比如硬套到交易技术的具体指标上)就砍掉不写。</p>
 
   <h3>读完这本书，可以做点不同的事</h3>
 
-  <p>做交易的人，先把止损当反脆弱的核心动作。止损的实质是把下行封顶，让你留在场内迎接下一次机会。下次止损线被触发，「再等等、马上回来」那个声音冒出来时，记住它在做的恰恰是反方向，把封顶的下行重新换成敞口。止损的本质是承认自己预测不到，下跌是不是真来你其实不知道——这条对做交易的人直接有用。</p>
+  <p>做交易的人，先把止损当反脆弱的核心动作。止损的实质是把下行封顶，让你留在场内迎接下一次机会。下次止损线被触发，「再等等、马上回来」那个声音冒出来时，记住它在做的恰恰是反方向，把封顶的下行重新换成敞口。止损的本质是承认自己预测不到，下跌是不是真来你其实不知道，这条对做交易的人直接有用。</p>
 
   <p>配置资产时，考虑杠铃。大部分放极度安全(现金、国债)，小部分放极度敞口(期权、初创)，扔掉那些「中等风险」的不透明部分。两极的好处是风险都放在看得见的地方，中间的风险藏在模型背后。</p>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>看人的艺术 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · Deep Reading</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">看人的艺术</div>
+    <div class="cover-sub">青山解 · 2026-07-07 初稿 · 2026-07-13 修订 · 全九层</div>
+    <div class="cover-meta">山姆·高斯林 · 得克萨斯大学心理学教授 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书要解决一个具体问题：怎么通过一个人生活的物理空间，看透他是什么人。作者山姆·高斯林是得克萨斯大学的心理学...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">本书的论证链是这样走的：人格是稳定的，会外溢到一个人接触的物理环境；物品和空间因此承载人格信号，分身份标签、行...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">十一章看着教了一堆观察技巧，从卧室到办公室到汽车到 iPod，像一本侦探手册。但你把所有技巧往回追，底下真正起...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第三层横着看有三根线。这一层竖着挖，只挑最深的第三根，常识能误导，往下追，看能追到什么不可再问的底。我从表象开...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：因为当面接触是经过编辑的实时表演，卧室是未经编辑的长期沉淀。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">高斯林为什么非要花十几年跑卧室、办公室、汽车、iPod 做研究，还写成科普书？我读出来的不是"想当看人大师"。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话：进一个空间，给每件物品归类它在起哪种作用，判断它在哪个舞台，警惕自己的常识偏见，多个线索交叉印证，最后...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">三根线里，物品替人说话那根合上书最记得住，这一层把它摊开。看一个人，看他生活的空间，有时比跟他当面聊一圈更准，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27</span>
+      <span class="toc-desc">人能编辑此刻的发言，编辑不了过去的累积。</span>
+    </div>
+  </div>
+
   <h1>看人的艺术</h1>
   <div class="author">山姆·高斯林 · 得克萨斯大学心理学教授</div>
   <div class="meta">青山解 · 2026-07-07 初稿 · 2026-07-13 修订 · 全九层</div>
@@ -473,7 +558,7 @@
 
   <p>脚下裂缝：如果大脑天生是解释器不是预测器，那"我觉得显而易见"这种感受本身就不能当作证据了。往下追。</p>
 
-  <h3>第五层：基岩——只有事前写下的预测才能检验</h3>
+  <h3>第五层：基岩，只有事前写下的预测才能检验</h3>
 
   <p>到底了。基岩是：人脑的默认输出是事后解释，事前预测的能力被自己高估。要真正知道自己能不能看准人，唯一办法是把预测在事前写下来，等结果出来比对。这就是高斯林为什么坚持用研究测线索而不是凭直觉：研究是事前写下预测（艺术品跟政治倾向有关系吗？测一百间宿舍），结果出来一比才知道答案是没关系。直觉做不到这一步，因为它不留账本。所以本书反复警告常识能误导，真正反对的不是常识本身，是常识那种不留账本、永远自我感觉良好的运作方式。</p>
 
@@ -631,7 +716,7 @@
   <div class="layer-num">第八层</div>
   <div class="layer-title">人不在场时，物品替他说实话</div>
 
-  <p>三根线里，物品替人说话那根合上书最记得住，这一层把它摊开。看一个人，看他生活的空间，有时比跟他当面聊一圈更准——这判断乍听没什么，细想很反直觉。我们日常相信的是反过来那套，要了解一个人就去跟他见面、聊天、共事，怎么反倒去翻他的房间更准？高斯林在伯克利做的卧室研究就是这个反直觉的起点。他让评估者只看陌生人的卧室判断他们的人格，再拿这个判断跟主人的人格测试和朋友评价对比，发现外向性、尽责性、开放性都准，有些维度比当面接触还准。这件事值得停下来想清楚，因为它打破了一个我们日用而不知的错觉：我们以为当面接触是了解一个人的金标准，其实当面接触是经过剪辑的片段，空间才是未经剪辑的全片。</p>
+  <p>三根线里，物品替人说话那根合上书最记得住，这一层把它摊开。看一个人，看他生活的空间，有时比跟他当面聊一圈更准，这判断乍听没什么，细想很反直觉。我们日常相信的是反过来那套，要了解一个人就去跟他见面、聊天、共事，怎么反倒去翻他的房间更准？高斯林在伯克利做的卧室研究就是这个反直觉的起点。他让评估者只看陌生人的卧室判断他们的人格，再拿这个判断跟主人的人格测试和朋友评价对比，发现外向性、尽责性、开放性都准，有些维度比当面接触还准。这件事值得停下来想清楚，因为它打破了一个我们日用而不知的错觉：我们以为当面接触是了解一个人的金标准，其实当面接触是经过剪辑的片段，空间才是未经剪辑的全片。</p>
 
   <p>想象你在跟一个人面谈。他在你面前，你也在他面前。他知道你在看他，他知道你要形成印象，所以他同时在做两件事：一边表达自己，一边编辑自己。他的每句话、每个表情、每个手势，都过了一道"这会让对面的人怎么看我"的滤网。这道滤网不是故意的欺骗，是社交本能，人面对他人时会自动启动。你也在做同样的事，你在编辑你给他的反应，好让他更放松地展示自己。结果一场面谈下来，两个人都在编辑，两份编辑互相塑造，最后你了解到的，与其说是他这个人，不如说是他在你面前的这场表演里演得怎么样。表演是真的，可表演不等于这个人。</p>
 
@@ -641,7 +726,7 @@
 
   <p>这里有个反直觉的地方，得停下来想清楚：为什么我们更相信当面接触？因为当面接触给我们一种"我在亲历"的错觉，亲历感被误当成了真实性。我坐在他对面，我看见他的眼神，我感受到他的情绪，这种身临其境的感受太强烈了，强烈到我们觉得"我接触到了真实的他"。可感受的真实不等于信号的真实。当面接触信号量少但感受强，空间观察信号量多但感受弱，我们的大脑把感受强度当成了信号强度。这跟看电影和看监控录像的差别一样：电影感受强但全是导演剪辑过的，监控录像感受弱但没剪过。要了解一个人真实的样子，监控录像往往比电影更可靠，哪怕它没那么好看。</p>
 
-  <p>还有一层得接上：就算你去看了空间，直觉还是会骗你——你以为看准了，可能只是事后合理化得顺畅，第四层挖过这个机制。所以"看空间比看当面更准"这个判断本身也不能凭直觉用，要真知道自己看没看准，唯一办法是把判断事前写下来，等更多线索出现再比对。这是高斯林那套观察术最不浪漫也最值钱的部分：把看人从一套自我感觉良好的本能，变成一套有账本的功夫。</p>
+  <p>还有一层得接上：就算你去看了空间，直觉还是会骗你，你以为看准了，可能只是事后合理化得顺畅，第四层挖过这个机制。所以"看空间比看当面更准"这个判断本身也不能凭直觉用，要真知道自己看没看准，唯一办法是把判断事前写下来，等更多线索出现再比对。这是高斯林那套观察术最不浪漫也最值钱的部分：把看人从一套自我感觉良好的本能，变成一套有账本的功夫。</p>
 
   <p>把这层想透，会发现高斯林其实在说一件比看人更大的事。人能编辑的，是此刻的发言；编辑不了的，是过去的累积。当面是此刻，空间是过去。这个道理不只适用于看人。一个公司给你看的演示文稿是此刻编辑，它的代码仓库、它的老员工吐槽、它的客户退订记录是过去累积。一个政客的演讲是此刻编辑，他十年的投票记录是过去累积。一个人朋友圈的今天动态是此刻编辑，他五年的朋友圈时间线是过去累积。要看清任何会编辑自己的对象，都得找到那个对象的"空间"，那个它来不及编辑、或编辑成本太高、或干脆没意识到要编辑的信道。那个信道里传的，才是没剪辑过的信号。</p>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>贫穷的本质 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · Deep Reading</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">贫穷的本质</div>
+    <div class="cover-sub">青山解 · 2026-07-07 初稿 · 2026-07-13 修订 · 全九层</div>
+    <div class="cover-meta">阿比吉特·班纳吉 / 埃斯特·迪弗洛 · 2019 诺贝尔经济学奖 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书要解决的问题看起来大得没边：全球穷人为什么摆脱不了贫穷。但它真正的贡献，是把这个大得没边的问题拆成了一堆...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">本书的论证链是这样走的：发展经济学的宏观之争（援助有用 vs 无用）无法用跨国数据裁决，因为同一个案例能被两派...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">十章看着各管一摊，食物、健康、教育、生育、风险、贷款、储蓄、创业、政治，像一本穷人生活百科。但你把所有结论往回...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第三层横着看有三根线。这一层竖着挖，只挑最深的第三根，穷人为什么那么选，往下追，看能追到什么不可再问的底。我从...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：因为这个问题太大，跨国数据能让两派各自解释，永远裁决不了。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">班纳吉和迪弗洛为什么非要花十五年跑田野、做几百个实验？我读出来的不是"想拿诺奖"。他们真正的那股劲儿，是看见发...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话：别问大问题能不能答，把它拆成能测的小问题，对准每个领域真有陷阱的那段，把穷人做选择的当下代价摊平到我们...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">第三层把全书拆成三根线，这一层把第一根线摊开讲，它是这本书真正想塞给你的那个画面。合上书十年你大概率只记得它...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27</span>
+      <span class="toc-desc">大问题永远不会让你失败，所以它永远救不了任何人。</span>
+    </div>
+  </div>
+
   <h1>贫穷的本质</h1>
   <div class="author">阿比吉特·班纳吉 / 埃斯特·迪弗洛 · 2019 诺贝尔经济学奖</div>
   <div class="meta">青山解 · 2026-07-07 初稿 · 2026-07-13 修订 · 全九层</div>
@@ -474,7 +559,7 @@
 
   <p>脚下裂缝：如果理性是约束的函数，那我们自己的"理性"有多少是我们挣来的？往下追。</p>
 
-  <h3>第五层：基岩——我们的理性大部分是制度代劳的</h3>
+  <h3>第五层：基岩，我们的理性大部分是制度代劳的</h3>
 
   <p>到底了。基岩是：我们之所以能"理性"地喝水打疫苗存钱养老，不是因为我们的脑子比穷人好使，是因为有一整套制度替我们把代价摊平了。自来水到家、疫苗在社区卫生站、退休账户从工资里自动扣、强化麦片不用我们主动买。这些制度把我们做每个理性决策的当下代价降到几乎为零，于是理性变得"自动"。穷人没有这些，每一项都要自己手动决定、自己扛当下代价，于是理性输出被拖延、被风险、被信息缺失层层打折扣。</p>
 
@@ -568,7 +653,7 @@
 
   <h3>他们没看到什么</h3>
 
-  <p>第一个盲点：RCT 外部效度问题他们承认了但没解决。一个实验好几年，推广到几百个领域几千个情境要重测无数遍，时间成本巨大，穷人等不起。第二个盲点：他们有意搁置结构性的宏观原因，全球化贸易结构、国际政治经济学、殖民遗产基本不碰。这是取舍不是缺陷，但意味着他们对"为什么有些国家整体穷"这个大问题回避了，回答的只是"穷人在这个国家里为什么这么选"。第三个盲点：RCT 流派隐含一种技术官僚姿态，假设政策制定者会听证据。可现实中政策常被意识形态和利益绑架，乌干达登报能成是因为政治上有人支持，证据本身不推动改变。第四个盲点：他们证明"小制度改动有大作用"，但没充分回答为什么这些小改动在很多地方推不动——政治利益这条他们点到为止。</p>
+  <p>第一个盲点：RCT 外部效度问题他们承认了但没解决。一个实验好几年，推广到几百个领域几千个情境要重测无数遍，时间成本巨大，穷人等不起。第二个盲点：他们有意搁置结构性的宏观原因，全球化贸易结构、国际政治经济学、殖民遗产基本不碰。这是取舍不是缺陷，但意味着他们对"为什么有些国家整体穷"这个大问题回避了，回答的只是"穷人在这个国家里为什么这么选"。第三个盲点：RCT 流派隐含一种技术官僚姿态，假设政策制定者会听证据。可现实中政策常被意识形态和利益绑架，乌干达登报能成是因为政治上有人支持，证据本身不推动改变。第四个盲点：他们证明"小制度改动有大作用"，但没充分回答为什么这些小改动在很多地方推不动，政治利益这条他们点到为止。</p>
 
   <h3>跨域映射：这些道理在别的地方是同一回事</h3>
 
@@ -636,7 +721,7 @@
   <div class="layer-num">第八层</div>
   <div class="layer-title">大问题让人瘫痪，小问题让人行动</div>
 
-  <p>第三层把全书拆成三根线，这一层把第一根线摊开讲——它是这本书真正想塞给你的那个画面。合上书十年你大概率只记得它：宾夕法尼亚大学的学生拿到一张非洲饥荒的泛泛统计传单，平均捐 1.16 美元；拿到一个叫罗西娅的七岁马里女孩的具体故事，捐 2.83 美元；可一旦被告知"人们更愿意捐给具体受害者"这个心理学现象、被要求"再好好想想"，捐款反降到 1.36 美元。让你再好好想想，你反而更不慷慨。这是全书的书名来源，也是它真正想说的事：大而泛的思考让人瘫痪，具体而小的思考才能推动行动。这本书表面上在讲贫困，底下在讲一种对待世界的方式。</p>
+  <p>第三层把全书拆成三根线，这一层把第一根线摊开讲，它是这本书真正想塞给你的那个画面。合上书十年你大概率只记得它：宾夕法尼亚大学的学生拿到一张非洲饥荒的泛泛统计传单，平均捐 1.16 美元；拿到一个叫罗西娅的七岁马里女孩的具体故事，捐 2.83 美元；可一旦被告知"人们更愿意捐给具体受害者"这个心理学现象、被要求"再好好想想"，捐款反降到 1.36 美元。让你再好好想想，你反而更不慷慨。这是全书的书名来源，也是它真正想说的事：大而泛的思考让人瘫痪，具体而小的思考才能推动行动。这本书表面上在讲贫困，底下在讲一种对待世界的方式。</p>
 
   <p>先看那场被本书打断的吵架。萨克斯说贫穷国家陷在贫穷陷阱里，要富国每年 1950 亿美元大推力外援启动良性循环。埃斯特利说援助弊大于利，腐蚀地方机构，贫穷陷阱根本不存在，自由市场加奖励就够。两派都用跨国数据，吵了二十年，谁也说服不了谁。班纳吉和迪弗洛在田野里看着这场吵架，看明白了一件事：这场吵架之所以裁决不了，不是因为数据不够，是因为问题问错了。"援助有没有用"这种问题，答案只能是"有时候有有时候没有"，对制定政策毫无用处。卢旺达恢复了，萨克斯说是援助的功劳，埃斯特利说是自己恢复的，同一组数据两派都能用。这不是学术辩论，这是两个望远镜对着同一片星空争论星图，永远争不出结果，因为他们都在看远处。</p>
 
@@ -648,7 +733,7 @@
 
   <p>这本书把这个盖子掀了。它一上来就用宾大实验告诉你：让你再好好想想，你反而更不慷慨。因为大思考让你从"具体的人"面前后退一步，退回到"全球问题"这种安全距离，在那个距离上你不必对任何具体的人负责。可穷人不在那个距离上，穷人就在某个具体的村子里，面对某个具体的蚊帐价格、某个具体的接种点距离、某个具体的当下代价。你退到安全距离，就帮不到他们。本书的方法论本质是逼你走回不安全的距离：落到一个具体的情境，承担一个具体的干预，接受一个具体的测得结果。</p>
 
-  <p>落到一个具体情境之后，他们发现的第二件事更值钱：贫穷陷阱是局部的。萨克斯说陷阱普遍存在所以要大推力，埃斯特利说陷阱根本不存在所以别援助，本书逐领域测下来，答案是两边都不对——陷阱在营养、健康、教育、储蓄、风险、创业各领域分布不同（第三层逐条列过）。这个发现之所以值钱，是因为它把"消除贫困"这种大问题的幻肢切掉了：不存在一揽子方案能消除贫困，因为不同领域的机制完全不同。蚊帐发对了能降疟疾，但你用发蚊帐的思路去解决穷人创业，注定失败，因为创业领域是倒 L 形，小生意天然长不大。每个领域要自己的诊断、自己的干预、自己的验证。</p>
+  <p>落到一个具体情境之后，他们发现的第二件事更值钱：贫穷陷阱是局部的。萨克斯说陷阱普遍存在所以要大推力，埃斯特利说陷阱根本不存在所以别援助，本书逐领域测下来，答案是两边都不对，陷阱在营养、健康、教育、储蓄、风险、创业各领域分布不同（第三层逐条列过）。这个发现之所以值钱，是因为它把"消除贫困"这种大问题的幻肢切掉了：不存在一揽子方案能消除贫困，因为不同领域的机制完全不同。蚊帐发对了能降疟疾，但你用发蚊帐的思路去解决穷人创业，注定失败，因为创业领域是倒 L 形，小生意天然长不大。每个领域要自己的诊断、自己的干预、自己的验证。</p>
 
   <p>这就要说到最难的那部分。为什么局部性这个发现那么反直觉？因为我们的大脑喜欢统一解释。萨克斯用一个"贫穷陷阱"解释所有，埃斯特利用一个"自由市场"解释所有，两种统一解释都让大脑舒服。本书说没有统一解释，每个领域要单独测，这个结论让大脑不舒服，因为它意味着你没法站一个立场就站完所有场。可这才是田野里真实的样子。穷人不是活在"贫困"这个统一概念里，是活在一堆各自不同的具体约束里：这个村水不干净、那个村学校老师缺席、这个家庭没有银行账户、那个家庭面对一次医疗冲击就会坠落。每个约束要自己的解药，没有一味药治百病。</p>
 

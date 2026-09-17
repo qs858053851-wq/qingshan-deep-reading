@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>性审判史：一部人类文明史 — 解书</title>
+<title>性审判史：一部人类文明史 ， 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,48 @@
 </head>
 <body>
 <div class="container">
-<div class="hero">
-<div class="hero-eyebrow">深 度 阅 读 · 第 一 层 至 第 九 层</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">性审判史</div>
+    <div class="cover-sub">一句话：4000年来，人用法律审判别人的欲望，审判的标准一直在变，变的背后是权力。</div>
+    <div class="cover-meta">青山 读 · 性审判史 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">一句话：4000年来，人用法律审判别人的欲望，审判的标准一直在变，变的背后是权力。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">核心论证链像四块积木叠起来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这四根线在牵动全书</span>
+      <span class="toc-desc">这本书看着8章4000年千头万绪，拆到底，底下就四根线在牵动。每一根都能单独解释一批案例，四根合起来几乎能把全...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层留了个问题：四根线能解释"为什么会变"，解释不了"为什么始终在控制"。这层顺着这条往下挖，挖到不能再问为...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">顺着问答，把作者的推理走一遍。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者为什么非写不可。伯科威茨是律师。律师天天在法庭上看"法律怎么用"，他翻西方法律史，发现性审判的案子比任何案...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留一张餐巾纸</span>
+      <span class="toc-desc">公式只有一个。一个时代的性审判，是权力这条底线与宗教、财产、医学三种正当化语言，在具体环境中的乘积。哪一种语言...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 读到后来，被告变成了人性本身</span>
+      <span class="toc-desc">前面几层按下不表的那个失重感，在这里摊开。</span>
+    </div>
+  </div>
+
 <h1 class="hero-title">性审判史</h1>
 <div class="hero-author">一部人类文明史　·　[美] 埃里克·伯科威茨</div>
 <div class="hero-meta">王一多 / 朱洪涛 译　·　南京大学出版社 2015　·　原作 Sex and Punishment: Four Thousand Years of Judging Desire　·　2026-07-06 初稿 · 2026-07-13 修订</div>
@@ -582,8 +663,8 @@
 </section>
 <div class="fact-boundary">
 <h4>事 实 边 界</h4>
-<p>本篇基于扫描版 OCR 全本（351页，约26.5万字符）加辅助索引写成，引用案例与引文均出自原书。</p>
-<p>OCR 文本有识别噪点，人名、地名、年代、数字可能有错字。本篇涉及的年代——公元前2100年乌尔纳姆法典、公元前186年酒神镇压、公元前483年罗马败仗、1517路德、1660查理二世、1789法国大革命、1885拉布谢尔修正案、1895王尔德案——为公认史实或本书明确记载，可信度较高。</p>
+<p>本篇基于扫描版 OCR 全本（351页，约26.5万字符）加子代理轻索引写成，引用案例与引文均出自原书。</p>
+<p>OCR 文本有识别噪点，人名、地名、年代、数字可能有错字。本篇涉及的年代，公元前2100年乌尔纳姆法典、公元前186年酒神镇压、公元前483年罗马败仗、1517路德、1660查理二世、1789法国大革命、1885拉布谢尔修正案、1895王尔德案，为公认史实或本书明确记载，可信度较高。</p>
 <p>具体数字与细节，如维斯泰贞女"几千年来约十几个"、酒神镇压"数千人"被杀、佩吉案1830年百名白人请愿、19世纪加州同意年龄10岁、特拉华7岁、1889年才提到14岁，均出自本书作者表述，史学界对部分数字有争议，引用时建议保留"据本书"口径。</p>
 <p>第四层"人靠预期活着、欲望破坏预期"的基岩推演，第六层跨域映射（食品安全史、语言规范史），第八层"笼子吃人"的隐喻系统，是本篇基于原书框架的延伸解读，不是原书原文。作者将研究止于1895年王尔德案，20、21世纪部分为本文补写，非书中有据。</p>
 </div>

@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>乡土中国 —— 九层解书修订版</title>
+<title>乡土中国 ， 九层解书修订版</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,15 +380,58 @@
 </head>
 <body>
 
-<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近日常场景的行动落点。</div>
+<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近先生场景的行动落点。</div>
 
 
 <div class="container">
 
 <!-- Hero -->
-<div class="hero">
-  <h1>乡土中国</h1>
-  <div class="author">费孝通 著 · 九层解书修订版</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">乡土中国</div>
+    <div class="cover-sub">九层解书修订版</div>
+    <div class="cover-meta">费孝通 著 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">中国基层社会的运行逻辑是什么？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这条链的起点是泥土，终点是整个制度安排。费孝通的厉害之处在于，他从一个物理事实（种地的人搬不走）推导出了一整套...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书十四章，概念密度极高。但费孝通其实只用了两根线，就把整本书的所有论点牵了起来。把"生成器"这个词留在脑子...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">从两根线里选最核心的那根，"不流动"，一路往下钻。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">是结构问题，不是道德问题。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">费孝通写这本书时三十七岁。推动他的与学术野心相比，一种具体的焦灼：城里人骂乡下人"愚""私""落后"，改革者急...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">乡土社会 = 不流动 × 差序推展</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">费孝通在1947年写下一个比喻：中国社会像一块石头丢进水里，波纹一圈圈推出去。每个人是自己那块石头的中心。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27</span>
+      <span class="toc-desc">你以为你离开了村庄，其实村庄从未离开你。它藏在你对"自己人"的偏袒里，藏在你对规则的变通里，藏在你对陌生人说"...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- Layer 1 -->
@@ -382,7 +466,7 @@
   <h3>论证结构</h3>
   <p>归纳型。费孝通与先立一个大理论再往下推相比，从一个个具体现象出发：乡下人为什么"土"、为什么不识字、为什么"私"更接近实情。每个问题追到社会结构的根子上，最后拼成一幅完整的乡土社会图景。十四篇文章像十四块拼图，每一块自成逻辑，拼在一起是一个体系。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>费孝通在对受过教育但未必理解乡土社会的城市知识分子说话。语气温和但立场鲜明：他不为乡土社会辩护，也不替现代社会代言，只是说，你得先搞清楚这套逻辑，才有资格评判它。他擅长把社会学概念翻译成日常生活画面。水波纹比喻差序格局，捆柴比喻团体格局，这些类比与装饰相比，论证本身更接近实情。全书没有公式和图表，但概念密度极高，几乎每章都造出一个新概念，而且这些概念至今仍在被使用。</p>
 </div>
 
@@ -446,7 +530,7 @@
   <div class="layer-num">第四层</div>
   <div class="layer-title">顺着最深那根线，一路挖到底</div>
 
-  <p>从两根线里选最核心的那根——"不流动"——一路往下钻。</p>
+  <p>从两根线里选最核心的那根，"不流动"，一路往下钻。</p>
 
   <div class="drill-step">
     <div class="step-name">表层：不流动</div>
@@ -566,7 +650,7 @@
   <p>"差序格局"在网络科学里对应"无标度网络"：核心节点的连接远多于边缘节点，网络没有统一的"尺度"。这与说中国社会就是网络图相比，说两者在"中心节点优先连接"这个结构特征上相似更接近实情。</p>
   <p>"礼治"在博弈论里对应"重复博弈中的合作均衡"：当同一群人反复互动、没有退出机制时，合作是最优策略。背叛一次的成本是失去未来所有合作机会，这比任何法律惩罚都更直接。</p>
   <p>"家族作为事业组织"在企业管理中对应"家族企业向职业经理人企业转型"的难题：创业期靠血缘信任降低交易成本，扩张期却必须引入规则和专业管理。这个张力至今仍是许多中国民营企业的核心痛点。</p>
-  <p>落到自己的场景：做乡村民宿时，"自己人"和"外人"的差序逻辑会在团队里自然复现。老乡员工更容易按关系远近而不是按岗位职责来配合工作；外来的职业经理人会按制度和流程办事，两者碰撞非常频繁。理解这一点，就能少做道德判断，多做结构适配：哪些岗位必须规则化，哪些环节可以保留熟人信任，要设计清楚，而不是期望大家"自觉"。</p>
+  <p>落到先生自己的场景：做乡村民宿时，"自己人"和"外人"的差序逻辑会在团队里自然复现。老乡员工更容易按关系远近而不是按岗位职责来配合工作；外来的职业经理人会按制度和流程办事，两者碰撞非常频繁。理解这一点，就能少做道德判断，多做结构适配：哪些岗位必须规则化，哪些环节可以保留熟人信任，要设计清楚，而不是期望大家"自觉"。</p>
 
   <h3>行动触发</h3>
   <p>第一，停止用"落后"来评判乡土逻辑。那个人可能是在用差序格局的操作系统运行团体格局的程序，与坏人相比，系统不兼容更接近实情。</p>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>吕氏春秋 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · 先秦杂家</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">吕氏春秋</div>
+    <div class="cover-sub">陆玖 译注 · 中华书局「中华经典名著全本全注全译丛书」</div>
+    <div class="cover-meta">吕不韦 主编 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先说这本书最容易被记错的一点：吕不韦本人没有动笔，他出钱、出题、拍板，动笔的是三千门客，这是一部集体著作。但恰...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">一部一百六十篇的书，论证不走一条线，铺开来是一张网。但把网提起来，总纲只有一条链：天道有常，运转不看任何人脸色...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">一百六十篇、三大块、二十多万字，看着千头万绪。但你把任何一篇拆开，追它的理据，追到最后总会落到三根线里的一根上...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">三根线里最奇特的是第一根。集权谁都懂，爱民各家都讲，唯独"把君主的政令绑在十二个月上"这个设计，是《吕氏春秋》...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：因为他发现了一样钱买不到的东西：他死后的秦国往哪走。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">吕不韦的焦虑有两层，一层为国，一层为己，缠在一起分不开。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：一个商人在帝国出生前夜替它写好了说明书，核心只有一条：打天下用的那套办法，治天下会要命。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">前面几层，我把两样东西一直按着没讲：吕不韦那句「胜非其难者也，持之其难者也」，和一字千金真正的含义。现在把它们...</span>
+    </div>
+  </div>
+
   <h1>吕氏春秋</h1>
   <div class="author">吕不韦 主编 · 陆玖 译注 · 中华书局「中华经典名著全本全注全译丛书」</div>
 </div>
@@ -356,7 +437,7 @@
   <p>吕不韦是濮阳人，阳翟的大商人，家累千金。他在赵国首都邯郸做生意时，遇到了在赵国当人质的秦国公子异人。异人在秦国宗室里地位低微，在赵国处境窘迫，谁看都是个落魄贵族。吕不韦看到的却是另一样东西，他说了句被记进史书的行话：「此奇货也，不可失。」</p>
   <p>接下来的操作完全是商人的手法。他查清了链条上的关键环节：秦国太子安国君最宠华阳夫人，而华阳夫人没有儿子。没有儿子，就意味着继承人的位置空着。吕不韦砸钱打通关节，让异人拜华阳夫人为母（华阳夫人是楚国人，异人为此改名子楚），成了太子的继承人。后面的事一环扣一环：安国君继位不到一年去世，子楚即位为庄襄王，拜吕不韦为丞相，封文信侯，食洛阳十万户。一个商人，用一笔投资买下了一个诸侯国的相位。</p>
 
-  <div class="marker">前 249—前 239 · 权力顶点上的焦虑</div>
+  <div class="marker">前 249，前 239 · 权力顶点上的焦虑</div>
   <p>庄襄王在位三年就死了，十三岁的秦王政即位，尊吕不韦为相国，号称仲父。此后十来年，秦国的大政方针实际出自吕不韦之手。他干得不坏：亲率军队灭了东周，把周天子这块最后的招牌摘掉；对六国连续用兵，大幅扩张疆域；内政上一反秦国百年来独尊法家的传统，广收天下之士，引进大批儒生；经济上农工商并举，当时秦国的工商业者「礼抗万乘，名显天下」。统一天下这件事，在他手里从可能变成了倒计时。</p>
   <p>就在这个节骨眼上，前 239 年，秦王政亲政前两年，吕不韦召集门客编成了这部书。时间点是理解全书的钥匙：仗快打完了，这位相国在想仗打完之后的事。他自己说过一句话，这里先只把它放在桌上，后面再细讲：「胜非其难者也，持之其难者也。」打赢不难，难的是守住。</p>
   <p>书成之后，他做了件后世说了两千年的营销：把全书挂在咸阳市门上，悬赏千金，谁能增删一个字就把钱拿走。这就是「一字千金」的出处。这个动作真正的含义，也先按下不表。</p>
@@ -370,7 +451,7 @@
   <p><strong>十二纪</strong>，六十篇加一篇序意。按春夏秋冬十二个月排布，每纪第一篇是该月的月令（这个月天象如何、该做什么、禁做什么），后面跟四篇论文，主题跟着季节走：春纪谈生命与养生（生），夏纪谈教化与音乐（长），秋纪谈用兵（杀），冬纪谈死葬与诚信（藏）。一年的节律，就是全书第一大块的目录结构。</p>
   <p><strong>八览</strong>，六十三篇（原六十四，首览缺一篇），从「有始览」开始，谈天地开辟、认知、时势、人主的视听之道。<strong>六论</strong>，三十六篇，谈行为、人才、地利、农事。览和论偏重人事，把十二纪立下的大原则落到具体的判断和操作上。</p>
   <p>十二纪的总纲写在《序意》里，吕不韦借黄帝教诲颛顼的话交代全书的立法依据：</p>
-  <blockquote>爰有大圜在上，大矩在下，汝能法之，为民父母。……凡十二纪者，所以纪治乱存亡也，所以知寿夭吉凶也。上揆之天，下验之地，中审之人。<span class="src">——《序意》。天圆在上，地方在下，效法天地，才配做百姓的父母。十二纪讲的就是治乱存亡的道理：向上取法于天，向下验证于地，中间审察于人。</span></blockquote>
+  <blockquote>爰有大圜在上，大矩在下，汝能法之，为民父母。……凡十二纪者，所以纪治乱存亡也，所以知寿夭吉凶也。上揆之天，下验之地，中审之人。<span class="src">，《序意》。天圆在上，地方在下，效法天地，才配做百姓的父母。十二纪讲的就是治乱存亡的道理：向上取法于天，向下验证于地，中间审察于人。</span></blockquote>
   <p>论证的整体路数是体系式的：一百六十篇文章各守一个论点，每篇大都是"论点＋寓言故事＋收束"的结构，故事讲得又多又好。我们从小听的刻舟求剑、循表夜涉、引婴投江，出处全是这本书。</p>
   <p><strong>写作姿态</strong>值得单独说：这本书表面是写给天下人看的（挂在市门上），实际的读者只有一个，秦王政本人。全书通篇都在讲"君主该怎样"：该顺天时、该去私心、该纳谏、该贵生、该用贤。语气是教诲的，立场是替君主设计自我约束。这门课始终只有一个学生。</p>
 </div>
@@ -383,7 +464,7 @@
 
   <h3>证据一：月令，把君主的日程表钉在天上</h3>
   <p>十二纪每纪首篇是月令，规定这个月能做什么、不能做什么：孟春之月，禁止砍树、不许捣毁鸟巢、不许杀幼虫幼兽，天子要亲自下田示范耕作；仲夏不可兴土木、不可起兵。要害在违反之后的条款：</p>
-  <blockquote>孟春行夏令，则风雨不时，草木早槁，国乃有恐；行秋令，则民大疫……行冬令，则水潦为败，霜雪大挚，首种不入。<span class="src">——《孟春纪》。正月里推行夏天的政令，风雨就不按时来，草木早枯，国家陷入恐慌；行秋令则瘟疫流行；行冬令则大水成灾、霜雪杀庄稼、头茬种子下不了地。</span></blockquote>
+  <blockquote>孟春行夏令，则风雨不时，草木早槁，国乃有恐；行秋令，则民大疫……行冬令，则水潦为败，霜雪大挚，首种不入。<span class="src">，《孟春纪》。正月里推行夏天的政令，风雨就不按时来，草木早枯，国家陷入恐慌；行秋令则瘟疫流行；行冬令则大水成灾、霜雪杀庄稼、头茬种子下不了地。</span></blockquote>
   <p>用今天的眼光看，"正月行夏令导致瘟疫"当然不成立。但把眼睛放在这套条款的功能上：它给君主的每一项权力都配上了发布时刻表和违规后果，而且后果由"天"来执行，君主无处上诉。农业社会里这套东西有真实的底子（政令扰乱农时，是真会饿死人的），在这个真底子上，它把君权装进了一个日历形状的笼子。</p>
 
   <h3>证据二：循表夜涉，变法派最好的一个故事</h3>
@@ -545,7 +626,7 @@
         民 ── 贵生 · 重农 · 宽政
 
     缰绳全套，只等君主自己伸头来套
-    ——他没有伸。
+    ，他没有伸。
   </pre>
 </div>
 

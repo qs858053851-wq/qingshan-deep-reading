@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>唐诗宋词元曲古文鉴赏辞典 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,28 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>唐诗宋词元曲古文<br>鉴赏辞典（六册）</h1>
-  <div class="author">上海辞书出版社 · 中国文学鉴赏辞典系列（新一版）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">唐诗宋词元曲古文 鉴赏辞典（六册）</div>
+    <div class="cover-sub">中国文学鉴赏辞典系列（新一版）</div>
+    <div class="cover-meta">上海辞书出版社 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先说它解决什么问题。多数人读古诗文卡在同一个地方：字都认识，好在哪里说不出。教材给注释不给判断，学术专著给判断...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">怎么做周汝昌序言给的答案出人意料：先看声律。他说诗词的一切特色"都必须溯源于汉语文的极大的特点特色"，即四声平...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">最值钱的东西，藏在 1983 年那个决定里：请一流学者，给普通读者，一首一首地讲。</span>
+    </div>
+  </div>
+
   <p class="intro">与其说这是一本书，不如说是一座楼：唐诗、宋词（两册）、元曲、古文（两册），近三千个篇目从虞世南一路排到清人。源头是 1983 年那部开创体例的《唐诗鉴赏辞典》，中国第一部把文学赏析和工具书合成一体的辞典。读它用不着从头读到尾，要学的是怎么住进去。</p>
 </div>
 
@@ -354,7 +414,7 @@
 
   <p>规模和编排：唐诗卷收 190 多位诗人 1100 余篇，作家按生年先后排，作品依《全唐诗》篇目次序；每位作者前有小传（生平、官职、集子、史源），每篇原文后接赏析。宋词、元曲、古文各卷同一体例。所以它有两种打开方式：当辞典用（查某一篇），当文学史用（顺着生年排列读下去，一部编年的中国文学现场）。</p>
 
-  <p>目标读者，序言里写得直白：周汝昌说历史上极少这类著作，"几乎形成了一个文化方面的空白"，而读者非常需要这些赏析讲解"来解决他们在欣赏唐宋名篇时所遇到的困难"。一句话，它是写给普通读者的，但执笔的是程千帆、周汝昌、钟振振这个级别的学者——低门槛，高天花板。</p>
+  <p>目标读者，序言里写得直白：周汝昌说历史上极少这类著作，"几乎形成了一个文化方面的空白"，而读者非常需要这些赏析讲解"来解决他们在欣赏唐宋名篇时所遇到的困难"。一句话，它是写给普通读者的，但执笔的是程千帆、周汝昌、钟振振这个级别的学者，低门槛，高天花板。</p>
 
   <p>各卷序言本身就是浓缩的文学史。程千帆的唐诗序把唐诗的高峰解释为经济、民族融合、南北文化交流共同堆出来的结果，再按初唐四杰改造宫体、陈子昂上承汉魏、盛唐"隐士与侠少"两种人格、安史之乱前后诗风之变，一路讲到底。周汝昌的宋词序更是一篇方法论宣言（第五层细拆）。这些序绝非客套，它们是这套书的"总纲"。</p>
 </section>
@@ -441,7 +501,7 @@
 
   <p>这件事今天看平常，当年是破天荒。出版说明说它是"中国出版史上的一个创举"，不是自夸。在它之前，古典文学的解释权装在两个口袋里：学术论文（普通人读不动）和课本注释（只解字词不谈好坏）。中间那个巨大的空档，周汝昌说得直接，是"一个文化方面的空白"：想知道一首诗为什么好的普通人，没有地方可去。《唐诗鉴赏辞典》的体例发明，本质是把"品味"这种一直靠师徒口传、靠自己悟的东西，变成了公共基础设施，像自来水一样，拧开就有。</p>
 
-  <p>攻一下这个核：把鉴赏标准化、辞典化，会不会恰恰杀死鉴赏？品味这东西一旦有了"标准答案"，读者会不会从此只会背赏析、不会有感受？这一攻有真实的靶子：几十年来考试里的"赏析题"确实把一代人训练成了套话机器（"借景抒情""动静结合"）。但板子打不到这套书身上，原因在它的写法：好的鉴赏文示范的是过程而非结论。虞世南《蝉》那篇的价值不在"此诗托物言志"这个标签，在它带你走了一遍从"垂緌饮清露"的字面到比兴象征的那段路。套话是把路牌抄下来，鉴赏是把路走一遍——书给的是路，考试抄的是牌，抄牌的毛病不能算到修路人头上。</p>
+  <p>攻一下这个核：把鉴赏标准化、辞典化，会不会恰恰杀死鉴赏？品味这东西一旦有了"标准答案"，读者会不会从此只会背赏析、不会有感受？这一攻有真实的靶子：几十年来考试里的"赏析题"确实把一代人训练成了套话机器（"借景抒情""动静结合"）。但板子打不到这套书身上，原因在它的写法：好的鉴赏文示范的是过程而非结论。虞世南《蝉》那篇的价值不在"此诗托物言志"这个标签，在它带你走了一遍从"垂緌饮清露"的字面到比兴象征的那段路。套话是把路牌抄下来，鉴赏是把路走一遍，书给的是路，考试抄的是牌，抄牌的毛病不能算到修路人头上。</p>
 
   <p>这个"把私藏手艺变成公共设施"的动作，日常里最像的是菜谱的诞生。名厨的手艺原本靠师徒制传递，火候、手感、分寸，都是"只可意会"；直到有人肯把它写成克数和分钟数，普通人家的厨房才接得住。写成菜谱当然会损失一些东西（手感写不尽），但它换来的是几百万人从"吃过好菜"变成"做得出好菜"。鉴赏辞典干的是同一件事：把程千帆、周汝昌们的眼力写成普通人接得住的千字文。眼力写不尽，但空白从此有了地板。</p>
 

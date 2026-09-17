@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10分钟入禅休息法 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">10分钟入禅休息法</div>
+    <div class="cover-sub">奥侃（Owen O'Kane）· Ten to Zen：用十分钟解身心的累</div>
+    <div class="cover-meta">欧文 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">怎么用每天十分钟，卸掉身心的累。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">第一项前提，焦虑和疲劳来自大脑威胁检测系统（杏仁核）的过度报警，跟性格缺陷没关系。第二项前提，报警时大脑吸收不进道理，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这本书拆到底，就四件事在起作用</span>
+      <span class="toc-desc">七步、十章、几十个小练习，看着眼花。但拆到底，牵动全书的只有四件事，一件比一件深。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着八个问题，把作者的推理走一遍</span>
+      <span class="toc-desc">结论：警铃响着的时候，道理根本进不去。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">这本书的胎教是临终病房。奥侃当护士时，听临终者说过太多遍几乎相同的话：后悔把时间浪费在不重要的事上，后悔不够善...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">你不是你的思绪，你是那个看着思绪飘过的人。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 夜里两点，你脑子里的声音不是你的声音</span>
+      <span class="toc-desc">半夜两点，你躺在床上，脑子突然开始开会。先是一个声音说，白天那句蠢话够你丢人半年；接着另一个说，明天的事肯定要...</span>
+    </div>
+  </div>
+
   <h1>10分钟入禅休息法</h1>
   <div class="author">欧文·奥侃（Owen O'Kane）· Ten to Zen：用十分钟解身心的累</div>
 </div>
@@ -350,11 +427,11 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>
 
-  <h3>一句话：作者在答什么问题</h3>
+  <h3>核心问题与直接回答</h3>
   <p>怎么用每天十分钟，卸掉身心的累。</p>
   <p>回答：把 CBT（认知行为治疗）、正念、EMDR 里最有实证的那几招，压缩成一条固定流程：停、察看、进宁静空间、呼吸、驾驭思绪、正念、披风。十分钟走完，像给心做一次刷牙。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>作者奥侃不是学院派。他先做了多年缓和疗护（临终关怀）护士，天天听临终者说「这辈子太多时间花在不重要的事上」；后来转行当心理治疗师，在英国国家健保局（NHS）做到临床主任。书里反复出现两拨人：一拨是临终个案，教他「什么才重要」；一拨是诊室里的焦虑患者，教他「普通人的心是怎么累垮的」。</p>
   <p>写这本书的直接诱因是一个个案。一位叫珍的女士，四个孩子、全职工作、丈夫酗酒，他建议她每天冥想三十分钟，珍当场发火：「我忙得压力大到没办法冥想！」这一骂点醒了他，大多数人的问题不是不想照顾心，是拿不出时间。于是他立了条设计约束：这套方法必须短到任何人都挤得出来，且每天能重复。十分钟，够刷牙够洗澡，那就够照顾心。</p>
   <p>全书的骨架分三段。第一段讲背景：为什么心会累（威胁模式、杏仁核警铃、负面思考模式）、为什么 CBT 和正念够用。第二段是正文：七个步骤，前九分钟是技能，最后一分钟是「心理披风」：三句生活原则。第三段是应急方案：实在挤不出十分钟时，两分钟版。</p>
@@ -370,7 +447,7 @@
     <li><strong>披风（第10分钟）</strong>：穿上想象的心理披风，默念三原则：接纳、悲悯、真实。这一分钟把技巧升级成生活方式。</li>
   </ol>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>治疗师对来访者说话的语气：直接、温暖、临床、不装。每章末尾都有「花点时间……」（小练习），像诊室里递过来的作业单。他反复强调这算「实证技巧」，不算冥想课，每个步骤都标得出处（CBT、正念、EMDR、慈悲焦点治疗），这是他作为 NHS 临床主任的底气。</p>
 </div>
 
@@ -378,19 +455,19 @@
   <div class="layer-num">第二层</div>
   <h2 class="layer-title">作者凭什么这么说</h2>
 
-  <h3>论证链</h3>
-  <p>前提一：焦虑和疲劳来自大脑威胁检测系统（杏仁核）的过度报警，跟性格缺陷没关系。前提二：报警时大脑吸收不进道理，只有身体层面的技术能先关掉警铃。前提三：警铃关掉后，人才能观察思绪、重设回路。结论：一套以身体技术为主、以观察为辅的固定流程，能日常地重置情绪。</p>
+  <h3>核心论证逻辑</h3>
+  <p>第一项前提，焦虑和疲劳来自大脑威胁检测系统（杏仁核）的过度报警，跟性格缺陷没关系。第二项前提，报警时大脑吸收不进道理，只有身体层面的技术能先关掉警铃。第三项前提，警铃关掉后，人才能观察思绪、重设回路。结论：一套以身体技术为主、以观察为辅的固定流程，能日常地重置情绪。</p>
 
-  <h3>三个具体的证据</h3>
+  <h3>关键事实与核心实证</h3>
   <p><strong>证据一：苏珊迟到的闹剧。</strong>苏珊起床发现快迟到了，杏仁核立刻进入「战或逃」，皮质醇、肾上腺素上头。她的身体已经准备好和老虎搏斗，其实她只是上班迟到。作者借这个日常案例说明：警报系统在真危机时是好东西，但它分不清老虎和迟到，而且它一响，激素反馈又让威胁感更真实，身体以为自己在帮你，其实在帮倒忙。这个案例是整个理论的地基：焦虑的第一现场是身体，思想还在后头。</p>
   <p><strong>证据二：彼得和飞行恐惧。</strong>彼得一上飞机就心慌，内心上演的灾难戏码完全没有现实根据，后来他学会退一步观察，认出这是「灾难化思考」，再用敲打和呼吸让自己落地，最后能享受飞行。这个案例演示了完整循环：识别思考模式（认知层）＋身体技术（生理层）＝焦虑回路被改写。</p>
   <p><strong>证据三：研究数据。</strong>研究者指出人每天产生大约六万个意念，其中多达八成是负面或重复内容；MRI 显示威胁检测系统习惯性活化会引发压力反应，而训练正念可以抑制这套系统。他还写到一个工作坊学员的实录：学员努力倾听「内在悲悯的声音」，结果那个声音对她大吼「赶快开始啊，你这头笨母牛」，批判的声音之顽固、悲悯之声之微弱，一对比就清楚。这个案例诚实：悲悯练习不是一学就会，正因为它难，才需要每天十分钟。</p>
 
-  <h3>隐形假设（作者没说，但必须成立）</h3>
+  <h3>底层隐含假设</h3>
   <p><strong>心智是块可以重新拉线的手表，不是命运。</strong>整套方法建立在神经可塑性上：「重新设定大脑」「关闭威胁侦测系统」这类话的前提是：成年人的大脑回路可以被日常练习改变。这是全书的赌注，如果这个假设不成立，七步法就是心理安慰。</p>
   <p>另一条更隐蔽：<strong>痛苦本身无害，有害的是对抗。</strong>「情绪不会伤害你，它们当然也不能代表你」，他反复说接纳、说放下，底气全在这一条。这也是为什么他敢把「羞耻」请上桌当贵客：羞耻不是要赶走的东西，是要接待的东西。</p>
 
-  <h3>边界条件（什么情况下这套会失效）</h3>
+  <h3>适用边界与失效条件</h3>
   <p>作者自己划了三条线。一是重症线：重度抑郁、创伤后应激、成瘾，需要专业治疗，本书是自助工具，不是医疗替代。二是练习量线：他说得很死，「任何方法都不能取代日常的十分钟练习」，应急两分钟版只是救急，天天靠应急方案过活，等于没练。三是诚意线：只练技巧、不走三原则，会变成「交差了事」，技巧能让你平静十分钟，只有披风能改变你理解自己的方式。</p>
 </div>
 
@@ -568,7 +645,7 @@
 </div>
 
 <div class="quote-block">
-  <div class="final-quote">你脑子里的声音不是你的声音——你只是住得离它们太近。</div>
+  <div class="final-quote">你脑子里的声音不是你的声音，你只是住得离它们太近。</div>
   <div class="sig">青山 · 2026-08-02</div>
 </div>
 

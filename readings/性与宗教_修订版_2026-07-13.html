@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>性与宗教 · 深度解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,52 @@
 </head>
 <body>
 <div class="container">
-  <div class="hero">
-    <div class="book-title">性与宗教</div>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">性与宗教</div>
+    <div class="cover-sub">世界信仰史上的信条与禁忌</div>
+    <div class="cover-meta">青山 读 · 性与宗教 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">这本书解决的问题一句话能说完：同样的性行为，为什么一种宗教视为神圣，另一种宗教判处死刑？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">这本书的论证是这样走的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动全书的那几根线</span>
+      <span class="toc-desc">第二层看作者怎么论证，这一层往底下钻：这本横跨五大教加古神话的书，真正牵动全书的，就那么几根线。把它们拎出来，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">第三层横着铺四根线，这一层挑最深的那根线，神圣与诅咒同构这根，往井里下探，一层一层往下，看能挖到多深。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，把论证走一遍</span>
+      <span class="toc-desc">把全书论证抽成问答，每个回答分三段：结论、怎么想到的、边界。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 作者为什么非写不可，又漏了什么</span>
+      <span class="toc-desc">恩德斯鸠写这本书的那股劲儿，来自一个具体的痛：他看见宗教对性的管制在多元社会制造流血。西班牙天主教平静地接受弗...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 餐巾纸压缩</span>
+      <span class="toc-desc">如果这本书只能留一个公式在餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 性本身是空的</span>
+      <span class="toc-desc">打开这本《性与宗教》，最先让人愣住的是一个反差：同一种性形式，在不同宗教里被神圣化或被诅咒。禁欲在古希腊被神罚...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇各宗教对性的立场（基督教、伊斯兰教、犹太教、印度教、佛教、古希腊罗马埃及）、核心论证链、关键引文（希波吕托...</span>
+    </div>
+  </div>
+
     <div class="subtitle">世界信仰史上的信条与禁忌</div>
     <div class="author-line">达格·厄伊斯坦·恩德斯鸠</div>
     <div class="date-line">2026-07-06 初稿 · 2026-07-13 修订 · 深度解书</div>
@@ -465,7 +550,7 @@
       <div class="a">边界：这不是宗教特有，世俗权力也有双重标准；可宗教的「神圣」外衣让双重标准更难质疑，「神选的人」豁免被合理化。</div>
     </div>
     <div class="qa">
-      <div class="q">Q5：「所有性模式都是文化建构」——那生物性呢？</div>
+      <div class="q">Q5：「所有性模式都是文化建构」，那生物性呢？</div>
       <div class="a">结论：作者这层推得有点满。性模式（禁欲、多偶、同性恋的神圣化）是文化建构，可生物性（生殖、性取向基础）有非建构的部分。</div>
       <div class="a">怎么想到的：作者用「没有一种性模式代表自然限制」推出「都是建构」。但生殖是生物事实，性取向有生物学基础（虽不简单），作者把这层推到「全是建构」忽略了生物底色。</div>
       <div class="a">边界：承认生物底色不等于承认「自然正确形式」，生物给材料，文化给剧本，建构论可保留生物底色。作者的激进建构论是为了削掉「宗教-性真理」的绝对性，策略上有效，学理上略过。</div>
@@ -493,14 +578,14 @@
     <div class="layer-num">第六层</div>
     <h2 class="layer-title">作者为什么非写不可，又漏了什么</h2>
     <h3>作者为什么非写不可</h3>
-    <p>恩德斯鸠写这本书的那股劲儿，来自一个具体的痛：他看见宗教对性的管制在多元社会制造流血。西班牙天主教平静地接受弗朗哥近 40 年对基本人权的系统压制，却为反对同性婚姻合法化立即组织几十万信徒游行——人们为性规则上街，却默许政治压迫。这个反差刺到他：宗教把性看得最重，性规则造成的冲突最致命，可多元社会没法按任一宗教的性规范来管制所有人。他要找一个宗教之外的公共底线，让人不必在"你的神说X是罪、我的神说X是圣"里互相厮杀。</p>
+    <p>恩德斯鸠写这本书的那股劲儿，来自一个具体的痛：他看见宗教对性的管制在多元社会制造流血。西班牙天主教平静地接受弗朗哥近 40 年对基本人权的系统压制，却为反对同性婚姻合法化立即组织几十万信徒游行，人们为性规则上街，却默许政治压迫。这个反差刺到他：宗教把性看得最重，性规则造成的冲突最致命，可多元社会没法按任一宗教的性规范来管制所有人。他要找一个宗教之外的公共底线，让人不必在"你的神说X是罪、我的神说X是圣"里互相厮杀。</p>
     <h3>作者漏了什么</h3>
-    <p>先说"文化建构"论推得满。作者用"所有性模式都是文化建构"削掉"宗教-性真理"的绝对性，策略上有效，可学理上把生物底色（生殖、性取向基础）也一起推掉了。建构论可保留生物底色——生物给材料，文化给剧本——作者为了论证火力把这层推得过满。</p>
+    <p>先说"文化建构"论推得满。作者用"所有性模式都是文化建构"削掉"宗教-性真理"的绝对性，策略上有效，可学理上把生物底色（生殖、性取向基础）也一起推掉了。建构论可保留生物底色，生物给材料，文化给剧本，作者为了论证火力把这层推得过满。</p>
     <p>再说三原则的西方色彩。"自由意志、同意、尊重"是西方人权框架，结语作为公共底线给出。可这三原则在宗教单一社会或原教旨主义语境里，可能被当成"另一种西方宗教"抵制。作者作为挪威人权学者立场是西方的，跨文化推行需对话而非强加，这层他没充分论证。</p>
     <p>跨宗教比较的局限也值得说。作者的"不可调和"建立在并置各教极端立场（基督教、伊斯兰、犹太正教都反同）。可各教内部有改革派（基督教开放派别支持同性婚姻、佛教相对宽容、犹太改革派）。把极端立场并置，放大了不可调和，低估了各教内部改革可能。作者承认宗教边界模糊、内部有差异（第一章），可论证主体仍靠并置极端立场，"不可调和"是策略性强调，不全是事实。</p>
     <p>还有一层：作者立场本身是西方自由主义的，"出路"预设为自由主义框架。这套论证在西方多元社会最有说服力，在宗教单一社会里，"跳出宗教诉诸人权"本身可能被当成另一种"宗教"来抵制。作者对这层反噬着墨不多。</p>
     <h3>这套结构在别处长什么样</h3>
-    <p>"神圣与诅咒同构"结构上同构于其他"同一符号相反意义"的现象。同一食物在一文化是珍馐在另一文化是禁忌（狗肉、猪肉、牛肉在不同文化里的位置），同一行为在一群体是礼在另一群体是失礼。符号意义是文化赋予的，不是符号本身固有的——性在宗教里的神圣与诅咒，和食物在文化里的珍馐与禁忌，是同一套机制：符号本身不载意义，群体把意义派给它。</p>
+    <p>"神圣与诅咒同构"结构上同构于其他"同一符号相反意义"的现象。同一食物在一文化是珍馐在另一文化是禁忌（狗肉、猪肉、牛肉在不同文化里的位置），同一行为在一群体是礼在另一群体是失礼。符号意义是文化赋予的，不是符号本身固有的，性在宗教里的神圣与诅咒，和食物在文化里的珍馐与禁忌，是同一套机制：符号本身不载意义，群体把意义派给它。</p>
     <p>"性规则服务权力（双重标准）"同构于法律的双重执行。精英律师找漏洞脱罪，普通人严守；性规则也是普通人严守、权势者豁免。任何规则系统都有"规则严执行松对权势者"的倾向，宗教的"神圣"外衣只是让这倾向更难质疑。</p>
     <p>"性是群体边界"同构于"语言、口音是群体边界"。口音标记内外，性规则也标记内外；跨群体性像跨口音，被当成"不像我们"。性规则和口音一样，是群体认出自我的标记，破了它就是破了"我们是谁"。</p>
     <h3>读完该做什么不同的事</h3>
@@ -508,7 +593,7 @@
     <p>看到宗教为性规则上街游行，识别这是"群体身份边界"在运作，不只是性议题。性规则被触，等于群体自我边界被触，反应才这么激烈。</p>
     <p>看到性规则对权势者宽松（神父性虐待被掩盖），识别性规则的"规训普通人、豁免权势者"功能。规则严不等于执行公，执行公不公看对象。</p>
     <p>在多元社会讨论性议题（同性婚姻、堕胎、避孕），把"某宗教说它错"翻译成"某宗教的群体边界被触动"，而非"它真的错"。这一翻译能把宗教话语从"真理声明"降格到"群体边界表达"，让公共讨论有出路。</p>
-    <p>最具体的一句：下次遇到"宗教说 X 是罪"的论证，停一秒，问"其他宗教怎么看 X？这个罪是某群体的，还是普世的？"——把群体边界和普世事实分开，是这本书落进生活的落点。</p>
+    <p>最具体的一句：下次遇到"宗教说 X 是罪"的论证，停一秒，问"其他宗教怎么看 X？这个罪是某群体的，还是普世的？"，把群体边界和普世事实分开，是这本书落进生活的落点。</p>
   </div>
   <div class="layer">
     <div class="layer-num">第七层</div>

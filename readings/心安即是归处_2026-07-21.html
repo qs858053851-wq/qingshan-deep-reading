@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>心安即是归处 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>心安即是归处</h1>
-  <div class="author">季羡林</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">心安即是归处</div>
+    <div class="cover-sub">散文自选集 · 深度解读</div>
+    <div class="cover-meta">季羡林 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书是一个九十五岁的老头，在生命最后几年，回头讲自己怎么活过来的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">季羡林这本书，姿态很低，但底气很硬。他凭什么让人信他讲的这些人生道理？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书看着散，几十篇文章，讲什么的都有。但拆到底，真正在牵动全书的，是两对张力。这两对张力不解决，这本书就立不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">这本书是散文随笔集，不是论证型著作。季羡林没在回答一个核心问题，他在记录自己想过的事。第四层"追本"是顺着一条...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">季羡林没想写一本有中心论点的书，但他想过的问题，我顺着他的思路还原成五个。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">季羡林写这本书，不是想给谁上课。他就是觉得，活到九十五了，有些话得说出来，不说就带走了。他"不写不行"的那股劲...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">这本书如果只能留下一个公式：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">前面几层，有一句话我一直没展开："不完满才是人生"。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27</span>
+      <span class="toc-desc">这本书讲的，是一个老人怎么没活明白，但怎么一直在努力活明白。</span>
+    </div>
+  </div>
+
   <div class="meta">散文自选集 · 深度解读</div>
 </div>
 
@@ -356,19 +440,19 @@
 
 <p>这本书是本散文自选集，八个部分，收了他从四十年代到两千零六年的几十篇文章。讲人生、讲读书、讲毁誉、讲老年、讲生死、讲自己。文体是随笔，想到哪写到哪，但有一条线贯穿始终：这个人怎么看待自己活过的这九十多年。</p>
 
-<div class="marker">1911–1946 · 从鲁西北的穷孩子到留德十年</div>
+<div class="marker">1911，1946 · 从鲁西北的穷孩子到留德十年</div>
 
 <p>季羡林起点极低。他自己写，家里穷到"连贫农都够不上"，六岁离开山东临清的小村庄，到济南读书。后来上清华，学西洋文学。毕业后去德国哥廷根大学，一待十年，学梵文、巴利文、吐火罗文，那种全世界没几个人懂的语言。1946 年回国，进北大。</p>
 
 <p>这段经历决定了他的底色：一个从最底层爬上来的人，见过最穷的日子，也见过最高的学问。他不端着，也不自轻。他知道自己是谁，从哪来的。</p>
 
-<div class="marker">1949–1976 · 学部委员与牛棚</div>
+<div class="marker">1949，1976 · 学部委员与牛棚</div>
 
 <p>新中国成立后，他是一级教授、中科院学部委员，学术地位到头了。但 1966 年文革一来，这些全没用。他被关进牛棚，批斗、劳动、受辱。最狠的一次，他下决心自杀，在上衣口袋和裤子口袋里装满了安眠药片和安眠药水。就在这个时候，押他去批斗的牢头禁子一脚踢开他的房门。他后来写，这一脚，把他从阎王爷那儿踢回来了。</p>
 
 <p>这段他写得很平静，不渲染，但你能读出分量。一个人真的走到过那一步，又真的回来了，他对生死的看法就不是嘴上说说的。</p>
 
-<div class="marker">1978–2009 · "国学大师"与一个想摘冠的人</div>
+<div class="marker">1978，2009 · "国学大师"与一个想摘冠的人</div>
 
 <p>文革后他恢复工作，继续教书、做研究、写散文。名气越来越大，"国学大师"的帽子戴到他头上。他的反应是：写一篇文章，标题就叫《辞"国学大师"》，昭告天下"请从我头顶上把这顶桂冠摘下来"。他说自己"连'国学小师'都不够，遑论'大师'"。</p>
 
@@ -412,7 +496,7 @@
 
 <p><strong>第三条证据：他的判断有分寸。</strong>他给自己打分，不打满分，也不打零分，打"六十分"。"考虑别人的利益还是多于一半的"。这个分寸感很罕见。大多数人给自己打分，要么打得很高（自我感觉良好），要么打得很低（故作谦虚）。他不高不低，就六十分。这个分数说明他真想过这个问题，不是随口说说。</p>
 
-<p><strong>隐形假设</strong>：他整本书底下压着一个他从不论证、但一直在用的前提——<strong>人是能看清自己的</strong>。他反复强调"自知之明"，反复强调要"剖析自己"。但他没问一个问题：人真的能完全看清自己吗？他被两个小水泡吓破胆，恰恰说明他之前以为的"参透生死"也是看不清自己的一个例子。他知道这一点，所以他说"我今后仍须加紧努力"。他不是看清了才写，是写着看。</p>
+<p><strong>隐形假设</strong>：他整本书底下压着一个他从不论证、但一直在用的前提，<strong>人是能看清自己的</strong>。他反复强调"自知之明"，反复强调要"剖析自己"。但他没问一个问题：人真的能完全看清自己吗？他被两个小水泡吓破胆，恰恰说明他之前以为的"参透生死"也是看不清自己的一个例子。他知道这一点，所以他说"我今后仍须加紧努力"。他不是看清了才写，是写着看。</p>
 
 <p><strong>边界条件</strong>：他讲的这些道理，有一个隐含的前提。你得活到那个份上才听得进去。他讲"纵浪大化中，不喜亦不惧"，一个二十岁的年轻人听了，可能觉得太消极；但他九十岁讲这个，是挣扎了一辈子之后的总结。这本书的道理，是给已经有一定阅历的人听的，不是给刚开始活的人的指南。</p>
 
@@ -426,7 +510,7 @@
 
 <p><strong>第一对张力：名声来了，但名声是假的。</strong>季羡林晚年最大的困扰，不是身体，是名声。"国学大师"的帽子戴上，传记一本一本出，来访者一波一波来。他写自己成了"囚徒"，"不敢在临街的屋子里抬头，当然更不敢出门"。名声给他带来了实际的好处（高干病房、各种待遇），但他清醒地知道，这个名声里有很多是假的。他写："我现在所占有的位置，他认为本来是应该属于他的"。有人觉得他的位置是抢来的。他也写："我确实没有为了出名而去钻营。"这两句话放在一起，就是他的困境：名声来了，他不想要，但也没法完全推开。</p>
 
-<p>他的解法，是"辞"。写《辞"国学大师"》，公开声明"请从我头顶上把这顶桂冠摘下来"。这个姿态很高，但也很难——摘了冠，名声还在。他知道自己摘不干净，所以他说"我感到惭愧"。这个"惭愧"，是这对张力最真实的注脚。</p>
+<p>他的解法，是"辞"。写《辞"国学大师"》，公开声明"请从我头顶上把这顶桂冠摘下来"。这个姿态很高，但也很难，摘了冠，名声还在。他知道自己摘不干净，所以他说"我感到惭愧"。这个"惭愧"，是这对张力最真实的注脚。</p>
 
 <p><strong>第二对张力：知道"不完满才是人生"，但还是怕死。</strong>他反复讲"不完满才是人生"，讲"纵浪大化中，不喜亦不惧"，讲"应尽便须尽，无复独多虑"。这些话他信，也照着做。但两个小水泡就把他打回原形。他发现，知道和做到之间，隔着一整条命。他以为自己参透了，结果没有。</p>
 
@@ -494,7 +578,7 @@
 <div class="a-label">怎么想到的</div>
 <p>季羡林说"天下第一好事，还是读书"。他不是从功利的角度说的，不是"读书能升官发财"。他说的是：书是人类智慧的接力棒，你读书，是接过了前人的那一棒，好让自己这一棒跑得远一点。这个"用"，是对人类文明的用，不是对你个人的用。</p>
 <div class="a-label">边界</div>
-<p>这个答案对喜欢读书的人是真相，对不喜欢读书的人是空话。季羡林自己也知道——他写"有个别的'大款'，也同刘邦和项羽一样，是不读书的。不读书照样能够发大财"。他不否认这个事实，他只是觉得那不是他要的活法。</p>
+<p>这个答案对喜欢读书的人是真相，对不喜欢读书的人是空话。季羡林自己也知道，他写"有个别的'大款'，也同刘邦和项羽一样，是不读书的。不读书照样能够发大财"。他不否认这个事实，他只是觉得那不是他要的活法。</p>
 </div>
 </div>
 
@@ -502,11 +586,11 @@
 <div class="q">Q5：人应该怎么死？</div>
 <div class="a-block">
 <div class="a-label">结论</div>
-<p>"纵浪大化中，不喜亦不惧。应尽便须尽，无复独多虑。"——该死就死，别嘀咕。</p>
+<p>"纵浪大化中，不喜亦不惧。应尽便须尽，无复独多虑。"，该死就死，别嘀咕。</p>
 <div class="a-label">怎么想到的</div>
 <p>这是陶渊明的诗，季羡林拿来当座右铭。他讲这个，不是消极，是认清了一个事实：死是躲不掉的，你怕它也来，不怕它也来。与其怕，不如把怕的力气省下来，好好活剩下的日子。</p>
 <div class="a-label">边界</div>
-<p>这个态度，说着容易做着难。季羡林自己也没完全做到——两个小水泡就把他吓着了。但他知道方向在哪。方向比到达重要。</p>
+<p>这个态度，说着容易做着难。季羡林自己也没完全做到，两个小水泡就把他吓着了。但他知道方向在哪。方向比到达重要。</p>
 </div>
 </div>
 
@@ -516,9 +600,9 @@
   <div class="layer-num">第六层</div>
   <div class="layer-title">跳出这本书，它还能怎么用</div>
 
-<p>季羡林写这本书，不是想给谁上课。他就是觉得，活到九十五了，有些话得说出来，不说就带走了。他"不写不行"的那股劲儿，是怕——怕自己活过的这九十多年，有些真正值钱的东西，随着他走就没了。</p>
+<p>季羡林写这本书，不是想给谁上课。他就是觉得，活到九十五了，有些话得说出来，不说就带走了。他"不写不行"的那股劲儿，是怕，怕自己活过的这九十多年，有些真正值钱的东西，随着他走就没了。</p>
 
-<p>作者的盲点：他太相信"诚实"了。他觉得只要自己够诚实，就能把问题说清楚。但有些事，诚实也说不清楚。比如他讲"不完满才是人生"，这是真话，但听的人如果正处在一个特别难熬的阶段，这句话不但不能安慰他，反而可能让他更绝望。季羡林没想过这个——他从自己的高度往下看，看到的是真相；从低处往上看的人，看到的可能是残忍。</p>
+<p>作者的盲点：他太相信"诚实"了。他觉得只要自己够诚实，就能把问题说清楚。但有些事，诚实也说不清楚。比如他讲"不完满才是人生"，这是真话，但听的人如果正处在一个特别难熬的阶段，这句话不但不能安慰他，反而可能让他更绝望。季羡林没想过这个，他从自己的高度往下看，看到的是真相；从低处往上看的人，看到的可能是残忍。</p>
 
 <p><strong>跨域映射</strong>：季羡林对"名声"的警惕，跟投资里的"能力圈"概念是同一个结构。巴菲特说，你得清楚自己懂什么、不懂什么，只在你懂的范围内下注。季羡林说，你得清楚自己是谁、不是什么，别让名声替你定义自己。两个人说的都是同一件事：边界感。知道自己边界在哪的人，不会被外界的评价带着跑。</p>
 
@@ -547,7 +631,7 @@
 
 <div class="ascii">  名声（外面给的）
      ↓
-  你以为的你 ←——→ 真实的你
+  你以为的你 ←，→ 真实的你
      ↑              ↑
   两个小水泡    六十分自评
   （假象被它撞破）  （诚实的底线）</div>
@@ -560,17 +644,17 @@
 
 <p>前面几层，有一句话我一直没展开："不完满才是人生"。</p>
 
-<p>这句话季羡林讲了很多遍，也讲得很透。但大多数人读这句话，读出来的是安慰——"你看，大师都说人生不完满，我这点挫折算什么"。这么读，就把这句话读成了鸡汤。季羡林不是这个意思。</p>
+<p>这句话季羡林讲了很多遍，也讲得很透。但大多数人读这句话，读出来的是安慰，"你看，大师都说人生不完满，我这点挫折算什么"。这么读，就把这句话读成了鸡汤。季羡林不是这个意思。</p>
 
 <p>他讲"不完满"，不是让你认命，是让你看清一个事实：<strong>"完满"这个东西，根本不存在。</strong>不存在的东西，你追求它，就是跟自己过不去。</p>
 
-<p>这个思路，跟叔本华是反着来的。叔本华说，人生是钟摆，在痛苦和无聊之间摆来摆去——欲望没满足就痛苦，满足了就无聊。叔本华的结论是：人生本质上是悲剧。季羡林不这么看。他说"不完满才是人生"，但他没说完满不存在就该绝望。他说的是：完满不存在，所以你别追了，把追完满的力气省下来，做点别的。</p>
+<p>这个思路，跟叔本华是反着来的。叔本华说，人生是钟摆，在痛苦和无聊之间摆来摆去，欲望没满足就痛苦，满足了就无聊。叔本华的结论是：人生本质上是悲剧。季羡林不这么看。他说"不完满才是人生"，但他没说完满不存在就该绝望。他说的是：完满不存在，所以你别追了，把追完满的力气省下来，做点别的。</p>
 
 <p>做什么别的？他自己给了答案：读书、写字、"鼓吹升平、增强和谐"。九十五岁了，他还想"相期以茶"，活到一百零八。这不是认命，这是在不认命的前提下，承认有些东西就是得不到。</p>
 
-<p>这里有一个很微妙的分寸。季羡林不是叔本华式的悲观，也不是盲目的乐观。他是：知道完满不存在，但还是认真活。这个态度，跟加缪的西西弗斯有点像——明知石头会滚下来，还是一次次推上去。但季羡林比加缪温和，他不觉得这是荒诞，他觉得这就是人生本来的样子。</p>
+<p>这里有一个很微妙的分寸。季羡林不是叔本华式的悲观，也不是盲目的乐观。他是：知道完满不存在，但还是认真活。这个态度，跟加缪的西西弗斯有点像，明知石头会滚下来，还是一次次推上去。但季羡林比加缪温和，他不觉得这是荒诞，他觉得这就是人生本来的样子。</p>
 
-<p>他自己就是最好的例子。文革时他想死，没死成。后来他活了三十多年，写了这本书。如果那天他死成了，这本书就没了。他后来写这段，没有任何"幸亏没死"的庆幸，就是很平静地写："押解我去接受批斗的牢头禁子猛烈地踢开了我的房门，从而阻止了我到阎王爷那里去报到的可能。"这个平静，就是他说的"不完满"的底气——他真到过那个底，又真回来了。</p>
+<p>他自己就是最好的例子。文革时他想死，没死成。后来他活了三十多年，写了这本书。如果那天他死成了，这本书就没了。他后来写这段，没有任何"幸亏没死"的庆幸，就是很平静地写："押解我去接受批斗的牢头禁子猛烈地踢开了我的房门，从而阻止了我到阎王爷那里去报到的可能。"这个平静，就是他说的"不完满"的底气，他真到过那个底，又真回来了。</p>
 
 <p>所以"不完满才是人生"这句话，不是安慰，是真相。但真相不保证让你舒服。它只是告诉你：别追那个不存在的东西了，省下力气，把手头这件事做好。九十五岁的季羡林，就是这么做的。</p>
 
@@ -586,7 +670,7 @@
 
 <div class="fact-box">
 <div class="fb-title">事实边界</div>
-<p>本篇解读基于季羡林散文自选集《心安即是归处》（中国水利水电出版社，2020）。季羡林生平（1911–2009）、文革经历、三〇一医院住院、九十五岁生日等，出自原书自述。"不完满才是人生"的分析，是顺着文本逻辑的展开。与叔本华、加缪的对照，是跨域映射，不是季羡林本意。季羡林去世年份（2009 年）为公开事实，书中未写。</p>
+<p>本篇解读基于季羡林散文自选集《心安即是归处》（中国水利水电出版社，2020）。季羡林生平（1911，2009）、文革经历、三〇一医院住院、九十五岁生日等，出自原书自述。"不完满才是人生"的分析，是顺着文本逻辑的展开。与叔本华、加缪的对照，是跨域映射，不是季羡林本意。季羡林去世年份（2009 年）为公开事实，书中未写。</p>
 </div>
 
 <div class="golden">

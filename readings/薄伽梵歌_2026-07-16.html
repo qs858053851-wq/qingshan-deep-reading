@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>薄伽梵歌 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="series">解书 · 2026-07-16</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">薄伽梵歌</div>
+    <div class="cover-sub">张保胜 译 · 人民文学出版社 1989</div>
+    <div class="cover-meta">托名毗耶娑 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《薄伽梵歌》直译是"世尊之歌"，18 章、约 700 首诗，嵌在大史诗《摩诃婆罗多》里。它并非独立写成的一本书...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这一层要审两样东西：经文本身的论证凭什么立得住，以及这个译本的导言把经文读成什么。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">七百颂、十八章、三条瑜伽道路、无数神学细节，拆到底，真正干活的是三样东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">三根线里挑最深的一根往下钻：行动与结果的切离。它看着只是一句人生劝告，往下挖，每一层都更硬。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：不是。他反对的并非杀戮本身，而是杀亲族会摧毁种姓宗法秩序；他和黑天共享同一套价值，分歧只在推演。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">经文层面，那股劲写在锋芒里：原始部分出自一个借黑天立教的新教派，要在祭祀垄断一切救赎的世界里杀出一条路，所以它...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话：一个武士在战场上崩溃，一位神教他把手上的事和心里的怕分开、把一切结果交给天。从此入世的人也能谈解脱，开...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">季羡林在序里放了一句极不客气的话，全书的钥匙就藏在里面："甘地毕生反对使用暴力和种姓制度，提倡非暴力，人人平等...</span>
+    </div>
+  </div>
+
   <h1>薄伽梵歌</h1>
   <div class="author">托名毗耶娑 · 张保胜 译 · 人民文学出版社 1989</div>
 </div>
@@ -537,7 +618,7 @@
 
   <p>可是这个判断本身经得起反问吗？如果梵歌真是一张任人涂写的白纸，它早就该被用旧丢掉了，空洞的文本没有两千年的生命力。细看会发现它并非没有立场，它有一条从头到尾不松口的硬立场：<strong>不许退场。</strong>全书唯一被判为"怯懦"的选择，是阿周那想放下弓离开。你可以虔信，可以思辨，可以苦行，唯独不可以缩手不干。而这恰恰是甘地和他的对立面共享的东西：甘地的非暴力从来不走退避那条路，它是强度最高的行动：行军、绝食、蹲监狱，把身体一次次放到后果面前。他从梵歌里读出的正是这个"必须在场"。所以梵歌真正喂养的既不是暴力也不是非暴力，是行动主义本身。它像一张只写好了一行字的支票，那行字是"必须行动"，金额栏空着。甘地在金额栏里填了非暴力，教派仇杀者填进去的是屠刀，奥本海默的名字则是被别人代签的。这个类比撑得住全篇：拿掉它，"取其所需"只是一句嘲讽；放上它，你会看清每个时代的读者都在做同一个动作：签字，然后把支票说成是神开的。</p>
 
-  <p>最后剩一个问题：留白是缺陷吗？窜入说给了一半答案：多个作者群把相反的主张缝进同一位神的口中，书里的空隙本来就是缝出来的。但另一半答案更耐想：恰恰是这些空隙让它活了两千年。一部把答案填满的书只能服务一代人，答案过时，书就死了；梵歌把"该做什么"空着，只把"必须去做、莫问结果、终有所托"这个框架浇筑得极其结实，于是每一代人都能把自己的战场装进去——它招来的每一次滥用，也都从这同一片留白里进的门。合上书剩下的问题不在书里：我们自己那句用了千百年的"只问耕耘，不问收获"，也是一张这样的支票，而签字的人，很少意识到自己在签字。</p>
+  <p>最后剩一个问题：留白是缺陷吗？窜入说给了一半答案：多个作者群把相反的主张缝进同一位神的口中，书里的空隙本来就是缝出来的。但另一半答案更耐想：恰恰是这些空隙让它活了两千年。一部把答案填满的书只能服务一代人，答案过时，书就死了；梵歌把"该做什么"空着，只把"必须去做、莫问结果、终有所托"这个框架浇筑得极其结实，于是每一代人都能把自己的战场装进去，它招来的每一次滥用，也都从这同一片留白里进的门。合上书剩下的问题不在书里：我们自己那句用了千百年的"只问耕耘，不问收获"，也是一张这样的支票，而签字的人，很少意识到自己在签字。</p>
 </div>
 
 <div class="layer">
@@ -548,11 +629,11 @@
 
 <div class="facts">
   <div class="t">事实边界</div>
-  <p>本篇所引颂文（1.45–47、2.13–2.48、3.22–35、4.13、9.25、11.12–33、18.42–66 等）均出自张保胜 1989 年人民文学出版社译本，颂号依本书（其底本第 13 章起与国际通行本错一颂）。梵歌嵌于《摩诃婆罗多》、18 章约 700 颂、历代各派注释不绝，属学界共识；"毗耶娑著"是传统托名。成书年代为区间推断（原始部分约前三四世纪、定形约公元后三四世纪，系张保胜采纳之说），一作者与多作者、"窜入"说均无定论。"甘地取其所需"出自季羡林序；"婆罗门与刹帝利妥协""虚幻而甜蜜的补偿"等为张保胜及高善必、恰托巴底亚耶一系的历史唯物主义解读，非国际梵学界共识；"多神向一神、祭祀向皈依转型"是季羡林自标为待验证的推测。印度朋友"充当大神的工具"一语出自张保胜导言亲历记述。奥本海默忆及 11.32 系其本人事后自述的公案，不出自本书。斯多葛、中世纪教会、有限责任公司、"执行命令"、空白支票等类比为本篇作者所加。俱卢之战是否史实无定论，导言按寓言处理。</p>
+  <p>本篇所引颂文（1.45，47、2.13，2.48、3.22，35、4.13、9.25、11.12，33、18.42，66 等）均出自张保胜 1989 年人民文学出版社译本，颂号依本书（其底本第 13 章起与国际通行本错一颂）。梵歌嵌于《摩诃婆罗多》、18 章约 700 颂、历代各派注释不绝，属学界共识；"毗耶娑著"是传统托名。成书年代为区间推断（原始部分约前三四世纪、定形约公元后三四世纪，系张保胜采纳之说），一作者与多作者、"窜入"说均无定论。"甘地取其所需"出自季羡林序；"婆罗门与刹帝利妥协""虚幻而甜蜜的补偿"等为张保胜及高善必、恰托巴底亚耶一系的历史唯物主义解读，非国际梵学界共识；"多神向一神、祭祀向皈依转型"是季羡林自标为待验证的推测。印度朋友"充当大神的工具"一语出自张保胜导言亲历记述。奥本海默忆及 11.32 系其本人事后自述的公案，不出自本书。斯多葛、中世纪教会、有限责任公司、"执行命令"、空白支票等类比为本篇作者所加。俱卢之战是否史实无定论，导言按寓言处理。</p>
 </div>
 
 <div class="finale">
-  <div class="line">甘地在里面读出非暴力，奥本海默在里面读出末日——书没变，变的是递到它面前的那双手。</div>
+  <div class="line">甘地在里面读出非暴力，奥本海默在里面读出末日，书没变，变的是递到它面前的那双手。</div>
   <div class="sign">青山 · 2026-07-16</div>
 </div>
 

@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>错不在我 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">认知失调、自我辩护金字塔与记忆的自我篡改</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">末日邪教预言破产反弹、虚假记忆植入与无辜者蒙冤司法链</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">决策金字塔向下极化、记忆重构偏误与盲点偏见</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从一句嘴硬到婚姻破裂、制度僵化与跳出辩护陷阱</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析婚姻拯救、制度透明与拥抱错误的勇气</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">阿伦森社会心理学学脉、网络极端对立映射与心智成熟</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">认知失调与自我辩护金字塔演进全景图</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">两个原本要好的闺蜜如何在一次微小的借钱推诿中变成死敌</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与社会心理学思想史考据说明</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">认知失调、自我辩护金字塔与记忆的自我篡改</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">末日邪教预言破产反弹、虚假记忆植入与无辜者蒙冤司法链</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">决策金字塔向下极化、记忆重构偏误与盲点偏见</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从一句嘴硬到婚姻破裂、制度僵化与跳出辩护陷阱</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析婚姻拯救、制度透明与拥抱错误的勇气</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">阿伦森社会心理学学脉、网络极端对立映射与心智成熟</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">认知失调与自我辩护金字塔演进全景图</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">两个原本要好的闺蜜如何在一次微小的借钱推诿中变成死敌</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与社会心理学思想史考据说明</span></div>
     </div>
   </div>
 
@@ -349,7 +409,7 @@
     <h1>认知失调、自我辩护金字塔与记忆的自我篡改</h1>
     
 <p>在人类所有的心理防御本能中，最普遍也最隐蔽的莫过于自我辩护（Self-Justification）。当我们的信念与客观事实发生剧烈冲突，或者当我们犯下了无法挽回的愚蠢错误时，大脑所做的第一反应从来不是诚恳认错并修正认知，而是不惜一切代价扭曲事实、篡改记忆，以证明自己当初的决策英明无暇。当代著名社会心理学家卡罗尔·塔夫里斯与当代社会心理学泰斗埃利奥特·阿伦森在《错不在我》中，以利刃般的洞察力，系统解剖了从家庭争吵、医疗误诊、司法冤狱到国家战争灾难背后，人类自我辩护机制的运行全貌。</p>
-<p>全书的理论基石源自利昂·费斯廷格开创的认知失调（Cognitive Dissonance）理论：当一个人同时持有两种心理上不协调的认知（例如“我是一个聪明正直的人”与“我做了一件愚蠢残忍的错事”）时，内心的失调感会带来剧烈的生理痛苦。为了平复这种痛苦，大脑本能地走上阻力最小的捷径——自我辩护。作者提出了震撼人心的“选择金字塔”（Pyramid of Choice）隐喻：两个最初观点几乎没有差异的人，在面临微小抉择时各自迈出了第一步；为了证明自己选择的正确性，他们通过层层自我辩护，一步步滑向金字塔底部两极，最终变成水火不容的仇敌与极端分子。</p>
+<p>全书的理论基石源自利昂·费斯廷格开创的认知失调（Cognitive Dissonance）理论：当一个人同时持有两种心理上不协调的认知（例如“我是一个聪明正直的人”与“我做了一件愚蠢残忍的错事”）时，内心的失调感会带来剧烈的生理痛苦。为了平复这种痛苦，大脑本能地走上阻力最小的捷径，自我辩护。作者提出了震撼人心的“选择金字塔”（Pyramid of Choice）隐喻：两个最初观点几乎没有差异的人，在面临微小抉择时各自迈出了第一步；为了证明自己选择的正确性，他们通过层层自我辩护，一步步滑向金字塔底部两极，最终变成水火不容的仇敌与极端分子。</p>
 <div class="highlight-box">
 <strong>核心洞见：</strong>自我辩护不是蓄意的撒谎，而是心智为了保护自尊免受毁灭性打击而自发进行的潜意识洗脑；一个人成熟的真正标志，是能够忍受认知失调带来的生理剧痛，直视自己的错误并不加粉饰。
 </div>
@@ -477,7 +537,7 @@
     
 <p>在大学校园里，小林和小张是一对无话不谈、形影不离的好闺蜜。毕业那年，两人合租了一套公寓，共同憧憬着未来的大好前程。在你的常识直觉里，这样深厚而单纯的友谊坚不可摧，没有什么风浪能轻易拆散她们。然而，塔夫里斯和阿伦森会带你退后一步，静静观察金字塔顶端那颗微小石子是如何滚落并最终引发雪崩的。</p>
 <p>一天，小林因为家里突发急事，向小张借了一万块钱应急，并承诺三个月后发了年终奖一定归还。三个月过去了，小林所在的公司遭遇行业不景气，年终奖被全员取消。到了还款日的前一天晚上，小林坐在床头，内心经历了剧烈的认知失调：一方面，她坚信“我是一个守信用、讲义气的好朋友”；另一方面，客观事实是“我明天根本拿不出这一万块钱”。</p>
-<p>在这个关键的塔尖节点，小林面临两个选择：第一是直面失调的痛苦，敲开小张的房门坦白：“对不起，我公司年终奖泡汤了，我实在还不上，这是我的错，我打欠条并按银行利息算，分期还你。”这种做法非常痛苦，因为这承认了自己的窘迫与无能。于是，小林的潜意识选择了第二条阻力最小的逃生通道——自我辩护。</p>
+<p>在这个关键的塔尖节点，小林面临两个选择：第一是直面失调的痛苦，敲开小张的房门坦白：“对不起，我公司年终奖泡汤了，我实在还不上，这是我的错，我打欠条并按银行利息算，分期还你。”这种做法非常痛苦，因为这承认了自己的窘迫与无能。于是，小林的潜意识选择了第二条阻力最小的逃生通道，自我辩护。</p>
 <p>小林躺在床上，大脑开始像勤奋的编剧一样重构往事：“话说回来，平时合租水电费都是我顺手交的，小张从来没主动分摊过；上个月她买了一只两千块的包，说明她根本不缺钱；当年大四她生病，是我旷课在医院陪了她两天两夜，我对她的付出难道还不值这一万块吗？她要是真的懂事，根本就不应该向我开口催账！”通过这一连串精巧的自我辩护，未还钱的负罪感被完全消除，小林成功把自己从一个违约者重塑为了一个受委屈的悲情受害者。</p>
 <p>第二天，当小张有些迟疑地问起还款时，小林没有感到愧疚，反而爆发出强烈的愤怒：“你至于这么小肚鸡肠吗？难道我们几年的友情就只值这一万块钱？”小张被这毫无道理的发火惊呆了，为了平复被背叛的失调，小张的大脑也迅速滑向了金字塔的另一端：“原来她从一开始向我借钱就是处心积虑的诈骗！她从来就没有真心对待过我！”</p>
 <p>两个原本无比亲密的朋友，在这个自制的金字塔两端各自越滑越远，最终彻底反目成仇、老死不相往来。整场悲剧里没有真正的恶魔，只有两个在认知失调面前为了维护自身自尊，被自我辩护机制一步步绑架至悬崖绝壁的脆弱凡人。</p>
@@ -490,7 +550,7 @@
     
 <div class="closing-quote">
   <p>人性的高贵不在于永不犯错的虚妄神话，而在于当事实戳破我们的自尊幻象时，能够坦然吞下失调的苦酒，平静地说出一句：错在于我。</p>
-  <div class="closing-author">—— 《错不在我》心智自救哲学终局定音</div>
+  <div class="closing-author">， 《错不在我》心智自救哲学终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与心理学思想史考据说明</h3>

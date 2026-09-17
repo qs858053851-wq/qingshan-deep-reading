@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>人性的弱点 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="book-title">人性的弱点</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">人性的弱点</div>
+    <div class="cover-sub">一句话：怎么让别人愿意配合你？卡耐基的回答也只有一句：别去纠正他，去喂饱他心里那个叫"我很重要"的洞。人不会被说服，人只会在感到被理解之后，自己转过身来。</div>
+    <div class="cover-meta">青山 读 · 人性的弱点 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">一句话：怎么让别人愿意配合你？卡耐基的回答也只有一句：别去纠正他，去喂饱他心里那个叫"我很重要"的洞。人不会被...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">核心论证链　人的行为由"渴望被看成重要人物"这股劲驱动 → 批评伤的正是这股劲，人一被批评就自动转入自我辩护，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">三十几条原则背后其实是一条推理链。抽出来，是七个一环扣一环的问题。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">一句话：别人不在乎你懂多少，除非他先知道你多在乎他。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">1863 年 7 月，葛底斯堡打完，李将军的南军败退到波托马克河边，河水暴涨，渡不过去，背水无路。林肯电令前线...</span>
+    </div>
+  </div>
+
   <div class="book-meta">戴尔·卡耐基（Dale Carnegie）· 1936 · 方法论型 · 深度解读</div>
 </div>
 
@@ -378,14 +447,14 @@
 
   <p><span class="label" style="display:inline; margin:0;">证据三 · 林肯的转身</span>　年轻的林肯爱写匿名文章挖苦政敌，1842 年惹恼了一个叫希尔兹的政客，被约去决斗，剑都比好了，最后一刻才被劝开。从那以后他几乎终身不再公开羞辱人。内战期间将领们一败再败，全国骂声一片，林肯常说的是：换了我在他的处境，恐怕也一样。他后来还写过一封痛骂前线将军的信，写完却没有寄出去。那封信里藏着全书最值钱的东西，这里按下不表，第五层细说。</p>
 
-  <p><span class="label" style="display:inline; margin:0;">隐形假设（作者没说、但必须成立的前提）</span></p>
+  <p><span class="label" style="display:inline; margin:0;">底层隐含假设</span></p>
   <ul class="plain">
     <li>人首先是情感动物。卡耐基整本书没打算用逻辑说服任何人，他的方法全部绕开理性、直取情感。这个前提要是错了，全书塌掉一半。</li>
     <li>自重感普遍处于饥饿状态，赞赏是稀缺品，所以给出去就有超额回报。可要是人人都读过这本书、彼此高频互赞，赞赏就通货膨胀了，边际回报会掉得很快。</li>
     <li>真诚可以练出来。他一边要求"必须发自真心"，一边教你强迫自己微笑、刻意去找对方的优点。刻意练习出来的真诚还算真诚吗？书里没有回答。</li>
   </ul>
 
-  <p><span class="label" style="display:inline; margin:0;">边界条件（哪里会失效）</span></p>
+  <p><span class="label" style="display:inline; margin:0;">适用边界与失效条件</span></p>
   <ul class="plain">
     <li>面对制度性的恶（欺诈、腐败、剥削性的合同），"不批评"滑向纵容。这套方法管日常人际，不管需要对抗的战场。</li>
     <li>权力严重不对等时会变味：上位者用它，会做成一座对方连反抗念头都生不出来的温柔牢笼；下位者的"被说服"，底色其实是服从。</li>

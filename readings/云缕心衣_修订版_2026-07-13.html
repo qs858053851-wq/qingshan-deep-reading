@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>云缕心衣：中国古代内衣文化 — 解书</title>
+<title>云缕心衣：中国古代内衣文化 ， 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,48 @@
 </head>
 <body>
 <div class="container">
-<div class="hero">
-<div class="hero-eyebrow">深 度 阅 读 · 第 一 层 至 第 九 层</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">云缕心衣</div>
+    <div class="cover-sub">这本书讲什么？一句话：中国古代内衣不是衣服，是一部穿在身上的礼制史、性别史、身体观史。</div>
+    <div class="cover-meta">青山 读 · 云缕心衣 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">这本书讲什么？一句话：中国古代内衣不是衣服，是一部穿在身上的礼制史、性别史、身体观史。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">核心论证链像四块积木叠起来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三根线在牵动全书</span>
+      <span class="toc-desc">这本书看着绪论加七朝代加六主题千头万绪，拆到底，底下就三根线在牵动。三根合起来几乎能把全书每一个器物和朝代都推...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层留了个问题：三根线能解释"内衣为什么会变"，解释不了"为什么内衣始终是文化承载物"。为什么偏偏是最贴身的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">顺着问答，把作者的推理走一遍。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者为什么非写不可。潘健华是上海戏剧学院教授，舞台美术背景（据公开资料）。舞台美术训练教人盯"衣如何成形、如何...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留一张餐巾纸</span>
+      <span class="toc-desc">公式只有一个。一个朝代的内衣长什么样，取决于礼制、性别身体、私密自由三根线怎样咬合。礼制给外部压力，性别身体决...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 读到后来，那片小布上全是同一种怕</span>
+      <span class="toc-desc">前面几层按下不表的那道裂缝，人为什么把这么多意义压在最贴身的那片小布上，现在摊开。</span>
+    </div>
+  </div>
+
 <h1 class="hero-title">云缕心衣</h1>
 <div class="hero-author">中国古代内衣文化　·　潘健华</div>
 <div class="hero-meta">上海古籍出版社　·　Fantasy Beyond Body: The Civilization of Chinese Underwear in Ancient Times　·　2026-07-06 初稿 · 2026-07-13 修订</div>
@@ -509,11 +590,11 @@
 
 <p><strong>行动触发</strong>。读完这本书，有几件事可以做。</p>
 
-<p>第一，看一件传统器物，问"它对应的是外衣还是内衣"——是礼制明文规范的，还是口传民间的？这个判断能帮你预判它的多样性。典章的趋同，口传的多样。</p>
+<p>第一，看一件传统器物，问"它对应的是外衣还是内衣"，是礼制明文规范的，还是口传民间的？这个判断能帮你预判它的多样性。典章的趋同，口传的多样。</p>
 
 <p>第二，看一段"传统复兴"的讨论，问"复兴的是外衣还是内衣"。很多"传统复兴"只想复兴外衣（礼制规范、统一符号），没看见真正活下来的传统在内衣层（口传、民间、地方多样）。只复兴外衣，复兴的是空壳。</p>
 
-<p>第三，对自己也一样。你身上有没有"内衣层"——一个不被公共评价照到、自己能长出花样的地方？人需要一个私密空间做创造力释放区，没有这个层，人会僵在礼制里。这话听上去像鸡汤，其实是这本书给的结构的直接推论。</p>
+<p>第三，对自己也一样。你身上有没有"内衣层"，一个不被公共评价照到、自己能长出花样的地方？人需要一个私密空间做创造力释放区，没有这个层，人会僵在礼制里。这话听上去像鸡汤，其实是这本书给的结构的直接推论。</p>
 </section>
 <section class="layer">
 <div class="layer-num">Layer 07 · 第七层</div>
@@ -528,7 +609,7 @@
 <p>一句话概括全书：</p>
 
 <div class="napkin">
-<div class="napkin-formula" style="font-size:22px">内衣是礼制的镜像——礼制管不到的最里层，才是民间真正长出花样的地方。</div>
+<div class="napkin-formula" style="font-size:22px">内衣是礼制的镜像，礼制管不到的最里层，才是民间真正长出花样的地方。</div>
 </div>
 
 <p>三根线在哪个朝代主导，看这张图。深色块是主导，浅色是退场。</p>
@@ -548,7 +629,7 @@
 <h2 class="layer-title">读到后来，那片小布上全是同一种怕</h2>
 <div class="short-essay">
 
-<p>前面几层按下不表的那道裂缝——人为什么把这么多意义压在最贴身的那片小布上——现在摊开。</p>
+<p>前面几层按下不表的那道裂缝，人为什么把这么多意义压在最贴身的那片小布上，现在摊开。</p>
 
 <p>读完这本书，第一个反应是意外。中国古代内衣居然这么复杂。一片胸间小衣，能牵出礼制、性别、身体观、情色、民俗、信仰六七条线。秦汉的"鄙祖""羞祖"给贴身受汗都要正名，唐代的诃子做成诱情物，宋代的抹胸有"人台造型理念"，明代的主腰以"露"抗争理学，清末民初的文胸接纳西方修形。每一片小布都背着那一整个时代的重量。</p>
 
@@ -558,9 +639,9 @@
 
 <p>这里有个"咦"的瞬间。你以为内衣是穿给别人看的，或者穿给自己保暖的。其实内衣是穿给身体看、安慰身体的。人怕自己的身体，于是给身体穿上一层意义，让这层意义反过来安慰身体：你看，你的欲望已经被命名了（正名），你的情欲已经被引导了（诃子），你的形态已经被规范了（修形），你的不安已经被辟邪了（图腾）。每一层意义，都是一句对身体的安慰话：别怕，我已经管住你了。</p>
 
-<p>往这下面再追一步。为什么人需要管住身体才能安心？因为身体是人唯一不能脱离的居所，又是最难控制的部分。欲望、疾病、衰老、生育都从身体来。人能控制外物（盖房、种地、造工具），能控制社会（礼制、法律、道德），唯独控制不了自己的身体——它会病、会老、会欲望、会死。这种"最贴近又最难控"的矛盾，让人对身体既依赖又不安。内衣是这个不安的出口：人管不了身体本身，就管身体的边界。给内衣压上意义，是把对身体的不可控，转化为对衣物的可控。</p>
+<p>往这下面再追一步。为什么人需要管住身体才能安心？因为身体是人唯一不能脱离的居所，又是最难控制的部分。欲望、疾病、衰老、生育都从身体来。人能控制外物（盖房、种地、造工具），能控制社会（礼制、法律、道德），唯独控制不了自己的身体，它会病、会老、会欲望、会死。这种"最贴近又最难控"的矛盾，让人对身体既依赖又不安。内衣是这个不安的出口：人管不了身体本身，就管身体的边界。给内衣压上意义，是把对身体的不可控，转化为对衣物的可控。</p>
 
-<p>这个结构有个名字，叫"近身即神圣"。最贴身的东西被赋予最多意义，因为它离那个最难控制的部分最近。护身符贴身，咒文贴身，祈福纹样绣在胸乳间，辟邪的虎符衣穿在心口。这些都不是偶然。人把最能安抚自己的符号，放在最不安的位置——身体的最里层。内衣是身体的护身符系统，这不是比喻，这是它最早的功能名"鄙祖""羞祖"就已经在做的事：给贴身受汗这个最生理的功能，套上"礼"的名义，让它变得可控。</p>
+<p>这个结构有个名字，叫"近身即神圣"。最贴身的东西被赋予最多意义，因为它离那个最难控制的部分最近。护身符贴身，咒文贴身，祈福纹样绣在胸乳间，辟邪的虎符衣穿在心口。这些都不是偶然。人把最能安抚自己的符号，放在最不安的位置，身体的最里层。内衣是身体的护身符系统，这不是比喻，这是它最早的功能名"鄙祖""羞祖"就已经在做的事：给贴身受汗这个最生理的功能，套上"礼"的名义，让它变得可控。</p>
 
 <p>钻到这里，每一片内衣的解读都翻面了。秦汉的"正名"，是礼制符号，更是人给身体套名分让身体可控。唐代的诃子，是情色器物，更是人给情欲套形式让情欲可控。宋代的抹胸，是修形工具，更是人给身体形态套标准让形态可控。明代的主腰，是反理学，更是人在礼制管不到的地方给自己留一小块"我能控制"的领地。清末的文胸，是中西交融，更是人换了一套"科学"语言继续管身体。每一片小布上压的意义变了，"压意义让身体可控"这件事4000年没变。</p>
 
@@ -576,7 +657,7 @@
 </section>
 <div class="fact-boundary">
 <h4>事 实 边 界</h4>
-<p>本篇基于扫描版 OCR 全本（233页，约9.6万字符）加辅助索引写成，引用器物与引文均出自原书。</p>
+<p>本篇基于扫描版 OCR 全本（233页，约9.6万字符）加子代理轻索引写成，引用器物与引文均出自原书。</p>
 <p>OCR 文本噪点重，繁体异体字常乱码，器物名异写多（"肚完""肚多"应为"肚兜"，"主晨"应为"主腰"，"词子"应为"诃子"），本篇引用时已按学界通行写法校正。朝代名错字（"魂晋"应为"魏晋"、"癸学独尊"应为"儒学独尊"）亦校正。</p>
 <p>传说与史实有分：诃子"据说由杨贵妃开创"是宋人追述（高承《事物纪原》），属传说记载，本篇保留"据说""传说"语气，未写成定论。"抹胸始于南北朝"OCR可能为"先秦"或"汉"误识，待核。缠足相关 OCR 作"绵足"，应为"缠足"误识，待核。</p>
 <p>凡"人台造型理念""与西方胸罩异曲同工""同类异种""中西交融外显符号"等表述，是作者潘健华的学术论断，本篇引用标"作者认为""作者提出"，未当成古人原话。器物形制多从文献、图像、文学推断，宋代以前实物极少，越早越虚，本篇涉及形制细节时保留这一存疑。</p>

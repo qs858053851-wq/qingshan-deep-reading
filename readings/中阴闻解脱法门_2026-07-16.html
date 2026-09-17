@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中阴闻解脱法门 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="series">解书 · 2026-07-16</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中阴闻解脱法门</div>
+    <div class="cover-sub">张莲菩提重译 · 又名《西藏度亡经》</div>
+    <div class="cover-meta">莲花生大士（原著） · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先把书名拆开。藏文原名"巴多脱卓"：巴多（Bardo）意思是"中阴"，指人死后到再投生之间的那段过渡地带；脱卓...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">一部描述死后世界的书，谈不上考古学意义的证据，但它有自己的论证地基，而且这个地基相当清楚。整套体系立在一个总前...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">结论：因为人认熟悉，不认真相；业习让人把陌生当危险、把惯性当安全。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">一句话：死后四十九天里出现的每一尊佛和每一只鬼，都是你自己的心，认出来的那一刹那叫解脱，认不出来的那一刹那叫轮...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">读到全书最后几页，有一句话会让人停下来。这部通篇对亡者说话的经，在结尾忽然掉转头，对还活着的人下了一道指令：此...</span>
+    </div>
+  </div>
+
   <h1>中阴闻解脱法门</h1>
   <div class="author">莲花生大士（原著） · 张莲菩提重译 · 又名《西藏度亡经》</div>
 </div>
@@ -374,7 +443,7 @@
   <p>两周的接引全部错过，亡者坠入最后一段"悉罢中阴"，即求生中阴。此时他获得一具"意生身"：无形无质，穿墙过山无所阻碍，一念之间飞到任何想去的地方，感官比生前敏锐，记忆力九倍于生时。听着像超能力，实际是失重的恐慌：业风从背后卷来，身不由己如风中羽毛；他回家看见亲人分他的遗物、哭他的丧，喊话没人应，"如红热锅中被炸之鱼"。若生前多作恶，还会看见夜叉追杀、猛兽追逐、山崩海啸，被逼到白黑红三座悬崖边。书里点破，那三座悬崖不是别的，是他自己的贪、嗔、痴。</p>
 
   <div class="marker">冥界裁判 · 业镜前的一场戏</div>
-  <p>接着是冥判：司善之神用白石子数他一生的善行，司恶之神用黑石子数他的恶行。亡者吓得发抖，撒谎说"我没干过"，司命鬼王举起业镜：生平善恶，纤毫毕现，谎言当场作废。狱卒上来断头、刳心、抽肠，但他痛而不死，身体碎了又复原，反复受刑。就在这最恐怖的一幕里，经文给出全书最大胆的一句导示：连这个法庭都是你心识的投影，"空能坏空，无有是理"——你的身体本来就是空的，空砍不坏空，怕什么？</p>
+  <p>接着是冥判：司善之神用白石子数他一生的善行，司恶之神用黑石子数他的恶行。亡者吓得发抖，撒谎说"我没干过"，司命鬼王举起业镜：生平善恶，纤毫毕现，谎言当场作废。狱卒上来断头、刳心、抽肠，但他痛而不死，身体碎了又复原，反复受刑。就在这最恐怖的一幕里，经文给出全书最大胆的一句导示：连这个法庭都是你心识的投影，"空能坏空，无有是理"，你的身体本来就是空的，空砍不坏空，怕什么？</p>
 
   <div class="marker">最后关头 · 闭胎门与择胎</div>
   <p>连冥判都没能让他醒悟的，只剩最后一件事：投胎在即。经文先教"闭胎门"，五步观法，一步不成再退一步，其中最惊人的一步：亡者会看见未来父母交合的景象，若对母亲生爱、对父亲生憎，就投男胎；反之投女胎。一念的爱憎，当场决定了下一辈子。所以要在那一刻认出这景象也是幻，胎门自闭。实在闭不住，最后教"择胎"：六道各有征兆（见天宫可入，见岩穴是畜生道，见枯草荒漠是饿鬼道，闻悲切歌声千万止步（那是地狱），挑个能听闻佛法的人身，发愿投一个好人家。手册的最后一页，是教你怎么输得体面一点。</p>
@@ -394,7 +463,7 @@
 
   <p>边界条件，书自己划得很诚实：大圆满、大手印修到家的人"无须乎此法"，命终当下自解脱；而对从未闻法、恶业深重之人，此法号称仍有效，因为中阴身"记忆力九倍生时"、恐惧中求救心切，反而好教。换句话说，它自认是为中间的大多数人准备的：修行没成、作恶未满的普通人。另一条边界是它反复强调的师承：密法须灌顶传授，"未经如法灌顶，不得妄授"，扉页就印着"如要修习仍请觅求上师传授灌顶方为如法"。这本书自己承认，读文本不等于得到法。</p>
 
-  <p>顺带交代我的立场。这个译本正文之前有八篇民国居士高僧的序加一篇重译述缘，占了全书近五分之一，多为护法劝信之辞，夹着不少当年显密门户之争的意气话，普通读者可以直接跳到上卷正文，几乎没有损失。另外全书有一处真实的张力它自己没有处理：一边说五无间重罪之人"一经闻在耳识，亦得超度"，一边又用整整一段讲从未见过密像的持律法师如何"愈堕愈深"——听闻的门槛到底是零还是很高，两处说法打架。我读下来的判断是后者更接近全书本意：它反复要求生前熟习，说明"闻"从来不是白捡的。这个矛盾按住不放的读者，会比照单全收的读者收获多。</p>
+  <p>顺带交代我的立场。这个译本正文之前有八篇民国居士高僧的序加一篇重译述缘，占了全书近五分之一，多为护法劝信之辞，夹着不少当年显密门户之争的意气话，普通读者可以直接跳到上卷正文，几乎没有损失。另外全书有一处真实的张力它自己没有处理：一边说五无间重罪之人"一经闻在耳识，亦得超度"，一边又用整整一段讲从未见过密像的持律法师如何"愈堕愈深"，听闻的门槛到底是零还是很高，两处说法打架。我读下来的判断是后者更接近全书本意：它反复要求生前熟习，说明"闻"从来不是白捡的。这个矛盾按住不放的读者，会比照单全收的读者收获多。</p>
 </div>
 
 <div class="layer">
@@ -413,9 +482,9 @@
   <div class="qa">
     <div class="q">Q2 · 慈悲的佛为什么要变成饮血獠牙的忿怒相？</div>
     <div class="a">
-      <p>结论：温和的邀请你不理，只剩恐惧还能抓住你的注意力——忿怒是慈悲的加急件。</p>
+      <p>结论：温和的邀请你不理，只剩恐惧还能抓住你的注意力，忿怒是慈悲的加急件。</p>
       <p>七天喜乐相接引全部失败之后，同一批佛换脸再来（换脸的来龙去脉第一层已交代）。这个设计的逻辑很硬：中阴的亡者昏迷复清醒、清醒复昏迷，能唤醒他的刺激阈值越来越高；柔光唤不醒的，惊雷或许可以。恐怖景象在这套体系里不是惩罚，是最后的叫醒服务。</p>
-      <p>边界：前提是亡者被教过"认出即解脱"。没受过这个训练的人，恐惧只会把他吓进更深的逃亡——书里有一组现成的反例，留到第八层细看。</p>
+      <p>边界：前提是亡者被教过"认出即解脱"。没受过这个训练的人，恐惧只会把他吓进更深的逃亡，书里有一组现成的反例，留到第八层细看。</p>
     </div>
   </div>
 
@@ -424,14 +493,14 @@
     <div class="a">
       <p>结论：因为意生身没有肉体的迟钝做缓冲，心念直接兑现，教学立竿见影。</p>
       <p>书末总结了四条：中阴身有微弱的通力，能领悟导示；生前耳聋的，中阴闻性完好；惊恐中的人求救心切，愿意听；记忆力九倍于生时。合起来是一幅奇特的图景：活人上课心不在焉，因为肉身给了他拖延的本钱；中阴身悬在业风里，每句话都是救命绳，注意力被恐惧调到最大。所以这部法不在人活得好好的时候讲大道理，专挑存亡关头递话。它对"什么时候人真正听得进话"有一套清醒的判断。</p>
-      <p>边界：同一机制反过来也成立——心念即现实意味着一个恶念也立刻兑现，"妄念一动，偶一取著，彼法即忽应念而生"。黄金窗口同时是高危窗口。</p>
+      <p>边界：同一机制反过来也成立，心念即现实意味着一个恶念也立刻兑现，"妄念一动，偶一取著，彼法即忽应念而生"。黄金窗口同时是高危窗口。</p>
     </div>
   </div>
 
   <div class="qa">
     <div class="q">Q4 · 一念爱憎决定投男胎女胎，这是在说什么？</div>
     <div class="a">
-      <p>结论：它把"你如何来到这个世界"归因于一次无人监督的欲望冲动——投胎机制是欲望机制的显影。</p>
+      <p>结论：它把"你如何来到这个世界"归因于一次无人监督的欲望冲动，投胎机制是欲望机制的显影。</p>
       <p>闭胎门一节写：亡者见未来父母交合，对母生爱、对父生憎则成男胎，反之成女胎；在爱憎妒动念的一刹那，"忽感一刹那之欲乐，瞬即昏迷而失其知觉"，醒来已在胎中。剥掉宗教外壳，这段话的结构是：决定你一生起点的，是你在最无防备时刻的贪与嫌。而对治法也直白：认出那景象是幻，或者把它观成本尊双身，欲望无处落脚，胎门自闭。全书对"欲"的态度在这里最清楚：不在压制它，而在看穿它下注的那一瞬间。</p>
       <p>边界：这是教义陈述，不是可验证的发生学；蒋维乔序里特意提醒，双身像密义在此，"以凡情推测圣境"必生误解。</p>
     </div>
@@ -520,7 +589,7 @@
 </div>
 
 <div class="finale">
-  <div class="line">舒服的光通向轮回，吓人的光才是出口——这句话，活人比死人更用得上。</div>
+  <div class="line">舒服的光通向轮回，吓人的光才是出口，这句话，活人比死人更用得上。</div>
   <div class="sign">青山 · 2026-07-16</div>
 </div>
 

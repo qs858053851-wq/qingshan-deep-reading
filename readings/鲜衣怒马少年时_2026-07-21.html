@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>鲜衣怒马少年时 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>鲜衣怒马少年时</h1>
-  <div class="author">少年怒马 · 湖南文艺出版社 2020 · 副题：唐宋诗人的诗酒江湖</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">鲜衣怒马少年时</div>
+    <div class="cover-sub">湖南文艺出版社 2020 · 副题：唐宋诗人的诗酒江湖</div>
+    <div class="cover-meta">少年怒马 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">这本书讲了二十四位唐宋诗人词人，一人一篇，从隋末讲到南宋。作者少年怒马给自己定的活，写在自序里：史书的版面金贵...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">这种书最容易写飘：段子满天飞，读完哈哈一笑，什么都没剩下。所以要问一句，少年怒马凭什么这么讲？他的东西垫得住吗...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 线头藏在哪</span>
+      <span class="toc-desc">故事书不拆论证，拆张力。这本书二十四个故事，拆开看各人各命，合起来看，真正在动的就三根线。先交代一句：这是读法...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者动机（基于文本的推测，非作者自述）：他在自序里把底交了。先是老实承认，研究了这么多年诗人，"他们依然面目模...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 压到不能再压</span>
+      <span class="toc-desc">三个因子，对应第三层的三根线：文本是切片（线三），处境是时势（线一），活法是写诗那个人当时的位置（线二）。用乘...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">自序里有个比方，我前几层一直按着没展开。作者说，他所知道的形象最丰满的诗人，是个虚构人物：贾雨村。</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -354,25 +426,25 @@
 
   <p>讲法很现代：诗人有朋友圈、有网名、有 offer，安史之乱是大规模杀伤性武器，保送状元、纳斯达克敲钟张口就来。但段子底下垫的是真史料：诗作、年表、官职、评价，桩桩有出处，作者自己也明说，对话是他脑补的，历史脉络是真的。顺着时间线走一遍。</p>
 
-  <div class="marker">隋末 · 589—618</div>
+  <div class="marker">隋末 · 589，618</div>
 
   <p>全书开篇，先出场的是个皇帝：隋炀帝杨广。这篇是全书方法论的样子货。杨广在夺嫡那些年，把自己演成专一好男人、孝子贤媳，还演成一个诗人：宫体诗横行的年代，他写的《春江花月夜》"流波将月去，潮水带星来"，清新疏朗，直接开在张若虚先头；《野望》"寒鸦飞数点，流水绕孤村"，后来被秦观和马致远先后致敬。诗是真好，人是真暴君：大运河累死民夫"十之四五"，三征高丽拖垮国库，隋朝五千万人口，到唐初只剩一千五百万。杨广的名单上还躺着诗人薛道衡，写过"空梁落燕泥"的七十岁老诗人，因为替忠臣说了句公道话，被逼自缢。会作诗，更会作死，标题就是这四个字。</p>
 
-  <div class="marker">初唐 · 618—712</div>
+  <div class="marker">初唐 · 618，712</div>
 
-  <p>初唐两篇讲两种活法。骆宾王，二十岁进幕府不得志，后来跟着徐敬业反武则天，一篇《为徐敬业讨武曌檄》骂得惊天动地，连被骂的武则天都惜才；兵败后人间蒸发，死没死、怎么死的，到今天没个准信。陈子昂，砸百万胡琴炒作出名，登上幽州台写下"前不见古人，后不见来者"，把建安风骨重新带回诗坛，四十出头死于县令之手，没看到唐诗的春天。还有一个容易被忽略的暗线人物：河汾王通。他在乱世里开私塾，学生名单是魏徵、房玄龄、杜淹、李靖——半个初唐的将相都是他补习班出来的；他弟弟王绩那首《野望》，在历朝唐诗集里常年占据开篇第一把交椅。</p>
+  <p>初唐两篇讲两种活法。骆宾王，二十岁进幕府不得志，后来跟着徐敬业反武则天，一篇《为徐敬业讨武曌檄》骂得惊天动地，连被骂的武则天都惜才；兵败后人间蒸发，死没死、怎么死的，到今天没个准信。陈子昂，砸百万胡琴炒作出名，登上幽州台写下"前不见古人，后不见来者"，把建安风骨重新带回诗坛，四十出头死于县令之手，没看到唐诗的春天。还有一个容易被忽略的暗线人物：河汾王通。他在乱世里开私塾，学生名单是魏徵、房玄龄、杜淹、李靖，半个初唐的将相都是他补习班出来的；他弟弟王绩那首《野望》，在历朝唐诗集里常年占据开篇第一把交椅。</p>
 
-  <div class="marker">盛唐 · 712—765</div>
+  <div class="marker">盛唐 · 712，765</div>
 
   <p>盛唐是全书最厚的部分，核心一章把三个人放在一起：高适、李白、杜甫。公元 757 年是个分水岭：高适做上淮南节度使，杜甫丢了工作四处流浪，李白在流放夜郎的路上。三个曾经一起喝酒撸串的老男孩，怎么走到了三个极端？作者的答案是性格加底色：高适务实，九品县尉的脏活也肯干，安史之乱里每个节奏都踩得精准；杜甫悲观，站错了房琯的队；李白狂放，看不清形势，错投了永王。再往深，杜甫是儒生，"诗是吾家事"；李白是道教徒，先天性工作过敏；高适更像法家信徒，"或许他从来就不是一个诗人，而是一个军政大牛，只是碰巧，他随手一写，也是好诗"。</p>
 
   <p>盛唐另一篇重头戏是王维，这篇留到第三层细说。同一时期还有：崔颢，早年写浮艳小情诗，被名士李邕当面喝退，愤而游历，一首《黄鹤楼》让李白搁笔；孟浩然，四十岁才进长安赶考，一句"不才明主弃"自断前程，作者劝他"男人中年，别矫情"；还有一篇"盛唐吐槽大会"，把贺知章、张旭、王维们的交往写成一台脱口秀。</p>
 
-  <div class="marker">中晚唐 · 766—907</div>
+  <div class="marker">中晚唐 · 766，907</div>
 
   <p>中晚唐的群像更杂：情圣杜甫一章专讲他对妻子杨氏的一生专情，"香雾云鬟湿，清辉玉臂寒"是异地分居时的月光爱人；刘禹锡，两次因为玄都观桃花诗被贬，二十三年贬谪生涯回来还是那句"有本事你来咬我呀"，是全书最硬的一根骨头；薛涛，从乐籍歌伎到"女校书"，用一身才华为自己复仇；李贺，二十七岁病死，把"天若有情天亦老"留给人间；杜牧，被误会成只会写"商女不知亡国恨"的风流诗人，其实满腹经纶；李商隐，"姑娘，我要给你写情诗"，把无题诗写到无人能解；温庭筠，考场作弊专业户，花间词的开山。尾巴上是两个收束大唐的人：黄巢，落第书生写下"他年我若为青帝"，最终掀翻长安；颜真卿，从一个人看大唐消亡史，七十六岁被派去劝降叛军，明知是送死还是去了，字如其人，人也如其字。</p>
 
-  <div class="marker">宋 · 960—1279</div>
+  <div class="marker">宋 · 960，1279</div>
 
   <p>宋代四篇加三篇番外。苏轼是全书的另一个题眼（第三层细说）：面对"唐朝人把好诗都写光了"的绝境，他拿月亮开刀写出《水调歌头》，又开出豪放派，告诉世人词不止婉约一条路。李清照，"大宋文坛的一股清流"，前半生美满，后半生国破家亡，再嫁遇人不淑，冒着坐牢的风险也要离婚。辛弃疾，"哥的忧伤你不懂"，二十三岁带五十骑闯五万金军大营擒叛徒，一辈子想上战场，一辈子被按在笔杆子上。陆游，"一身盔甲，藏不住软肋"，八十五岁临终写下"王师北定中原日，家祭无忘告乃翁"。番外三篇讲宋词背后的名物典故和诗人间的粉丝经济。</p>
 
@@ -430,7 +502,7 @@
 
   <p>追星：只凭作品认识一个人，塌房那天才发现，你从没把他当人看过。粉丝拼偶像，用的也是切片：作品、通告、人设。切片本身没错。把它当成人，才出了错。跟"只凭诗读诗人"，是同一个动作。</p>
 
-  <p>看病：化验单是切片，病人是全本。只凭化验单开药，能治对病，治不对人；好医生两句话，问出的是化验单上没有的东西——最近睡得好吗，家里出什么事了吗。诗是化验单，写诗的那个人是病人。这本书做的就是多问那两句。</p>
+  <p>看病：化验单是切片，病人是全本。只凭化验单开药，能治对病，治不对人；好医生两句话，问出的是化验单上没有的东西，最近睡得好吗，家里出什么事了吗。诗是化验单，写诗的那个人是病人。这本书做的就是多问那两句。</p>
 
   <p>读简历：简历是切片，面试是拼人。同一份简历，能拼出"人才"，也能拼出"废物"，全看拼图的人带什么眼光、补什么背景。HR 都懂的道理：切片不撒谎，但切片会骗人。</p>
 
@@ -452,7 +524,7 @@
 
   <div class="napkin">一首诗的完整意思 ＝ 文本 × 处境 × 活法</div>
 
-  <p>三个因子，对应第三层的三根线：文本是切片（线三），处境是时势（线一），活法是写诗那个人当时的位置（线二）。用乘法不用加法，因为任何一项抽成零，整首诗的意思就塌给你看——只剩字的诗，就是意思塌了的诗。</p>
+  <p>三个因子，对应第三层的三根线：文本是切片（线三），处境是时势（线一），活法是写诗那个人当时的位置（线二）。用乘法不用加法，因为任何一项抽成零，整首诗的意思就塌给你看，只剩字的诗，就是意思塌了的诗。</p>
 
   <p><strong>一句话</strong>：诗是那个人在他自己的处境里写的，抽掉人和处境，诗只剩字。</p>
 
@@ -477,7 +549,7 @@
 
   <p>这本书全部的问题，就从这个比方里长出来：我们对唐宋那些诗人的认识，何尝不是这样。史书不给他们版面，我们手里只有诗。只凭诗读人，跟只凭三句诗读贾雨村，是同一种读法，也必然得到同一种失真。</p>
 
-  <p>书里看得见两种失真。一种叫神化：李白成了"诗仙"，这个称号的意思是，他的诗好到不像人写的。既然不像人写的，就不用当人读了。"天子呼来不上船"，多潇洒。可同一个人，也会病急乱投医，上永王的贼船。仙是不灰头土脸的，于是这部分被悄悄裁掉了。另一种叫鸡汤化：王维成了"行到水穷处，坐看云起时"的淡人代表，盘手串端茶杯的标配背景音。第三层讲过他的来路——他的淡是死里逃生之后熬出来的。裁掉前半生，熬出来的淡就成了人人可学的姿势，而且是学不会的假姿势。</p>
+  <p>书里看得见两种失真。一种叫神化：李白成了"诗仙"，这个称号的意思是，他的诗好到不像人写的。既然不像人写的，就不用当人读了。"天子呼来不上船"，多潇洒。可同一个人，也会病急乱投医，上永王的贼船。仙是不灰头土脸的，于是这部分被悄悄裁掉了。另一种叫鸡汤化：王维成了"行到水穷处，坐看云起时"的淡人代表，盘手串端茶杯的标配背景音。第三层讲过他的来路，他的淡是死里逃生之后熬出来的。裁掉前半生，熬出来的淡就成了人人可学的姿势，而且是学不会的假姿势。</p>
 
   <p>神化和鸡汤化，方向相反，本质相同：都不把他当人。一个把人往上裁，裁到没有烟火气；一个把人往扁裁，裁到只剩一句好用的安慰。两种裁法，动的是同一把剪刀：抽掉处境，只留文本。</p>
 

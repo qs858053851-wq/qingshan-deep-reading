@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>唐诗里的烟火人间 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>唐诗里的烟火人间</h1>
-  <div class="author">温伯陵 · 唐诗人物随笔二十五篇</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">唐诗里的烟火人间</div>
+    <div class="cover-sub">唐诗人物随笔二十五篇</div>
+    <div class="cover-meta">温伯陵 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">温伯陵这本书，二十五篇，从李世民一路写到温庭筠，一篇一个人，或者一篇一对人。他在序言里把方法交代得很干脆：诗歌...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 温伯陵凭什么这么讲</span>
+      <span class="toc-desc">把唐诗往"人生况味"上引的书不少，多数飘着：感慨很多，根据很少。温伯陵这本垫得比较实，至少有三样东西摸得着。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 温伯陵手里就这三板斧</span>
+      <span class="toc-desc">二十五篇，人物杂得很：皇帝、官员、落榜生、歌伎、老师。可读完全书你会发现，温伯陵讲故事的手法其实固定，来来回回...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，这套读法还能用在哪</span>
+      <span class="toc-desc">作者为什么写这个。温伯陵是写历史专栏出身的人，序言里那个痛点说得很白：诗人被标签钉死了，而人一旦觉得"我懂了"...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸写下的</span>
+      <span class="toc-desc">三个因子对应第三层三招，一个不能少：标签没拆，你读的是个牌位；处境对不上，你觉得那是古人的事；情感掺假，多好的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 读唐诗，为什么读到的最后是自己</span>
+      <span class="toc-desc">第一层我按下了两个细节，现在可以讲了。温伯陵在序言里交代过自己的两个时刻。一次是他独自在外地值班，逢年过节回不...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -368,11 +440,11 @@
 
   <div class="marker">落榜生 · 罗隐篇</div>
 
-  <p>全书最扎心的一篇给了罗隐。这个人到长安考了十几次科举，一次没中。宰相郑畋的女儿读他的诗读到想嫁，隔着纱帘看了一眼真人，从此再也不读他的诗。回乡路上，他碰见十二年前的旧识、营妓云英，云英感叹一句"你怎么还没考上"，罗隐当场写诗怼回去："我未成名卿未嫁，可能俱是不如人。"温伯陵在这里摆了一组全书最好的对照：同样是沦落人相逢，白居易对琵琶女说的是"相逢何必曾相识"，给的是温情；罗隐给云英的是刀子，针尖对麦芒。差别在哪？温伯陵的判断是：自信这东西，要么来自赢过，要么来自顺遂，罗隐两样都没有，失败的次数多了，人就变得敏感带刺。长安下雪，人人说瑞雪兆丰年，他偏写"长安有贫者，为瑞不宜多"；黄巢之后朝廷清算从贼女子，他写诗翻杨玉环的旧案讽刺皇帝。诗是好诗，人是好人，可这种见谁喷谁的性子，官场容不下，朋友也处不来。这篇的落点：与自己和解，是人生第一要事——接受现实，努力活下去，在不完美的生命里，不忘曾经的意气风发。</p>
+  <p>全书最扎心的一篇给了罗隐。这个人到长安考了十几次科举，一次没中。宰相郑畋的女儿读他的诗读到想嫁，隔着纱帘看了一眼真人，从此再也不读他的诗。回乡路上，他碰见十二年前的旧识、营妓云英，云英感叹一句"你怎么还没考上"，罗隐当场写诗怼回去："我未成名卿未嫁，可能俱是不如人。"温伯陵在这里摆了一组全书最好的对照：同样是沦落人相逢，白居易对琵琶女说的是"相逢何必曾相识"，给的是温情；罗隐给云英的是刀子，针尖对麦芒。差别在哪？温伯陵的判断是：自信这东西，要么来自赢过，要么来自顺遂，罗隐两样都没有，失败的次数多了，人就变得敏感带刺。长安下雪，人人说瑞雪兆丰年，他偏写"长安有贫者，为瑞不宜多"；黄巢之后朝廷清算从贼女子，他写诗翻杨玉环的旧案讽刺皇帝。诗是好诗，人是好人，可这种见谁喷谁的性子，官场容不下，朋友也处不来。这篇的落点：与自己和解，是人生第一要事，接受现实，努力活下去，在不完美的生命里，不忘曾经的意气风发。</p>
 
-  <p>四篇之外，剩下的二十一篇同一副笔墨：王勃、骆宾王、王维、杜甫、李白、贺知章、高适、孟浩然、颜真卿、李贺、张籍、孟郊、杜牧、李商隐、薛涛、鱼玄机，外加刘禹锡对柳宗元、白居易对元稹、宋之问对温庭筠三篇双人篇。序言里有个说法可以当这批篇目的总纲：谪仙人的李白让人羡慕，可真正让人感动的，是肉体凡胎的李白——会受挫、会狼狈、会认怂的那些时刻。</p>
+  <p>四篇之外，剩下的二十一篇同一副笔墨：王勃、骆宾王、王维、杜甫、李白、贺知章、高适、孟浩然、颜真卿、李贺、张籍、孟郊、杜牧、李商隐、薛涛、鱼玄机，外加刘禹锡对柳宗元、白居易对元稹、宋之问对温庭筠三篇双人篇。序言里有个说法可以当这批篇目的总纲：谪仙人的李白让人羡慕，可真正让人感动的，是肉体凡胎的李白，会受挫、会狼狈、会认怂的那些时刻。</p>
 
-  <p>二十五篇看完，人物各样，落点却惊人地一致：都落在"情"字上，落在普通人怎么跟自己的日子相处上。这本书为什么敢这么读诗，序言里还有两个细节——作者自己被唐诗击中的两个时刻。那才是这本书真正的钥匙，我先按下，第八层细说。</p>
+  <p>二十五篇看完，人物各样，落点却惊人地一致：都落在"情"字上，落在普通人怎么跟自己的日子相处上。这本书为什么敢这么读诗，序言里还有两个细节，作者自己被唐诗击中的两个时刻。那才是这本书真正的钥匙，我先按下，第八层细说。</p>
 </div>
 
 <!-- ==================== 第二层 ==================== -->
@@ -459,13 +531,13 @@
 
   <p>但这句话有个窟窿，得当场指出来：如果读到的终究是自己，那还要诗人干什么？我委屈我的，随手抓一句诗往上一贴，唐诗就成了鸡汤素材库。</p>
 
-  <p>这个窟窿，温伯陵自己在序言里就补上了。他的文章总要先讲历史背景，缺了背景，情就对不上号。不知道白居易刚被贬江州、刚经历了宰相当街被刺、满朝无人敢言的那一年，"同是天涯沦落人"就只是一句对仗工整的漂亮话；知道了，这句诗才有分量——一个刚被命运按在地上的人，把另一个被命运按在地上的人认了出来。所以顺序不能反。跳过前两步直接读自己，等于拿诗照镜子：镜子里只有自己。</p>
+  <p>这个窟窿，温伯陵自己在序言里就补上了。他的文章总要先讲历史背景，缺了背景，情就对不上号。不知道白居易刚被贬江州、刚经历了宰相当街被刺、满朝无人敢言的那一年，"同是天涯沦落人"就只是一句对仗工整的漂亮话；知道了，这句诗才有分量，一个刚被命运按在地上的人，把另一个被命运按在地上的人认了出来。所以顺序不能反。跳过前两步直接读自己，等于拿诗照镜子：镜子里只有自己。</p>
 
-  <p>这个道理，用 KTV 一点就透。包厢里那个点《山丘》的中年男人，唱的都是自己。但有两个前提：歌得是真的，写歌的人真疼过；再就是，你得知道歌词在说什么，不然就是瞎跟唱。唐诗就是中国人的公共歌单，一千多年的点唱记录都存着，谁都可以点。而一个人在最难过的时候想起哪句诗，基本就暴露了他哪块有伤。温伯陵点的是"夜深忽梦少年事"——值班的深夜，他也梦见了自己的少年时。郑姑娘当年隔着纱帘读罗隐，点的其实是"春风得意马蹄疾"，帘子一掀，歌就切了。点歌这件事，骗不了人。</p>
+  <p>这个道理，用 KTV 一点就透。包厢里那个点《山丘》的中年男人，唱的都是自己。但有两个前提：歌得是真的，写歌的人真疼过；再就是，你得知道歌词在说什么，不然就是瞎跟唱。唐诗就是中国人的公共歌单，一千多年的点唱记录都存着，谁都可以点。而一个人在最难过的时候想起哪句诗，基本就暴露了他哪块有伤。温伯陵点的是"夜深忽梦少年事"，值班的深夜，他也梦见了自己的少年时。郑姑娘当年隔着纱帘读罗隐，点的其实是"春风得意马蹄疾"，帘子一掀，歌就切了。点歌这件事，骗不了人。</p>
 
   <p>那为什么偏偏是唐诗成了这个歌单？短是一大原因。二十个字一个场景，不铺垫不解释，疼就疼在字缝里，正好够你在深夜里没头没尾想起来。再就是真。这些人写诗的时候多半没想传世，李白喝多了写，白居易贬着写，罗隐考砸了写，情绪都是当天的，没来得及掺水。还有，够多。五万首存下来，得意有"一日看尽长安花"，不服有"我辈岂是蓬蒿人"，你这辈子大概率遇上的那几种疼，货架上全有现货。</p>
 
-  <p>所以这本书最有用的读法，可能是反着来的：哪天一句唐诗突然砸中你，先别急着感动，回头看看自己——你正在为什么事疼？诗不负责止疼，它只负责告诉你：这疼，一千二百年前有人替你试过，他没死，你多半也死不了。温伯陵值完班写下那篇序言的时候，《回乡偶书》里的儿童照旧不认识他；但写完这二十五篇，他那个年，大概过得没那么想家了。</p>
+  <p>所以这本书最有用的读法，可能是反着来的：哪天一句唐诗突然砸中你，先别急着感动，回头看看自己，你正在为什么事疼？诗不负责止疼，它只负责告诉你：这疼，一千二百年前有人替你试过，他没死，你多半也死不了。温伯陵值完班写下那篇序言的时候，《回乡偶书》里的儿童照旧不认识他；但写完这二十五篇，他那个年，大概过得没那么想家了。</p>
 </div>
 
 <!-- ==================== 事实边界 ==================== -->

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>禅与摩托车维修艺术 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>禅与摩托车维修艺术</h1>
-  <div class="author">罗伯特·M·波西格　1974　重庆出版社　张国宪 译　对价值的探询</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">禅与摩托车维修艺术</div>
+    <div class="cover-sub">M·波西格　1974　重庆出版社　张国宪 译　对价值的探询</div>
+    <div class="cover-meta">罗伯特 · 解读主理：青山 · 日期：2026-09-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 一趟横跨大平原的旅程与一个被电击抹去名字的幽灵</span>
+      <span class="toc-desc">整本书的字面运动路线极其清晰：一个父亲带着十一岁的儿子克里斯，以及一对艺术家夫妇朋友约翰与思薇雅，骑着两辆摩托...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么说良质先于主观与客观</span>
+      <span class="toc-desc">波西格并没有停留在文学抒情上，他给出了极其严格的实证与教学证据，证明人类对事物好坏的感知先于任何理性定义与理性...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三根独立的承重线支撑起全书体系</span>
+      <span class="toc-desc">全书的第一个生成器是对西方两千多年认识论传统的诊断。从亚里士多德开始，西方哲学将整个现实切成两块：客观世界（由...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着那颗滑丝的螺栓一路追问到底</span>
+      <span class="toc-desc">你在修理化油器时，遇到了一颗紧固在铝制机壳上的小螺栓。你用螺丝刀去拧，螺丝刀滑脱了，螺丝头上的十字槽被绞成了一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个递进问题走完波西格的整套推理</span>
+      <span class="toc-desc">作者在书中反复强调，一辆摩托车是由钢铁、橡胶与塑料装配而成的机械，但它更是一套完全由人类理性概念构建出来的因果...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出作者的狂热：一份现代技术生活的清醒诊断</span>
+      <span class="toc-desc">罗伯特·波西格成长于二战后美国工业与科技全面腾飞的黄金年代。作为智商高达一百七十的天才，他经历了现代技术文明带...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一页餐巾纸上的全书架构</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 啤酒罐里的文明史：一个垫片如何击穿现代人的傲慢</span>
+      <span class="toc-desc">在达科他高原的烈日下，约翰那辆价值不菲的宝马摩托车在经过长途颠簸后，车把开始松动打滑。摩托车在高速行驶中如果车...</span>
+    </div>
+  </div>
+
   <div class="lead">现代人面对冰冷的机器感到恶心，逃进山林又离不开工业产品。这本书骑着一辆旧摩托车跨过半个美国，想找回人与人造物之间丢失的关照与心神。</div>
 </div>
 

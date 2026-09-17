@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>穷鬼的上下两千年 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>穷鬼的上下两千年</h1>
-  <div class="author">非玩家角色 · 长篇网络小说 · 四卷加番外 · 约一百零三万字</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">穷鬼的上下两千年</div>
+    <div class="cover-sub">长篇网络小说 · 四卷加番外 · 约一百零三万字</div>
+    <div class="cover-meta">非玩家角色 · 解读主理：青山 · 日期：2026-08-25 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这两千年，她走了什么路</span>
+      <span class="toc-desc">顾楠在二十一世纪是普通设计师，老板深夜让她改一张古代战场的游戏海报，要"历史和沧桑感"。"加几个滤镜，调一下色...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 人物的选择，怎么构成这本书的判断</span>
+      <span class="toc-desc">这本书不太讲"历史必然"，它讲一个人的选择怎么把两千年串起来。看三处选择就够。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在推动故事的几件事</span>
+      <span class="toc-desc">这是一部叙事作品，情节的发动机看三根线。这是基于文本的一种读法，但三根线都能在全书找到持续验证。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 说明 · 跳过两层</span>
+      <span class="toc-desc">第四层的纵向深钻与第五层的推理链条属于论证型和方法论型作品。本书是叙事作品，这两层的结构化推理会让读法变得不诚...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 跳出这本书再看一次</span>
+      <span class="toc-desc">这是基于文本的推测。这套小说最执着的动作是给历史里没有名字的人一个具体的名字和一顿饭。坑杀的十八万人在史书上是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 把整本书压到一张纸上</span>
+      <span class="toc-desc">她活了两千年，只是为了把白起没看到的那一眼，替一段一段人看清楚，再把看到的告诉下一个还没吃饱的孩子。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一碗豆饭，两千年还债</span>
+      <span class="toc-desc">先把账本翻开。全书第一次有人对顾楠好，是白起在茶馆里给了她一碗豆饭。大豆煮烂，油盐少，豆腥味重，她当时饿了三天...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 留下一句话</span>
+      <span class="toc-desc">她活了两千年，学会的只有一件事，欠着。</span>
+    </div>
+  </div>
+
   <div class="lead">一个现代设计师穿越到战国，偷了白起的钱袋，白起请她吃了一碗豆饭。白起死前托她一件事，她用了两千年去做。这本书讲的就是那件事。</div>
 </div>
 
@@ -380,7 +460,7 @@
 
   <p>她救过两次嬴政。一次是婴儿时代，车队在乱军中撤退，小嬴政从车上掉进了军阵，她一个人骑黑哥冲进千人阵里把孩子捞回来，心里只反复着一个念头，代为师看一看那太平盛世，要让这孩子活。也许嬴政算不上一个好皇帝，但他是能统一天下的人。另一次是荆轲，图穷匕见，她徒手握住了荆轲的剑，手掌被贯穿。后来她做嬴政的老师，教他千字文。他问"天地玄黄，宇宙洪荒"是什么意思，她讲给他。李斯每次都在旁听。她看着嬴子楚从东簪楼一起喝酒的翩翩公子变成弑父的君王，看着韩非饮鸩。李牧死在她献的计策里。水没大梁，万千百姓的命换来魏国灭亡。</p>
 
-  <p>秦统一之后她主张废掉六国旧爵、把田分给百姓。卫庄是个韩国人，白发剑客，却替秦国清剿韩国旧爵，因为他信的是分田与太平；他当年是个偷她钱的六岁小孩，说钱以后一定会还。嬴政登门向她道歉，说读者，你真的从未老去啊。求长生。她说不能。公元前217年前后，大雪，匈奴扣关，旱疫并至。嬴政死在沙丘，弥留时背千字文给她听：云腾致雨，露结为霜……顾读者，我，背的可对？</p>
+  <p>秦统一之后她主张废掉六国旧爵、把田分给百姓。卫庄是个韩国人，白发剑客，却替秦国清剿韩国旧爵，因为他信的是分田与太平；他当年是个偷她钱的六岁小孩，说钱以后一定会还。嬴政登门向她道歉，说先生，你真的从未老去啊。求长生。她说不能。公元前217年前后，大雪，匈奴扣关，旱疫并至。嬴政死在沙丘，弥留时背千字文给她听：云腾致雨，露结为霜……顾先生，我，背的可对？</p>
 
   <div class="marker">前119年 · 朔方</div>
 
@@ -544,7 +624,7 @@
 
   <p>她永远比时代穷。从战国的咸阳到公元1543年的登州，她做过田舍农、教书先生、木匠、大夫，最后还只是个为二两银子赏钱炖一顿鸡汤的穷书生，活了两千年，一个铜板都没有攒下来。认真想，这笔账是故意的。长生的人攒钱没有意义，存钱的利息是时间，时间用在她身上不产生利息，只产生告别。她可以跟端木晴学医，把兵书留给少年诸葛亮，把地图交给郑和，她可以把所有东西都送出去，唯独把名字留不住。许昌名医二十年，病人问起，从来不答自己的名字；孔融要为她师门立碑，她说我师门没有祠堂，人死后烧作飞灰，不立祠堂；魏国太平楼，相传是为了纪念一个人所建，她做了二十年大夫，只求皇帝赏她上去看一眼，她看到的是好一片江山如画，她站在自己两千年积攒的高处，没有署名。</p>
 
-  <p>她的财富不靠攒，靠别人记。药童走遍天下，每次问的只有一句话，你有没有见过一个人，她姓顾，总爱带一个斗笠，手上有道疤。郭嘉官至六卿，每天问守卫今天有信没有，一问几十年。玲绮在门口点灯，等一个不会来的人。那个最会写诗的李白，年年约她喝酒，说读者要是明年不来，他就自己把酒喝了。白起墓前她跪下来，对空气说，也不夸我一句。那一声没有回音的夸，是全书她穷得最干净的一笔，她所有的付出去处都是空的，唯一能落脚的，是她还欠着。</p>
+  <p>她的财富不靠攒，靠别人记。药童走遍天下，每次问的只有一句话，你有没有见过一个人，她姓顾，总爱带一个斗笠，手上有道疤。郭嘉官至六卿，每天问守卫今天有信没有，一问几十年。玲绮在门口点灯，等一个不会来的人。那个最会写诗的李白，年年约她喝酒，说先生要是明年不来，他就自己把酒喝了。白起墓前她跪下来，对空气说，也不夸我一句。那一声没有回音的夸，是全书她穷得最干净的一笔，她所有的付出去处都是空的，唯一能落脚的，是她还欠着。</p>
 
   <p>玄奘那一段把它逼到底了。一个和尚问她，你经常杀生吗。她说，杀过很多人。他说佛门讲的放下屠刀，读过便解脱。她反问，若是我放下了屠刀得以超脱，那我杀的人怎么办，这杀孽，谁背呢。玄奘想了几天，答不出来，他说小僧修行浅薄，难以做解，我愿意此后日日诵经，为你脱解杀孽。又问，杀孽几何。她说，记不清了。玄奘说，那就以无记做记。这话到位了。欠的债连数目都没有，账本上能记的就只剩一个名字，她的名字。</p>
 

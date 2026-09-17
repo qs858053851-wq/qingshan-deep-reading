@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>中央帝国的哲学密码 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -250,6 +285,13 @@
     color: var(--brand);
     margin-bottom: 12pt;
     letter-spacing: 1pt;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
   .napkin-caption {
     font-size: 11pt;
@@ -267,6 +309,65 @@
     color: var(--dark-warm);
     border-radius: 0 4pt 4pt 0;
     line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -288,42 +389,42 @@
 
   <div class="toc">
     <h2>目 录</h2>
-    <a class="toc-item" href="#layer01">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">跳出纯学术哲学的经院玄谈，看历代大一统帝国如何将思想流变算进统治成本账本</span>
-    </a>
-    <a class="toc-item" href="#layer02">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">汉武帝政治契约改造、魏晋名士玄学避祸与宋明理学收买皇权的历史铁证</span>
-    </a>
-    <a class="toc-item" href="#layer03">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 机制解剖</span>
       <span class="toc-desc">帝国哲学密码更迭的三大动力学齿轮：合法性供给、士大夫利益博弈与思想控制成本</span>
-    </a>
-    <a class="toc-item" href="#layer04">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 终极下钻</span>
       <span class="toc-desc">从内圣外王到精神枷锁，传统中国知识分子的宿命与挣扎</span>
-    </a>
-    <a class="toc-item" href="#layer05">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 衍生推演</span>
       <span class="toc-desc">六大核心推演：从意识形态成本账本看现代组织文化与共识凝聚</span>
-    </a>
-    <a class="toc-item" href="#layer06">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 破界审视</span>
       <span class="toc-desc">警惕功利主义还原论的片面偏颇，守护哲学思想本体的崇高超越性</span>
-    </a>
-    <a class="toc-item" href="#layer07">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
       <span class="toc-desc">官方意识形态统治效能与合法性维持成本力学模型</span>
-    </a>
-    <a class="toc-item" href="#layer08">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">最值钱的一个问题：如果一台老旧电脑换了五次机箱还是总死机，为什么老板宁可天天重装系统也不肯换一块好主板？</span>
-    </a>
-    <a class="toc-item" href="#layer09">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">走出两千年思想洞穴，在理性的阳光下拥抱独立健全的人格</span>
-    </a>
+    </div>
   </div>
 
   <div class="section" id="layer01">
@@ -374,7 +475,7 @@
   <div class="section" id="layer06">
     <div class="layer-tag">Layer 06 · 破界审视</div>
     <h1>警惕功利主义还原论的片面偏颇，守护哲学思想本体的崇高超越性</h1>
-    <p>郭建龙读者用政治经济成本视角解构中国传统思想史，具有极其锋利的现实穿透力与祛魅价值，但在为其犀利洞见折服的同时，必须防范滑向庸俗政治功利主义的危险陷阱。</p>
+    <p>郭建龙先生用政治经济成本视角解构中国传统思想史，具有极其锋利的现实穿透力与祛魅价值，但在为其犀利洞见折服的同时，必须防范滑向庸俗政治功利主义的危险陷阱。</p>
     <p>第一重审视在于不能将所有的哲学创造全盘贬低为纯粹的政治权谋工具。中国历代伟大思想家如孟子、庄子、张载、王阳明，其对天道人伦、宇宙生化与良知心性的深邃体悟，蕴含着对真善美与崇高境界的真诚追求与超功利关怀，不能将其完全等同于迎合皇权统治的算计筹码。</p>
     <p>第二重反思关乎历史考证的局部推论主观性。作者将魏晋名士玄学清谈乃至理学流变几乎完全归因于政治恐惧与统治性价比，这一视角极为新颖独到，但在一定程度上淡化了汉魏之际知识谱系内在演变、佛教传入本土化碰撞以及先秦典籍考据自身的发展逻辑。</p>
     <p>第三重审视提醒我们在批判传统思想糟粕的同时不可虚无否定中华文化的精神根基。传统儒释道思想中蕴含的自强不息、民胞物与、天人合一与天下为公等宏大情怀，依然是当代中华文明在现代转型中不可或缺的宝贵精神母体，应当取其精华、去其糟粕。</p>

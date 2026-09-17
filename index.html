@@ -1273,7 +1273,13 @@
         return match ? `${match[1]}.${match[2]}.${match[3]}` : value;
       }
 
-      function preferredLink(entry) { return entry.html || entry.markdown || '#'; }
+      // PDF 典藏版的存放基地址，注意结尾要带斜杠。留空表示暂未随站点发布：
+      // 785 个 PDF 约 993 MB，加上正文与字体正好压到 GitHub Pages 的 1 GB 上限。
+      // 以后把 PDF 放到别处（独立分支、对象存储）时，在这里填上基地址，
+      // 例如 'https://example.com/qingshan/'，首页的「PDF 典藏」按钮会自动恢复。
+      const PDF_BASE = '';
+
+      function preferredLink(entry) { return entry.html || (PDF_BASE && entry.pdf) || '#'; }
 
       const STORAGE_KEY = 'qingshan_read_books';
       let readFilter = 'all'; // 'all', 'unread', 'read'
@@ -1407,7 +1413,7 @@
           bookList.innerHTML = shown.map((entry, index) => {
             const links = [];
             if (entry.html) links.push(`<a class="btn-pill-sm" href="${escapeHtml(entry.html)}">网页</a>`);
-            if (entry.markdown) links.push(`<a class="btn-pill-sm" href="${escapeHtml(entry.markdown)}">纯文本</a>`);
+            if (entry.pdf && PDF_BASE) links.push(`<a class="btn-pill-sm" href="${escapeHtml(PDF_BASE + entry.pdf)}">PDF 典藏</a>`);
             const isRead = isBookRead(entry.title);
             return '<article class="ledger-entry-row ' + (isRead ? 'is-read-row' : '') + '">' +
               '<span class="ledger-idx">' + String(index + 1).padStart(3, '0') + '</span>' +

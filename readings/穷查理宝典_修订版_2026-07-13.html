@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>穷查理宝典 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · Deep Reading</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">穷查理宝典</div>
+    <div class="cover-sub">青山解 · 2026-07-07 初稿 · 2026-07-13 修订 · 全九层</div>
+    <div class="cover-meta">彼得·考夫曼 编 · 查理·芒格 著 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先说清一件事：这本书不是查理·芒格本人坐在书桌前写出来的专著。它是一本由编辑彼得·考夫曼拼起来的合集，收的是芒...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">芒格不是写论文的人，他不给你前提一二三推到结论。他的论证是"故事+反例+谚语"型，但如果你把这些故事串起来，他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书翻来覆去讲了十一讲加上传记和方法论，看着千头万绪，但你把所有例子往回追，底下真正起作用的就三根线。用这三...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">第三层横着看有三根线。这一层竖着挖，只挑最深的第二根，铁锤人，往下追，看能追到什么不可再问的底。我从表象开始，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：因为现实里真正难的题没有一个乖乖待在学科边界里，精通一门等于只带一把铁锤进森林。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">芒格为什么非要花二十年攒这套东西、还专门为本书重写第十一讲？我读出来的不是"想教人赚钱"。他真正的那股劲儿，是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话：先弄清楚别做什么，然后用全套学科的工具攻击少数几个赔率明显对你有利的机会，期间时刻警惕自己正被哪几条心...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">第四层挖到机制就收住了，铁锤人为什么换不了工具、基岩在哪，这一层用手电筒摊开。先记住这句话，你合上书十年多半还...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27</span>
+      <span class="toc-desc">真正的敌人不是无知，是你手里那支用了一百次都没出错的手电筒，它让你以为光圈就是整个房间。</span>
+    </div>
+  </div>
+
   <h1>穷查理宝典</h1>
   <div class="author">彼得·考夫曼 编 · 查理·芒格 著</div>
   <div class="meta">青山解 · 2026-07-07 初稿 · 2026-07-13 修订 · 全九层</div>
@@ -465,7 +550,7 @@
 
   <p>这不是不老实，这是大脑的自动反应。脚下裂缝：大脑为什么要这么干？为什么要主动扭曲而不老实承认"这题我解不了"？往下追。</p>
 
-  <p>再往下追，为什么大脑要主动扭曲、不肯老实承认"这题我解不了"？这道坎第八层用手电筒单独挖到底——大脑为省运算空间不肯换工具、进化把这套默认程序焊死、唯一的出路是练一辈子反程序。这里先记住机制的上半截：大脑主动扭曲现实，是铁锤人的运作方式；至于它为什么换不了工具、基岩在哪，往下留给第八层。</p>
+  <p>再往下追，为什么大脑要主动扭曲、不肯老实承认"这题我解不了"？这道坎第八层用手电筒单独挖到底，大脑为省运算空间不肯换工具、进化把这套默认程序焊死、唯一的出路是练一辈子反程序。这里先记住机制的上半截：大脑主动扭曲现实，是铁锤人的运作方式；至于它为什么换不了工具、基岩在哪，往下留给第八层。</p>
 </div>
 
 <div class="layer">
@@ -590,7 +675,7 @@
 
   <div class="napkin">
     <div class="formula">好决策 = 排错 × 多模型 × 防误判</div>
-    <div class="note">三个因子，就是第三层拆出的三根线；落地再乘一个"等得起"——赔率明显有利时集中下注、坐等。乘法不是加法：任何一项为零，整张归零。</div>
+    <div class="note">三个因子，就是第三层拆出的三根线；落地再乘一个"等得起"，赔率明显有利时集中下注、坐等。乘法不是加法：任何一项为零，整张归零。</div>
   </div>
 
   <p><strong>一句话：</strong>先弄清楚别做什么，然后用全套学科的工具攻击少数几个赔率明显对你有利的机会，期间时刻警惕自己正被哪几条心理倾向带歪。</p>

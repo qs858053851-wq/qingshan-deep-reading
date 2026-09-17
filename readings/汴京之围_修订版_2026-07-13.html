@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>汴京之围 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="book-title">汴京之围</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">汴京之围</div>
+    <div class="cover-sub">宣和四年，公元 1122 年，大运河上走着一支惊动沿途州县的船队。船上是朱勔从太湖里捞出来的一块巨石，书里按几种互相打架的古代记载折中估算，高约十五米。为了让它进汴京，沿路拆桥、毁...</div>
+    <div class="cover-meta">青山 读 · 汴京之围 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这三年讲一遍</span>
+      <span class="toc-desc">宣和四年，公元 1122 年，大运河上走着一支惊动沿途州县的船队。船上是朱勔从太湖里捞出来的一块巨石，书里按几...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么说盛世是自己作没的</span>
+      <span class="toc-desc">郭建龙在后记里把归因说得很明白：北宋政府有强烈的历史屈辱感，这种感觉来自辽国占据的燕云十六州，于是末年外交的出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，靖康之难就三根线在牵</span>
+      <span class="toc-desc">四百多页的书，十八章，几十个人物，几百个日期。全部读完回头看，真正在底下牵动一切的，就三根线。这三根线在楔子里...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书：他为什么非写不可，又漏了什么</span>
+      <span class="toc-desc">先说那股非写不可的劲儿。靖康之耻是中文互联网上最容易点燃情绪的历史题材，随手一写就是复仇爽文或悲情控诉，读者也...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸装下这本书</span>
+      <span class="toc-desc">如果只能留一句话："北宋用钱模拟了一百年的强大，直到有人上门验货。"</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 捷报与段子：一个王朝的两本账</span>
+      <span class="toc-desc">前面按下不表的那个幕间章节，现在摊开。写完收复燕京的惨败之后，郭建龙做了个不起眼的安排：把童贯发往汴京的奏章一...</span>
+    </div>
+  </div>
+
   <div class="book-sub">郭建龙 · 北宋末年的外交、战争和人</div>
   <div class="book-meta">深度解读 · 2026-07-12 初稿 · 2026-07-13 修订 · 青山书房</div>
 </div>
@@ -356,10 +429,10 @@
   <div class="marker">回到 1005 · 买来的和平，埋着两根刺</div>
   <p>故事得从一百多年前的一笔生意讲起。1005 年，宋辽在澶州城下罢兵，约定宋每年给辽银十万两、绢二十万匹，换永久和平，这就是澶渊之盟。后来西夏闹事，辽国趁机敲了一笔竹杠，岁币加到银二十万两、绢三十万匹。听起来窝囊，账却划算：这笔钱不到朝廷年收入的百分之一，比打仗便宜得多，宋辽之间由此换来上百年不打仗的太平。但这套体系里埋着两根刺。一根叫燕云十六州，936 年被石敬瑭割给契丹的那片北方土地，此后成了宋朝心口的一块疤，几代皇帝都梦想拿回来。另一根刺更隐蔽：钱买来的和平让军队一百年没打过硬仗，账面上兵额庞大，战力早已空了。到了十二世纪初，格局忽然松动，辽国衰老腐烂，白山黑水间的女真人在完颜阿骨打带领下起兵，几年间把辽军打得节节败退。汴京城里的君臣看到的却是天赐良机：联合女真，夹击辽国，收回燕云十六州。</p>
 
-  <div class="marker">1120–1122 · 海上之盟，家底露馅</div>
-  <p>这就是海上之盟，因使节须渡海联络而得名。谈判从政和年间就开始铺垫，马政使团渡海探路，双方互相摸底，各怀算计：宋朝想空手套回燕云，金国想摸清这个南方富邻居的成色。正式议价时，宋方代表赵良嗣开价每年三十万，阿骨打当场驳回。这位女真领袖是个彻底的现实主义者，书里记他的算盘：金国自己能打下燕云，把它让给北宋只拿三十万，不公平；他更愿意用燕京去换金银布帛。几轮讨价还价，定为每年五十万，银二十万两、绢三十万匹。可是轮到宋朝出兵履约时，家底露了馅：宣和四年，辽国已是强弩之末，宋军对燕京发起两次进攻，两次都被残辽的军队打得大败。燕京最后是金军攻下来的。宋朝只好花钱把城赎回来，在五十万岁币之外再加一笔燕京代租税，总数加到六十万到七十万。更难看的是国内的版本：领兵的宦官童贯往汴京送的奏章里，宋军连日大胜、势如破竹。皇帝看到的战争和实际发生的战争，是两场战争——这个裂缝有多深、是怎么裂开的，本篇最后一层单独去讲。</p>
+  <div class="marker">1120，1122 · 海上之盟，家底露馅</div>
+  <p>这就是海上之盟，因使节须渡海联络而得名。谈判从政和年间就开始铺垫，马政使团渡海探路，双方互相摸底，各怀算计：宋朝想空手套回燕云，金国想摸清这个南方富邻居的成色。正式议价时，宋方代表赵良嗣开价每年三十万，阿骨打当场驳回。这位女真领袖是个彻底的现实主义者，书里记他的算盘：金国自己能打下燕云，把它让给北宋只拿三十万，不公平；他更愿意用燕京去换金银布帛。几轮讨价还价，定为每年五十万，银二十万两、绢三十万匹。可是轮到宋朝出兵履约时，家底露了馅：宣和四年，辽国已是强弩之末，宋军对燕京发起两次进攻，两次都被残辽的军队打得大败。燕京最后是金军攻下来的。宋朝只好花钱把城赎回来，在五十万岁币之外再加一笔燕京代租税，总数加到六十万到七十万。更难看的是国内的版本：领兵的宦官童贯往汴京送的奏章里，宋军连日大胜、势如破竹。皇帝看到的战争和实际发生的战争，是两场战争，这个裂缝有多深、是怎么裂开的，本篇最后一层单独去讲。</p>
 
-  <div class="marker">1123–1125 · 张觉事件，和平的破口</div>
+  <div class="marker">1123，1125 · 张觉事件，和平的破口</div>
   <p>和平只维持了两年，破口出在一个叫张觉的人身上。他是辽国降金的平州守将，转头又叛金投宋，宋朝居然接了。金国指着盟约要人，宋朝扛不住压力，杀了张觉把人头送过去。这一下两头都塌了：金国拿到了南侵的口实，而替宋朝守北大门的郭药师寒了心。郭药师本是辽国降将，率八千精兵带着涿州易州来投，他的常胜军是宋朝北边最能打的部队，可宋朝一边用他一边防他，粮饷待遇处处给亲儿子部队开小灶。宣和七年年底，金军以张觉事件为由分东西两路南下，所过之处，那些受够了猜忌的降将部队一座城接一座城地开门投降。消息传到汴京，宋徽宗的第一反应是把皇位禅让给儿子赵桓，也就是宋钦宗，自己带着亲信南逃。</p>
 
   <div class="marker">1126 正月 · 第一次围城</div>
@@ -383,7 +456,7 @@
 
   <p>第一组证据是数字。给辽的岁币是五十万，海上之盟谈判时宋朝想着联金灭辽能省钱，结果同样的五十万原封不动转给了金，还要为一座金军攻下的燕京另付代租税，总账加到六十万到七十万。仗是别人打赢的，城是自己花钱赎的，钱比原来给得更多。这组数字排在一起，"收复"两个字就露了底：军事上宋朝什么都没证明，反而把自己军队两次攻燕京两次惨败的成色，明明白白演给了金人看。书里点破，金军南侵的胆子，很大程度上是这两场惨败喂出来的。有意思的是，朝中也有人想把这笔买卖做精：王黼主张岁币要跟实际拿到的州县挂钩，拿不全就相应扣钱，像极了按交付节点付款的合同条款。这份精明恰恰暴露了整个朝廷的思维底色，他们始终把战争当成一桩可以议价的采购，从没想过供应商可能直接上门抢走整个公司。</p>
 
-  <p>第二组证据是那个幕间章节。童贯从前线发回的奏章连日大胜，日期和真实战场上的溃败一天一天对得上，作者把两列文字并排摆在纸上，不加一句评论。作为证据，这已经够用了：决策系统的输入端整个是坏的，皇帝不缺情报，缺的是真情报。至于一戳就破的假话为什么能畅通无阻跑进皇帝的书房——这是全书最深的一口井，本篇第六层单独去挖。</p>
+  <p>第二组证据是那个幕间章节。童贯从前线发回的奏章连日大胜，日期和真实战场上的溃败一天一天对得上，作者把两列文字并排摆在纸上，不加一句评论。作为证据，这已经够用了：决策系统的输入端整个是坏的，皇帝不缺情报，缺的是真情报。至于一戳就破的假话为什么能畅通无阻跑进皇帝的书房，这是全书最深的一口井，本篇第六层单独去挖。</p>
 
   <p>第三组证据是信用的死亡过程。张觉事件里，宋朝先违约接纳金国叛将，被抓包后又杀人灭口求原谅，一次操作同时失去了金国的信任和自己降将的忠诚。第一次围城解围后，白纸黑字答应的三镇割让说反悔就反悔。单看每一次，都能找到堂皇的理由，祖宗之地不可弃、民心不可违；连起来看，宋朝在金人眼里成了一个签了字不算数的交易对手。对付不认账的人，唯一的办法是一次拿够。第二次围城金军不再满足于承诺，要现货：金银、土地、人。</p>
 
@@ -400,7 +473,7 @@
 
   <p>第一根线：这个王朝用钱模拟实力，模拟了一百年。澶渊之盟本身是笔好生意，岁币不到年收入的百分之一，换来百年和平，怎么算都赚。但这笔生意有个看不见的利息：当和平可以购买，实力就成了多余的开支。军队的名册越来越厚，战力越来越空，因为整整几代人里，实力从来没有被验过货。而且买和平的钱也从来不是凭空来的。书里翻出财政的细账：设公田钱增课，在度量衡上做手脚，用加大的"乐尺"量绢帛，一进一出多收约百分之八；花石纲和艮岳工程更是把东南民力刮到见骨。也就是说，这套体系是双向透支的，对外用钱买安全，对内用竭泽而渔的方式凑钱，盛世的账面越漂亮，账底越空。等到宣和年间朝廷决定动武，两次进攻风烛残年的辽军，两次大败，这才发现家底早就空了，可这时候骑虎难下，只好用老办法救场：花钱。赎燕京，赔围城，加岁币。问题在于，钱这种武器有个致命的性质，它只对讲价的人有效。阿骨打是讲价的，他真心觉得金银比土地好用；粘罕不是，他从宋朝一次次掏钱的动作里读出的信息是：这家人只剩钱了。于是价格一路涨，从五十万岁币涨到金五百万两的开价，最后涨到用人抵债。用钱模拟实力，模拟到最后，钱和实力一起归零。</p>
 
-  <p>第二根线：这个王朝记两本账，一本给现实，一本给叙事。叙事的那本做得实在漂亮。蔡京发明丰亨豫大，把财政透支包装成国运昌隆；艮岳把这个叙事盖成了实体建筑，一座看得见摸得着的盛世证明；前线的溃败，送进汴京时也已经译写成连日大胜。麻烦在于，看这本账的人恰恰是做决策的人。宋徽宗不知道自己的军队打不了仗，宋钦宗不知道金军的真实兵力和意图，姚平仲敢去劫营、朝廷敢在解围后立刻反悔三镇，都因为他们活在叙事账本里，以为手里的牌比实际多。两本账从来不会真正合拢，只会在城破那样的时刻猛烈对冲一次——这根线是全书埋得最深的一根，第六层专门摊开来讲。</p>
+  <p>第二根线：这个王朝记两本账，一本给现实，一本给叙事。叙事的那本做得实在漂亮。蔡京发明丰亨豫大，把财政透支包装成国运昌隆；艮岳把这个叙事盖成了实体建筑，一座看得见摸得着的盛世证明；前线的溃败，送进汴京时也已经译写成连日大胜。麻烦在于，看这本账的人恰恰是做决策的人。宋徽宗不知道自己的军队打不了仗，宋钦宗不知道金军的真实兵力和意图，姚平仲敢去劫营、朝廷敢在解围后立刻反悔三镇，都因为他们活在叙事账本里，以为手里的牌比实际多。两本账从来不会真正合拢，只会在城破那样的时刻猛烈对冲一次，这根线是全书埋得最深的一根，第六层专门摊开来讲。</p>
 
   <p>第三根线：这个王朝的组织设计以猜忌为地基。北宋立国的头等祖训是防武将，以文制军、宦官监军、将不专兵。这套设计防了一百多年内乱，代价在靖康年间集中结算。郭药师带着最能打的常胜军来投，宋朝一边靠他守北门，一边处处提防，粮饷待遇比不上后来的义胜军，常胜军士兵成建制地偷偷改换门庭；等金军南下，先降的恰恰是义胜军，朔州、武州、代州连着开城。郭药师本人的叛变更是被自己人推过去的：同僚打算拿他的人头去金营请功，他抢先一步，带着整支军队降了金，转头成了金军攻破汴京的向导。庙堂之上是同一根线的另一副面孔：战和大计没有程序，全看当天谁的声音大。李纲被罢，太学生一闹又官复原职；种师道建议半渡而击，被主和派按下；老将凋零之后，主和派接管朝堂。一个建立在互相提防上的系统，平时内耗，战时的每一分猜忌都会被敌人原价利用。</p>
 
@@ -428,7 +501,7 @@
 
   <div class="napkin">
     <div class="formula">靖康之难 = 钱模拟的实力<br>× 叙事账做的决策 × 猜忌泡透的组织</div>
-    <div class="note">三根线各自埋了上百年，单独哪根都不致命；屈辱感把目标定在燕云的那一刻，三根线绞上了同一个决策——空的家底、假的地图、离心的人，从此每一步都在收紧</div>
+    <div class="note">三根线各自埋了上百年，单独哪根都不致命；屈辱感把目标定在燕云的那一刻，三根线绞上了同一个决策，空的家底、假的地图、离心的人，从此每一步都在收紧</div>
   </div>
 
   <p>如果只能留一句话："北宋用钱模拟了一百年的强大，直到有人上门验货。"</p>

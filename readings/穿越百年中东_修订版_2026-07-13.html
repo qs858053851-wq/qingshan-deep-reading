@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>穿越百年中东 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="book-title">穿越百年中东</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">穿越百年中东</div>
+    <div class="cover-sub">2014 年，郭建龙住进贝鲁特一家青年旅舍，和两个都叫"马麦德"的年轻人分到同一个房间。一个是土耳其的什叶派青年，正打算越过边境进叙利亚，帮阿萨德政府打仗；另一个是巴基斯坦裔的丹麦...</div>
+    <div class="cover-meta">青山 读 · 穿越百年中东 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">2014 年，郭建龙住进贝鲁特一家青年旅舍，和两个都叫"马麦德"的年轻人分到同一个房间。一个是土耳其的什叶派青...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么说</span>
+      <span class="toc-desc">把郭建龙的论证抽出来，是一条五步的链子。第一步：奥斯曼帝国是个多元共存的秩序，几十个民族、好几种宗教在同一个屋...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，中东乱局就三根线在牵</span>
+      <span class="toc-desc">这本书八章走了七八个国家，人物几百个，事件密得喘不过气。但你把它整个拎起来抖一抖，会发现底下真正牵动一切的，就...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底钻：单选题的根，到底扎在哪</span>
+      <span class="toc-desc">全书最扎人的一句话，是第七章末尾那道单选题：稳定还是民主，成熟的国家两样都要，中东人却必须选一样。这一层我们只...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着七个问题，把作者的推理走一遍</span>
+      <span class="toc-desc">结论：因为帝国压根不要求大家变成同一种人。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书：他为什么非写不可，又漏了什么</span>
+      <span class="toc-desc">先说他非写不可的那股劲儿。2011 年之后，中文世界谈中东基本两种腔调：当热闹看，或者套模板讲，要么"民主化浪...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸装下这本书</span>
+      <span class="toc-desc">如果只能留一句话："所谓千年宗教仇恨，多半是一百年前那场分家留下的产权纠纷。"仇恨的语言是宗教的，仇恨的账本是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 同一间房里的两个敌人</span>
+      <span class="toc-desc">第一层开头按下的那个房间，第六层按下的那份下落，现在摊开。2014 年的一个晚上，贝鲁特一家青年旅舍的三人间里...</span>
+    </div>
+  </div>
+
   <div class="book-sub">郭建龙 · 行走见闻与近现代政治史</div>
   <div class="book-meta">深度解读 · 2026-07-12 初稿 · 2026-07-13 修订 · 青山书房</div>
 </div>
@@ -501,7 +582,7 @@
 
   <p>盲点也得诚实地说。最明显的一块是经济：除了石油，他的框架里几乎没有人口爆炸、青年失业、水资源短缺这些变量，而埃及广场上的年轻人首先是找不到工作的年轻人，"更多的面包"这四个字他自己都引了，账却没往下算。第二块是取样偏差：他走到的地方，土耳其、黎巴嫩、埃及，写得有血有肉；走不进的地方，沙特王室内部、伊朗社会、以色列的日常，只能靠文献转述，厚薄不均。第三块前面提过一嘴，这里补齐：他对奥斯曼帝国的宽容多少带着滤镜，帝国晚期对亚美尼亚人的暴行在书里几乎不占篇幅，怀旧照进历史，总会柔化一些棱角。这些盲点不推翻他的框架，但提醒你：这是一张详略有别的地图，别当成均匀的卫星照片来读。</p>
 
-  <p>这本书的骨架搬到别的领域，居然严丝合缝。想想两家文化迥异的公司合并：合同签完，组织架构图一夜之间就能画好，可两边员工心里的"自己人"还是原来的老团队，开会各坐一边，出事各护各的。空降的强势 CEO 能用权威把两边捏在一起，他一离任，公司立刻回到暗斗。架构图上的边界和人心里的边界，是两张图。中东的国界与教派，就是把这两张图的错位放大到流血的尺度。再看熟悉的乡村：外部机构进村办合作社，章程、股权、票决设计得漂漂亮亮，落地后常常被宗族关系悄悄架空，真正管用的规矩还是"谁跟谁是叔伯"。能活下来的乡村组织，几乎都是顺着原有信任圈子长出来的，而非按文本扣上去的。这和"国家从社会里长出来才立得住"是同一条道理，尺度不同而已。</p>
+  <p>这本书的骨架搬到别的领域，居然严丝合缝。想想两家文化迥异的公司合并：合同签完，组织架构图一夜之间就能画好，可两边员工心里的"自己人"还是原来的老团队，开会各坐一边，出事各护各的。空降的强势 CEO 能用权威把两边捏在一起，他一离任，公司立刻回到暗斗。架构图上的边界和人心里的边界，是两张图。中东的国界与教派，就是把这两张图的错位放大到流血的尺度。再看先生熟悉的乡村：外部机构进村办合作社，章程、股权、票决设计得漂漂亮亮，落地后常常被宗族关系悄悄架空，真正管用的规矩还是"谁跟谁是叔伯"。能活下来的乡村组织，几乎都是顺着原有信任圈子长出来的，而非按文本扣上去的。这和"国家从社会里长出来才立得住"是同一条道理，尺度不同而已。</p>
 
   <p>最后落到行动上。读完这本书，有三个可以立刻改掉的习惯。第一，下次刷到任何冲突地区的新闻，先别站队，问三个问题：这个国家的边界是谁划的？这里的人真正效忠的单位是什么？外面有哪几只手在下注？三问过后再看报道，你会发现自己读的已经是另一条新闻。第二，凡是遇到"某国应该如何如何"的评论，把"应该"两个字换成"然后呢"，逼自己往下推三步连锁反应，推不动就承认自己不懂，这比表态诚实得多。第三，做任何要在陌生共同体里落地的事，进村的项目、跨部门的改革、新团队的整合，动手前先画那张看不见的信任圈子图：谁听谁的，谁和谁世代有怨。制度顺着圈子设计，才有机会活；对着圈子硬来，纸面再漂亮也是另一份赛克斯-皮科协定。</p>
 </div>

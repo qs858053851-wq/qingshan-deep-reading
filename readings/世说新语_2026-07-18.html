@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>世说新语 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>世说新语</h1>
-  <div class="author">[南朝宋] 刘义庆 编 · 三十六门 · 记汉末至东晋士人言行</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">世说新语</div>
+    <div class="cover-sub">一千一百多则小故事，没有一个完整的人，只有一个个闪光的瞬间。它专记人最可爱、最可气、最可笑的那一下子。</div>
+    <div class="cover-meta">[南朝宋] 刘义庆 编 · 三十六门 · 记汉末至东晋士人言行 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《世说新语》是本什么样的书？简单说：它是中国最早的「段子集」，也是最高级的「段子集」。刘义庆是南朝宋的宗室，他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">记言行的书很多，为什么偏偏《世说新语》里的人，过了快两千年还活灵活现？不靠记的事大，靠一套很挑剔的眼光。拆开来...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">一千一百多则故事，三十六门，看着是散装的。但通读下来，底下有魏晋人自己的精神结构在撑着。这一层讲的是「一种读法...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">照例先交代：刘义庆编这本书的动机，史无明文，这一层谈动机、谈盲点，是从书的内容和体例里读出来的推测，不是他自己...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">把这本书压到一张餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">前面几层，有一则我一直按着没讲，「雪夜访戴」。前面提都没细提，是想留到最后。因为它表面上是这本书里最没内容的一...</span>
+    </div>
+  </div>
+
   <div class="tagline">一千一百多则小故事，没有一个完整的人，只有一个个闪光的瞬间。它专记人最可爱、最可气、最可笑的那一下子。</div>
 </div>
 
@@ -351,9 +423,9 @@
   <div class="layer-num">第一层</div>
   <div class="layer-title">这本书到底在记什么</div>
 
-  <p>《世说新语》是本什么样的书？简单说：它是中国最早的「段子集」，也是最高级的「段子集」。刘义庆是南朝宋的宗室，他和门下一帮文人，把汉末到东晋两三百年间士大夫的言行轶事，搜集起来，分门别类，编成这么一本书。每则都很短，短的十几字，长的一两百字，记一个人说过的一句话、做过的一件事。记完就走，不评论，不展开，不交代来龙去脉。可就是这些碎片，拼出了一整个时代的精神长相——后世管它叫「魏晋风度」。</p>
+  <p>《世说新语》是本什么样的书？简单说：它是中国最早的「段子集」，也是最高级的「段子集」。刘义庆是南朝宋的宗室，他和门下一帮文人，把汉末到东晋两三百年间士大夫的言行轶事，搜集起来，分门别类，编成这么一本书。每则都很短，短的十几字，长的一两百字，记一个人说过的一句话、做过的一件事。记完就走，不评论，不展开，不交代来龙去脉。可就是这些碎片，拼出了一整个时代的精神长相，后世管它叫「魏晋风度」。</p>
 
-  <p>全书分三十六门，从「德行」「言语」开始，到「仇隙」结束。这个分法本身就是一套看人的坐标系：前四门（德行、言语、政事、文学）是孔子门下的「四科」，是最正经的；越往后越野，「任诞」（放浪）、「简傲」（傲慢）、「汰侈」（奢靡）、「忿狷」（暴躁）、「惑溺」（沉迷）——正经史书里上不了台面的毛病，这本书都给它们单独立了门类，一本正经地记下来。这透露了一个要紧的态度：在这本书里，「有毛病但真实」的人，比「正确但乏味」的人值得记。</p>
+  <p>全书分三十六门，从「德行」「言语」开始，到「仇隙」结束。这个分法本身就是一套看人的坐标系：前四门（德行、言语、政事、文学）是孔子门下的「四科」，是最正经的；越往后越野，「任诞」（放浪）、「简傲」（傲慢）、「汰侈」（奢靡）、「忿狷」（暴躁）、「惑溺」（沉迷），正经史书里上不了台面的毛病，这本书都给它们单独立了门类，一本正经地记下来。这透露了一个要紧的态度：在这本书里，「有毛病但真实」的人，比「正确但乏味」的人值得记。</p>
 
   <p>举三则，感受一下这本书的笔法。</p>
 
@@ -380,12 +452,12 @@
   <p>记言行的书很多，为什么偏偏《世说新语》里的人，过了快两千年还活灵活现？不靠记的事大，靠一套很挑剔的眼光。拆开来，这套眼光有三处厉害。</p>
 
   <h3>第一处：只取一个瞬间，但那个瞬间能照见一辈子</h3>
-  <p>这本书记人，从不给完整的传记，只切一个横截面。可这个截面切得极准。王羲之的「东床坦腹」：郗太傅派人到王家选女婿，王家子弟个个端着、绷着，只有王羲之一个人袒着肚子躺在东床上吃东西，跟没事人一样。选婿的人回去一报，郗太傅说：就是这个好。你看，王羲之是什么人——不装、不在意、有自己的主心骨——一句话没说，一个动作全出来了。这就是这本书的眼光：它不贪多，一个瞬间够了，只要那个瞬间是人物「最是他自己」的瞬间。</p>
+  <p>这本书记人，从不给完整的传记，只切一个横截面。可这个截面切得极准。王羲之的「东床坦腹」：郗太傅派人到王家选女婿，王家子弟个个端着、绷着，只有王羲之一个人袒着肚子躺在东床上吃东西，跟没事人一样。选婿的人回去一报，郗太傅说：就是这个好。你看，王羲之是什么人，不装、不在意、有自己的主心骨，一句话没说，一个动作全出来了。这就是这本书的眼光：它不贪多，一个瞬间够了，只要那个瞬间是人物「最是他自己」的瞬间。</p>
 
   <h3>第二处：敢记出格的，甚至敢记下作的</h3>
   <p>正经史书给人立传，是要挑「值得学」的记。《世说新语》不挑。它记刘伶的「病酒」：刘伶喝酒喝出病来，跟妻子要酒。妻子把酒倒了、把器皿砸了，哭着劝他戒。刘伶说：好，我自己戒不掉，得在神前发誓才能戒，你备酒肉祭神。妻子备好了，刘伶跪下祝告：「天生刘伶，以酒为命，一饮一斛，五斗解酲。妇人之言，慎不可听！」说完拿起酒肉大吃大喝，又醉倒了。这事儿荒唐、没出息，可记它的人一点不遮掩。为什么？因为这也是人。这本书的门类里有「任诞」「汰侈」「忿狷」「惑溺」，专门收容这些上不了台面的东西。它要的是人本来的样子，不是人应该的样子。</p>
 
-  <div class="quote">嵇中散临刑东市，神气不变。索琴弹之，奏《广陵散》。曲终，曰：「袁孝尼尝请学此散，吾靳固不与，《广陵散》于今绝矣！」<div class="src">——《世说新语·雅量》。嵇康在东市被杀，神色不变，要琴来弹了一曲《广陵散》。弹完说：袁孝尼曾求我教他这曲子，我舍不得，没教，从今往后，《广陵散》绝了。三千太学生请愿赦他，不许。</div></div>
+  <div class="quote">嵇中散临刑东市，神气不变。索琴弹之，奏《广陵散》。曲终，曰：「袁孝尼尝请学此散，吾靳固不与，《广陵散》于今绝矣！」<div class="src">，《世说新语·雅量》。嵇康在东市被杀，神色不变，要琴来弹了一曲《广陵散》。弹完说：袁孝尼曾求我教他这曲子，我舍不得，没教，从今往后，《广陵散》绝了。三千太学生请愿赦他，不许。</div></div>
 
   <h3>第三处：把「死」也当作一种风度来记</h3>
   <p>这是最深的一处。嵇康临刑弹《广陵散》，记的是他死的时候在干什么：在弹一首曲子，还在为曲子要失传而可惜，不为自己的命。这一笔，把「死」从悲剧变成了风度。书里这样的时刻不少：夏侯玄赴死，颜色不变；谢安接到淝水大捷的捷报，正在下棋，看完放下，继续下，脸上一点变化没有，客人问起，只说「小儿辈大破贼」。这些人面对生死、面对天大的事，都有一种近乎表演的镇定。这本书记着这些，是因为它推崇的东西很明确：一个人最高的体面，是天大的事临头，不失态。</p>
@@ -409,7 +481,7 @@
   <h3>第二根线：越是天塌的时候，越要活出人样</h3>
   <p>这是更沉的一根线。这本书里的人，大多活在巨大的不安里：改朝换代、党争、灭族，今天是座上宾，明天就可能身首异处。在这种时候，人怎么自处？这本书记了一套很特别的自处方式。「新亭对泣」：南渡过江的士大夫们，每逢好天就在新亭聚会饮酒，周顗叹口气说：风景跟从前一样，只是山河变了。满座都流泪。只有王导变了脸色，说：应当同心协力恢复中原，何至于像囚徒一样相对哭泣？这是在大不安里，选择不消沉。再如「木犹如此」：桓温北征，路过金城，看见自己年轻时种的柳树已经十围粗了，感慨说：树都这样，人怎么经得起？攀着枝条流下泪来。这是在大功业半生的当口，突然感到时间把人掏空了。这两则，一则是不许自己垮，一则是拦不住自己垮，记的都是人在时代巨浪里的那一下晃神。这根线讲的是：魏晋风度的底色不是潇洒，是绝境，正因为命如草芥，才要把每一刻活出个人样来。</p>
 
-  <div class="quote">过江诸人，每至美日，辄相邀新亭，藉卉饮宴。周侯中坐而叹曰：「风景不殊，正自有山河之异！」皆相视流泪。唯王丞相愀然变色曰：「当共戮力王室，克复神州，何至作楚囚相对！」<div class="src">——《世说新语·言语》。风景没有不同，只是山河变了。满座流泪，只有王导不许哭。</div></div>
+  <div class="quote">过江诸人，每至美日，辄相邀新亭，藉卉饮宴。周侯中坐而叹曰：「风景不殊，正自有山河之异！」皆相视流泪。唯王丞相愀然变色曰：「当共戮力王室，克复神州，何至作楚囚相对！」<div class="src">，《世说新语·言语》。风景没有不同，只是山河变了。满座流泪，只有王导不许哭。</div></div>
 
   <h3>两根线拧在一起，「魏晋风度」才立得起来</h3>
   <p>单看第一根线，会以为魏晋人就是一群不管不顾的浪子；单看第二根线，会以为他们是苦中作乐的可怜人。两根拧在一起，才是完整的「魏晋风度」：在一个把人命当草芥的时代，偏要用最任性、最较真、最不失态的方式活，以此证明人是人，不是草芥。任性是他们的铠甲，风度是他们的抵抗。这本书的每一个闪光瞬间底下，其实都垫着一层冷，那层冷是「随时会死」。读懂了这层冷，再回头看那些潇洒，就一点不觉得轻佻了，只觉得壮烈。</p>

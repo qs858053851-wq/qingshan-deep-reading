@@ -1,25 +1,32 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>《1959拉萨》深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -76,6 +83,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -89,14 +107,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -105,7 +123,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -114,7 +132,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -124,7 +142,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -132,12 +150,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -153,7 +171,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -168,7 +185,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -263,9 +279,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -273,6 +288,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -325,6 +357,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -332,7 +373,44 @@
     }
   }
 </style></head><body>
-<header class="hero"><div class="container"><div class="eyebrow">DEEP READING · 2026</div><h1>1959拉萨<br>达赖喇嘛如何出走</h1><div class="author">李江琳</div><p class="dek">这本书把一个常被压成口号的事件重新展开。达赖喇嘛的出走没有在某一天凭空发生，也无法由一个幕后操盘者完整控制。四省藏区的战争和拉萨的恐惧，加上军政双方的误判，在八天里越过了所有人的控制能力。</p></div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">1959拉萨 达赖喇嘛如何出走</div>
+    <div class="cover-sub">李江琳写这本书，是从一个不肯服从既有版本的疑问开始。她在锡金访问一位曾参与护送的老人，对方展示腿上的枪伤，否定民间流传的解放军主动让路说。中国官方长期使用的劫持说也留下明显空缺。一...</div>
+    <div class="cover-meta">李江琳 · 解读主理：青山 · 日期：2026-08-20 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 从边地战火到越过边境</span>
+      <span class="toc-desc">李江琳写这本书，是从一个不肯服从既有版本的疑问开始。她在锡金访问一位曾参与护送的老人，对方展示腿上的枪伤，否定...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者怎样重建一场被口号覆盖的事件</span>
+      <span class="toc-desc">作者没有把任何一方回忆录当成完整视角。达赖喇嘛的自传能说明罗布林卡内和出走途中发生的事，却无法亲见离开后的拉萨...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 推动悲剧的四股力量</span>
+      <span class="toc-desc">1956年后周边藏区的政策推行改变土地、寺院和地方权威，强制方式引发抵抗，军事镇压又扩大敌意。它让原本可以分阶...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 这部历史重建的锋芒与缺口</span>
+      <span class="toc-desc">作者在前言里明说，她原先相信让路说，锡金护送者的枪伤和口述使她产生怀疑。此后，她试图回答中国出版物长期没有展开...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 把二十三章压到一张纸上</span>
+      <span class="toc-desc">这条关系解释危机怎样升级，并不等于各方责任相同。判断政治责任时，还要区分零星冲突、决定全面反击与投入重炮三个时...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 谁制造了那个无法回头的夜晚</span>
+      <span class="toc-desc">3月17日晚，达赖喇嘛换下容易辨认的服饰，从罗布林卡离开。倘若只截取这一幕，所有版本都能为自己找到证据。劫持说...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 留下一句话</span>
+      <span class="toc-desc">达赖喇嘛在3月17日作出决定，而此前三年的战争与当周的失控已经大幅压缩了他的选择。</span>
+    </div>
+  </div>
+
 <main>
 <section class="layer"><div class="container"><div class="layer-no">Layer 01</div><h2 class="layer-title">从边地战火到越过边境</h2><div class="text">
 <p>李江琳写这本书，是从一个不肯服从既有版本的疑问开始。她在锡金访问一位曾参与护送的老人，对方展示腿上的枪伤，否定民间流传的解放军主动让路说。中国官方长期使用的劫持说也留下明显空缺。一个尚未满二十四岁的宗教与政治领袖为何会在自己的夏宫里被别人轻易带走，噶厦政府、拉萨民众和护送队伍之间究竟怎样行动，公开叙述没有给出连续过程。</p>

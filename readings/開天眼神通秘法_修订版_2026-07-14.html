@@ -8,25 +8,32 @@
 <meta name="description" content="《開天眼神通秘法》九层解书标准修订版；05-31初稿 · 07-14修订">
 <meta name="revision" content="2026-05-31初稿 · 2026-07-14修订">
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -83,6 +90,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -96,14 +114,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -112,7 +130,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -121,7 +139,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -131,7 +149,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -139,12 +157,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -160,7 +178,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -175,7 +192,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -270,9 +286,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -280,6 +295,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -332,6 +364,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -342,12 +383,52 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-  <div class="series">九层解书 · 阅读类 · 标准修订版</div>
-  <h1>開天眼神通秘法</h1>
-  <div class="author">许衡山 · 内丹修持文献</div>
-  <div class="meta">2026-05-31 初稿 &nbsp;·&nbsp; 2026-07-14 修订 &nbsp;·&nbsp; OCR 提取 + 解书 &nbsp;·&nbsp; 青山</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">開天眼神通秘法</div>
+    <div class="cover-sub">2026-05-31 初稿 &nbsp;·&nbsp; 2026-07-14 修订 &nbsp;·&nbsp; OCR 提取 + 解书 &nbsp;·&nbsp; 青山</div>
+    <div class="cover-meta">许衡山 · 内丹修持文献 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">核心答案：按本书自己的体系，天眼不是额外制造出来的器官，而是先天元神原有的能力；日常分别、欲望与躁动让“识神”...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">书中把练习者闭目时所见的不同光色当作状态指示：橙棕、浅蓝、红、深蓝等分别被赋予“气足”“光足”“阴渣未净”或状...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动全书的三根线</span>
+      <span class="toc-desc">书中把修炼理解为从杂乱、耗散、受欲望牵引，转向清静、凝聚和可觉察。静坐、采气、封穴与养神虽动作不同，都能被这条...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · “清”为什么会被当成能力的入口</span>
+      <span class="toc-desc">追到底，本书并不只是教一种超能力。它在实践一套道家的人观：人的问题不是缺少某个能力，而是被后天活动遮住了本来状...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把方法与边界走通</span>
+      <span class="toc-desc">书内答案：元神能力先天存在，修炼只是在减少识神遮蔽。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 超越作者：能留下什么，必须放下什么</span>
+      <span class="toc-desc">作者反对把修炼变成猎奇和速成。他把神通降为副产品，把清静、次第和自我约束放在前面。即便不接受超常主张，这个纠偏...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 三根线，一张纸</span>
+      <span class="toc-desc">公式因子与第三层三根线逐项对应：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 越想得到，越会失去</span>
+      <span class="toc-desc">《開天眼神通秘法》最有意思的地方，不是它说人能看见什么，而是它设置了一道近乎残酷的门槛：你越把神通当目标，越不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 最后留下什么</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 
 <!--
 层间施工图｜案例分配表
@@ -355,7 +436,7 @@ A 光色谱系：第二层为唯一主场；第三、五、八层只引用结论
 B 次第与体感标志：第五层为唯一主场；第二、三层只交代其论证功能。
 C 神通显现后因执着而消退：第八层为唯一主场；前七层仅列为待解释现象，按下不表。
 D 禁欲/精气燃料说：第五层为唯一主场；其余层只用于边界提示。
-第八层预定选题：越想得到，越会失去——神通作为副产品的悖论。
+第八层预定选题：越想得到，越会失去，神通作为副产品的悖论。
 -->
 
 <section class="layer">
@@ -364,11 +445,11 @@ D 禁欲/精气燃料说：第五层为唯一主场；其余层只用于边界�
   <p class="lead"><strong>核心问题：</strong>一个人如何依照道家内丹次第，使所谓“天眼”显现，并在显现之后维持稳定？</p>
   <p><strong>核心答案：</strong>按本书自己的体系，天眼不是额外制造出来的器官，而是先天元神原有的能力；日常分别、欲望与躁动让“识神”占位，修炼所做的是静坐澄心、积聚精气、依次用功，使识神退位、元神显露。神通因此只是修炼过程中的效验，不是终点。</p>
   <h3>全书结构</h3>
-  <div class="box"><strong>原理篇（约1—30页）</strong><br>交代精、气、神与识神、元神的关系，并建立以光色判断修持状态的语言。</div>
-  <div class="box"><strong>功法篇（约30—80页）</strong><br>从坐姿、呼吸、意守进入采气、封穴、开眼与养神，强调先后次第。</div>
-  <div class="box"><strong>实修篇（约80—126页）</strong><br>以问答处理练习中的体感、偏差、火候和警示，把抽象体系变成修持手册。</div>
+  <div class="box"><strong>原理篇（约1，30页）</strong><br>交代精、气、神与识神、元神的关系，并建立以光色判断修持状态的语言。</div>
+  <div class="box"><strong>功法篇（约30，80页）</strong><br>从坐姿、呼吸、意守进入采气、封穴、开眼与养神，强调先后次第。</div>
+  <div class="box"><strong>实修篇（约80，126页）</strong><br>以问答处理练习中的体感、偏差、火候和警示，把抽象体系变成修持手册。</div>
   <h3>它怎么说服读者</h3>
-  <p>它不走现代意义上的实验论证，而走“操作—体感—解释—再操作”的闭环：照步骤练，出现某种体验，就把体验解释为进阶标志，再据此进入下一步。因此，它更像师徒传统中的经验手册，而不是一部证明超常能力客观存在的科学著作。</p>
+  <p>它不走现代意义上的实验论证，而走“操作，体感，解释，再操作”的闭环：照步骤练，出现某种体验，就把体验解释为进阶标志，再据此进入下一步。因此，它更像师徒传统中的经验手册，而不是一部证明超常能力客观存在的科学著作。</p>
   <h3>读这本书要先分开的两件事</h3>
   <p>第一，书中确实有一套内部连贯的修持语言，值得作为道家身体观和心性训练文本来理解。第二，内部连贯不等于外部证实；“元神”“精微能量”“天眼”等属于本书的解释框架，不能直接当作现代医学或实验科学事实。</p>
 </section>
@@ -421,7 +502,7 @@ D 禁欲/精气燃料说：第五层为唯一主场；其余层只用于边界�
   <p>追到底，本书并不只是教一种超能力。它在实践一套道家的人观：人的问题不是缺少某个能力，而是被后天活动遮住了本来状态；修炼不是不断添加，而是持续减损。</p>
   <h3>这里的“清”不是道德优越</h3>
   <p>自然里有生长也有腐败，有宁静也有风暴。若“自然”本身包含一切，清就不能简单等于善、浊也不能简单等于恶。更合理的内部解释是：清指低干扰、可觉察、少耗散的状态，浊指被刺激与冲动牵引的状态。修清不是宣布世界哪一部分不该存在，而是为了增加自己对注意和行动的选择权。</p>
-  <p>这一层的失重感在于：一本看似追求天眼的书，底下其实是一种“减法能力论”——能力并非总靠加码获得，有时先要移除占据系统的噪音。</p>
+  <p>这一层的失重感在于：一本看似追求天眼的书，底下其实是一种“减法能力论”，能力并非总靠加码获得，有时先要移除占据系统的噪音。</p>
 </section>
 
 <section class="layer">
@@ -449,7 +530,7 @@ D 禁欲/精气燃料说：第五层为唯一主场；其余层只用于边界�
     <li><strong>健康：</strong>体验判读对应记录而非迷信。睡眠、心率、疼痛与情绪可以作为反馈，但单次体感不是诊断；持续异常要交给正规检查。</li>
   </ul>
   <h3>行动触发</h3>
-  <p>读者在一个乡村住宿项目或其他民宿项目遇到新方案时，先问三句：它在解决哪一个基本问题？前置条件是否已经达标？现在看到的是可重复数据，还是一次性的“光感”？交易中也一样：每次想临时加仓前，把依据写成一句可证伪的话，再决定是否行动。</p>
+  <p>先生在目涯或其他民宿项目遇到新方案时，先问三句：它在解决哪一个基本问题？前置条件是否已经达标？现在看到的是可重复数据，还是一次性的“光感”？交易中也一样：每次想临时加仓前，把依据写成一句可证伪的话，再决定是否行动。</p>
 </section>
 
 <section class="layer">
@@ -488,7 +569,7 @@ D 禁欲/精气燃料说：第五层为唯一主场；其余层只用于边界�
   <div class="layer-num">第九层 · 金句收尾</div>
   <h2 class="layer-title">最后留下什么</h2>
   <blockquote class="final">真正的修炼，不是把体验变成身份；是让每一次体验，都重新回到清醒。</blockquote>
-  <p style="text-align:right;color:var(--mid);font-size:14px;margin-top:16px">—— 青山 · 05-31 初稿 · 07-14 修订</p>
+  <p style="text-align:right;color:var(--mid);font-size:14px;margin-top:16px">， 青山 · 05-31 初稿 · 07-14 修订</p>
 </section>
 
 <footer>青山 · 九层解书 · 标准修订版</footer>

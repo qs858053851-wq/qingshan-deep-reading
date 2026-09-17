@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>红与黑 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">红与黑</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">红与黑</div>
+    <div class="cover-sub">罗新璋 译 · 原著 1830 · 副题"一八三〇年纪事"</div>
+    <div class="cover-meta">[法] 司汤达 著 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">弗朗什-孔泰的小城维里埃，市长瑞那靠铁钉厂发家，1815 年王政复辟那年上的任。木匠索雷尔的幼子于连，十八九岁...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这本书最特别的声音，是那个不停跳出来插话的叙事者。他管于连叫"我们的英雄"，语气里带着明显的戏谑；他直呼"读者...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">书名"红与黑"，原著从头到尾没有明文解释，通行的读法是红指军装、黑指教袍，两条路的证据都在文本里。于连的第一个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">副标题"一八三〇年纪事"就是宣言：司汤达要给正在进行的时代拍 X 光片，下卷实际写于 1830 年 5 月之后...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">一句话版本：他赢下了每一级台阶，输掉了爬台阶的那个人。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">全书真正的秘密不在七十五章的攀爬里，在最后四章的牢房里。这四章连标题都没有（司汤达赴任领事，来不及补），却是整...</span>
+    </div>
+  </div>
+
   <div class="meta">[法] 司汤达 著 · 罗新璋 译 · 原著 1830 · 副题"一八三〇年纪事"</div>
   <div class="oneliner">卷首题辞写着"真实，令人难堪的真实"，落款丹东。考证发现丹东根本没说过这话。一本从第一页就开始撒谎的书，写的偏偏是一个靠撒谎往上爬的年轻人，和一个逼所有人撒谎的时代。</div>
 </div>
@@ -396,7 +469,7 @@
   <h3>第二股力：伪装这门手艺，赢了所有战役，输掉了使用者</h3>
   <p>于连的生存策略只有一件武器：伪装。从在木厂里摸索"虚伪手段"这个词，到神学院修炼假虔诚，到巴黎学会沙龙的每一套礼数，他把自己磨成了一件精密的社交仪器，战果辉煌：两个远超他阶级的女人、贵族头衔、军衔、田产。可这门手艺有个隐藏的账户：每一次成功的伪装，都在存入一笔对自己的背叛。他得手瑞那夫人当晚想的是"职责已完成"，封爵当天想的是伪造一个贵族私生子的身世。连胜利的滋味都是假的，因为品尝的人一直戴着面具。更刻毒的是司汤达安排的对照组：全书真正的伪君子过得都很好，瓦勒诺从收容所所长一路做到男爵、市长，最后坐在陪审团主席的位置上判于连死刑。于连在狱中把这层看穿了："受人尊敬的人物，不过是作案时幸而没被当场抓获的骗子罢了。"他不是败给了伪善这门手艺，是败给了一个事实：这门手艺的执照，从来只发给楼上的人。平民用它，叫罪；贵族用它，叫体面。</p>
 
-  <p>两股力在法庭上汇合成全书的顶点。于连本可以求生（夫人未死且已宽恕，教会权贵已被买通），他却站起来说：<em>"我此生无此荣幸，能隶属你们那个阶级；在你们看来，我不过是一个为自己出身卑微而敢于抗争的乡民……即使我的罪没这么重，我看到在座各位，仍会杀一儆百，借我来惩戒这个阶层的年轻人：他们出身低微，厄于穷困，但有幸受到良好的教育，敢混迹于阔佬们所号称的上流社会。"</em>一辈子靠伪装活着的人，用一段不再伪装的话，亲手关上了生门。教会权贵弗利赖事后点破："他的死等于是一种自杀。"这话对，但只对了一半——哪一半，值得放到"我的立场"里争。</p>
+  <p>两股力在法庭上汇合成全书的顶点。于连本可以求生（夫人未死且已宽恕，教会权贵已被买通），他却站起来说：<em>"我此生无此荣幸，能隶属你们那个阶级；在你们看来，我不过是一个为自己出身卑微而敢于抗争的乡民……即使我的罪没这么重，我看到在座各位，仍会杀一儆百，借我来惩戒这个阶层的年轻人：他们出身低微，厄于穷困，但有幸受到良好的教育，敢混迹于阔佬们所号称的上流社会。"</em>一辈子靠伪装活着的人，用一段不再伪装的话，亲手关上了生门。教会权贵弗利赖事后点破："他的死等于是一种自杀。"这话对，但只对了一半，哪一半，值得放到"我的立场"里争。</p>
 </div>
 
 <div class="layer">
@@ -464,7 +537,7 @@
   情节、人物与引文（三部经典、握手战役、"上楼毙了自己"、教士年俸的算账、玛葛丽特皇后传说、秘密记录密使、封爵细节、揭发信内容、法庭陈词、"天然法纪"独白、蜉蝣蚂蚁之喻、狱中对白、捧头下葬、全书结句）皆出自罗新璋译本原文精读，行号已核。人名从罗译（瑞那夫人、拉穆尔、谢朗、彼拉、瓦勒诺、弗利赖），通行译本或作德·雷纳尔、拉莫尔等。"红=军装、黑=教袍"为通行阐释，原著未明文点题；各章题辞多系司汤达假托（含卷首丹东语），注释已考。枪击在法庭上被于连自认"预谋"，但文本呈现为激情犯罪，本篇分析取文本呈现。司汤达生平（拿破仑军需官、随军入莫斯科、贝尔泰案原型、"留给 1880 年读者"之语）为公开文学史背景，凭记忆写成。</div>
 
 <div class="finale">
-  <div class="line">他用二十三年学会了往上爬的全部技艺，最后发现幸福不在任何一级台阶上——它一直在他唇边，只是野心的语法里没有"此刻"这个词。</div>
+  <div class="line">他用二十三年学会了往上爬的全部技艺，最后发现幸福不在任何一级台阶上，它一直在他唇边，只是野心的语法里没有"此刻"这个词。</div>
   <div class="sign">青山 · 2026-07-16</div>
 </div>
 

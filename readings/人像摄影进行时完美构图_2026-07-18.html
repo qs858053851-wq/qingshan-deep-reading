@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>人像摄影进行时：完美构图 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,52 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="kicker">解书 · 摄影技法</div>
-  <h1>人像摄影进行时：完美构图</h1>
-  <div class="author">刘冰 ｜浙江摄影出版社 · 2016</div>
-  <p class="lede">一本教你怎么把人拍好的构图书。它解决的是一个具体的问题：同一个人、同一台相机，为什么有人拍出来是"到此一游"，有人拍出来是一张能挂起来的照片。差别多半不在相机，在那个框。</p>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">人像摄影进行时：完美构图</div>
+    <div class="cover-sub">这是一本教人像构图的入门书。目标读者很明确：刚拿起相机拍人、拍出来总觉得"差点意思"的新手，和有一点经验、想把构图这门基本功练扎实的人。它不教你怎么调参数、不教你后期，只教一件事：...</div>
+    <div class="cover-meta">刘冰 ｜浙江摄影出版社 · 2016 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书是干什么用的</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这是一本教人像构图的入门书。目标读者很明确：刚拿起相机拍人、拍出来总觉得"差点意思"的新手，和有一点经验、想把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 几个核心手法，拆开来讲</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这本书最实用的是一套能上手的构图方法。我把其中最关键的几条，用问答的方式拆开，每条都讲清"怎么做""为什么管用...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">一句话：构图的本事，不在你拍进了多少，在你替看照片的人删掉了多少。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11 · 合上书，最想跟你讲的是这个理</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">这本书教的都是具体的构图手法，透视、留白、角度、景深，一条一条，都能上手。可我读完，心里记下的不是哪一条手法，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一句话封印这本书</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 
 <!-- ============ 第一层 ============ -->
 <section class="layer">
@@ -445,10 +526,10 @@
   <div class="layer-num">第八层</div>
   <h2 class="layer-title">合上书，最想跟你讲的是这个理</h2>
   <div class="layer-body">
-    <p>这本书教的都是具体的构图手法，透视、留白、角度、景深，一条一条，都能上手。可我读完，心里记下的不是哪一条手法，是这些手法背后共同指向的一个理——构图这东西，表面是在安排画面，骨子里是在练习取舍。</p>
+    <p>这本书教的都是具体的构图手法，透视、留白、角度、景深，一条一条，都能上手。可我读完，心里记下的不是哪一条手法，是这些手法背后共同指向的一个理，构图这东西，表面是在安排画面，骨子里是在练习取舍。</p>
     <p>你端起相机对准一个人，眼前其实是什么都有的：人、背后的街、路边的电线杆、半拉广告牌、走来走去的路人。这个世界是满的，是杂的。可你手里那个取景框，是个有边界的东西。你往左挪一点，电线杆进来了；往右挪一点，广告牌出去了。你按下快门的那一瞬间，其实是在回答一个问题：这一大堆东西里，我让你看哪个，不让你看哪个？构图的全部功夫，都凝聚在这一个"选"字里。拍得好的人，不是他看到的比你多，是他删得比你狠。</p>
     <p>我越想越觉得，这个理不只在拍照里成立。你看一个人过日子，年轻时什么都想要，日程排得满满当当，结果样样都沾、样样不透；慢慢才明白，日子过得好不好，往往看你肯不肯腾出空，把真正要紧的那几样，留出地方来。</p>
-    <p>这本书前言里有句话，我当时没太留意，合上书反倒越想越有味。它说，拍人最重要的是怀着真诚和敬意去对待镜头前那个人。一开始我以为这是句客套，后来才品出来：它跟"取舍"是连着的。你对一个人有了敬意，你自然就舍得把那些分散注意力的杂物删掉，好让这个人干干净净、堂堂正正地站在你的画面里。所谓构图的取舍，到最后，取舍的标准其实是——什么配得上留在框里，什么该让位。这个标准，技术教不会你，得靠你心里那个"什么是重要的"来定。</p>
+    <p>这本书前言里有句话，我当时没太留意，合上书反倒越想越有味。它说，拍人最重要的是怀着真诚和敬意去对待镜头前那个人。一开始我以为这是句客套，后来才品出来：它跟"取舍"是连着的。你对一个人有了敬意，你自然就舍得把那些分散注意力的杂物删掉，好让这个人干干净净、堂堂正正地站在你的画面里。所谓构图的取舍，到最后，取舍的标准其实是，什么配得上留在框里，什么该让位。这个标准，技术教不会你，得靠你心里那个"什么是重要的"来定。</p>
     <p>所以这本书，表面教你怎么把人拍好，往深一点说，它是在借一个取景框，教你练一种更通用的本事：在满当当的世界里，敢删，会选，知道自己到底要留住什么。这个本事，镜头里用得上，镜头外，更用得上。</p>
   </div>
 </section>

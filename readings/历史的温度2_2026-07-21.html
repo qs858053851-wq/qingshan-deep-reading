@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>历史的温度2 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>历史的温度2</h1>
-  <div class="author">张玮 · 历史故事集 · 三十七个故事，往更黑、更远的地方走了一步</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">历史的温度2</div>
+    <div class="cover-sub">历史故事集 · 三十七个故事，往更黑、更远的地方走了一步</div>
+    <div class="cover-meta">张玮 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这一册，故事更黑，问题更尖</span>
+      <span class="toc-desc">第一册出版半年，加印十次，第二本就来了。张玮在自序里说，主办方介绍他时头衔后面忽然加了"作家"两个字，他一下子...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么讲</span>
+      <span class="toc-desc">第二册的信用基础，还是记者那套手艺，但多了几样新东西。证据一：细节可考。纸片轰炸那章，马丁B-10的时速、升限...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 同一副骨架，加了三根新梁</span>
+      <span class="toc-desc">第一册那副骨架（放回处境、热血冷酷并置、祛魅求真）在这一册一根没拆，但三十七个故事底下，加了三根新梁。加梁的原...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，再看它一眼</span>
+      <span class="toc-desc">先说动机。表面的一目了然：第一册半年加印十次，市场验证了模式，趁势出二是出版常识。深一层的变化在自序的字缝里：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">三个因子对应第三层的三根新梁：小切口的细节（肥皂、自行车、传单，一层门格勒段已验证）；连感动也过秤（课文再动人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 义愤的距离</span>
+      <span class="toc-desc">全册最黑的一章是门格勒，但全册最尖的一句话，藏在正文后面那段"馒头说"里。张玮写完奥斯维辛，笔锋调转，朝向自家...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -398,7 +470,7 @@
 
   <p>第三根梁：不写"恶有恶报"的童话。门格勒杀了40万人，结局照实写：南美，寿终，未受审判。张玮不补一句"天网恢恢"。放在通俗历史写作里，这个选择是有代价的：读者读完堵得慌，没有出口。他要的就是这个堵：二战后正义的追索追了几十年，追到的是一个骨灰盒，这才是历史给的真实结局。验证独立性：同一章删掉结局照样成立，还更解气；但带着结局读完，你对"正义会迟到但不会缺席"这种话就再也说不出口了。这层堵，是这一册比第一册多出来的东西。</p>
 
-  <p>三根梁架起来，这一册的承重就变了：第一册主要是把人放回处境，这一册还要把读者拽到不舒服的地方去——拽到奥斯维辛的淋浴间，拽到"你崇拜的课文是假的"面前，拽到"恶人善终"的事实面前。往后几册会看到，这三根梁再也没拆过。</p>
+  <p>三根梁架起来，这一册的承重就变了：第一册主要是把人放回处境，这一册还要把读者拽到不舒服的地方去，拽到奥斯维辛的淋浴间，拽到"你崇拜的课文是假的"面前，拽到"恶人善终"的事实面前。往后几册会看到，这三根梁再也没拆过。</p>
 </div>
 
 <!-- ==================== 第六层 ==================== -->

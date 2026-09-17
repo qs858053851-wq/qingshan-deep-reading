@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>叫魂：1768年中国妖术大恐慌 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -359,42 +400,42 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item">
+      <div class="toc-item">
         <span class="toc-name">Layer 01 · 论证全景</span>
         <span class="toc-desc">打破启蒙理性乐观主义，本能放弃如何将现代人推向罪恶感深渊</span>
-      </a>
-      <a href="#layer02" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 02 · 核心论据</span>
         <span class="toc-desc">邻人之爱的荒谬性、超我严酷拷打良心与原始部落群婚残迹</span>
-      </a>
-      <a href="#layer03" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 03 · 核心引擎</span>
         <span class="toc-desc">文明机器自我压抑的恶性循环与三重硬核检验</span>
-      </a>
-      <a href="#layer04" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 04 · 深层追问</span>
         <span class="toc-desc">从神经症流行到爱欲死欲宇宙冲突的终极哲学下潜</span>
-      </a>
-      <a href="#layer05" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 05 · 推演问答</span>
         <span class="toc-desc">共产主义废除私产幻想、替罪羊投射与升华机制的硬核审问</span>
-      </a>
-      <a href="#layer06" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 06 · 破界审视</span>
         <span class="toc-desc">世纪暮年的悲凉绝唱、企业内卷焦虑映射与现代人心理自守</span>
-      </a>
-      <a href="#layer07" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
         <span class="toc-desc">一张纸看透弗洛伊德晚年文明哲学与内疚感机制</span>
-      </a>
-      <a href="#layer08" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 08 · 讲解引擎</span>
         <span class="toc-desc">用一个高端五星级酒店大堂经理的情绪异化讲透文明压抑与超我内耗的微观心理实操</span>
-      </a>
-      <a href="#layer09" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 09 · 终局定音</span>
         <span class="toc-desc">文明十字路口的悲悯审视、原典版本源流与思想史边界</span>
-      </a>
+      </div>
     </div>
   </div>
 
@@ -588,7 +629,7 @@
 
     <p>某国际顶级超五星级酒店大理石大堂中央，三十四岁的大堂经理林静穿着剪裁考究的深色职业套裙。在普通客人的常识直觉里，林静拥有全城最令人羡慕的优雅体面职业：出入高档场所，谈吐举止符合西方皇家礼仪，每月领着优渥的薪水，脸上永远挂着如空姐般无可挑剔的蒙娜丽莎微笑。常识总以为只要一个人身处文明优雅的环境、被鲜花与巴赫交响乐环绕，她的内心就必然充满从容与幸福。</p>
 
-    <p>然而如果读者真实走进今天下午四点发生在酒店前台的一幕，常识的肥皂泡会被撕得粉碎。一位满身酒气、随地吐痰的暴发户富商，因为个人证件遗忘无法办理入住，在前台大理石桌上拍桌狂吠，将一口热茶连同茶渣直接泼在林静的胸口，用最污秽不堪的下流词汇辱骂林静长达整整十分钟。林静体内的原始死本能与攻击冲动在零点一秒内被拉升到了暴怒的极值：在两万年前的丛林里，她的每一个细胞都会驱动她抓起桌上的黄铜镇纸，向这个侵犯自己尊严的暴徒面门狠狠砸去，将对方就地格杀以卫尊严。然而在这个文明的五星级酒店里，林静的双手紧紧贴在大腿外侧，指甲深深掐进掌心肉里，甚至掐出了鲜血，她的面部肌肉在剧烈颤抖之后，强行挤出了训练有素的标准鞠躬微笑：读者，非常抱歉给您带来了不便，我立刻为您协调处理。</p>
+    <p>然而如果读者真实走进今天下午四点发生在酒店前台的一幕，常识的肥皂泡会被撕得粉碎。一位满身酒气、随地吐痰的暴发户富商，因为个人证件遗忘无法办理入住，在前台大理石桌上拍桌狂吠，将一口热茶连同茶渣直接泼在林静的胸口，用最污秽不堪的下流词汇辱骂林静长达整整十分钟。林静体内的原始死本能与攻击冲动在零点一秒内被拉升到了暴怒的极值：在两万年前的丛林里，她的每一个细胞都会驱动她抓起桌上的黄铜镇纸，向这个侵犯自己尊严的暴徒面门狠狠砸去，将对方就地格杀以卫尊严。然而在这个文明的五星级酒店里，林静的双手紧紧贴在大腿外侧，指甲深深掐进掌心肉里，甚至掐出了鲜血，她的面部肌肉在剧烈颤抖之后，强行挤出了训练有素的标准鞠躬微笑：先生，非常抱歉给您带来了不便，我立刻为您协调处理。</p>
 
     <p>弗洛伊德揭示的残酷心理内出血在这一刻全面爆发了。暴徒在发泄完之后扬长而去，林静体内的那团狂暴烈火在外部世界被文明制度（微笑服务规范、客户满意度考核、高档酒店声誉）彻底堵死了全部喷射出口。那股庞大的毁灭能量没有凭空消失，它遵循热力学定律，原原本本掉转枪头，呼啸着扎回林静自己的神经系统深处。下班后的凌晨一点，回到独居出租屋的林静，关上卫生间房门的瞬间，双腿一软跪倒在瓷砖地面上，剧烈呕吐，随后发出了小兽般绝望压抑的呜咽痛哭。她感到胸口像压了一块万斤巨石，呼吸困难，全身肌肉酸痛如被卡车碾过。</p>
 

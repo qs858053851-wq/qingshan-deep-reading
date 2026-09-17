@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>李善注昭明文选 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>李善注昭明文选</h1>
-  <div class="author">萧统 编 · 李善 注 · 先秦至梁七百六十余篇，三十卷</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">李善注昭明文选</div>
+    <div class="cover-sub">解书 · 2026-07-18</div>
+    <div class="cover-meta">萧统 编 · 李善 注 · 先秦至梁七百六十余篇，三十卷 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先交代这本书的分量。《文选》是中国现存最早的一部诗文总集，梁朝昭明太子萧统主持编选，选了从先秦到南朝梁，七百六...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">《文选》这本书，拆开看，底下拧着两根线。这两根线，一根是萧统的，一根是李善的，它们不是一回事，甚至方向相反。看...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">《文选》没有一条论证主线，可它有选和注的逻辑。用六个问题，把萧统怎么选、李善怎么注这套做法串起来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">先说萧统为什么非编这本书不可。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">如果这本书只能留下一个公式，是这个：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">这本书里有两个主角，萧统和李善。萧统是太子，名头响，人人都知道《文选》是他编的。可合上书，我最想跟你讲的，是那...</span>
+    </div>
+  </div>
+
   <div class="meta">解书 · 2026-07-18</div>
 </div>
 
@@ -356,7 +428,7 @@
 
   <div class="marker">萧统那一层 · 赋和诗占了将近一半</div>
 
-  <p>萧统选文，有自己的一套章法。全书三十卷，头十九卷全是赋，接着九卷是诗，再往后是骚、七、诏、册、令、教、表、上书、启、弹事、笺、奏记、书、檄、对问、设论、辞、序、颂、赞、符命、史论、史述赞、论、连珠、箴、铭、诔、哀、碑文、墓志、行状、吊文、祭文——光文体就分了三十九类。这个分法本身就透着萧统的眼光：在他那个时代，赋和诗是文章的正统，所以压在最前头、占最大头；后面那些应用文字，祭文、碑文、檄文、诔文，一样给位置，一样讲究写法。开头第一篇是班固的《两都赋》，接着是张衡的《二京赋》，一上来就是汉代大赋里最堂皇的两篇，气象铺得极大。</p>
+  <p>萧统选文，有自己的一套章法。全书三十卷，头十九卷全是赋，接着九卷是诗，再往后是骚、七、诏、册、令、教、表、上书、启、弹事、笺、奏记、书、檄、对问、设论、辞、序、颂、赞、符命、史论、史述赞、论、连珠、箴、铭、诔、哀、碑文、墓志、行状、吊文、祭文，光文体就分了三十九类。这个分法本身就透着萧统的眼光：在他那个时代，赋和诗是文章的正统，所以压在最前头、占最大头；后面那些应用文字，祭文、碑文、檄文、诔文，一样给位置，一样讲究写法。开头第一篇是班固的《两都赋》，接着是张衡的《二京赋》，一上来就是汉代大赋里最堂皇的两篇，气象铺得极大。</p>
 
   <p>萧统在序里把他的选录标准说得很明白：经书不选，那是"孝敬之准式，人伦之师友"，不敢删；诸子不选，老子庄子管子孟子，"以立意为宗，不以能文为本"；史书不选，那是记事的，跟"篇翰"不是一路。他选的只有一样，"事出于沉思，义归乎翰藻"。用大白话说：内容是深思过的，文辞是讲究的。这个标准，是"文"第一次从"经""子""史"里独立出来，有了自己的门槛。在萧统之前，文章是附在经学史学上的；从《文选》开始，"文"自己成了一类东西，值得单独编一部集子来收。</p>
 
@@ -467,7 +539,7 @@
 
   <p>跟个人怎么读书也对得上。萧统的方法是"删繁就简、选出精华"，李善的方法是"每句话都追到出处"。这两套读法，今天依然管用：面对一个陌生的领域，先找一部公认的"文选"，最经典的那几本书、那几篇论文，把它读透，这是萧统的功夫；读的时候，不满足于"这句话什么意思"，要追"这个说法最早是谁提的、从哪来的、跟别的说法什么关系"，这是李善的功夫。一个人读书，有了萧统的眼光，就不会在烂书里打转；有了李善的习惯，就不会被孤立的只言片语骗过去。</p>
 
-  <p>读完这本书，该做什么不同的事？给一条具体的：下次你读任何一篇你觉得"写得好"的文章，试着做两个动作。第一，问自己：它好在哪？是内容好，还是文辞好，还是两样都好？，这是萧统的标准，帮你分清你欣赏的到底是什么。第二，挑一句你最有感觉的话，去查它的出处，看它是作者自创的，还是从更早的人那里化来的，这是李善的习惯，帮你看清这篇文章站在多深的传统上。这两个动作做下来，你对一篇文章的判断，会从"我觉得好"变成"我知道它好在哪、从哪来的"。这个差别，是业余读者和真正会读书的人的差别。</p>
+  <p>读完这本书，该做什么不同的事？给一条具体的：下次你读任何一篇你觉得"写得好"的文章，试着做两个动作。第一，问自己：它好在哪？是内容好，还是文辞好，还是两样都好？这是萧统的标准，帮你分清你欣赏的到底是什么。第二，挑一句你最有感觉的话，去查它的出处，看它是作者自创的，还是从更早的人那里化来的，这是李善的习惯，帮你看清这篇文章站在多深的传统上。这两个动作做下来，你对一篇文章的判断，会从"我觉得好"变成"我知道它好在哪、从哪来的"。这个差别，是业余读者和真正会读书的人的差别。</p>
 
   <p>我自己对这本书有一处要表态。《文选》在中国文学史上的地位，是怎么拔高都不过分的，没有它，"文"的自觉至少要晚几百年。可我对萧统那个把文和道切开的分法，始终留着一分警惕。这个分法解放了文学，也埋下了文学脱离现实的种子。你看《文选》里那些大赋，辞藻铺到天上去了，可你读完了，除了觉得华丽，心里什么都留不下。反倒是那些没被萧统当成"文"的正经经史，《史记》里的列传、《左传》里的叙事，读完了人久久放不下。这提醒我们：文辞的美和文章的分量，终究是两回事。萧统把前者立成了标准，可后者才是文章能真正打动人、真正能传下去的东西。一部《文选》，就是这个标准立起来之后的样子，好处和毛病，都在里面了。</p>
 </div>

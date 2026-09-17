@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>悉达多 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">悉达多</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">悉达多</div>
+    <div class="cover-sub">［德］赫尔曼·黑塞 著 · 副题「一首印度的诗」</div>
+    <div class="cover-meta">解书 · 青山 · 2026-07-16 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">一句话版本：一个婆罗门家的完美少年，用一辈子把世上所有的路都走了一遍，最后在一条河边当船夫，笑得和佛陀一样。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">表面看这是本流浪小说，一站换一站。但把站与站之间的接缝拆开看，会发现黑塞排布得像一条推理链：悉达多每换一条路，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">先说明白：这是本小说，黑塞没写论文，下面拆的是一种读法，不是他本人的自述。但这个故事的每一次转折，确实都能归到...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">写《悉达多》前后的黑塞，是个快散架的人。一战打碎了他的欧洲信念，公开反战让他在德国报纸上被骂作叛徒；婚姻破裂，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">一句话：你拼命要去的地方，就是你一直忙着逃离的这一处。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">《悉达多》里流传最广的段落，是告别佛陀，是河边听唵。但重读一遍我越来越确定，全书真正的重心在一个不太被引用的地...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">没读过的人可以从第十章倒着读这本书；读过的人，欠第十章一次重读。</span>
+    </div>
+  </div>
+
   <div class="subtitle">［德］赫尔曼·黑塞 著 · 副题「一首印度的诗」</div>
   <div class="meta">解书 · 青山 · 2026-07-16</div>
 </div>
@@ -355,7 +432,7 @@
 
   <div class="marker">第一部 · 出走</div>
   <p>悉达多出场时几乎挑不出毛病。婆罗门之子，俊美，聪慧，经文倒背如流，父亲以他为荣，全城人预言他将成为祭司中的王。可他自己睡不好。他发现了一个没人肯说破的事实：父亲、长老、那些能背出全部吠陀的智者，谈起「梵」头头是道，却没有一个人真正住在梵里面。他们知道关于神的一切，唯独不认识神。知道，和成为，是两回事。这道裂缝是全书的起点。</p>
-  <p>于是他要走。父亲不许。他就在屋里站着，站了一整夜，天亮时父亲进来，看见儿子还站在原地，双腿发抖，心却已在千里之外。父亲放行了。这一幕先记住——几十年后它会原样再演一遍，只是角色换了位置。好友乔文达跟他一起走，两人加入了林中苦行的沙门。</p>
+  <p>于是他要走。父亲不许。他就在屋里站着，站了一整夜，天亮时父亲进来，看见儿子还站在原地，双腿发抖，心却已在千里之外。父亲放行了。这一幕先记住，几十年后它会原样再演一遍，只是角色换了位置。好友乔文达跟他一起走，两人加入了林中苦行的沙门。</p>
 
   <div class="marker">第一部 · 沙门三年</div>
   <p>跟着沙门，他学断食、忍痛、静定，学把「我」一点点饿死。他修到能让心识离开躯壳，进到鹭鸟里、豺狗里、石头里。可每一次出去，都得回来；回来的还是悉达多，还是那份不安。三年之后他看穿了这条路：苦行是一种醉。赶车人喝米酒逃开自己几个时辰，他用苦行逃开自己几个时辰，两者没有本质分别。逃出去多远，都得回来。你没法靠消灭「我」来解脱，因为主持这场消灭的，正是那个「我」。</p>
@@ -385,7 +462,7 @@
   <p>丧子之痛熬了很久。某天他在河面上看见自己的倒影，那张脸像极了他的父亲，那个当年被他整夜站立逼到放行、从此再没见过儿子的老婆罗门。他俯身向瓦稣迪瓦倾诉，老船夫只是听着，像河在听。说完的那一刻，伤口忽然不烧了。随后他听见河里所有的声音，哭的、笑的、贪的、善的、生的、死的，不再分彼此，汇成一个字：唵。瓦稣迪瓦看着他，微笑着起身，说自己等这一刻很久了，然后把渡船留给他，独自走进林中。</p>
 
   <div class="marker">尾声 · 一吻</div>
-  <p>又过了许多年，白发的乔文达再次路过渡口。他仍在求道，仍不安宁，眼里写满一辈子的寻找和一辈子的落空。他向这位传说中的船夫圣者请教，认出对方竟是悉达多。悉达多对他说了些让他似懂非懂的话：智慧没法传授；时间并不存在；石头不是「将来会成佛」，石头此刻就是一切；比起言辞和学说，我更爱石头、河水和树。乔文达听不进逻辑，只求一句临别的话。悉达多说：吻我的额头。就在那一吻里，乔文达看见了千万张脸——鱼的脸、杀人者的脸、产妇的脸、神的脸——生灭交融，川流不息，而覆在这一切之上的，是那个平静的、他只在佛陀脸上见过的微笑。他俯身到地，哭了。全书终。</p>
+  <p>又过了许多年，白发的乔文达再次路过渡口。他仍在求道，仍不安宁，眼里写满一辈子的寻找和一辈子的落空。他向这位传说中的船夫圣者请教，认出对方竟是悉达多。悉达多对他说了些让他似懂非懂的话：智慧没法传授；时间并不存在；石头不是「将来会成佛」，石头此刻就是一切；比起言辞和学说，我更爱石头、河水和树。乔文达听不进逻辑，只求一句临别的话。悉达多说：吻我的额头。就在那一吻里，乔文达看见了千万张脸，鱼的脸、杀人者的脸、产妇的脸、神的脸，生灭交融，川流不息，而覆在这一切之上的，是那个平静的、他只在佛陀脸上见过的微笑。他俯身到地，哭了。全书终。</p>
 
   <h3>这本书在说什么</h3>
   <p>核心的那对矛盾，是「求」与「得」方向相反。悉达多越用力去求圆满，圆满离他越远；他在河边把「求」耗尽了、彻底松手了，圆满才漫上来。乔文达求了一辈子，到老两手空空。这根刺埋在每一章底下。</p>
@@ -434,9 +511,9 @@
   <h3>四个反复出现的东西，各管一摊</h3>
   <p>小说的想法不放在台词里，放在反复出现的物象里。这本书有四个，各有分工。</p>
   <p><strong>河</strong>管全书的形而上。它同时在源头、中游、入海口，没有先后。「时间不存在」这个最抽象的命题，黑塞不论证，交给一条看得见的河去演。悉达多两次渡河，每次过河都是一次脱胎；河还是他最后的老师，一个不开口的老师，正应了第一根线：既然言语教不了，那就让不说话的东西来教。</p>
-  <p><strong>唵</strong>管刻度。这个字在书里响了两次，间隔几十年。第一次在河边，他俯身求死的瞬间，它从灵魂深处自己浮起来，那时的唵是本能的、没被理解的得救。第二次在结尾，河里万千声音汇成它——那时的唵是走完全程后的澄明。同一个字，两次响起之间的距离，就是悉达多后半生的长度。</p>
+  <p><strong>唵</strong>管刻度。这个字在书里响了两次，间隔几十年。第一次在河边，他俯身求死的瞬间，它从灵魂深处自己浮起来，那时的唵是本能的、没被理解的得救。第二次在结尾，河里万千声音汇成它，那时的唵是走完全程后的澄明。同一个字，两次响起之间的距离，就是悉达多后半生的长度。</p>
   <p><strong>渡口</strong>管价值排序。得道者的最终形象居然是个天天摆渡的船夫，而非高坐说法的宗师。有八万信徒的佛陀，和不识几个字、只会听河的瓦稣迪瓦，在「圆满」这件事上被黑塞放在了同一高度。这个安排本身是一次翻转：道不在庙堂，在渡口。</p>
-  <p><strong>金丝雀</strong>管警报。会唱歌、被养在笼里、最后死掉的鸟，是尘世里那个悉达多的镜像。它死在梦里的那一夜，就是他醒的那一夜。迦摩罗后来放飞了那只鸟——她也醒了，用她自己的方式。</p>
+  <p><strong>金丝雀</strong>管警报。会唱歌、被养在笼里、最后死掉的鸟，是尘世里那个悉达多的镜像。它死在梦里的那一夜，就是他醒的那一夜。迦摩罗后来放飞了那只鸟，她也醒了，用她自己的方式。</p>
 </section>
 
 <section class="layer">
@@ -501,8 +578,8 @@
   <p>先反过来攻一下这个读法。会不会想多了？也许这一章只是情节需要，给主角加最后一道坎，通俗剧都这么写。但有个细节挡住了这个解释：悉达多痛到极点时，做了一件事：他俯身看河，河里映出他自己的脸，而那张脸让他想起另一个人，他的父亲。那个当年被他整夜站立逼到放行、从此守着空屋到死的老婆罗门。黑塞把第一章的场景原封不动还了回来：当年有个儿子铁了心要走，父亲拦不住；如今他就是那个父亲。如果只为加戏，用不着这么精确的对称。这一章是设计好的清算：悉达多前半生欠下的一笔债，被原样送回。</p>
   <p>那这一章到底在说什么？我的读法是：它把「经验递不过去」这根线，从令人向往的那一面翻到了残忍的那一面。前九章里，「智慧只能自己活出来」听着多么解放：不必迷信权威，不必背诵教条，自己去活就是了。到了第十章，同一条定律换了个方向砍过来：你也没法把智慧递给你最爱的人。你眼睁睁看着儿子往火坑走，你手里明明有地图，他不接。你唯一能做的，和当年你父亲唯一能做的一样：放手，然后疼。同一条河，顺流时是自由，逆流时是酷刑。</p>
   <p>这个结构日常里有个不那么惨烈、但人人摸得着的版本：教孩子骑车。你扶着后座跑，讲要领，喊别怕。但有一个环节你无论如何替代不了：摔。平衡感这个东西不经过语言，它只能从几次摔里自己长出来。你能做的只是在旁边看着他摔：明知道疼，明知道你三十年前也这么摔过，明知道你说破嘴皮也省不掉他一跤。为人父母最深的无力感全在这里：你的全部经验，在孩子那里价值为零，而且这是定律，不是他不听话。悉达多的儿子偷钱逃走，和学车的孩子甩开你扶着后座的手，是同一个动作，只是烈度差了几个量级。</p>
-  <p>顺着这个读法再走一步，会碰到这本书里我觉得最值钱的东西。悉达多最后的圆满，不是发生在他放下痛苦之后，是发生在他把这个痛认领下来之后。他没有用「时间不存在」把丧子之痛论证掉，他是疼够了，疼到在河里认出父亲的脸，认出这场疼本身就是那条河的一部分——他父亲疼过，他在疼，他儿子将来也会疼，这条疼的河流了千百年，他不是例外，从来不是。承认自己不是例外的那一刻，他才真正上岸。此前所有的修行都在把他往「特殊」里推：更高，更净，更醒。最后一步恰恰是往回走：和所有笨拙的、爱得一塌糊涂的普通父母站到一起。</p>
-  <p>所以这本书的终点比「活在当下」要重得多。乔文达求的是超越众人的觉悟，悉达多得到的是重新变回众人的资格——带着走过全程的眼睛。佛陀的微笑之所以出现在一个船夫脸上，不是因为船夫升上去了，是因为他终于肯降下来。</p>
+  <p>顺着这个读法再走一步，会碰到这本书里我觉得最值钱的东西。悉达多最后的圆满，不是发生在他放下痛苦之后，是发生在他把这个痛认领下来之后。他没有用「时间不存在」把丧子之痛论证掉，他是疼够了，疼到在河里认出父亲的脸，认出这场疼本身就是那条河的一部分，他父亲疼过，他在疼，他儿子将来也会疼，这条疼的河流了千百年，他不是例外，从来不是。承认自己不是例外的那一刻，他才真正上岸。此前所有的修行都在把他往「特殊」里推：更高，更净，更醒。最后一步恰恰是往回走：和所有笨拙的、爱得一塌糊涂的普通父母站到一起。</p>
+  <p>所以这本书的终点比「活在当下」要重得多。乔文达求的是超越众人的觉悟，悉达多得到的是重新变回众人的资格，带着走过全程的眼睛。佛陀的微笑之所以出现在一个船夫脸上，不是因为船夫升上去了，是因为他终于肯降下来。</p>
   <p>剩下一个没有答案的问题，留给每个做过或将做父母的人：悉达多用「放手」完成了自己的功课，可儿子呢？书里他消失在城市里，十一岁，揣着偷来的钱。黑塞没有写他后来怎样。也许某一天，他也会走到一条河边。也许不会。这扇门黑塞开着没关，我想他是故意的。</p>
 </section>
 

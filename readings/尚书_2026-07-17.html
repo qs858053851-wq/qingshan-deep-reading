@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>尚书 · 深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,52 @@
 <body>
 <div class="container">
 
-<section class="hero">
-  <div class="kicker">深度阅读 · 2026-07-17</div>
-  <h1>尚书</h1>
-  <div class="author">王世舜、王翠叶 译注 · 今文二十八篇与古文二十五篇分编 · 从尧到秦穆公的政事档案</div>
-  <div class="lede">一个文明最早的红头文件柜：五十三篇从尧到春秋的政事档案，誓词、训诰、演讲、遗命都在里面。柜子里藏着中国政治三千年没换过的那套说法：坐天下凭什么，丢天下又因为什么。下面九层，一层一层翻出来。</div>
-</section>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">尚书</div>
+    <div class="cover-sub">今文二十八篇与古文二十五篇分编 · 从尧到秦穆公的政事档案</div>
+    <div class="cover-meta">王世舜、王翠叶 译注 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">先给这本书定个性。《尚书》不是一个人写的书，甚至不是一个时代写的书。它是一柜子档案：从传说中的尧，一直到春秋的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这柜子档案凭什么可信</span>
+      <span class="toc-desc">《尚书》不像一个人的论证，它是两千年的文件堆积，所以「凭什么」要分两头问：档案本身可不可信？文件里那套天命说法...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，这柜子档案就三根线在撑</span>
+      <span class="toc-desc">五十三篇文件，从尧到秦穆公，誓词、训诰、册命、检讨什么都有，看着杂乱。但你把每篇往下追，追到底，会发现它们都拴...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层：天命是被谁发明出来的</span>
+      <span class="toc-desc">上一层的执行缺口先存着，这里追一个更根本的问题：天命这套说法，是怎么冒出来的？把它当一口井，一层一层往下钻。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起这柜子档案</span>
+      <span class="toc-desc">七个问题有先后：头一个管档案的真假，中间三个拆天命语法的零件，再两个看编排和剧本，最后一个管今天怎么用。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这柜子档案，它还能怎么用</span>
+      <span class="toc-desc">谁攒的这个柜子，想干什么。《尚书》没有单一作者，动机要分两层看，都属基于编纂传统的推测。一层是编书的人：旧说孔...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">一句话：位子是天授的，可天只看民的脸色，脸色又得靠德去挣。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 合上书最想跟人讲的：纣王没读的那行小字</span>
+      <span class="toc-desc">《尚书》五十三篇，最值钱的东西藏在两句话的对照里。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">九层走下来，这柜子档案最硬的东西就一件：它给「凭什么坐天下」这个没法回答的问题，造了一个能用的答案，又给这个答...</span>
+    </div>
+  </div>
+
 
 <!-- 第一层 -->
 <section class="layer">
@@ -454,7 +535,7 @@
 
   <div class="quote">「古人有言曰：『人，无于水监，当于民监。』」<span class="src">酒诰</span></div>
 
-  <p>人别拿水当镜子，水只能照出脸；要拿民当镜子，民照出的是你的政绩。古文《泰誓》里那句更出名的「天视自我民视，天听自我民听」——天的眼睛就是民的眼睛——把这层意思推到了顶（这句出自古文《尚书》，它的真伪有桩大公案，这里先按下，第六层细说）。仪表盘这个词很要紧：仪表盘不决定车往哪开，但它如实显示车还能不能开。民心在《尚书》里就是这个角色，权力的来源是天命，民心只是天命在不在的读数。</p>
+  <p>人别拿水当镜子，水只能照出脸；要拿民当镜子，民照出的是你的政绩。古文《泰誓》里那句更出名的「天视自我民视，天听自我民听」，天的眼睛就是民的眼睛，把这层意思推到了顶（这句出自古文《尚书》，它的真伪有桩大公案，这里先按下，第六层细说）。仪表盘这个词很要紧：仪表盘不决定车往哪开，但它如实显示车还能不能开。民心在《尚书》里就是这个角色，权力的来源是天命，民心只是天命在不在的读数。</p>
 
   <p><b>第三根线：想让天命别走，唯一管用的动作是「德」。</b>天命不可求。你看《尚书》里的王，祭天、占卜、告庙，样样都做，但没有任何一篇敢说祭祀能买来天命。天命只认一样东西：德。德是什么？翻遍全书，它一点不玄，就是一组具体的动作：保民（「若保赤子」，像带婴儿一样小心）、慎罚（别乱杀人）、无逸（别贪图安逸，先知稼穑艰难）、戒酒（《酒诰》）、知错能改（《秦誓》）、用对人（《立政》勿用憸人）。《无逸》那组商王年数就是这根线的证据：行德的在位七八十年，失德的三五年，天命的续费记录写得明明白白。《召诰》劝成王「疾敬德」，抓紧修德，好「祈天永命」，向上天求长久的命。注意逻辑顺序：因果要倒过来：天命随时会走，所以不得不德。德在这本书里首先是一种求生动作，道德色彩是后来儒家一点点加上去的。</p>
 
@@ -476,7 +557,7 @@
 
   <p>往下钻第一道缝：认证手续哪个朝代都有，偏偏周人把它做成了一整套体系。</p>
 
-  <p><b>第二层，看机制。</b>因为周人是以小吞大。他们自称「小邦周」，商是「大邑商」，一个西边的地方政权，几百年里给商当附庸，忽然一朝把宗主国灭了。武力上赢了，法理上却先天不足：论血统，商王族传了五六百年，周人排不上号；论资历，商有典有册，周是边地后起。这样的政权最急需一样东西：一个既高过商王血统、又能解释商为什么该垮台的道理。天命恰好一鱼两吃：我方上位合法，因为命转移到我这儿了；对方垮台合理，因为他的命被收回了。所以你明白为什么这套说法在周公手里忽然成熟——最卖力讲天命的人，正是最需要天命的人。</p>
+  <p><b>第二层，看机制。</b>因为周人是以小吞大。他们自称「小邦周」，商是「大邑商」，一个西边的地方政权，几百年里给商当附庸，忽然一朝把宗主国灭了。武力上赢了，法理上却先天不足：论血统，商王族传了五六百年，周人排不上号；论资历，商有典有册，周是边地后起。这样的政权最急需一样东西：一个既高过商王血统、又能解释商为什么该垮台的道理。天命恰好一鱼两吃：我方上位合法，因为命转移到我这儿了；对方垮台合理，因为他的命被收回了。所以你明白为什么这套说法在周公手里忽然成熟，最卖力讲天命的人，正是最需要天命的人。</p>
 
   <p>再往下钻：它要只是征服者的自我辩护，后面的事就讲不通了。</p>
 
@@ -561,7 +642,7 @@
 
   <p><b>这套语法没看到的。</b>最大的洞前面已经碰过：谁来宣布天命转移？书里的实际答案是赢家。于是它客观上给每一次夺权都备好了事后认证，血流成河之后，胜利者总能拿到天命。这个洞补不上，因为体系内不允许存在一个比「天」更高的裁决者，而天不开庭。第二个盲点更隐蔽：民是指标，可指标是可以表演的。万民拥戴能组织，民歌民谣能制造，周公当年读的仪表盘是机械的，后世的仪表盘可以接假信号。书里没有任何一篇讨论过「如果民意是演的怎么办」。第三，「德」后来被越读越内向，从一套求生动作读成了个人道德修养，约束权力的制度设计，慢慢被读成了劝人向善的心灵鸡汤，这是这套语法被误读得最亏的一笔。</p>
 
-  <p><b>这套说法在别的领域叫什么。</b>最齐的一个映射是公司治理。天命就是董事会对 CEO 的授权，「惟命不于常」就是任期制加绩效考核；民心是业绩和用户满意度，是授权状态的仪表盘；德是职业经理人守则，而且必须是可检查的动作。周公对成王干的活，跟董事会辅导新上任的 CEO 一模一样：你的位子是授的，不是祖传的永久产权；看数，别看心情。另一个映射在现代政治本身：尚书缺的那个「谁来宣布天命转移」的执行机制，选举就是后世交的一种答案——把民心从仪表盘升级成方向盘，并且给宣布方式装上程序。从「天视自我民视」到定期投票，中间隔着三千年，但问题是同一个：合法性的读数，怎么读才不作假。</p>
+  <p><b>这套说法在别的领域叫什么。</b>最齐的一个映射是公司治理。天命就是董事会对 CEO 的授权，「惟命不于常」就是任期制加绩效考核；民心是业绩和用户满意度，是授权状态的仪表盘；德是职业经理人守则，而且必须是可检查的动作。周公对成王干的活，跟董事会辅导新上任的 CEO 一模一样：你的位子是授的，不是祖传的永久产权；看数，别看心情。另一个映射在现代政治本身：尚书缺的那个「谁来宣布天命转移」的执行机制，选举就是后世交的一种答案，把民心从仪表盘升级成方向盘，并且给宣布方式装上程序。从「天视自我民视」到定期投票，中间隔着三千年，但问题是同一个：合法性的读数，怎么读才不作假。</p>
 
   <p><b>读完该做什么不一样的事。</b>三件事。以后读任何组织的自我叙事，公司文化也好，官方文告也好，先拆第五层那三问：授权、指标、修复，问谁都问得下去。三问答不出来的组织，多半还在「我生不有命在天」的阶段。自己带队伍时，学周公的说话方式：不谈价值观口号，只给可检查的动作。「若保赤子」「勿用憸人」「先知稼穑之艰难」，每一条都能拿去对照执行。你的团队守则如果一条都检查不了，那就是在喊德。听到任何「众望所归」「民心所向」，先问读数的来源：这表是自己走的，还是有人接了线？</p>
 
@@ -606,7 +687,7 @@
 
   <p>第二句在《康诰》。灭商之后，周公训诫自家弟弟，说的也是天和命：「惟命不于常，汝念哉！」天命不是固定不变的，你给我记住。一个亡国之君，一个开国之臣，信的是同一个天，说的是同一个「命」字，中间隔着不到二十年。可这两句话里，「命」根本不是同一个东西：纣王的命是终身授权，一次签发就永久有效；周公的命是滚动考核，随时复核、随时收回。</p>
 
-  <p>这两版合同的差别，就是《尚书》给中国政治装上的最要紧的一个东西。纣王没错在信天命，那时候人人都信；他错在读合同只读了标题。「命在天」三个字他看见了，标题底下那行小字「视表现随时收回」，他到死都没看见。而周公全部的政治紧张，恰恰来自他把那行小字读得太清楚了：他对成王说天不可一味信赖，对弟弟说命不于常你要牢记，列出商王在位年数当证据，句句都在说同一件事——我们的合同里写着考核条款，而且考核已经开始了。</p>
+  <p>这两版合同的差别，就是《尚书》给中国政治装上的最要紧的一个东西。纣王没错在信天命，那时候人人都信；他错在读合同只读了标题。「命在天」三个字他看见了，标题底下那行小字「视表现随时收回」，他到死都没看见。而周公全部的政治紧张，恰恰来自他把那行小字读得太清楚了：他对成王说天不可一味信赖，对弟弟说命不于常你要牢记，列出商王在位年数当证据，句句都在说同一件事，我们的合同里写着考核条款，而且考核已经开始了。</p>
 
   <p>现在攻这个核。如果这真是了不得的升级，它该拦住后世一个又一个纣王，可汉家的末代、隋家的炀帝，哪个不是把位子坐成了终身制？再说这套考核连执行机制都没有，谁来判卷子？翻遍全书，判卷方式只有一种：改朝换代，打赢的那个宣布天命已移。事后盖章，事前无警，这样的考核，能算考核吗？</p>
 

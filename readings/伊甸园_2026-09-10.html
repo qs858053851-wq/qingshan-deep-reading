@@ -5,25 +5,32 @@
   <meta charset="UTF-8">
   <title>烈火、象牙与不可共享的圣殿 | 海明威晚年长篇小说《伊甸园》深度解读</title>
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -359,39 +400,39 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-item">
-    <a href="#layer1">Layer 01 · 叙事全景</a>
+    <span>Layer 01 · 叙事全景</div>
     <span class="toc-desc">地中海的烈日、金发剪影与焚稿的铁桶</span>
   </div>
   <div class="toc-item">
-    <a href="#layer2">Layer 02 · 论据推演</a>
+    <span>Layer 02 · 论据推演</div>
     <span class="toc-desc">艺术主权在亲密共生中的排他性检验</span>
   </div>
   <div class="toc-item">
-    <a href="#layer3">Layer 03 · 解释生成器</a>
+    <span>Layer 03 · 解释生成器</div>
     <span class="toc-desc">驱动三人关系与精神流亡的三股引力</span>
   </div>
   <div class="toc-item">
-    <a href="#layer4">Layer 04 · 因果深钻</a>
+    <span>Layer 04 · 因果深钻</div>
     <span class="toc-desc">从发型互换到屠象之罪的四层追问</span>
   </div>
   <div class="toc-item">
-    <a href="#layer5">Layer 05 · 推理递进</a>
+    <span>Layer 05 · 推理递进</div>
     <span class="toc-desc">围绕金钱、叙事权与背叛的七个要害问答</span>
   </div>
   <div class="toc-item">
-    <a href="#layer6">Layer 06 · 视野跳出</a>
+    <span>Layer 06 · 视野跳出</div>
     <span class="toc-desc">老年海明威的创伤反刍与性别困局</span>
   </div>
   <div class="toc-item">
-    <a href="#layer7">Layer 07 · 餐巾纸仪表盘</a>
+    <span>Layer 07 · 餐巾纸仪表盘</div>
     <span class="toc-desc">《伊甸园》精神动力学与结构状态机</span>
   </div>
   <div class="toc-item">
-    <a href="#layer8">Layer 08 · 核心深读</a>
+    <span>Layer 08 · 核心深读</div>
     <span class="toc-desc">为什么最深沉的爱意会演变为对创造力的处决</span>
   </div>
   <div class="toc-item">
-    <a href="#layer9">Layer 09 · 终局定音</a>
+    <span>Layer 09 · 终局定音</div>
     <span class="toc-desc">卷尾结语与未完成手稿的事实边界</span>
   </div>
 </div>

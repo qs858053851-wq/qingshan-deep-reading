@@ -5,25 +5,32 @@
   <meta charset="UTF-8">
   <title>让-保罗·萨特《想象》出版级深度解读 · 青山</title>
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -363,39 +404,39 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-item">
-      <a href="#layer1">Layer 01 · 哲学两千年的顽疾 · 书桌上的白纸与“影像-物”的幽灵</a>
+      <span>Layer 01 · 哲学两千年的顽疾 · 书桌上的白纸与“影像-物”的幽灵</div>
       <span class="toc-desc">日常直觉中的白纸与哲学物化偏见的起源</span>
     </div>
     <div class="toc-item">
-      <a href="#layer2">Layer 02 · 形而上学的三种歧路 · 笛卡儿的断裂、莱布尼茨的微积分与休谟的磷光</a>
+      <span>Layer 02 · 形而上学的三种歧路 · 笛卡儿的断裂、莱布尼茨的微积分与休谟的磷光</div>
       <span class="toc-desc">古典哲学四大巨擘在影像问题上的围困</span>
     </div>
     <div class="toc-item">
-      <a href="#layer3">Layer 03 · 心理学的实证迷途 · 泰纳的珊瑚骨与柏格森的暗度陈仓</a>
+      <span>Layer 03 · 心理学的实证迷途 · 泰纳的珊瑚骨与柏格森的暗度陈仓</div>
       <span class="toc-desc">实证心理学与生命哲学的物化残余</span>
     </div>
     <div class="toc-item">
-      <a href="#layer4">Layer 04 · 古典体系的内在崩塌 · 强弱梯度的破产与侏儒小人的消解</a>
+      <span>Layer 04 · 古典体系的内在崩塌 · 强弱梯度的破产与侏儒小人的消解</div>
       <span class="toc-desc">知觉与想象的不可通约性论证</span>
     </div>
     <div class="toc-item">
-      <a href="#layer5">Layer 05 · 顺着问题追索存在论 · 九个步步紧逼的核心叩问</a>
+      <span>Layer 05 · 顺着问题追索存在论 · 九个步步紧逼的核心叩问</div>
       <span class="toc-desc">关于意向性、感觉质料与意识结构的层层审问</span>
     </div>
     <div class="toc-item">
-      <a href="#layer6">Layer 06 · 站在《存在与虚无》前夜 · 胡塞尔的半步解放与萨特的彻底反叛</a>
+      <span>Layer 06 · 站在《存在与虚无》前夜 · 胡塞尔的半步解放与萨特的彻底反叛</div>
       <span class="toc-desc">意向性带来的破局以及对感觉质料残留的先锋批判</span>
     </div>
     <div class="toc-item">
-      <a href="#layer7">Layer 07 · 把整部《想象》压上一张餐巾纸 · 意向性状态跃迁仪表盘</a>
+      <span>Layer 07 · 把整部《想象》压上一张餐巾纸 · 意向性状态跃迁仪表盘</div>
       <span class="toc-desc">两千年物化偏见与现象学活动转向的极简对照</span>
     </div>
     <div class="toc-item">
-      <a href="#layer8">Layer 08 · 那个根本不会被看错的皮埃尔 · 从常识直觉到意识虚无化的跃迁</a>
+      <span>Layer 08 · 那个根本不会被看错的皮埃尔 · 从常识直觉到意识虚无化的跃迁</div>
       <span class="toc-desc">为什么在脑海里端详朋友从未产生过一张照片</span>
     </div>
     <div class="toc-item">
-      <a href="#layer9">Layer 09 · 卷尾定音与事实考据 · 面向虚无的自由开端</a>
+      <span>Layer 09 · 卷尾定音与事实考据 · 面向虚无的自由开端</div>
       <span class="toc-desc">终局结论与版本考据</span>
     </div>
   </div>

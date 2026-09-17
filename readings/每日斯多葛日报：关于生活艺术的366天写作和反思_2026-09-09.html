@@ -14,25 +14,32 @@
 <meta name="keywords" content="每日斯多葛日报,莱恩霍利得,史提芬汉赛蒙,斯多葛主义,马可奥勒留,爱比克泰德,塞涅卡,控制的二分法,逆向条款,深度解读,青山">
 <meta name="generator" content="Kami">
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -89,6 +96,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -102,14 +120,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -118,7 +136,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -127,7 +145,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -137,7 +155,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -145,12 +163,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -166,7 +184,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -181,7 +198,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -276,9 +292,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -286,6 +301,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -338,6 +370,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -364,7 +405,7 @@
     <div><strong>原著名</strong> The Daily Stoic Journal</div>
     <div><strong>出版</strong> 中国青年出版社 · 2021年7月</div>
     <div><strong>解读主理</strong> 青山</div>
-    <div><strong>解读日期</strong> 2026年9月9日</pre>
+    <div><strong>解读日期</strong> 2026年9月9日</div>
   </div>
 </div>
 
@@ -372,39 +413,39 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-item">
-    <div><a href="#layer01">Layer 01 · 哲学全景</a></div>
+    <div><span>Layer 01 · 哲学全景</div></div>
     <div class="toc-desc">从罗马营帐到现代日课，五十二周的心智防御机制</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer02">Layer 02 · 事实支点</a></div>
+    <div><span>Layer 02 · 事实支点</div></div>
     <div class="toc-desc">奴隶断腿与皇帝残夜，三个古典案例托起的论证链条</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer03">Layer 03 · 解释机制</a></div>
+    <div><span>Layer 03 · 解释机制</div></div>
     <div class="toc-desc">三根独立支柱，二分法、赞同间隔与逆向条款</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer04">Layer 04 · 深度追问</a></div>
+    <div><span>Layer 04 · 深度追问</div></div>
     <div class="toc-desc">四步下钻，人类为什么本能地认贼作父与情绪的生理边界</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer05">Layer 05 · 推理问答</a></div>
+    <div><span>Layer 05 · 推理问答</div></div>
     <div class="toc-desc">七环递进，消极避世、晨晚自审与命运之爱的真实分水岭</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer06">Layer 06 · 外域观照</a></div>
+    <div><span>Layer 06 · 外域观照</div></div>
     <div class="toc-desc">认知行为疗法的古典源头与退守内在城堡的时代代价</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer07">Layer 07 · 极简压缩</a></div>
+    <div><span>Layer 07 · 极简压缩</div></div>
     <div class="toc-desc">单页仪表盘，心智免疫公式与斯多葛日课反馈回路</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer08">Layer 08 · 核心跃迁</a></div>
+    <div><span>Layer 08 · 核心跃迁</div></div>
     <div class="toc-desc">零号模型到机制重跑，从交通受阻的暴怒中夺回自主权</div>
   </div>
   <div class="toc-item">
-    <div><a href="#layer09">Layer 09 · 卷尾定音</a></div>
+    <div><span>Layer 09 · 卷尾定音</div></div>
     <div class="toc-desc">终局判断与原典考证记录</pre>
   </div>
 </div>

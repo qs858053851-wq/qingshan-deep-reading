@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>动物农场 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -250,6 +285,13 @@
     color: var(--brand);
     margin-bottom: 12pt;
     letter-spacing: 1pt;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
   .napkin-caption {
     font-size: 11pt;
@@ -267,6 +309,65 @@
     color: var(--dark-warm);
     border-radius: 0 4pt 4pt 0;
     line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
+    text-align: center;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -288,42 +389,42 @@
 
   <div class="toc">
     <h2>目 录</h2>
-    <a class="toc-item" href="#layer01">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">以童话寓言解剖现代权力怪兽，揭露高尚理想如何在制度异化中滑向极权深渊</span>
-    </a>
-    <a class="toc-item" href="#layer02">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">七诫隐秘夜间篡改、替罪羊斯诺鲍大清洗与四条腿好两条腿更好的实证铁证</span>
-    </a>
-    <a class="toc-item" href="#layer03">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 机制解剖</span>
       <span class="toc-desc">信息垄断、暴力恶犬私有化与群体智力降维的极权动力学齿轮</span>
-    </a>
-    <a class="toc-item" href="#layer04">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 终极下钻</span>
       <span class="toc-desc">从盲信神圣领袖到沦为终身劳作牲口：自由丧失的悲剧循环</span>
-    </a>
-    <a class="toc-item" href="#layer05">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 衍生推演</span>
       <span class="toc-desc">六大核心推演：从分布式系统规则防篡改到企业组织反官僚异化</span>
-    </a>
-    <a class="toc-item" href="#layer06">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 破界审视</span>
       <span class="toc-desc">辨析悲观寓言与现实民主制度韧性，在警惕权力的同时怀揣建设性向往</span>
-    </a>
-    <a class="toc-item" href="#layer07">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
       <span class="toc-desc">极权异化演进与组织退化动力学模型</span>
-    </a>
-    <a class="toc-item" href="#layer08">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">最值钱的一个问题：如果村子里唯一的账房先生说账本太深奥村民看不懂、以后由他一个人代管并保密，村民应该答应吗？</span>
-    </a>
-    <a class="toc-item" href="#layer09">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">保持永不蒙蔽的清醒双眼，是弱者守护自由与尊严的唯一长城</span>
-    </a>
+    </div>
   </div>
 
   <div class="section" id="layer01">
@@ -393,8 +494,8 @@
     <div class="layer-tag">Layer 08 · 讲解引擎</div>
     <h1>最值钱的一个问题：如果村子里唯一的账房先生说账本太深奥村民看不懂、以后由他一个人代管并保密，村民应该答应吗？</h1>
     <p>要向大众瞬间讲透《动物农场》最核心的信息特权如何演变为致命剥削，村庄账房先生的比喻是一针见血的直觉解药。村里的全体农户齐心协力赶走了收重税的恶霸地主，大家欢聚在一起，决定成立一个互助合作社，以后田里产出的所有粮食和收入全部公有公分，人人平等。</p>
-    <p>但是全村的农户全是大字不识一个的庄稼汉，唯独账房阅读过几年私塾，认得字、会打算盘。账房先生微笑着对大家说：乡亲们，记账是极其繁琐消耗脑力的技术活，借贷借据和财务报表太深奥，大家看了也头疼，以后账本就由我一个人关起门来打理。为了犒劳我劳心费神的脑力劳动，每天从粮仓里多舀一碗白米、多吃一个鸡蛋给我补补身子，大家应该没意见吧？</p>
-    <p>如果村民们因为崇敬知识或图省事而答应了账房先生的要求，那么接下来的剧本便彻底注定了。一个月后，账本上会多出许多莫名其妙的管理费支出；半年后，账房读者会养两条恶犬看守账房禁止任何人靠近；一年后，粮仓里的粮食越来越少，账房先生却盖起了青砖大瓦房；最终，当村民们饿得面黄肌瘦去质问时，账房读者会拿出村民看不懂的账本宣布：按照深奥的经济学原理，为了大家的共同利益，你们必须每天多干两个时辰！这便是人类历史上所有特权掠夺在最初时刻最不起眼的温柔序曲。</p>
+    <p>但是全村的农户全是大字不识一个的庄稼汉，唯独账房先生读过几年私塾，认得字、会打算盘。账房先生微笑着对大家说：乡亲们，记账是极其繁琐消耗脑力的技术活，借贷借据和财务报表太深奥，大家看了也头疼，以后账本就由我一个人关起门来打理。为了犒劳我劳心费神的脑力劳动，每天从粮仓里多舀一碗白米、多吃一个鸡蛋给我补补身子，大家应该没意见吧？</p>
+    <p>如果村民们因为崇敬知识或图省事而答应了账房先生的要求，那么接下来的剧本便彻底注定了。一个月后，账本上会多出许多莫名其妙的管理费支出；半年后，账房先生会养两条恶犬看守账房禁止任何人靠近；一年后，粮仓里的粮食越来越少，账房先生却盖起了青砖大瓦房；最终，当村民们饿得面黄肌瘦去质问时，账房先生会拿出村民看不懂的账本宣布：按照深奥的经济学原理，为了大家的共同利益，你们必须每天多干两个时辰！这便是人类历史上所有特权掠夺在最初时刻最不起眼的温柔序曲。</p>
   </div>
 
   <div class="section" id="layer09">

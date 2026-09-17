@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>致命的自负 · 出版级深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -359,42 +400,42 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-list">
-    <a class="toc-item" href="#layer1">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">社会主义的事实性认知谬误与人类文明的第三种秩序</span>
-    </a>
-    <a class="toc-item" href="#layer2">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">地中海黑曜石贸易、分立财产规则与默会知识的不可聚合</span>
-    </a>
-    <a class="toc-item" href="#layer3">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 解释生成器</span>
       <span class="toc-desc">生物本能、理性建构与文化进化规则的三维演化动力学</span>
-    </a>
-    <a class="toc-item" href="#layer4">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 深度追问</span>
       <span class="toc-desc">为什么建构论唯理主义必然将现代社会推向大饥荒与人口崩溃</span>
-    </a>
-    <a class="toc-item" href="#layer5">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 推理问答</span>
       <span class="toc-desc">八个关键命题解析社会正义的语言毒化与自发秩序的形成机理</span>
-    </a>
-    <a class="toc-item" href="#layer6">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 外域审视</span>
       <span class="toc-desc">晚年哈耶克的思想天鹅之歌、宗教同情与算法计划经济新迷思</span>
-    </a>
-    <a class="toc-item" href="#layer7">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 单页餐巾</span>
       <span class="toc-desc">扩展秩序与部落本能的制度演进全息仪表盘</span>
-    </a>
-    <a class="toc-item" href="#layer8">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">从原始狩猎队的连带温情到陌生人社会的全球价格协同</span>
-    </a>
-    <a class="toc-item" href="#layer9">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">人类赖以生存的自发秩序底线与文本历史考据</span>
-    </a>
+    </div>
   </div>
 </div>
 
@@ -606,7 +647,7 @@
   <h1>人类赖以生存的自发秩序底线与文本历史考据</h1>
   <div class="closing-quote">
     <p>人类之所以能够走出蒙昧并养育数十亿生灵，非因理性足够聪明，实因学会了向超越个体智力的进化规则低头；凡企图扮演全能上帝重新设计社会者，终将把人间拖入万劫不复的深渊。</p>
-    <div class="closing-author">—— 青山 · 读《致命的自负》</div>
+    <div class="closing-author">， 青山 · 读《致命的自负》</div>
   </div>
 
   <div class="facts-boundary">

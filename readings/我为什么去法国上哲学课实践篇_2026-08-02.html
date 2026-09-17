@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我为什么去法国上哲学课（实践篇） · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">我为什么去法国上哲学课（实践篇）</div>
+    <div class="cover-sub">哲学咨询的现场：苏格拉底式的提问如何改变一个人</div>
+    <div class="cover-meta">褚士瑩 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">一个 NGO 工作者跟着法国哲学家奥斯卡学哲学咨询，把苏格拉底式的提问用到真实的人身上，看它怎么改变人的生活。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">褚士瑩在 NGO 领域工作了十几年，见过太多「很努力但想不清楚」的人：组织做了很多事，但不知道为什么要做；个人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">自由不是想做什么就做什么，是知道自己其实不想。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 知道自己不要什么，比知道自己要什么更自由</span>
+      <span class="toc-desc">褚士瑩在《我为什么去法国上哲学课（实践篇）》里记了一个咨询案例，我读了很多遍。一位政治世家的第三代来找他做哲学...</span>
+    </div>
+  </div>
+
   <h1>我为什么去法国上哲学课（实践篇）</h1>
   <div class="author">褚士瑩 · 哲学咨询的现场：苏格拉底式的提问如何改变一个人</div>
 </div>
@@ -354,7 +419,7 @@
   <p>一个 NGO 工作者跟着法国哲学家奥斯卡学哲学咨询，把苏格拉底式的提问用到真实的人身上，看它怎么改变人的生活。</p>
   <p>回答：这本书不是哲学讲义，是哲学咨询的现场实录：政治世家第三代发现自己其实不想要自由、小律师爱丽丝发现自己太在乎别人的看法、哲学家奥斯卡拒绝吃火锅因为他坚持「餐厅就是餐厅，厨房就是厨房」。每一个案例都是一场小型的苏格拉底对话：不给你答案，用提问把你的尾巴拉出来。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>褚士瑩是台湾人，在缅甸做国际 NGO 和平工作十多年，后来去法国，在巴黎郊区跟着哲学家奥斯卡（Oscar Brenifier，法国哲学实践学院创办人）接受哲学咨询师训练。上一本《我为什么去法国上哲学课》讲的是他为什么开始学哲学；这一本「实践篇」讲的是学成之后怎么用：他把哲学咨询带回了生活：帮客户照镜子、带儿童哲学课、跟朋友吵逻辑。</p>
   <p>书的结构是一篇序 + 十四篇「实践篇」，每篇一个主题：限制与自由的辩证、享受问题而不是解决问题、人生的竞赛心理、翻译《庄子》回到语言的原点、吃火锅的逻辑、删去法、等待的错觉、感觉不是思考、完美主义、信任课、人际关系的双向道……每篇都是真实的案例，结尾通常不给结论，只给你一个重新看问题的角度。</p>
 
@@ -363,7 +428,7 @@
   <p><strong>好工具与坏工具。</strong>褚士瑩说自己的角色是客户的「镜子」：让看不清自己的人看见真实的自己。但镜子有好坏之分，会说话的「魔镜」带着自己的判断，是坏工具。他举日本的「拉锯」做例子：全世界只有日本发明了拉锯，锯子朝自己拉，伤了也只伤自己；推锯朝外推，容易伤到别人。好的哲学咨询师是拉锯：把问题拉向自己，不把判断推给别人。</p>
   <p><strong>奥斯卡拒绝吃火锅。</strong>哲学家老师到台湾，主人请他吃火锅，他当场要走：「我付了钱到餐厅吃饭，为什么还要自己煮、自己剥壳？这完全不合逻辑！煮食物的地方叫厨房，不叫餐厅。」所有人都觉得他顽固可笑，但褚士瑩从中看到的是逻辑原则的坚持：一个知道自己不要什么的人，可以免除很多挣扎。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一个跑过世界、见过各种人的实践者在记工作笔记：具体、坦诚、不端着。他讲案例像讲故事，讲方法只讲一句（「我们一起来把你的尾巴拉出来吧」），剩下的留给读者自己反刍。他信的哲学不在书斋里，在诊室、餐厅和亲子关系里。</p>
 </div>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>说文解字 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">说文解字</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">说文解字</div>
+    <div class="cover-sub">东汉（约公元 100 年草成，121 年献上）· 中华书局影印本</div>
+    <div class="cover-meta">许慎 撰 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02</span>
+      <span class="toc-desc">《说文解字》是中国第一部按字形逐字说解的字典。东汉许慎写的，汝南召陵人，当时人送他一句话："五经无双许叔重。"...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04</span>
+      <span class="toc-desc">字典没法当论证拆，但它有一套完整的设计思想。下面六个问题走完，这部书怎么造的、怎么用的、哪里靠得住哪里靠不住，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">一句话：许慎给汉字修了一部族谱，顺手发明了此后两千年所有字典的查法。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08</span>
+      <span class="toc-desc">第一层欠了一笔账：许慎在序言里点名骂过一批人。现在把这笔账算清，这部书最深的一层意思也就出来了。</span>
+    </div>
+  </div>
+
   <div class="meta">许慎 撰 · 东汉（约公元 100 年草成，121 年献上）· 中华书局影印本</div>
   <div class="oneline">一部字典，两副面孔：给九千个汉字修族谱，为五部经书争解释权。</div>
 </div>
@@ -471,7 +536,7 @@
 
   <p>许慎属于另一派。西汉时鲁恭王拆孔子旧宅，墙壁里出了一批先秦文字抄写的经书，这一系被称为古文经学，讲究依据更古的文本和字形立论。许慎师从古文派大家贾逵，是这一派的干将。但今古文之争吵了上百年，有个僵局：你说你的经本对，他说他的师法正，各执一词，谁也压不住谁。许慎的办法是把战场往下挪一层：先别争经义，先看你认不认得字。字形是有历史的，小篆之前有籀文，籀文之前有古文，源流可查，证据可验，不由着谁现编。他在序言里把话挑明："盖文字者，经艺之本，王政之始。"文字是经学的根、王政的起点，根上错了，上面全歪。</p>
 
-  <p>说到这，一个疑问自然冒出来：如果这书只是论战的武器，何必收九千字？驳倒"马头人为长"，几百字的考证足够了。一个只想造武器的人，不会把武器造成一座大教堂。所以往深处再看一步：论战给了许慎出手的理由，但决定这部书规模的，是他的一个信念——文字是讲得清道理的，形和义从造字那天起就绑在一起，一笔一画皆有来历。他在序言末尾引了《论语》那句"本立而道生"：把根立住，道理自己会长出来。骂俗儒是导火索，这个信念才是那二十年灯油真正的去处。</p>
+  <p>说到这，一个疑问自然冒出来：如果这书只是论战的武器，何必收九千字？驳倒"马头人为长"，几百字的考证足够了。一个只想造武器的人，不会把武器造成一座大教堂。所以往深处再看一步：论战给了许慎出手的理由，但决定这部书规模的，是他的一个信念，文字是讲得清道理的，形和义从造字那天起就绑在一起，一笔一画皆有来历。他在序言末尾引了《论语》那句"本立而道生"：把根立住，道理自己会长出来。骂俗儒是导火索，这个信念才是那二十年灯油真正的去处。</p>
 
   <p>历史后来给这个判断做了个残酷又漂亮的验证。今古文之争到东汉末就熄了火，郑玄注经兼采今古，两派的界碑被他一锅烩掉，再往后，今文经学整个衰亡。那场官司的胜负，今天只有专业学者还说得清。可是为打官司修的这部族谱，越活越大，后世认字、读经、考古，全从它这里起步。</p>
 

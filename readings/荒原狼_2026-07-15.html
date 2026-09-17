@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>荒原狼 · 深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度阅读 · 叙事型 · 哲学小说</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">荒原狼</div>
+    <div class="cover-sub">黑塞 著 · 赵登荣 / 倪诚恩 译 · 1927 年</div>
+    <div class="cover-meta">赫尔曼 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《荒原狼》的故事用两句话能说完：中年知识分子哈里·哈勒尔与自己约定五十岁生日自杀，在那之前的几个月里，他被一个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">黑塞没有请一位全知叙述者来讲哈里，他造了三台照相机。出版者序从外面拍：一个正常人作证，确实有过这么一位房客，他...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书真正的对手并非庸俗的时代，而是哈里给自己下的那个诊断。小册子是黑塞摊开的论点，可以直接拆开看，它做了四步...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">先摆事实（均见本译本的译本序）：《荒原狼》1927年6月出版，黑塞当时正向五十岁迈进，与哈里同龄；他刚与第二任...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">公式里的每一项都能在第三层找到出处：分子那一千个自我，对应小册子的葱头比喻，人是千百层皮组成的葱头；分母那两个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">1927年，快五十岁的黑塞刚离了婚，病痛缠身，在给朋友的信里几次提到自己快要自杀了。他最后没去死，他写了一本书...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一，两半是假的，一千个碎片才是真的，别用两个格子闷死一园子的花。二，你最瞧不起的领域，住着你被饿得最瘦的那部分...</span>
+    </div>
+  </div>
+
   <h1>荒原狼</h1>
   <div class="author">赫尔曼·黑塞 著 · 赵登荣 / 倪诚恩 译 · 1927 年</div>
   <div class="intro">一个快五十岁的人给自己的绝望排好了日程：五十岁生日那天，用刮脸刀了结。这本书写的是日程被打乱的过程。打乱它的有一个酒馆姑娘、一台留声机、一场化装舞会，和一座只收疯子的剧院。</div>
@@ -354,12 +431,12 @@
   <p>《荒原狼》的故事用两句话能说完：中年知识分子哈里·哈勒尔与自己约定五十岁生日自杀，在那之前的几个月里，他被一个姑娘教会了跳舞，又在一场化装舞会后走进一座“魔剧院”，把自己的灵魂拆开看了一遍。难读的地方在于黑塞包装故事的方式：你要穿过三层文本，才碰得到哈里本人。这三层怎么套，第二层细讲，这里先把故事走一遍。</p>
 
   <div class="marker">房客 · 出版者眼中的怪人</div>
-  <p>全书开头是一篇“出版者序”。写序的人自称是个普通职员，规矩、健康、不抽烟不喝酒。几年前，他姑母家来了一位租客，年近五十，自称“荒原狼”。这人进门不报姓名，先抬起鼻子闻了闻，说：“噢，这里气味不错。”他不肯去警察局申报户口，说受不了填表和排队；白天睡到中午，房间里书从书橱一直堆到地板，墙上的画一阵子是甘地，一阵子换成米开朗琪罗的《夜》；随他到来的大木箱贴满了各国旅馆的标签。最怪的是，这位蔑视一切的读者会在二楼楼梯拐角坐下不走，只为闻那户人家擦得发亮的地板和一盆南洋杉的味道。他说那香味“就是小康人家的干净、周到、精确、小事上的责任感和忠诚”，说这让他想起自己的母亲。</p>
+  <p>全书开头是一篇“出版者序”。写序的人自称是个普通职员，规矩、健康、不抽烟不喝酒。几年前，他姑母家来了一位租客，年近五十，自称“荒原狼”。这人进门不报姓名，先抬起鼻子闻了闻，说：“噢，这里气味不错。”他不肯去警察局申报户口，说受不了填表和排队；白天睡到中午，房间里书从书橱一直堆到地板，墙上的画一阵子是甘地，一阵子换成米开朗琪罗的《夜》；随他到来的大木箱贴满了各国旅馆的标签。最怪的是，这位蔑视一切的先生会在二楼楼梯拐角坐下不走，只为闻那户人家擦得发亮的地板和一盆南洋杉的味道。他说那香味“就是小康人家的干净、周到、精确、小事上的责任感和忠诚”，说这让他想起自己的母亲。</p>
   <p>出版者还记下一个场面。他拉哈勒尔去听一位名人讲座，报告人一开口先说了几句讨好听众的漂亮话，哈勒尔朝他看了一眼。就这一眼，出版者说可以写一本书：那目光先看穿了报告人的虚荣，再看穿了整个时代忙忙碌碌的精神生活，最后落到全部人性上，像在说“看，我们就是这样的傻瓜”。住了十来个月，哈勒尔结清房租，不辞而别，留下一份手稿。出版者决定发表它，理由是这份病历不属于病人一个人：“哈勒尔心灵上的疾病并不是个别人的怪病，而是时代本身的弊病。”往下的一切，都是那份手稿。</p>
 
   <div class="marker">手记 · 刮脸刀与霓虹字</div>
   <p>哈里的自述从一个“不好不坏、不冷不热”的日子开始。这样的日子他最受不了：没有大痛苦，也没有欢乐，只有低度的不满，磨得人想砸东西。他的处境是一层层塌下来的：写反战文章，被报纸骂成不爱祖国的害虫；妻子精神失常后把他赶出家门；痛风、失眠、靠酒和止痛药过活；恨小市民的体面，却只肯住在小市民干净的公寓里。四十七岁那年他想出一个办法：把五十岁生日定为可以自杀的日子。这个约定反而给了他力气，遇到难熬的事他就想，“你等着吧，再过两年，我就能主宰你们了”。太平门开着，人就还能在屋里多待一会儿。</p>
-  <p>一天夜里，他在老城一堵古老的石墙上看见闪烁不定的霓虹字：“魔剧院——普通人不得入内”，湿漉漉的沥青路面上又映出一行：“专为狂人而设！”门推不开，字灭了。后来他在街上追上一个扛广告牌的小贩，对方塞给他一本集市上叫卖的那种小册子，转身消失在门洞里。</p>
+  <p>一天夜里，他在老城一堵古老的石墙上看见闪烁不定的霓虹字：“魔剧院，普通人不得入内”，湿漉漉的沥青路面上又映出一行：“专为狂人而设！”门推不开，字灭了。后来他在街上追上一个扛广告牌的小贩，对方塞给他一本集市上叫卖的那种小册子，转身消失在门洞里。</p>
 
   <div class="marker">小册子 · 一份关于自己的诊断书</div>
   <p>小册子叫《论荒原狼》，写的竟然就是他：一个自认为一半是人、一半是狼的男人，两半互相败坏对方的快乐；一个天生的“自杀者”，把死亡的可能当扶手；一个蔑视市民阶层、又终生住在市民世界引力圈里的知识分子。写到最后，小册子把前面的话全部推翻：人狼二分只是“一种简化的神话”，哈里的本质由上百上千个因素构成，他的出路有一个名字，叫幽默。哈里读完，承认这画像画得准，又觉得这张网太粗，网不住他这条具体的命。这本书中之书的论点，第三层再拆。</p>
@@ -438,7 +515,7 @@
   <p>1927年，哈里在书里对赫尔米娜说：人们没从上一次大战学到任何东西，“每天都有成千上万的人非常热心地准备着下一次战争”。十二年后二战爆发，译本序称之为不幸而言中。真正惊人的是黑塞处理这个预言的方式。魔剧院的第一扇门写着“请来快活地狩猎！猎取汽车”，门后是人与机器的总决战，而哈里，这位半生反战的和平主义者，和老同学古斯塔夫蹲在树上朝公路开枪，打得眉飞色舞，亲口承认“射击能使人这么快活，真可笑，以前我还反对战争呢”。直到一个从残骸里捡了把花阳伞和一瓶酒、悠然走路的行人经过，两人举不起枪，突然觉得羞愧。黑塞没有站在道德高地上写反战，他把自己心里的杀意也摊在台面上：战争之所以一定会再来，因为它住在每个人身上，包括反对它的人。这比任何反战宣言都诚实。他在书里把机制也说破了：战后人人都觉得自己无辜，皇帝、将军、企业家、报纸对自己毫无可以指责之处，仿佛除了一千多万阵亡者躺在地下，世界上一切都很好。没有人肯花一小时检查自己那份责任，于是一切照旧运转。</p>
 
   <h3>三条映射，落到今天的事上</h3>
-  <p><b>带团队：先查自己手里的两个筐。</b>哈里那个只认得食用植物和野草的园丁，就是每个只用“能干与不能干”“听话与刺头”给人分类的管理者。两个筐分完，园子里最贵的树多半已经被你拔了。这条映射对得很齐：简化标签省了判断成本，代价是资产被当垃圾处理。落到眼下的事，一个乡村住宿项目交接后全员混岗，本质上就是把人从单一标签里放出来。可做的动作：这周过一遍交接名单，凡是被我心里归进“问题员工”筐的人，强制写出一条不属于这两个筐的具体能力，比如谁最会安抚投诉客人、谁的账目最细，混岗排班时按这条能力排，而非按标签排。</p>
+  <p><b>带团队：先查自己手里的两个筐。</b>哈里那个只认得食用植物和野草的园丁，就是每个只用“能干与不能干”“听话与刺头”给人分类的管理者。两个筐分完，园子里最贵的树多半已经被你拔了。这条映射对得很齐：简化标签省了判断成本，代价是资产被当垃圾处理。落到眼下的事，目涯交接后全员混岗，本质上就是把人从单一标签里放出来。可做的动作：这周过一遍交接名单，凡是被我心里归进“问题员工”筐的人，强制写出一条不属于这两个筐的具体能力，比如谁最会安抚投诉客人、谁的账目最细，混岗排班时按这条能力排，而非按标签排。</p>
   <p><b>做交易：预设的出口让人扛得住中间的路。</b>哈里四十七岁时给自己定下“五十岁生日可以自杀”，这扇预先写死的太平门没有杀死他，反而让他多扛了两年，痛苦从无边无际变成“最多再熬两年”。结构上这就是止损：入场前写死退出条件，恐惧就从“会不会全完”缩成“最多亏到这一格”，人才能在波动里坐得住。区别在于哈里的出口指向毁灭，交易的出口指向下一笔。可做的动作：每笔仓位在开仓前把退出价位和退出理由写进日志，盘中不改；改，只允许发生在空仓的时候。</p>
   <p><b>管自己：提防不冷不热的日子。</b>哈里说他能忍受剧痛，忍受不了那种“不好不坏、不冷不热”的日子，低度的不满攒到一定浓度，人就想砸东西，或者砸自己。这个观察对情绪管理有用：真正危险的往往并非崩溃的那一天，而是之前连续几十个灰色的日子，它们不疼，所以不报警。可做的动作：晚间复盘时给当天打个温度分，一到十；连续五天在四到六分之间徘徊，就强制安排一次哈里式的“学跳舞”，去做一件自己一直看不上、但具体可做的娱乐，标准只有一条，身体必须在场。</p>
 </div>

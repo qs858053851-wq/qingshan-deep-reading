@@ -1,23 +1,30 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>世界的逻辑 · 深度解读</title><style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -74,6 +81,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -87,14 +105,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -103,7 +121,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -112,7 +130,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -122,7 +140,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -130,12 +148,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -151,7 +169,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -166,7 +183,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -261,9 +277,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -271,6 +286,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -323,6 +355,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -330,7 +371,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>世界的逻辑</h1><div class="author">大卫·哈维 · 资本、城市与被转移的危机</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">世界的逻辑</div>
+    <div class="cover-sub">哈维 · 资本、城市与被转移的危机</div>
+    <div class="cover-meta">大卫 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 先承认：这不是一部连续专著</span>
+      <span class="toc-desc">《世界的逻辑》收录哈维四十多年间的文章。早期从巴尔的摩住房、资本流通和城市化切入，中段写巴黎圣心堂、时空压缩、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 三处城市景观怎样成为证据</span>
+      <span class="toc-desc">西班牙雷阿尔城机场投资超过十亿欧元，几乎没有航班，破产拍卖时竞价曾低至一万欧元。它具体展示了建筑环境如何在繁荣...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 贯穿文集的三股力量</span>
+      <span class="toc-desc">第一根线是过剩压力。利润与资金需要新投资对象，生产部门吸收不足时便转向住房、交通和城市更新。奥斯曼巴黎、战后美...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 为什么建设能救危机，也会制造危机</span>
+      <span class="toc-desc">利润下降或商品卖不动时，地产与基础设施能吸收大笔资金和劳动力，重新启动订单、工资与需求。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六问读懂一处城市建设</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 哈维看见了什么，又压平了什么</span>
+      <span class="toc-desc">哈维四十多年反复写城市与资本，是因为主流经济叙事常把危机留在金融表格里，漏掉道路、住房、土地和具体社区怎样承担...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 餐巾纸上的世界逻辑</span>
+      <span class="toc-desc">一句话：资金进入城市得到暂时出口，也把风险写进土地、债务和未来生活。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 城市会把某种历史硬化成日常背景</span>
+      <span class="toc-desc">巴黎圣心堂说明，建筑不仅安放人和资本，也会替一种历史叙述取得地理优势。石头立在高处，仪式年年重复，胜利者对失败...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">本书是跨四十余年的文章选集，各章概念有演变。中国水泥、就业、债务与政策数字按原书引述，来源和口径不一；将中国基...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">先承认：这不是一部连续专著</h2>
 <p>《世界的逻辑》收录哈维四十多年间的文章。早期从巴尔的摩住房、资本流通和城市化切入，中段写巴黎圣心堂、时空压缩、城市治理与环境，后期转向城市劳动、掠夺式积累、金融危机和资本的七层协同演化。</p>
 <p>贯穿这些文章的问题是：资本为何总要变成道路、住宅、机场和新区？当生产领域吸收不了剩余资金与劳动力，地产、基础设施和远方市场会提供出口；建设创造就业与需求，也把资金固定在回收很慢的物体中，并依赖信用把未来收益提前花掉。</p>

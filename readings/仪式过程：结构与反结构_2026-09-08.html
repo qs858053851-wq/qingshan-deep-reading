@@ -14,25 +14,32 @@
 <meta name="keywords" content="维克多·特纳,仪式过程,结构与反结构,阈限性,交融,恩丹布人,象征人类学,深度解读,青山">
 <meta name="generator" content="Kami">
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -89,6 +96,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -102,14 +120,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -118,7 +136,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -127,7 +145,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -137,7 +155,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -145,12 +163,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -166,7 +184,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -181,7 +198,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -276,9 +292,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -286,6 +301,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -338,6 +370,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -370,42 +411,42 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-list">
-    <a class="toc-item" href="#layer1">
+    <div class="toc-item">
       <span class="toc-name">第一层 · 这本书到底在讲什么</span>
       <span class="toc-desc">从恩丹布人丛林树汁到反结构交融的理论航程</span>
-    </a>
-    <a class="toc-item" href="#layer2">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第二层 · 作者凭什么这么说</span>
       <span class="toc-desc">双极象征机制、登基受辱夜与修会体制化的扎实证据</span>
-    </a>
-    <a class="toc-item" href="#layer3">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第三层 · 真正在起作用的几件事</span>
       <span class="toc-desc">象征双极振荡、社会双重形态与交融退化钟摆的三大生成器</span>
-    </a>
-    <a class="toc-item" href="#layer4">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第四层 · 顺着最深的那根线往下问</span>
       <span class="toc-desc">为什么人类社会无法永远停留在纯粹平等的交融之中</span>
-    </a>
-    <a class="toc-item" href="#layer5">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第五层 · 七个问题串起整本书的推理</span>
       <span class="toc-desc">从符号破译到历史钟摆的七级认识跃迁</span>
-    </a>
-    <a class="toc-item" href="#layer6">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第六层 · 跳出这本书再看一次</span>
       <span class="toc-desc">六十年代的反叛火花、交融狂热的盲点与组织再造启示</span>
-    </a>
-    <a class="toc-item" href="#layer7">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第七层 · 把整本书压到一张纸上</span>
       <span class="toc-desc">阈限生成演化拓扑图与全书终极公式</span>
-    </a>
-    <a class="toc-item" href="#layer8">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第八层 · 把最值钱的一点写透</span>
       <span class="toc-desc">弱者的神圣力量与统治者登基受辱之谜</span>
-    </a>
-    <a class="toc-item" href="#layer9">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第九层 · 一句话封印这本书</span>
       <span class="toc-desc">终局定音与事实边界考据</span>
-    </a>
+    </div>
   </div>
 </div>
 

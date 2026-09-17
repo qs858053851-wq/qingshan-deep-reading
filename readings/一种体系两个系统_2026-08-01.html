@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>一种体系 两个系统 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>一种体系　两个系统</h1>
-  <div class="author">陈应时　《中国音乐学》2002 年第 4 期　论中国传统音乐理论中的“宫调”</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">一种体系　两个系统</div>
+    <div class="cover-sub">先把话说在前面：这是一篇写给内行看的论文，术语密度极高，正常人读第一页就想放弃。但它讲的那件事本身并不难，难的只是它的行话。我把行话拆开讲一遍，你会发现里面藏着一个比音乐大得多的问...</div>
+    <div class="cover-meta">陈应时　《中国音乐学》2002 年第 4 期　论中国传统音乐理论中的“宫调” · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这篇论文到底在讲什么</span>
+      <span class="toc-desc">先把话说在前面：这是一篇写给内行看的论文，术语密度极高，正常人读第一页就想放弃。但它讲的那件事本身并不难，难的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么说这两套自古就并存</span>
+      <span class="toc-desc">立一个区分容易，难的是证明这个区分不是你自己发明的，古人本来就在用。作者的办法是把证据一路排到两千五百年前。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这场千年争论，底下就三件事在起作用</span>
+      <span class="toc-desc">作者把现象整理成两个系统，已经很清楚了。但再往下拆一层，两个系统本身也是从更基本的东西长出来的。我拆出三根。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 这件事的根，到底扎在哪</span>
+      <span class="toc-desc">顺着第一根线往下挖。为什么给一段音乐命名，非得先选一个不动点？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这套东西问明白</span>
+      <span class="toc-desc">好比一支球队，十二律相当于场上的位置坐标，五声相当于前锋、中场、后卫这些角色。同一个人站在同一块草皮上，在这套...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这篇论文，它还能用在哪儿</span>
+      <span class="toc-desc">陈应时生于一九三五年，上海音乐学院教授，一辈子做的核心工作是古谱解译，尤其是敦煌乐谱。他在引言里写下的那句话，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 公元一一一七年，朝廷下诏废掉了一套调名</span>
+      <span class="toc-desc">这篇论文里藏着一件小事，作者只用了一句半带过，我觉得它比整篇论文的结论都值钱。</span>
+    </div>
+  </div>
+
   <div class="lead">一篇八页的音乐学论文，讲的是一件跟音乐关系不大的事：同一样东西，你用它的出发点命名，还是用它的落脚点命名。中国人为这个吵了一千年，最后靠一道诏书收场。</div>
 </div>
 
@@ -681,7 +761,7 @@
 
 <div class="boundary">
   <h4>事实边界</h4>
-  <p>本篇所有古籍引文与考据结论，均出自陈应时《一种体系　两个系统——论中国传统音乐理论中的“宫调”》（《中国音乐学》2002 年第 4 期，第 109–116 页）。曾侯乙编钟铭文、《周礼·春官·大司乐》、《乐书要录》顺旋逆旋、范镇元丰五年上言、政和七年废“为调”一事，均转引自该文所引原始文献，我未逐一回核原书，若要引用建议核对原文。</p>
+  <p>本篇所有古籍引文与考据结论，均出自陈应时《一种体系　两个系统，论中国传统音乐理论中的“宫调”》（《中国音乐学》2002 年第 4 期，第 109，116 页）。曾侯乙编钟铭文、《周礼·春官·大司乐》、《乐书要录》顺旋逆旋、范镇元丰五年上言、政和七年废“为调”一事，均转引自该文所引原始文献，我未逐一回核原书，先生若要引用建议核对原文。</p>
   <p>第八层引述的中书省奏本文字，是按该文注十所引《宋史·乐志》的内容转述大意，非逐字引文；“明堂颁朔，用左旋取之，非是”一句为原文。</p>
   <p>一九五九年国务院统一计量制度、中药计量长期沿用旧制一事，是我凭一般历史常识写的，未查文件原文，作类比用，细节请勿直接引用。文末提到靖康之变（一一二七年）距政和七年九年，系公认年代推算。</p>
   <p>第三层关于“三根线”的拆法、第四层的下钻、第六层关于作者盲点的判断，都是我读下来的看法，不是原文观点。</p>

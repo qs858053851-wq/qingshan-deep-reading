@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>历史决定论的贫困 · 出版级深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -349,7 +390,7 @@
   </div>
   <div class="cover-meta">
     <p><strong>著者</strong> [英] 卡尔·波普尔（Karl R. Popper）</p>
-    <p><strong>初版</strong> 1944–1945年连载于《经济学》（Economica），1957年由伦敦劳特利奇出版社印行单行本</p>
+    <p><strong>初版</strong> 1944，1945年连载于《经济学》（Economica），1957年由伦敦劳特利奇出版社印行单行本</p>
     <p><strong>底本</strong> 华夏出版社中文版（杜汝楫、邱仁宗译，附波普尔1957年序言）</p>
     <p><strong>解读主理</strong> 青山 · 02-阅读</p>
     <p><strong>归档日期</strong> 2026-09-12</p>
@@ -359,42 +400,42 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-list">
-    <a class="toc-item" href="#layer1">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">历史铁律预言的破产与波普尔的五步逻辑证明</span>
-    </a>
-    <a class="toc-item" href="#layer2">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 核心论据</span>
       <span class="toc-desc">反自然主义直觉、天文学预报错位与俄狄浦斯效应</span>
-    </a>
-    <a class="toc-item" href="#layer3">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 解释生成器</span>
       <span class="toc-desc">知识不确定性、选择性抽象与零碎试错的三维判定框架</span>
-    </a>
-    <a class="toc-item" href="#layer4">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 深度追问</span>
       <span class="toc-desc">为什么乌托邦整体主义必然在实践中滑向全面极权</span>
-    </a>
-    <a class="toc-item" href="#layer5">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 推理问答</span>
       <span class="toc-desc">七个关键论点厘清趋势与规律、预报与技术预测之别</span>
-    </a>
-    <a class="toc-item" href="#layer6">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 外域审视</span>
       <span class="toc-desc">二十世纪极权灾难的哲学溯源、盲区与现代治理启示</span>
-    </a>
-    <a class="toc-item" href="#layer7">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 单页餐巾</span>
       <span class="toc-desc">零碎工程与历史决定论的认识论对照图谱</span>
-    </a>
-    <a class="toc-item" href="#layer8">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">从掌控全局的工程师幻觉到逐步纠错的零碎修补</span>
-    </a>
-    <a class="toc-item" href="#layer9">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">自由社会存续的边界与历史事实考证</span>
-    </a>
+    </div>
   </div>
 </div>
 
@@ -604,7 +645,7 @@
   <h1>自由社会存续的边界与历史事实考证</h1>
   <div class="closing-quote">
     <p>人类不能在今天预见未来的自己将会知道什么，因此历史不存在既定的轨道；凡宣称洞悉历史终点并强令万人为其殉葬者，皆为理智之伪神与自由之死敌。</p>
-    <div class="closing-author">—— 青山 · 读《历史决定论的贫困》</div>
+    <div class="closing-author">， 青山 · 读《历史决定论的贫困》</div>
   </div>
 
   <div class="facts-boundary">

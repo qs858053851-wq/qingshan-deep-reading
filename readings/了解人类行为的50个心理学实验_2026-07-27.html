@@ -1,23 +1,30 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>了解人类行为的50个心理学实验 · 深度解读</title><style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -74,6 +81,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -87,14 +105,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -103,7 +121,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -112,7 +130,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -122,7 +140,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -130,12 +148,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -151,7 +169,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -166,7 +183,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -261,9 +277,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -271,6 +286,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -323,13 +355,67 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
       padding-right: 20px;
     }
   }
-</style></head><body><main class="container"><header class="hero"><h1>了解人类行为的50个心理学实验</h1><div class="author">迈克尔·A.布里特 · 从猜想走向比较</div></header>
+</style></head><body><main class="container">  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">了解人类行为的50个心理学实验</div>
+    <div class="cover-sub">A.布里特 · 从猜想走向比较</div>
+    <div class="cover-meta">迈克尔 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 五十个实验，其实在教一件事</span>
+      <span class="toc-desc">这本书从巴甫洛夫写到智能手机，每个单元都用相近结构：先讲一个心理概念和原实验，再给课堂或家庭可做的简化活动，最...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 三个实验，看看直觉怎样出错</span>
+      <span class="toc-desc">洛夫特斯的车祸实验让所有人看同一视频，只改提问里的动词。碰撞被说得更猛烈时，人们估计的车速更高，后来还会“记得...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 一个心理学故事怎样才更可信</span>
+      <span class="toc-desc">第一根线是可比较的安排。车祸视频相同，只换提问动词；阿希的线段相同，只换群体回答。没有比较，结果只是一个好讲的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 记忆为什么会把没有的东西补进去</span>
+      <span class="toc-desc">词表里有桌子、坐、腿和沙发，没有“椅子”，不少人仍确信听过椅子。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六个问题，学会读一个实验</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者没说够的那部分</span>
+      <span class="toc-desc">作者想把论文里的实验变成普通人能摸到的东西。他最好的贡献不是提供五十个谈资，而是让读者看见心理学怎样从一个猜想...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">一句话：关于人性的好故事很多，能经受比较的才值得多信一点。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 实验最值钱的地方，是允许解释输掉</span>
+      <span class="toc-desc">心理学经典实验常被当成反直觉故事来讲：一句话改写记忆，一群人让你否认亲眼所见，一美元比二十美元更能改变看法。故...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇依据原书所收经典研究讲实验逻辑，研究的样本、年代和文化背景并不相同。部分社会心理学经典结果后来出现复制争议...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">五十个实验，其实在教一件事</h2><p>这本书从巴甫洛夫写到智能手机，每个单元都用相近结构：先讲一个心理概念和原实验，再给课堂或家庭可做的简化活动，最后解释结果为何重要。主题跨过学习、记忆、创造、角色、从众、认知失调、幸福、身体反馈与判断，像一座经典心理学实验展览馆。</p><p>五十项研究没有一条严密的单一理论，背后却反复出现同一个问题：我们以为来自性格、清晰记忆和自由选择的行为，有多少会被一句提问、一道门、一个群体或一个角色悄悄改变？作者的回答是，人比自己的叙述更容易受情境影响，而实验能通过只改变一个要素，把“我觉得”改写成可观察、可比较的问题。</p><p>最好的读法不是记五十个反直觉结论，而是学会看实验怎样安排比较。更要记得，书中不少经典故事后来遇到复制、档案与伦理争议。简化活动只能帮助理解概念，不等于复制了原研究。作者面对普通读者说话，擅长点燃好奇；读者需要自己补上的，是样本、测量、替代解释与证据更新。</p></section>
 <section class="layer"><div class="kicker">Layer 02</div><h2 class="layer-title">三个实验，看看直觉怎样出错</h2><p>洛夫特斯的车祸实验让所有人看同一视频，只改提问里的动词。碰撞被说得更猛烈时，人们估计的车速更高，后来还会“记得”视频中并不存在的碎玻璃。它说明提问不是中性取件，措辞会进入回忆重建。</p><p>阿希让一群人判断明显不同的线段，只有一人是真被试，其余人按安排一致报错。真正被试约有三分之一的关键回答跟随多数；只要有一个同伴不随大流，从众就明显下降。实验测到的是孤立异议者面对一致群体的压力，不是“人人天生盲从”。</p><p>费斯汀格让被试做枯燥任务，再请他们告诉下一人“很有趣”。拿二十美元的人仍承认无聊，拿一美元的人反而评价得没那么差。外部理由不够时，人会调整态度，让自己的行为说得通。</p><p>三个实验都靠比较组才有力量，也都有边界。样本、年代、文化与具体操作会改变效应；单项研究给出概率差异，不能预测每个人。书中家庭版活动少了随机化、盲法和统计功效，只能展示概念。斯坦福监狱、罗森汉及若干具身效应还面对重大争议，不能当作稳固结论。</p></section>
 <section class="layer"><div class="kicker">Layer 03</div><h2 class="layer-title">一个心理学故事怎样才更可信</h2><p>第一根线是可比较的安排。车祸视频相同，只换提问动词；阿希的线段相同，只换群体回答。没有比较，结果只是一个好讲的故事。</p><p>第二根线是可记录的结果。估计车速、回答是否从众、对任务的评分都能被事前定义和计数。测量未必完美，却迫使研究者说清自己到底观察到了什么。</p><p>第三根线是替代解释。样本是否特殊，参与者是否猜到目的，年代与文化是否改变反应，研究者有没有诱导，都会改变结论能走多远。研究者要把这些竞争性解释写进设计与讨论。</p></section>

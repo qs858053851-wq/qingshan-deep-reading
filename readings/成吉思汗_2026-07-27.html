@@ -1,23 +1,30 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>成吉思汗 · 深度解读</title><style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -74,6 +81,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -87,14 +105,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -103,7 +121,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -112,7 +130,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -122,7 +140,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -130,12 +148,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -151,7 +169,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -166,7 +183,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -261,9 +277,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -271,6 +286,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -323,6 +355,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -330,7 +371,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>成吉思汗</h1><div class="author">杰克·魏泽福 · 征服、连接与一场历史翻案</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">成吉思汗</div>
+    <div class="cover-sub">魏泽福 · 征服、连接与一场历史翻案</div>
+    <div class="cover-meta">杰克 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 作者想改写的，不只是一个征服者</span>
+      <span class="toc-desc">故事从铁木真的家族失势开始。父亲也速该死后，部众抛下诃额仑母子；资源稀少、长幼权力和家内冲突逼到极端，少年铁木...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 四个折角撑住这场全球史叙事</span>
+      <span class="toc-desc">《蒙古秘史》叙事中，札木合战后残酷处置俘虏，反而让部众逐渐转向战败的铁木真。魏泽福用它说明，草原权力不只来自贵...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 蒙古扩张靠哪三股力量转动</span>
+      <span class="toc-desc">第一股力量是关系重组。铁木真没有完全服从旧宗族等级，而把博尔术、者勒蔑等早期追随者放进核心职位，也吸收战败部众...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 为什么一场草原整合会长成大陆帝国</span>
+      <span class="toc-desc">分散宗族没有稳定的最终裁判者，今天的盟友可能成为明天的敌人。一次胜利只能迫使暂时服从，无法自动终止复仇与再分裂...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六问穿过“横扫欧亚”的表面</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者为何非要把蒙古放回世界中心</span>
+      <span class="toc-desc">魏泽福的写作冲动来自两种落差。第一种是西方大众文化里的蒙古人常只剩野蛮骑兵，第二种是蒙古本地记忆长期受政治禁限...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 餐巾纸上的蒙古帝国</span>
+      <span class="toc-desc">一句话：先把人从旧宗族中重新组织，再让组织跨地形行动，最后把征服到的人才与路线变成下一轮能力。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 历史翻案最难的，是不把旧神话倒过来</span>
+      <span class="toc-desc">魏泽福清除了许多后世投到蒙古人身上的固定形象，但纠偏还藏着一道伦理难题：让被妖魔化者恢复复杂性，不等于让被征服...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">本稿依据繁体竖排扫描本的 OCR 复核，专名、数字和句序仍可能有识别错误，不作逐字引文。成吉思汗出生年代及若干...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">作者想改写的，不只是一个征服者</h2>
 <p>故事从铁木真的家族失势开始。父亲也速该死后，部众抛下诃额仑母子；资源稀少、长幼权力和家内冲突逼到极端，少年铁木真甚至与合撒儿杀死异母兄别克帖儿。他最初的动机并非建立世界帝国，而是活下来、保护家人，并摆脱随时会被旧等级吞掉的位置。</p>
 <p>孛儿帖既是妻子，也是铁木真最早的政治盟友之一。她被蔑儿乞人掳走后，铁木真借王汗与札木合之力夺回她；术赤的身世争议后来又进入继承冲突。婚姻、救援、血缘和合法性由此缠在一起，私人家庭从一开始就是草原政治的核心。</p>

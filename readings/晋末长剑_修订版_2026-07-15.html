@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>晋末长剑 —— 九层解书</title>
+<title>晋末长剑 ， 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -342,9 +383,36 @@
 <div class="container">
 
 <!-- Hero -->
-<div class="hero">
-  <h1>晋末长剑</h1>
-  <div class="author">孤独麦客 · 509万字 · 历史穿越</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">晋末长剑</div>
+    <div class="cover-sub">九层解书 · 青山 · 05-24 初稿 · 07-15 修订</div>
+    <div class="cover-meta">孤独麦客 · 509万字 · 历史穿越 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05</span>
+      <span class="toc-desc">核心问题：西晋末年，秩序崩溃，一个穿越者能做什么？（作者试图回答什么）</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">底层军户 → 获得小部队指挥权 → 用"学师+队主"双重身份绑定少年兵 → 建立私人部曲 → 吸纳流民 → 军...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">权力真空 + 生存焦虑</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20</span>
+      <span class="toc-desc">作者对"制度生成"的描写极其精彩，但对"制度衰败"的预设不足。邵勋设计了一套完美的制度，但所有制度最终都会僵化...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 30</span>
+      <span class="toc-desc">前面几层按下不表的东西，现在摊开。</span>
+    </div>
+  </div>
+
   <div class="meta">九层解书 · 青山 · 05-24 初稿 · 07-15 修订</div>
 </div>
 
@@ -377,7 +445,7 @@
     <h3>论证结构</h3>
     <p><strong>螺旋上升型：</strong>每一卷都是"生存危机 → 制度创新 → 势力扩张 → 新的生存危机"的循环。每一轮循环的"制度创新"都在更高维度上重复。</p>
 
-    <h3>写作姿态</h3>
+    <h3>叙述视角与专业底色</h3>
     <p>作者在对"懂历史的读者"说话。大量官职、地名、史实细节不经解释直接抛出，默认读者有一定魏晋史基础。叙事冷峻，不煽情，战争场面写实，政治博弈细密。</p>
   </div>
 </div>
@@ -439,7 +507,7 @@
       <li><strong>中期：</strong>一个务实的军阀，明白乱世中只有组织能救命</li>
       <li><strong>晚期：</strong>一个制度设计者，关心的是如何让新秩序自我运转</li>
     </ul>
-    <p><strong>关键转变节点：</strong>潘园时期——他第一次从旁观者变成参与者。（这一幕，第八层细说）</p>
+    <p><strong>关键转变节点：</strong>潘园时期，他第一次从旁观者变成参与者。（这一幕，第八层细说）</p>
 
     <h3>历史逻辑</h3>
     <p>作者想通过这段叙事说明什么道理？</p>
@@ -452,7 +520,7 @@
 <div class="layer">
   <div class="layer-header">
     <div class="layer-num">Layer 06</div>
-    <div class="layer-title">灵魂提取 —— 超越作者</div>
+    <div class="layer-title">灵魂提取 ， 超越作者</div>
   </div>
   <div class="layer-content">
     <h3>作者盲点</h3>
@@ -462,7 +530,7 @@
     <table>
       <tr><th>书中概念</th><th>其他领域对应</th></tr>
       <tr><td>军镇屯田</td><td>【公司】创业公司早期"全员持股＋共同奋斗"，用共同投入换死忠</td></tr>
-      <tr><td>学师关系</td><td>【家庭】父母带孩子不是先教技能，是先传递归属与价值——归属感先于能力</td></tr>
+      <tr><td>学师关系</td><td>【家庭】父母带孩子不是先教技能，是先传递归属与价值，归属感先于能力</td></tr>
       <tr><td>编户齐民</td><td>【国家】基层治理把游离人口纳入可管理单元，登记即掌控</td></tr>
       <tr><td>度田分地</td><td>【谈判】用未来的长期分成，绑定对方当下的让步</td></tr>
       <tr><td>部落渐进同化</td><td>【身体】改习惯像温水煮青蛙，硬戒会反弹，渐进替换才留得住</td></tr>
@@ -471,10 +539,10 @@
     <h3>行动触发</h3>
     <p>读完这本书，你可以：</p>
     <ul>
-      <li><strong>如果你经营民宿、带乡村团队：</strong>找到你的"潘园"——有没有一个场景，让本地村民和员工一起干活、一起分利、一起成长，把"雇来的人"变成"自己人"？</li>
-      <li><strong>如果你做组织：</strong>识别你的"军镇"闭环是否完整——成员有没有地种（利益）、有没有仗打（目标）、有没有学上（成长）？</li>
-      <li><strong>如果你做交易：</strong>看一个标的或对手，不看单仗输赢，看它有没有在造可复制的体系——它的"邵勋指数"高不高？</li>
-      <li><strong>如果你学历史：</strong>把"五胡乱华"重新框定为"制度竞争"——不是胡人太强，是晋人的制度太烂。</li>
+      <li><strong>如果你经营民宿、带乡村团队：</strong>找到你的"潘园"，有没有一个场景，让本地村民和员工一起干活、一起分利、一起成长，把"雇来的人"变成"自己人"？</li>
+      <li><strong>如果你做组织：</strong>识别你的"军镇"闭环是否完整，成员有没有地种（利益）、有没有仗打（目标）、有没有学上（成长）？</li>
+      <li><strong>如果你做交易：</strong>看一个标的或对手，不看单仗输赢，看它有没有在造可复制的体系，它的"邵勋指数"高不高？</li>
+      <li><strong>如果你学历史：</strong>把"五胡乱华"重新框定为"制度竞争"，不是胡人太强，是晋人的制度太烂。</li>
     </ul>
   </div>
 </div>
@@ -538,15 +606,15 @@
 
     <p>他凭什么在乱世中崛起？</p>
 
-    <p>凭他比所有人都更早明白一个道理：<strong>在秩序崩溃的时代，最稀缺的资源不是粮食、不是武器、不是地盘，而是"自己人"——那些愿意为你死、为你战、为你种地的人。</strong></p>
+    <p>凭他比所有人都更早明白一个道理：<strong>在秩序崩溃的时代，最稀缺的资源不是粮食、不是武器、不是地盘，而是"自己人"，那些愿意为你死、为你战、为你种地的人。</strong></p>
 
     <p>门阀士族有"自己人"吗？有。但他们的"自己人"是血缘绑定的，是封闭的，是有限的。琅琊王氏再厉害，能有多少个王敦、王导？</p>
 
-    <p>邵勋的"自己人"是制造的。他在潘园教少年兵识字，用《千字文》做教材，不合格者鞭笞。这不是慈善，是生产线——他在批量制造"能听懂命令、能理解意图、能独立思考"的基层军官。</p>
+    <p>邵勋的"自己人"是制造的。他在潘园教少年兵识字，用《千字文》做教材，不合格者鞭笞。这不是慈善，是生产线，他在批量制造"能听懂命令、能理解意图、能独立思考"的基层军官。</p>
 
-    <p>他在石桥防建军戍，给士兵分地，让他们有家可归、有田可种。这不是简单的屯田，是绑定——你把地种好了，你才能活；你活下来了，你就是我的人。</p>
+    <p>他在石桥防建军戍，给士兵分地，让他们有家可归、有田可种。这不是简单的屯田，是绑定，你把地种好了，你才能活；你活下来了，你就是我的人。</p>
 
-    <p>他在德胜乡对卢水胡部落不直接打散，而是设乡长、里正、保长，让部落首领当乡长但架空其实权。这不是软弱，是渐进——硬来会反，温水煮青蛙才能真消化。</p>
+    <p>他在德胜乡对卢水胡部落不直接打散，而是设乡长、里正、保长，让部落首领当乡长但架空其实权。这不是软弱，是渐进，硬来会反，温水煮青蛙才能真消化。</p>
 
     <p><strong>邵勋的本质，是一个制度工程师。</strong></p>
 

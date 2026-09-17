@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>随园食单 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>随园食单</h1>
-  <div class="author">[清] 袁枚 著 · 一卷 · 须知单 · 戒单 · 十二类菜品</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">随园食单</div>
+    <div class="cover-sub">一个文人，用四十年时间，记下几百道菜怎么做、不能怎么做。表面是菜谱，骨子里是一套「做事要对得起东西」的道理。</div>
+    <div class="cover-meta">[清] 袁枚 著 · 一卷 · 须知单 · 戒单 · 十二类菜品 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《随园食单》是本很薄的书，一卷，两三万字，却可能是中国饮食书里最有名的一本。作者是袁枚，就是写《子不语》的那个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">一个写诗的文人，凭什么教人做菜？这是这本书要先回答的问题。袁枚的底气，来自三样很硬的东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书的理，是一条串着一条的，环环都咬得上。我把它抽成七个问题，顺着问下去，袁枚这套做菜的理就全出来了。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">这本书的意图是显式的，教做菜。所以这一层不猜动机，谈的是它超出菜谱之外的那点东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">把这本书压到一张餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">前面讲的全是「该怎么做」，《须知单》那一套。但这本书里，我更想讲的是另一半，《戒单》。因为整本书读下来，我发现...</span>
+    </div>
+  </div>
+
   <div class="tagline">一个文人，用四十年时间，记下几百道菜怎么做、不能怎么做。表面是菜谱，骨子里是一套「做事要对得起东西」的道理。</div>
 </div>
 
@@ -378,7 +450,7 @@
   <h3>第二样：每条规矩背后都有一个道理</h3>
   <p>这本书最难得的，是袁枚立规矩，从不摆「我是权威」的架子，每条规矩都给你一个能说通的道理。比如「先天须知」，讲料比技重要：「凡物各有先天，如人各有资禀。人性下愚，虽孔、孟教之，无益也；物性不良，虽易牙烹之，亦无味也。」料不好，最高明的厨子也救不回来。然后他落到一句极实在的总结：「大抵一席佳肴，司厨之功居其六，买办之功居其四。」厨子的功劳占六成，采买的功劳占四成。再比如「火候须知」，把火候讲成了近乎哲学的东西：「道人以丹成九转为仙，儒家以无过、不及为中。司厨者，能知火候而谨伺之，则几于道矣。」掌住了火候，就近乎道了。这些道理，没一句是空话，都是能让你下次做菜时心里一动的道理。</p>
 
-  <div class="quote">一物有一物之味，不可混而同之。犹如圣人设教，因才乐育，不拘一律。今见俗厨，动以鸡、鸭、猪、鹅，一汤同滚，遂令千手雷同，味同嚼蜡。吾恐鸡、猪、鹅、鸭有灵，必到枉死城中告状矣。<div class="src">——《随园食单·变换须知》。一样东西有一样东西的味，不能混着来。俗厨动不动把鸡鸭猪鹅一锅炖，炖得千菜一味，鸡鸭猪鹅要是有灵，非到枉死城去告状不可。</div></div>
+  <div class="quote">一物有一物之味，不可混而同之。犹如圣人设教，因才乐育，不拘一律。今见俗厨，动以鸡、鸭、猪、鹅，一汤同滚，遂令千手雷同，味同嚼蜡。吾恐鸡、猪、鹅、鸭有灵，必到枉死城中告状矣。<div class="src">，《随园食单·变换须知》。一样东西有一样东西的味，不能混着来。俗厨动不动把鸡鸭猪鹅一锅炖，炖得千菜一味，鸡鸭猪鹅要是有灵，非到枉死城去告状不可。</div></div>
 
   <h3>第三样：他敢骂人，骂得你没法不服</h3>
   <p>袁枚写这本书，有一股子文人的毒舌，专骂当时做菜的陋俗，而且骂得极准。最典型是「戒目食」和「戒耳餐」。「戒耳餐」骂的是贪菜的名气：什么叫耳餐？光图菜名好听。他讽刺那种「贪贵物之名，夸敬客之意」的请客，是「以耳为食，非以口为食」。「戒目食」骂的是贪菜的样子：菜堆得跟小山一样，盘叠盘、碗摞碗，好看是好看，没法吃，这是「以目为食」。这两条骂的，其实是同一件事：吃饭这件最实在的事，被虚名和排场给架空了。这种见识，放在今天也不过时。</p>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>逃避自由 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>逃避自由</h1>
-  <div class="author">埃里希·弗洛姆　1941　国际文化出版公司 / 北方文艺出版社　刘林海 译　极权主义的社会心理根源</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">逃避自由</div>
+    <div class="cover-sub">弗洛姆　1941　国际文化出版公司 / 北方文艺出版社　刘林海 译　极权主义的社会心理根源</div>
+    <div class="cover-meta">埃里希 · 解读主理：青山 · 日期：2026-09-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 从挣脱中世纪母体到主动投靠法西斯强权</span>
+      <span class="toc-desc">埃里希·弗洛姆在 1941 年二战战火最惨烈的时刻出版了《逃避自由》。当时整个西方自由世界正陷入巨大的困惑与惊...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么说自由本身可能成为一种痛苦的重负</span>
+      <span class="toc-desc">弗洛姆融合了精神分析学与历史唯物主义，给出了三项极具穿透力的证据，证明自由与焦虑之间存在着不可分割的共生关系。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三根独立的承重线支撑起全书体系</span>
+      <span class="toc-desc">这是全书最核心的概念基石。人类历史上的自由包含着相互矛盾的两面：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着那份莫名的空虚一路追问到自我内核</span>
+      <span class="toc-desc">周末你没有任何工作安排，房间里只有你一个人。你可以自由决定看哪部电影、读哪本书或去哪里散步。然而在面对这片绝对...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个递进问题走完弗洛姆的社会心理分析</span>
+      <span class="toc-desc">人类从自然界分离、从原始部落分离、从中世纪神学体系分离，这个过程让人获得了理性、科学和自由意志。但与自然彻底割...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 走出逃避的泥潭：一份守护自由的心理行动指南</span>
+      <span class="toc-desc">埃里希·弗洛姆作为德国犹太裔心理学家，亲身经历了纳粹党的崛起，并于 1934 年被迫流亡美国。他在哥伦比亚大学...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一页餐巾纸上的全书架构</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 荒原上的独行者：为什么我们宁愿跪着也不愿站在风里</span>
+      <span class="toc-desc">在一个风雨交加的时代转折点上，一个刚刚离开中世纪封建庄园的小农夫或手工业者，站在了通往近代资本主义城市的十字路...</span>
+    </div>
+  </div>
+
   <div class="lead">人类流血牺牲争来了摆脱教会与国王的自由，却在获得自由的那一刻感到了灭顶的孤独。弗洛姆写下这部心理学名著，解释为什么文明人会狂热地跪倒在独裁者的脚下。</div>
 </div>
 

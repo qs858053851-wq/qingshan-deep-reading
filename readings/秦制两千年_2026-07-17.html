@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>秦制两千年 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,48 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="kicker">深度解读 · 2026-07-17</div>
-  <h1>秦制两千年</h1>
-  <div class="meta">谌旭彬 著 · 浙江人民出版社 · 封建帝王的权力规则</div>
-  <p class="epigraph">公开宣扬的历史脉络与运行逻辑，往往并不是真实的历史脉络与运行逻辑。</p>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">秦制两千年</div>
+    <div class="cover-sub">浙江人民出版社 · 封建帝王的权力规则</div>
+    <div class="cover-meta">谌旭彬 著 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把整本书说清楚</span>
+      <span class="toc-desc">这本书用三个拒绝开场。汉成帝拒绝把《史记》赐给东平王，理由很坦白：这书里有权谋灾异，不宜让诸侯看。朝廷公开讲的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">把两千年正史全部读成"控制与汲取"，口气不小。这个翻案靠三样东西撑着。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动这两千年的是哪几根线</span>
+      <span class="toc-desc">十六个朝代切片，人物走马灯一样换，底下拉动全书的其实是三根线。头两根是作者的原话"控制与汲取"，章名就这么写；...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 这套思想从哪来，对面站着谁</span>
+      <span class="toc-desc">秦制的图纸第一层报过，这里补它的族谱和对手。族谱很短：《管子》起意，商鞅施工，韩非把理论补齐，民要愚、要贫、要...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 最想当面问作者的四个问题</span>
+      <span class="toc-desc">把商鞅、诸葛亮、赵匡胤、雍正全部装进"控制与汲取"，解释力确实惊人，但一个什么都能解释的模型，也就什么都证明不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 作者为什么非写不可</span>
+      <span class="toc-desc">谌旭彬是媒体人出身，长年主编"短史记"，干的就是历史辟谣的活：一条一条地拆流传甚广的假故事。这本书是那份手艺的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 全书只剩一个公式</span>
+      <span class="toc-desc">一句话：两千年的治乱兴衰，主要变量从来只有一个，朝廷的手伸多深；所谓盛世，多半是上一场大乱替百姓争来的人均耕...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">第一层讲到明清的时候，我说那些花样翻新的手段底下是同一根轴，按下没细说。现在拆开：那根轴，叫告密。三个案子，隔...</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层</div>
@@ -378,7 +455,7 @@
 
   <p>把两千年正史全部读成"控制与汲取"，口气不小。这个翻案靠三样东西撑着。</p>
 
-  <p><strong>第一样，是地下挖出来的证据。</strong>纸上的史书由胜利者编，竹简不会。睡虎地四号墓出土的秦军士兵家书，前线的黑夫和惊向家里要钱要布，话说到"室弗遗，即死矣，急急急"：国家征你打仗，衣服要自己家寄，寄不到就死。这一条简牍顶得上一章议论——秦政孜孜于汲取，却无意履行哪怕最低限度的义务。居延汉简则记下一个西北小民出趟远门要办三级文书，散沙社会的管控密度有了实物证据。写到蜀汉铸大钱，作者用的是出土钱币的实测克重：直百五铢重八九克，只是旧五铢钱的三四倍，面值却是一百倍。这类证据的好处是没法辩经，秤上见。</p>
+  <p><strong>第一样，是地下挖出来的证据。</strong>纸上的史书由胜利者编，竹简不会。睡虎地四号墓出土的秦军士兵家书，前线的黑夫和惊向家里要钱要布，话说到"室弗遗，即死矣，急急急"：国家征你打仗，衣服要自己家寄，寄不到就死。这一条简牍顶得上一章议论，秦政孜孜于汲取，却无意履行哪怕最低限度的义务。居延汉简则记下一个西北小民出趟远门要办三级文书，散沙社会的管控密度有了实物证据。写到蜀汉铸大钱，作者用的是出土钱币的实测克重：直百五铢重八九克，只是旧五铢钱的三四倍，面值却是一百倍。这类证据的好处是没法辩经，秤上见。</p>
 
   <p><strong>第二样，是把形容词换成算术。</strong>这本书对付"盛世""仁政""中兴"这些词的办法，一律是找出数字重算：治世与乱前的人口对照，贞观课户的实际税负百分比，两税法实施后绢价米价的暴跌曲线，雍正十三年三万五千件朱批奏折，晚清户部岁入从四千二百万两到八千九百万两的来源拆分。形容词可以世代相传，数字会当场翻脸。全书的翻案力量，八成来自这个动作。</p>
 
@@ -435,7 +512,7 @@
   <p>全书规范判断的地基，是第一章一句轻轻带过的话：贵族与王权的博弈能孕育契约乃至私有产权的概念。这明显以欧洲为参照，大宪章确实是贵族拿剑逼国王签的合同。但书里对这条参照系没有任何展开：为什么西周贵族制没长出大宪章？日本的封建为何长出的是另一种东西？一句断言撑起整本书的价值坐标，这是全书最薄的一块板。我的裁断：作为批判秦制的杠杆，它够用；作为历史命题，它悬空。读的时候要知道自己站在一块薄冰上。</p>
 
   <h3>四问：数字有没有被修辞放大？</h3>
-  <p>两处存疑。直百五铢"从百姓手中汲取三十倍财物"，是拿面值除以金属实值算的，但货币掠夺的真实倍率取决于物价反应的速度，通胀会追上来，实际掠夺量到不了三十倍：方向对，倍数虚。"苦秦"的苦当"憎恶"讲，翻案很漂亮，但依据是一篇一九九一年的训诂论文，孤证。作者的回应估计是：修辞为直觉服务，注里有出处。可以接受，但这两处的证据等级，和睡虎地竹简不在一个档位上，读时心里要给它们贴不同的标签。这也正是这本书教的本事——对它自己也要用。</p>
+  <p>两处存疑。直百五铢"从百姓手中汲取三十倍财物"，是拿面值除以金属实值算的，但货币掠夺的真实倍率取决于物价反应的速度，通胀会追上来，实际掠夺量到不了三十倍：方向对，倍数虚。"苦秦"的苦当"憎恶"讲，翻案很漂亮，但依据是一篇一九九一年的训诂论文，孤证。作者的回应估计是：修辞为直觉服务，注里有出处。可以接受，但这两处的证据等级，和睡虎地竹简不在一个档位上，读时心里要给它们贴不同的标签。这也正是这本书教的本事，对它自己也要用。</p>
 </section>
 
 <section class="layer">
@@ -445,12 +522,12 @@
   <p>谌旭彬是媒体人出身，长年主编"短史记"，干的就是历史辟谣的活：一条一条地拆流传甚广的假故事。这本书是那份手艺的集大成，他的那股劲儿在前言里就交了底：帝王们认真学习的是"真的历史教训"（怎么驭民、怎么拧紧），而教科书给百姓讲的是另一套（仁政、爱民、盛世）。两套课本并行两千年，学错课本的人代代吃亏。他非写不可的事就一件：把帝王那套课本公开，让被统治经验也成为一门可以学习的学问。前言收束那句话是全书的心跳：宏大词汇里的慷慨激昂未必推动时代进步，具体而微的坚守与抗争才是文明生生不息的根源。</p>
 
   <h3>他没看到的</h3>
-  <p>两处。第一，国家能力的正面账全部缺席。都江堰、常平仓、驿路、大一统带来的和平红利，这些同样是真实的历史，在书里几乎没有座位。零和预设（朝廷多拿一分民间必少一分）遮住了另一种可能：有些汲取确实换回过公共品。不补这一课，读者容易从"仁政幻觉"直接摔进"汲取决定论"，等于换了一间信息茧房。第二，民间的创造力缺席。书里的百姓只有两种姿势：被汲取，或者逃跑。可两千年里民间社会一直在见缝插针地自组织——宗族、行会、会馆、义庄、市镇，原子化从来没有真正完成过。只写拆，不写长，秦制就显得比它实际上更无所不能。</p>
+  <p>两处。第一，国家能力的正面账全部缺席。都江堰、常平仓、驿路、大一统带来的和平红利，这些同样是真实的历史，在书里几乎没有座位。零和预设（朝廷多拿一分民间必少一分）遮住了另一种可能：有些汲取确实换回过公共品。不补这一课，读者容易从"仁政幻觉"直接摔进"汲取决定论"，等于换了一间信息茧房。第二，民间的创造力缺席。书里的百姓只有两种姿势：被汲取，或者逃跑。可两千年里民间社会一直在见缝插针地自组织，宗族、行会、会馆、义庄、市镇，原子化从来没有真正完成过。只写拆，不写长，秦制就显得比它实际上更无所不能。</p>
 
   <h3>跳出帝制，这套结构在哪还能见到</h3>
   <p>利出一孔，今天最常见的形态在个人身上。一个人的收入、身份、价值感全部来自同一个单位、同一个饭碗时，他就活成了商鞅设计的理想民：不敢议价，不敢挪窝，格外好管。反过来，这本书里最实用的资产是那句"次坏选择"：多一个能用脚投票的去处，议价权就多一分。存款、手艺、副业、另一座城市的朋友，这些东西平时看着闲置，其实是你的"诸侯国"。别等到削藩才想起来经营。</p>
   <p>组织里的对应物是"扁平化"的迷思。把中间管理层全部拆掉、人人直连总部，听起来高效透明，实际效果商鞅早就演示过：中间层没了，普通成员面对组织毫无缓冲，而总部收到的信息反而更失真，因为没人敢过滤、也没人能整合。健康的组织和健康的社会一样，需要几层有实权的"豪强"。</p>
-  <p>还有一处对应在乡土。今天做乡村工作的人常抱怨村庄"组织不起来"：开会没人来，公共事务没人管。读完这本书会明白，这是两千年原子化工程的余温——把人组织起来的能力，恰恰是历代朝廷最警惕、拆得最勤的东西。乡村建设真正难的从来不在修房子，而在重新长出被拆掉的中间层。</p>
+  <p>还有一处对应在乡土。今天做乡村工作的人常抱怨村庄"组织不起来"：开会没人来，公共事务没人管。读完这本书会明白，这是两千年原子化工程的余温，把人组织起来的能力，恰恰是历代朝廷最警惕、拆得最勤的东西。乡村建设真正难的从来不在修房子，而在重新长出被拆掉的中间层。</p>
 
   <h3>读完可以做什么</h3>
   <p>两个动作。其一，遇到任何"盛世""中兴""大治"的说法，先查两个数：同期人口相对前朝峰值掉了多少，普通人家的实际负担率是多少。两个数一摆，多数颂词自动退烧。其二，每年盘点一次自己的"次坏选择"清单：如果现在这个饭碗明天没了，我有几条退路？少于两条，就该在安稳的年份里去修一条。这是这本书从两千年尸骨里替你提炼的保险单。</p>
@@ -465,10 +542,10 @@
 
   <div class="napkin">
     朝廷汲取量 ＋ 百姓活命量 ≈ 土地出产总量
-    <div class="sub">这是书里明写的盛世公式。出产大体是常数，所以两个加项此消彼长：汲取多一分，活命少一分；人口死掉大半，人均出产暴涨，就出"盛世"。第三层的三根线各就各位——汲取决定左边第一项，原子化保证汲取收得上来，用脚投票是活命量被挤穿时的唯一出口。</div>
+    <div class="sub">这是书里明写的盛世公式。出产大体是常数，所以两个加项此消彼长：汲取多一分，活命少一分；人口死掉大半，人均出产暴涨，就出"盛世"。第三层的三根线各就各位，汲取决定左边第一项，原子化保证汲取收得上来，用脚投票是活命量被挤穿时的唯一出口。</div>
   </div>
 
-  <p><strong>一句话</strong>：两千年的治乱兴衰，主要变量从来只有一个——朝廷的手伸多深；所谓盛世，多半是上一场大乱替百姓争来的人均耕地。</p>
+  <p><strong>一句话</strong>：两千年的治乱兴衰，主要变量从来只有一个，朝廷的手伸多深；所谓盛世，多半是上一场大乱替百姓争来的人均耕地。</p>
 
   <pre class="ascii">
    利出一孔（管子 → 商鞅 → 韩非）
@@ -505,7 +582,7 @@
 
   <p>这套结构今天最像的东西，是某些公司的匿名举报箱和全员互评。设立的时候都念着"透明"两个字，运行两年就会发现：举报箱里装的多半是私怨和站队，互评季一到，人人说话像通稿，聊天记录都留着截图。老板纳闷为什么再也听不到真话，他和雍正隔着三百年互相看不见，但他们的御案是同一张。信任这个东西，制度性地消耗一次，要用十倍的时间才长得回来，而多数组织等不到那一天。</p>
 
-  <p>最后说那个让我合上书愣了一会儿的地方。三个案子里，被制度伤得最重的恰恰都是制度这一侧的人：鱼保家造的箱子装着他自己的死刑判决；知丁法绞住的是它宣称要保护的良民；雍正被自己的发明钉在御案前，日均八千字，成了全帝国最勤奋也最不自由的人。把所有人变成告密者的系统，最后一个被监视的人是皇帝本人，因为他再也不能相信任何一份奏折——每份奏折的作者，都知道自己正被别人监视着写。控制走到尽头，控制者失去了被真话对待的资格。</p>
+  <p>最后说那个让我合上书愣了一会儿的地方。三个案子里，被制度伤得最重的恰恰都是制度这一侧的人：鱼保家造的箱子装着他自己的死刑判决；知丁法绞住的是它宣称要保护的良民；雍正被自己的发明钉在御案前，日均八千字，成了全帝国最勤奋也最不自由的人。把所有人变成告密者的系统，最后一个被监视的人是皇帝本人，因为他再也不能相信任何一份奏折，每份奏折的作者，都知道自己正被别人监视着写。控制走到尽头，控制者失去了被真话对待的资格。</p>
 
   <p>读到这里再回头看前言那三个说"不"的人，味道就变了。魏玄同赴死也不肯告密自救，长安的石匠宁可失业也不刻那块碑。在一个奖励告密的系统里，拒绝告密是唯一能给社会信任续命的行为。谌旭彬说这些人比秦皇汉武更重要，第一遍读像抒情，读到这一层会发现那是系统分析的结论：这台装置靠告密者运转了两千年，也靠拒绝者，才没有塌完。</p>
 </section>

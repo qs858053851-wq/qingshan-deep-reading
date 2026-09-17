@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>社会学研究方法论 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,10 +381,49 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>社会学研究<br>方法论</h1>
-  <div class="author">埃米尔·迪尔凯姆（涂尔干）　1895　华夏出版社中译本（扫描件）</div>
-  <div class="lead">一本一百三十年前的立规矩之书。它要办的事只有一件：证明社会学有自己的研究对象，那个对象既不是个人的心思，也不是哲学家的思辨。它给出的办法是一句听上去很冷的话——把社会事实当作物来看待。</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">社会学研究 方法论</div>
+    <div class="cover-sub">迪尔凯姆（涂尔干）　1895　华夏出版社中译本（扫描件）</div>
+    <div class="cover-meta">埃米尔 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先说它的处境。一八九五年，社会学这个词已经有了，但这门学问还没有立住。它上面压着哲学，旁边挤着心理学，别人的质...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么说社会学不能被心理学吃掉</span>
+      <span class="toc-desc">这是全书最要紧的一场战斗。如果社会现象归根到底是许多个人心理活动的总和，那么社会学就只是心理学的一个应用分支，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 六章准则拆到底，三件事在起作用</span>
+      <span class="toc-desc">“当作物来看待”这条准则，实际要求的是一个态度上的动作：承认自己不懂。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：为什么不能把社会还原成个人</span>
+      <span class="toc-desc">他坚持社会学有独立的对象，坚持一种社会现象只能用另一种社会现象解释。这个坚持在当时被批评为神秘主义：除了一个个...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这套方法问明白</span>
+      <span class="toc-desc">放下日常概念，是因为那些概念本身是社会造的产物。你研究“家庭”，脑子里那个家庭是你家的样子；你研究“犯罪”，脑...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">一八九五年的处境前面说过：社会学还没被承认是一门学问。而迪尔凯姆本人是要在大学里把这门课开起来的人，他需要的不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 他说犯罪是正常的，然后把苏格拉底摆了出来</span>
+      <span class="toc-desc">第三章要立的是判断正常与病态的准则。他挑了一个最不讨好的题目来做示范：犯罪。</span>
+    </div>
+  </div>
+
+  <div class="lead">一本一百三十年前的立规矩之书。它要办的事只有一件：证明社会学有自己的研究对象，那个对象既不是个人的心思，也不是哲学家的思辨。它给出的办法是一句听上去很冷的话，把社会事实当作物来看待。</div>
 </div>
 
 <div class="layer">
@@ -382,7 +462,7 @@
 
   <p>第二章那条准则是这本书流传最广的东西：<strong>把社会事实当作物来看待。</strong></p>
 
-  <p>这句话常被误解成“社会现象就是物质”。他的意思要窄得多，也实在得多：<strong>像物理学家对待物那样对待它</strong>——不预设你已经懂它，不用日常概念去替代观察，不从“应该是什么样”出发去谈“是什么样”。</p>
+  <p>这句话常被误解成“社会现象就是物质”。他的意思要窄得多，也实在得多：<strong>像物理学家对待物那样对待它</strong>，不预设你已经懂它，不用日常概念去替代观察，不从“应该是什么样”出发去谈“是什么样”。</p>
 
   <p>他把这条规矩的第一步叫作剥掉先入之见。研究家庭之前，先放下你对家庭的看法；研究犯罪之前，先放下你对罪犯的憎恶。<strong>因为这些看法本身就是社会造出来的，用它们去研究社会，等于拿被告的证词当判决书。</strong></p>
 
@@ -452,7 +532,7 @@
 
   <p>第五章的核心准则是：一种社会现象只能用另一种社会现象来解释。</p>
 
-  <p>这条规矩听上去像地盘之争，其实是个方法要求。举个他自己那一路的例子：一个地方的自杀率常年稳定，而每年自杀的是不同的人，各有各的伤心事。<strong>用个人的伤心事解释不了那个稳定的数字</strong>——个人在变，数字不变，说明起作用的是别的东西。</p>
+  <p>这条规矩听上去像地盘之争，其实是个方法要求。举个他自己那一路的例子：一个地方的自杀率常年稳定，而每年自杀的是不同的人，各有各的伤心事。<strong>用个人的伤心事解释不了那个稳定的数字</strong>，个人在变，数字不变，说明起作用的是别的东西。</p>
 
   <p>他因此把有效原因推到社会环境里去找：群体的密度、成员之间的联结程度、共同信念的强弱。这些东西都在个人之上，而且可以变化、可以比较。</p>
 
@@ -466,7 +546,7 @@
 
   <p>他给的办法是统计加功能的双重判准：<strong>先看它在同一类型、同一发展阶段的社会里是不是普遍存在</strong>，普遍存在的就是正常的；<strong>再看它是不是与那个社会的基本生存条件相连</strong>。两条都过，才算正常。</p>
 
-  <p>这个办法把判断从道德手里拿了出来，交给了观察。它的代价第二层已经说过：常见和健康被接在了一起。但要看到它当初要挡的是什么——一整套用“我觉得这不像话”来做社会诊断的传统。</p>
+  <p>这个办法把判断从道德手里拿了出来，交给了观察。它的代价第二层已经说过：常见和健康被接在了一起。但要看到它当初要挡的是什么，一整套用“我觉得这不像话”来做社会诊断的传统。</p>
 
   <p>这一章他拿来做示范的题目是犯罪，而那个示范的结论极其反直觉，是全书最出名也最招骂的一段。我留到第八层单讲。</p>
 
@@ -476,7 +556,7 @@
 
   <p>三根都是承重的。抽掉第一根，研究者的常识会代替研究；抽掉第二根，社会学退回心理学；抽掉第三根，它给不出任何判断，只能描述。</p>
 
-  <p><strong>有一处这三根线管不着：</strong>第六章的检验方法。他主张用共变法作为社会学的主要工具，因为社会学做不了控制实验。这一章讲的是技术，跟前三根线不在同一个层面上。它也是全书最过时的一章——今天的社会科学有一整套他想都想不到的统计工具。</p>
+  <p><strong>有一处这三根线管不着：</strong>第六章的检验方法。他主张用共变法作为社会学的主要工具，因为社会学做不了控制实验。这一章讲的是技术，跟前三根线不在同一个层面上。它也是全书最过时的一章，今天的社会科学有一整套他想都想不到的统计工具。</p>
 </div>
 
 <div class="layer">
@@ -531,7 +611,7 @@
     <div class="q">Q2　为什么一定要把“原因”和“功能”分开问？</div>
     <p class="a-lead">因为混着问会得到一个自我循环的答案：它存在是因为它有用。</p>
     <p>这个句式听起来很顺，其实什么也没说。任何一样存在的东西都可以被找到某种用处，于是它就永远解释得通。而真正的问题是：<strong>它是怎么来的？</strong>那个来历往往跟它今天的用处毫无关系。</p>
-    <p>把两问分开之后，才能问出有意思的东西：一样东西当初的产生条件已经消失了，它却因为长出了新的功能而留了下来。<strong>这种情况在制度里非常常见，也是很多改革失败的原因</strong>——改的人以为它还在履行当初的职能，而它早就换了工作。</p>
+    <p>把两问分开之后，才能问出有意思的东西：一样东西当初的产生条件已经消失了，它却因为长出了新的功能而留了下来。<strong>这种情况在制度里非常常见，也是很多改革失败的原因</strong>，改的人以为它还在履行当初的职能，而它早就换了工作。</p>
     <p class="a-edge">这一条是这本书里最经得起时间考验的方法遗产，今天在制度分析、组织研究、演化生物学里都通用。</p>
   </div>
 
@@ -598,17 +678,17 @@
 
   <p><strong>二，看到稳定的数字，别追个人动机。</strong>年年差不多的比例、月月相似的分布，背后是结构在起作用。这时候去问某个当事人为什么这么做，问出来的答案再真诚也解释不了那个数字。</p>
 
-  <p><strong>三，判断一样东西要不要留，先分别问它怎么来的、现在起什么作用。</strong>两个答案对不上的时候，就是可以动手的地方——它当初的理由已经没了，现在的作用可以用别的方式实现。</p>
+  <p><strong>三，判断一样东西要不要留，先分别问它怎么来的、现在起什么作用。</strong>两个答案对不上的时候，就是可以动手的地方，它当初的理由已经没了，现在的作用可以用别的方式实现。</p>
 
   <div class="sub">我自己的看法</div>
 
   <p>被说服的：原因与功能分开问这一条，是我读这本书最大的收获。它看着技术，实际上能挡住一大类懒惰的解释。任何时候听到“它存在自然有它的道理”，就该把这两问拆开。</p>
 
-  <p>还有第四层那条底：关系不在任何一个部分里。这句话让他那个当年被骂成神秘主义的立场变得极其朴素——他要的只是承认“之间”也算数。</p>
+  <p>还有第四层那条底：关系不在任何一个部分里。这句话让他那个当年被骂成神秘主义的立场变得极其朴素，他要的只是承认“之间”也算数。</p>
 
   <p>不服的两处。一是把主观意义整个排除出去，这在当时是战术需要，作为长期立场站不住，人怎么理解自己的处境本身就在改变那个处境。二是那个正常与病态的框架，它给了社会学做判断的权力，但那把尺子太容易被用来维护现状。<strong>把“大家都这样”和“这样是对的”接在一起，是这本书最危险的一处遗产。</strong></p>
 
-  <p>给读者的读法建议：第一章（什么是社会现象）和第二章（观察准则）是骨，值得慢读；第三章（正常与病态）读那个犯罪的例子就够，但那个例子很值得，见第八层；第五章（解释准则）里原因与功能的区分是全书最有用的技术；第四、六章可以快读，那两章过时最多。</p>
+  <p>给先生的读法建议：第一章（什么是社会现象）和第二章（观察准则）是骨，值得慢读；第三章（正常与病态）读那个犯罪的例子就够，但那个例子很值得，见第八层；第五章（解释准则）里原因与功能的区分是全书最有用的技术；第四、六章可以快读，那两章过时最多。</p>
 </div>
 
 <div class="layer">
@@ -683,7 +763,7 @@
 
   <p>第一个疑问是最直接的那个：<strong>这不就是在替犯罪辩护吗？</strong>被偷了东西的人、被打了的人，听到“这是正常的、还是有用的”，作何感想。</p>
 
-  <p>这一问站不住，但它的误会很值得说清。他讲的正常是一个类比于生理学的说法：<strong>发烧是身体在正常运作，这句话不等于说发烧是好事，更不等于说不该退烧。</strong>他自己也把话说死了——犯罪率异常地高是病态，异常地低同样是病态。正常指的是一个区间，不是一个态度。</p>
+  <p>这一问站不住，但它的误会很值得说清。他讲的正常是一个类比于生理学的说法：<strong>发烧是身体在正常运作，这句话不等于说发烧是好事，更不等于说不该退烧。</strong>他自己也把话说死了，犯罪率异常地高是病态，异常地低同样是病态。正常指的是一个区间，不是一个态度。</p>
 
   <p>第二个疑问更实在：<strong>那这套说法到底有什么用？</strong>知道它消灭不了，难道就不管了？</p>
 
@@ -697,7 +777,7 @@
 
   <p>现在设想学校决定解决这个问题，把最后五名劝退。</p>
 
-  <p>剩下四十五个人，下一次考完试，立刻产生新的最后五名。<strong>而且要命的是，这五个人会被用跟原来那五个人一模一样的眼光对待</strong>——老师的叹气、家长会上的沉默、同学之间那句“他成绩不行”。他们的绝对水平可能比被劝退的那批高得多，可他们占的是同一个位置。</p>
+  <p>剩下四十五个人，下一次考完试，立刻产生新的最后五名。<strong>而且要命的是，这五个人会被用跟原来那五个人一模一样的眼光对待</strong>，老师的叹气、家长会上的沉默、同学之间那句“他成绩不行”。他们的绝对水平可能比被劝退的那批高得多，可他们占的是同一个位置。</p>
 
   <p>因为“差生”这个位置不是由分数定义的，是由分布定义的。<strong>只要还排名，这个位置就一定有人坐；你能换掉坐着的人，换不掉那把椅子。</strong></p>
 
@@ -707,16 +787,16 @@
 
   <p>迪尔凯姆写这一章的用意，本来只是给他的方法做个示范：不许用道德直觉判断正常与病态，要用观察和功能。可这个示范做得比示范本身重得多。<strong>它证明了一件事：有些让人极不舒服的结论，是从方法里推出来的，而不是从立场里推出来的。</strong></p>
 
-  <p>一门学问能不能立住，看的就是这个——它能不能得出连它自己也不喜欢的结论。</p>
+  <p>一门学问能不能立住，看的就是这个，它能不能得出连它自己也不喜欢的结论。</p>
   </div>
 </div>
 
 <div class="boundary">
   <h4>事实边界</h4>
-  <p><strong>这一篇的材料条件跟本批其他解读不同，必须先说清楚。</strong>本篇使用的是扫描版 PDF，没有文本层，我用本地 OCR（tesseract）转出了全书文字，但这是一九八〇年代铅印本的扫描件，<strong>OCR 准确率约八九成，正文里有大量成串的错字</strong>（比如“从一般的概括中摆脱出来”被识别成“从一明取概括中择腊出来”）。</p>
-  <p><strong>因此本篇全文不含任何逐字引文</strong>，也没有引号包起来的原书句子。文中出现的所有说法，包括“把社会事实当作物来看待”这类著名命题，都是按通行理解转述的，不是本译本的原文措辞。若要引用原文，必须回到可靠版本（商务印书馆狄玉明译《社会学方法的准则》是常见的可靠中译本）。</p>
+  <p><strong>这一篇的材料条件跟本批其他解读不同，必须先说清楚。</strong>先生给的是扫描版 PDF，没有文本层，我用本地 OCR（tesseract）转出了全书文字，但这是一九八〇年代铅印本的扫描件，<strong>OCR 准确率约八九成，正文里有大量成串的错字</strong>（比如“从一般的概括中摆脱出来”被识别成“从一明取概括中择腊出来”）。</p>
+  <p><strong>因此本篇全文不含任何逐字引文</strong>，也没有引号包起来的原书句子。文中出现的所有说法，包括“把社会事实当作物来看待”这类著名命题，都是按通行理解转述的，不是本译本的原文措辞。先生若要引用原文，必须回到可靠版本（商务印书馆狄玉明译《社会学方法的准则》是常见的可靠中译本）。</p>
   <p><strong>本篇的写法：</strong>我用 OCR 文本核对了全书的章节结构与各章分节（第一章什么是社会现象、第二章观察准则、第三章区分规则与不规则现象、第四章划分社会类型、第五章解释准则、第六章检验准则），这部分结构信息是可靠的；<strong>各章的具体论证，是依据我对这本书的既有了解写的，未逐句回核。</strong></p>
-  <p>第八层关于犯罪的论证（普遍存在、圣人社会的思想实验、犯罪率过高与过低都是病态、苏格拉底作为例子），是这本书第三章的著名内容，学界共识清楚；<strong>但具体的措辞、苏格拉底那一段的原话，我没有逐字核对</strong>，若要引用请以可靠版本为准。</p>
+  <p>第八层关于犯罪的论证（普遍存在、圣人社会的思想实验、犯罪率过高与过低都是病态、苏格拉底作为例子），是这本书第三章的著名内容，学界共识清楚；<strong>但具体的措辞、苏格拉底那一段的原话，我没有逐字核对</strong>，先生若要引用请以可靠版本为准。</p>
   <p>第三层的三根线、第四层关于“关系不在任何一个部分里”的下钻、第六层关于本书局限的判断（未处理观察者位置、常态框架的保守后果），以及第八层拿班级排名作类比，都是我的分析，不是原书写的。第五层关于与韦伯分歧的说法，是社会学史的通行认识。</p>
 </div>
 

@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>学会提问——批判性思维指南（第七版）—— 九层解书</title>
+<title>学会提问，批判性思维指南（第七版）， 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -341,11 +382,168 @@
 <div class="container">
 
 <!-- Hero -->
-<div class="hero">
-  <h1>学会提问</h1>
-  <p class="author">M. Neil Browne & Stuart M. Keeley（尼尔·布朗 & 斯图尔特·基利）</p>
-  <p class="meta">批判性思维指南（第七版）· 方法论型 · 九层解书 · 05-27 初稿 · 07-15 修订</p>
-</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">学会提问</div>
+    <div class="cover-sub">核心问题： 面对海量信息，如何不被忽悠？</div>
+    <div class="cover-meta">青山 读 · 学会提问 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 骨架扫描</span>
+      <span class="toc-desc">核心问题：面对海量信息，如何不被忽悠？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 血肉解剖</span>
+      <span class="toc-desc">前提 1：我们每天都淹没在海量信息中，大部分信息带有说服目的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 核心方法拆解（Q-A 链）</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">海绵式思维假设信息来源可信，淘金式思维假设所有信息都需要验证，后者在信息过载且来源混杂的时代更可靠。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11</span>
+      <span class="toc-desc">海绵式 = 被动接收 → 记忆存储；淘金式 = 主动质疑 → 筛选验证 → 选择性吸收</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">作者没有否定海绵式思维的价值（学习基础知识阶段需要），但指出它的致命弱点，无法区分优质信息和垃圾信息。海绵式...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 13</span>
+      <span class="toc-desc">需要系统学习基础知识的阶段，海绵式思维效率更高。批判性思维是第二阶段的能力。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14</span>
+      <span class="toc-desc">找不到靶子，批判就是放空枪。很多争论之所以无效，是因为双方连对方在说什么都没搞清楚。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">有效批判 = 明确论题（在讨论什么）+ 明确结论（对方主张什么）+ 明确理由（凭什么这么说）</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16</span>
+      <span class="toc-desc">作者把这一步放在最前面，是因为发现大多数人跳过它。人们习惯于「我觉得你说的不对」，但说不出「你说的结论是 X，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 17</span>
+      <span class="toc-desc">如果对方故意模糊论题（如某些政治修辞），这一步会变得困难。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">描述性假设是关于「世界是什么样」的假设，可以用事实检验；价值观假设是关于「世界应该是什么样」的假设，没有客观标...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">描述性假设 = 事实判断（可证伪）；价值观假设 = 价值排序（不可证伪，只能暴露）</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20</span>
+      <span class="toc-desc">作者花了两章分别讲这两种假设，因为发现读者最容易在价值观假设上栽跟头。「我们应该禁止香烟广告」背后藏着「保护公...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">在价值观高度同质化的群体中，价值观假设的识别价值降低。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 22</span>
+      <span class="toc-desc">这些谬误之所以常见，不是因为人笨，是因为它们在进化上有效，情绪反应比逻辑分析快，在原始环境中更有生存优势。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 23</span>
+      <span class="toc-desc">逻辑谬误 = 认知捷径的滥用；在信息稀缺环境中有效 → 在信息丰富环境中有害</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">作者列出 20 多种常见谬误，但核心洞见是：谬误不是「错误」，是「在错误场景使用正确工具」。比如「诉诸权威」在...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 25</span>
+      <span class="toc-desc">某些谬误在特定文化中不被视为谬误（如「大家都这么做」在集体主义文化中说服力更强）。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 26</span>
+      <span class="toc-desc">这些证据类型在认知上最「易得」，大脑喜欢故事、喜欢权威、喜欢具体案例，但它们在统计上最弱，因为样本偏差、选...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27</span>
+      <span class="toc-desc">证据可信度 ∝ 可重复性 × 样本代表性 × 方法论严谨性；个人经历 = 高可得性 × 低可信度</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 28</span>
+      <span class="toc-desc">作者把证据分为两类：「需要警惕的证据」（直觉、个人经历、 testimonials、权威）和「相对可靠的证据」...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 29</span>
+      <span class="toc-desc">在缺乏科学研究的领域（如人生决策），个人经历可能是唯一可用的证据。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 30</span>
+      <span class="toc-desc">A 发生在 B 之前，不等于 A 导致 B。作者举了大量「因果错觉」案例，核心教训是：相关不等于因果，因果需要...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 31</span>
+      <span class="toc-desc">因果声称 = X → Y；有效验证 = X → Y + 排除 Z → Y + 排除 Y → X + 排除第三因...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 32</span>
+      <span class="toc-desc">这是全书最实用的部分之一。作者指出，人类大脑是「因果机器」，我们天生倾向于给一切找原因。但现实世界充满多重因...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 33</span>
+      <span class="toc-desc">在复杂系统（如经济、生态）中，多重因果是常态，单一因果解释往往过于简化。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 34</span>
+      <span class="toc-desc">数字自带「客观」光环，但数字的呈现方式（平均值类型、基数、时间范围、比较基准）可以彻底扭曲含义。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 35</span>
+      <span class="toc-desc">统计数据 = 原始数字 × 呈现方式；同样的数字，不同的呈现 → 相反的含义</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 36</span>
+      <span class="toc-desc">作者列举了 10 多种统计欺骗手法：用平均数掩盖极端值、省略基数制造恐慌（「犯罪率上升 50%」可能只是从 2...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 37</span>
+      <span class="toc-desc">某些统计概念（如置信区间、回归分析）确实需要专业知识才能质疑。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 38</span>
+      <span class="toc-desc">错误信息可以被反驳，遗漏信息让你根本不知道自己不知道。说服者通过选择性呈现信息，可以引导你得出他们想让你得出的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 39</span>
+      <span class="toc-desc">完整判断 = 已知信息 + 已知未知 + 未知未知；遗漏信息 → 扩大未知未知 → 虚假确定性</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 40</span>
+      <span class="toc-desc">作者把这一章放在结论之前，是有深意的。前面的问题都是「给定的信息里有什么问题」，这一章是「还有什么没给我」。后...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 41</span>
+      <span class="toc-desc">信息不可能完全完整，判断何时「足够」需要经验。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 44 · 灵魂提取</span>
+      <span class="toc-desc">布朗和基利写这本书，不是因为他们是逻辑学家，是因为他们是大学老师，看多了学生被糟糕论证忽悠。他们看到具体的痛：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 47 · 餐巾纸压缩</span>
+      <span class="toc-desc">不要急着相信，也不要急着否定，先搞清楚对方在说什么、凭什么这么说、还有什么没告诉你。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 50 · 可传播短文</span>
+      <span class="toc-desc">前面七层把 11 个问题一件件拆开陈列，按下不表的是：这套工具合起来用是什么样、以及它真正的分水岭在哪。现在摊...</span>
+    </div>
+  </div>
+
 
 <!-- Layer 1 -->
 <div class="layer">
@@ -355,7 +553,7 @@
   </div>
 
   <p><strong>核心问题：</strong>面对海量信息，如何不被忽悠？</p>
-  <p><strong>核心答案：</strong>批判性思维不是知识储备，是一套可习得的提问程序——面对任何观点，先问 11 个问题，把「我觉得」变成「我判断」。</p>
+  <p><strong>核心答案：</strong>批判性思维不是知识储备，是一套可习得的提问程序，面对任何观点，先问 11 个问题，把「我觉得」变成「我判断」。</p>
 
   <h3>章节骨架</h3>
   <table>
@@ -371,8 +569,8 @@
     <tr><td>13</td><td>合理结论</td><td>只能得出这个结论吗？</td></tr>
   </table>
 
-  <p><strong>论证结构：</strong>演绎型——从「信息社会需要批判性思维」这个大前提，推导出「每个人都需要掌握这套提问程序」的结论。</p>
-  <p><strong>写作姿态：</strong>老师对学生说话，耐心、具体、带案例。不是学术腔，是「我教你一个实用的手艺」。这套手艺合起来用是什么样、又分强弱两种用法——按下不表，压轴层摊开。</p>
+  <p><strong>论证结构：</strong>演绎型，从「信息社会需要批判性思维」这个大前提，推导出「每个人都需要掌握这套提问程序」的结论。</p>
+  <p><strong>写作姿态：</strong>老师对学生说话，耐心、具体、带案例。不是学术腔，是「我教你一个实用的手艺」。这套手艺合起来用是什么样、又分强弱两种用法，按下不表，压轴层摊开。</p>
 </div>
 
 <!-- Layer 2 -->
@@ -384,26 +582,26 @@
 
   <h3>核心论证链</h3>
   <p>前提 1：我们每天都淹没在海量信息中，大部分信息带有说服目的。</p>
-  <p>前提 2：人的认知天生有漏洞——确认偏误、从众、服从权威、可得性启发。</p>
+  <p>前提 2：人的认知天生有漏洞，确认偏误、从众、服从权威、可得性启发。</p>
   <p>前提 3：这些漏洞可以被一套结构化提问程序部分修补。</p>
   <p>结论：学会这套提问程序，能显著提高判断质量。</p>
 
   <h3>最有说服力的三个证据（陈列，不展开）</h3>
 
   <h4>证据一：两种思维方式的对比</h4>
-  <p>同一篇文章，一种人只能复述观点，另一种人能指出「个人经历当证据，样本太小」——差的不是知识量，是思维方式。为什么后者更适应现代信息环境，第五层 Q1 细说。</p>
+  <p>同一篇文章，一种人只能复述观点，另一种人能指出「个人经历当证据，样本太小」，差的不是知识量，是思维方式。为什么后者更适应现代信息环境，第五层 Q1 细说。</p>
 
   <h4>证据二：价值观假设的隐形操控</h4>
   <p>「我们应该禁止香烟广告」背后藏着一个没说出口的价值排序。这类假设为什么最难被发现、怎么挖，第五层 Q3 细说。</p>
 
   <h4>证据三：统计数据的欺骗性</h4>
-  <p>「犯罪率上升 50%」可能只是从 2 起变成 3 起——数字不说谎，呈现方式会。统计欺骗的完整手法清单，第五层 Q7 细说。</p>
+  <p>「犯罪率上升 50%」可能只是从 2 起变成 3 起，数字不说谎，呈现方式会。统计欺骗的完整手法清单，第五层 Q7 细说。</p>
 
   <h3>隐形假设</h3>
   <ul>
-    <li>读者愿意放慢判断速度——批判性思维是慢思考，在快节奏环境里是反直觉的。</li>
-    <li>信息来源是可质疑的——如果对方根本不给理由（比如「我说是就是」），这套工具用不上。</li>
-    <li>判断质量比判断速度更重要——在某些场景（如急诊室），这套方法可能不适用。</li>
+    <li>读者愿意放慢判断速度，批判性思维是慢思考，在快节奏环境里是反直觉的。</li>
+    <li>信息来源是可质疑的，如果对方根本不给理由（比如「我说是就是」），这套工具用不上。</li>
+    <li>判断质量比判断速度更重要，在某些场景（如急诊室），这套方法可能不适用。</li>
   </ul>
 
   <h3>边界条件</h3>
@@ -428,7 +626,7 @@
     <div class="qa-question">Q1：为什么「淘金式思维」比「海绵式思维」更适应现代信息环境？</div>
     <div class="qa-section">
       <div class="qa-label">结论</div>
-      <p>海绵式思维假设信息来源可信，淘金式思维假设所有信息都需要验证——后者在信息过载且来源混杂的时代更可靠。</p>
+      <p>海绵式思维假设信息来源可信，淘金式思维假设所有信息都需要验证，后者在信息过载且来源混杂的时代更可靠。</p>
     </div>
     <div class="qa-section">
       <div class="qa-label">形式化</div>
@@ -436,7 +634,7 @@
     </div>
     <div class="qa-section">
       <div class="qa-label">论证步</div>
-      <p>作者没有否定海绵式思维的价值（学习基础知识阶段需要），但指出它的致命弱点——无法区分优质信息和垃圾信息。海绵式思维的人读完一篇文章，能复述作者的所有观点，但分不清哪些值得信；淘金式思维的人读完，能说出「作者这里用了个人经历当证据，样本量太小，不能推广」。当信息源从「教科书」变成「社交媒体」，海绵式思维就成了认知负债。</p>
+      <p>作者没有否定海绵式思维的价值（学习基础知识阶段需要），但指出它的致命弱点，无法区分优质信息和垃圾信息。海绵式思维的人读完一篇文章，能复述作者的所有观点，但分不清哪些值得信；淘金式思维的人读完，能说出「作者这里用了个人经历当证据，样本量太小，不能推广」。当信息源从「教科书」变成「社交媒体」，海绵式思维就成了认知负债。</p>
     </div>
     <div class="qa-section">
       <div class="qa-label">边界</div>
@@ -476,7 +674,7 @@
     </div>
     <div class="qa-section">
       <div class="qa-label">论证步</div>
-      <p>作者花了两章分别讲这两种假设，因为发现读者最容易在价值观假设上栽跟头。「我们应该禁止香烟广告」背后藏着「保护公众健康比保护商业自由更重要」；「政府应该提高最低工资」背后藏着「公平比经济效率更重要」——这不是对错问题，是优先级问题。如果不挖出这层假设，两个人可能永远吵不到点上，因为他们争论的根本不是同一个维度；价值观排序不同，论证再严密也说服不了对方。</p>
+      <p>作者花了两章分别讲这两种假设，因为发现读者最容易在价值观假设上栽跟头。「我们应该禁止香烟广告」背后藏着「保护公众健康比保护商业自由更重要」；「政府应该提高最低工资」背后藏着「公平比经济效率更重要」，这不是对错问题，是优先级问题。如果不挖出这层假设，两个人可能永远吵不到点上，因为他们争论的根本不是同一个维度；价值观排序不同，论证再严密也说服不了对方。</p>
     </div>
     <div class="qa-section">
       <div class="qa-label">边界</div>
@@ -488,7 +686,7 @@
     <div class="qa-question">Q4：为什么「人身攻击」「诉诸情感」「滑坡谬误」等推理错误如此普遍？</div>
     <div class="qa-section">
       <div class="qa-label">结论</div>
-      <p>这些谬误之所以常见，不是因为人笨，是因为它们在进化上有效——情绪反应比逻辑分析快，在原始环境中更有生存优势。</p>
+      <p>这些谬误之所以常见，不是因为人笨，是因为它们在进化上有效，情绪反应比逻辑分析快，在原始环境中更有生存优势。</p>
     </div>
     <div class="qa-section">
       <div class="qa-label">形式化</div>
@@ -508,7 +706,7 @@
     <div class="qa-question">Q5：为什么个人经历、专家意见、案例研究这些「常见证据」往往最不可靠？</div>
     <div class="qa-section">
       <div class="qa-label">结论</div>
-      <p>这些证据类型在认知上最「易得」——大脑喜欢故事、喜欢权威、喜欢具体案例——但它们在统计上最弱，因为样本偏差、选择性呈现、无法复制。</p>
+      <p>这些证据类型在认知上最「易得」，大脑喜欢故事、喜欢权威、喜欢具体案例，但它们在统计上最弱，因为样本偏差、选择性呈现、无法复制。</p>
     </div>
     <div class="qa-section">
       <div class="qa-label">形式化</div>
@@ -536,7 +734,7 @@
     </div>
     <div class="qa-section">
       <div class="qa-label">论证步</div>
-      <p>这是全书最实用的部分之一。作者指出，人类大脑是「因果机器」——我们天生倾向于给一切找原因。但现实世界充满多重因果、反向因果、巧合相关。批判性思维要求我们在接受一个因果解释前，先问「还有没有其他可能的解释」。</p>
+      <p>这是全书最实用的部分之一。作者指出，人类大脑是「因果机器」，我们天生倾向于给一切找原因。但现实世界充满多重因果、反向因果、巧合相关。批判性思维要求我们在接受一个因果解释前，先问「还有没有其他可能的解释」。</p>
     </div>
     <div class="qa-section">
       <div class="qa-label">边界</div>
@@ -600,22 +798,22 @@
   <ul>
     <li><strong>过度理性假设：</strong>作者假设人们追求真理，但现实中很多人追求的是认同、安慰、归属感。批判性思维在群体压力下很难坚持。</li>
     <li><strong>文化偏见：</strong>书中的例子和论证风格明显偏向西方个人主义文化，对集体主义文化中的「和谐优先」价值观讨论不足。</li>
-    <li><strong>执行难度：</strong>作者知道这套方法需要练习，但低估了「在情绪激动时保持冷静质疑」的难度——这不是技术问题，是情绪调节问题。</li>
+    <li><strong>执行难度：</strong>作者知道这套方法需要练习，但低估了「在情绪激动时保持冷静质疑」的难度，这不是技术问题，是情绪调节问题。</li>
   </ul>
 
   <h3>跨域映射（一域一条）</h3>
   <table>
     <tr><th>本书概念</th><th>其他领域对应</th><th>域</th></tr>
-    <tr><td>淘金式思维</td><td>建仓前的「尽职调查」——不是找买入理由，是找不该买的理由</td><td>交易/投资</td></tr>
+    <tr><td>淘金式思维</td><td>建仓前的「尽职调查」，不是找买入理由，是找不该买的理由</td><td>交易/投资</td></tr>
     <tr><td>价值观假设</td><td>谈桌上争的往往不是条款，是「利益而非立场」的优先级排序</td><td>谈判</td></tr>
-    <tr><td>推理谬误</td><td>认知行为疗法中的「认知扭曲」——对自己的念头做谬误检查</td><td>心理/健康</td></tr>
+    <tr><td>推理谬误</td><td>认知行为疗法中的「认知扭曲」，对自己的念头做谬误检查</td><td>心理/健康</td></tr>
     <tr><td>替代原因</td><td>民宿某月营收下滑，先排除天气、节假日错位、渠道调价，再谈「运营出了问题」</td><td>民宿/乡村运营</td></tr>
-    <tr><td>遗漏信息</td><td>情报分析中的「红队思维」——专设一队人找「我们没被告知什么」</td><td>情报/国家</td></tr>
+    <tr><td>遗漏信息</td><td>情报分析中的「红队思维」，专设一队人找「我们没被告知什么」</td><td>情报/国家</td></tr>
   </table>
 
   <h3>行动触发</h3>
   <ul>
-    <li><strong>立刻做：</strong>下次看到一条让你情绪激动的新闻，先问「论题是什么？结论是什么？理由是什么？」——不是不愤怒，是先确认愤怒的对象是对的。</li>
+    <li><strong>立刻做：</strong>下次看到一条让你情绪激动的新闻，先问「论题是什么？结论是什么？理由是什么？」，不是不愤怒，是先确认愤怒的对象是对的。</li>
     <li><strong>短期做：</strong>下次评审营销方案或看到「某村宿爆改后营收翻三倍」的报道时，按 Q7 追问三句：基数是多少？跟谁比？时间范围怎么选的？再按 Q6 找一个替代解释（比如节假日红利、补贴一次性投入）。</li>
     <li><strong>长期做：</strong>把「价值观假设」的识别应用到人际关系中。吵架时先问「我们在争的是事实，还是优先级？」</li>
   </ul>
@@ -634,7 +832,7 @@
   <p class="marker">小注（点火条件，不进公式）：先慢下来。不慢，四步一步都走不动。</p>
 
   <h3>一句话</h3>
-  <p>不要急着相信，也不要急着否定——先搞清楚对方在说什么、凭什么这么说、还有什么没告诉你。</p>
+  <p>不要急着相信，也不要急着否定，先搞清楚对方在说什么、凭什么这么说、还有什么没告诉你。</p>
 
   <h3>结构图（四格与公式四因子一一对应）</h3>
   <div class="ascii-art">
@@ -671,7 +869,7 @@
   </div>
 
   <div class="essay">
-    <p>前面七层把 11 个问题一件件拆开陈列，按下不表的是：这套工具合起来用是什么样、以及它真正的分水岭在哪。现在摊开——从一条新闻开始。</p>
+    <p>前面七层把 11 个问题一件件拆开陈列，按下不表的是：这套工具合起来用是什么样、以及它真正的分水岭在哪。现在摊开，从一条新闻开始。</p>
 
     <p>你刷到一条新闻：「某专家说，每天喝咖啡的人比不喝咖啡的人长寿 20%。」</p>
 
@@ -683,7 +881,7 @@
 
     <p>这本书的核心是一个问题清单，11 个问题，面对任何观点都可以按图索骥。前三个问题像瞄准镜：对方到底在说什么？结论是什么？凭什么这么说？很多人跳过这一步，直接开火，结果打的是稻草人。</p>
 
-    <p>中间四个问题像 X 光：那些听起来很确定的词，到底是什么意思？作者没明说的假设是什么？推理过程有没有跳步？这里最容易踩的坑是「价值观假设」——两个人争论「应不应该提高税收」，一个人假设「公平优先」，另一个人假设「效率优先」，他们吵的压根不是同一个问题。</p>
+    <p>中间四个问题像 X 光：那些听起来很确定的词，到底是什么意思？作者没明说的假设是什么？推理过程有没有跳步？这里最容易踩的坑是「价值观假设」，两个人争论「应不应该提高税收」，一个人假设「公平优先」，另一个人假设「效率优先」，他们吵的压根不是同一个问题。</p>
 
     <p>后四个问题像显微镜：证据是什么类型？可靠吗？有没有其他可能的解释？数据有没有被操纵？还有什么没告诉我的？</p>
 
@@ -693,9 +891,9 @@
 
     <p>书里有句话让我停下来：「我们听到的和看到的，都是别人想让我们听到和看到的。」这不是阴谋论，是信息传播的基本规律。每个信息源都有立场，每篇文章都有省略。批判性思维不是让你变成怀疑一切的人，是让你在相信之前，先知道自己为什么相信。</p>
 
-    <p>最实用的建议来自最后一章：不要试图一次性掌握所有 11 个问题。先挑一个，用到熟练，再叠加下一个。比如先从「结论是什么」开始，强迫自己每次看完一篇文章后，用一句话说出作者的结论。你会发现，很多文章你根本说不出——因为作者自己也没想清楚。</p>
+    <p>最实用的建议来自最后一章：不要试图一次性掌握所有 11 个问题。先挑一个，用到熟练，再叠加下一个。比如先从「结论是什么」开始，强迫自己每次看完一篇文章后，用一句话说出作者的结论。你会发现，很多文章你根本说不出，因为作者自己也没想清楚。</p>
 
-    <p>这个时代不缺信息，缺的是筛选信息的耐心和方法。这本书给的就是方法。它不保证你每次都对，但能保证你错得明白——知道自己为什么信，比信什么更重要。</p>
+    <p>这个时代不缺信息，缺的是筛选信息的耐心和方法。这本书给的就是方法。它不保证你每次都对，但能保证你错得明白，知道自己为什么信，比信什么更重要。</p>
   </div>
 </div>
 

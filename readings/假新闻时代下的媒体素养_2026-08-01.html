@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>假新闻时代下的媒体素养 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>假新闻时代下的<br>媒体素养</h1>
-  <div class="author">曼弗雷德·泰森　薇瑞娜·巴浩斯 绘　向下扎根！德国教育的公民思辨课 7（繁体中译本）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">假新闻时代下的 媒体素养</div>
+    <div class="cover-sub">泰森　薇瑞娜·巴浩斯 绘　向下扎根！德国教育的公民思辨课 7（繁体中译本）</div>
+    <div class="cover-meta">曼弗雷德 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 一本讲媒体素养的书，硬在哪儿</span>
+      <span class="toc-desc">这一册换了作者，是曼弗雷德·泰森写的，配了薇瑞娜·巴浩斯的插图。题目是媒体素养，但它讲的东西比这个词听起来的要...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么说这事没那么新</span>
+      <span class="toc-desc">第三章开头，他把已知最早的一条刻意制造的假新闻定位在古埃及。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 支起这七章的，是三根线</span>
+      <span class="toc-desc">第一章那个词源解释是全书的地基：medium 的意思是“中间”。任何内容到你眼前，中间都隔着一样东西，而那样东...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 为什么假的总是跑得比真的快</span>
+      <span class="toc-desc">谣言传三天，辟谣要三个月，而且辟谣永远追不上。这件事人人都见过，通常的解释是“人爱看刺激的”。这个解释不算错，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六问，逐条过一遍</span>
+      <span class="toc-desc">书里那句提醒很直接：你不能以为“眼见为凭”“有图有真相”。这句话在中学生课本里出现，本身就说明了事情的严重程度...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 书合上以后，还剩下什么能用</span>
+      <span class="toc-desc">这一册的写作时机很清楚：假新闻成为一个全球性词汇之后的那几年。当时的公共讨论主要分成两派，一派认为这是技术带来...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 压成一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 谎言的最后一步，是变成风景</span>
+      <span class="toc-desc">回到底比斯那面墙。</span>
+    </div>
+  </div>
+
   <div class="lead">七章，从"什么是媒体"讲到网络霸凌。它最要紧的一章是第三章，标题只有六个字：假新闻一直存在。</div>
 </div>
 
@@ -375,7 +455,7 @@
 
   <p>把这七章连起来看，走向很清楚：<strong>先讲媒体是什么（一），再讲眼前的危机（二），然后把危机放回历史尺度（三），接着讲谁在利用它（四），再讲你在其中是什么位置（五、六），最后讲你可能对别人做什么（七）。</strong></p>
 
-  <p>最后三章的转向值得留意。前四章的读者是接收者，后三章的读者是<strong>参与者</strong>——你的数据是原料，你的注意力是产品，你的转发和评论是别人处境的一部分。</p>
+  <p>最后三章的转向值得留意。前四章的读者是接收者，后三章的读者是<strong>参与者</strong>，你的数据是原料，你的注意力是产品，你的转发和评论是别人处境的一部分。</p>
 
   <div class="sub">这本书为什么值得一个成年人读</div>
 
@@ -400,7 +480,7 @@
 
   <p>更冷的在后面：这条假消息今天还立在底比斯的墙上，照常工作。<strong>三千二百年了。</strong>它是怎么做到的，我留到第八层说。</p>
 
-  <p>他顺手补了一个数字：拉美西斯二世从公元前一二七九年统治到公元前一二一三年，在位六十六年，几乎没有哪位国家元首的掌权时间有这么久。这个数字放在这里不是闲笔——<strong>一条谎言能不能立住，跟说谎的人能不能一直在位有关。</strong></p>
+  <p>他顺手补了一个数字：拉美西斯二世从公元前一二七九年统治到公元前一二一三年，在位六十六年，几乎没有哪位国家元首的掌权时间有这么久。这个数字放在这里不是闲笔，<strong>一条谎言能不能立住，跟说谎的人能不能一直在位有关。</strong></p>
 
   <div class="sub">再看造谣成本的塌方</div>
 
@@ -416,7 +496,7 @@
 
   <div class="sub">整本书押在两个赌注上</div>
 
-  <p><strong>赌注一：认识了机制，人就会改变行为。</strong>这是整套书共同的赌注。可媒体这一册面对的对手比别册更难——转发一条不实消息带来的即时满足（愤怒、认同、被关注）是现实的，而核实的成本是现实的。<strong>知道归知道，手指头照样按下去。</strong>他给的应对是提高警觉，这个办法能挡住一部分，挡不住大部分。</p>
+  <p><strong>赌注一：认识了机制，人就会改变行为。</strong>这是整套书共同的赌注。可媒体这一册面对的对手比别册更难，转发一条不实消息带来的即时满足（愤怒、认同、被关注）是现实的，而核实的成本是现实的。<strong>知道归知道，手指头照样按下去。</strong>他给的应对是提高警觉，这个办法能挡住一部分，挡不住大部分。</p>
 
   <p><strong>赌注二：可以把假新闻当成一个可辨认的类别。</strong>书里的处理默认真假之间有一条线，找对方法就能分辨。但相当一部分有害信息并非编造的事实，而是真事实的选择性排列、准确但误导的标题、断章取义的引用。<strong>这些东西逐条核查都过关，合起来仍然是假的</strong>，而这本书里没有对付它们的工具。</p>
 
@@ -512,7 +592,7 @@
   <div class="qa">
     <div class="q">Q1　为什么连照片都不能信了？</div>
     <p class="a-lead">因为图像的伪造成本掉得比文字还快，而人对图像的防备心比对文字低得多。</p>
-    <p>书里那句提醒很直接：你不能以为“眼见为凭”“有图有真相”。这句话在中学生课本里出现，本身就说明了事情的严重程度——上一代人成长时，照片仍然是可以拿去法庭的证据。</p>
+    <p>书里那句提醒很直接：你不能以为“眼见为凭”“有图有真相”。这句话在中学生课本里出现，本身就说明了事情的严重程度，上一代人成长时，照片仍然是可以拿去法庭的证据。</p>
     <p>要留意这里的不对称：<strong>一个受过教育的人读到一段文字会本能地问“谁说的”，看到一张照片却直接接受。</strong>而这个本能是几万年养成的，改不掉。所以对图像，只能靠外部的核查习惯（找原图、看出处、查时间地点），靠不了直觉。</p>
     <p class="a-edge">这一节最有价值的地方是它没有停在“要小心”，而是指出了这个不对称本身。知道自己在哪一类信息上防备最低，比笼统地提高警惕有用。</p>
   </div>
@@ -522,7 +602,7 @@
     <p class="a-lead">不同在两头：它极贵，也极持久。</p>
     <p>那条谎言的制造成本高得吓人：需要一个在位六十六年的统治者、一整套石匠工程、一个没人敢质疑的宗教地位、以及一个还没有战地记者的时代。这四个条件缺一不可。</p>
     <p>回报也一样惊人：三千二百年过去，那面墙还在替他工作（第八层细说）。<strong>今天的假新闻便宜到一次点击，但它的寿命通常只有几天。</strong></p>
-    <p class="a-edge">这个对比可以直接推出一条判断：当造假的单位成本趋近于零，假信息的策略就从“做一条能管三千年的”变成了“做一万条只管三天的”。<strong>防御的方式也必须跟着变——防一条巨石碑和防一万张纸片，需要的是完全不同的东西。</strong></p>
+    <p class="a-edge">这个对比可以直接推出一条判断：当造假的单位成本趋近于零，假信息的策略就从“做一条能管三千年的”变成了“做一万条只管三天的”。<strong>防御的方式也必须跟着变，防一条巨石碑和防一万张纸片，需要的是完全不同的东西。</strong></p>
   </div>
 
   <div class="qa">
@@ -538,7 +618,7 @@
     <p class="a-lead">意味着你在使用一样免费的东西时，交出去的是可以被反复出售的原料。</p>
     <p>这一章的位置很讲究。前面四章讲的是别人怎么骗你，从第五章开始讲的是你怎么参与其中。<strong>数据这件事的特别之处在于，它不需要你相信任何东西，你只要用就行了。</strong></p>
     <p>它跟假新闻的关系也在这儿：知道你是谁、你怕什么、你恨什么，是把一条消息精确送到你面前的前提。<strong>第二章讲的传播成本塌方，加上第五章讲的定向能力，两条合起来才是完整的图景。</strong></p>
-    <p class="a-edge">这一章的具体内容（平台、规则、法条）过期最快，阅读时看结构就好：谁收集、收集什么、用来干什么、你有没有办法拒绝。</p>
+    <p class="a-edge">这一章的具体内容（平台、规则、法条）过期最快，先生读的时候看结构就好：谁收集、收集什么、用来干什么、你有没有办法拒绝。</p>
   </div>
 
   <div class="qa">
@@ -597,7 +677,7 @@
 
   <p>不服的一处：全书的方案太依赖个人。<strong>一个中学生学会了所有辨伪技巧，仍然生活在一个按吸引力筛选内容的环境里。</strong>教他游泳是对的，但也该告诉他这条河的水流有多急、以及谁在管这条河。这一册对后半部分几乎没说。</p>
 
-  <p>给读者的读法建议：先读第三章，篇幅不长，全书的支点在那儿。第二章讲成本那几节接着看。家里有孩子的话，第五、六、七章讲数据、手机、霸凌的部分可以直接拿去当谈话的稿子。第一章和第四章翻过去就行，第四章的政治例子已经过时了。</p>
+  <p>给先生的读法建议：先读第三章，篇幅不长，全书的支点在那儿。第二章讲成本那几节接着看。家里有孩子的话，第五、六、七章讲数据、手机、霸凌的部分可以直接拿去当谈话的稿子。第一章和第四章翻过去就行，第四章的政治例子已经过时了。</p>
 </div>
 
 <div class="layer">
@@ -648,7 +728,7 @@
 
   <p>这才是我认为这一节最值钱的地方，也是它超出“媒体素养”这个题目的地方：<strong>一条谎言的最终胜利，不是没人拆穿它，而是它变成了不再需要被拆穿的东西。</strong>它从一个主张，变成了一处风景、一段传统、一条常识。到了这一步，你没法反驳它，因为已经没有人在主张它了。</p>
 
-  <p>拆穿一个正在说话的人是容易的：他有名字，有动机，有可以被追问的具体说法。可当那句话已经变成一面墙、一句俗话、一个大家从小听到大的说法，你去反驳，别人会觉得莫名其妙——反驳谁呢？</p>
+  <p>拆穿一个正在说话的人是容易的：他有名字，有动机，有可以被追问的具体说法。可当那句话已经变成一面墙、一句俗话、一个大家从小听到大的说法，你去反驳，别人会觉得莫名其妙，反驳谁呢？</p>
 
   <p>有两处我不太服气。</p>
 
@@ -660,7 +740,7 @@
 
   <p>难缠的是另一个：<strong>按这个说法，是不是所有的历史、所有的传统都不可信？</strong>如果每一样流传下来的东西都可能是某个法老的宣传，那还有什么站得住？</p>
 
-  <p>这一问不能不接，但它把结论推得太远了。区别在于有没有<strong>独立的对照物</strong>。卡叠石之战之所以能被搞清楚，是因为赫梯一方也留下了记载，两边的说法对不上；加上考古、加上其他文书，才拼出了实情。<strong>不是任何一条传下来的东西都可疑，是任何一条只有单一来源的东西都可疑。</strong>而法老那条，当时就是单一来源——没人敢质疑他，也没有战地记者。</p>
+  <p>这一问不能不接，但它把结论推得太远了。区别在于有没有<strong>独立的对照物</strong>。卡叠石之战之所以能被搞清楚，是因为赫梯一方也留下了记载，两边的说法对不上；加上考古、加上其他文书，才拼出了实情。<strong>不是任何一条传下来的东西都可疑，是任何一条只有单一来源的东西都可疑。</strong>而法老那条，当时就是单一来源，没人敢质疑他，也没有战地记者。</p>
 
   <p>所以这一层给出的并非怀疑一切，而是一个更具体的检查：<strong>这件事，有没有一个不受同一方控制的来源，说的是同一件事？</strong>有，可信度大增；没有，无论它多古老、多庄严、多被人相信，都还是一个人的一面之词，只不过那个人已经死了三千年。</p>
 
@@ -676,7 +756,7 @@
 
   <p>所以这一层能带走的东西是一句提问，而且它比“不要轻信”实用得多：<strong>对于一件你从没想过要质疑的事，去问一句它是谁、在什么情况下、为什么第一次说出来的。</strong></p>
 
-  <p>多数时候答案是有的，而且合理，问完你会更踏实。偶尔你会发现源头是一个早已消失的具体处境，甚至是一个早已消失的人的一句气话。而那一刻你会明白，你反驳不了它——你只能知道它。</p>
+  <p>多数时候答案是有的，而且合理，问完你会更踏实。偶尔你会发现源头是一个早已消失的具体处境，甚至是一个早已消失的人的一句气话。而那一刻你会明白，你反驳不了它，你只能知道它。</p>
 
   <p>底比斯那面墙就立在那儿，谁也拆不掉它。能做的只是走过去的时候，心里知道墙上刻的是什么。</p>
   </div>
@@ -685,14 +765,14 @@
 <div class="boundary">
   <h4>事实边界</h4>
   <p>本篇依据《向下扎根！德国教育的公民思辨课 7》繁体中译本，作者曼弗雷德·泰森、绘者薇瑞娜·巴浩斯，主题为“假新闻时代下的媒体素养”。全书七章的结构、第一章“媒体即中介”的词源解释、第二章关于造谣成本与“眼见为凭”的说法、第三章拉美西斯二世与卡叠石之战的整段叙述及其在位年份（公元前 1279 至前 1213 年，共 66 年）、第四章关于独裁者与新闻自由的判断、autokratie 的词源，均出自原书正文，我读了这几处的原文。</p>
-  <p><strong>覆盖情况：</strong>第五、六、七章（个资、智能手机、网络霸凌）我只读了章节结构与开头，<strong>各节正文未细读</strong>。第五层 Q5 关于网络霸凌“三样刹车失灵”的分析，以及第三层对后三章的定位，是我基于章节主题的判断，<strong>不是原书的说法</strong>，若要引用请翻原书。</p>
+  <p><strong>覆盖情况：</strong>第五、六、七章（个资、智能手机、网络霸凌）我只读了章节结构与开头，<strong>各节正文未细读</strong>。第五层 Q5 关于网络霸凌“三样刹车失灵”的分析，以及第三层对后三章的定位，是我基于章节主题的判断，<strong>不是原书的说法</strong>，先生若要引用请翻原书。</p>
   <p>第一层与第六层引用的导读说法（数字时代公众需具备制作媒体、传播讯息、保护自己免于隐私暴露与霸凌的能力），出自中译本导读，不是原书正文。</p>
   <p><strong>第八层要单独说明：</strong>卡叠石之战的实际结果、赫梯方留有对照记载、后世据此还原实情，这些是历史学界的公认认识，<strong>我按一般了解写入，原书只写到“这完全不是真的，事实上他遭到了迎头痛击”，没有展开考据过程</strong>。这一节关于“谎言变成风景”的分析、以及那条“有没有不受同一方控制的来源”的检查方法，都是我的判断，不是原书写的。</p>
   <p>第三层的三根线、第四层关于筛选机制的下钻、第六层关于本书局限的判断（方案过于依赖个人、未处理“明知是假仍要转”），同样是我读下来的看法。第八层拿家里的老规矩作类比是我举的一般现象。</p>
 </div>
 
 <div class="gold">
-  <div class="line">谎言最厉害的一步，是从一句话变成一面墙——话可以被反驳，墙只能被看见。</div>
+  <div class="line">谎言最厉害的一步，是从一句话变成一面墙，话可以被反驳，墙只能被看见。</div>
   <div class="sign">青山 · 2026-08-01</div>
 </div>
 

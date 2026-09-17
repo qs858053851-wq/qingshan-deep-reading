@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>令人着迷的生与死 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">令人着迷的生与死</div>
+    <div class="cover-sub">卡根（Shelly Kagan）· 耶鲁大学最受欢迎的哲学课 Death</div>
+    <div class="cover-meta">雪莱 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">死亡到底是怎么回事，我们又该怎么面对它？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">第一项前提，相信一个东西存在，需要有理由（不能因为「我想象得出」或「大家都希望」就当真）。第二项前提，为灵魂存在提出的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这本书拆到底，就四件事在起作用</span>
+      <span class="toc-desc">灵魂、永生、恐惧、自杀：二十章的内容看着吓人，但拆到底，牵动整本书的只有四件事。前面三件是拆除，最后一件是重建...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着「死亡为什么坏」这根线，一路挖到底</span>
+      <span class="toc-desc">全书最绕不开的问题是这个：死亡为什么坏？第三层说它是剥夺，但「剥夺」这个答案自己又长出了尾巴，一条一条往下追，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着八个问题，把卡根的推理走一遍</span>
+      <span class="toc-desc">结论：没有令人信服的理由相信灵魂存在。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">卡根不是宗教信徒，但他生活在美国，一个「大多数人相信有灵魂、死后进天堂」的国家。他写这本书的动机，我猜是两股力...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">你不是怕死，你是怕没来得及。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 没有灵魂，生命反而更值钱</span>
+      <span class="toc-desc">深夜想到「人终有一死」的时候，很多人心里会浮起一句安慰：也许真的有灵魂呢，也许死后还有另一个世界呢。雪莱·卡根...</span>
+    </div>
+  </div>
+
   <h1>令人着迷的生与死</h1>
   <div class="author">雪莱·卡根（Shelly Kagan）· 耶鲁大学最受欢迎的哲学课 Death</div>
 </div>
@@ -350,7 +431,7 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>
 
-  <h3>一句话：作者在答什么问题</h3>
+  <h3>核心问题与直接回答</h3>
   <p>死亡到底是怎么回事，我们又该怎么面对它？</p>
   <p>回答：把死亡这件事彻底想清楚。卡根教授在耶鲁开的《死亡》课，是全校最受欢迎的课之一。他在这本书里要说服你五件事：灵魂不存在、永生不是件好事、害怕死亡不是面对死亡的适当反应、死亡没有特别神秘、而且在特定情况下自杀可能在理性与道德上都说得通。用他的话讲，一般人关于死亡的整套看法，从头到尾错得一塌糊涂。</p>
 
@@ -368,7 +449,7 @@
     <li><strong>该怎么活？</strong>正因为生命有限，此刻才珍贵。死亡的不可避免性不构成绝望的理由，反而让「珍惜当下」有了最坚实的根据。</li>
   </ol>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一位把哲学当手艺的教授，在课堂上跟你较真：语气是苏格拉底式的追问，一个问题接着一个问题，不放过任何含糊。但姿态很谦逊，他常说「我不确定」「这很难说」，把论证的每一步都摆给你看，让你自己判断。他不传教，只示范怎么思考。</p>
 </div>
 
@@ -376,19 +457,19 @@
   <div class="layer-num">第二层</div>
   <h2 class="layer-title">作者凭什么这么说</h2>
 
-  <h3>论证链</h3>
-  <p>前提一：相信一个东西存在，需要有理由（不能因为「我想象得出」或「大家都希望」就当真）。前提二：为灵魂存在提出的所有论证（柏拉图、常识、濒死经验）都站不住。前提三：人若只是肉体，死亡就是终结，死后没有观众、没有天堂。前提四：但价值不需要永恒来支撑：生命的美好在于被体验本身。结论：我们不需要灵魂和永生，也能把生命的价值说清楚；反过来，正因为生命有限，「此刻」才成为唯一的、不可替代的资产。</p>
+  <h3>核心论证逻辑</h3>
+  <p>第一项前提，相信一个东西存在，需要有理由（不能因为「我想象得出」或「大家都希望」就当真）。第二项前提，为灵魂存在提出的所有论证（柏拉图、常识、濒死经验）都站不住。第三项前提，人若只是肉体，死亡就是终结，死后没有观众、没有天堂。前提四：但价值不需要永恒来支撑：生命的美好在于被体验本身。结论：我们不需要灵魂和永生，也能把生命的价值说清楚；反过来，正因为生命有限，「此刻」才成为唯一的、不可替代的资产。</p>
 
-  <h3>三个具体的证据</h3>
+  <h3>关键事实与核心实证</h3>
   <p><strong>证据一：柏拉图的论证为什么失败（以「无线电波」为例）。</strong>柏拉图论证灵魂永生的一条主线是：灵魂是不可见的、单纯的、不可摧毁的，所以永生。卡根的反驳很妙：无线电波也不可见，但可以被摧毁。可见性不保证不可摧毁性，从「灵魂看不见」推不出「灵魂毁不掉」。同理，柏拉图「只有恒久的东西能领会恒久的理型」这个前提（灵魂能领会永恒的理型，所以灵魂也永恒），卡根指出：非X物体通常也能研究X物体，物理物体会下棋、会怕死，凭什么只有非物质的东西才能领会理型？他把柏拉图最漂亮的论证一个个拆开，每道焊点都敲一遍。</p>
   <p><strong>证据二：裂变实验（半个大脑移植）。</strong>为了逼问「什么让我还是我」，卡根设计了一场科幻手术：琼斯的躯体毁掉、大脑完好，史密斯的躯体完好、大脑毁掉，把琼斯的大脑移植进史密斯身体，醒来的是谁？答案是琼斯。再升级：琼斯的大脑被切成两半，右半脑足够保存人格，两半分别移植进两个身体，醒来两个人都自称琼斯，都有琼斯的记忆，那他们是不是同一个人？这个实验把「肉体观点」（同一个身体才是同一个人）逼到墙角：显然不能靠身体认人；也把「人格观点」的代价摆上台面：同一性的延续，靠的是记忆与性格的接力，而不是什么不灭的实体。</p>
   <p><strong>证据三：「独自死亡」的分析。</strong>民谣唱「我们学习一同生活，却必须独自死去」，童书写「每个人都是独自死亡」。听起来深刻，卡根却慢条斯理地问：这句话为什么深？如果所有人都刚好死在同一栋楼里，这就不深刻了，所以它要成立，必须是一句必然真理。但「独自」到底指什么？如果是说没有人能陪你跨过死亡那一刻，那活着的时候，又有谁能替我吃饭、替我思考？「独自」若指灵魂单独离场，前提又是灵魂存在；若只是说身体死亡是私人的事，那这句话不过是「每个人都会死」的化妆版。一段漂亮的分析示范：把感动的句子拿回来检查它的逻辑。</p>
 
-  <h3>隐形假设（作者没说，但必须成立）</h3>
+  <h3>底层隐含假设</h3>
   <p><strong>理性论证是通达真理的可靠路径。</strong>全书最大的赌注：他拒绝宗教权威、拒绝直觉的最终裁决，相信「想清楚」能让我们在死亡这样终极的问题上接近真相。这个假设一旦松动（比如「信仰高于论证」），全书的地基就塌了。</p>
   <p>另一条更隐蔽：<strong>价值的载体是体验，不是永续。</strong>剥夺说（死亡坏在剥夺美好）默认了「美好」=「值得体验的东西」；永生无聊论证默认了「无限重复会让体验贬值」。两条都踩在同一个前提上：生命的意义内在于有意识的体验，而不在于它延续多久。这是全书从形上学走向价值论的暗桥。</p>
 
-  <h3>边界条件（什么情况下这套会失效）</h3>
+  <h3>适用边界与失效条件</h3>
   <p>第一，他全程不讨论临终的疼痛、哀悼的过程、死亡的仪式感，这些是真实存在的苦，只是不在本书射程内。第二，他对「永生不好」的论证留有后门：如果永生者的记忆和人格不断更新（变成另一个人），无聊问题也许能躲过，但那已经不是「你」的永生了。第三，也是最诚实的边界：他承认自己对很多问题「不确定」，他论证的是「没有充分理由相信灵魂存在」，没到「证明了灵魂不存在」那一步；这个差别，是整本书方法论诚实的地方。</p>
 </div>
 

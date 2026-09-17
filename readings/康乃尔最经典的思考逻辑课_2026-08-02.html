@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>康乃尔最经典的思考逻辑课 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">康乃尔最经典的思考逻辑课</div>
+    <div class="cover-sub">吉洛维奇（Thomas Gilovich）· 我们为什么会相信不真实的事</div>
+    <div class="cover-meta">汤玛斯 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">我们为什么会相信一大堆不真实的事？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">第一项前提，人类认知系统的基本倾向（找模式、求一致、护自尊）本身是好的，是为了快速理解世界。第二项前提，但这些倾向在特...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这本书拆到底，就四台机器在起作用</span>
+      <span class="toc-desc">九个章节、几十个实验，看着眼花。但拆到底，造成全部错误认知的只有四台机器：四台本来各有用途、组合起来却能把人带...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着「人为什么会信错」这根线，往下挖到底</span>
+      <span class="toc-desc">吉洛维奇证明了我们会信错，手感、星座、假疗法。但有个问题他只用半页纸带过：为什么会这样？顺着这根线往下挖，能挖...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着八个问题，把作者的推理走一遍</span>
+      <span class="toc-desc">结论：因为「连续命中」在随机序列里本来就频繁出现，模式识别机把它读成了因果。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">这本书的开头没有理论，上来就是一份濒危物种名单：犀牛角、熊胆、海豹鞭、绿毛龟：因为人类相信「这些能治病」，它们...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">先别自责：你只是正常，但正常不等于正确。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 你的大脑不是真相机器，是故事机器</span>
+      <span class="toc-desc">NBA 有个著名的迷思：手感。球员连进几球之后，解说员会说「他今天手感火热」，球迷会喊「球给他！」：连球员自己...</span>
+    </div>
+  </div>
+
   <h1>康乃尔最经典的思考逻辑课</h1>
   <div class="author">汤玛斯·吉洛维奇（Thomas Gilovich）· 我们为什么会相信不真实的事</div>
 </div>
@@ -350,11 +431,11 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>
 
-  <h3>一句话：作者在答什么问题</h3>
+  <h3>核心问题与直接回答</h3>
   <p>我们为什么会相信一大堆不真实的事？</p>
   <p>回答：因为大脑的默认设置就不是「求真」：它是一台模式识别机、一个记忆剪辑师、一面动机滤镜、一个社会回音壁。吉洛维奇（康乃尔大学心理学教授）把四套机制拆开给你看：我们如何从随机里看出规律（「手感」其实不存在）、如何被不完整的资料蒙蔽（星座运势为什么「准」）、如何被动机带偏（成功归自己、失败怪环境）、如何被二手资讯洗脑（一个案例传八遍就成了「普遍现象」）。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>吉洛维奇做了一辈子「错误认知」研究。这本书是他把社会心理学和认知心理学几十年的实证发现，系统整理成一部「人类为什么会信错」的机制清单：四部分、九章：第一、二部分讲机制（认知缺陷 + 动机与社会因素），第三部分用三个大案例验证机制（假疗法、人际策略、超感官知觉），第四部分给出校准方法。</p>
   <p>书里最狠的一页是开头：因为迷信而遭猎杀的物种：犀牛角、熊胆、海豹鞭、绿毛龟……人类相信「这些能治病」，于是它们被吃到濒危。这本书要解释的就是这种「相信」是怎么来的：这种相信人人都有份，所有人共用的认知系统，在特定条件下必然造出它来。</p>
 
@@ -366,7 +447,7 @@
     <li><strong>被社会放大。</strong>错误共识效应：我们总以为别人跟我想的一样。再加上二手资讯层层简化（小艾伯特实验的细节在传播中消失，只剩「小孩会怕兔子」），一个谣言就变成了常识。</li>
   </ol>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一位做实证研究的心理学教授在讲「人为什么会犯傻」：态度冷静、证据密集，每一章都是一堆实验和数据的排队展示。他不骂人笨：他反复说「这些错误人人都会犯，包括聪明人」，因为机制在认知系统层面，不在智商层面。他更像一个验光师：你视力没问题，只是镜片度数不对。</p>
 </div>
 
@@ -374,19 +455,19 @@
   <div class="layer-num">第二层</div>
   <h2 class="layer-title">作者凭什么这么说</h2>
 
-  <h3>论证链</h3>
-  <p>前提一：人类认知系统的基本倾向（找模式、求一致、护自尊）本身是好的，是为了快速理解世界。前提二：但这些倾向在特定条件下会产生系统性偏差，把随机当规律、把巧合当因果、把传闻当亲历。前提三：这些偏差可以通过实证研究（数据、实验、基准率对照）被识别和测量。结论：错误认知是认知系统的可预测副作用，跟智商没关系；而「知道机制」本身就是第一道解药。</p>
+  <h3>核心论证逻辑</h3>
+  <p>第一项前提，人类认知系统的基本倾向（找模式、求一致、护自尊）本身是好的，是为了快速理解世界。第二项前提，但这些倾向在特定条件下会产生系统性偏差，把随机当规律、把巧合当因果、把传闻当亲历。第三项前提，这些偏差可以通过实证研究（数据、实验、基准率对照）被识别和测量。结论：错误认知是认知系统的可预测副作用，跟智商没关系；而「知道机制」本身就是第一道解药。</p>
 
-  <h3>三个具体的证据</h3>
+  <h3>关键事实与核心实证</h3>
   <p><strong>证据一：NBA「手感」的破产。</strong>91% 的球迷相信球员连进两三球后下一球更容易进；球员自己也这么想。但吉洛维奇分析了费城七六人队整个球季的投篮记录：投进后下一球命中率 51%，投丢后反而 54%：完全随机。再分析罚球（难度相同、无人防守）：第一罚进不进，第二罚命中率都是 75%。「手感」是群聚错觉：随机序列里的连续出现（掷硬币二十次连续出现四次正面的概率高达 50%），被我们当成了因果。这个案例是整个第一部分的基石：数据长在直觉的反面。</p>
   <p><strong>证据二：巴南效应（星相学为什么「准」）。</strong>一段性格描述「你外表坚强，内心有时缺乏安全感；你希望别人欣赏你，但偶尔也怀疑自己」：大部分人都觉得说的就是自己。因为描述足够笼统，几乎人人适用。吉洛维奇指出：这类叙述「一定会讲中部分个性」，而且越含糊越准。星座、笔迹学、算命都靠这个机制活着。这个证据说明：我们信以为真的「准确」，往往只是模糊得恰到好处。</p>
   <p><strong>证据三：假疗法的千年不死。</strong>培根相信猪皮擦揉能治肉疣，华盛顿相信两根金属棒穿过患部能治病，中国古代大夫认为蝙蝠视力好所以能治眼疾。假疗法为什么流传千年？吉洛维奇拆出两条：一是动机性相信：罹患绝症的人「亟欲相信偏方」，希望压倒证据；二是「看似合理」：蝙蝠眼睛好，所以蝙蝠能治眼睛，油脂看着黏腻，所以吃牛肉会堵血管。这套「像什么就治什么」的逻辑，在医学没有实证的年代统治了几千年。</p>
 
-  <h3>隐形假设（作者没说，但必须成立）</h3>
+  <h3>底层隐含假设</h3>
   <p><strong>基准率是判断真实性的标准。</strong>整本书的方法论赌注：随机事件有可计算的基准率（命中率、概率），真实规律必须「显著偏离」随机才能算数。这个假设一旦松动（比如「数据统计不适用于人的命运」），全书所有论证就失去标尺。吉洛维奇没说破的是：这个标准本身是统计学世界的标准，它正确，但不是唯一的「真实」定义。</p>
   <p>另一条更隐蔽：<strong>认知错误可以被「知道」矫正。</strong>他写这本书的前提是「知其然能防其所以然」：知道群聚错觉，你就不会迷信手感。但心理学后来的研究显示：知道了偏差机制，人还是会犯（偏差长在系统层面，知道了也改不掉）。这本书对此的回应很薄：它把「认识机制」当成了治疗，这可能过于乐观。</p>
 
-  <h3>边界条件（什么情况下这套会失效）</h3>
+  <h3>适用边界与失效条件</h3>
   <p>第一，他的方法论要求「可测量」：对超感官知觉、外星人接触这类现象，他只能论证「证据不足以支持」，不能证明「绝对不存在」，他也承认这一点。第二，他的实验数据全部来自西方样本（美国大学生、NBA 球员），跨文化普适性有折扣。第三，也是最大的边界：他告诉你「为什么你会信错」，但没有（也不可能）告诉你「此刻你信的东西里，哪一件是错的」：知道自己可能会被骗，和知道自己被骗了什么，是两件事。</p>
 </div>
 

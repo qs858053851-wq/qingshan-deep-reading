@@ -14,25 +14,32 @@
 <meta name="keywords" content="刀锋,毛姆,拉里,伊莎贝尔,埃利奥特,求道,奥义书,大萧条,深度解读,青山">
 <meta name="generator" content="Kami">
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -89,6 +96,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -102,14 +120,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -118,7 +136,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -127,7 +145,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -137,7 +155,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -145,12 +163,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -166,7 +184,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -181,7 +198,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -276,9 +292,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -286,6 +301,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -338,6 +370,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -367,34 +408,34 @@
 <div class="toc">
   <h2>目录导航</h2>
   <div class="toc-list">
-    <a href="#layer-01" class="toc-item">
+    <div class="toc-item">
       <span class="toc-name">第一层 先把这本书讲一遍</span>
       <span class="toc-desc">飞行员创伤、芝加哥上流婚约与跨大西洋精神流浪全景</span>
-    </a>
-    <a href="#layer-02" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第二层 他的论证站不站得住</span>
       <span class="toc-desc">人物抉择与悲剧后果：毛姆对世俗名利场的无情盖棺</span>
-    </a>
-    <a href="#layer-03" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第三层 拆到底，就这两三件事在起作用</span>
       <span class="toc-desc">神圣追寻力、阶级地位引力与平庸占有欲的三股绞杀</span>
-    </a>
-    <a href="#layer-06" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第六层 跳出这本书，它还能怎么用</span>
       <span class="toc-desc">毛姆对拉里的迷恋与质疑，现代人在内卷时代的晃荡防线</span>
-    </a>
-    <a href="#layer-07" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第七层 全书只剩一个公式</span>
       <span class="toc-desc">生命价值判定式与主要人物归宿对照图谱</span>
-    </a>
-    <a href="#layer-08" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第八层 全书最值钱的是哪一点</span>
       <span class="toc-desc">伏斯卡烈酒诱杀案：平庸之恶对神圣求道者的隐秘处决</span>
-    </a>
-    <a href="#layer-09" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">第九层 一句话封印这本书</span>
       <span class="toc-desc">刀锋边缘的终极判词</span>
-    </a>
+    </div>
   </div>
 </div>
 

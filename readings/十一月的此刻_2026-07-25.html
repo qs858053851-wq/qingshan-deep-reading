@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>十一月的此刻 · 解书 — 青山</title>
+<title>十一月的此刻 · 解书 ， 青山</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">解书 · 一本读完</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">十一月的此刻</div>
+    <div class="cover-sub">美国 1934 · 普利策奖 1935 · 中译本 · 2026-07-25</div>
+    <div class="cover-meta">约瑟芬·约翰逊（Josephine Johnson） · 解读主理：青山 · 日期：2026-07-25 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这一年讲一遍</span>
+      <span class="toc-desc">这是一本很安静的小说。约瑟芬·约翰逊二十四岁写的，1934 年出版，第二年拿了普利策奖。讲的是大萧条时期一家农...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">约翰逊要让读者感到的，是一种处境：人在土地面前无声地承受，连感情都不说出口。一本小说凭什么让读者信这种处境？靠...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在牵动全书的，是哪几根线</span>
+      <span class="toc-desc">这本书看着只是抒情，全是景物和小动作。但往底下看，就三根线在起作用。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">约翰逊 1910 年生在密苏里州圣路易斯，写这本时二十四岁。她不是农家女，但她见过大萧条年代中西部农户的垮，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">感情太重，所以只能用景物说。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">前面几层，有一件事我一直按着没说：叙述者从十一月的此刻回望一整年，这个"回望"到底是什么。前层对回望只摆事实，...</span>
+    </div>
+  </div>
+
   <h1>十一月的此刻</h1>
   <div class="author">约瑟芬·约翰逊（Josephine Johnson）</div>
   <div class="meta">美国 1934 · 普利策奖 1935 · 中译本 · 2026-07-25</div>
@@ -418,10 +491,10 @@
   <h2 class="layer-title">跳出这本书，它还能怎么用</h2>
 
   <h3>约翰逊为什么非写不可（基于文本和生平的推测）</h3>
-  <p>约翰逊 1910 年生在密苏里州圣路易斯，写这本时二十四岁。她不是农家女，但她见过大萧条年代中西部农户的垮——旱灾、尘暴、破产、沉默。她选这一家农户做主角，选一个没名字的女儿做叙述者，这中间有股劲儿。那股劲儿大概是：她看见这些人被时代碾过，报纸和政客替他们喊口号，可没人替他们写他们真正过的日子。她非写不可，是因为她怕这些人就这么被略过了，连一个准确的记载都没有。这股劲儿比"我想写本小说"深一层，是"我如果不写，这些人就没人为他们说一句他们自己的话"。</p>
+  <p>约翰逊 1910 年生在密苏里州圣路易斯，写这本时二十四岁。她不是农家女，但她见过大萧条年代中西部农户的垮，旱灾、尘暴、破产、沉默。她选这一家农户做主角，选一个没名字的女儿做叙述者，这中间有股劲儿。那股劲儿大概是：她看见这些人被时代碾过，报纸和政客替他们喊口号，可没人替他们写他们真正过的日子。她非写不可，是因为她怕这些人就这么被略过了，连一个准确的记载都没有。这股劲儿比"我想写本小说"深一层，是"我如果不写，这些人就没人为他们说一句他们自己的话"。</p>
 
   <h3>她没看到什么（同样基于文本推测）</h3>
-  <p>抒情化让苦难变美。旱灾写成"尘土、热浪、枫树丑陋的残叶"，美则美矣，但真实的尘暴是呛死人的，真实的饿是会吃死猫的。约翰逊把一切苦难都过了一次审美的筛，留下的是景物和情绪，筛掉的是脏、臭、病、尸体。这是抒情小说的伦理代价：它让读者隔着玻璃看苦难，玻璃很漂亮，但读者摸不到真实的粗糙。这是这本书拿普利策的原因，也是它被人批评的原因——有评论说它"把贫困诗化"。</p>
+  <p>抒情化让苦难变美。旱灾写成"尘土、热浪、枫树丑陋的残叶"，美则美矣，但真实的尘暴是呛死人的，真实的饿是会吃死猫的。约翰逊把一切苦难都过了一次审美的筛，留下的是景物和情绪，筛掉的是脏、臭、病、尸体。这是抒情小说的伦理代价：它让读者隔着玻璃看苦难，玻璃很漂亮，但读者摸不到真实的粗糙。这是这本书拿普利策的原因，也是它被人批评的原因，有评论说它"把贫困诗化"。</p>
   <p>还有一个盲点：父亲那个执拗被写得太干净。一个执拗地把一家人拴在一块旱地上的父亲，真实里往往是更复杂的人，可能有暴戾、有自私、有对妻儿的压迫。约翰逊把父亲的执拗写成一种"爱土地爱到不肯服输"的诗意姿态，没让他承担这种执拗对一家人造成的代价。这是叙述者的位置带来的盲点：她在边上，看不全父亲的内里。</p>
 
   <h3>这件事在别处也是同一回事</h3>
@@ -432,7 +505,7 @@
   <p>两件具体的事。第一件：下次你身边有人不爱说话、总在旁边看，别以为他没感情。他可能在用沉默保护里面软的东西。你能做的是让他知道你看见他在。第二件：下次你回望一段自己失去的时光，别急着把回望当成"放不下"。回望本身就是一种爱的方式。你不用回去，也不用放下，回望就够了。</p>
 
   <h3>我的立场</h3>
-  <p>这本书我最服气的是约翰逊二十四岁找到这个语气——既不煽情也不冷漠，景物就是情绪本身。这是很多作家一辈子都找不到的语气。最不同意的，是她把旱灾写得太美。"尘土、热浪、枫树丑陋的残叶"读起来几乎是诗，但真实的尘暴是呛死人的。抒情小说的伦理代价她没完全承担。但我服气的是她没替这一家人喊一句口号，也没替他们求一点怜悯。她只是让他们在十一月的此刻被看见。这种克制比喊口号难，也比喊口号尊重人。</p>
+  <p>这本书我最服气的是约翰逊二十四岁找到这个语气，既不煽情也不冷漠，景物就是情绪本身。这是很多作家一辈子都找不到的语气。最不同意的，是她把旱灾写得太美。"尘土、热浪、枫树丑陋的残叶"读起来几乎是诗，但真实的尘暴是呛死人的。抒情小说的伦理代价她没完全承担。但我服气的是她没替这一家人喊一句口号，也没替他们求一点怜悯。她只是让他们在十一月的此刻被看见。这种克制比喊口号难，也比喊口号尊重人。</p>
 </div>
 
 <div class="layer">
@@ -444,7 +517,7 @@
 
   土地（线1）：给春天，不给雨
   壳（线2）  ：凯琳的冷漠、叙述者的看、父亲的执拗、母亲的安静
-  回望（线3）：从十一月的此刻看一整年——看清就是爱</pre>
+  回望（线3）：从十一月的此刻看一整年，看清就是爱</pre>
   </div>
 
   <h3>一句话</h3>
@@ -495,7 +568,7 @@
 </div>
 
 <div class="goldquote">
-  <div class="q">她用一整本书的回望，爱了她没法开口说的一切——那也是一种爱。</div>
+  <div class="q">她用一整本书的回望，爱了她没法开口说的一切，那也是一种爱。</div>
   <div class="sig">青山 · 2026-07-25</div>
 </div>
 

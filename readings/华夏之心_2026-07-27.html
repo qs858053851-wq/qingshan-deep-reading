@@ -1,24 +1,31 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>华夏之心 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -75,6 +82,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -88,14 +106,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -104,7 +122,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -113,7 +131,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -123,7 +141,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -131,12 +149,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -152,7 +170,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -167,7 +184,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -262,9 +278,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -272,6 +287,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -324,6 +356,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -331,7 +372,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>华夏之心</h1><div class="author">黄婕 · 中日文化视域中的洛阳</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">华夏之心</div>
+    <div class="cover-sub">中日文化视域中的洛阳</div>
+    <div class="cover-meta">黄婕 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 先把这座城的长历史讲一遍</span>
+      <span class="toc-desc">洛阳的地面历史多次断裂。王朝建都，宫城扩张；战乱一起，人口流散，建筑被毁；后来的人又在旧址旁重建。黄婕关心的正...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 结论好下，证据呢</span>
+      <span class="toc-desc">小野妹子等遣隋使到东都接触新王朝。唐高宗时期，日本使团还在洛阳觐见并参加冬至大典。630至894年间，抵达中国...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 真正在牵动这座城的是哪几根线</span>
+      <span class="toc-desc">第一根线是现实空间。洛阳居河洛之间，交通、盆地与王朝经营让它多次成为都城。周公营洛、汉魏建都、隋唐东都和北宋士...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 建筑毁了，城市为什么还在</span>
+      <span class="toc-desc">战乱、迁都和重建不断改变洛阳。若城市只等于现存建筑，它的生命早已断成许多段。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六个问题，串起洛阳的长生命</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者没说透的那部分</span>
+      <span class="toc-desc">黄婕写这本书的起点很个人：她在日本不断被人问起洛阳，发现现实中的家乡和日本文化里保存的“洛阳”相差很大。她想把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 全书只剩一个公式</span>
+      <span class="toc-desc">一句话：一座古都能活多久，要看人是否还在建设它、讲述它，并从别处重新理解它。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 原址之外，城市还能怎样活</span>
+      <span class="toc-desc">一座城市能否在建筑消失后继续活着？《华夏之心》给出的答案很明确：能。洛阳多次被毁，宫殿和街道更换位置，可“洛阳...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">“周公营洛”按传统文献叙事使用，历代洛阳城址也不是同一城市实体。遣隋、遣唐使次数及统计口径，日本国号确立过程等...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">先把这座城的长历史讲一遍</h2>
 <p>洛阳的地面历史多次断裂。王朝建都，宫城扩张；战乱一起，人口流散，建筑被毁；后来的人又在旧址旁重建。黄婕关心的正是这个反差：一座现实中反复衰落的城市，为什么在中国典籍和日本文化里长期保持“华夏中心”的位置？</p>
 <p>书从先秦“天下之中”讲起。周公营洛把河洛地理、礼制和王朝正统连在一起；两汉的东都又把洛阳写成礼仪与文教之城。魏晋南北朝的人口迁徙、佛教传播和民族交往，为它添上融合的面貌。隋唐两京并立，日本遣隋使、遣唐使来到洛阳，接触新王朝的制度、佛寺和典礼。安史之乱后，诗里的洛阳从繁华东都变成失落家国。北宋时期，司马光、二程、邵雍等人在此著书交往，城市又成为理学和旧党士人的聚集地。</p>

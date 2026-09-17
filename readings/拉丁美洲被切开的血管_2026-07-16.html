@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>拉丁美洲被切开的血管 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">拉丁美洲<br>被切开的血管</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">拉丁美洲被切开的血管</div>
+    <div class="cover-sub">加莱亚诺 著 · 王玫 译 · 初版 1971，1978 年增补后记</div>
+    <div class="cover-meta">[乌拉圭] 爱德华多 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">一句话：拉丁美洲的穷，恰恰是因为它太富：五个世纪里，它的金银、糖、咖啡、石油像血一样从切开的血管里流出去，在别...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">第一条腿：白银的流向账。他引汉密尔顿的经典统计：1503 到 1660 年，18.5 万公斤黄金和 1600 ...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">五百年、几十种商品、上百个人物，底下就两根线。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">顺着第一根线往深处钻。波托西鼎盛时富到教堂用银子铺，为什么四百年后连当年的零头都没留下？一层层往下挖。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">看机制不看名词。19 世纪火枪换成了贷款和铁路：铁路网全部从矿区、种植园伸向港口，没有一条横着连接拉美各国，图...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">动机他自己写在后记里："改变现实的首要条件是认识现实。"这本书 1971 年出版，正是拉美革命与镇压对冲最烈的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：这班车的时刻表，从一开始就是照着某些人上不了车排的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">全书最锋利的证据，不是任何一笔被抢走的财富，而是一个反着长的国家。它叫巴拉圭。</span>
+    </div>
+  </div>
+
   <div class="meta">[乌拉圭] 爱德华多·加莱亚诺 著 · 王玫 译 · 初版 1971，1978 年增补后记</div>
   <div class="oneliner">全书第一句话就把牌摊开了："所谓国际分工就是指一些国家专门赢利，而另外一些国家专门遭受损失。"接下来的四百年历史，都是这句话的证据。</div>
 </div>
@@ -511,7 +592,7 @@
   引文与数字（国际分工第一句、血管定义、西班牙"一张嘴"、汉密尔顿金银数据、波托西人口与老太太证词、梅休因条约与巴西黄金、利物浦与奴隶贸易、联合果品与危地马拉政变、杜勒斯兄弟关联、委内瑞拉利润率、IMF 批评、格兰特语、巴拉圭建设成就与三国战争、坎波斯语、后记诸语）皆出自王玫译本原文精读，行号已在读时核对。多处数字系加莱亚诺转引且有学界争议（八百万尸骨为估算、汉密尔顿数据被后世修正、委内瑞拉利润率出自指控方、巴拉圭战前人口各家估计差异极大），一律应读作"据加莱亚诺"。作者 2014 年对本书方法论的公开自省、东亚出口导向发展的对照、与《国富论》的并读建议，为书外背景与我的延伸判断。原书中译存在个别排印错字（如"乌拉开波湖"应为马拉开波湖），引用时已校核。</div>
 
 <div class="finale">
-  <div class="line">这个体系最重的刑罚，从来不判给失败者，只判给证明了另一条路走得通的人——判词还附带一条：从教科书里除名。</div>
+  <div class="line">这个体系最重的刑罚，从来不判给失败者，只判给证明了另一条路走得通的人，判词还附带一条：从教科书里除名。</div>
   <div class="sign">青山 · 2026-07-16</div>
 </div>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>孔子大历史：初民、贵族与寡头们的早期华夏 - 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,15 +381,96 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="hero-tag">青山深度阅读 · 人物与春秋社会</div>
-  <h1 class="hero-title">孔子大历史：初民、贵族与寡头们的早期华夏</h1>
-  <div class="hero-meta">
-    <span>著者：李硕</span>
-    <span>解读产出：深度长交付</span>
-    <span>日期：2026-08-31</span>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">孔子大历史：初民、贵族与寡头们的早期华夏</div>
+    <div class="cover-sub">在两千多年的正统儒家神话中，孔子被层层厚重油彩塑造成了一位天生知之、温文尔雅、动辄讲诵道德教条的圣人偶像。李硕在《孔子大历史》中，拨开了后世汉唐宋明理学家的重重迷雾，将孔子放回春秋...</div>
+    <div class="cover-meta">青山 读 · 孔子大历史：初民、贵族与寡头们的早期华夏 · 解读主理：青山 · 日期：2026-08-31 · 典藏长交付</div>
   </div>
-</header>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 从私生少年到万世师表的七十三年冷暖人生</span>
+      <span class="toc-desc">在两千多年的正统儒家神话中，孔子被层层厚重油彩塑造成了一位天生知之、温文尔雅、动辄讲诵道德教条的圣人偶像。李硕...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 春秋史实考订、微言大义与社会学还原</span>
+      <span class="toc-desc">李硕对孔子生平的重构，打破了以往学者就《论语》读《论语》的封闭注疏，而是将《左传》《史记》《公羊传》《礼记》等...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05</span>
+      <span class="toc-desc">第一案是《史记》中“野合”记载与春秋婚姻宗法制度的考释。李硕指出，叔梁纥年逾六旬纳颜氏女，缺乏春秋封建贵族合法...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">全书论述的核心前提在于，春秋晚期的社会性质处于由血缘世卿世禄制向官僚地主制过渡的裂变关口。传统的宗族城邦正在解...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 解构春秋乱世的四股社会历史重力</span>
+      <span class="toc-desc">孔子一生的悲欢沉浮，不是个人的孤立际遇，而是被春秋晚期四种强大的制度性巨浪所夹击推动的结果。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">西周初年确立的分封宗法制，随着世代繁衍而必然走向内耗。在鲁国，鲁庄公的三位弟弟（季友、孟孙、叔孙）演变为盘踞鲁...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">伴随着贵族宗族的破败，大量底层的公族后裔沦为平民（士）。这一群体既保留了贵族的身份记忆，又面临饥寒交迫的生存压...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11</span>
+      <span class="toc-desc">春秋晚期，大国争霸进入白热化阶段。齐国、晋国、楚国以及新兴的吴国、越国频繁展开数十万人规模的灭国战争。小国如鲁...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">春秋晚期金属铸币的流通与城市工商业的繁荣，孕育了第一代跨国大商人。子贡不仅是孔门的杰出弟子，更是往来于曹、鲁、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 克己复礼的深层革命：四步深钻儒学的诞生之谜</span>
+      <span class="toc-desc">因为孔子对“礼”进行了一次决定性的平民化偷换。在西周传统中，礼是贵族血统生来享有的特权与身份标识（礼不下庶人）...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 七个递进问题解剖孔子与早期华夏历史</span>
+      <span class="toc-desc">这是汉代以来经学官僚化与宋明理学意识形态层层过滤的结果。春秋时期的士是兼具文武技能的武士阶层，孔子本人通晓射箭...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 走下神坛的圣人与两千年华夏精神的源泉</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">李硕写作此书的根本追求，是拂去两千年封建帝王与御用文人为孔子涂抹的厚重金粉，还原一个有血有肉、有傲骨亦有绝望的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 20</span>
+      <span class="toc-desc">本书对孔子的政治与社会活动描摹极其精彩，但对孔子晚年易学思想（赞易、十翼）等形而上哲学的深入阐释相对精炼，更多...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">孔子的奋斗历程与当代理想主义者的处境高度同构。当面对一个功利至上、内卷严重的社会环境时，一个真正有追求的人往往...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 22</span>
+      <span class="toc-desc">在面对外部环境的剧烈动荡与不确定性时，不要随波逐流放弃原则。行动准则为，把精力聚焦在自我能力的磨炼、真知灼见的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 23</span>
+      <span class="toc-desc">李硕以通透犀利的文字，赋予了春秋那段纷繁复杂的历史以极具穿透力的生命感。全书人物呼之欲出，制度考据精准，是对孔...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 25 · 春秋礼崩乐坏与孔子立道的餐巾纸模型</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 27 · 从血统贵族到道德君子：孔子的隐秘革命</span>
+      <span class="toc-desc">当我们拨开两千年帝王尊孔的重重迷雾，回到公元前五世纪的鲁国曲阜，我们会发现一个令人震撼的真相：孔子所从事的，是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 29 · 留下一句话</span>
+      <span class="toc-desc">孔子在封建贵族的废墟上，把原本属于血缘特权的礼乐，铸造成了天下每一个平民皆可修行的道德勋章。</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">Layer 01</div>

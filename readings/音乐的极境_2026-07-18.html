@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>音乐的极境 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,28 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>音乐的极境</h1>
-  <div class="author">爱德华·W. 萨义德 · 乐评集（1980s–2000s）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">音乐的极境</div>
+    <div class="cover-sub">W. 萨义德 · 乐评集（1980s，2000s）</div>
+    <div class="cover-meta">爱德华 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这是一本乐评合集，按年代分三部分：八十年代、九十年代、二〇〇〇年以后。体裁很杂：音乐会现场评论、唱片评论、书评...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">作者动机：萨义德是巴勒斯坦裔美国人，一生的学术工作是拆"西方如何表述东方"这台机器；而他最爱的音乐恰恰是这个西...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">四十四篇文章，最值钱的是一个贯穿的判断：对位法不只是作曲技术，是一种伦理。</span>
+    </div>
+  </div>
+
   <p class="intro">《东方学》的作者萨义德还有另一个身份：训练有素的钢琴家，《国家》杂志的乐评人。这本集子收了他二十多年的四十四篇乐评，从古尔德写到巴伦博伊姆。他听音乐的耳朵和他做文化批判的眼睛是同一副器官。在他这里，怎么弹巴赫、能不能在以色列演瓦格纳，都是政治与美学缠在一起的真问题。</p>
 </div>
 
@@ -409,9 +469,9 @@
 
   <p>四十四篇文章，最值钱的是一个贯穿的判断：对位法不只是作曲技术，是一种伦理。</p>
 
-  <p>先把这个词说透。多数音乐的组织方式是主调的：一条旋律当主角，其余声音全体退后当和声，像一个领导讲话、全场记笔记。对位音乐不这样。巴赫的赋格里，一个旋律在这个声部出现，又被另一个声部接过去，每条线都完整、都独立、都依循严格规则自我表达，彼此"以相辅相成或是相反对抗的方式发声"——书里这句是关键，对抗也是合法的共存方式。没有伴奏，没有背景板，没有谁为谁让路。</p>
+  <p>先把这个词说透。多数音乐的组织方式是主调的：一条旋律当主角，其余声音全体退后当和声，像一个领导讲话、全场记笔记。对位音乐不这样。巴赫的赋格里，一个旋律在这个声部出现，又被另一个声部接过去，每条线都完整、都独立、都依循严格规则自我表达，彼此"以相辅相成或是相反对抗的方式发声"，书里这句是关键，对抗也是合法的共存方式。没有伴奏，没有背景板，没有谁为谁让路。</p>
 
-  <p>攻一下这个核：把作曲技术升格为伦理，是不是文人的过度引申？音乐就是音乐，声部就是声部。这一攻恰好撞在萨义德一生的证据上。他这个人本身就是几条不合并的声部：巴勒斯坦人、美国人、西方古典乐的痴迷者、帝国文化的批判者。要是按主调逻辑活，他必须选一个身份当主旋律、把其余压成和声：政治立场当主角，就该唾弃瓦格纳；音乐当主角，就该对以色列的禁令闭嘴。他两样都不肯。瓦格纳那篇文章的写法就是活的对位：反犹文章的可恶、十部歌剧的伟大、以色列人记忆的正当、禁令的不可取，四条线同时走完全篇，谁也没被谁消音，结论不是折中，是共存——"将音乐与他可恶的文章加以区分"这个能力本身，就是他要求于读者的修养。</p>
+  <p>攻一下这个核：把作曲技术升格为伦理，是不是文人的过度引申？音乐就是音乐，声部就是声部。这一攻恰好撞在萨义德一生的证据上。他这个人本身就是几条不合并的声部：巴勒斯坦人、美国人、西方古典乐的痴迷者、帝国文化的批判者。要是按主调逻辑活，他必须选一个身份当主旋律、把其余压成和声：政治立场当主角，就该唾弃瓦格纳；音乐当主角，就该对以色列的禁令闭嘴。他两样都不肯。瓦格纳那篇文章的写法就是活的对位：反犹文章的可恶、十部歌剧的伟大、以色列人记忆的正当、禁令的不可取，四条线同时走完全篇，谁也没被谁消音，结论不是折中，是共存，"将音乐与他可恶的文章加以区分"这个能力本身，就是他要求于读者的修养。</p>
 
   <p>最硬的证据不在纸上。他和巴伦博伊姆办的西东合集管弦乐团，把以色列、巴勒斯坦和阿拉伯各国的年轻乐手放进同一个乐队。乐队不要求他们和解，不要求谁认同谁的叙事，只要求一件事：同时演奏，互相听见。这就是把赋格的规则搬到排练厅：你的声部完整进行，我的声部完整进行，冲突不取消，但冲突在形式之内。</p>
 

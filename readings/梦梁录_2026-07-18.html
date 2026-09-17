@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>梦梁录 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,10 +381,41 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>梦梁录</h1>
-  <div class="author">[宋] 吴自牧 撰 · 二十卷 · 记南宋临安（杭州）风物</div>
-  <div class="tagline">一个人在国家灭亡之后，把故都的一砖一瓦、一茶一饭，凭记忆重新造了一遍。书名化自「黄粱一梦」——醒来的人，把梦里那座城写下来。</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">梦梁录</div>
+    <div class="cover-sub">一个人在国家灭亡之后，把故都的一砖一瓦、一茶一饭，凭记忆重新造了一遍。书名化自「黄粱一梦」，醒来的人，把梦里那座城写下来。</div>
+    <div class="cover-meta">[宋] 吴自牧 撰 · 二十卷 · 记南宋临安（杭州）风物 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《梦梁录》是本什么书，得先说清它是什么时候写的。吴自牧是钱塘人，生平几乎无考，只知他生活在宋末元初。书的自序很...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">写故都回忆的书很多，多数是抒情，想当年如何如何，一堆感叹号。《梦梁录》不是。吴自牧让你看见那座城，靠的不是感情...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">《梦梁录》记的东西，乍看是流水账，几十种灯、上百种菜、数不清的桥。但把这些条目连起来看，底下有城市自己的逻辑。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">照例先交代边界：吴自牧没留什么话，生平几乎无考，这一层谈动机、谈盲点，都是从文本里读出来的推测，不是他的自述。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">把这本书压到一张餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">前面几层，有一个判断我一直压着没展开：这本书表面是城市风物志，骨子里是一场葬礼。现在可以说了。</span>
+    </div>
+  </div>
+
+  <div class="tagline">一个人在国家灭亡之后，把故都的一砖一瓦、一茶一饭，凭记忆重新造了一遍。书名化自「黄粱一梦」，醒来的人，把梦里那座城写下来。</div>
 </div>
 
 <!-- 第一层 -->
@@ -353,7 +425,7 @@
 
   <p>《梦梁录》是本什么书，得先说清它是什么时候写的。吴自牧是钱塘人，生平几乎无考，只知他生活在宋末元初。书的自序很短，短到可以全抄在这里：</p>
 
-  <div class="quote">昔人卧一炊顷，而平生事业扬历皆遍，及觉则依然故吾，始知其为梦也，因谓之「黄粱梦」。矧时异事殊，城池苑囿之富，风俗人物之盛，焉保其常如畴昔哉！缅怀往事，殆犹梦也，名曰《梦粱录》云。<div class="src">——《梦梁录》自序。大意：从前有人睡一顿饭的功夫，把一辈子的荣辱经历了个遍，醒来还是自己，才知道是梦。如今天翻地覆，那满城的繁华，哪能保得住还像从前？回头想那些事，就像一场梦，所以叫《梦粱录》。</div></div>
+  <div class="quote">昔人卧一炊顷，而平生事业扬历皆遍，及觉则依然故吾，始知其为梦也，因谓之「黄粱梦」。矧时异事殊，城池苑囿之富，风俗人物之盛，焉保其常如畴昔哉！缅怀往事，殆犹梦也，名曰《梦粱录》云。<div class="src">，《梦梁录》自序。大意：从前有人睡一顿饭的功夫，把一辈子的荣辱经历了个遍，醒来还是自己，才知道是梦。如今天翻地覆，那满城的繁华，哪能保得住还像从前？回头想那些事，就像一场梦，所以叫《梦粱录》。</div></div>
 
   <p>序里没明说的是：临安已经在 1276 年落入元军之手。他写这本书的时候，那座城还在，但那个「天下」没了。所以这本书从头至尾有一种奇怪的调子：他记的全是最热闹的事，笔调却像在念悼词。这个调子，是读懂这本书的钥匙。</p>
 
@@ -389,7 +461,7 @@
   <h3>第二样：细到没有用处</h3>
   <p>这本书的细节，细到让今天的读者发懵。记酒楼，他不光写哪家酒楼，还写酒楼的行话和规矩：进店不可轻易登楼，酒量小的坐楼下散座，叫「门床马道」；坐定了，酒家人先上「看菜」，就是只看不吃的样品菜，不懂行的外郡人伸筷子就吃，要被店家笑话。记百戏里的「说话人」（说书的），他写最厉害的是讲史的，「能讲一朝一代故事，顷刻间捏合」。这些细节没有一个是「有用」的，既不教你怎么生活，也不说明什么大道理。可就是这些没用的细节，把一座城的肌理给续上了。道理谁都会讲，门床马道只有住过那座城的人知道。</p>
 
-  <div class="quote">初坐定，酒家人先下看菜，问酒多寡，然后别换好菜蔬。有一等外郡士夫，未曾谙识者，便下箸吃，被酒家人哂笑。<div class="src">——《梦梁录·酒肆》。看菜只能看，外乡人不懂，下筷子就吃，惹人笑话。一条八百年前酒楼里的规矩，他记得清清楚楚。</div></div>
+  <div class="quote">初坐定，酒家人先下看菜，问酒多寡，然后别换好菜蔬。有一等外郡士夫，未曾谙识者，便下箸吃，被酒家人哂笑。<div class="src">，《梦梁录·酒肆》。看菜只能看，外乡人不懂，下筷子就吃，惹人笑话。一条八百年前酒楼里的规矩，他记得清清楚楚。</div></div>
 
   <h3>第三样：按城的骨头和肉来排，不按自己的感情排</h3>
   <p>吴自牧记这座城，用的是一种近乎行政志的排法：先节气，再地理，再官署，再市肆，再人物，再民俗。这个排法很笨，也很要紧：他把自己当成了一个给城立档的人，而不是一个写回忆录的文人。文人写回忆，是围着自己的悲欢转的；他这本书，悲欢退到序里那一小段，正文里全是「这座城客观存在过什么」。这个姿态让《梦梁录》从「个人怀旧」变成了「城市档案」，价值一下子不一样了。</p>
@@ -413,7 +485,7 @@
   <h3>第二根线：这座城是「回忆」撑着的</h3>
   <p>这是更沉的一根线，也是这本书真正的隐情。临安是「行在」，皇帝临时驻跸之地，名义上的首都还在汴京。城里的人，大半是从北方逃难过来的。书里的痕迹随处可见：饮食店「多是效学京师人」，开张都仿汴京的样式；酒楼的装饰，是学五代时汴京的旧俗；卖糖的「效学京师叫声」。整座城市在拼命模仿一座已经丢了的城。这就解释了吴自牧为什么把这本书写得这么用力：他记的不只是一座城，是一群人借着一座新城，拼命留住一个回不去的旧世界。临安的繁华底下，垫着的是一场大流亡。越是记着汴京什么样，越要把杭州过成那个样子。这股劲儿，说是乡愁，也是自救。读懂了这根线，再回头看那满书的灯火，味道就变了：那是一群失了家的人，点给自个儿壮胆的灯，算不得太平盛世的灯。</p>
 
-  <div class="quote">大抵杭城是行都之处，万物所聚，诸行百市，自和宁门杈子外至观桥下，无一家不买卖者。<div class="src">——《梦梁录·团行》。「行都」两个字是题眼：这座城从根上就是临时的，可它偏要过得比谁都热闹。</div></div>
+  <div class="quote">大抵杭城是行都之处，万物所聚，诸行百市，自和宁门杈子外至观桥下，无一家不买卖者。<div class="src">，《梦梁录·团行》。「行都」两个字是题眼：这座城从根上就是临时的，可它偏要过得比谁都热闹。</div></div>
 
   <h3>两根线拧在一起，这本书的底色就出来了</h3>
   <p>单看第一根线，这是一座了不起的商业城市；单看第二根线，这是一座可怜的流亡之城。两根拧在一起，才是完整的临安：一座靠真金白银的买卖，撑着一肚子无家可归乡愁的城。它白天是行都，晚上是梦乡。吴自牧通篇没把这层说破，他只是如实地、不厌其详地，把这座城记了下来。可越是不说破，越能看出他记的用心：他要留住的，正是这种「明知是梦，也要把梦做圆」的日子。这就是这本书底色上的那点凉。</p>
@@ -476,13 +548,13 @@
 
   <p>说它是一场葬礼，这是字面意思，不是比喻。你看吴自牧写这本书的姿态，他记的全是喜事：元宵的灯、中秋的月、看潮的日子、夜市里的吃食、西湖上的游船。一件伤心事没有。可通读下来，你读出的是透骨的伤心。道理很简单：他写的每一件喜事，都是一个已经没有的东西。这就跟葬礼上说话一个道理：葬礼上你从来不哭丧着脸历数死者的好处，你是笑着说，他生前爱喝两口，爱下棋，爱跟街坊逗闷子。你越往好里说，听的人越难受。吴自牧就是在给临安办这么一场葬礼，他笑着说完了这座城生前所有的好，一个字不提它已经没了。</p>
 
-  <p>这个写法，中国人其实都熟。家里人过世了，最怕的从来不是葬礼上那一场哭，反倒是过了很久之后，某天长辈突然轻声说一句：「你爸最爱吃这个。」——完了，一桌子人都得放下筷子。真正的悲，从来不在嚎啕里，在那种「日子照过、东西还在、人没了」的对照里。吴自牧整本《梦梁录》，用的就是这个结构。城是城，灯是灯，菜是菜，样样都在，写得活灵活现；可你翻开书之前就知道，这些全没了。这个「全没了」不在书里，在你心里，他一个字不用写，你自己会补上。</p>
+  <p>这个写法，中国人其实都熟。家里人过世了，最怕的从来不是葬礼上那一场哭，反倒是过了很久之后，某天长辈突然轻声说一句：「你爸最爱吃这个。」，完了，一桌子人都得放下筷子。真正的悲，从来不在嚎啕里，在那种「日子照过、东西还在、人没了」的对照里。吴自牧整本《梦梁录》，用的就是这个结构。城是城，灯是灯，菜是菜，样样都在，写得活灵活现；可你翻开书之前就知道，这些全没了。这个「全没了」不在书里，在你心里，他一个字不用写，你自己会补上。</p>
 
   <p>那他为什么要记得那么细？细到一碗羹的配料、一家店的规矩、一个算命先生的名字？初读觉得啰嗦，想通了就明白。葬礼上回忆一个人，最能叫人受不了的，从来不是「他是个好人」这种大话，反倒是「他喝茶必须烫嘴的」「他扣扣子总从下往上扣」这种小得不能再小的细节。细节是活过的证据。一个人死了，你还想得起来他喝茶烫嘴，他就还没死透。吴自牧记临安记到那个细度，是同一个心思，他要这座城一直活下去。门床马道这四个字，只有真在那座城的酒楼里坐过、被店家笑话过的人才写得出。他把这四个字写下来，就等于说：那座城真的活过，我见过，我坐过，我被笑话过。你们没见过的，来看看。</p>
 
   <p>这里头有一层很要紧的东西，得点破。一般的亡国文字，是喊冤的、是骂的、是「商女不知亡国恨」那种急赤白脸的。吴自牧一句都没有。他不骂，不是不恨，是他找到了一种比骂更狠的记法。骂，是把亡国的账算给别人听；他这种记法，是把亡国这件事，变成读者自己心里过不去的坎。骂完就完了，可你读完《梦梁录》，那座城就住进你心里了，你替它难受。这是更高明、也更熬人的复仇。我不喊冤，我让你自己爱上那座城，然后你自己去想，这么好的地方，怎么说没就没了。</p>
 
-  <p>我头一回读懂这层，是合上书之后。读的时候只觉得琐碎、热闹，甚至有点烦——怎么这么多菜名。合上书，那些菜名、灯名、巷名，忽然一下全沉下去了，变成一种说不出的堵。那一刻我才明白，这本书的功夫全在纸外。吴自牧把葬礼办得这么体面，这么克制，体面到你读的时候以为他在记一座活城。等你知道真相，已经晚了，你已经替他记住了那座城，赶不走了。</p>
+  <p>我头一回读懂这层，是合上书之后。读的时候只觉得琐碎、热闹，甚至有点烦，怎么这么多菜名。合上书，那些菜名、灯名、巷名，忽然一下全沉下去了，变成一种说不出的堵。那一刻我才明白，这本书的功夫全在纸外。吴自牧把葬礼办得这么体面，这么克制，体面到你读的时候以为他在记一座活城。等你知道真相，已经晚了，你已经替他记住了那座城，赶不走了。</p>
 
   <p>这大概就是一种文明真正的活法。刀剑能让一座城消失，但只要还有人记得它喝茶烫嘴，它就没死干净。吴自牧干的事，往小了说是一个人的乡愁，往大了说，是把「记得」变成了一种抵抗。八百年后我们翻开这本书，那座城还在那儿，灯火通明，买卖昼夜不绝。他赢了。</p>
 </div>

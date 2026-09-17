@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>后汉书 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>后汉书</h1>
-  <div class="author">范晔（南朝宋）撰 · 纪传体断代史，记东汉一百九十五年</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">后汉书</div>
+    <div class="cover-sub">解书 · 2026-07-18</div>
+    <div class="cover-meta">范晔（南朝宋）撰 · 纪传体断代史，记东汉一百九十五年 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《后汉书》记的是东汉，从刘秀起兵到曹丕篡汉，一百九十五年。范晔写这本书的时候，东汉已经亡了两百年，他自己也正卷...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">读《后汉书》，得先明白一件事：这书是南朝人范晔在两百年后回头写的，不是东汉人写东汉史。他手里有什么？有东汉历代...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">《后汉书》看着是一百九十五年的流水账，拆到底，牵着全书走的是一对撕不开的死结。这是范晔用整本书的编排逼你看的，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">先说范晔为什么非写这本书不可。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">如果这本书只能留下一个公式，是这个：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">前面几层，有件事我一直按着没说透：东汉那批太监，到底是怎么从伺候人的家奴，变成能杀大臣、定废立的主子？范晔把答...</span>
+    </div>
+  </div>
+
   <div class="meta">解书 · 2026-07-18</div>
 </div>
 
@@ -358,25 +430,25 @@
 
   <p>刘秀这个人，是中国所有开国皇帝里最不像开国皇帝的一个。他哥哥刘縯好侠养士，他自己种地。更始帝刘玄杀了他哥哥，他不敢哭，白天照常吃饭喝酒，夜里枕头哭湿。打下洛阳后他去拜谒西汉的陵庙，老百姓哭着说"不图今日复见汉官威仪"。他建国后没杀过一个功臣，退功臣进文吏，用柔道治国，"柔能制刚，弱能制强"，这是他自己说的。范晔写他，笔调是敬的，但敬里藏着一句没说出来的话：这个开头太好了，好到后面的人配不上。</p>
 
-  <div class="marker">公元 88–105 年 · 窦太后临朝，外戚第一次坐大</div>
+  <div class="marker">公元 88，105 年 · 窦太后临朝，外戚第一次坐大</div>
 
   <p>章帝死后，窦太后临朝，哥哥窦宪当大将军。窦宪这个人干过一件大事：北击匈奴，燕然勒石，功劳比卫青霍去病。可他在朝廷里横到什么地步？强买沁水公主的园子，公主不敢不给。汉和帝十岁即位，十四岁那年实在忍不了，身边没有一个能商量的大臣，大臣全是窦家的人。最后帮他除掉窦宪的，是一个太监，叫郑众。</p>
 
   <p>这是中国历史上宦官第一次因功封侯、第一次参与朝政。范晔在《宦者传》序里把这笔账记得很清楚："中官用权，自众始焉。"郑众本人不坏，谨慎、谦让、封赏每辞多受少。可门一开，关不上了。</p>
 
-  <div class="marker">公元 106–168 年 · 幼主循环，外戚宦官轮流转</div>
+  <div class="marker">公元 106，168 年 · 幼主循环，外戚宦官轮流转</div>
 
   <p>从和帝开始，东汉的皇帝像是中了咒：和帝十岁即位，殇帝生下来一百多天即位，安帝十三岁，顺帝十一岁，冲帝两岁，质帝八岁，桓帝十五岁，灵帝十二岁。皇帝小，太后就临朝；太后是女人，不能抛头露面见大臣，就靠娘家人，于是外戚掌权。小皇帝长大，想收回权力，满朝文武都是外戚提拔的，能用谁？只有身边伺候的太监，于是宦官除外戚。皇帝一死，新太后又临朝，新外戚又掌权，下一个皇帝又用宦官杀外戚。这个循环，东汉转了一百多年。</p>
 
   <p>转得最狠的是梁冀。梁冀一家出了三个皇后、六个贵人、七个大将军，封侯的男女五十七人。质帝八岁，在朝会上看了他一眼，说了句"此跋扈将军也"。梁冀回头就下毒，把质帝毒死了。八岁的孩子，因为说了一句真话，死在龙椅上。后来桓帝靠五个太监除掉梁冀，这五个人同一天封侯，世称"五侯"。范晔写他们"手握王爵，口含天宪"，朝廷里直情忤意的，夷灭三族；阿旨曲求的，光宠三族。</p>
 
-  <div class="marker">公元 168–184 年 · 党锢之祸，读书人集体被按死</div>
+  <div class="marker">公元 168，184 年 · 党锢之祸，读书人集体被按死</div>
 
   <p>宦官横到这个地步，外面的读书人看不下去了。太学三万学生，跟着李膺、陈蕃、王畅品评朝政，"天下模楷李元礼，不畏强御陈仲举"，这是学生给他们起的口号。李膺当河南尹，抓了个算命先生张成，张成算准了朝廷要大赦，让儿子去杀人抵命，果然赶上赦免。李膺不管，照样杀。张成的弟子是宦官的门客，反咬一口，告李膺等人"共为部党，诽讪朝廷"。桓帝大怒，天下收捕，二百多人下狱。</p>
 
   <p>这是第一次党锢。过了几年灵帝即位，窦武和陈蕃密谋诛宦官，事泄被杀，宦官再来一次，李膺、范滂等一百多人死在狱里。范滂跟他母亲告别，说"儿今得与李、杜齐名，死亦何恨"，他母亲说"汝今得与李、杜齐名，死亦何恨"，母亲把儿子的话原样说回去，送他上路。范晔写到这里，不加评论。可你读到这里，知道东汉的脊梁断了。读书人里最硬的那批，全被按死在自己效忠的朝廷手里。</p>
 
-  <div class="marker">公元 184–189 年 · 黄巾起，朝廷自己解开了最后一道绳</div>
+  <div class="marker">公元 184，189 年 · 黄巾起，朝廷自己解开了最后一道绳</div>
 
   <p>中平元年，张角黄巾起义。有个叫吕强的太监跟灵帝说：党锢搞了这么多年，怨气太深，再不放人，这些人跟张角合流，天下就完了。灵帝怕了，大赦党人。这是宦官自己承认杀错了人，可承认，是因为怕。黄巾平了以后，朝廷发现自己手里没兵了，兵全在地方州牧手里。最后一道绳，是自己解开的。</p>
 
@@ -416,7 +488,7 @@
 
   <p>哪三个人？长不大的皇帝、替他掌权的舅舅、和替他夺权的太监。</p>
 
-  <p>这对死结是怎么拧上的？根子在刘秀那里。他柔道治国，把身后事安排得妥妥帖帖，唯独没想到一件事：他的后代会长不大。从和帝开始，皇帝登基时越来越小，小到襁褓里。皇帝小，就得有人替他看天下。谁来替？制度给的答案是太后——可太后是女人，按礼不能上朝见大臣，她只能靠两种人：一种是娘家的兄弟父亲，就是外戚；一种是宫里伺候的阉人，就是宦官。</p>
+  <p>这对死结是怎么拧上的？根子在刘秀那里。他柔道治国，把身后事安排得妥妥帖帖，唯独没想到一件事：他的后代会长不大。从和帝开始，皇帝登基时越来越小，小到襁褓里。皇帝小，就得有人替他看天下。谁来替？制度给的答案是太后，可太后是女人，按礼不能上朝见大臣，她只能靠两种人：一种是娘家的兄弟父亲，就是外戚；一种是宫里伺候的阉人，就是宦官。</p>
 
   <p>于是死结的第一股拧上了：太后临朝，必用外戚。窦太后用窦宪，邓太后用邓骘，阎太后用阎显，梁太后用梁冀。外戚一掌权，就拼命把权力留在自己手里，小皇帝越大越像傀儡。梁冀毒死质帝，就是这条路上走到黑的例子，连皇帝都敢杀，可见外戚已经把朝廷当成自家产业。</p>
 

@@ -1,23 +1,30 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>大唐之国 · 深度解读</title><style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -74,6 +81,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -87,14 +105,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -103,7 +121,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -112,7 +130,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -122,7 +140,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -130,12 +148,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -151,7 +169,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -166,7 +183,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -261,9 +277,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -271,6 +286,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -323,6 +355,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -330,7 +371,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>大唐之国</h1><div class="author">葛承雍 · 一千四百年的记忆遗产</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">大唐之国</div>
+    <div class="cover-sub">一千四百年的记忆遗产</div>
+    <div class="cover-meta">葛承雍 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 这不是一部按年代写的唐史</span>
+      <span class="toc-desc">全书由作者多年论文、演讲和考察文章结集而成。八编从综合国力、天下国家与外来文明，走到高力士、武则天、玄奘与墓志...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 四个小入口，怎样通向大唐</span>
+      <span class="toc-desc">外来者定居涉及附籍、减税、鸿胪寺接待、商路保护与涉外司法。同国纠纷可参考本俗，不同国家间依唐律处理。开放由一套...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 三根线把八编重新串起</span>
+      <span class="toc-desc">第一根线是制度容纳。人口、宗教、商品与知识能进入帝国，靠附籍、司法、接待和仓库等装置。三夷教被承认却受范围限制...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 出土墓志为何也会说谎</span>
+      <span class="toc-desc">墓志随葬、年代可定，还保留正史没有的人名与官职，容易让人把出土等同真实。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六问读一件唐代遗存</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者为何非要把唐朝写得这么大</span>
+      <span class="toc-desc">葛承雍想借唐代回应当代的文明视野。他强调吸收、转化与向外辐射，希望文明自信来自真实的开放能力，而非只讲疆域和武...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 餐巾纸上的大唐</span>
+      <span class="toc-desc">一句话：从国家安排走到一块石、一件器，再让不同材料互相纠错。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 留下来的唐朝，已经经过四次筛选</span>
+      <span class="toc-desc">全书最珍贵的材料多是墓志、金银器、佛像、塔与宫殿遗址。它们让唐朝变得可触摸，也提醒人：我们看到的并不是唐代社会...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">全书为1984，2013年间论文、演讲和考察文章结集，各篇尺度与证据不同。“盛唐气象”带有作者价值取向，宏大跨...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">这不是一部按年代写的唐史</h2>
 <p>全书由作者多年论文、演讲和考察文章结集而成。八编从综合国力、天下国家与外来文明，走到高力士、武则天、玄奘与墓志人物，再进入仓库、珍宝、服装、民谣、赌博、乞丐、宗教、建筑和佛教造像。</p>
 <p>它的路线像从国家叙事逐层下降。国家能力落到鸿胪寺、附籍、涉外司法和商税，人物评价落到奏议与墓志，财政落到太仓、左藏、右藏和内藏，社会恐惧甚至落到住宅夹墙。小材料不断把“大唐”拉回具体生活。</p>
@@ -381,7 +467,7 @@
 <p>第二种反对意见是：精英器物也能准确显示工艺、财政机构和宗教网络，强调偏差会不会把硬证据一并削弱？不会。问题不在器物真假，而在代表范围：法门寺题记可以有力证明一条内库流转路径，却不能独自代表所有地区、阶层和时代。</p>
 <p>所以读一件唐代遗存，还要追它怎样来到眼前：谁有能力制作，什么材质容易存留，为何在此处出土，又是谁决定它值得陈列。历史的缺席者未必没有生活，只是他们留下证据的机会更少。</p></section>
 <section class="layer"><div class="kicker">Layer 09</div><h2 class="layer-title">一句话封印这本书</h2>
-<div class="fact"><h3>事实边界</h3><p>全书为1984—2013年间论文、演讲和考察文章结集，各篇尺度与证据不同。“盛唐气象”带有作者价值取向，宏大跨文明比较需另核统一口径。墓志能补史也会饰史；大秦宝塔、复壁、捧真身菩萨等考古判断证据等级不一，文中均按作者判断使用。OCR整体可读但人名、官名和数字可能误识，未作逐字引文。</p></div>
+<div class="fact"><h3>事实边界</h3><p>全书为1984，2013年间论文、演讲和考察文章结集，各篇尺度与证据不同。“盛唐气象”带有作者价值取向，宏大跨文明比较需另核统一口径。墓志能补史也会饰史；大秦宝塔、复壁、捧真身菩萨等考古判断证据等级不一，文中均按作者判断使用。OCR整体可读但人名、官名和数字可能误识，未作逐字引文。</p></div>
 <div class="seal"><div class="line">我们从遗存看见大唐，也要从遗存的幸存方式，校正自己看见的大唐。</div><div class="sign">青山 · 2026-07-27</div></div></section>
 </main><footer><div class="container">青山 · 2026-07-27</div></footer>
 

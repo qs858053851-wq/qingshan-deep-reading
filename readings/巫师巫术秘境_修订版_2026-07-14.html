@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>巫师、巫术、秘境 —— 九层解书</title>
+<title>巫师、巫术、秘境 ， 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>巫师、巫术、秘境</h1>
-  <div class="author">赵仲明 · 中国巫术文化追踪 · 九层解书</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">巫师、巫术、秘境</div>
+    <div class="cover-sub">中国巫术文化追踪 · 九层解书</div>
+    <div class="cover-meta">赵仲明 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书在说什么？</span>
+      <span class="toc-desc">核心问题：中国巫术文化究竟是什么？它如何从原始祭祀演变成塑造中国人性格与文明形态的深层结构？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 凭什么这么说？</span>
+      <span class="toc-desc">核心论证链：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 降秩，找生成器</span>
+      <span class="toc-desc">全书材料看似庞杂，真正独立、不可互相替代的线只有三根。下面只定义它们的功能，不重复第二层“乐、礼、孝”的证据主...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 纵向深钻，感应为何让人觉得“可控”？</span>
+      <span class="toc-desc">表象层：动作之后，结果好像发生了。书中“过火”一类净化仪式提供了一个合适切口：参与者跨过火场，身体承受真实的热...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 复现论证骨架</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 超越作者：把三根线带回现实</span>
+      <span class="toc-desc">作者真正想做的事：赵仲明不是满足于编一部巫术材料志，而是试图给1980年代的中国做文化诊断：现代制度和知识可以...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 极限压缩</span>
+      <span class="toc-desc">逐项对齐：感应律解释仪式如何获得“有效感”；巫权垄断解释这种有效感如何被组织成权力；历史情感替代解释这套结构如...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 我们为什么总爱说“祖上阔过”</span>
+      <span class="toc-desc">有一种胜利，不需要今天赢。</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- 第一层：骨架扫描 -->
@@ -352,13 +432,13 @@
 
   <p><strong>核心问题：</strong>中国巫术文化究竟是什么？它如何从原始祭祀演变成塑造中国人性格与文明形态的深层结构？</p>
 
-  <p><strong>核心答案：</strong>巫术不是愚昧的残留，而是中国文明最早的"操作系统"——它用感应思维替代了因果思维，用伦理关系替代了人与自然的关系，用对过去的情感眷恋替代了对现实的理性改造。这个系统至今仍在运行。</p>
+  <p><strong>核心答案：</strong>巫术不是愚昧的残留，而是中国文明最早的"操作系统"，它用感应思维替代了因果思维，用伦理关系替代了人与自然的关系，用对过去的情感眷恋替代了对现实的理性改造。这个系统至今仍在运行。</p>
 
   <p><strong>全书骨架：</strong></p>
-  <p>上篇"巫术文化调查"（第一至三部分）：以田野调查+文献考证的方式，呈现巫术在原始生产、性、歌舞、水火祭仪中的具体形态。作者走遍中国少数民族地区，记录了大量活着的巫术仪式——从云南佤族的"砍牛尾巴"到台湾永镇的"过火"，从摩梭人的生育巫术到彝族的火把节。</p>
-  <p>下篇"巫术文化追踪"（第四至六部分）：从现象深入结构，追问巫术如何塑造了中国文化的核心概念——"乐""礼""孝""敬""天人合一"，以及这些概念如何在政治权力中被收编、变形，最终成为禁锢中国人精神的隐形牢笼。</p>
+  <p>上篇"巫术文化调查"（第一至三部分）：以田野调查+文献考证的方式，呈现巫术在原始生产、性、歌舞、水火祭仪中的具体形态。作者走遍中国少数民族地区，记录了大量活着的巫术仪式，从云南佤族的"砍牛尾巴"到台湾永镇的"过火"，从摩梭人的生育巫术到彝族的火把节。</p>
+  <p>下篇"巫术文化追踪"（第四至六部分）：从现象深入结构，追问巫术如何塑造了中国文化的核心概念，"乐""礼""孝""敬""天人合一"，以及这些概念如何在政治权力中被收编、变形，最终成为禁锢中国人精神的隐形牢笼。</p>
 
-  <p><strong>论证结构：</strong>归纳型+案例型。作者不先立理论框架，而是堆叠大量民族学调查材料和古籍引证，让读者在材料的重量中自己感受到结论的不可避免。这是一种"材料先行、理论后出"的写法，带有1980年代中国学术的鲜明印记——那时学者们相信，只要把材料摆够，真理自会浮现。</p>
+  <p><strong>论证结构：</strong>归纳型+案例型。作者不先立理论框架，而是堆叠大量民族学调查材料和古籍引证，让读者在材料的重量中自己感受到结论的不可避免。这是一种"材料先行、理论后出"的写法，带有1980年代中国学术的鲜明印记，那时学者们相信，只要把材料摆够，真理自会浮现。</p>
 
   <p><strong>写作姿态：</strong>作者在对"有文化自觉的中国人"说话。语气是批判的、痛切的，甚至愤怒的。这不是一本冷静的学术报告，而是一份文化诊断书。作者写于1988年除夕，出版波折延至1993年，书中对"自我放逐""阿Q精神"的批判，带着那个时代知识分子特有的焦灼与使命感。</p>
 </div>
@@ -373,11 +453,11 @@
 
   <p><strong>三个最有说服力的证据：</strong></p>
   <p>1. <strong>"乐"源于巫：</strong>作者引俞正燮《癸巳存稿》指出，先秦时"乐之外，无所谓学"。周代大小巫官、乐官的分工明细（鼓人、舞师、乐师、大胥、小胥等），证明"乐"最初不是艺术，而是通神的巫术技术。甲骨文"舞"字象人持牛尾而舞，与"巫"同音。这是文字学+考古学的双重证据。</p>
-  <p>2. <strong>"礼"源于祭：</strong>从许慎《说文》"礼，履也，所以事神致福"出发，作者指出"礼"字从"示"从"豊"，本义是祭祀用的器皿。商代玉礼器、二里头文化遗址的礼器，证明中国礼制不是周代凭空创造，而是从原始巫术祭祀中一步步演化而来。"上古之礼源于俗"——这个链条把民间巫术与儒家礼制连在了一起。</p>
-  <p>3. <strong>"孝"源于敬神：</strong>作者提出一个惊人论断：中国人的"孝"最初不是对父母的情感，而是对神的敬畏。"孝"取"老"字之上部与"子"组合，意为子承老、小辈对长辈的服从。但在巫术时代，"孝"的对象是天神地祇；周代以后，才转移为国君——天神的地上代表。"女孝男，子孝父，父孝臣，臣孝君，君孝神"——这个自下而上的链条，揭示"孝"的本质是等级服从，而非亲情回报。</p>
+  <p>2. <strong>"礼"源于祭：</strong>从许慎《说文》"礼，履也，所以事神致福"出发，作者指出"礼"字从"示"从"豊"，本义是祭祀用的器皿。商代玉礼器、二里头文化遗址的礼器，证明中国礼制不是周代凭空创造，而是从原始巫术祭祀中一步步演化而来。"上古之礼源于俗"，这个链条把民间巫术与儒家礼制连在了一起。</p>
+  <p>3. <strong>"孝"源于敬神：</strong>作者提出一个惊人论断：中国人的"孝"最初不是对父母的情感，而是对神的敬畏。"孝"取"老"字之上部与"子"组合，意为子承老、小辈对长辈的服从。但在巫术时代，"孝"的对象是天神地祇；周代以后，才转移为国君，天神的地上代表。"女孝男，子孝父，父孝臣，臣孝君，君孝神"，这个自下而上的链条，揭示"孝"的本质是等级服从，而非亲情回报。</p>
 
   <p><strong>隐形假设：</strong></p>
-  <p>1. 作者假设"感应思维"与"因果思维"是互斥的——有了前者就必然压抑后者。但现代认知科学表明，人类大脑同时运行多种思维模式，它们在各自适用的领域发挥作用。</p>
+  <p>1. 作者假设"感应思维"与"因果思维"是互斥的，有了前者就必然压抑后者。但现代认知科学表明，人类大脑同时运行多种思维模式，它们在各自适用的领域发挥作用。</p>
   <p>2. 作者假设中国没有发展出科学，主要责任在巫术文化。但这个假设忽略了地理、政治、经济等多重因素的交互作用。</p>
   <p>3. 作者假设1980年代中国的落后可以直接归因于文化基因的缺陷。这是一种文化决定论，有简化历史之嫌。</p>
 
@@ -388,7 +468,7 @@
 <!-- 第三层：底层逻辑 -->
 <div class="layer">
   <div class="layer-num">LAYER 03 / 底层逻辑</div>
-  <h2>降秩——找生成器</h2>
+  <h2>降秩，找生成器</h2>
 
   <p>全书材料看似庞杂，真正独立、不可互相替代的线只有三根。下面只定义它们的功能，不重复第二层“乐、礼、孝”的证据主场。</p>
 
@@ -409,7 +489,7 @@
 <!-- 第四层：追本 -->
 <div class="layer">
   <div class="layer-num">LAYER 04 / 追本</div>
-  <h2>纵向深钻——感应为何让人觉得“可控”？</h2>
+  <h2>纵向深钻，感应为何让人觉得“可控”？</h2>
 
   <p><strong>表象层：动作之后，结果好像发生了。</strong>书中“过火”一类净化仪式提供了一个合适切口：参与者跨过火场，身体承受真实的热、痛与风险，于是“已被净化”的感觉也格外真实。动作是真的，体验是真的，但由此推到超自然结果，就跨过了证据缺口。</p>
 

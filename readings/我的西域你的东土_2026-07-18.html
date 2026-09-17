@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我的西域你的东土 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>我的西域<br>你的东土</h1>
-  <div class="author">王力雄 · 著 &nbsp;|&nbsp; 深度解读 · 2026-07-18</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">我的西域 你的东土</div>
+    <div class="cover-sub">著 &nbsp;|&nbsp; 深度解读 · 2026-07-18</div>
+    <div class="cover-meta">王力雄 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">书名先解一下：同一片土地，汉人叫它"新疆"，维吾尔人叫它"东土耳其斯坦"。王力雄在前言里说得很直白，"新疆"的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">王力雄的核心论断很重：新疆正在"巴勒斯坦化"，今天的表面稳定是在给未来埋炸药。这话要是空口说，就是又一个异见作...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">这本书看着千头万绪：狱中回忆、旅行笔记、访谈、书信，四种文体拼在一起。但拆到底，底下就两根线在起作用。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">选恐惧这根线往下挖，一层一层来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：不是。敌对是被政策制造出来的，而且有明确的时间线。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">是赎罪。他在审讯中出卖过一个人，靠假合作换了提前释放。出来之后他给江泽民写公开信，把整个过程连同自己的不堪一起...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话：用恐惧维持的稳定，每天都在把不满从账面上转移到地下，账面越干净，地下埋得越多。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">第一层里按下没说的那笔账，现在可以摊开了。一九九九年，乌鲁木齐，被监视居住的王力雄拿到一片玻璃。割下去之前，他...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -493,7 +573,7 @@
   <p>是赎罪。他在审讯中出卖过一个人，靠假合作换了提前释放。出来之后他给江泽民写公开信，把整个过程连同自己的不堪一起公开，这本书是那封信的延长。他引康德那句"头顶是灿烂的星空，道德律令在我心中"，不是装点门面：一个用功利算计活下来的人，只能用彻底的诚实把自己赎回来。这本书写得越不留情面，他欠穆合塔尔们的债才还得越干净。</p>
 
   <h3>作者的盲点</h3>
-  <p>两个，诚实说。第一，他低估了技术。他的全部推理建立在"恐惧统治会失明、失明会崩塌"上，但他没预见监控技术可以部分替代人心：摄像头不需要人们真心认同，只需要人们知道自己被看着。第二，他的药方与他的诊断脱节：诊断说这个体制连复印文件都不容忍，药方却要它容忍村级自治长成气候。他对方案的执念，可能来自不肯让读者在绝望里合上书——这是善意，但善意不是论证。</p>
+  <p>两个，诚实说。第一，他低估了技术。他的全部推理建立在"恐惧统治会失明、失明会崩塌"上，但他没预见监控技术可以部分替代人心：摄像头不需要人们真心认同，只需要人们知道自己被看着。第二，他的药方与他的诊断脱节：诊断说这个体制连复印文件都不容忍，药方却要它容忍村级自治长成气候。他对方案的执念，可能来自不肯让读者在绝望里合上书，这是善意，但善意不是论证。</p>
 
   <h3>跨域映射</h3>
   <p>第一个映射在公司里。一家公司要是形成了"报忧者倒霉"的空气（谁汇报坏消息谁挨骂），用不了两年，老板听到的全是好消息，报表越来越漂亮，仓库越来越满，直到资金链断的那天所有人"毫无征兆"。这跟书里署名与匿名问卷的那道落差是同一件事：惩罚真话的系统，最后死于自己订购的假话。老板的信息渠道，就这样被自己立的规矩一条条掐断。</p>
@@ -538,7 +618,7 @@
   <div class="layer-no">第八层</div>
   <div class="layer-title">那张自杀前的收支表</div>
 
-  <p>第一层里按下没说的那笔账，现在可以摊开了。一九九九年，乌鲁木齐，被监视居住的王力雄拿到一片玻璃。割下去之前，他在心里列了一张收支表：只要我死了，所有的线索就会中断，他们顺着我往下抓人的链条就断了；以我一个人的死换这个结果，值得不值得？他写道："收支表显示得非常清楚——值得！"</p>
+  <p>第一层里按下没说的那笔账，现在可以摊开了。一九九九年，乌鲁木齐，被监视居住的王力雄拿到一片玻璃。割下去之前，他在心里列了一张收支表：只要我死了，所有的线索就会中断，他们顺着我往下抓人的链条就断了；以我一个人的死换这个结果，值得不值得？他写道："收支表显示得非常清楚，值得！"</p>
 
   <p>先停在这张表上。一个人决定自杀的时刻，我们默认那是理智崩溃的时刻：恐惧、绝望、失控。可这张表恰恰相反：它冷静得像个会计。借方，一条命；贷方，若干个不被牵连的人。轧账，划算。这是全书最骇人的一页，骇人不在他想死，在他算得这么清楚。</p>
 
@@ -550,7 +630,7 @@
 
   <p>这就是我说的核：<strong>恐惧统治的真正边界，不在勇敢的人那里，在算完账仍然过不去的人那里。</strong>勇敢是稀缺品，指望不上；但"算得清却咽不下"是普通人身上就有的东西。王力雄算不上英雄。他怕死（自杀是为了止损，谈不上无畏），他出卖过人，他做过交易。恐惧机器在他身上每一步都赢了。可它赢完之后，这个人把全部输掉的过程写成书公开出版。机器能逼他做任何事，唯独没法让他事后认账。</p>
 
-  <p>找个日常的对照物：这像什么？像被迫签的字。生活里谁都签过：被上级压着在违心的材料上签字，被现实按着在不情愿的协议上按手印。签的那一刻，算账的结果都是"签了划算"。可有人签完就翻篇了，有人签完那个字在心里烂了很多年。恐惧统治的算盘打的是前一种人，它的账本上从来没有后一种人的科目。新疆那道题里，穆合塔尔狱中墙上那首诗就是后一种人的声音："审判者说我会因此被打进地狱，我说那我就去习惯地狱的生活。"——注意这句话的结构：它没有说"我不怕地狱"，说的是"我去习惯它"。无畏谈不上，这是把畏惧咽下去之后仍然不改口。</p>
+  <p>找个日常的对照物：这像什么？像被迫签的字。生活里谁都签过：被上级压着在违心的材料上签字，被现实按着在不情愿的协议上按手印。签的那一刻，算账的结果都是"签了划算"。可有人签完就翻篇了，有人签完那个字在心里烂了很多年。恐惧统治的算盘打的是前一种人，它的账本上从来没有后一种人的科目。新疆那道题里，穆合塔尔狱中墙上那首诗就是后一种人的声音："审判者说我会因此被打进地狱，我说那我就去习惯地狱的生活。"，注意这句话的结构：它没有说"我不怕地狱"，说的是"我去习惯它"。无畏谈不上，这是把畏惧咽下去之后仍然不改口。</p>
 
   <p>所以这本书表面在讲新疆，底下在讲一个更大的东西：一切靠恐惧运转的系统，它的力学模型里人只有两种状态：屈服，或反抗。它对付这两种人都有成熟工艺。它算不动的是第三种状态：屈服了，但不认。这种人不冲卡、不上街、不殉道，只是在心里保留一个不肯签字的角落。系统看不见这个角落，因为它不产生任何行为数据。可政权崩塌史上一再出现同一幕：看起来铁板一块的顺从，一夜之间集体倒戈。人心并没有突变，只是那些不认账的角落终于连成了片，而系统直到最后一刻都不知道它们存在。</p>
 
@@ -563,7 +643,7 @@
 </div>
 
 <div class="golden">
-  <div class="line">恐惧机器能赢下你的每一步，唯独没法让你事后认账——而政权的寿命，就取决于有多少人不认账。</div>
+  <div class="line">恐惧机器能赢下你的每一步，唯独没法让你事后认账，而政权的寿命，就取决于有多少人不认账。</div>
   <div class="sign">青山 · 2026-07-18</div>
 </div>
 

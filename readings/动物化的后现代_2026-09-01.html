@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>动物化的后现代 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>动物化的后现代</h1>
-  <div class="author">东浩纪　2001　讲谈社 / 台湾大块文化　褚炫初 译　御宅族看透后现代社会</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">动物化的后现代</div>
+    <div class="cover-sub">东浩纪在 2001 年出版的这本薄书，表面上是一部关于日本御宅族（Otaku）动漫游戏次文化的社会学评论，实际上是一篇极其锐利的后现代人类学诊断书。东浩纪开宗明义指出，世人习惯将御...</div>
+    <div class="cover-meta">东浩纪　2001　讲谈社 / 台湾大块文化　褚炫初 译　御宅族看透后现代社会 · 解读主理：青山 · 日期：2026-09-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 从高达的宏大世界观到数码宝贝与萌要素数据库</span>
+      <span class="toc-desc">东浩纪在 2001 年出版的这本薄书，表面上是一部关于日本御宅族（Otaku）动漫游戏次文化的社会学评论，实际...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么说原作与二次创作的界限已经彻底消失</span>
+      <span class="toc-desc">东浩纪用极其翔实的秋叶原商业案例与同人文化数据，证明了后现代文化工业的底层逻辑已经发生了不可逆的结构转移。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三根独立的承重线支撑起全书体系</span>
+      <span class="toc-desc">第一根线直接接续利奥塔与鲍德里亚的后现代哲学。现代社会的特征是「树状结构」：底层的哲学思想、国家意识形态（宏大...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着那对猫耳一路追问到人类沟通的黄昏</span>
+      <span class="toc-desc">在秋叶原的街头或漫展上，一个原本毫无特色的卡通少女立绘，只要画师在头发上加上两只毛茸茸的猫耳并在嘴角画出一颗虎...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个递进问题走完东浩纪的后现代侦测</span>
+      <span class="toc-desc">普通动漫迷看动画看的是故事情节与主角命运，会被剧情感动落泪；而真正的御宅族具备高度的元认知视角，他们清楚地知道...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 从秋叶原看透全球：后现代人类的生存突围</span>
+      <span class="toc-desc">东浩纪早年师从日本后现代哲学泰斗浅田彰与柄谷行人，但他极其厌恶日本传统学术界对西方哲学的教条搬运与对大众通俗文...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一页餐巾纸上的全书架构</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 猫耳人偶的胜利：为什么我们不再需要真实的爱人</span>
+      <span class="toc-desc">在二十世纪九十年代末期的东京秋叶原电器街上，发生了一场看似微不足道却在思想史上具有划时代意义的美学实验：游戏厂...</span>
+    </div>
+  </div>
+
   <div class="lead">当宏大的信仰与理想彻底破产，人类不再需要痛苦的跨主体交流。东浩纪用秋叶原的二次元消费，精准预言了全人类走向即插即拔的动物化生存。</div>
 </div>
 

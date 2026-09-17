@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>沧浪诗话 · 深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,52 @@
 <body>
 <div class="container">
 
-<section class="hero">
-  <div class="kicker">深度阅读 · 2026-07-17</div>
-  <h1>沧浪诗话</h1>
-  <div class="author">严羽 著 · 郭绍虞 校释（人民文学出版社）· 全书五卷加一封附录信，正文不足一万字</div>
-  <div class="lede">南宋一个没做过官的福建人，写了本小册子，把当时整个诗坛的路数判了死刑，顺手给中国诗立了一把此后八百年的尺子。他凭什么这么横？下面九层，一层一层看。</div>
-</section>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">沧浪诗话</div>
+    <div class="cover-sub">郭绍虞 校释（人民文学出版社）· 全书五卷加一封附录信，正文不足一万字</div>
+    <div class="cover-meta">严羽 著 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先说这个人。严羽，字仪卿，福建邵武人，大约生活在南宋中后期。正史里没他的传，生平记载少得可怜，能确定的只有几件...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么横</span>
+      <span class="toc-desc">一个无名之辈，把主流诗派整个推翻，凭什么？把他的判词拆开看，底下是一条完整的论证链：汉魏盛唐的诗是最高标准（第...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就三根线在牵着全书</span>
+      <span class="toc-desc">这本书看着千头万绪：体裁地图、十九条戒条、五十条品评、三十三条辨伪，还有一堆禅学术语。但你把这些条目一根一根拎...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层：「悟」到底是什么东西</span>
+      <span class="toc-desc">上一层的末尾留下一个问题：严羽全部诗学的执念，都收在一个「悟」字上。这个字被后世用得太玄，几乎成了故弄玄虚的代...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书</span>
+      <span class="toc-desc">把严羽的论证一根一根抽出来，每根都能长成一个问题。这七个问题有先后：头两个拆误解，中间两个讲方法，再两个验体系...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">他为什么非写不可。答案全在那封附录信里。吴景仙是他的长辈，读完《诗辨》劝他：说话留点余地，别这么直致褒贬。严羽...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">一句话：用最高的范本喂出品味，让学问化到看不见，诗就活了。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 合上书最想跟人讲的：你盯着什么学，就只能在它下面</span>
+      <span class="toc-desc">《沧浪诗话》全书第一句话，不谈诗。它谈的是学习本身：学诗的人，入门须正，立志须高。然后严羽甩出两句当时的老话：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">九层走下来，这本书最值钱的东西绕来绕去都落在同一个地方：判断力是尝出来的，不是念出来的。别材别趣说的是它，妙悟...</span>
+    </div>
+  </div>
+
 
 <!-- 第一层 -->
 <section class="layer">
@@ -362,7 +443,7 @@
 
   <p><b>这本书要回答的问题，一句话：诗到底靠什么写好？</b></p>
 
-  <p><b>他给的答案，也是一句话：靠悟，不靠学。</b>诗是另外一种本事，不从书本和道理里长出来；它得从最高的范本里泡出来，泡到某一天忽然通了。为了讲清这个「悟」，他借用了当时人最熟悉的另一套话语——禅宗。整本书的核心动作就这一个：拿禅的修行体系，套诗的写作体系，史称「以禅喻诗」。</p>
+  <p><b>他给的答案，也是一句话：靠悟，不靠学。</b>诗是另外一种本事，不从书本和道理里长出来；它得从最高的范本里泡出来，泡到某一天忽然通了。为了讲清这个「悟」，他借用了当时人最熟悉的另一套话语，禅宗。整本书的核心动作就这一个：拿禅的修行体系，套诗的写作体系，史称「以禅喻诗」。</p>
 
   <p>书的结构很瘦，五卷加一封信，各管一件事：</p>
 
@@ -557,7 +638,7 @@
 
   <div class="napkin">
     <div class="napkin-formula">好诗 ＝ 别趣 × 妙悟 × 浑成</div>
-    <div class="note">别趣：诗从另一种知里来，不从书本道理里来 ｜ 妙悟：唯一的门径，熟参范本喂出来 ｜ 浑成：长成一个拆不开的活物<br>点火条件：入门须正，取法乎上——范本选错，一切归零</div>
+    <div class="note">别趣：诗从另一种知里来，不从书本道理里来 ｜ 妙悟：唯一的门径，熟参范本喂出来 ｜ 浑成：长成一个拆不开的活物<br>点火条件：入门须正，取法乎上，范本选错，一切归零</div>
   </div>
 
   <p><b>一句话</b>：用最高的范本喂出品味，让学问化到看不见，诗就活了。</p>
@@ -595,7 +676,7 @@
 
   <p>这个核放到日常里，有个很土的类比能扛住它：池塘的水位，永远高不过进水口。你接一根低的水管进来，池子再深也满不了；想提高水位，唯一的办法是把进水口往高里挪。努力是挖深池子，取法是抬高进水口，两件事，很多人一辈子只做了前一件。</p>
 
-  <p>严羽自己大概没意识到，他这套会计还解释了另一个现象。诗法里他说学诗有三节：起初不识好恶，连篇累牍，提笔就写，觉得自己挺行；然后「既识羞愧，始生畏缩」，忽然不敢写了，觉得哪儿都不对；最后透了，七纵八横，信手拈来。这三节里真正的转折是中间那节：羞愧。进步是从羞愧开始的，而羞愧只能来自一件事——见过了让自己抬不起头的好东西。多少人一辈子卡在第一节，多半不赖笨，赖输入：他们的输入里，从来就没有一样能让他们羞愧的东西。没见过高山的人，真心以为自家门口那个土坡就是制高点，根子在输入，不在态度。</p>
+  <p>严羽自己大概没意识到，他这套会计还解释了另一个现象。诗法里他说学诗有三节：起初不识好恶，连篇累牍，提笔就写，觉得自己挺行；然后「既识羞愧，始生畏缩」，忽然不敢写了，觉得哪儿都不对；最后透了，七纵八横，信手拈来。这三节里真正的转折是中间那节：羞愧。进步是从羞愧开始的，而羞愧只能来自一件事，见过了让自己抬不起头的好东西。多少人一辈子卡在第一节，多半不赖笨，赖输入：他们的输入里，从来就没有一样能让他们羞愧的东西。没见过高山的人，真心以为自家门口那个土坡就是制高点，根子在输入，不在态度。</p>
 
   <p>这本书写于八百年前，说的是诗，可今天的处境比南宋更极端。南宋的读书人，范本再差也是手抄的文集；今天每个人的范本是自己亲手喂给自己的输入流，你刷什么，你的「盛唐」就是什么。刷三个月二流内容养出来的判断力，跟立志高低没有关系，那是物理性的损耗，池子里的水位明明白白。严羽会说，先别急着写，先别急着产出，先去把你的进水口找出来：这个领域公认最高的东西是什么，你最近一个月泡在里面多久？</p>
 

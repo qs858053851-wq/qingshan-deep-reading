@@ -5,25 +5,32 @@
 <meta charset="UTF-8">
 <title>对赌 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,16 +189,16 @@
     flex: 1;
   }
 
-  .section {
+  .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
   }
-  .section:not(:last-child) {
+  .section:not(:last-child), .layer:not(:last-child) {
     border-bottom: 0.6pt solid var(--border);
     padding-bottom: 16mm;
   }
 
-  .layer-tag {
+  .layer-tag, .layer-num {
     font-family: var(--title-font);
     font-size: 11pt;
     font-weight: 700;
@@ -195,7 +212,7 @@
     border-radius: 2pt;
   }
 
-  h1 {
+  h1, .layer-title {
     font-family: var(--title-font);
     font-size: 26pt;
     font-weight: 700;
@@ -235,6 +252,24 @@
     text-align: justify;
   }
 
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+  }
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
+  }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
     margin: 24pt 0;
     padding: 20pt 24pt;
@@ -248,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -259,8 +293,25 @@
     color: var(--near-black);
     margin-bottom: 14pt;
   }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-  .ascii-box {
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
     margin: 16pt 0;
     padding: 14pt;
     background: var(--ivory);
@@ -310,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,7 +400,7 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">结果偏误、信息不完全博弈与扑克视角的决策重构</span></a><a href="#layer02" class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">海鹰队超级碗传球悲剧、德扑顶级诈唬博弈与10-10-10心智法则</span></a><a href="#layer03" class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">自利性偏差、贝叶斯信念更新与反事实思考机制</span></a><a href="#layer04" class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从下注赌一把到消除后见之明、拥抱随机性与心智升级</span></a><a href="#layer05" class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析下注思维、复盘技巧与抵御运气戏弄</span></a><a href="#layer06" class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">杜克决策理论源流、二级市场量化交易映射与读者行动</span></a><a href="#layer07" class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">扑克思维反脆弱决策操作系统架构图</span></a><a href="#layer08" class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一场暴风雨夜的绿灯十字路口讲透决策与运气的本质差别</span></a><a href="#layer09" class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与认知决策科学思想史事实考据</span></a>
+      <div class="toc-item"><span class="toc-name">Layer 01 · 论证全景</span><span class="toc-desc">结果偏误、信息不完全博弈与扑克视角的决策重构</span></div><div class="toc-item"><span class="toc-name">Layer 02 · 核心论据</span><span class="toc-desc">海鹰队超级碗传球悲剧、德扑顶级诈唬博弈与10-10-10心智法则</span></div><div class="toc-item"><span class="toc-name">Layer 03 · 动力机制</span><span class="toc-desc">自利性偏差、贝叶斯信念更新与反事实思考机制</span></div><div class="toc-item"><span class="toc-name">Layer 04 · 深层追问</span><span class="toc-desc">从下注赌一把到消除后见之明、拥抱随机性与心智升级</span></div><div class="toc-item"><span class="toc-name">Layer 05 · 推演问答</span><span class="toc-desc">七问七答剖析下注思维、复盘技巧与抵御运气戏弄</span></div><div class="toc-item"><span class="toc-name">Layer 06 · 破界审视</span><span class="toc-desc">杜克决策理论源流、二级市场量化交易映射与读者行动</span></div><div class="toc-item"><span class="toc-name">Layer 07 · 餐巾纸仪表盘</span><span class="toc-desc">扑克思维反脆弱决策操作系统架构图</span></div><div class="toc-item"><span class="toc-name">Layer 08 · 讲解引擎</span><span class="toc-desc">从一场暴风雨夜的绿灯十字路口讲透决策与运气的本质差别</span></div><div class="toc-item"><span class="toc-name">Layer 09 · 终局定音</span><span class="toc-desc">终局判词与认知决策科学思想史事实考据</span></div>
     </div>
   </div>
 
@@ -363,7 +423,7 @@
 <h2>案例一：2015年西雅图海鹰队超级碗最后一秒传球的千夫所指</h2>
 <p>2015年超级碗决赛最后一秒，海鹰队距离达阵夺冠仅剩1码，拥有全联盟最顶级的跑卫马肖恩·林奇。主教练皮特·卡罗尔选择让四分卫传球，结果传球被新英格兰爱国者队抄截，海鹰队惨遭绝杀。全美媒体与球迷一致痛骂这是超级碗历史上最愚蠢的战术叫牌。杜克通过精确的历史统计数据推演指出，在过去十五年超级碗类似局面下，传球被抄截的概率仅为1.5%左右，传球可以在不消耗暂停的情况下多争取一次进攻机会。这是一个期望值极高的优质决策，只是不幸撞上了1.5%的黑天鹅极小概率事件。世人对卡罗尔的围攻，是结果偏误最经典的教科书级写照。</p>
 <h2>案例二：德州扑克高额桌上的负期望值诈唬与复盘纪律</h2>
-<p>在职业德州扑克巡回赛中，平庸的牌手赢钱后沾沾自喜、输钱后怨天尤人；而顶尖大师只关注下注动作是否符合底池赔率（Pot Odds）与范围优势（Range Advantage）。杜克记录了一位牌手用极弱的手牌进行无脑大额全压诈唬，恰好碰上对手盖牌而赢下巨额筹码。在复盘室里，顶尖导师不仅没有祝贺他，反而对其进行了严厉惩罚——因为从长期数学模型来看，这一操作的长期期望值为极大的负数，这次赢钱纯属运气陷阱，它会强化错误的神经回路，最终在未来的对局中输光全部本金。</p>
+<p>在职业德州扑克巡回赛中，平庸的牌手赢钱后沾沾自喜、输钱后怨天尤人；而顶尖大师只关注下注动作是否符合底池赔率（Pot Odds）与范围优势（Range Advantage）。杜克记录了一位牌手用极弱的手牌进行无脑大额全压诈唬，恰好碰上对手盖牌而赢下巨额筹码。在复盘室里，顶尖导师不仅没有祝贺他，反而对其进行了严厉惩罚，因为从长期数学模型来看，这一操作的长期期望值为极大的负数，这次赢钱纯属运气陷阱，它会强化错误的神经回路，最终在未来的对局中输光全部本金。</p>
 <h2>案例三：时间贴现与10-10-10决策框架的情绪剥离</h2>
 <p>人类大脑在面临即时痛苦与诱惑时，杏仁核往往劫持前额叶皮层。杜克引入了10-10-10时间旅行思考法：在做出重大决策时，强迫自己分别评估这个决定在十分钟后、十个月后以及十年后会对自己的生活产生什么影响。通过在时间尺度上拉远视角，决策者能够有效克服损失厌恶与短视偏见，剥离当下的应激情绪，重回理性概率评估的轨道。</p>
 <h2>论证的制度前提与失效边界</h2>
@@ -487,7 +547,7 @@
     
 <div class="closing-quote">
   <p>智慧并不是对未知的全知全能，而是在承认自身渺小与运气无常的前提下，依然能够平静而坚定地押注于真理与大概率事件。</p>
-  <div class="closing-author">—— 《对赌》决策哲学终局定音</div>
+  <div class="closing-author">， 《对赌》决策哲学终局定音</div>
 </div>
 <div class="facts-boundary">
   <h3>事实边界与博弈论考据说明</h3>

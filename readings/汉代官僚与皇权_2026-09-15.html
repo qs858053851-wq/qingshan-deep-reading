@@ -5,136 +5,369 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>汉代官僚与皇权 · 深度解读</title>
 <style>
+    @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --bg-color: #f5f4ed;
-    --text-color: #1B365D;
-    --border-color: #e8e6dc;
-    --accent-color: #1B365D;
-    --line-height: 1.85;
-    --font-family: "KingHwaOldSong", "Huiwen-mincho", "FZBoYaFangKanSongK", "Songti SC", "SimSun", serif;
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
   }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+  }
+
   body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-family);
+    color: var(--near-black);
+    font-family: var(--serif);
     font-size: 13pt;
-    line-height: var(--line-height);
-    margin: 0;
-    padding: 40px 20px;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
   }
-  .container {
-    max-width: 820px;
-    margin: 0 auto;
-    background-color: #faf9f5;
-    padding: 60px 50px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 20px rgba(27, 54, 93, 0.05);
-  }
+
   .cover {
-    text-align: center;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 40px;
-    margin-bottom: 40px;
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover h1 {
-    font-size: 28pt;
-    margin: 0 0 15px 0;
-    font-weight: normal;
-    letter-spacing: 2px;
-  }
-  .cover .subtitle {
-    font-size: 13pt;
-    color: #4a5d78;
-    margin-bottom: 20px;
-  }
-  .cover .meta {
+  .cover-eyebrow {
+    font-family: var(--title-font);
     font-size: 11pt;
-    color: #7c8ba1;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
   }
+  .cover-title {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
   .toc {
-    background-color: #f0eee6;
-    border: 1px solid var(--border-color);
-    padding: 25px 30px;
-    margin-bottom: 50px;
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
-  .toc h3 {
-    margin-top: 0;
-    font-size: 13pt;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
   }
-  .toc ul {
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 0;
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    color: var(--dark-warm);
   }
-  .toc li {
-    margin-bottom: 8px;
-    font-size: 11.5pt;
-  }
-  .toc a {
-    color: var(--text-color);
-    text-decoration: none;
-  }
-  .toc a:hover {
-    text-decoration: underline;
-  }
-  .layer {
-    margin-bottom: 50px;
-  }
-  .layer h2 {
-    font-size: 16pt;
-    font-weight: normal;
-    border-left: 4px solid var(--text-color);
-    padding-left: 15px;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-  }
-  .layer-tagline {
+  .toc-name {
+    font-family: var(--title-font);
     font-size: 12pt;
-    color: #4a5d78;
-    margin-bottom: 20px;
-    padding-left: 20px;
+    font-weight: 700;
   }
-  .layer p {
-    text-indent: 2em;
-    margin-bottom: 16px;
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  .section, .layer {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child), .layer:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag, .layer-num {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1, .layer-title {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
     text-align: justify;
   }
-  .highlight-box {
-    background-color: #f0eee6;
-    border-left: 3px solid var(--text-color);
-    padding: 15px 20px;
-    margin: 20px 0;
-    font-size: 12pt;
+
+  blockquote, .quote {
+    margin: 16pt 0;
+    padding: 14pt 18pt;
+    background: var(--ivory);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
   }
-  .highlight-box strong {
-    font-weight: bold;
+  blockquote p:last-child, .quote p:last-child {
+    margin-bottom: 0;
   }
+  .src, .quote-src {
+    font-size: 9.5pt;
+    color: var(--stone);
+    margin-top: 8pt;
+  }
+
   .napkin {
-    border: 2px dashed #b0c4de;
+    margin: 24pt 0;
+    padding: 20pt 24pt;
     background: #ffffff;
-    padding: 25px;
-    margin: 30px 0;
-    text-align: center;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
   }
   .napkin-formula {
-    font-size: 13pt;
-    font-weight: bold;
-    color: #1B365D;
-    margin-bottom: 15px;
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 12pt;
+    letter-spacing: 1pt;
+  }
+  .napkin-core {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    color: var(--near-black);
+    margin-bottom: 14pt;
   }
   .napkin-caption {
     font-size: 11pt;
-    color: #4a5d78;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
   }
-  footer {
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .ascii-box, pre {
+    margin: 16pt 0;
+    padding: 14pt;
+    background: var(--ivory);
+    border: 0.6pt solid var(--border-soft);
+    font-family: "Courier New", monospace;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--olive);
+    overflow-x: auto;
+    white-space: pre-wrap;
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: var(--ivory);
+    border-top: 1pt solid var(--border);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.75;
+  }
+  .facts-boundary h3 {
+    font-size: 12pt;
+    color: var(--dark-warm);
+    margin-top: 0;
+    margin-bottom: 8pt;
+  }
+
+  .closing-quote {
+    margin: 36pt 0 20pt 0;
+    padding: 24pt 20pt;
+    border-top: 2pt solid var(--near-black);
+    border-bottom: 0.6pt solid var(--border);
     text-align: center;
-    border-top: 1px solid var(--border-color);
-    padding-top: 30px;
-    margin-top: 50px;
-    font-size: 11pt;
-    color: #7c8ba1;
+  }
+  .closing-quote p {
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.6;
+    letter-spacing: 1pt;
+    margin-bottom: 10pt;
+  }
+  .closing-author {
+    font-size: 10.5pt;
+    color: var(--stone);
+  }
+
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
   }
 
   @media screen and (max-width: 640px) {
@@ -156,15 +389,15 @@
   <div class="toc">
     <h3>目 录 · 全局概览</h3>
     <ul>
-      <li><a href="#layer-01">Layer 01 · 论证全景 · 剖开两千年帝国政治的承重墙，绘制汉代官僚与皇权互动的精微图谱</a></li>
-      <li><a href="#layer-02">Layer 02 · 核心论据 · 禄秩万石至百石序列、居延汉简文法档案与孝廉察举名册的历史实证</a></li>
-      <li><a href="#layer-03">Layer 03 · 机制解剖 · 官僚政治运转的三大制度齿轮与文吏儒生化大合流</a></li>
-      <li><a href="#layer-04">Layer 04 · 终极下钻 · 大一统帝国的理性牢笼，道统与政统在专制皇权下的永恒宿命</a></li>
-      <li><a href="#layer-05">Layer 05 · 衍生推演 · 六大核心推演，从科举考试异化根源到现代科层制官僚主义病理</a></li>
-      <li><a href="#layer-06">Layer 06 · 破界审视 · 客观评价官僚制对中华文明延续的历史功绩，警惕简单道德评判的历史虚无主义</a></li>
-      <li><a href="#layer-07">Layer 07 · 餐巾纸仪表盘 · 帝制官僚行政效率与皇权专制集权强度博弈模型公式</a></li>
-      <li><a href="#layer-08">Layer 08 · 讲解引擎 · 最值钱的一个问题，为什么汉武帝一边尊崇儒术满口仁义道德，一边却重用凶残的酷吏杀得全国人头滚滚？</a></li>
-      <li><a href="#layer-09">Layer 09 · 终局定音 · 在历史的长河中淬炼政治理性的双眼，做一名守望现代文明道统的清醒者</a></li>
+      <li><span>Layer 01 · 论证全景 · 剖开两千年帝国政治的承重墙，绘制汉代官僚与皇权互动的精微图谱</div></li>
+      <li><span>Layer 02 · 核心论据 · 禄秩万石至百石序列、居延汉简文法档案与孝廉察举名册的历史实证</div></li>
+      <li><span>Layer 03 · 机制解剖 · 官僚政治运转的三大制度齿轮与文吏儒生化大合流</div></li>
+      <li><span>Layer 04 · 终极下钻 · 大一统帝国的理性牢笼，道统与政统在专制皇权下的永恒宿命</div></li>
+      <li><span>Layer 05 · 衍生推演 · 六大核心推演，从科举考试异化根源到现代科层制官僚主义病理</div></li>
+      <li><span>Layer 06 · 破界审视 · 客观评价官僚制对中华文明延续的历史功绩，警惕简单道德评判的历史虚无主义</div></li>
+      <li><span>Layer 07 · 餐巾纸仪表盘 · 帝制官僚行政效率与皇权专制集权强度博弈模型公式</div></li>
+      <li><span>Layer 08 · 讲解引擎 · 最值钱的一个问题，为什么汉武帝一边尊崇儒术满口仁义道德，一边却重用凶残的酷吏杀得全国人头滚滚？</div></li>
+      <li><span>Layer 09 · 终局定音 · 在历史的长河中淬炼政治理性的双眼，做一名守望现代文明道统的清醒者</div></li>
     </ul>
   </div>
 
@@ -247,7 +480,7 @@
   <div class="layer-tagline">最值钱的一个问题，为什么汉武帝一边尊崇儒术满口仁义道德，一边却重用凶残的酷吏杀得全国人头滚滚？</div>
   <p>如果我们要向一个对中国古代历史充满兴趣的朋友讲透《汉代官僚与皇权》，最能击中要害、破除历史迷思的问题就是，我们在历史教科书上都学过，汉武帝罢黜百家、独尊儒术，把儒家思想确立为两千年封建正统，大办太学，尊崇孔子；但如果你翻开《史记》和《汉书》，你会被一个令人毛骨悚然的惊人事实吓一大跳，汉武帝一朝是全中国历史上使用酷吏最凶残、杀大臣最多、杀百姓最狠的时代之一！张汤、杜周、江充这些臭名昭著的酷吏被汉武帝捧上高位，甚至在巫蛊之祸中屠杀了数万人。汉武帝到底是一个虔诚的儒家信徒，还是一个残暴的法家暴君？他为什么要搞这种自相矛盾的精神分裂？</p>
   <p>常人的直觉往往把这归结为帝王的虚伪狡诈、说一套做一套，或者归结为汉武帝晚年的昏庸残暴。这种流于道德评判的浅薄解释，完全没有看透中国大一统帝国政治机器运转的真正第一性底层原理。</p>
-  <p>阎步克读者在书中给出了震撼人心的制度学解答。汉武帝不仅不矛盾，恰恰相反，这正是中国帝制政治最成熟、最冷酷、最完美的霸王道杂之儒表法里终极艺术！</p>
+  <p>阎步克先生在书中给出了震撼人心的制度学解答。汉武帝不仅不矛盾，恰恰相反，这正是中国帝制政治最成熟、最冷酷、最完美的霸王道杂之儒表法里终极艺术！</p>
   <p>大一统帝国在统治逻辑上面临着两个截然不同但又缺一不可的生死诉求。第一个诉求是极权统治的物理硬指标，皇帝要收粮、要征税、要打匈奴、要镇压地方豪强叛乱，这就必须依靠法家酷吏那套六亲不认的严刑峻法、严密文书与铁血手段，没有酷吏的刀笔和屠刀，庞大的国家机器在三天之内就会彻底瘫痪失控。</p>
   <p>但只有刀剑和酷吏是远远不够的，秦朝二世而亡的惨痛教训就摆在眼前，纯粹的法家暴政会引发全社会的同仇敌忾与殊死反抗。于是帝国必须寻找第二个诉求，那就是统治合法性的道德软包装。儒家的三纲五常、尊卑有序、忠君孝悌与君权神授，是全天下最完美的意识形态麻醉剂与社会稳定器。它把冰冷赤裸的君主暴力征服，巧妙粉饰成了温情脉脉的圣王道德教化。</p>
   <p>法家酷吏是皇帝在黑夜里干脏活的屠刀，儒家经生是皇帝在白天大典上穿戴的华丽冕服。皇帝一手拿着儒家的大棒高呼仁义道德以占领道德制高点，一手挥舞着法家的利刃无情收割民脂民膏以充实国库军备。两者相辅相成、缺一不可，共同铸就了让后世两千年帝王垂涎三尺、代代相传的专制统治帝王术秘籍。</p>
@@ -259,7 +492,7 @@
   <h2>Layer 09 · 终局定音</h2>
   <div class="layer-tagline">在历史的长河中淬炼政治理性的双眼，做一名守望现代文明道统的清醒者</div>
   <p>读完《汉代官僚与皇权》，合上这部沉甸甸的史学名著，回望两千年前那座巍峨庄严的未央宫阙与茫茫西北塞防汉简，一种贯通古今的历史沧桑感与深深的理性觉悟油然而生。</p>
-  <p>阎步克读者用他数十年如一日坐拥冷板凳的卓绝考据与高超理论建构，为当代学术界树立了一座难以企及的学术丰碑。他让我们在穿越两千年的制度烟云后，彻底告别了非黑即白的幼稚道德审判，以一种无比清醒、成熟与深邃的目光，去审视那塑造了我们民族集体潜意识与政治文化的庞大制度母体。</p>
+  <p>阎步克先生用他数十年如一日坐拥冷板凳的卓绝考据与高超理论建构，为当代学术界树立了一座难以企及的学术丰碑。他让我们在穿越两千年的制度烟云后，彻底告别了非黑即白的幼稚道德审判，以一种无比清醒、成熟与深邃的目光，去审视那塑造了我们民族集体潜意识与政治文化的庞大制度母体。</p>
   <p>我们明白了，真正的文明进步，从来非仅简单否定过去，实为必须在深刻理解历史承重结构的基础上，以巨大的理论勇气与实干智慧，彻底告别专制人治的阴霾遗毒，在大地上扎实筑牢现代宪政、民主与法治的坚固堤坝。让我们秉承历代真正士大夫那份虽千万人吾往矣的崇高道统气节，以现代公民的独立人格与理性担当，在这片古老而崭新的大地上，共同守护那份让公平、正义与尊严生生不息的文明火种。</p>
   <div class="highlight-box"><strong>终局收束，</strong>汉家风雨两千年，表里山河铸铁篇；破除皇权执迷处，方见大道在人间。致敬求索政治文明真理的独立灵魂。</div>
 </div>

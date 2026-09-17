@@ -1,24 +1,31 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>应对冲突的第三种思维 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -75,6 +82,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -88,14 +106,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -104,7 +122,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -113,7 +131,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -123,7 +141,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -131,12 +149,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -152,7 +170,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -167,7 +184,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -262,9 +278,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -272,6 +287,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -324,6 +356,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -331,7 +372,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>应对冲突的第三种思维</h1><div class="author">爱德华·德博诺 · 从裁决立场转向设计选项</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">应对冲突的第三种思维</div>
+    <div class="cover-sub">德博诺 · 从裁决立场转向设计选项</div>
+    <div class="cover-meta">爱德华 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 第三条路从哪里开始</span>
+      <span class="toc-desc">冲突通常被安排成两种结局：斗争决定谁赢，谈判让双方各退一步。德博诺提出第三种思维，先不在旧选项里分输赢，而是追...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 几个例子，看冲突怎样被重新画</span>
+      <span class="toc-desc">一块木头可以被看成来自土地、漂在水上或占据空间。对象没有改变，参照系变了。冲突中的“事实”常混着观察位置；把位...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 设计冲突的三根线</span>
+      <span class="toc-desc">第一根线是摊开地图。一块木头可按土地来源、水上漂流或占据空间来描述，验证了同一对象会随参照系呈现不同相关事实。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 为什么好方案还需要给人台阶</span>
+      <span class="toc-desc">公开说出的要求便于动员，也容易和身份绑定。退让不再只是损失利益，还可能被解释为承认自己错了。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 七问跑一次第三方流程</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这本书的野心与现实阻力</span>
+      <span class="toc-desc">德博诺不满足于劝人更理性。他想建立一套第三方职业与组织，让地图和创造性设计成为冲突处理的基础设施。SITO因此...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 餐巾纸上的第三条路</span>
+      <span class="toc-desc">一句话：先把冲突画完整，再固定目的、放开答案，最后才筛选。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 冲突地图不是镜子，它也有作者</span>
+      <span class="toc-desc">德博诺把地图与辩论对照，地图听起来像中立地呈现全貌。可任何地图都要选择边界、比例尺和图例。第三方决定哪些声音列...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">“大脑是自组织模式系统”是德博诺的理论框架，不作神经科学定论。莱特兄弟、古巴导弹危机与戴维营案例在书中高度压缩...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">第三条路从哪里开始</h2>
 <p>冲突通常被安排成两种结局：斗争决定谁赢，谈判让双方各退一步。德博诺提出第三种思维，先不在旧选项里分输赢，而是追问双方真正要达到什么目的，能否设计出此前不存在的安排。</p>
 <p>第一部分解释知觉怎样形成模式。模式让人迅速行动，也会把最先出现的分类固定下来。辩论选择立场、搜寻对方弱点；地图法则把各方事实、价值、担忧与利益并列，让局面先变完整。</p>

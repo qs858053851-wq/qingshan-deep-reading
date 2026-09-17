@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>活在洪武时代：朱元璋治下小人物的命运</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,14 +381,40 @@
 <body>
 <div class="container">
 
-<h1>活在洪武时代：朱元璋治下小人物的命运</h1>
-<div class="meta">谌旭彬 著 · 青山读 · 2026-07-17</div>
-
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">活在洪武时代：朱元璋治下小人物的命运</div>
+    <div class="cover-sub">青山读 · 2026-07-17</div>
+    <div class="cover-meta">谌旭彬 著 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书讲了十三个故事，每个故事都指向一个洪武年间的小人物，被朱元璋在《大诰》里当作反面教材拎出来示众的那些人。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">谌旭彬的核心论证是：朱元璋自己在源源不断地制造他口中的"洪武愚顽"。这个判断凭什么站得住？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">十三个故事看着五花八门，但往下拆，会发现真正在起作用的就三根线。这三根线能把书里大部分案子的悲剧推回来，也能推...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">作者为什么非写不可</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">朱元璋恨"洪武愚顽"。他在《大诰》里反复骂这些人愚蠢、顽固、不接受教化。但你把十三个案子摆在一起看，会发现一个...</span>
+    </div>
+  </div>
 <div class="layer">
 <div class="layer-num">第一层</div>
 <div class="layer-title">这本书到底在讲什么</div>
 
-<p>这本书讲了十三个故事，每个故事都指向一个洪武年间的小人物，被朱元璋在《大诰》里当作反面教材拎出来示众的那些人。有军人抢民妇的，有农民绑县吏进京告状的，有伪造钞票的，有自断手指逃避监视的，有拒绝做官的读书人，有逃亡八个县被追杀到上千人的小吏，有造反的和尚。朱元璋说他们是"洪武愚顽"——又蠢又拧，不听教化的刁民。</p>
+<p>这本书讲了十三个故事，每个故事都指向一个洪武年间的小人物，被朱元璋在《大诰》里当作反面教材拎出来示众的那些人。有军人抢民妇的，有农民绑县吏进京告状的，有伪造钞票的，有自断手指逃避监视的，有拒绝做官的读书人，有逃亡八个县被追杀到上千人的小吏，有造反的和尚。朱元璋说他们是"洪武愚顽"，又蠢又拧，不听教化的刁民。</p>
 
 <p>作者谌旭彬要问的是：这些人真的是刁民吗？还是朱元璋的制度把他们逼成了刁民?</p>
 
@@ -357,13 +424,13 @@
 
 <p class="marker">1368 · 洪武开局</p>
 
-<p>朱元璋建立明朝后，面对的是元朝留下的烂摊子：官吏腐败、豪强横行、百姓刁滑。他的诊断是：这都是元朝九十三年治理太宽松惯出来的毛病。所以他开的药方是"猛"——用最严厉的刑罚、最密集的监控、最高压的管制，把这个社会重新捏成他想要的样子。</p>
+<p>朱元璋建立明朝后，面对的是元朝留下的烂摊子：官吏腐败、豪强横行、百姓刁滑。他的诊断是：这都是元朝九十三年治理太宽松惯出来的毛病。所以他开的药方是"猛"，用最严厉的刑罚、最密集的监控、最高压的管制，把这个社会重新捏成他想要的样子。</p>
 
 <p>第一个故事是史灵芝。山西洪洞县的一个民妇，嫁人生了三个孩子，突然有个军人跳出来说：她三岁时我们家跟她家定过亲，按元朝的规矩我可以娶她。这叫"收继婚"，元朝蒙古人的习俗，男方家可以凭早年婚约强行领走已婚的女人。史灵芝不愿意，告到县里。县里的官员按正常法律程序查婚约、核证据，发现这事确实存在争议，就层层上报到刑部。刑部尚书王峕按流程处理。</p>
 
 <p>朱元璋怎么判？洪洞县的官全斩了，刑部尚书王峕也被杀了。理由是：你们走法律程序就是在纵容军人欺压百姓。史灵芝逃过一劫，但她大概率会觉得"多亏皇帝英明"。</p>
 
-<p>这案子背后的制度逻辑是：明朝的军户是世袭的，儿子必须接父亲的班当兵，不能逃。但军人经常逃跑，朱元璋想了个办法——强迫军户所在地的百姓给士兵娶妻，把妻子送到驻地去。士兵有了家，逃跑成本就高了。史灵芝案里那个军人为什么敢凭元朝旧俗强娶？因为这套制度给了他底气：反正朝廷要我有老婆，我找谁都行。</p>
+<p>这案子背后的制度逻辑是：明朝的军户是世袭的，儿子必须接父亲的班当兵，不能逃。但军人经常逃跑，朱元璋想了个办法，强迫军户所在地的百姓给士兵娶妻，把妻子送到驻地去。士兵有了家，逃跑成本就高了。史灵芝案里那个军人为什么敢凭元朝旧俗强娶？因为这套制度给了他底气：反正朝廷要我有老婆，我找谁都行。</p>
 
 <p class="marker">1380s · 大案年代</p>
 
@@ -375,7 +442,7 @@
 
 <p>郭桓案是三个案子里对普通人伤害最大的。户部侍郎郭桓贪污,朱元璋要追赃，数字是两千四百多万石粮食。怎么追？从户部追到布政司，布政司追到府，府追到州，州追到县，县追到民。《明史》记载"系死者数万人"，有学者估计约八万人。但明朝全部官员才两万多人，这意味着死的大部分是普通百姓。</p>
 
-<p>为什么百姓会因为官员贪污被追死？因为朱元璋设计了一套"粮长制"——每个地方选出有钱的大户当粮长，负责收税粮、解送京城。郭桓案的追赃逻辑是：户部贪了，问布政司要；布政司说没有，问府里要；府说没有，问州要；州说没有，问县要；县说没有，粮长你赔。粮长哪来那么多钱？只能向百姓摊派。</p>
+<p>为什么百姓会因为官员贪污被追死？因为朱元璋设计了一套"粮长制"，每个地方选出有钱的大户当粮长，负责收税粮、解送京城。郭桓案的追赃逻辑是：户部贪了，问布政司要；布政司说没有，问府里要；府说没有，问州要；州说没有，问县要；县说没有，粮长你赔。粮长哪来那么多钱？只能向百姓摊派。</p>
 
 <p>书里有个反常的细节。开州州判刘汝霖因为向百姓科敛钱粮补追赃的额度，被朱元璋杀了。作者说，这个"反常信息"暴露了真相：追赃的额度其实就是百姓没交够的税粮，郭桓案只是个借口，朱元璋要的是把税收上来。</p>
 
@@ -395,7 +462,7 @@
 
 <p class="marker">1390s · 监控与逃亡</p>
 
-<p>朱元璋发明了"知丁法"——每个人的职业、人口、行踪、社会关系，邻居都必须知道，发现不对劲必须举报，不举报就连坐流放。配合"路引制度"：出门必须有路引(通行证)，没有路引寸步难行。</p>
+<p>朱元璋发明了"知丁法"，每个人的职业、人口、行踪、社会关系，邻居都必须知道，发现不对劲必须举报，不举报就连坐流放。配合"路引制度"：出门必须有路引(通行证)，没有路引寸步难行。</p>
 
 <p>福建沙县有十三个人，因为"不务生理"(没有正经职业)，害怕被定为"逸民"遭举报，就密谋自断手指。手指断了，拿不起锄头、锤子、纸笔，就算有了不能劳动的理由。结果密谋被告发。朱元璋判：押回原籍，砍头示众，家里成年男性全杀，女性发配边疆。</p>
 
@@ -421,7 +488,7 @@
 
 <p class="marker">1390s 末 · 老人治国</p>
 
-<p>朱元璋晚年推行"耆宿制度"——每个里选一个老人，负责审是非、举孝廉、抓游民、保官员、断官司。后来发现耆宿也害民，就废了。再后来又恢复。</p>
+<p>朱元璋晚年推行"耆宿制度"，每个里选一个老人，负责审是非、举孝廉、抓游民、保官员、断官司。后来发现耆宿也害民，就废了。再后来又恢复。</p>
 
 <p>为什么要用老人？因为老人保守、服从，不会折腾，有利于维持静态社会。但问题是，耆宿的权力来自官府，不是来自百姓，所以他们对官府负责，不对百姓负责。新安县有个老人叫刘汶兴，被典史胁迫进京给官员作保，结果反被流放。</p>
 
@@ -439,9 +506,9 @@
 
 <p><strong>证据一：追赃逻辑的终点永远是民</strong></p>
 
-<p>郭桓案里有个反常的细节。开州州判刘汝霖因为向百姓科敛钱粮补追赃额度被斩首。这很奇怪——如果追赃追的是官员贪污的钱，为什么州判要向百姓收？作者的推断是：追赃的额度其实就是百姓欠缴的税粮，郭桓案只是个借口，朱元璋要的是把税收上来。</p>
+<p>郭桓案里有个反常的细节。开州州判刘汝霖因为向百姓科敛钱粮补追赃额度被斩首。这很奇怪，如果追赃追的是官员贪污的钱，为什么州判要向百姓收？作者的推断是：追赃的额度其实就是百姓欠缴的税粮，郭桓案只是个借口，朱元璋要的是把税收上来。</p>
 
-<p>《大诰》里写得很清楚："若布政司贿于部，则拘布政司至……州亦拘至，必指于县。县亦拘至，必指于民。"层层下压，最后一定是民来扛。《明史》记载郭桓案"民中人之家大抵皆破"——中产之家几乎全毁了。粮长制是把政治风暴刮入民间的桥梁。</p>
+<p>《大诰》里写得很清楚："若布政司贿于部，则拘布政司至……州亦拘至，必指于县。县亦拘至，必指于民。"层层下压，最后一定是民来扛。《明史》记载郭桓案"民中人之家大抵皆破"，中产之家几乎全毁了。粮长制是把政治风暴刮入民间的桥梁。</p>
 
 <p><strong>证据二：制度设计的悖论</strong></p>
 
@@ -511,9 +578,9 @@
 
 <p><strong>这三根线能推出书里没写的现象吗？</strong></p>
 
-<p>第一根线能推出：洪武年间为什么商人阶层萎缩——商业税、盐课、茶课都是自上而下摊派，商人是被摊派的对象。第二根线能推出：洪武年间为什么很少有技术创新——工匠被锁在匠籍里世袭，流动性为零，知识积累和传播被切断。第三根线能推出：洪武年间为什么基层官员大量逃离——他们夹在朝廷高压和百姓怨恨之间，权力来自朝廷却要在百姓那里执行，里外不是人。</p>
+<p>第一根线能推出：洪武年间为什么商人阶层萎缩，商业税、盐课、茶课都是自上而下摊派，商人是被摊派的对象。第二根线能推出：洪武年间为什么很少有技术创新，工匠被锁在匠籍里世袭，流动性为零，知识积累和传播被切断。第三根线能推出：洪武年间为什么基层官员大量逃离，他们夹在朝廷高压和百姓怨恨之间，权力来自朝廷却要在百姓那里执行，里外不是人。</p>
 
-<p>有一条没完全满足的检验是：这三根线还不能完全解释朱元璋为什么会设计出这样的制度。作者给的答案是"以猛反胡元之宽"，但这更像是朱元璋的自我叙事，不是根因。更深的根因可能是朱元璋对失控的极度恐惧——他从流民起家，见过秩序崩溃的样子，所以宁可把社会冻住，也不愿意看到任何失控的可能。但作者没往这层挖，三根线也推不到这里。</p>
+<p>有一条没完全满足的检验是：这三根线还不能完全解释朱元璋为什么会设计出这样的制度。作者给的答案是"以猛反胡元之宽"，但这更像是朱元璋的自我叙事，不是根因。更深的根因可能是朱元璋对失控的极度恐惧，他从流民起家，见过秩序崩溃的样子，所以宁可把社会冻住，也不愿意看到任何失控的可能。但作者没往这层挖，三根线也推不到这里。</p>
 
 </div>
 
@@ -545,7 +612,7 @@
 
 <p>下次看到一个基层干部被问责、一个普通人被处罚，先问一句：这个人是真的做错了，还是在替上面的政策买单？如果他不执行这个政策就会被追责，执行了又会伤害底层，那他其实是夹在中间的传导环节，不是问题的根源。看清这一点，你就不会把怒火全烧在他身上，而是会往上追一层：是谁设计了这个让人只能二选一的制度？</p>
 
-<p>下次碰到一个基层组织（业委会、居委会、家委会）开始做一些损害成员利益的事，不要急着骂这些人变坏了。先查一下：他们的权力是谁给的？他们对谁述职？如果答案是"权力来自上面、述职也是对上面"，那他们伤害成员利益几乎是必然的——不是因为他们坏，是因为制度设计让他们没法不坏。这时候要做的不是换人，而是改授权机制：让权力来自成员、述职也对成员。</p>
+<p>下次碰到一个基层组织（业委会、居委会、家委会）开始做一些损害成员利益的事，不要急着骂这些人变坏了。先查一下：他们的权力是谁给的？他们对谁述职？如果答案是"权力来自上面、述职也是对上面"，那他们伤害成员利益几乎是必然的，不是因为他们坏，是因为制度设计让他们没法不坏。这时候要做的不是换人，而是改授权机制：让权力来自成员、述职也对成员。</p>
 
 <p>下次遇到一个成本被层层转嫁到你头上的事（公司摊派、社区集资、平台扣点），不要只接受"这是上面要求"这个说法。往上追三步：是谁发起的？中间有几层？每一层转嫁了多少？搞清楚这个链条，你就知道该在哪一层提出异议、该拉哪一层的人一起反对。成本转嫁链最怕的就是中间某一层拒绝接盘。</p>
 
@@ -615,7 +682,7 @@
 
 <p>找个类比。洪武年间的制度设计，像把一根树枝绑死在一根铁棍上，不让它歪、不让它动、不让它长偏。你以为你在保护它，其实你在让它失去适应风雨的能力。风小的时候它不会歪，但风大的时候它会直接断。朱元璋想要的是一个永远不歪的树枝，但他得到的是一个随时会断的树枝。</p>
 
-<p>这个类比能承重。去掉它，"制度反噬"就只是个抽象概念，你感受不到那种被绑死的窒息感。有了它，你能看到：朱元璋不是在治理社会，是在做标本——把活的东西固定住，让它永远保持他想要的姿态，但代价是它死了。</p>
+<p>这个类比能承重。去掉它，"制度反噬"就只是个抽象概念，你感受不到那种被绑死的窒息感。有了它，你能看到：朱元璋不是在治理社会，是在做标本，把活的东西固定住，让它永远保持他想要的姿态，但代价是它死了。</p>
 
 <p>洪武年间的小人物，就是在这根绑死的树枝上挣扎的人。他们不是刁民，是制度的受害者。更准确地说，他们是朱元璋对失控的恐惧的受害者。</p>
 
@@ -629,7 +696,7 @@
 <div class="line">
 朱元璋想驯服百姓，但他设计的制度在批量制造他想消灭的"愚顽"。
 </div>
-<div class="sign">— 《活在洪武时代》读后</div>
+<div class="sign">， 《活在洪武时代》读后</div>
 </div>
 
 </div>

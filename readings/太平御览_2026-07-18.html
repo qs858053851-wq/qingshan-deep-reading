@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>太平御览 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>太平御览</h1>
-  <div class="author">[宋] 李昉 等奉敕编纂 · 一千卷 · 宋代「四大书」之一</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">太平御览</div>
+    <div class="cover-sub">一部没有作者观点的书。它把前代近两千种书拆开，按主题重新码好，给皇帝，也给后世。它的价值，在它存下了什么。</div>
+    <div class="cover-meta">[宋] 李昉 等奉敕编纂 · 一千卷 · 宋代「四大书」之一 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《太平御览》跟前面那几本都不一样，它不是「一本书」，是一座图书馆的目录加精选。它是北宋初年，宋太宗下令，由李昉...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">一部工具书，好坏全看它顶不顶用。《太平御览》能在一千多年里一直被当宝贝，靠的是三样过硬的东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">工具书得讲怎么用。《太平御览》的用法，跟读一本书完全不一样。我把它拆成六个问题，顺着问下去，一部类书怎么用、能...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">类书没有「作者」，谈动机得换个问法：这部书的出现，意味着什么。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">把这本书压到一张餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">前面说过，《太平御览》引书两千五百多种。这个数得配上另一个数，才有分量：这两千五百多种书，到今天，十之七八已经...</span>
+    </div>
+  </div>
+
   <div class="tagline">一部没有作者观点的书。它把前代近两千种书拆开，按主题重新码好，给皇帝，也给后世。它的价值，在它存下了什么。</div>
 </div>
 
@@ -359,7 +431,7 @@
 
   <p>举一个条目看看它长什么样。「天部」第一个子目是「元气」。底下给的不是编者的解释，是一串古书的引文：</p>
 
-  <div class="quote">《三五历记》曰：未有天地之时，混沌状如鸡子，溟涬始牙，濛鸿滋萌，岁在摄提，元气肇始。<br>《河图》曰：元气闿阳为天。<br>《淮南子》曰：道始生虚廓，虚廓生宇宙，宇宙生元气，无有涯垠。<div class="src">——《太平御览·天部一·元气》。同一个词，十几种古书怎么讲，挨个排开，各注出处，编者一个字不添。</div></div>
+  <div class="quote">《三五历记》曰：未有天地之时，混沌状如鸡子，溟涬始牙，濛鸿滋萌，岁在摄提，元气肇始。<br>《河图》曰：元气闿阳为天。<br>《淮南子》曰：道始生虚廓，虚廓生宇宙，宇宙生元气，无有涯垠。<div class="src">，《太平御览·天部一·元气》。同一个词，十几种古书怎么讲，挨个排开，各注出处，编者一个字不添。</div></div>
 
   <p>所以这本书是干什么用的？它是工具。给皇帝看的，书名里的「御览」，就是给皇上看；也给后世所有做学问、写文章的人用，想查一个典故、一个名物、一句古话，到这儿来翻。它的性质，决定了它没法「读」，只能「用」。你要从头读到尾，会疯掉，一千卷，全是引文，没有情节，没有观点。它的正确打开方式是带着问题来查：我要找什么，翻到那一类，看古人都怎么说。</p>
 </div>
@@ -466,7 +538,7 @@
   <p>一件具体的：下次你要保存一样对你重要的东西，一套老照片、一份家族的记忆、一个项目的完整记录，别只存一份在一个地方。学《太平御览》的思路：把它拆开、分类、多存几处。照片洗一份、云端一份、硬盘一份；老人的口述，录下来，再整理成文字。易碎的东西，靠「存得多、存得分散」续命。一千年前的人就懂这个理，他们把书抄进类书里，等于给文明上了份保险。我们给自己的东西上保险，也是一个道理。</p>
 
   <h3>我读这本书的立场</h3>
-  <p>得说句公道话：《太平御览》是一部「可敬但不可爱」的书。它伟大，但普通读者没法亲近它，一千卷引文，没观点、没叙述，连我翻起来都得有明确的目的才找得进去。它的伟大，是功能性的伟大，不是文学性的伟大。所以我不建议读者真去读它，那是个苦役。但我希望读者知道它存在，知道我们的文明里，有这么一群一千年前的人，干过这么一件笨到家、也重要到家的事。它不值得你读，但值得你敬。还有一点：读它辑出来的佚书，得留个心眼，那是断章拼起来的，不是原书。把它当线索，别当原貌。这个分寸，用这本书的人，心里都得有。</p>
+  <p>得说句公道话：《太平御览》是一部「可敬但不可爱」的书。它伟大，但普通读者没法亲近它，一千卷引文，没观点、没叙述，连我翻起来都得有明确的目的才找得进去。它的伟大，是功能性的伟大，不是文学性的伟大。所以我不建议先生真去读它，那是个苦役。但我希望先生知道它存在，知道我们的文明里，有这么一群一千年前的人，干过这么一件笨到家、也重要到家的事。它不值得你读，但值得你敬。还有一点：读它辑出来的佚书，得留个心眼，那是断章拼起来的，不是原书。把它当线索，别当原貌。这个分寸，用这本书的人，心里都得有。</p>
 </div>
 <!-- 第七层 -->
 <div class="layer">

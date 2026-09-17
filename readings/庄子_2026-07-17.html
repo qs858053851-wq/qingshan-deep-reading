@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>庄子 · 深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,52 @@
 <body>
 <div class="container">
 
-<section class="hero">
-  <div class="kicker">深度阅读 · 2026-07-17</div>
-  <h1>庄子</h1>
-  <div class="author">庄周 著 · 方勇 译注（中华书局「三全本」）· 全书三十三篇，内七篇为庄学核心</div>
-  <div class="lede">这不是一本讲「道理」的书，是一个在乱世里织草鞋、借米下锅的人，用二百多个寓言回答一个问题：世界烂成这样，人还能不能好好地活。他的答案藏在大鹏、蝴蝶、庖丁和几棵不成材的树里。下面九层，一层一层把它挖出来。</div>
-</section>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">庄子</div>
+    <div class="cover-sub">方勇 译注（中华书局「三全本」）· 全书三十三篇，内七篇为庄学核心</div>
+    <div class="cover-meta">庄周 著 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">先交代这个人。庄周，战国中期宋国人，大约和梁惠王、齐宣王、楚威王同辈。关于他的可靠记载只有《史记》里二百多字，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">先得说清楚一件事：庄子论证的方式很怪。正常的论证书，前面摆前提，后面推结论。庄子不这么干，他给你讲故事，讲完就...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就三根线在牵</span>
+      <span class="toc-desc">三十三篇，二百多个寓言，看着千头万绪。但你把它们一根根拎起来抖一抖，会发现底下真正在拽的就三根线。这三根线抓住...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着逍遥，往井底再钻一层</span>
+      <span class="toc-desc">第三层是横着拆，看有几根线。这一层竖着来，挑全书最核心的那个词，「逍遥」，往下一层一层地挖，挖到挖不动为止。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书</span>
+      <span class="toc-desc">把庄子的论证一根一根抽出来，每根都长成一个问题。顺着问下去，整本书的逻辑就走了一遍。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">先说作者那股不写不行的劲儿。以下是从文本推的，庄子没留自传。一个穿补丁衣、借米下锅的人，不是没机会翻身，楚王的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸写得下吗</span>
+      <span class="toc-desc">整本《庄子》，压到最后，就是一张餐巾纸。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 全书最值钱的是哪一点</span>
+      <span class="toc-desc">前面七层，有一件事我一直按着没说。第一层讲人间世，我说那里有一棵谁都看不上的大树，一个全身残疾的支离疏，然后绕...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">合上书，就剩这一句。给这本书，选钥匙式。</span>
+    </div>
+  </div>
+
 
 <!-- 第一层 -->
 <section class="layer">
@@ -356,7 +437,7 @@
 
   <p>有一回他在濮水边钓鱼，楚威王派了两位大夫来，说要把国事托付给他。庄子手持钓竿，头也不回，问了一个问题：听说楚国有只神龟，死了三千年，大王把它包好藏在庙堂上。你们说，这只龟是愿意死了留下骨头显得贵重，还是愿意活着在泥里拖尾巴？两位大夫说，当然愿意活着拖尾巴。庄子说，那你们走吧。</p>
 
-  <div class="quote">「往矣！吾将曳尾于涂中。」<span class="src">——《秋水》</span></div>
+  <div class="quote">「往矣！吾将曳尾于涂中。」<span class="src">，《秋水》</span></div>
 
   <p>这个答复就是全书的题眼。那是一个什么时代？刘向后来概括战国：捐礼让而贵战争，弃仁义而用诈谲，流血满野，父子不相亲。读书人都往各国君主那里跑，推销自己换功名。庄子却把送上门来的相位推掉了，理由是怕死、怕不自在。整本《庄子》，就是把「曳尾涂中」这四个字扩写成三十三篇：世界已经烂了，我不跟它玩了，但我不玩，也能活，而且能活得比你们都舒展。</p>
 
@@ -366,9 +447,9 @@
 
   <p>开篇一条大鱼。北海有鱼叫鲲，大得不知几千里，化成鸟叫鹏，翅膀像天边的云。海动风起时，鹏击水三千里，乘着旋风上九万里，飞往南海。蝉和小斑鸠笑话它：我们跳起来飞，飞到榆树那么高，飞不动就落地，何必去九万里外？庄子借这两只小鸟引出「小大之辩」：朝菌不知道一个月有多长，寒蝉不知道一年有四季，小智理解不了大智，短寿理解不了长寿。</p>
 
-  <p>但注意，庄子写大鹏不是为了让你崇拜大、嘲笑小。他笔锋一转：人间那些才智够当一官、品行够服一乡、德性够讨一国之君欢心的人，他们自鸣得意，跟小斑鸠是一个档次。宋荣子比这些人强，全世界夸他他不更起劲，全世界骂他他不沮丧，可庄子说他「犹有未树」，还是差一截。列子能驾着风飞，飘然轻妙，可庄子说他「犹有所待」——他还得靠风。那什么才算到头？</p>
+  <p>但注意，庄子写大鹏不是为了让你崇拜大、嘲笑小。他笔锋一转：人间那些才智够当一官、品行够服一乡、德性够讨一国之君欢心的人，他们自鸣得意，跟小斑鸠是一个档次。宋荣子比这些人强，全世界夸他他不更起劲，全世界骂他他不沮丧，可庄子说他「犹有未树」，还是差一截。列子能驾着风飞，飘然轻妙，可庄子说他「犹有所待」，他还得靠风。那什么才算到头？</p>
 
-  <div class="quote">「若夫乘天地之正，而御六气之辩，以游无穷者，彼且恶乎待哉！故曰：至人无己，神人无功，圣人无名。」<span class="src">——《逍遥游》</span></div>
+  <div class="quote">「若夫乘天地之正，而御六气之辩，以游无穷者，彼且恶乎待哉！故曰：至人无己，神人无功，圣人无名。」<span class="src">，《逍遥游》</span></div>
 
   <p>这是全书第一个大结论：凡是要靠点什么才能成立的自由，都不算真自由；真自由是「无待」，什么都不依仗。而做到无待的路径是三无：无己、无功、无名。后面整本书，可以说都在给这三句话找脚注。</p>
 
@@ -384,7 +465,7 @@
 
   <p>《人间世》讲乱世里怎么待人接物。当时「殊死者相枕，刑戮者相望」，出门办事跟走钢丝一样。这一篇里有一棵谁都看不上的大树，还有一个全身残疾的支离疏，他们凭什么活得好好的？这是全书写得最狠的一处，我把它整个留给第八层，这里只点一句：这一篇是庄子「全身」哲学的现场版。</p>
 
-  <p>《德充符》最有意思：庄子一口气写了一大群残人、丑人。鲁国的王骀被砍了一只脚，跟他求学的人跟孔子的门徒一样多；他站着不讲课，坐着不论道，学生空着脑袋来，装着满满的东西回去。孔子都说要拜他为师。丑到极点的哀骀它，男人跟他相处舍不得走，女人见了他宁愿给他做妾。庄子问的是：这些人外形残缺，为什么魅力反而最大？答案是「德有所长，而形有所忘」——人真正的吸引力不在外形，在内在那口充盈的气，外形被忘掉，是因为里面的东西太足。</p>
+  <p>《德充符》最有意思：庄子一口气写了一大群残人、丑人。鲁国的王骀被砍了一只脚，跟他求学的人跟孔子的门徒一样多；他站着不讲课，坐着不论道，学生空着脑袋来，装着满满的东西回去。孔子都说要拜他为师。丑到极点的哀骀它，男人跟他相处舍不得走，女人见了他宁愿给他做妾。庄子问的是：这些人外形残缺，为什么魅力反而最大？答案是「德有所长，而形有所忘」，人真正的吸引力不在外形，在内在那口充盈的气，外形被忘掉，是因为里面的东西太足。</p>
 
   <div class="marker">内篇 · 大宗师、应帝王</div>
 
@@ -400,7 +481,7 @@
 
   <p>《知北游》补了一个重要补充：道在哪？庄子说无所不在，在蚂蚁里，在野草里，在瓦片里，在屎尿里。道不在高处，越是不起眼的地方越是它在的地方。外篇里《达生》的粘蝉老人、《天道》的斫轮工匠、《山木》的另一棵大树，后面各层会陆续请出来。</p>
 
-  <p>最后《天下》篇是全书的跋，也是中国最早的学术史：它把墨家、宋钘尹文、彭蒙田骈慎到、关尹老聃、惠施挨个评了一遍，说古来的道术本是一个整体，如今天下大乱，各家各派只抓到一截就自以为得了全部，「道术将为天下裂」。评完所有人，最后才评庄周自己——这个位置很妙，等于他给战国画了一张地图，把自己放在了最后一格。</p>
+  <p>最后《天下》篇是全书的跋，也是中国最早的学术史：它把墨家、宋钘尹文、彭蒙田骈慎到、关尹老聃、惠施挨个评了一遍，说古来的道术本是一个整体，如今天下大乱，各家各派只抓到一截就自以为得了全部，「道术将为天下裂」。评完所有人，最后才评庄周自己，这个位置很妙，等于他给战国画了一张地图，把自己放在了最后一格。</p>
 
   <p>讲完整本书，收拢成三句话。核心问题：乱世里人怎么活？核心答案：别向世界要答案，把「我」拆掉，站到变化那一边去。写法：几乎不讲道理，通篇是故事，司马迁说他的书「大抵率寓言也」，而且大多是凭空编的。为什么非要这么写，是第二层的事。</p>
 </section>
@@ -470,7 +551,7 @@
 
   <p>再往下，就到了最深的那层，也是最不好讲的一层：所有钩子里，最大的那一个叫「我」。为什么是「我」？你想想，「我」是个什么东西？它是一个观察位置。有了这个位置，世界就分成了这边和那边，我和非我；一分开，就有了得和失，迎合和抗拒，生之喜和死之惧。一切束缚，都是从这条分界线上长出来的。齐物论结尾那场梦，讲的就是这件事。庄周梦见自己是蝴蝶，轻快地飞，快活得完全不知道有庄周；醒过来，分明是庄周。那么，是庄周梦见了蝴蝶，还是蝴蝶此刻正在梦见庄周？</p>
 
-  <div class="quote">「不知周之梦为胡蝶与，胡蝶之梦为周与？周与胡蝶，则必有分矣。此之谓物化。」<span class="src">——《齐物论》</span></div>
+  <div class="quote">「不知周之梦为胡蝶与，胡蝶之梦为周与？周与胡蝶，则必有分矣。此之谓物化。」<span class="src">，《齐物论》</span></div>
 
   <p>注意他最后三个字，「必有分矣」。他承认醒来之后，庄周和蝴蝶是有分别的，他不耍赖说分别是假的。他说的是：这个分别，也无非是「物化」的一个站口，事物变化流到这里，暂时叫庄周；流到那里，暂时叫蝴蝶。你守住「庄周」这个位置不放，像守住一块不肯撒手的礁石，河水流过，你就觉得疼。</p>
 
@@ -608,13 +689,13 @@
 
   <p>再往后，《人间世》收尾，楚狂接舆在孔子门前唱完那支歌，庄子自己补了一段话，这段话才是整篇的钉子：山木是自己招的砍伐，膏火是自己招的煎熬。桂树因为皮能吃，所以被砍；漆树因为漆有用，所以被割。</p>
 
-  <div class="quote">「人皆知有用之用，而莫知无用之用也。」<span class="src">——《人间世》</span></div>
+  <div class="quote">「人皆知有用之用，而莫知无用之用也。」<span class="src">，《人间世》</span></div>
 
   <p>好，现在停下来，挖一层。这几段话表面上说的是：没用的东西活得久。读到这一层，十个人里九个半。可这不是核。你再往下追一句：为什么「有用」会招祸？因为在一个有刀斧的世界里，「有用」的意思就是「被估价」。一棵树一旦进入木材商的账本，它的命就不归自己了，归那一笔估出来的价。栎树真正求的是退出那个账本，「没用」只是它找到的手段。支离疏为什么能免？因为征兵的名册上没有他这一行。这才是核：你的「用处」，是别人给你开的价；价一开出，你就进了别人的账，什么时候支取，由不得你。</p>
 
   <p>核找到了，接着要做一件不客气的事：攻它。</p>
 
-  <p>「无用就能保命」这话，不必外人来攻，庄子自己就把桌子掀了。外篇《山木》里，庄子带着学生从山里出来，刚讲完山中那棵大树靠不材活到天年，晚上住在朋友家。朋友好客，让童仆杀只雁待客。童仆问，两只雁，一只会叫，一只不会叫，杀哪只？主人说，杀不会叫的。第二天学生就来发难了：昨天山里的树，因为不材活得好好的；今天主人家的雁，因为不材被杀了。读者，您自己往哪儿站？</p>
+  <p>「无用就能保命」这话，不必外人来攻，庄子自己就把桌子掀了。外篇《山木》里，庄子带着学生从山里出来，刚讲完山中那棵大树靠不材活到天年，晚上住在朋友家。朋友好客，让童仆杀只雁待客。童仆问，两只雁，一只会叫，一只不会叫，杀哪只？主人说，杀不会叫的。第二天学生就来发难了：昨天山里的树，因为不材活得好好的；今天主人家的雁，因为不材被杀了。先生，您自己往哪儿站？</p>
 
   <p>这是全书我最喜欢的一问，因为它戳的是庄子自己的命门。树因无用而生，雁因无用而死，同一个原理，两条相反的命。「无用之用」要是有漏洞，就漏在这里。</p>
 

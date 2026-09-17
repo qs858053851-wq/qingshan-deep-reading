@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>历史课本没写出的隐情 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">历史课本没写出的隐情</div>
+    <div class="cover-sub">那些帝王将相才子的苦痛：用现代医学给历史「验伤」</div>
+    <div class="cover-meta">谭健锹 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">把历史课本里那些脸谱化的帝王将相才子，一个一个请进诊室：用现代医学重新诊断他们的疾病，看看病痛如何改写了历史。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">谭健锹是心血管内科医生，白天在医院面对真实的病人，心梗的、中风的、糖尿病并发症的。晚上翻开史书，他看到的是同一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">人总是要成为病人的：皇帝也不例外。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 历史课本没写的那一栏，是病</span>
+      <span class="toc-desc">课本讲万历皇帝，讲他怠政三十年：不郊、不庙、不朝、不见、不批、不讲，六大项全不干，把大明王朝拖进深渊。结论很清...</span>
+    </div>
+  </div>
+
   <h1>历史课本没写出的隐情</h1>
   <div class="author">谭健锹 · 那些帝王将相才子的苦痛：用现代医学给历史「验伤」</div>
 </div>
@@ -354,7 +419,7 @@
   <p>把历史课本里那些脸谱化的帝王将相才子，一个一个请进诊室：用现代医学重新诊断他们的疾病，看看病痛如何改写了历史。</p>
   <p>回答：历史课本告诉你的总是「谁干了什么」；这本书问的是「他身体里发生了什么」。屈原投江，表面看是忧国忧民，书里读出的却是抑郁症走到尽头的可能；万历三十年不上朝，也可能不是懒：足痛、眩晕、腹泻缠身的病人躲进了病榻；周瑜英年早逝，小说里的说法是被诸葛亮气死，书里推断他很可能死于一场冬季瘟疫。二十一位历史人物，二十一份「病历」。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>作者谭健锹是澳门镜湖医院的心血管内科医生：白天看病，晚上读《左传》《史记》《资治通鉴》。他发现历史人物在他的专业眼光下「原形毕露」：史书记载的很多行为（怠政、暴怒、自沉、纵欲），放在现代医学里都有对应的疾病解释。于是他把历史书当病历来读：翻考古报告（定陵发掘的万历尸骨）、查宫廷档案（皇帝的亲笔自述病情）、再逐层排除，像做诊断一样给历史人物「验伤」。</p>
   <p>书里选了二十一个人物，从战国到清朝：屈原、吕雉、周瑜、诸葛亮、曹植、李白、安禄山、白居易、李贺、王安石、张居正、万历、郑成功、乾隆、和珅……每个人一篇「病历」：生平、症状、病史分析、最终诊断。写法是医学探案：一层层剥开洋葱皮，最后露出核心。</p>
 
@@ -363,7 +428,7 @@
   <p><strong>周瑜：不是被气死的。</strong>小说里周瑜被诸葛亮三气而死，留下「既生瑜何生亮」的千古一叹。但史实是：周瑜气度宽宏（《三国志》说他「性度恢廓」），死前一年还生龙活虎，面见孙权、带兵西进，途中突然暴病身亡。谭健锹用排除法推了一路：不是箭伤（距受伤一年以上）、不是心脑血管病（三十五岁、无烟酒）、不是本地瘟疫（土生土长有免疫力）……最后指向冬季高发的呼吸道传染病。周瑜是老天爷带走的：小说家欠他一个公道。</p>
   <p><strong>屈原：投江背后的「忧郁症」。</strong>课本说屈原「忧国忧民，投江殉国」。谭健锹从《史记》的描写入手：被发行吟、颜色憔悴、形容枯槁，这是典型的抑郁状态。屈原的绝望里当然有政治幻灭，但「理想幻灭导致投江」和「抑郁症让人走向绝路」是两条不同的诊断路径。历史课本只讲前者，因为后者需要一个时代的医学常识才能读懂。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一位内科医生在深夜灯下写病历：冷静、克制、讲证据。他不给历史人物翻案，也不审判谁：他说得很清楚：「我们无需动辄吵着给历史人物翻案，我们要做的只是静下心来，细细考量他们的真实状态。」他笔下的历史人物没有一个是一帆风顺的，「归根结底，人，总是要成为病人的」。</p>
 </div>
 

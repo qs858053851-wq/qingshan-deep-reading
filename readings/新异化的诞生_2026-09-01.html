@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>新异化的诞生 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>新异化的诞生</h1>
-  <div class="author">哈特穆特·罗萨　2013　上海人民出版社　郑作彧 译　社会加速批判理论大纲</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">新异化的诞生</div>
+    <div class="cover-sub">罗萨　2013　上海人民出版社　郑作彧 译　社会加速批判理论大纲</div>
+    <div class="cover-meta">哈特穆特 · 解读主理：青山 · 日期：2026-09-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 现代文明最荒谬的悖论：省时技术越多，时间荒越严重</span>
+      <span class="toc-desc">哈特穆特·罗萨在这本小书里劈头抛出一个困扰每一个现代人的日常经验：人类发明了高铁、飞机、微波炉、洗碗机、电子邮...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么说加速已经变成一种看不见的极权</span>
+      <span class="toc-desc">罗萨没有停留在道德呼吁或抒情叹息上，他给出了极其扎实的经验证据与概念辨析，证明加速力量已经具备了传统极权统治的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 推动这台加速绞肉机运转的三大独立齿轮</span>
+      <span class="toc-desc">这是全书最硬核的系统论发现。前现代社会的稳定是「静态稳定」，依靠传统的习俗、宗教信条和血缘秩序来维持现状；而现...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 踩进深处：为什么我们总觉得脚下是一块随时塌陷的斜坡</span>
+      <span class="toc-desc">每天清晨醒来，你还没下床，手机里已经堆满了未读的工作邮件、群聊消息、行业资讯和新闻推送。无论你今天多么努力工作...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个递进问题理清社会加速的内在脉络</span>
+      <span class="toc-desc">技术加速涵盖交通（马车到喷气客机）、通讯（书信到即时通讯）和生产（手工业到流水线自动化）。它扮演着加速机器的物...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 从书本走向现实：解构时间暴政的实战清单</span>
+      <span class="toc-desc">哈特穆特·罗萨作为法兰克福学派第四代领军人物，面对的是二十一世纪初批判理论的深刻危机：哈贝马斯将批判转向商谈伦...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一页餐巾纸上的全书架构</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 电子邮件的诅咒：为什么节省时间的机器彻底吞噬了时间</span>
+      <span class="toc-desc">在二十世纪末期，当第一批互联网工程师向全世界推销电子邮件系统时，他们描绘了一幅令人无限向往的轻松图景：过去寄一...</span>
+    </div>
+  </div>
+
   <div class="lead">洗衣机、高铁和即时通讯原本是为了帮人类省出时间，结果现代人反而比以往任何时候都更加慌张。这本书要把这台越转越快的齿轮拆开给你看。</div>
 </div>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>历史的温度4 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>历史的温度4</h1>
-  <div class="author">张玮 · 历史故事集 · 第四册：那些执念和信念、理想与梦想</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">历史的温度4</div>
+    <div class="cover-sub">历史故事集 · 第四册：那些执念和信念、理想与梦想</div>
+    <div class="cover-meta">张玮 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 第一次有了主题</span>
+      <span class="toc-desc">第四册有一个前三册没有的东西：主题。自序写在北京开往上海的高铁上，张玮交代了两件事。一是从这一册起，编辑和他一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么讲</span>
+      <span class="toc-desc">第四册的信用，建立在选择的对照上。证据一，拒绝的清单。容闳那章，张玮没写他多爱国，通篇就摆三次拒绝（第一层已列...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三根新梁：筐、轴、火</span>
+      <span class="toc-desc">前三册我的读法一路在换：立骨架、加梁、换梁，这一册再换一次。换梁的原因：这一册的主角从时代变成了人，前三册的承...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，再看它一眼</span>
+      <span class="toc-desc">先说动机。这一册是张玮"作家"身份落定后的产品化一步：第三册全职，第四册定主题，从日历式选稿变成主题式策划，"...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">三个因子对应第三层的三根梁：五念一筐（第一次有主题，47篇互相看见）；一轴分三（念的指向分三种：朝事、朝人、朝...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 你的念想拴在哪</span>
+      <span class="toc-desc">自序里有句话，读第一遍容易滑过去：这些念的转化和定位，很多时候真的只在一念之间。读完陈公博那章再回来，这句话就...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -390,7 +462,7 @@
 
   <p>前三册我的读法一路在换：立骨架、加梁、换梁，这一册再换一次。换梁的原因：这一册的主角从时代变成了人，前三册的承重件用不上了。</p>
 
-  <p>第一根梁：筐。第一次有了主题。前三册的架子是日历，"历史上的今天"发生什么写什么；这一册的架子是念，五个字把47篇收进去。别小看这个变化：日历册卖的是单篇，主题册卖的是整体，读者翻完会自己把容闳和陈公博放在一起比。这个"比"是主题册白送的，日历册没有。验证这根梁：筐的松紧恰好证明了筐的存在——文念情念两架松垮，正因为筐是先有文章后装的；但信念、执念、妄念三架严丝合缝，读者记住的也正是这三架。</p>
+  <p>第一根梁：筐。第一次有了主题。前三册的架子是日历，"历史上的今天"发生什么写什么；这一册的架子是念，五个字把47篇收进去。别小看这个变化：日历册卖的是单篇，主题册卖的是整体，读者翻完会自己把容闳和陈公博放在一起比。这个"比"是主题册白送的，日历册没有。验证这根梁：筐的松紧恰好证明了筐的存在，文念情念两架松垮，正因为筐是先有文章后装的；但信念、执念、妄念三架严丝合缝，读者记住的也正是这三架。</p>
 
   <p>第二根梁：轴。五念底下是一根轴，念的指向。信念篇的人，念指向一件事：容闳的"择其最有益于中国者为之"，郭永怀的"中国人要有自己的骨气"，事比人大，所以人换了、靠山倒了、利禄来了，他们不动。妄念篇的人，念指向一个人：陈公博的"良禽择木而栖"，明主在，方向在；明主走了，人就跟着走了。执念篇的人，念指向自己：马洛里说"眼看着别人征服那座巅峰，而不是我"，四个字的尾巴才是真话。这根轴是这一册最值钱的东西，第八层用它做核。验证独立性：把轴抽掉，五念就是五个装文章的抽屉；轴在，47篇才有对话。</p>
 
@@ -449,11 +521,11 @@
 
   <p>他的三次转弯，每次都有说得出口的理由。一大开完心灰意冷，因为看不惯张国焘盛气凌人，因为反对"党员不能做官"的规定；脱党去美国，是要好好读书；投靠汪精卫，是报知遇之恩："良禽择木而栖，良将择主而从"。注意这最后一条。1938年在重庆，他跟汪精卫争了一整天，反对投敌的三条理由条条过硬；争不下来，陈璧君在旁边说了一句话：你反对，那你做你的蒋介石的官去！这句话把他击穿了。几天后他跟着汪精卫去了河内。为什么一句话就能击穿他？因为那句话点破了他自己不敢看的东西：他守的从来不是"不能投敌"这个主张，是汪精卫这个人。主张拴在事上，事黄了，人退得出：容闳退回太平天国的委任状，掉头就走，因为他欠的是"最有益于中国"那件事，不欠洪仁玕。拴在人上就完了：人走了，你只能跟，背弃这个人等于否定自己前半生全部的选择。这就是一念之间的解剖图：念头没动，拴的地方早就动了，到摊牌那天才看见。</p>
 
-  <p>等等，忠于人错吗？良禽择木而栖，中国人讲知遇之恩，这本来是美德。这里得把两本账分开。知遇之恩要还，但那是私账；民族立场是公账。汪精卫对陈公博有恩，他可以拿前程去还，拿命去还都说得过去，可他拿立场去还——私账还到公账上，账就烂了。拴在人上最深的坑在这里：人会向你收他不该收的账，而你因为欠着他，不好意思不付。</p>
+  <p>等等，忠于人错吗？良禽择木而栖，中国人讲知遇之恩，这本来是美德。这里得把两本账分开。知遇之恩要还，但那是私账；民族立场是公账。汪精卫对陈公博有恩，他可以拿前程去还，拿命去还都说得过去，可他拿立场去还，私账还到公账上，账就烂了。拴在人上最深的坑在这里：人会向你收他不该收的账，而你因为欠着他，不好意思不付。</p>
 
   <p>这一册还写了第三种拴法，在执念篇。马洛里三次挑战珠峰，记者问他为什么，他说：因为它就在那里。这句话漂亮，可他自己还说过一句更老实的：更残酷的是，眼看着别人征服那座巅峰，而不是我。山在那里是给自己听的，"而不是我"才是发动机。执念拴在自己身上：不为事，不为人，为的是"我"字中间那口气。这种拴法不害人，只烧自己。珠峰收了马洛里，但珠峰没骗过他，他要的东西他自己清楚。比起陈公博，马洛里的结局反而干净：拴在自己身上的念，盈亏自负，不拖累别人。</p>
 
-  <p>三种拴法摆完，信念篇那两位就不用再多说了。郭永怀烧手稿那一下，说都装进我脑子里了。拴在事上的人，东西烧得掉，事烧不掉，手稿没了，原子弹照样响。妻子李佩后来捐出毕生积蓄，八个字：要什么仪式，捐了就捐了。拴在事上的人，连谢幕都不要。1921年那间屋子里坐过13个代表，同样的起点，走到哪的都有。理想信念和身败名裂，出发时真是一念之间。所以下次掂量自己的一个念想，别先问它大不大、对不对，先问它拴在哪。事会黄，人会走，自己会死——拴在哪，比念什么更要紧。</p>
+  <p>三种拴法摆完，信念篇那两位就不用再多说了。郭永怀烧手稿那一下，说都装进我脑子里了。拴在事上的人，东西烧得掉，事烧不掉，手稿没了，原子弹照样响。妻子李佩后来捐出毕生积蓄，八个字：要什么仪式，捐了就捐了。拴在事上的人，连谢幕都不要。1921年那间屋子里坐过13个代表，同样的起点，走到哪的都有。理想信念和身败名裂，出发时真是一念之间。所以下次掂量自己的一个念想，别先问它大不大、对不对，先问它拴在哪。事会黄，人会走，自己会死，拴在哪，比念什么更要紧。</p>
 </div>
 
 <!-- ==================== 事实边界 ==================== -->

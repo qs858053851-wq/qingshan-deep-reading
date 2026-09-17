@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>傲慢与偏见 ： 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,12 +380,44 @@
 </head>
 <body>
 
-<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近日常场景的行动落点。</div>
+<div class="revision-note"><strong>修订版说明</strong>：本稿于 2026-07-14 在旧版基础上完整重写。修订重点包括重新判断书型与篇幅比重、重排层间分工、避免核心案例重复展开、预留第八层主题、校准第三层与餐巾纸公式，并补充事实边界与贴近先生场景的行动落点。</div>
 
 <div class="container">
 
-<div class="hero">
-<div class="kicker">青山 · 九层解书</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">傲慢与偏见</div>
+    <div class="cover-sub">奥斯汀　|　李继宏 译　|　叙事型 · 七层路径</div>
+    <div class="cover-meta">简 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 这本书到底在讲什么</span>
+      <span class="toc-desc">故事发生在英国乡间一个叫隆伯恩的小地方。本尼特家有五个女儿，却没有一个儿子。这是全书一切麻烦的源头：本尼特先生...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 作者凭什么这么说</span>
+      <span class="toc-desc">小说不像论文那样摆出论点再去证明。但《傲慢与偏见》其实有一条藏得很深的论证链，奥斯汀与用说理相比，用情节的因果...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 真正牵动全书的那几根线</span>
+      <span class="toc-desc">叙事型的书不做降秩，但要找出那根真正牵着整部小说的线。《傲慢与偏见》的线，不是爱情，是判断：人如何看待彼此，又...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者动机：她写的是自己的恐惧。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 如果只能带走一张餐巾纸</span>
+      <span class="toc-desc">餐巾纸公式：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 夏洛特才是这本书的真相</span>
+      <span class="toc-desc">几乎每个人读《傲慢与偏见》，都站在伊丽莎白这边。我们爱她的伶牙俐齿，爱她拒绝柯林斯时那股不肯将就的劲儿，爱她最...</span>
+    </div>
+  </div>
+
 <h1>傲慢与偏见</h1>
 <div class="author">简·奥斯汀　|　李继宏 译　|　叙事型 · 七层路径</div>
 </div>
@@ -414,7 +487,7 @@
 
 <p><strong>边界条件</strong>：这套逻辑在什么情况下会失效？第一，当对方刻意伪装且伪装得天衣无缝时：威克姆几乎成功，靠的是运气而非伊丽莎白的明察。第二，当你没有机会获得新证据时：如果伊丽莎白没去成彭伯利、没读到那封信，偏见将永远是真相。第三，也是最深的一层：夏洛特的存在本身就是对这套逻辑的反驳。她说婚姻全靠运气，了解对方反而是负担：她代表的是另一种世界观：在生存压力面前，认识真相是奢侈品，活下去才是刚需。奥斯汀让这个反例堂堂正正地活在书里，没有惩罚她，这说明奥斯汀自己也知道，她的乐观认识论，只对伊丽莎白这种“输得起”的人成立。</p>
 
-<p>还有一层边界值得点破。这套“收集证据—修正判断”的逻辑，暗含一个前提：你和对方有反复接触的机会。伊丽莎白和达希能从误解走到理解，是因为命运一次次把他们推到同一个房间：舞会、卢卡斯家、汉斯福德、彭伯利。如果他们只见过那一面，达希永远是“那个傲慢的混蛋”，伊丽莎白永远是“还行而已的姑娘”，故事到第一章就结束了。奥斯汀写的是一个封闭的、人际反复交叠的乡绅社会，正是这种“低头不见抬头见”的结构，给了偏见被纠正的物理可能。换到一个人来人往、擦肩即散的现代都市，第一印象往往就是唯一印象，这套修正机制根本来不及启动。所以这本书的乐观，不只系于人的品性，也系于一种特定的社会密度。这一点，奥斯汀没有明说，却用她笔下那个小小的、所有人彼此认识的世界，替我们说了。</p>
+<p>还有一层边界值得点破。这套“收集证据，修正判断”的逻辑，暗含一个前提：你和对方有反复接触的机会。伊丽莎白和达希能从误解走到理解，是因为命运一次次把他们推到同一个房间：舞会、卢卡斯家、汉斯福德、彭伯利。如果他们只见过那一面，达希永远是“那个傲慢的混蛋”，伊丽莎白永远是“还行而已的姑娘”，故事到第一章就结束了。奥斯汀写的是一个封闭的、人际反复交叠的乡绅社会，正是这种“低头不见抬头见”的结构，给了偏见被纠正的物理可能。换到一个人来人往、擦肩即散的现代都市，第一印象往往就是唯一印象，这套修正机制根本来不及启动。所以这本书的乐观，不只系于人的品性，也系于一种特定的社会密度。这一点，奥斯汀没有明说，却用她笔下那个小小的、所有人彼此认识的世界，替我们说了。</p>
 
 </div>
 
@@ -470,7 +543,7 @@
 <p>伊丽莎白对达希的认知修正，在统计学里有个精确的名字：贝叶斯更新。你心里有一个先验判断（达希很傲慢），然后不断有新证据进来（那封信、彭伯利的见闻、丽迪雅事件中的暗中相助），每一条证据都让你调整那个判断的概率。伊丽莎白的整条心理曲线，就是一次教科书级别的贝叶斯更新：区别只在于，多数人拿到与先验冲突的证据时，第一反应是扔掉证据、保住成见，而伊丽莎白选择了扔掉成见、采信证据。这一念之差，就是成长与不成长的分界。</p>
 <p>在招聘里，它叫“别让面试的第一印象绑架你”。研究反复证明，面试官在头几分钟形成的判断，会扭曲他对后面所有信息的解读，和伊丽莎白被威克姆的英俊带偏是同一个机制。在品牌和公关里，它叫“首因效应”：一个产品、一个人给人的第一印象一旦形成，后续要靠数倍的正面信息才扭转得过来，这正是达希的处境：他得做那么多事，才洗刷掉舞会上一句话造成的恶名。在亲密关系里，它叫“我们爱上的常常是想象中的对方”：威克姆的英俊、达希的高傲，都是伊丽莎白投射上去的剧本，而非那个人本身。</p>
 <p>它还能映射到投资。一个投资者对某家公司形成的最初印象：管理层口才好不好、财报第一眼漂不漂亮：和威克姆的健谈是同一类表象信号；真正决定结果的，是那些藏在表象之下、需要花时间挖掘的基本面。把“还行而已”就匆匆下注，或把“看着不顺眼”就一票否决，犯的都是伊丽莎白的错。能在新数据面前推翻自己的初始看法，不带情绪地认错改仓，是投资者和伊丽莎白共享的同一项稀缺能力。</p>
-<p>在民宿和乡村项目的场景里，这条线同样扎手。读者在一个乡村住宿项目这类项目里，免不了要招管家、选合伙人、判断一个在地村民能不能独当一面。第一次见面，一个人穿得体面、说话利索、笑起来亲切，很容易就被打上“靠谱”的标签；另一个人沉默寡言、举止拘谨、甚至带着点乡下的粗粝，第一印象往往吃亏。可真正决定一个管家能不能留下的，与他面试时多会说话相比，凌晨三点客人热水器坏了他会不会嫌烦，旺季连续加班他会不会突然消失，遇到难缠客人他能不能压住情绪更接近实情。这些“基本面”信息，第一次见面根本拿不到。威克姆式的人：嘴甜、热情、懂得第一时间讨好：在民宿一线尤其危险，因为他们往往在真正需要担当的时候掉链子。达希式的人：话少、初见有点冷、但做事有章法：反而可能是团队里的底盘。做乡村项目，最该从这本书里偷走的重点在一套“延迟判断”的操作习惯：第一印象只负责存档，不负责定案，不在爱情观；把关键的人事判断，留到对方在压力、利益、疲惫面前露出真形之后。</p>
+<p>在民宿和乡村项目的场景里，这条线同样扎手。先生在目涯巫山这类项目里，免不了要招管家、选合伙人、判断一个在地村民能不能独当一面。第一次见面，一个人穿得体面、说话利索、笑起来亲切，很容易就被打上“靠谱”的标签；另一个人沉默寡言、举止拘谨、甚至带着点乡下的粗粝，第一印象往往吃亏。可真正决定一个管家能不能留下的，与他面试时多会说话相比，凌晨三点客人热水器坏了他会不会嫌烦，旺季连续加班他会不会突然消失，遇到难缠客人他能不能压住情绪更接近实情。这些“基本面”信息，第一次见面根本拿不到。威克姆式的人：嘴甜、热情、懂得第一时间讨好：在民宿一线尤其危险，因为他们往往在真正需要担当的时候掉链子。达希式的人：话少、初见有点冷、但做事有章法：反而可能是团队里的底盘。做乡村项目，最该从这本书里偷走的重点在一套“延迟判断”的操作习惯：第一印象只负责存档，不负责定案，不在爱情观；把关键的人事判断，留到对方在压力、利益、疲惫面前露出真形之后。</p>
 
 <p><strong>行动触发：读完这本书，应该做什么不同的事？</strong></p>
 <p>下次对一个人下定论时，按一下暂停键，问自己一句：我这个判断，是基于他这个人，还是基于他给我的“信号”：长相、谈吐、头衔、第一面的好恶？这两者经常不是一回事。</p>

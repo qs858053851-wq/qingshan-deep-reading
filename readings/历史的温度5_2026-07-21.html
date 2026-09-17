@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>历史的温度5 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>历史的温度5</h1>
-  <div class="author">张玮 · 历史故事集 · 第五册：那些博弈、较量与人性</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">历史的温度5</div>
+    <div class="cover-sub">历史故事集 · 第五册：那些博弈、较量与人性</div>
+    <div class="cover-meta">张玮 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 写在疫情年的博弈</span>
+      <span class="toc-desc">第五册的自序落款是2020年11月3日，上海书房。那一年的分量不用多说，张玮在自序里也认了：这一年过得太快，又...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么讲</span>
+      <span class="toc-desc">第五册的信用，建立在把对手请上桌。证据一，反对派的戏份。1930年那章，张玮给反对者的篇幅几乎和法案本身一样重...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三根新梁：桌子、位子、日子</span>
+      <span class="toc-desc">前四册我的读法一路在换，这一册再换一次。换梁的原因：这一册写到了博弈本身，前四册的承重件够不着这张桌子。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，再看它一眼</span>
+      <span class="toc-desc">先说动机。这一册是时代直给的一册：2020年，疫情加贸易摩擦，出版社和作者"不约而同"选了博弈。这是主题策划制...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">三个因子对应第三层的三根梁：四张桌子（谈判桌、战场、人心、自然，博弈无所不在）；局部理性（灾难不需要坏人，位子...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 桌上没有刹车</span>
+      <span class="toc-desc">先把1930年那场灾难的配料表看一遍，里面没有蠢货。总统是斯坦福出身的商业奇才，媒体说"政府从来没有像今天这样...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -392,7 +464,7 @@
 
   <p>第二根梁：位子。这一册的灾难配方换了：从前读历史，灾难的配方是坏人做坏事；这一册的灾难，全是没有坏人照样成的灾难。胡佛不是蠢货，是"美国第一个商业总统"；贝当不是懦夫，凡尔登敢划红线射杀退兵的人不存在怕死一说；麦卡锡也不是疯子，他有扎实的民意基础。灾难不需要坏人，只需要每个位子上的人做他位子上不得不做的事。这根梁是第三册"系统与脸分算"的延伸：脸还在，但系统的账换了记账的法子。抽掉"局部理性"试试：1930年那章就退化成"两个蠢议员害惨全世界"的爽文，麦卡锡那章就只剩批判。这一册的值钱，恰恰在不爽。</p>
 
-  <p>第三根梁：日子。筹码是有有效期的。1886年"定远""镇远"停在长崎港，是真筹码，攥在手里没换成安全，八年后甲午，筹码易手；1943年开罗，蒋介石的筹码是"被需要"——中国战场拖住日军主力，这个筹码抗战胜利后就到期；1949年炮轰紫石英，本质是新筹码上桌后的第一声宣告。验证这根梁：科威特那篇，小国硬骨头，骨头硬是真的，但硬骨头能换来什么，取决于桌上别人的日子。第三册的账讲"该怎么分"，这一册的日子讲"什么时候到期"。账是分法，日子是时效。</p>
+  <p>第三根梁：日子。筹码是有有效期的。1886年"定远""镇远"停在长崎港，是真筹码，攥在手里没换成安全，八年后甲午，筹码易手；1943年开罗，蒋介石的筹码是"被需要"，中国战场拖住日军主力，这个筹码抗战胜利后就到期；1949年炮轰紫石英，本质是新筹码上桌后的第一声宣告。验证这根梁：科威特那篇，小国硬骨头，骨头硬是真的，但硬骨头能换来什么，取决于桌上别人的日子。第三册的账讲"该怎么分"，这一册的日子讲"什么时候到期"。账是分法，日子是时效。</p>
 
   <p>三根梁合力，第五册的形状就出来了：桌子摆开全部博弈，位子解释没有坏人的灾难，日子标注每个筹码的保质期。餐巾纸按这三根折。</p>
 </div>
@@ -448,7 +520,7 @@
 
   <p>这种局面，每个堵过车的人都懂。晚高峰，每辆车都看见前面堵死了，可没有人会先倒出去：先倒的人让出位置，后车立刻补上，堵还在原地，只有他亏了。路和谈判桌是同一张桌子：缺的不是看见，是一个让先松手的人不吃亏的设计。没有这个设计，"你为什么不让"这句话，对谁都问不出口：让了，代价他一个人付；不让，代价大家分摊。人性经不起这样分摊。</p>
 
-  <p>张玮在2020年写1930年，什么都没点破，什么都点破了。章尾他只留了一句"合则两利，斗则俱伤"，道理人人都懂，可道理解决不了三道锁。历史还提供了一个冷事实，在书外，但值得补在这里：1930年那张桌子最后停不下来，终结它的不是谁想明白了，是战争，以及战后换掉的那张新桌子——1947年《关税及贸易总协定》，把"先松手不吃亏"写进了规则。旧桌子修不好，就换一张，这是人类的笨办法，也是唯一的办法。所以"读懂过去，活好当下"还有下半句：你读清了桌子的结构，就知道自己该在哪张桌上使劲，哪张桌上趁早下来。有些局个人修不好，等桌子换；但换桌子之前，至少别把油门当刹车踩。</p>
+  <p>张玮在2020年写1930年，什么都没点破，什么都点破了。章尾他只留了一句"合则两利，斗则俱伤"，道理人人都懂，可道理解决不了三道锁。历史还提供了一个冷事实，在书外，但值得补在这里：1930年那张桌子最后停不下来，终结它的不是谁想明白了，是战争，以及战后换掉的那张新桌子，1947年《关税及贸易总协定》，把"先松手不吃亏"写进了规则。旧桌子修不好，就换一张，这是人类的笨办法，也是唯一的办法。所以"读懂过去，活好当下"还有下半句：你读清了桌子的结构，就知道自己该在哪张桌上使劲，哪张桌上趁早下来。有些局个人修不好，等桌子换；但换桌子之前，至少别把油门当刹车踩。</p>
 </div>
 
 <!-- ==================== 事实边界 ==================== -->

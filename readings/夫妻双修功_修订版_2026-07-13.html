@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>夫妻双修功 · 深度解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,52 @@
 </head>
 <body>
 <div class="container">
-  <div class="hero">
-    <div class="book-title">夫妻双修功</div>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">夫妻双修功</div>
+    <div class="cover-sub">道家气功房事养生 · 男性性能的培植</div>
+    <div class="cover-meta">青山 读 · 夫妻双修功 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">这本书解决的问题一句话能说完：男人怎么通过性功夫固精、还精补脑、延年益寿。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">这本书的论证是这样走的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动全书的那几根线</span>
+      <span class="toc-desc">第二层看作者怎么论证，这一层往底下钻：这本看着操作繁复的书，真正牵动全书的，就那么几根线。把它们拎出来，所有招...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">第三层横着铺四根线，这一层挑最深的那根线，精液是生命能这根，往井里下探，一层一层往下，看能挖到多深。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，把方法链走通</span>
+      <span class="toc-desc">把性功夫的核心方法拆成问答，每个回答分三段：怎么做、为什么、常见坑。常见坑里如实标出哪些是作者夸大的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 作者为什么非编不可，又漏了什么</span>
+      <span class="toc-desc">杨林编这本书的那股劲儿，来自一个具体的看见：道家性功夫几千年来是皇帝贵族秘传，「父亲传唯一儿子」，普通男人摸不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 餐巾纸压缩</span>
+      <span class="toc-desc">如果这本书只能留一个公式在餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 享受和修行不必对立</span>
+      <span class="toc-desc">打开这本《夫妻双修功》，最先让人愣一下的是一句话：不射精不是没有性高潮，恰恰相反，性功夫给你的是「独特的和高级...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇方法链、操作步骤、理论框架（精气神、阴阳、还精补脑、无为）、关键引文（孙思邈「男人不能没有女人」、「一滴精...</span>
+    </div>
+  </div>
+
     <div class="subtitle">道家气功房事养生 · 男性性能的培植</div>
     <div class="author-line">杨林 编著</div>
     <div class="date-line">2026-07-06 初稿 · 2026-07-13 修订 · 深度解书</div>
@@ -536,7 +621,7 @@
     <p>可奇怪的是，地基塌了，上面有一样东西还活着：「享受和修行不必对立」这个洞察。这个洞察脱钩了「精液=生命能」，它落在「快感和射精可以解耦」这个被现代性学部分承认的事实上。性快乐不必非得导向射精，男人可以追求更持久、更全身、不耗竭的性体验，这个想法脱钩能量论后照样成立。道家用一套错的宇宙观（能量论），包装了一个部分正确的直觉（快感和射精解耦、延长平台期），这是它最绕的地方，也正因如此，里面那个部分正确的直觉才值得单独拎出来。</p>
     <p>这个「用错的框架包装对的直觉」的结构，不只在性功夫里跑。弗洛伊德用错的力学隐喻（力比多流动）包装了对的直觉（无意识存在），力比多作为「流动的力」被现代心理学抛弃，可无意识被保留。马克思用错的劳动价值论包装了对的直觉（资本剥削劳动者），劳动价值论被边际效用学派取代，可「资本与劳动的结构性不对等」被保留。道家性功夫用错的能量论包装了对的直觉（快感和射精解耦），能量论被生理学抛弃，可「性快乐不必导向射精」这个洞察可以独立存活。错框架常常是让对直觉被看见的脚手架，脚手架拆掉之后，那栋楼还能立着，因为承重的本来就不是脚手架。</p>
     <p>回到禁欲 vs 性功夫的对比。佛教把欲望当苦根，办法是断（不净观、断欲）。道家性功夫把欲望当资源，办法是用（固精、转化）。一个是绝食，一个是节制饮食加转化吸收。绝食的人说「不吃就不饿」，节制的人说「少吃多餐还能把营养转化成更高级的能量」。两种都在处理欲望，方向相反，可各有各的道理：绝食彻底但代价大（多数人做不到），节制温和但容易滑回纵欲（性功夫的「频繁作爱」可能变成纵欲的借口）。性功夫的真正陷阱在这里，它用「修行」给「频繁作爱」一个高大上的正当性，可一旦「不射精」守不住，频繁作爱就是纵欲，比普通纵欲还耗，因为每次都接近射精边缘。</p>
-    <p>还有一层更暗的代价。性功夫把性从「两个人的事」变成「一个人的能量管理，另一个是资源」。男人练的是保精、转化、还精补脑，女人提供的是「阴能」「柔软能量」。整套方法为男性设计，女性是「协调剂」「接近无为」，服务于男性修行，主体位置没给她们。作者用生理差异（月经周期 vs 持续产精）推出「男人更适合修大道」，恰好让男性占修行优势位，是典型的性别本质论。性功夫的「双修」听着像男女平等，其实是男性修行用女性当燃料——作爱从「两个人的亲密」变成「男人借女人的身体练自己的功」，男人的注意力从「对方」转向「自己体内的气往哪走」，女人从「被爱的对象」变成「能量的资源」。这是性功夫最隐蔽的代价：把一段本该是关系的事，变成一个人的独角戏，另一个人只是道具。</p>
+    <p>还有一层更暗的代价。性功夫把性从「两个人的事」变成「一个人的能量管理，另一个是资源」。男人练的是保精、转化、还精补脑，女人提供的是「阴能」「柔软能量」。整套方法为男性设计，女性是「协调剂」「接近无为」，服务于男性修行，主体位置没给她们。作者用生理差异（月经周期 vs 持续产精）推出「男人更适合修大道」，恰好让男性占修行优势位，是典型的性别本质论。性功夫的「双修」听着像男女平等，其实是男性修行用女性当燃料，作爱从「两个人的亲密」变成「男人借女人的身体练自己的功」，男人的注意力从「对方」转向「自己体内的气往哪走」，女人从「被爱的对象」变成「能量的资源」。这是性功夫最隐蔽的代价：把一段本该是关系的事，变成一个人的独角戏，另一个人只是道具。</p>
     <p>这套话语在今天为什么有市场？因为它给的承诺太对中年男性的胃口：不用出家、不用禁欲、不用承认衰老，只要学会「不射精」就能既享受又延年。这是把衰老焦虑和性焦虑一起兜售的生意，养生市场最吃这一套，一个不可验证的承诺（延年益寿要几十年后才见分晓）加一个反直觉的卖点（不射精有更好高潮），正好避开现代医学能证伪的部分，钻进「你练不到所以没效果」的免责区。</p>
     <p>可「不射精」的门槛极高。大抽动锁精法要长期训练才能控制射精冲动，三指固精法初学者每周不超两次，多数人守不住。守不住就滑向「频繁作爱」的纵欲，比普通纵欲还耗，因为每次都接近射精边缘却强忍不射，身体的性紧张反复拉满又不得释放，对前列腺和盆底是持续负荷。所以这套话语的实际效果分两层：真正能守住「不射精」的少数人，得到的是骨盆底锻炼的益处（这点现代医学承认，类似凯格尔）；守不住的多数人，得到的是「我在修行」的心理安慰加变相纵欲的消耗。这是它最暗的结构，用修行的名义，把纵欲包装成养生，让纵欲者既不愧疚又不停手。</p>
     <p>那这本书读完，最该带走的那一下是什么？不是「性功夫能延年益寿」（这个站不住），也不是「不射精就是好」（守不住就滑向纵欲）。是「享受和精神追求不必对立」这个被错框架包装过的对直觉，你可以追求更持久、更全身、不耗竭的性体验，不必非得导向射精，不必把性快乐和精神追求切成两半。这一下脱钩能量论后照样成立。可它有个前提：得诚实地把能量论那层壳剥掉，承认「精液=生命能」是道家宇宙观的投影，不是生理事实。剥掉壳，留下直觉；留着壳，连直觉一起被伪科学拖累。</p>

@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>《极品家丁》—— 九层解书</title>
+<title>《极品家丁》， 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -341,11 +382,60 @@
 <div class="container">
 
 <!-- Hero -->
-<div class="hero">
-  <h1>极品家丁</h1>
-  <p class="author">禹岩 · 九层解书</p>
-  <p class="warning">⚠️ 基于残缺文本（前98章/约全书15%），故事梗概仅覆盖已读部分</p>
-</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">极品家丁</div>
+    <div class="cover-sub">林晚荣，现代销售经理，泰山旅游时意外穿越到架空华朝。初到金陵，穷困潦倒，被神秘魏大叔收留。魏大叔身份成谜，年近八旬却保养得宜，眼盲却能在皇宫藏书阁盗书，临走前劝林晚荣冒充某大户之...</div>
+    <div class="cover-meta">青山 读 · 极品家丁 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 故事梗概</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">林晚荣，现代销售经理，泰山旅游时意外穿越到架空华朝。初到金陵，穷困潦倒，被神秘魏大叔收留。魏大叔身份成谜，年...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04</span>
+      <span class="toc-desc">林晚荣化名"林三"，以家丁身份进入金陵富商萧家。萧家母女三人：萧夫人（寡妇，实际掌权）、大小姐萧玉若（冷艳干练...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05</span>
+      <span class="toc-desc">萧家面临陶家联营吞并危机。陶东成表面追求萧玉若，实则想通过联营控制萧家销售网络，最终取而代之。林三一眼识破："...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">温柔贤惠的平民女子，林晚荣的"正宫"。帮他打理酒楼，省吃俭用，是林三最信任的执行者。代表：基层执行力。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07</span>
+      <span class="toc-desc">白莲教势力渗透金陵，徐渭（徐文长）来查案，与林三结识。徐渭是皇帝宠臣、天下第一才子，却对林三的对联才华甘拜下风...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 这本书在说什么？</span>
+      <span class="toc-desc">现代思维 vs 古代秩序。林晚荣的"无耻"和"狡诈"在古代社会既是生存武器，也是道德挑战。他用现代商业逻辑在古...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 11 · 叙事结构分析</span>
+      <span class="toc-desc">欲望驱动，林晚荣的每一个行动都围绕三个目标：赚钱、泡妞、保命。这三个目标层层递进：先解决生存（赚钱），再解决...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 13 · 灵魂提取</span>
+      <span class="toc-desc">禹岩写这本书的"不写不行的那股劲儿"是什么？是对传统穿越文"武力至上"套路的厌倦，是对"才子佳人"叙事模式的反...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15 · 餐巾纸压缩</span>
+      <span class="toc-desc">一个现代销售经理穿越到古代，用商业思维而非武功，在家丁的身份下逆袭成为商业帝国的幕后操盘手。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 17 · 可传播短文</span>
+      <span class="toc-desc">前面几层按下不表的东西，现在摊开：第一层那单五两银子的小册子生意，和第二层留下的那个问题，他的"无耻"为什么...</span>
+    </div>
+  </div>
+
 
 <!-- Layer 1: 故事梗概 -->
 <div class="layer">
@@ -357,11 +447,11 @@
 
   <div class="story-section">
     <h3>穿越与开局</h3>
-    <p>林晚荣，现代销售经理，泰山旅游时意外穿越到架空华朝。初到金陵，穷困潦倒，被神秘魏大叔收留。魏大叔身份成谜——年近八旬却保养得宜，眼盲却能在皇宫藏书阁盗书，临走前劝林晚荣冒充某大户之子，被拒。</p>
+    <p>林晚荣，现代销售经理，泰山旅游时意外穿越到架空华朝。初到金陵，穷困潦倒，被神秘魏大叔收留。魏大叔身份成谜，年近八旬却保养得宜，眼盲却能在皇宫藏书阁盗书，临走前劝林晚荣冒充某大户之子，被拒。</p>
     <p>魏大叔留给林晚荣一本"三无"武功秘籍（无出处、无验证、无修炼者），以及一个选择：是继续做普通人，还是踏入一个"大得无法想象"的局。</p>
-    <p>林晚荣选择自力更生。他注意到金陵第一才女洛凝选夫的消息引发全城轰动，于是制作"萧大小姐选夫情报小册"，五两银子一本，大赚一笔。这单小生意为什么能成、他叫卖时那套理直气壮的说辞藏着什么门道——按下不表，第八层摊开。</p>
+    <p>林晚荣选择自力更生。他注意到金陵第一才女洛凝选夫的消息引发全城轰动，于是制作"萧大小姐选夫情报小册"，五两银子一本，大赚一笔。这单小生意为什么能成、他叫卖时那套理直气壮的说辞藏着什么门道，按下不表，第八层摊开。</p>
     <div class="quote-block">
-      "奇货可居"——林晚荣把信息不对称变成商品，五两银子一本的小册子卖疯了。
+      "奇货可居"，林晚荣把信息不对称变成商品，五两银子一本的小册子卖疯了。
     </div>
   </div>
 
@@ -369,7 +459,7 @@
     <h3>进入萧府</h3>
     <p>林晚荣化名"林三"，以家丁身份进入金陵富商萧家。萧家母女三人：萧夫人（寡妇，实际掌权）、大小姐萧玉若（冷艳干练，掌管生意）、二小姐萧玉霜（天真烂漫）。</p>
     <p>林三在玄武湖诗会上用现代对联才华一鸣惊人，击败金陵第一才子侯跃白。他的对联"烟沿艳檐烟燕眼"成为千古绝对，连徐文长都对不上。</p>
-    <p>在湖边，他与一位"绝色公子"相遇。这位公子女扮男装，谈吐不凡，对林三的"非才子"身份颇感兴趣。两人从互相试探到渐生好感，林三却始终没识破她的女儿身——直到后来才发现，这位"公子"竟是武功高强的神秘女子肖青璇。</p>
+    <p>在湖边，他与一位"绝色公子"相遇。这位公子女扮男装，谈吐不凡，对林三的"非才子"身份颇感兴趣。两人从互相试探到渐生好感，林三却始终没识破她的女儿身，直到后来才发现，这位"公子"竟是武功高强的神秘女子肖青璇。</p>
   </div>
 
   <div class="story-section">
@@ -413,7 +503,7 @@
       </div>
     </div>
     <div class="quote-block">
-      林晚荣的情感策略与现代销售漏斗惊人一致：对不同"客户"用不同"话术"——对巧巧是"心疼+承诺"，对秦仙儿是"调情+神秘"，对肖青璇是"知己+平等"。
+      林晚荣的情感策略与现代销售漏斗惊人一致：对不同"客户"用不同"话术"，对巧巧是"心疼+承诺"，对秦仙儿是"调情+神秘"，对肖青璇是"知己+平等"。
     </div>
   </div>
 
@@ -422,7 +512,7 @@
     <p>白莲教势力渗透金陵，徐渭（徐文长）来查案，与林三结识。徐渭是皇帝宠臣、天下第一才子，却对林三的对联才华甘拜下风。两人的结交为林三打开了政治层面的保护伞。</p>
     <p>陶东成步步紧逼，联营之计暗藏吞并野心。林三在紫金山歇仙亭与陶东成正面交锋，看穿他的"求爱告白"不过是商业谈判的烟雾弹。</p>
     <p>秦仙儿深夜来访，警告林三"尽快离开萧家"，暗示更大风暴来临。林三虽未听从，但意识到平静表面下的暗流涌动。</p>
-    <p>林三还设计了"卫生带"（女性月事用品），进一步拓展女性市场。这个产品设计让萧家母女羞赧不已，但林三坚持"在商言商"——这是现代产品经理的"用户痛点思维"：女性刚需 + 文化禁忌 = 蓝海市场。</p>
+    <p>林三还设计了"卫生带"（女性月事用品），进一步拓展女性市场。这个产品设计让萧家母女羞赧不已，但林三坚持"在商言商"，这是现代产品经理的"用户痛点思维"：女性刚需 + 文化禁忌 = 蓝海市场。</p>
     <p>与总督公子洛远结交，洛远对林三佩服得五体投地，成为林三在政治层面的又一层保护。</p>
     <div class="quote-block">
       林晚荣的生存策略：在商业上建立不可替代性（香水配方独家），在政治上结交权贵（洛远、徐渭），在情感上绑定多个女性形成支持网络。
@@ -434,7 +524,7 @@
     <p><strong>主线事件</strong>：现代销售经理穿越 → 穷困开局 → 卖情报小册赚第一桶金 → 进入萧府当家丁 → 诗会一鸣惊人 → 帮萧家化解商业危机 → 创办食为仙酒楼 → 结交权贵 → 多线情感交织 → 白莲教危机暗涌</p>
     <p><strong>核心冲突</strong>：林晚荣的现代思维 vs 古代社会的等级秩序和道德规范</p>
     <p><strong>关键转折</strong>：从"卖小册子的街头混混"到"萧家商业顾问"的身份跃迁</p>
-    <p><strong>结局（暂）</strong>：陶东成联营危机未解，秦仙儿警告未明，白莲教阴影逼近——故事在多重悬念中戛然而止（因文本残缺）</p>
+    <p><strong>结局（暂）</strong>：陶东成联营危机未解，秦仙儿警告未明，白莲教阴影逼近，故事在多重悬念中戛然而止（因文本残缺）</p>
   </div>
 </div>
 
@@ -448,12 +538,12 @@
 
   <div class="analysis-item">
     <h4>核心张力</h4>
-    <p>现代思维 vs 古代秩序。林晚荣的"无耻"和"狡诈"在古代社会既是生存武器，也是道德挑战。他用现代商业逻辑在古代社会降维打击，但这种"作弊"是否正当？作者似乎并不纠结——在禹岩的叙事里，古代社会的虚伪（才子们的酸腐、封建礼教的僵化）比林晚荣的"无耻"更值得批判。至于这份"无耻"为什么偏偏在古代社会格外好使，此处只把证据摆在这里，按下不表——第八层摊开。</p>
+    <p>现代思维 vs 古代秩序。林晚荣的"无耻"和"狡诈"在古代社会既是生存武器，也是道德挑战。他用现代商业逻辑在古代社会降维打击，但这种"作弊"是否正当？作者似乎并不纠结，在禹岩的叙事里，古代社会的虚伪（才子们的酸腐、封建礼教的僵化）比林晚荣的"无耻"更值得批判。至于这份"无耻"为什么偏偏在古代社会格外好使，此处只把证据摆在这里，按下不表，第八层摊开。</p>
   </div>
 
   <div class="analysis-item">
     <h4>叙事动力</h4>
-    <p>权力/欲望。林晚荣要的不是造反当皇帝（传统穿越文的套路），而是用现代知识在古代社会获得财富、地位和女人。这是一种"精致的利己主义"——不挑战体制，而是在体制内找到最优解。</p>
+    <p>权力/欲望。林晚荣要的不是造反当皇帝（传统穿越文的套路），而是用现代知识在古代社会获得财富、地位和女人。这是一种"精致的利己主义"，不挑战体制，而是在体制内找到最优解。</p>
   </div>
 
   <div class="analysis-item">
@@ -463,7 +553,7 @@
 
   <div class="analysis-item">
     <h4>写作姿态</h4>
-    <p>轻松诙谐、口无遮拦。用现代网络语言（"日""靠""妈的"）和古代语境碰撞制造喜剧效果。林晚荣的内心独白是全书最精彩的部分——一个现代人在古代社会的"文化休克"和"认知优越感"被写得淋漓尽致。</p>
+    <p>轻松诙谐、口无遮拦。用现代网络语言（"日""靠""妈的"）和古代语境碰撞制造喜剧效果。林晚荣的内心独白是全书最精彩的部分，一个现代人在古代社会的"文化休克"和"认知优越感"被写得淋漓尽致。</p>
   </div>
 </div>
 
@@ -477,25 +567,25 @@
 
   <div class="analysis-item">
     <h4>叙事动力</h4>
-    <p><strong>欲望驱动</strong>——林晚荣的每一个行动都围绕三个目标：赚钱、泡妞、保命。这三个目标层层递进：先解决生存（赚钱），再解决情感（泡妞），最后解决安全（保命）。</p>
+    <p><strong>欲望驱动</strong>，林晚荣的每一个行动都围绕三个目标：赚钱、泡妞、保命。这三个目标层层递进：先解决生存（赚钱），再解决情感（泡妞），最后解决安全（保命）。</p>
     <p>叙事节奏是"升级打怪"模式：每解决一个危机，就获得一个新资源（人脉、财富、女人），然后面对更大的危机。从小册子生意 → 萧府家丁 → 商业顾问 → 酒楼老板 → 权贵门客，每一步都是身份升级。</p>
   </div>
 
   <div class="analysis-item">
     <h4>核心张力</h4>
-    <p><strong>现代性 vs 传统性</strong>——这是全书最根本的矛盾。林晚荣的"无耻"本质是现代商业社会的实用主义精神：不讲道德牌坊，只讲实际利益；不论文采风流，只论执行效率。</p>
-    <p>但这种现代性是有边界的：林晚荣从不挑战皇权（他结交权贵而非造反），从不否定家庭伦理（他对董巧巧的承诺是真诚的）。他的"叛逆"是精致的、有节制的——在体制内最大化个人利益。</p>
+    <p><strong>现代性 vs 传统性</strong>，这是全书最根本的矛盾。林晚荣的"无耻"本质是现代商业社会的实用主义精神：不讲道德牌坊，只讲实际利益；不论文采风流，只论执行效率。</p>
+    <p>但这种现代性是有边界的：林晚荣从不挑战皇权（他结交权贵而非造反），从不否定家庭伦理（他对董巧巧的承诺是真诚的）。他的"叛逆"是精致的、有节制的，在体制内最大化个人利益。</p>
   </div>
 
   <div class="analysis-item">
     <h4>人物弧线</h4>
-    <p><strong>林晚荣</strong>：从"被动穿越者"到"主动布局者"。初期的林晚荣只是想过好日子，后期的他开始主动构建商业帝国和政治网络。他的转变不是道德升华，而是能力升级——从"卖小册子"到"设计商业模式"到"结交权贵"，每一步都是认知层级的提升。</p>
-    <p><strong>萧玉若</strong>：从"看不起家丁"到"不得不依赖"。她的转变是全书最细腻的情感线——冷艳外壳下的脆弱和骄傲，被林晚荣一点点瓦解。</p>
+    <p><strong>林晚荣</strong>：从"被动穿越者"到"主动布局者"。初期的林晚荣只是想过好日子，后期的他开始主动构建商业帝国和政治网络。他的转变不是道德升华，而是能力升级，从"卖小册子"到"设计商业模式"到"结交权贵"，每一步都是认知层级的提升。</p>
+    <p><strong>萧玉若</strong>：从"看不起家丁"到"不得不依赖"。她的转变是全书最细腻的情感线，冷艳外壳下的脆弱和骄傲，被林晚荣一点点瓦解。</p>
   </div>
 
   <div class="analysis-item">
     <h4>历史逻辑</h4>
-    <p>作者想通过这段叙事说明：<strong>商业逻辑比武功更能改变历史</strong>。传统穿越文靠武功称霸，林晚荣靠商业思维逆袭。这是对"武力至上"叙事的一种反叛——在真实历史中，改变社会的不是武林高手，而是商人和技术革新者。</p>
+    <p>作者想通过这段叙事说明：<strong>商业逻辑比武功更能改变历史</strong>。传统穿越文靠武功称霸，林晚荣靠商业思维逆袭。这是对"武力至上"叙事的一种反叛，在真实历史中，改变社会的不是武林高手，而是商人和技术革新者。</p>
     <p>但作者也隐含了一个悲观判断：即使林晚荣有现代知识，他仍然需要依附体制（萧家、权贵）才能生存。个人才华在古代社会的结构性压迫下，只能做"精致的利己主义者"，而非"革命者"。</p>
   </div>
 </div>
@@ -511,28 +601,28 @@
   <div class="analysis-item">
     <h4>作者动机</h4>
     <p>禹岩写这本书的"不写不行的那股劲儿"是什么？是对传统穿越文"武力至上"套路的厌倦，是对"才子佳人"叙事模式的反叛。他想写一个<strong>不用武功、不用权谋、只用商业思维</strong>就能在古代社会混得风生水起的普通人。</p>
-    <p>林晚荣的"无耻"是作者对"道德洁癖"的抗议——在真实世界里，成功者往往不是最道德的，而是最务实的。</p>
+    <p>林晚荣的"无耻"是作者对"道德洁癖"的抗议，在真实世界里，成功者往往不是最道德的，而是最务实的。</p>
   </div>
 
   <div class="analysis-item">
     <h4>作者盲点</h4>
-    <p>禹岩没看到的是：<strong>林晚荣的成功本质上是"作弊"</strong>。他的商业创新（旗袍、内衣、香水）在真实古代社会根本不可能成功——技术门槛（面料工艺）、文化阻力（礼教束缚）、市场教育成本都被作者低估了。</p>
+    <p>禹岩没看到的是：<strong>林晚荣的成功本质上是"作弊"</strong>。他的商业创新（旗袍、内衣、香水）在真实古代社会根本不可能成功，技术门槛（面料工艺）、文化阻力（礼教束缚）、市场教育成本都被作者低估了。</p>
     <p>作者把古代社会写得太"配合"了：萧家母女虽然羞赧但最终接受，权贵虽然惊讶但最终欣赏。真实的历史阻力被喜剧化处理了。</p>
   </div>
 
   <div class="analysis-item">
     <h4>跨域映射</h4>
-    <p><strong>映射一（公司/创业域）</strong>：这本书的结构与硅谷创业叙事惊人一致——林晚荣 = 连续创业者，萧家 = 早期投资人（渠道和资源），陶东成 = 想收购打压的竞争对手，徐渭/洛远 = 政府关系，多位女性 = 分工明确的核心团队。穿越文的本质是<strong>"时空套利"</strong>：把未来验证过的模式搬到过去执行，与"Copy to China"逻辑一致。</p>
-    <p><strong>映射二（乡村运营域）</strong>：把城市验证过的产品逻辑搬进乡村，本质也是一次"时空套利"——民宿运营者相对本地供给方握有"未来信息"（客群审美、会员制、体验设计），但和林晚荣一样，落地必须依附本地"萧家"（村集体、在地渠道），单靠认知优势寸步难行。</p>
+    <p><strong>映射一（公司/创业域）</strong>：这本书的结构与硅谷创业叙事惊人一致，林晚荣 = 连续创业者，萧家 = 早期投资人（渠道和资源），陶东成 = 想收购打压的竞争对手，徐渭/洛远 = 政府关系，多位女性 = 分工明确的核心团队。穿越文的本质是<strong>"时空套利"</strong>：把未来验证过的模式搬到过去执行，与"Copy to China"逻辑一致。</p>
+    <p><strong>映射二（乡村运营域）</strong>：把城市验证过的产品逻辑搬进乡村，本质也是一次"时空套利"，民宿运营者相对本地供给方握有"未来信息"（客群审美、会员制、体验设计），但和林晚荣一样，落地必须依附本地"萧家"（村集体、在地渠道），单靠认知优势寸步难行。</p>
   </div>
 
   <div class="analysis-item">
     <h4>行动触发</h4>
     <p>读完这本书，可以立刻做的事：</p>
     <ul>
-      <li><strong>交易场景——先找信息不对称</strong>：开仓或谈判前先问一句"这笔交易里，我知道而对手不知道的是什么"；答不上来，就不该有仓位</li>
-      <li><strong>民宿/乡村运营——设计护城河</strong>：不押注单点技术，而是渠道控制 + 品牌溢价 + 用户习惯的组合；村宿的护城河同理：在地关系 + 体验独家 + 复购机制</li>
-      <li><strong>构建支持网络</strong>：情感关系本质是资源交换，但要真诚——林晚荣对董巧巧的感情是真实的，这是他能留住人的根本</li>
+      <li><strong>交易场景，先找信息不对称</strong>：开仓或谈判前先问一句"这笔交易里，我知道而对手不知道的是什么"；答不上来，就不该有仓位</li>
+      <li><strong>民宿/乡村运营，设计护城河</strong>：不押注单点技术，而是渠道控制 + 品牌溢价 + 用户习惯的组合；村宿的护城河同理：在地关系 + 体验独家 + 复购机制</li>
+      <li><strong>构建支持网络</strong>：情感关系本质是资源交换，但要真诚，林晚荣对董巧巧的感情是真实的，这是他能留住人的根本</li>
       <li><strong>降低道德门槛但守底线</strong>：在极端不确定环境中，"务实"优先于"体面"，但底线不破（林晚荣从不背叛朋友）</li>
     </ul>
   </div>
@@ -548,7 +638,7 @@
 
   <div style="border: 1px solid var(--black); padding: 32px; text-align: center; margin: 24px 0;">
     <p style="font-size: 20px; font-weight: 700; margin: 0;">逆袭 = 现代思维 ×（商业创新 + 情感绑定 + 政治结交）</p>
-    <p style="font-size: 12px; color: var(--mid); margin: 12px 0 0;">小注：三个因子一一对应第三层的三条目标线——赚钱、泡妞、保命；"穿越"只是点火条件，不进公式。</p>
+    <p style="font-size: 12px; color: var(--mid); margin: 12px 0 0;">小注：三个因子一一对应第三层的三条目标线，赚钱、泡妞、保命；"穿越"只是点火条件，不进公式。</p>
   </div>
 
   <div class="analysis-item">
@@ -592,16 +682,16 @@
   </div>
 
   <div style="line-height: 1.8; text-align: justify;">
-    <p>前面几层按下不表的东西，现在摊开：第一层那单五两银子的小册子生意，和第二层留下的那个问题——他的"无耻"为什么偏偏在古代社会格外好使。</p>
+    <p>前面几层按下不表的东西，现在摊开：第一层那单五两银子的小册子生意，和第二层留下的那个问题，他的"无耻"为什么偏偏在古代社会格外好使。</p>
     <p>林晚荣第一次让我吃惊，不是他对出了千古绝对，而是他卖那本五两银子的小册子时的理直气壮。</p>
     <p>"寒门才子既然来了，就要做好心理准备。如果他们真有本事，就应该凭真本事娶了萧大小姐去。来买我们的小报，算是怎么回事情？"</p>
-    <p>这段话的精妙之处在于：林晚荣同时占据了道德高地和商业利益。他不是在骗钱，他是在"筛选"——筛掉那些想走捷径的人，留下那些愿意为信息付费的人。这是一种高级的心理操控：让买家觉得自己不是在买八卦，而是在买资格。</p>
+    <p>这段话的精妙之处在于：林晚荣同时占据了道德高地和商业利益。他不是在骗钱，他是在"筛选"，筛掉那些想走捷径的人，留下那些愿意为信息付费的人。这是一种高级的心理操控：让买家觉得自己不是在买八卦，而是在买资格。</p>
     <p>但这只是表层。真正让我停下来的是：林晚荣的"无耻"为什么在古代社会有效？</p>
-    <p>答案是：<strong>古代社会的道德体系是一种"表演性道德"</strong>。才子们吟诗作赋是为了展示才华，侯跃白追求洛凝是为了展示风流，陶东成求爱萧玉若是为了展示诚意——他们都在表演，而林晚荣拒绝表演。</p>
-    <p>林晚荣的"无耻"本质是<strong>"认知诚实"</strong>。他承认自己想赚钱、想泡妞、想活下去，不包装成"为国为民"或"风流倜傥"。在古代社会，这种诚实反而成了一种稀缺资源——因为所有人都习惯了表演，突然遇到一个不表演的人，反而觉得新鲜。</p>
-    <p>肖青璇为什么对林晚荣感兴趣？不是因为他有才华，而是因为他"不像才子"。秦仙儿为什么警告他离开萧家？因为她看到了林晚荣身上那种"不表演"的特质会招来危险——在一个表演型社会里，拒绝表演就是挑战规则。</p>
+    <p>答案是：<strong>古代社会的道德体系是一种"表演性道德"</strong>。才子们吟诗作赋是为了展示才华，侯跃白追求洛凝是为了展示风流，陶东成求爱萧玉若是为了展示诚意，他们都在表演，而林晚荣拒绝表演。</p>
+    <p>林晚荣的"无耻"本质是<strong>"认知诚实"</strong>。他承认自己想赚钱、想泡妞、想活下去，不包装成"为国为民"或"风流倜傥"。在古代社会，这种诚实反而成了一种稀缺资源，因为所有人都习惯了表演，突然遇到一个不表演的人，反而觉得新鲜。</p>
+    <p>肖青璇为什么对林晚荣感兴趣？不是因为他有才华，而是因为他"不像才子"。秦仙儿为什么警告他离开萧家？因为她看到了林晚荣身上那种"不表演"的特质会招来危险，在一个表演型社会里，拒绝表演就是挑战规则。</p>
     <p>所以林晚荣的生存策略有两层：表面上是用现代知识降维打击，深层是用"认知诚实"打破表演型社会的虚伪。前者让他赚钱，后者让他赢得人心。</p>
-    <p>但这也埋下了隐患。当林晚荣的"不表演"威胁到太多人的利益时（陶东成、白莲教、甚至朝廷），他就会成为众矢之的。这本书的前98章，本质上是一个"诚实者"在"表演型社会"里的生存实验——实验还没结束，但已经露出了危险的信号。</p>
+    <p>但这也埋下了隐患。当林晚荣的"不表演"威胁到太多人的利益时（陶东成、白莲教、甚至朝廷），他就会成为众矢之的。这本书的前98章，本质上是一个"诚实者"在"表演型社会"里的生存实验，实验还没结束，但已经露出了危险的信号。</p>
   </div>
 </div>
 

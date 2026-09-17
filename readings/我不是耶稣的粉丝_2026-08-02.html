@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我不是耶稣的粉丝 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">我不是耶稣的粉丝</div>
+    <div class="cover-sub">艾德曼（Kyle Idleman）· Not a Fan：你是在崇拜偶像，还是在追寻信仰</div>
+    <div class="cover-meta">凯尔 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">你到底是耶稣的粉丝，还是耶稣的跟随者？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">第一项前提，耶稣呼召人「跟随」，而跟随的定义是舍己、背十字架、把主权交出来（欣赏、认同、知道这些都不算）。第二项前提，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这本书拆到底，就四件事在起作用</span>
+      <span class="toc-desc">十二章、几十个圣经人物，看着是一本讲道的书。但拆到底，牵动全书的只有四件事，一件比一件狠。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着「为什么人宁愿当粉丝」这根线，一路挖到底</span>
+      <span class="toc-desc">艾德曼证明了很多人是粉丝而非跟随者。但有个问题他只在字里行间碰过：为什么当粉丝明明知道「认识」比「知道」好，大...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着八个问题，把作者的推理走一遍</span>
+      <span class="toc-desc">结论：差在「代价」，粉丝的喜欢不需要付出什么，跟随者的喜欢要求交出什么。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">艾德曼是牧师，每天面对会众，他看见的问题很具体：教会里坐满了「好人」，礼拜从不缺席、奉献从不吝啬、祷告从来都做...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">粉丝享受信仰，跟随者交出主权。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 你可以知道关于一个人所有的事，却完全不认识他</span>
+      <span class="toc-desc">凯尔·艾德曼这本《我不是耶稣的粉丝》里有个场景，我读的时候放不下：他说自己曾经能一口气背出圣经六十六卷书的目录...</span>
+    </div>
+  </div>
+
   <h1>我不是耶稣的粉丝</h1>
   <div class="author">凯尔·艾德曼（Kyle Idleman）· Not a Fan：你是在崇拜偶像，还是在追寻信仰</div>
 </div>
@@ -350,11 +431,11 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>
 
-  <h3>一句话：作者在答什么问题</h3>
+  <h3>核心问题与直接回答</h3>
   <p>你到底是耶稣的粉丝，还是耶稣的跟随者？</p>
   <p>回答：这两者的区别，是生死之别。粉丝是「热情的仰慕者」：欣赏耶稣、认同耶稣、知道关于耶稣的一切，但从不付代价、从不真正认识祂；跟随者是「全然委身的人」：舍己、背十字架、把人生主权交出去。艾德曼（美国基督教牧师）用一整本书把这个区分讲透，并警告：耶稣说「我从来不认识你们」的那一天，许多自称跟随者的人会发现，自己只是个粉丝。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>凯尔·艾德曼是印第安纳州东南基督教会的牧师，他的教会以「不留情面地讲真话」闻名。这本书的起点是他自己的反省：他曾经能一口气背出圣经六十六卷书的目录，为自己「属灵的成就感」沾沾自喜，直到他意识到，耶稣根本不在乎他会这个绝活。他知道关于耶稣的一切，却差点错过了认识耶稣本身。</p>
   <p>全书以「粉丝 vs 跟随者」的对比为骨架，逐章拆解两者的区别：知道还是认识？欣赏还是委身？选项之一还是唯一？表面还是内在？每章都用圣经人物做案例：尼哥德慕（夜里偷偷来见耶稣的「粉丝」）、五饼二鱼的人群（要免费食物的粉丝）、客西马尼园的耶稣（放弃主权的跟随者），把「跟随之道」的代价和荣耀都摆上台面。</p>
 
@@ -363,7 +444,7 @@
   <p><strong>粉丝随时可以转队，跟随者签的是终身合同。</strong>球队连败几场，粉丝的热情就降温，然后毫不留情地转投别队。艾德曼说，耶稣已经拥有够多粉丝了：状况好时鼓掌叫好，状况不好时转身就走。跟随者没有「转队」这个选项。</p>
   <p><strong>粉丝想要祝福，跟随者想要祂。</strong>五饼二鱼之后的人群追着耶稣跑，因为要免费的食物；耶稣说，他们找祂，图的是吃饼得饱。艾德曼的质问很尖锐：你要的是耶稣，还是耶稣为你做的事？</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一位对会众说实话的牧师，在台上讲道：犀利、直接、不讨好。他反复用日常比喻（球迷、粉丝、约会、D.T.R.「定义关系」）把信仰的严肃问题讲得很扎人。但他不是来吓唬人的，他的结尾总是把「跟随」的代价和「跟随」的喜乐放在一起，像医生一边说你得动手术，一边说手术之后你能站起来。</p>
 </div>
 
@@ -371,19 +452,19 @@
   <div class="layer-num">第二层</div>
   <h2 class="layer-title">作者凭什么这么说</h2>
 
-  <h3>论证链</h3>
-  <p>前提一：耶稣呼召人「跟随」，而跟随的定义是舍己、背十字架、把主权交出来（欣赏、认同、知道这些都不算）。前提二：多数自称基督徒的人，做的是「知道关于耶稣的事」而「不付代价」的粉丝行为。前提三：耶稣自己明确警告：祂「不认」那些只说不做的粉丝（马太福音第七章）。结论：信徒要检查自己是粉丝还是跟随者，检查的标准看代价和委身，不看仪式和知识。</p>
+  <h3>核心论证逻辑</h3>
+  <p>第一项前提，耶稣呼召人「跟随」，而跟随的定义是舍己、背十字架、把主权交出来（欣赏、认同、知道这些都不算）。第二项前提，多数自称基督徒的人，做的是「知道关于耶稣的事」而「不付代价」的粉丝行为。第三项前提，耶稣自己明确警告：祂「不认」那些只说不做的粉丝（马太福音第七章）。结论：信徒要检查自己是粉丝还是跟随者，检查的标准看代价和委身，不看仪式和知识。</p>
 
-  <h3>三个具体的证据</h3>
+  <h3>关键事实与核心实证</h3>
   <p><strong>证据一：作者自己的「圣经目录绝活」。</strong>艾德曼能一口气背出圣经六十六卷书的目录，为此充满「属灵的成就感」。直到他醒悟：这个绝活耶稣根本看不上。他自嘲：他盼望大审判那天耶稣会让人背目录晋级，可惜耶稣不玩这个游戏。这个案例的锋利之处：知识型信仰是最常见的粉丝形态，知道得越多，越容易把「知道」当成「认识」。</p>
   <p><strong>证据二：尼哥德慕的夜访。</strong>法利赛人尼哥德慕夜里偷偷来找耶稣：他是真心的，但不想付出代价：白天来会失去犹太会议的地位、同侪的敬重、生活的舒适。他想要耶稣，却不想要耶稣介入他的人生。艾德曼说这跟许多粉丝心态一模一样：「只要不设门槛、不要求改变或代价，大部分粉丝是乐于跟随耶稣的。」后来尼哥德慕在会议上为耶稣说了一句辩护的话，但只此一句，半吊子的跟随，是粉丝的典型姿势。</p>
   <p><strong>证据三：五饼二鱼之后的人群。</strong>耶稣喂饱五千人之后，人群追着祂跑。耶稣点破他们的动机：你们找我，为的是吃饼得饱，不是看了什么神迹。他们要的是祝福，不是祂；要的是免费的午餐，不是关系。艾德曼由此提出全书最扎心的提问：你要的是耶稣，还是耶稣为你做的事？如果你要的是祂做的事，那祂把事做完之后，你会继续跟着祂吗？</p>
 
-  <h3>隐形假设（作者没说，但必须成立）</h3>
+  <h3>底层隐含假设</h3>
   <p><strong>圣经是上帝的话，耶稣的教导是最高权威。</strong>全书论证的地基：他引用马太福音、路加福音、约翰福音作为「耶稣说了什么」的证据，这个前提对不信者不成立。对非基督徒读者，这本书的论证链不构成证明，只构成一种观察：「粉丝和跟随者的区分」可以欣赏，但「耶稣要求委身」必须先在信仰里才成立。</p>
   <p>另一条更隐蔽：<strong>委身可以用「代价」来衡量。</strong>他说「跟随者付代价、粉丝不付代价」，代价成了判断真假的试金石。但什么是「代价」？有人把「奉献金钱」当代价，有人把「放弃事业」当代价，标准一旦模糊，「付代价」本身也可能变成一种表演（故意活得很苦来证明自己虔诚）。他没有处理这个测量问题。</p>
 
-  <h3>边界条件（什么情况下这套会失效）</h3>
+  <h3>适用边界与失效条件</h3>
   <p>第一，这本书默认读者是「自认基督徒的人」：对慕道者或无神论者，粉丝/跟随者之辨是另一回事。第二，他强调「代价」时，容易滑向「行为称义」的误解（付了代价才配得救），他自己也意识到这点，反复纠正：代价是跟随的证据，不是得救的条件，但这个平衡，书里并不总能稳住。第三，他用美国中产教会的语境（后车厢贴纸、脸书宗教栏、教会长大的孩子）讲例子，对华人读者，粉丝的形态可能完全不同（祖宗信仰、文化基督徒、功利性祈祷），需要自己平移。</p>
 </div>
 

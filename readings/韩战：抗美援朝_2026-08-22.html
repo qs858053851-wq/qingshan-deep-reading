@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>韩战：抗美援朝 · 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,12 +380,52 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-<div class="kicker">九层解书 · 战争专题</div>
-<h1>韩战：抗美援朝</h1>
-<div class="sub">从仁川登陆的大胆成功，到长津湖的极寒苦战，再到米格走廊和 B-29 电子战。这本专题集真正关心的是战场记录怎样穿过宣传、记忆和技术名词，尽量靠近发生过的事。</div>
-<div class="meta"><b>周明、光亭、马丹松 等</b>　·　扫描版全文 OCR　·　2026-08-22</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">韩战：抗美援朝</div>
+    <div class="cover-sub">扫描版全文 OCR　·　2026-08-22</div>
+    <div class="cover-meta">周明、光亭、马丹松 等 · 解读主理：青山 · 日期：2026-08-22 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书挑了五个切面</span>
+      <span class="toc-desc">一九五〇年六月二十五日，朝鲜人民军越过三八线向南进攻。书中明确采用苏联档案公开后的通行判断，进攻得到斯大林同意...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 五类材料怎样互相校正</span>
+      <span class="toc-desc">仁川篇没有只写麦克阿瑟排众议。它逐项列出潮差、飞鱼航道、月尾岛火力和海堤高度，也写出美军侦察、欺骗和海空火力准...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 几组专题背后的四条线</span>
+      <span class="toc-desc">仁川登陆成功依靠北方防御薄弱和美军保密，成功又让麦克阿瑟把一次大胆判断当成持续正确的证明。向鸭绿江推进时，中国...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 为什么大胜常把下一步推得太远</span>
+      <span class="toc-desc">美军选择了防御薄弱、战略价值高的地点，并用制海权和制空权承担潮汐与航道风险。朝鲜人民军主力集中在釜山方向，后方...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八问穿过最容易争执的地方</span>
+      <span class="toc-desc">仁川靠近汉城和朝鲜人民军南线补给通道，登陆成功能够产生远大于港口本身的效果。北方判断仁川不适合登陆，守军和工事...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 这本书照亮了什么，又留下什么</span>
+      <span class="toc-desc">编者想把战争从纪念口号拉回可核对的行动。长津湖篇明确纪念志愿军在极端条件下的牺牲，同时承认陆战队的组织和战斗能...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 把五组专题压到一张纸上</span>
+      <span class="toc-desc">一次大胆行动能够打开局面，持续作战要靠其余三项。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 长津湖为什么容不下一个简单胜负</span>
+      <span class="toc-desc">同一天，湖西的海军陆战队第五团和第七团也从柳潭里向下碣隅里撤退。德洞山口没有被志愿军攻下，巴伯上尉指挥 F 连...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 留下一句话</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 <section class="layer" id="layer-1">
 <div class="layer-num">第一层</div>
 <h2 class="layer-title">这本书挑了五个切面</h2>

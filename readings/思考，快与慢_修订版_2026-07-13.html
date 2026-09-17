@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>思考，快与慢 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · Layer 01–09</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">思考，快与慢</div>
+    <div class="cover-sub">Thinking, Fast and Slow · 中信出版社 · 解读于 2026-07-07</div>
+    <div class="cover-meta">丹尼尔·卡尼曼 著 · 胡晓姣 李爱民 何梦莹 译 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">卡尼曼给了一个清楚的回答：人有两种思考方式，他叫系统1和系统2。系统1快、自动、不费力，你看一张愤怒的脸就知道...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">卡尼曼的论证链可以拆成四步，每一步都踩在前一步上。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三件事在起作用</span>
+      <span class="toc-desc">《思考，快与慢》三十八章，几百个实验，看下去千头万绪。可你把它抻开看，真正牵动全书的线就三根。把这三根捏在手里...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">三根线里最深的是第一根，眼见即为事实。我们顺着它往井底钻，一层一层往下，看能坠到哪。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 九个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">结论:因为系统2懒，跟智商没关系。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">卡尼曼写这本书，表面是学术总结，底下的劲儿是要撬动一个东西:经济学和政策制定里那个「理性人」假设。他和特沃斯基...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">你以为你在用理性，其实多半是系统1走捷径、系统2盖章;你能改的只有一件事:知道哪里该慢下来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 你以为的「认真想过」，多半是事后的合理化</span>
+      <span class="toc-desc">前面几层按下不表的那个麻烦，系统2是律师不是法官，你以为的「认真想过」多半是它在讲圆，现在摊开。你肯定有过...</span>
+    </div>
+  </div>
+
   <h1>思考，快与慢</h1>
   <div class="author">丹尼尔·卡尼曼 著 · 胡晓姣 李爱民 何梦莹 译</div>
   <div class="meta">Thinking, Fast and Slow · 中信出版社 · 解读于 2026-07-07</div>
@@ -426,11 +507,11 @@
 
   <h3>第一根线:眼见即为事实</h3>
 
-  <p>卡尼曼给系统1的工作方式起过一个总名，叫WYSIATI——What you see is all there is，眼见即为事实。意思是:系统1只用手头这点信息编故事，不在意那些它没看见的、可能更重要的信息，更不在意自己「没看见」这件事。</p>
+  <p>卡尼曼给系统1的工作方式起过一个总名，叫WYSIATI，What you see is all there is，眼见即为事实。意思是:系统1只用手头这点信息编故事，不在意那些它没看见的、可能更重要的信息，更不在意自己「没看见」这件事。</p>
 
   <p>这根线是全书偏见的总开关。你顺着它看，第二部分那些著名的偏见，全是它的变奏。可得性启发，因为容易想起来，就以为这事常发生，它只看到了「容易想起来」这一点，没看到「为什么容易想起来」(可能因为你最近刚经历过，不代表它真高频)。代表性启发，因为像，就判定是，它只看到了「像」，没看到基础比率。锚定，只看到了那个锚数，就从锚往上调，调多少取决于「调起来多累」，跟真实值几乎无关。光环效应，只看到了前几条好印象，后几条就被前几条染了色。琳达题更是它的代表作:系统1看到一个顺溜的好故事(哲学出身、关心正义的女权主义者→女权主义银行出纳)，就不再问「这个故事在概率上是否比单纯的银行出纳更大」。</p>
 
-  <p>把这根线再往下拧一层，就连到系统2。卡尼曼有一句很容易被读者滑过去的话:系统2会「认可系统1形成的观点和感觉，或将这些观点和感觉合理化，你还会相信自己编造的故事」。系统2不是理性的把关人，更像系统1的辩护律师，它接到结论第一反应是「怎么讲圆它」，不是「这靠谱吗」。律师这重身份在第八层要单独摊开——它牵出一个关于「自我」的麻烦，这里先按下。第一根线走到这儿就完整了:系统1用所见编故事，系统2懒得纠偏还替它盖章。</p>
+  <p>把这根线再往下拧一层，就连到系统2。卡尼曼有一句很容易被读者滑过去的话:系统2会「认可系统1形成的观点和感觉，或将这些观点和感觉合理化，你还会相信自己编造的故事」。系统2不是理性的把关人，更像系统1的辩护律师，它接到结论第一反应是「怎么讲圆它」，不是「这靠谱吗」。律师这重身份在第八层要单独摊开，它牵出一个关于「自我」的麻烦，这里先按下。第一根线走到这儿就完整了:系统1用所见编故事，系统2懒得纠偏还替它盖章。</p>
 
   <h3>第二根线:评估靠相对，不靠绝对</h3>
 
@@ -646,7 +727,7 @@
   <div class="layer-num">Layer 08</div>
   <h2 class="layer-title">你以为的「认真想过」，多半是事后的合理化</h2>
 
-  <p>前面几层按下不表的那个麻烦——系统2是律师不是法官，你以为的「认真想过」多半是它在讲圆——现在摊开。你肯定有过这样的瞬间。一个决定已经做了，买了那辆车、选了那份工作、拒绝了那个邀请，朋友问你为什么，你张口就给出一套漂亮理由:性价比、发展空间、当时的感觉。理由顺溜、逻辑清楚、连你自己都觉得「对，我确实是这么想的」。</p>
+  <p>前面几层按下不表的那个麻烦，系统2是律师不是法官，你以为的「认真想过」多半是它在讲圆，现在摊开。你肯定有过这样的瞬间。一个决定已经做了，买了那辆车、选了那份工作、拒绝了那个邀请，朋友问你为什么，你张口就给出一套漂亮理由:性价比、发展空间、当时的感觉。理由顺溜、逻辑清楚、连你自己都觉得「对，我确实是这么想的」。</p>
 
   <p>卡尼曼会让你对这套理由起疑。他的实验工作指向一个不太好接受的可能:那套理由很可能是事后编出来的，编的过程你又自己信了。系统1先给了你一个倾向(那辆车顺眼、那份工作让你安心、那个邀请让你莫名不爽)，系统2接到这个倾向，第一反应是「怎么讲圆它」，没问「这靠谱吗」。它讲圆的本事极强，而且讲完之后，你主观上分不清「我先想清楚再决定」和「我先有倾向再编理由」的区别。两者在你的内省里是同一个体验。</p>
 

@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中华文化十二讲 —— 解书</title>
+<title>中华文化十二讲 ， 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>中华文化十二讲</h1>
-  <div class="author">钱穆 · 一九六八至一九七〇年在台讲演集</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中华文化十二讲</div>
+    <div class="cover-sub">一个流亡者对着军人讲：中国文化凭什么不能死</div>
+    <div class="cover-meta">钱穆 · 一九六八至一九七〇年在台讲演集 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先说这本书的来历，因为来历就是钥匙。一九六八年，七十四岁的钱穆在台湾，应空军政治部之邀，跑遍八个空军基地，对着...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">钱穆在讲台上不给脚注，他的论证方式是"摆事实+讲道理"。挑三个最承重的证据看，再挑破一个他埋在底下的假设。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">十二讲看着天南地北，性道合一、人伦、心生活、民族、武功、中庸、历史方法论，其实底下就两根线。用这两根线，每一讲...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">两根线里更深的是第一根：性道合一。这四个字听着像句老生常谈，其实是一次文明级别的豪赌。往下挖</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">一九六八年的钱穆，是个双重流亡者：从大陆流亡到香港，从香港流亡到台湾。他这一辈子，眼看着自己的文化被两面夹击：...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">性是根：价值从人性里长，不从天上降，不从外面借，所以砍不断。道是路：顺性走出来的秩序，人人能走，处处可通，所以...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">前面七层，有一个东西我一直按着没展开：钱穆说"中国文化没有产生宗教"，而且他把这当成优点来讲。这话第一次听，多...</span>
+    </div>
+  </div>
+
   <div class="tagline">一个流亡者对着军人讲：中国文化凭什么不能死</div>
 </div>
 
@@ -399,7 +475,7 @@
 
   <p>这个证据的选法很聪明：它取样自社会最底层（洗衣店、饭馆），不是士大夫。士大夫的文化自信可以解释为利益，洗衣工的没法这么解释。钱穆要说明的是：这套文化不只活在书里，活在最普通的人的情感深处。"若非有一合理的基础，何以能有此现象"。</p>
 
-  <h3>证据三：关羽岳飞——失败者的祭祀</h3>
+  <h3>证据三：关羽岳飞，失败者的祭祀</h3>
 
   <p>第十讲论证"中国军人重是非超过重胜败"，证据是一个民俗事实：中国人供奉的武圣，是关羽和岳飞，两个失败者。关羽降曹又归刘，"在历史上表达了一个义字"；岳飞十二道金牌班师，冤死风波亭，"表达了一个忠字"。"他们的失败，却比成功的价值更高。"日月潭有文武庙，香港警察署供关公，河内咖啡馆里关公与孙中山并挂。拿谁当神，是一个社会价值排序最诚实的口供。这个论证方式，比他直接讲十句"中国人重义轻利"都有力。</p>
 
@@ -596,7 +672,7 @@
 
   <p>再攻一层：这套"充电网络"的说法，听着还是虚。它真在历史里起过作用吗？钱穆给过一个我反复想的证据：海外的华侨。清末民初下南洋、去旧金山的，是些什么人？是活不下去的农民、苦力，大字不识几个，四书五经没读过。按说他们身上那点文化储备，最该先耗光。可是两三代人过去，在洗衣店、饭馆、猪仔船的日子里，他们还是要孩子学说中国话、过中国节、供关公，学者劝他们"别办华文学校了"，他们"很不高兴"。这不是读了圣贤书的结果。这是充电网络的民间版：祠堂、戏台、节庆、乡音，这些不起眼的东西，在没有一座书院的地方，把那个内置系统一代一代充了下来。钱穆管这个叫"潜在力"。我看这是中国文化史上最被低估的一次考验：一个文明的内置系统，在没有任何官方维护的环境里，靠最底层的人，用最土的办法，撑了上百年</p>
 
-  <p>这就带出一个对今天很有劲的视角。我们这个时代，上帝退场退得更干净了，教会、宗族、祠堂、戏台，这些老那些充电的地方也拆得差不多了。而新的焦虑，空心病、躺平、意义感的普遍饥荒——恰恰都长在"内置系统失养"这个位置上。年轻人想做好人，只是没人告诉他好在哪里、凭什么；也想努力，只是不知道努力连着什么更大的东西。钱穆在一九六八年开的方子，听着老，其实直指这个病根：意义不能从外面灌。钱、流量、别人的点赞都是外置的，充得快掉得也快；得靠自己的系统长出来；而自己的系统要长，就得接上一条充电的线：家的线、书的线、师友的线、历史的线。</p>
+  <p>这就带出一个对今天很有劲的视角。我们这个时代，上帝退场退得更干净了，教会、宗族、祠堂、戏台，这些老那些充电的地方也拆得差不多了。而新的焦虑，空心病、躺平、意义感的普遍饥荒，恰恰都长在"内置系统失养"这个位置上。年轻人想做好人，只是没人告诉他好在哪里、凭什么；也想努力，只是不知道努力连着什么更大的东西。钱穆在一九六八年开的方子，听着老，其实直指这个病根：意义不能从外面灌。钱、流量、别人的点赞都是外置的，充得快掉得也快；得靠自己的系统长出来；而自己的系统要长，就得接上一条充电的线：家的线、书的线、师友的线、历史的线。</p>
 
   <p>我不是说要把孔庙重新修起来。钱穆自己讲的也很清楚，他要复兴的是那个"合一"，不是仪式：一个人骨子里信的和他每天做的，是一回事。这种合一，我见过真人：不用名言警句说话，但你能感到他心里有杆秤，没人看着的时候，秤也在。那种人身边待久了，你自己的秤也会准一点。这就是钱穆说的充电，也是他说的心能影响心。一个社会这样的活人多了，文化就活着；只剩书本里的道理，没有这样的活人，文化就是展品</p>
 

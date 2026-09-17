@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>太平广记 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>太平广记</h1>
-  <div class="author">[宋] 李昉 等编 · 五百卷 · 收汉至宋初野史笔记小说</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">太平广记</div>
+    <div class="cover-sub">一部古代故事的总汇。它把宋以前近千年的神、鬼、狐、仙、侠客、异人，全收进五百卷里。读的它，就像翻一座中国人想象力的仓库。</div>
+    <div class="cover-meta">[宋] 李昉 等编 · 五百卷 · 收汉至宋初野史笔记小说 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《太平广记》跟《太平御览》是姊妹篇，同一个皇帝（宋太宗）、同一批人（李昉等）、差不多同时编的。但它俩干的事不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">《太平广记》编完，搁了几百年，为什么后世研究古代小说的人，谁也绕不开它？靠的是三样硬东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">七千个故事，九十二类，看着是个乱糟糟的大杂院。但把这些故事连起来看，底下有中国人几千年没变的两股劲儿在牵着。这...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">照例先交代：这是部官修的总集，没有单一的作者，谈动机得换个问法，这部书的出现，意味着什么。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">把这本书压到一张餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">前面几层，讲的全是这本书的「用处」：存故事、画版图、当备份。但有一篇故事，我一直压着没讲，它跟这本书的用处没关...</span>
+    </div>
+  </div>
+
   <div class="tagline">一部古代故事的总汇。它把宋以前近千年的神、鬼、狐、仙、侠客、异人，全收进五百卷里。读的它，就像翻一座中国人想象力的仓库。</div>
 </div>
 
@@ -351,9 +423,9 @@
   <div class="layer-num">第一层</div>
   <div class="layer-title">这本书到底装了什么</div>
 
-  <p>《太平广记》跟《太平御览》是姊妹篇——同一个皇帝（宋太宗）、同一批人（李昉等）、差不多同时编的。但它俩干的事不一样。《太平御览》收的是「知识」，分门别类供人查；《太平广记》收的是「故事」，把宋以前的野史、笔记、小说，几乎整部整部地抄进来，编成五百卷。后人说它是「小说家之渊海」——中国文言小说的海。后世要研究唐传奇、宋代以前的小说，绕不开它。</p>
+  <p>《太平广记》跟《太平御览》是姊妹篇，同一个皇帝（宋太宗）、同一批人（李昉等）、差不多同时编的。但它俩干的事不一样。《太平御览》收的是「知识」，分门别类供人查；《太平广记》收的是「故事」，把宋以前的野史、笔记、小说，几乎整部整部地抄进来，编成五百卷。后人说它是「小说家之渊海」，中国文言小说的海。后世要研究唐传奇、宋代以前的小说，绕不开它。</p>
 
-  <p>它有多大？五百卷，按九十二个大类编排，收了大约七千个故事，引了四百多种书。这四百多种书，今天大半也失传了，所以《太平广记》跟《太平御览》一样，是个救命的备份——那些书死了，故事靠它活了下来。</p>
+  <p>它有多大？五百卷，按九十二个大类编排，收了大约七千个故事，引了四百多种书。这四百多种书，今天大半也失传了，所以《太平广记》跟《太平御览》一样，是个救命的备份，那些书死了，故事靠它活了下来。</p>
 
   <p>它装了什么？看它的大类就知道，这基本是一部「中国人怕什么、爱什么、想什么」的清单：</p>
 
@@ -401,12 +473,12 @@
   <p>你注意这本书的大类，占篇幅最多的是哪几类？神仙、鬼、报应、定数、再生、悟前生。这一大摞，归结起来，讲的是同一件事：人对「死」和「命」的恐惧，以及想管住它的渴望。人怕死，就编出神仙，长生不死的；怕死后没了，就编出鬼，死了还在的；怕命不由己，就编出报应和定数，善恶终有算，命里早有定。这些故事，表面讲的是神仙鬼怪，实际讲的是人心里最深处的那几个怕。你看，七千个故事里，最多的不是英雄美人，是鬼和神仙，因为对古人来说，死和命，是比什么都大的事。他们没法像今天的人这样，把生死交给医学和科学，就只能编故事，把那个不可知的黑屋子，用神仙鬼怪填满，好像这样就不那么怕了。这根线讲的是：志怪的根，是恐惧，人把对付不了的恐惧，编成了能讲出来的故事。</p>
 
   <h3>人缺什么，就梦什么</h3>
-  <p>另一大摞故事，豪侠、气义、异人、女仙、狐仙，讲的是另一件事：人在现实里得不到的，在故事里过一遍。现实中官官相护、有理没处说，就编出侠客，虬髯客、聂隐娘、昆仑奴，专门替人打抱不平、锄强扶弱；现实中婚姻是父母之命、没有爱情，就编出女仙狐妖，美丽、多情、主动，偏偏看上一个穷书生；现实中贫贱难熬，就编出定数和横财，命里该有的，总会来。这些故事，是普通人的白日梦，是憋屈现实的一个出口。这跟《子不语》里那些鬼故事还不太一样：《子不语》是文人借鬼骂人，《太平广记》里更多是老百姓借梦解馋。所以传奇的根，是匮乏——人心里补不上的窟窿，都指望在梦里圆回来。</p>
+  <p>另一大摞故事，豪侠、气义、异人、女仙、狐仙，讲的是另一件事：人在现实里得不到的，在故事里过一遍。现实中官官相护、有理没处说，就编出侠客，虬髯客、聂隐娘、昆仑奴，专门替人打抱不平、锄强扶弱；现实中婚姻是父母之命、没有爱情，就编出女仙狐妖，美丽、多情、主动，偏偏看上一个穷书生；现实中贫贱难熬，就编出定数和横财，命里该有的，总会来。这些故事，是普通人的白日梦，是憋屈现实的一个出口。这跟《子不语》里那些鬼故事还不太一样：《子不语》是文人借鬼骂人，《太平广记》里更多是老百姓借梦解馋。所以传奇的根，是匮乏，人心里补不上的窟窿，都指望在梦里圆回来。</p>
 
-  <div class="quote">聂隐娘者，唐贞元中，魏博大将聂锋之女也。年方十岁，有尼乞食于锋舍，见隐娘，悦之，云：「问押衙乞取此女教？」锋大怒，叱尼。尼曰：「任押衙铁柜中盛，亦须偷去矣。」及夜，果失隐娘所向。<div class="src">——《太平广记·豪侠·聂隐娘》。一个被尼姑偷走、学成剑术的女侠，开头就这么不讲道理——这就是唐人传奇的劲儿。</div></div>
+  <div class="quote">聂隐娘者，唐贞元中，魏博大将聂锋之女也。年方十岁，有尼乞食于锋舍，见隐娘，悦之，云：「问押衙乞取此女教？」锋大怒，叱尼。尼曰：「任押衙铁柜中盛，亦须偷去矣。」及夜，果失隐娘所向。<div class="src">，《太平广记·豪侠·聂隐娘》。一个被尼姑偷走、学成剑术的女侠，开头就这么不讲道理，这就是唐人传奇的劲儿。</div></div>
 
   <h3>两根线拧在一起，这本书就成了</h3>
-  <p>单看第一根线，这本书是一堆怪力乱神；单看第二根线，是一堆痴人说梦。两根拧在一起，才是完整的《太平广记》：它装的是中国人几千年来，最深的怕和最大的梦。怕死怕命，就编神仙鬼怪来压；缺爱缺公道，就编侠客女仙来补。这两股劲儿，一股向下（对着死），一股向上（对着生），把这本书撑得满满当当。后世的中国人为什么还爱读这些故事？因为那两股劲儿，到今天也没散——我们还是怕死，还是缺公道，所以这些故事，还是听得进去。</p>
+  <p>单看第一根线，这本书是一堆怪力乱神；单看第二根线，是一堆痴人说梦。两根拧在一起，才是完整的《太平广记》：它装的是中国人几千年来，最深的怕和最大的梦。怕死怕命，就编神仙鬼怪来压；缺爱缺公道，就编侠客女仙来补。这两股劲儿，一股向下（对着死），一股向上（对着生），把这本书撑得满满当当。后世的中国人为什么还爱读这些故事？因为那两股劲儿，到今天也没散，我们还是怕死，还是缺公道，所以这些故事，还是听得进去。</p>
 
   <p>这两根线够不够把全书推回来？大体够。占大头的神仙、鬼、报应、豪侠、女仙、狐，基本都能归进「怕」或「梦」两类，或两者兼有。也得说实话：像「贡举」「铨选」「文章」「书」「画」那些记文人实事的部分，两根线都套不太上，那就是文人的谈资掌故，没什么深意。所以更准的说法是：这两根线牵着的是这本书里最有生命力的那批故事，剩下的，是文人攒下的边角料。</p>
 </div>
@@ -481,7 +553,7 @@
 </div>
 
 <div class="golden">
-  <div class="g">本事和命运，是两回事——一身惊天的本事，也可能一辈子在替别人使刀。</div>
+  <div class="g">本事和命运，是两回事，一身惊天的本事，也可能一辈子在替别人使刀。</div>
   <div class="sig">青山 · 2026-07-18</div>
 </div>
 

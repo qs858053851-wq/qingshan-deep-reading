@@ -14,25 +14,32 @@
 <meta name="keywords" content="卫绍生,神秘与迷惘,中国古代方术阐释,数术,卜筮,周易,李虚中,徐子平,堪舆,关联性宇宙论,深度解读,青山">
 <meta name="generator" content="Kami">
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -89,6 +96,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -102,14 +120,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -118,7 +136,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -127,7 +145,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -137,7 +155,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -145,12 +163,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -166,7 +184,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -181,7 +198,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -276,9 +292,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -286,6 +301,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -338,6 +370,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -368,42 +409,42 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-list">
-    <a class="toc-item" href="#layer01">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 论证全景</span>
       <span class="toc-desc">方术全景图谱：从龟卜蓍筮到四柱八字与堪舆风水的数术网络</span>
-    </a>
-    <a class="toc-item" href="#layer02">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 证据坚壁</span>
       <span class="toc-desc">韩愈碑文与典籍铁证：士大夫阶层在理智批判与实际沉沦间的撕裂</span>
-    </a>
-    <a class="toc-item" href="#layer03">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 解释生成器</span>
       <span class="toc-desc">三根生成轴线：数理伪装、天人感应与权力焦虑代偿</span>
-    </a>
-    <a class="toc-item" href="#layer04">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 追本深潜</span>
       <span class="toc-desc">顺着关联思维下钻：人类将自然秩序道德化的认知宿命</span>
-    </a>
-    <a class="toc-item" href="#layer05">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 推理步道</span>
       <span class="toc-desc">七环连环设问：从神秘预言解剖推导至帝王官僚的统治技术</span>
-    </a>
-    <a class="toc-item" href="#layer06">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 审视视野</span>
       <span class="toc-desc">审视方术流变：当代算法推荐与数字占卜的现代还魂</span>
-    </a>
-    <a class="toc-item" href="#layer07">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸压缩</span>
       <span class="toc-desc">单页仪表盘：方术演化动力公式与全息关联结构图</span>
-    </a>
-    <a class="toc-item" href="#layer08">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 讲解引擎</span>
       <span class="toc-desc">同辰生人的不同命局：从命理机械论到复杂概率扰动的认知跃迁</span>
-    </a>
-    <a class="toc-item" href="#layer09">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">一句话断语与全书事实边界考据</span>
-    </a>
+    </div>
   </div>
 </div>
 
@@ -533,7 +574,7 @@
   <p>在普通世俗大众的常识直觉中，命理学被理解为一种神圣的决定论程序。这套零号模型的底层假设极其直白：人是宇宙大机器中的一个零件，出生的具体时空坐标吸收了特定的阴阳五行磁场能量；八字就是刻在生命底板上的出厂序列号。只要掌握了精密的五行克制算法，人生的每一次升迁、贬谪、婚变、疾病都可以像根据牛顿力学计算行星轨道一样被准确无误地预言出来。这种直觉给处于迷惘中的人提供了巨大的确定性慰藉。</p>
   <p>然而真实世界在此刻毫不留情地撕开了一个巨大的事实缺口。如果生辰八字真的决定了一切，那么同一年、同一月、同一日、同一时辰出生的人（在全中国庞大的人口基数下，同八字者往往有数千乃至上万人），为什么他们的命运走向却有着天壤之别？明代沈德符在《万历野获编》中记录过一个极其残酷的案例：朱元璋登基后极度畏惧民间有与自己八字相同的人起兵夺权，下令搜捕天下与自己同八字之人；结果抓到一个养蜂老人，老人一生无妻无子，唯独照料着十三箱蜜蜂。朱元璋恍然大悟：朕统御十三省布政使司，老翁统御十三箱蜜蜂，命局各得其所。这个故事无论真实性几何，都露出了命理机械论最尴尬的死穴：相同的干支符号输入，在现实中输出的却是一个坐拥江山的帝王和一个忍饥挨饿的蜂农！零号模型在同辰异命的事实面前彻底破绽百出。</p>
   <p>卫绍生的剖析逼着我们看穿命理学的真正运作机制：它从来不是什么揭示宿命的硬核力学，而是一套极具弹性的修辞学与模糊概率自圆体系。子平术发明的格局、透干、藏干、冲合刑害、调候用神，其规则之繁复、例外条款之繁多，赋予了解释者无限的主观裁量权。面对同样一个八字，当算命先生得知对方是落魄乞丐时，可以抓取命局中的七杀无制来解释其困顿；而当得知对方是封疆大吏时，又可以反向调取时支暗藏的贵人印绶来颂扬其贵不可言。八字推衍不是前瞻性的严谨预测，而是高度依赖信息回馈的事后诸葛亮式倒推拼图。它用严密的代数形式，伪装了主观附会的解释自由。</p>
-  <p>当我们把这套复杂的修辞机制重新带回现实世界重跑，原有的神秘感荡然无存。同辰生人的命运之所以天差地别，因为决定一个人生存结果的，是极其庞大且处于不可控动态演化中的复杂外部网络：出生地域的资源禀赋、家庭阶层的资本积累、重大历史历史事件的随机冲击、个人在关键十字路口的主观意志博弈。那个自称算命奇准的读者，实际上是在不知不觉中运用了冷读术（Cold Reading），从问卦者的衣着谈吐、神色迟疑、微小肢体动作中汲取了海量现实线索，并将其悄然转化为切中其心理弱点的神准预言。</p>
+  <p>当我们把这套复杂的修辞机制重新带回现实世界重跑，原有的神秘感荡然无存。同辰生人的命运之所以天差地别，因为决定一个人生存结果的，是极其庞大且处于不可控动态演化中的复杂外部网络：出生地域的资源禀赋、家庭阶层的资本积累、重大历史历史事件的随机冲击、个人在关键十字路口的主观意志博弈。那个自称算命奇准的先生，实际上是在不知不觉中运用了冷读术（Cold Reading），从问卦者的衣着谈吐、神色迟疑、微小肢体动作中汲取了海量现实线索，并将其悄然转化为切中其心理弱点的神准预言。</p>
   <p>这个机制在面临真正的现代可证伪性检验时会彻底崩解。只要将命理预测置于严格的双盲对照实验中，抹去所有当事人的背景身份与现场反馈，一切八字推衍的准确率就会立即跌落到与随机抛掷硬币毫无差别的统计学水平。方术在当代唯一残存的合理性，仅仅在于它可以作为一面心理投射的镜子：当事人借由卦象符号所抒发出的恐惧、执念与期许，才是唯一真实的现实存在。</p>
 </div>
 

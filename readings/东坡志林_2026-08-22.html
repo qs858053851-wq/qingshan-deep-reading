@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>东坡志林 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,14 +380,14 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-  <div class="kicker">古籍深读</div>
-  <h1>东坡志林</h1>
-  <div class="subtitle">被贬得越来越远，他在夜里给自己找了个歇处</div>
-  <div class="meta">苏轼 撰 · 罗宁 译注 · 中华书局 · 2026-08-22</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">东坡志林</div>
+    <div class="cover-sub">被贬得越来越远，他在夜里给自己找了个歇处</div>
+    <div class="cover-meta">苏轼 撰 · 罗宁 译注 · 中华书局 · 2026-08-22 · 解读主理：青山 · 日期：2026-08-22 · 典藏长交付</div>
+  </div>
 <div class="intro">依据中华书局《中华经典名著全本全注全译丛书》罗宁译注本《东坡志林》（2025）。该本以明万历赵开美刻本五卷本为主体，分二十九类，共二百零二条，并附商濬稗海本十二卷白文（三百六十四条）作附录。本文所引篇名与原文，均按该本。苏轼生平与《志林》成书、版本情况，依该书前言。此书没有苏轼自己的序，因为他不曾把它编完；今存序文为明代赵用贤所作。</div>
-<nav class="toc" aria-label="目录"><div class="toc-title">目录</div><ol><li><a href="#layer-01"><span class="n">01</span>一部没定稿的书，打开是什么感觉</a></li><li><a href="#layer-02"><span class="n">02</span>作者没说的那部分</a></li><li><a href="#layer-03"><span class="n">03</span>一张餐巾纸写得下吗</a></li><li><a href="#layer-04"><span class="n">04</span>全书最值钱的是哪一点</a></li><li><a href="#layer-05"><span class="n">05</span>一句话封印这本书</a></li></ol></nav>
+<nav class="toc" aria-label="目录"><div class="toc-title">目录</div><ol><li><span><span class="n">01</span>一部没定稿的书，打开是什么感觉</div></li><li><span><span class="n">02</span>作者没说的那部分</div></li><li><span><span class="n">03</span>一张餐巾纸写得下吗</div></li><li><span><span class="n">04</span>全书最值钱的是哪一点</div></li><li><span><span class="n">05</span>一句话封印这本书</div></li></ol></nav>
 <main>
 <section class="layer" id="layer-01"><div class="layer-num">Layer 01</div><h2>一部没定稿的书，打开是什么感觉</h2>
 <p>翻开《东坡志林》，得先接受一件事，这本苏东坡留下的书，没经过他自己编定。苏轼在去世那一年（1101）给郑靖老的信里写过一句“《志林》竟未成”。后来我们看到的每一个版本，都是别人从他死后留下的字纸里拼出来的。</p>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>浩罕国与西域政治 · 深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,13 +381,52 @@
 <body>
 <div class="container">
 
-  <section class="hero">
-    <h1 class="hero-book">浩罕国与西域政治</h1>
-    <div class="hero-author">潘志平 著 / 新疆人民出版社</div>
-    <div class="hero-desc">
-      一部聚焦十八至十九世纪费尔干纳盆地浩罕汗国与清代新疆博弈格局的开创性专著。作者梳理了一百六十七年间浩罕如何以商立国、以武拓土，利用和卓神权遗产撕开清朝西北防线，并在中亚大博弈与内部撕裂中最终覆亡的完整演化史。
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">浩罕国与西域政治</div>
+    <div class="cover-sub">浩罕政权发轫于费尔干纳盆地。这片由天山与阿赖山环抱的肥沃盆地自古便是中亚农业与丝路十字路口。1709年，乌兹别克明格部首领沙哈鲁在浩罕城自立为比，摆脱了布哈拉汗国的羁绊。彼时的浩罕...</div>
+    <div class="cover-meta">青山 读 · 浩罕国与西域政治 · 解读主理：青山 · 日期：2026-08-31 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 一百六十七年兴衰脉络与西域博弈全景</span>
+      <span class="toc-desc">浩罕政权发轫于费尔干纳盆地。这片由天山与阿赖山环抱的肥沃盆地自古便是中亚农业与丝路十字路口。1709年，乌兹别...</span>
     </div>
-  </section>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 以商立国、神权杠杆与清廷边防困境</span>
+      <span class="toc-desc">潘志平在本书中构建了严密的史料论证体系，全书通过三个核心历史案例，揭示了浩罕与清代西域政治互动的深层机理：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 决定西域政局起伏的三大底层变量</span>
+      <span class="toc-desc">分析浩罕国与清代西域政治的演进，可以提炼出三条相互作用的核心线索：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着防卫成本往下追问边疆体系的崩溃</span>
+      <span class="toc-desc">第一步追问：为什么拥有数亿人口与广袤疆土的大清帝国，面对仅有百万人口的浩罕小国，会在1832年主动交出南疆六城...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个递进问题理清浩罕与西域演进逻辑</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出区域史看近代边疆治理的教训</span>
+      <span class="toc-desc">潘志平撰写此书的核心动机，在于彻底纠正以往边疆史研究中将浩罕仅仅视作零星扰边盗匪的偏狭认知，用大量俄文、察合台...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 全书骨架浓缩</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 1832年清浩议和：早于鸦片战争的主权让渡</span>
+      <span class="toc-desc">在主流历史叙事中，中国近代不平等条约与丧失主权的起点通常被定在1842年的中英《南京条约》。然而如果我们仔细考...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 最终判断</span>
+      <span class="toc-desc">本文依据潘志平所著《浩罕国与西域政治》（新疆人民出版社2006年版）。文中所述1709年至1876年浩罕汗国各...</span>
+    </div>
+  </div>
+
 
   <!-- 第一层 -->
   <section class="layer">

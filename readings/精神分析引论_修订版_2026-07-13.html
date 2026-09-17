@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>精神分析引论 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,48 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="kicker">深度解读 · 2026-07-10 初稿 · 2026-07-13 修订</div>
-  <h1>精神分析引论</h1>
-  <div class="author">西格蒙德·弗洛伊德 著 · 徐胤 译</div>
-  <div class="sub">1915—1917 维也纳大学讲座 · 浙江文艺出版社 2016 果麦经典版</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">精神分析引论</div>
+    <div class="cover-sub">弗洛伊德 著 · 徐胤 译</div>
+    <div class="cover-meta">西格蒙德 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">这是一本在讲台上讲出来的书。1915 到 1917 年，弗洛伊德在维也纳大学开了两个学期的公开讲座，台下坐的不...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">弗洛伊德整个论证立在一句话上：没有偶然。这条不立起来，后面全塌。他对听众讲得很直白：否定自然决定论的一小部分，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正在牵动全书的那几根线</span>
+      <span class="toc-desc">这本书 28 讲，讲口误、讲梦、讲神经症、讲力比多、讲移情，看着千头万绪。拆到底，真正在牵动全书的就三根线。把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">选全书最核心那句往下挖：梦是愿望的满足。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着问答，把作者的推理走一遍</span>
+      <span class="toc-desc">弗洛伊德不否认疲倦、激动、走神会让人更容易说错话。他否认的是这些足以解释口误。疲倦只降低门槛，解释不了为什么偏...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">弗洛伊德"不写不行"的那股劲儿，是想在科学的地盘上给无意识争一个位置。他那个年代，主流心理学只认意识，精神病学...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 把整本书压到一张餐巾纸上</span>
+      <span class="toc-desc">两根线（压抑、力比多）搭起一个机器，往里喂不同强度的力比多，就吐出口误、梦或症状；第一根线（没有偶然）是机器运...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15 · 你里面住着好几个你</span>
+      <span class="toc-desc">前面各层按下不表的那个共同结构，现在摊开。你最确定的一件事，是"我是我"。你想做什么、说什么、要什么，背后都有...</span>
+    </div>
+  </div>
+
 
 <!-- 第一层 -->
 <section class="layer">
@@ -360,13 +437,13 @@
 
 <p>第一部分讲失误行为，4 讲。口误、笔误、误读、记错名字、错拿别人帽子，这些人人都有、谁也不当回事的小事，弗洛伊德说没有一件是偶然。议会表决时把词说反、主持人开口把"开会"说成"散会"，背后都有两种意图在打架：一个是要说出口的，另一个被压下去却硬挤进来。他专挑这种最低门槛的现象入口，因为没人会为记错名字难堪。先在听众能接受的最无害的地方，立起"没有偶然"这个判断。</p>
 
-<p>第二部分讲梦，11 讲，全书最厚也最有名的部分。核心一句话：梦是愿望的满足。但这句话的颠覆性不在表面。小孩的梦简单，白天想吃草莓没吃到，晚上就梦见草莓摆满桌，愿望直接满足。弗洛伊德说孩子的梦是理解所有梦的钥匙。成人的梦复杂得多，因为成人有审查。他打了个比方：梦的审查就像报纸审查，记者把犯忌的话删掉、改软、绕着说，梦也一样，不体面的利己念头和性念头被审查改头换面才得以出场。于是有了梦的工作那四套办法：把好几个人合成一个的凝缩、把重点挪开的移置、把想法变成画面的图像化、最后再拼成一段连贯故事的次级加工。他有个比喻特别妙——梦的工作就是把社论换成插画。</p>
+<p>第二部分讲梦，11 讲，全书最厚也最有名的部分。核心一句话：梦是愿望的满足。但这句话的颠覆性不在表面。小孩的梦简单，白天想吃草莓没吃到，晚上就梦见草莓摆满桌，愿望直接满足。弗洛伊德说孩子的梦是理解所有梦的钥匙。成人的梦复杂得多，因为成人有审查。他打了个比方：梦的审查就像报纸审查，记者把犯忌的话删掉、改软、绕着说，梦也一样，不体面的利己念头和性念头被审查改头换面才得以出场。于是有了梦的工作那四套办法：把好几个人合成一个的凝缩、把重点挪开的移置、把想法变成画面的图像化、最后再拼成一段连贯故事的次级加工。他有个比喻特别妙，梦的工作就是把社论换成插画。</p>
 
 <p>梦这套机制里最反直觉的一点：越让人难受的梦、越是噩梦，反而越暴露出被压得最深的愿望。他说悸梦之所以吓人，恰恰说明那个被压制的愿望已经强到审查压不住。还有一类惩罚梦，满足的不是做梦者本人，是那个审查者。他爱引一句柏拉图的话收尾：好人做梦，坏人作恶。</p>
 
 <p>第三部分讲神经症，13 讲，把前两部分的机制接到病态上。关键判断：梦的机制就是症状的机制。神经官能症的症状，是性满足被压抑后的扭曲替代物，和梦一样是妥协产物。他讲了强迫症患者的仪式，比如新婚夜反复摆弄红绸带、少女睡前要把钟表停掉，这些仪式都是被压抑冲动的替代出口。</p>
 
-<p>这一部分把精神分析的地基全摆出来了。压抑，他用一个前室-客厅-守卫的空间模型讲（第三层细说）：守卫不准看不顺眼的冲动从潜意识进意识，守卫就是审查，也是治疗时的阻力——同一股力，三个名字。力比多是他专门造的词，指性力，和自我保全的"兴趣"分开。性发展分阶段走：口欲期、虐待-肛门期、生殖器期。俄狄浦斯情结，男孩占有母亲排斥父亲、女孩反过来，弗洛伊德自承这是精神分析招人反感的最大原因，也是神经官能症的核心症结。自恋是力比多从外面撤回到自己身上。移情是患者把早年对父母的爱恨转嫁到医生身上，既是治疗起作用的位置，也最危险（第五层细说）。</p>
+<p>这一部分把精神分析的地基全摆出来了。压抑，他用一个前室-客厅-守卫的空间模型讲（第三层细说）：守卫不准看不顺眼的冲动从潜意识进意识，守卫就是审查，也是治疗时的阻力，同一股力，三个名字。力比多是他专门造的词，指性力，和自我保全的"兴趣"分开。性发展分阶段走：口欲期、虐待-肛门期、生殖器期。俄狄浦斯情结，男孩占有母亲排斥父亲、女孩反过来，弗洛伊德自承这是精神分析招人反感的最大原因，也是神经官能症的核心症结。自恋是力比多从外面撤回到自己身上。移情是患者把早年对父母的爱恨转嫁到医生身上，既是治疗起作用的位置，也最危险（第五层细说）。</p>
 
 <p>这一部分最后有个落点：健康人其实也是潜在的神经官能症患者，只不过症状在他们身上只作为梦出现。健康和病之间没有质的差别，只有量的差别。</p>
 
@@ -482,7 +559,7 @@
 
 <div class="q">Q8：移情是病还是药？治疗为什么非要靠它？</div>
 <div class="a">
-<p>两者都是，这是弗洛伊德最微妙的判断。移情是患者把早年对父母的爱恨转嫁到医生身上，是一种新的神经症，只是这次发作在医生身上。但它也是治疗唯一能起作用的位置——弗洛伊德比作树的形成层，新组织只在这里生成。没有移情，医生说的话患者根本听不进去，信任起源于爱，没有爱的支撑理由不生效。所以治疗不是消除移情，是把移情从重复变成回忆，让患者认出这股感情是旧情的新版。</p>
+<p>两者都是，这是弗洛伊德最微妙的判断。移情是患者把早年对父母的爱恨转嫁到医生身上，是一种新的神经症，只是这次发作在医生身上。但它也是治疗唯一能起作用的位置，弗洛伊德比作树的形成层，新组织只在这里生成。没有移情，医生说的话患者根本听不进去，信任起源于爱，没有爱的支撑理由不生效。所以治疗不是消除移情，是把移情从重复变成回忆，让患者认出这股感情是旧情的新版。</p>
 <p>边界：自恋性神经官能症患者没有移情能力，分析对他们无效。移情在居心不良的医生手里是危险工具，弗洛伊德自己警告过。</p>
 </div>
 

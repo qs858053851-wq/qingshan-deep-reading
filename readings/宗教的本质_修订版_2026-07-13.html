@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>宗教的本质 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,11 +381,48 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <h1 class="book-title">宗教的本质</h1>
-  <div class="book-meta">费尔巴哈 著 · 王太庆 译 · 商务印书馆 汉译世界学术名著丛书</div>
-  <div class="book-date">深度解读 · 07-10 初稿 · 07-13 修订</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">宗教的本质</div>
+    <div class="cover-sub">费尔巴哈要回答的问题，一句话就能说完：宗教到底是什么，它从哪儿来？</div>
+    <div class="cover-meta">青山 读 · 宗教的本质 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">费尔巴哈要回答的问题，一句话就能说完：宗教到底是什么，它从哪儿来？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">费尔巴哈的论证链可以这样抽出来：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这几根线在牵动全书</span>
+      <span class="toc-desc">读这本小册子，前几十节感觉千头万绪：一会儿讲波斯人拜火，一会儿讲盐神，一会儿讲奇迹不成立，一会儿讲东方为什么没...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层是横着看有几根线，这一层竖着挖：选最深的那根线，一路挖到底。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 顺着问答，把作者的推理走一遍</span>
+      <span class="toc-desc">把全书的论证一根根抽成问题，顺着问答走一遍，费尔巴哈的推理就重现了。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">先说他为什么非写不可。 费尔巴哈写这本书时（1845 年前后），德国思想界是黑格尔派的天下。黑格尔把精神、绝对...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸能写下什么</span>
+      <span class="toc-desc">这个公式里，四个因子对应第三层拆出的四根线，缺哪根神都立不住。"人的自觉"是公式外的消解因子：把它加回去（认出...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 人造神，再向神跪下，这件事人逃得掉吗</span>
+      <span class="toc-desc">前面几层按下不表的那个问题，人造了神，再向神跪下，这件事人逃不逃得掉，现在摊开。</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层</div>
@@ -392,7 +470,7 @@
   <p>第一关，用它们能把全书论点推回来吗？能。依赖感管起源和基本行为，对象化管上帝的本质和奇迹，自然先于精神管反创世和反目的论，多神到一神管演变和政治化。四根分了工，全书没剩下什么悬空的论点。</p>
   <p>第二关，去掉任何一根会缺什么？去掉依赖感，宗教起源悬空；去掉对象化，上帝的本质悬空；去掉自然先于精神，反驳有神论的根基悬空；去掉多神到一神，演变和政治化悬空。四根都独立，没有哪根是多余的。</p>
   <p>第三关，一根变了一根没变，结果会不同吗？会。依赖感相同、对象化程度不同：自然宗教拜盐拜河，神就是自然物本身（对象化程度低，多神）；一神教的神超越自然，成了抽象实体（对象化程度高，一神）。结果一个是人多神、人靠自然，一个是自然靠人、人当目的。再看自然先于精神这条不变、依赖感强弱不同：希腊人依赖感适中，神有限制，他们要的是享幸福，不是享天福；基督教徒依赖感强且愿望无限，神无限制，要的是超自然的天福和永生。结果一个在人性基地上建精神天域，一个把天福搬到人性之外。</p>
-  <p>第四关，能推出书里没写、但现实中成立的现象吗？能，而且这一关最能看出这四根线的后劲。费尔巴哈只盯着宗教写，但"依赖感 + 对象化"两根线合起来，能推出一堆非宗教的"准宗教"现象——明星崇拜、成功学、市场、算法推荐，都是同一机制换了壳子。具体怎么个同构法，按下不表，第八层摊开讲。费尔巴哈没走到这里，但他的线能走到。</p>
+  <p>第四关，能推出书里没写、但现实中成立的现象吗？能，而且这一关最能看出这四根线的后劲。费尔巴哈只盯着宗教写，但"依赖感 + 对象化"两根线合起来，能推出一堆非宗教的"准宗教"现象，明星崇拜、成功学、市场、算法推荐，都是同一机制换了壳子。具体怎么个同构法，按下不表，第八层摊开讲。费尔巴哈没走到这里，但他的线能走到。</p>
   <p>这四根线是同一套机器的四个部件：依赖感是燃料，对象化是把戏，自然先于精神是地基，多神到一神是轨迹。费尔巴哈这本书的全部力量，就在于他第一次把这四个部件拼成了一台能转的机器，用来解释宗教，也顺便解释了人。</p>
 </section>
 
@@ -403,7 +481,7 @@
   <p>从最显眼的地方开始：人拜神。盖庙、祈祷、献祭、求永生，向一个看不见的对象下跪。这是表象。</p>
   <p>为什么人会拜一个看不见的对象？往下坠一层。因为人把自己的本质掏出来安到这个对象身上了。人能思想，就把"思想"安成上帝的理智；人有意志，就把"意志"安成上帝的旨意；人怕死、想不死，就把"不死"安成上帝的永恒。上帝的每一个属性，都是人的某个本质被无限放大后投射出去。人向上帝跪下，跪的是自己被放大的影子。这一层叫投影。</p>
   <p>为什么人要投影？再往下坠。因为人内部有一道填不上的裂缝。费尔巴哈点出了这道裂缝的位置：意志与能力之间、愿望与获得之间、想象与实际之间、思与是之间。人能想"我要飞"，但身体飞不起来；人能愿望"我不要死"，但必定死；人能想象"我要瞬间到千里之外"，但腿迈不了那么远。意志是无限的，能力是有限的；愿望是无限的，获得是有限的。这道裂缝是人活着的基本痛。宗教就是来填这道裂缝的：人做不到的，让神去做；人达不到的，让神去达到；人会死，让神不死。神是"不受限制的意志的实体"，是"体力与意志力相同的实体"。人把自己的无限意志从裂缝里捞出来，安到一个外部对象上，再向这个对象求它能替自己实现。这一层叫裂缝。</p>
-  <p>为什么会有这道裂缝？还能再往下坠吗？能。这道裂缝不是偶然的，它长在人的存在结构里。人是这样一种东西：他有意识、有想象力、有意志，但他意识到自己的第一个内容，就是自己的有限——会死、无力、依赖一堆别的东西才能活。意识打开"无限"这扇门（人能想象无所不能、永生不死），有限性同时把这扇门堵死（人做不到任何一件）。一边能想，一边做不到，这个落差就是裂缝的源头。意识越发达，无限被想得越清晰，有限性就越刺痛，裂缝就越深。动物没有这道裂缝，因为动物没有意识去想象"无限"，它活在有限的当下，不痛苦于自己的有限。只有人，因为有了意识，才有了"我本可以但偏偏不能"的痛苦，才需要把那个"可以"对象化出去找个安放。这一层叫有意识的有限性。</p>
+  <p>为什么会有这道裂缝？还能再往下坠吗？能。这道裂缝不是偶然的，它长在人的存在结构里。人是这样一种东西：他有意识、有想象力、有意志，但他意识到自己的第一个内容，就是自己的有限，会死、无力、依赖一堆别的东西才能活。意识打开"无限"这扇门（人能想象无所不能、永生不死），有限性同时把这扇门堵死（人做不到任何一件）。一边能想，一边做不到，这个落差就是裂缝的源头。意识越发达，无限被想得越清晰，有限性就越刺痛，裂缝就越深。动物没有这道裂缝，因为动物没有意识去想象"无限"，它活在有限的当下，不痛苦于自己的有限。只有人，因为有了意识，才有了"我本可以但偏偏不能"的痛苦，才需要把那个"可以"对象化出去找个安放。这一层叫有意识的有限性。</p>
   <p>再往下还能钻吗？再往下就是"人为什么有意识""意识是什么"，那是意识的难问题，是另一本书的事，到这一层就是井底了。</p>
   <p>挖到底你会发现，费尔巴哈表面上在讲宗教，骨子里在讲人这种存在的处境：人是唯一一种知道自己有限、又能想象无限的动物，这个错位是宗教的发生器。只要人还是有意识的有限存在者，"把无限对象化出去再膜拜"这件事就会反复发生。它叫上帝还是叫别的，不重要。古代叫上帝，今天换了名字，形态换了，发生器没换。这本小册子最深的地方在这里：它讲的远不止"上帝是假的"这个结论。更深一层是"人造神这件事，是人这种存在逃不掉的运作"。</p>
 </section>
@@ -429,7 +507,7 @@
 
   <div class="qa-q">Q3　依赖感怎么变成献祭这种具体行为？</div>
   <div class="qa-a">
-    <p>结论：人占自然的便宜心里发虚，裁减一点享受还回去——去献祭时是自然的奴仆，献祭归来时是自然的主人（第二层细说）。</p>
+    <p>结论：人占自然的便宜心里发虚，裁减一点享受还回去，去献祭时是自然的奴仆，献祭归来时是自然的主人（第二层细说）。</p>
     <p>怎么想到的：从需求与享受的矛盾推。占便宜的同时还一点回去，良心就安了，献祭就是一笔带愧疚色彩的还债。</p>
     <p>边界：不是所有献祭都是赔罪式的。感恩式、公餐式献祭未必是发虚赔罪，费尔巴哈装得有点勉强。</p>
   </div>
@@ -450,7 +528,7 @@
 
   <div class="qa-q">Q6　如果上帝只是人的本质的投影，为什么这个投影能让人当真到愿为它死？</div>
   <div class="qa-a">
-    <p>结论：因为投影恰好填上了人内部的裂缝——意志与能力、愿望与获得之间的落差（第四层细说）。上帝承载着人最深的愿望（不死、意义、公正），否定上帝等于否定自己那个"无限"的部分。</p>
+    <p>结论：因为投影恰好填上了人内部的裂缝，意志与能力、愿望与获得之间的落差（第四层细说）。上帝承载着人最深的愿望（不死、意义、公正），否定上帝等于否定自己那个"无限"的部分。</p>
     <p>怎么想到的：从"宗教的前提是意志与能力之间的对立"推。宗教的目的是破除这个对立，上帝就是那个破除对立的实体。</p>
     <p>边界：这解释了信仰的强度，但没解释为什么某些投影胜过另一些。历史的偶然和政治推动在这里起作用，费尔巴哈把这部分省了。</p>
   </div>
@@ -486,7 +564,7 @@
   <h2 class="layer-title">一张餐巾纸能写下什么</h2>
   <div class="napkin">
     <div class="napkin-formula">神 = 依赖感 × 对象化 × 自然先于精神 × 多神→一神</div>
-    <div class="napkin-note">四根线各自缺一不可：依赖感是根，对象化是把戏，自然先于精神是地基，多神到一神是轨迹。人的自觉是消解因子——加回去（认出是自己的），神就消失；减到底（不认），神最真。</div>
+    <div class="napkin-note">四根线各自缺一不可：依赖感是根，对象化是把戏，自然先于精神是地基，多神到一神是轨迹。人的自觉是消解因子，加回去（认出是自己的），神就消失；减到底（不认），神最真。</div>
   </div>
   <p>这个公式里，四个因子对应第三层拆出的四根线，缺哪根神都立不住。"人的自觉"是公式外的消解因子：把它加回去（认出神是自己的），神就消失；减到底（彻底不认），神最真。费尔巴哈一辈子的工作，就是把减号变成加号。</p>
   <p>一句话：人是有意识的有限存在者，他把自己的无限安到外部，再向外部跪下，这就是宗教。</p>
@@ -510,7 +588,7 @@
 <section class="layer">
   <div class="layer-num">第八层</div>
   <h2 class="layer-title">人造神，再向神跪下，这件事人逃得掉吗</h2>
-  <p>前面几层按下不表的那个问题——人造了神，再向神跪下，这件事人逃不逃得掉——现在摊开。</p>
+  <p>前面几层按下不表的那个问题，人造了神，再向神跪下，这件事人逃不逃得掉，现在摊开。</p>
   <p>费尔巴哈这本书，表面看是在拆上帝。他说上帝是人的本质的投影，神是人把自己的思想、意志、愿望掏出来安到外部的东西，宗教是人与自身发生关系。读到这里很多人会以为这就是结论：上帝是假的，是人造的，拆穿了就完了。</p>
   <p>但这只是第一层。再往下想一步：如果上帝是人造的，人为什么要造它？而且造了之后，为什么全世界、全历史、所有民族都在造，无一例外？如果这只是一个错误，一个这么普遍、这么顽固、这么让人愿为它生为它死的错误，那"错误"这个词就装不下它了。一个所有人都犯的错，背后一定有某种结构性的东西在推。</p>
   <p>费尔巴哈真正在说的，是这件更深的事：人造神，再向神跪下。它不是某个时代的迷信。它是人这种存在的运作方式。它逃不掉。它换名字，但不消失。</p>

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>宗教怎么来的 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>宗教怎么来的？<br>为什么人会相信看不见的神？</h1>
-  <div class="author">布克哈德·怀兹 文　薇瑞娜·巴浩斯 图　向下扎根！德国教育的公民思辨课 6 · 写给所有人的宗教入门书（扫描件）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">宗教怎么来的？ 为什么人会相信看不见的神？</div>
+    <div class="cover-sub">怀兹 文　薇瑞娜·巴浩斯 图　向下扎根！德国教育的公民思辨课 6 · 写给所有人的宗教入门书（扫描件）</div>
+    <div class="cover-meta">布克哈德 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">这一册的作者布克哈德·怀兹，履历刚好长在这个题目上：一九六五年生，小时候在伯利恒住过；后来在阿姆斯特丹读神学，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么把三个宗教放在一起讲</span>
+      <span class="toc-desc">第二部分整章讲“一神论的宗教”，把犹太教、基督教、伊斯兰教当成一组来处理。这个安排本身是一个论断，需要证据。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 上百个问题底下，是三件事在起作用</span>
+      <span class="toc-desc">这本书的目录已经把这根线摆明了：绝大多数问题问的是“为什么这么做”，而不是“信什么”。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：为什么是那顶帽子，而不是那句信条</span>
+      <span class="toc-desc">一个人是不是这个共同体的成员，怎么判断？书里给的那些标记很具体：头上戴不戴那顶小帽、身体上有没有那个记号、这一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这本书问明白</span>
+      <span class="toc-desc">问题出在没有一条标准能把所有被称为宗教的东西装进去、又把所有不是的挡在外面。以“信神”为准，有的传统不谈神；以...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">这一册的处境比同套书的别册都难。它面对的读者里，有信这三家中某一家的孩子，有什么也不信的孩子，还有家里对某个群...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 他没问“你信什么”，他问“你为什么戴那顶帽子”</span>
+      <span class="toc-desc">把这本书的目录通读一遍，会发现一件事：一百多个问题里，直接问“信什么”的少得可怜。绝大多数是这样的问法：为什么...</span>
+    </div>
+  </div>
+
   <div class="lead">德文原题是「世界宗教」。它讲宗教的方式很特别：不从教义讲起，从做法讲起：为什么戴那顶小帽、为什么把奶和肉分开、为什么秋天要在阳台上搭一间小屋。</div>
 </div>
 
@@ -398,7 +478,7 @@
 
   <p>创世、亚当、洪水、亚伯拉罕、摩西，这些人物和事件在三个传统里都在，只是位置和讲法不同。<strong>不是相似，是同源。</strong></p>
 
-  <p>他专门有一节问创世故事背后隐藏着什么。这个问法很讲究：他不问故事是不是真的，问它在解决什么问题。而这类故事在三个传统里回答的是同一批问题——世界从哪儿来、人为什么会死、为什么要劳作、人和其余的生灵是什么关系。</p>
+  <p>他专门有一节问创世故事背后隐藏着什么。这个问法很讲究：他不问故事是不是真的，问它在解决什么问题。而这类故事在三个传统里回答的是同一批问题，世界从哪儿来、人为什么会死、为什么要劳作、人和其余的生灵是什么关系。</p>
 
   <div class="sub">证据二 · 它们面对同一个难题</div>
 
@@ -604,7 +684,7 @@
 
   <p>不服的一处：它对“不信的人”几乎没有位置。一本给所有人的宗教入门书，读者里必然有大量没有宗教归属的人，而书里没有一节是从他们的处境出发提问的。<strong>那本该是一个很好的问题：一个不信的人，靠什么来安排时间、标记身份、面对死亡？</strong>这一问缺席，让这本书在“写给所有人”这一点上打了折。</p>
 
-  <p>给读者的读法建议：第一部分（什么是宗教）和第二部分（一神论的共同难题）是骨，值得慢读；三家各自那三章，挑那些你原本有疑问的节看即可；那几个难堪的问题（神公不公正、断手、妇女处境、基督徒是否必然爱好和平）值得单独看，它们是全书处理得最见功夫的地方。</p>
+  <p>给先生的读法建议：第一部分（什么是宗教）和第二部分（一神论的共同难题）是骨，值得慢读；三家各自那三章，挑那些你原本有疑问的节看即可；那几个难堪的问题（神公不公正、断手、妇女处境、基督徒是否必然爱好和平）值得单独看，它们是全书处理得最见功夫的地方。</p>
 </div>
 
 <div class="layer">
@@ -694,9 +774,9 @@
 
 <div class="boundary">
   <h4>事实边界</h4>
-  <p><strong>材料条件与本批另几本相同。</strong>本篇使用的是扫描版 PDF，无文本层，我用本地 OCR 转出全书文字，<strong>准确率约八九成，正文有成串错字</strong>。因此<strong>本篇全文不含任何逐字引文</strong>。</p>
+  <p><strong>材料条件与本批另几本相同。</strong>先生给的是扫描版 PDF，无文本层，我用本地 OCR 转出全书文字，<strong>准确率约八九成，正文有成串错字</strong>。因此<strong>本篇全文不含任何逐字引文</strong>。</p>
   <p><strong>可靠的部分：</strong>我用 OCR 文本核对了全书的目录与各节标题，这部分结构信息可靠，包括五个部分的划分（什么是宗教／一神论的宗教／犹太教／基督教／伊斯兰教）以及本篇提到的各节标题。作者布克哈德·怀兹的履历（一九六五年生、幼时住过伯利恒、在阿姆斯特丹修神学、在费城修比较宗教、教过中小学宗教课、一九九九年起在教会背景媒体工作）出自书前的作者介绍，绘者为薇瑞娜·巴浩斯。</p>
-  <p><strong>不可靠、因而由我补足的部分：各节的具体内容，我没有逐节细读原文。</strong>本篇对各条规矩的解释（奶肉分开、秋天的棚屋、割礼、斋月、大教堂等）、第五层各问的回答、第三层那张四类功能表，都是我按宗教学与历史常识展开的，<strong>不是原书的说法，也不代表任何一个传统的官方立场</strong>。读者若要了解某一条规矩的确切含义，请查该传统自己的权威解释。</p>
+  <p><strong>不可靠、因而由我补足的部分：各节的具体内容，我没有逐节细读原文。</strong>本篇对各条规矩的解释（奶肉分开、秋天的棚屋、割礼、斋月、大教堂等）、第五层各问的回答、第三层那张四类功能表，都是我按宗教学与历史常识展开的，<strong>不是原书的说法，也不代表任何一个传统的官方立场</strong>。先生若要了解某一条规矩的确切含义，请查该传统自己的权威解释。</p>
   <p><strong>本篇的立场：</strong>全文按描述性写法处理，不对任何信仰做真假或优劣判断；涉及各传统内部有分歧的问题（如经文如何解释、某些戒律的当代适用），本篇只指出分歧存在，不选边。第四层关于“标记必须看得见且有代价”的下钻、第六层关于本书局限的判断、第八层拿年夜饭作类比，都是我的分析。</p>
 </div>
 

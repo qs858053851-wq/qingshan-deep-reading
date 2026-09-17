@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>法国高中生哲学读本3 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02 · 受限深读（扫描版 OCR）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">法国高中生哲学读本3</div>
+    <div class="cover-sub">我能够认识并主宰自己吗？建构自我的哲学之路</div>
+    <div class="cover-meta">Blanche Robert 等 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">我是谁？我能认识自己吗？我能主宰自己吗？：「自我」这个我们天天带着、却很少检查的东西，到底由什么构成？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">第一项前提，人不是天生的主体，「我」也不是现成的，得靠自己去建立（知道自己在做什么、为自己负责，才算主体）。前提二...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 顺着七个问题，把主体哲学的推理走一遍</span>
+      <span class="toc-desc">结论：主体是「知道自己在做什么、并为行动负责」的人：主体的地位是挣来的，不是天生的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">这套教材的编者是一群法国高中哲学教师，他们每天面对十七八岁的学生：一个「自我」正在成形、却最容易被外界定义的年...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">你不是天生的你：你是做出来的你。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 你以为是你的那个你，可能只是你的一小部分</span>
+      <span class="toc-desc">先做个小实验。回忆最近一次你特别生气的事：然后回忆你当时是怎么解释自己的愤怒的：「我就是看不惯他那样」「他踩到...</span>
+    </div>
+  </div>
+
   <h1>法国高中生哲学读本3</h1>
   <div class="author">Blanche Robert 等 · 我能够认识并主宰自己吗？建构自我的哲学之路</div>
 </div>
@@ -350,11 +423,11 @@
   <div class="layer-num">第一层</div>
   <h2 class="layer-title">这本书到底在讲什么</h2>
 
-  <h3>一句话：这本书在答什么问题</h3>
+  <h3>核心问题与直接回答</h3>
   <p>我是谁？我能认识自己吗？我能主宰自己吗？：「自我」这个我们天天带着、却很少检查的东西，到底由什么构成？</p>
   <p>回答：这是法国高中哲学教材的「主体哲学卷」。它把问题从「世界是什么」，挪到了「问世界是什么的那个『我』是谁」，意识中的我，和无意识中的我，哪个才是我？透过知觉认识世界可靠吗？我们怎么借由别人认识自己？欲望是想拥有某物，还是想成为某种存在？活着需要理由吗？每一个问题，请出三到四位哲学家（康德、笛卡儿、佛洛伊德、尼采、沙特、莱布尼兹、梅洛-庞蒂……），原文照录，让你自己判断。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>和《法国高中生哲学读本1》（政治哲学卷）是同一套教材：法国高三哲学课的唯一指定训练，台湾引进翻译。这套教材的题眼在导论：「培养出思考不受绑架、情绪不受操弄的人」。这一卷处理的，是比政治更根本的问题：如果连「我」都说不清楚，那「我的立场」「我的选择」又从何谈起？主体哲学就是教人先搞清楚「我是谁」，再谈别的。</p>
   <p>结构同样是「问题导向」：意识（意识中的我和无意识中的我哪个才是真的？）、自我认识（我如何认识自己？借由他人？）、知觉（感官认识世界可靠吗？）、欲望（想要某物和想要成为某人是什么关系？）、存在（活着意味着什么？）。每章一个主题，每个主题下三四个问题，每个问题三四个哲学家的原文。</p>
 
@@ -363,7 +436,7 @@
   <p><strong>我们如何认识自己？</strong>希腊人把「认识你自己」刻在德尔斐神庙上：两千五百年了，人还在问。教材给的路不止一条：柏拉图说通过对话（跟别人吵，吵着吵着就看清了自己）；黑格尔说通过创作（你做的作品，反过来告诉你你是谁）；卡缪说通过反抗（你说「不」的那一刻，你才成为主体）。认识自己绕不开行动：做完看结果，结果就是你的模样。</p>
   <p><strong>欲望是想拥有什么，还是想成为什么？</strong>你想要那个包、那套房、那个头衔：你是想要「拥有」它们，还是想「成为」某种被它们定义的人？教材的追问：欲望的对象是物，还是「一种特定的存在」？如果只是物，得到了就该满足；如果是要成为某种人，那得到了也不会满足，这就是欲望永远填不满的原因。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一套逼你「成为主体」的教材：不给结论、只给地图：它把「我是谁」这个问题的所有主要岔路都标出来，每条路配几个走过的人（哲学家），然后让你自己走。导论说得最直白：人不是自然而然就成为主体的，「人要知道自己知道什么，知道自己在做什么，更肩负起行动的责任，他才真正成为主体」：主体的地位，是努力得来的。</p>
 </div>
 
@@ -371,19 +444,19 @@
   <div class="layer-num">第二层</div>
   <h2 class="layer-title">作者凭什么这么说</h2>
 
-  <h3>论证链</h3>
-  <p>前提一：人不是天生的主体，「我」也不是现成的，得靠自己去建立（知道自己在做什么、为自己负责，才算主体）。前提二：认识自己是困难且必要的：意识会欺骗我们（尼采），无意识在替我们决定（佛洛伊德），所以「我认识自己」是需要方法的，不是理所当然的。前提三：方法存在且可学，通过对话（柏拉图）、创作（黑格尔）、反抗（卡缪）、知觉训练、欲望反思。结论：主体性是一份挣来的地位，哲学教材就是这套挣法的训练手册。</p>
+  <h3>核心论证逻辑</h3>
+  <p>第一项前提，人不是天生的主体，「我」也不是现成的，得靠自己去建立（知道自己在做什么、为自己负责，才算主体）。第二项前提，认识自己是困难且必要的：意识会欺骗我们（尼采），无意识在替我们决定（佛洛伊德），所以「我认识自己」是需要方法的，不是理所当然的。第三项前提，方法存在且可学，通过对话（柏拉图）、创作（黑格尔）、反抗（卡缪）、知觉训练、欲望反思。结论：主体性是一份挣来的地位，哲学教材就是这套挣法的训练手册。</p>
 
-  <h3>三个具体的证据</h3>
+  <h3>关键事实与核心实证</h3>
   <p><strong>证据一：无意识假说。</strong>佛洛伊德用「无意识」解释意识无法说明的现象：你不想记起的事被压抑了，但它没有被抹消，创伤、欲望、冲突沉在水面下，持续影响你的言行。这个假说的分量在于：它动摇了「我清楚我自己」的常识。你以为你在选择，可能只是被压抑的东西在替你选择：那「我」还成立吗？教材没有用佛洛伊德压死其他人，它把莱布尼兹（行动酝酿于无意识）、尼采（意识在关于自己的事上欺骗我们）并排摆出，三路哲学家共同说明一件事：自我认识的起点，是承认「我不完全了解自己」。</p>
   <p><strong>证据二：认识自己的三条路。</strong>柏拉图：透过对话：跟别人讨论，被反驳，你的立场在反驳中现形；黑格尔：透过创作，你写的、做的、造的东西，反过来告诉你你是谁；卡缪：透过反抗：你说「不」的那一刻，你才从「被决定的对象」变成「选择的主体」。三条路指向同一个结论：认识自己这条路是向外的，做完事，回看结果。这个「行动→反馈→认识」的循环，是整卷教材的方法论核心。</p>
   <p><strong>证据三：欲望的结构。</strong>教材问：人们追求欲望的满足，是为了拥有某物，还是想成为某种特定的存在？如果是前者，得到就该满足：但现实是得到了也不满足；所以更可能是后者：你要的是被那个包定义的那个「你」。这个区分解释了一连串现象：为什么欲望永远填不满（因为「成为」没有终点）、为什么消费主义停不下来（买到的永远是物，不是身份）。它把「欲望」从道德问题（贪心）升级为存在论问题（我是谁）。</p>
 
-  <h3>隐形假设（作者没说，但必须成立）</h3>
+  <h3>底层隐含假设</h3>
   <p><strong>「我」是一个可以被认识、被建立的对象。</strong>整卷教材赌的是：自我不是一团不可解的谜，而是有结构、可反思、可训练的东西，意识、无意识、知觉、欲望、存在，每一块都可以拆开研究。这个假设一旦松动（如果「自我」本质上是幻觉，或者根本无法被认识），整卷教材就站不住了。教材自己其实碰到了这个边界：它收录了怀疑论的声音，但没有正面回答。</p>
   <p>另一条更隐蔽：<strong>「成为主体」是值得的、可欲的。</strong>导论说「主体的地位是努力得来的」，它默认自主、负责、清醒比轻松、从众、懵懂更好。但这是价值判断，不是事实：很多人宁可被决定（有人替你想、替你负责，其实很舒服）。教材没论证「为什么要当主体」，它默认读者想要：这可能高估了自主的吸引力。</p>
 
-  <h3>边界条件（什么情况下这套会失效）</h3>
+  <h3>适用边界与失效条件</h3>
   <p>第一，无意识假说至今有争议，佛洛伊德的理论不是严格的实验科学，教材把它当「解释框架」摆出来，但读者容易误以为它是已被证实的心理机制。第二，这套教材教的是「认识自己」的方法论，不处理「认识自己之后怎么办」：你发现自己被压抑的欲望控制了，然后呢？教材没有治疗的部分（那是心理学的领域）。第三，它预设读者「愿意成为主体」，对不想要自主、觉得「想那么多干嘛」的人，这套训练完全失效；而这样的人在人群里并不少。</p>
 </div>
 
@@ -468,7 +541,7 @@
   <h3>这思想在其他地方是同一回事</h3>
   <p><strong>「主体的地位是努力得来的」，和「品牌不是注册的，是经营出来的」是同一件事。</strong>公司注册一个品牌名只要几天，但品牌的价值是几十年行为攒出来的，你叫自己什么不算数，你做过什么才算数。自我也一样：你自称「我是个善良的人」没有用，你的行为会替你回答。教材的三条路（对话、创作、反抗）翻译成职场语言就是：看一个人，别听他说自己是什么，看他做过的事、吵过的架、拒绝过什么。</p>
   <p><strong>无意识假说，和「人设管理」的心理学是同一回事。</strong>社交媒体时代，每个人都在经营「意识层的人设」：我发的朋友圈是我想让你以为的我。而无意识假说提醒你：你自己也被自己的人设骗了，你以为你发那些是为了记录生活，可能只是为了证明「我过得不错」。教材的尼采那句「意识在关于我们自己的事情上欺骗了我们」，就是人设心理学的一句总纲：骗别人之前，先骗过自己。</p>
-  <p><strong>「欲望是想成为某种存在」，和品牌营销用的是同一套逻辑。</strong>广告从头到尾卖的都是「身份」：买这辆车=成为自由的人，买这个包=成为被尊重的人。教材的欲望分析（要的是被物定义出来的那个「你」）就是营销学的底牌：看穿了它，你就看穿了广告为什么永远有效——它在卖「成为」，而你正好缺一个「成为」。</p>
+  <p><strong>「欲望是想成为某种存在」，和品牌营销用的是同一套逻辑。</strong>广告从头到尾卖的都是「身份」：买这辆车=成为自由的人，买这个包=成为被尊重的人。教材的欲望分析（要的是被物定义出来的那个「你」）就是营销学的底牌：看穿了它，你就看穿了广告为什么永远有效，它在卖「成为」，而你正好缺一个「成为」。</p>
 
   <h3>读完这本书，该做什么不同的事</h3>
   <p>每个月做一次「行为体检」：不看自己「想成为什么样的人」，只看过去一个月实际做了什么，花时间最多的地方、拒绝过什么、为什么熬夜。行为是镜子：你可能发现真实的你（行为暴露的）和想象中的你（意识宣称的）差很远：这个差距，就是下一轮认识自己的起点。</p>

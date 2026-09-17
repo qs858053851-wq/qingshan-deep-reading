@@ -5,25 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>《地下室手记》深度解读 · 现代人的存在危机、虚无反骨与非理性自尊</title>
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -361,42 +402,42 @@
     <div class="toc">
       <h2>目 录</h2>
       <div class="toc-list">
-        <a class="toc-item" href="#layer01">
+        <div class="toc-item">
           <span class="toc-name">Layer 01 · 叙事全景与思想轨迹</span>
           <span class="toc-desc">从四十岁地下室的毒汁自白，到十六年前涅瓦大街撞肩与湿雪中的五卢布绝罚</span>
-        </a>
-        <a class="toc-item" href="#layer02">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 02 · 核心论据与立论前提</span>
           <span class="toc-desc">牙痛呻吟的恶意快感、二二得四面前的吐舌头、面对真爱时的塞钱羞辱</span>
-        </a>
-        <a class="toc-item" href="#layer03">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 03 · 解释生成器</span>
           <span class="toc-desc">水晶宫恐惧与自毁特权、分裂自尊与施虐代偿、书本浪漫病与肉身无能</span>
-        </a>
-        <a class="toc-item" href="#layer04">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 04 · 四步递进深钻</span>
           <span class="toc-desc">为什么人在面对真挚的爱与拯救时，反而会爆发出最残忍的毁灭欲</span>
-        </a>
-        <a class="toc-item" href="#layer05">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 05 · 思想辩难七问</span>
           <span class="toc-desc">从过度意识的病态，一路推演到现代人何以沦为只想从思想里诞生的死胎</span>
-        </a>
-        <a class="toc-item" href="#layer06">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 06 · 盲点、回响与现实行动</span>
           <span class="toc-desc">工业理性的算盘假面、当代算法水晶宫的规训，以及走向具体生活的解药</span>
-        </a>
-        <a class="toc-item" href="#layer07">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 07 · 单页餐巾纸仪表盘</span>
           <span class="toc-desc">存在危机指数公式、全书张力演化图与单页核心提要</span>
-        </a>
-        <a class="toc-item" href="#layer08">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 08 · 讲解引擎：非理性反骨与自虐性自尊</span>
           <span class="toc-desc">为什么人类宁肯要痛苦的自由，也绝不接受被精算好的完美幸福</span>
-        </a>
-        <a class="toc-item" href="#layer09">
+        </div>
+        <div class="toc-item">
           <span class="toc-name">Layer 09 · 终局定音</span>
           <span class="toc-desc">卷尾大字金句与版本历史考证</span>
-        </a>
+        </div>
       </div>
     </div>
 

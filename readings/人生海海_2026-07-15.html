@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>人生海海 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>人生海海</h1>
-  <div class="author">麦家 · 长篇小说 · 2019</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">人生海海</div>
+    <div class="cover-sub">长篇小说 · 2019</div>
+    <div class="cover-meta">麦家 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">浙江山里一个小村子，前山像龙、后山像虎，一前一后钳住村庄。爷爷说前山"神龙见首不见尾，看不到边，海一样的"。故...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">小说不用论证，但它得让你信。麦家的手法是：绝不让你直接见到上校的内心，全书所有关键事实都经过至少一张嘴的转述。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">故事千头万绪，底下真正干活的是三股力。它们彼此咬合，缺一股，这个悲剧都转不起来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">麦家此前的名声立在谍战上，《解密》《暗算》《风声》，写的都是天才在密室里破译密码。《人生海海》是他停笔多年后转...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">一句话：一个守了一辈子秘密的人，最后被最讲道德的人出卖，不是因为恨，是因为体面。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">读这本书的人都在等一个时刻：肚皮上那行字露出来。麦家吊了你四百页，小瞎子说是"这混蛋是鸡奸犯"，是造谣；村人猜...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -351,13 +423,13 @@
 
   <p>浙江山里一个小村子，前山像龙、后山像虎，一前一后钳住村庄。爷爷说前山"神龙见首不见尾，看不到边，海一样的"。故事就从这个被山夹着的、什么秘密都藏不住的村子讲起。</p>
 
-  <p>村里有个怪人。爷爷叫他"太监"，父亲叫他"上校"。同一个人，两个称呼，两种立场——这是全书第一个信号：在这个村子里，你叫一个人什么，就是在给他判什么。他本名蒋正南，木匠出身，当过军医，上过抗日战场和朝鲜战场，回村后独居，不干农活，养两只猫当命根子，日子过得比谁都体面。村人又敬又疑：敬他见过世面，疑他那个绰号背后的事——传说他在战场上被师长活阉了，所以叫"太监"。真相如何，没人见过，人人在讲。</p>
+  <p>村里有个怪人。爷爷叫他"太监"，父亲叫他"上校"。同一个人，两个称呼，两种立场，这是全书第一个信号：在这个村子里，你叫一个人什么，就是在给他判什么。他本名蒋正南，木匠出身，当过军医，上过抗日战场和朝鲜战场，回村后独居，不干农活，养两只猫当命根子，日子过得比谁都体面。村人又敬又疑：敬他见过世面，疑他那个绰号背后的事，传说他在战场上被师长活阉了，所以叫"太监"。真相如何，没人见过，人人在讲。</p>
 
   <p class="marker">村庄现在时 · 文革前后，"我"十岁上下</p>
 
   <p>叙事者"我"是村里一个少年，上校的故事就是他从爷爷、父亲、老保长三张嘴里一片一片拼出来的。第一件正面冲突：野孩子小瞎子当街唱歌羞辱上校是太监，被上校从屋顶追下来按倒，灌了一嘴烟囱灰。这个梁子越结越深，两个人的后半生都搭了进去。</p>
 
-  <p>文革来了。红卫兵进村，胡司令当头。小瞎子设计抓走上校的两只猫，用广播引他现身。上校为救猫自投罗网，被捕批斗。批斗中出了全书最毒的一笔：小瞎子偷看了上校的裸身，回来造谣说，上校小肚皮上刺着一行字——"这混蛋是鸡奸犯"。</p>
+  <p>文革来了。红卫兵进村，胡司令当头。小瞎子设计抓走上校的两只猫，用广播引他现身。上校为救猫自投罗网，被捕批斗。批斗中出了全书最毒的一笔：小瞎子偷看了上校的裸身，回来造谣说，上校小肚皮上刺着一行字，"这混蛋是鸡奸犯"。</p>
 
   <p>谣言在熟人社会里就是定罪。"鸡奸犯"三个字不光压垮上校，还连坐到跟他生死之交的"我"父亲头上：既然你们好成那样，那你们是什么关系？一家人在村里抬不起头，"我"在学校被指指点点。上校连夜逃走，被通缉。</p>
 
@@ -379,15 +451,15 @@
 
   <p>疯病本来可以治。但当年的战友、女军医林阿姨半年后才得到消息，错过了时机，只能用伤害性治疗把疯病压住，代价是把他的智力永久截退到七八岁。此后几十年，林阿姨带着他隐居，像母亲一样照料这个嘴上喊她"老伴"、心里把她当妈的孩子。他怕生人，爱画画，画美国大兵；疯了，还惦记着用医术把肚皮上那行字涂掉。</p>
 
-  <p>"我"这边，年轻时流亡西班牙，在鞋厂打工。绝望到想死的时候，一个同样从浩劫里逃出来的泉州姑娘用一句闽南话劝住了他："人生海海"——人生像大海一样宽广复杂，"但总的说是教人好好活而不是去死的意思"。两人结婚七个月，她死于车祸。她留下的另一句话是罗曼·罗兰那句："世上只有一种英雄主义，就是在认清了生活真相后依然热爱生活。""我"自陈并不太认可，但记了一辈子。</p>
+  <p>"我"这边，年轻时流亡西班牙，在鞋厂打工。绝望到想死的时候，一个同样从浩劫里逃出来的泉州姑娘用一句闽南话劝住了他："人生海海"，人生像大海一样宽广复杂，"但总的说是教人好好活而不是去死的意思"。两人结婚七个月，她死于车祸。她留下的另一句话是罗曼·罗兰那句："世上只有一种英雄主义，就是在认清了生活真相后依然热爱生活。""我"自陈并不太认可，但记了一辈子。</p>
 
   <p>上校病逝。守灵当夜，林阿姨换上和寿衣同款的黑西服，用输液架给自己注入夺命药水，以一个前麻醉师最专业的方式，追随他去了。床头留着黄金婚戒和信笺。她不能选择和他同时生，却可以选择同时死。62 岁的"我"回到村庄，见证了这个结局。全书收在报纸上的一句话："没有完美的人生，不完美才是人生。"</p>
 
   <h3>幕间：把几个人单独拎出来看</h3>
 
-  <p><strong>上校（蒋正南）</strong>。这个人物的迷人处在于他浑身是"过剩"：医术过剩，村里人头疼脑热都找他；见识也过剩，上海滩、朝鲜战场都走过一遭；连体面都是过剩的——不下地干活，屋里比谁家都干净，养猫如养子。一个处处过剩的人落在一个处处匮乏的村庄里，本身就是罪。村人对他的敬和毁是同一种情绪的两面：你凭什么跟我们不一样。他的硬也是真硬，被批斗不低头，被泼了几十年脏水不辩解。他只在两件事上失控：猫，和那行字。一个装着他当下的温情，一个存着他过去的耻辱。</p>
+  <p><strong>上校（蒋正南）</strong>。这个人物的迷人处在于他浑身是"过剩"：医术过剩，村里人头疼脑热都找他；见识也过剩，上海滩、朝鲜战场都走过一遭；连体面都是过剩的，不下地干活，屋里比谁家都干净，养猫如养子。一个处处过剩的人落在一个处处匮乏的村庄里，本身就是罪。村人对他的敬和毁是同一种情绪的两面：你凭什么跟我们不一样。他的硬也是真硬，被批斗不低头，被泼了几十年脏水不辩解。他只在两件事上失控：猫，和那行字。一个装着他当下的温情，一个存着他过去的耻辱。</p>
 
-  <p><strong>爷爷（老巫头）</strong>。全书写得最深的人。他满嘴做人道理，讲绰号、讲名声、讲堂堂正正，是家里的道德立法者。麦家给他的笔法是慢慢收紧：前半部他是可爱的老头，讲古、护家、看得通透；直到告密败露那一刻，你回头再看他讲过的每句道理，全部变成动机。他不是伪君子——这是最可怕的地方——他是真君子干了真恶事，用的还是君子的逻辑：家族名声大于一条外人的命。</p>
+  <p><strong>爷爷（老巫头）</strong>。全书写得最深的人。他满嘴做人道理，讲绰号、讲名声、讲堂堂正正，是家里的道德立法者。麦家给他的笔法是慢慢收紧：前半部他是可爱的老头，讲古、护家、看得通透；直到告密败露那一刻，你回头再看他讲过的每句道理，全部变成动机。他不是伪君子，这是最可怕的地方，他是真君子干了真恶事，用的还是君子的逻辑：家族名声大于一条外人的命。</p>
 
   <p><strong>父亲（雌老虎）</strong>。话最少的人，做得最多。上校逃亡，全村只有他翻蚂蟥岭去送东西；上校疯了，他张罗照料；小瞎子瘫了造他的谣，他反而想治好小瞎子的手，为的是逼他亲笔写出造谣真相。这个人物是麦家给"义"字留的位置：不讲道理，只认交情。而恰恰是这个不讲道理的人，成了全书道德上最干净的人。跟爷爷放在一起是一组精确的对照：讲道德的卖了朋友，不讲道德的守了朋友。</p>
 
@@ -416,7 +488,7 @@
 
   <h3>顺带看三样东西：猫、皮包、戒指</h3>
 
-  <p>麦家在这本书里给物件派的活很重，值得单独一看。<strong>两只猫</strong>是上校的软肋，也是他人性的证明：一个把自己包裹得密不透风的人，总得有个地方漏温情，猫就是那个漏点。小瞎子抓猫诱捕他，等于是全书第一次证明"爱一样东西就会被那样东西拿捏"。<strong>金光皮包</strong>是压到最后的底牌：村人传了几十年"他家底厚"，传到后来变成"我父亲偷卖他家底"。包一打开，是一套手术器具——一个救人的人被传成藏金的人，而洗冤靠的不是任何人的话，是这套冰凉的铁器。<strong>黄金婚戒</strong>出现在林阿姨的床头：她自尽当夜留下的，是一个从没办成的婚礼的信物。三样东西串起来正好是上校的一生：他爱过的（猫）、他做过的（手术器具）、他欠下和被欠下的（戒指）。村庄的语言系统从头到尾在扭曲他，只有这几样哑巴物件替他说了实话。</p>
+  <p>麦家在这本书里给物件派的活很重，值得单独一看。<strong>两只猫</strong>是上校的软肋，也是他人性的证明：一个把自己包裹得密不透风的人，总得有个地方漏温情，猫就是那个漏点。小瞎子抓猫诱捕他，等于是全书第一次证明"爱一样东西就会被那样东西拿捏"。<strong>金光皮包</strong>是压到最后的底牌：村人传了几十年"他家底厚"，传到后来变成"我父亲偷卖他家底"。包一打开，是一套手术器具，一个救人的人被传成藏金的人，而洗冤靠的不是任何人的话，是这套冰凉的铁器。<strong>黄金婚戒</strong>出现在林阿姨的床头：她自尽当夜留下的，是一个从没办成的婚礼的信物。三样东西串起来正好是上校的一生：他爱过的（猫）、他做过的（手术器具）、他欠下和被欠下的（戒指）。村庄的语言系统从头到尾在扭曲他，只有这几样哑巴物件替他说了实话。</p>
 
 </div>
 
@@ -453,7 +525,7 @@
 
   <h3>跨域映射</h3>
 
-  <p>只给一条对得上结构的。上校的困境在今天的对应物是社会性死亡：一个人被网络上一句指控定性，事后即便澄清，旧标签也不会归零，只会被更新的标签盖住——第三层拆过的那台置换机器，原样搬到了线上。区别只有两个：村庄的机器半径三里，网络的机器半径无限，而且永不失忆。</p>
+  <p>只给一条对得上结构的。上校的困境在今天的对应物是社会性死亡：一个人被网络上一句指控定性，事后即便澄清，旧标签也不会归零，只会被更新的标签盖住，第三层拆过的那台置换机器，原样搬到了线上。区别只有两个：村庄的机器半径三里，网络的机器半径无限，而且永不失忆。</p>
 
   <h3>行动触发</h3>
 
@@ -500,7 +572,7 @@
 
   <p>这就是谜底缺席的真正功能：<strong>麦家不揭开那行字，是因为全书批判的就是"给人贴字"这个动作本身。</strong>作者如果亲手揭开，他就加入了村民的行列，成为又一个往上校身上按名字的人。这个留白是他的立场，倒未必是什么高级技巧。</p>
 
-  <p>攻一下这个说法：会不会想多了，麦家只是编不出一句配得上悬念的话？有这个可能，悬念越大，兑现越难，这是写作的力学。但有个证据让我倾向于"故意"：书里给过一次"官方揭晓"，公安通知，白纸黑字，盖章定性。按悬疑小说的常规，这就是揭底时刻。可麦家偏偏让这次揭晓也只给定性、不给原文，而且让"大汉奸"这个定性在村里被当成好消息来庆祝。他在同一个场景里完成了两件事：满足了情节上的交代，又嘲讽了所有等着看那行字的人，包括你。这个安排太准了，不像失手。</p>
+  <p>攻一下这个说法：会不会想多了，麦家只是编不出一句配得上悬念的话？有这个可能，悬念越大，兑现越难，这是写作的力学。但有个证据让我倾向于"故意"：书里给过一次"官方揭晓"，公安通知，白纸黑字，盖章定性。按悬疑小说的常规，这就是揭底时刻。可麦家偏偏让这次揭晓也只给定性、不给原文，而且让"大汉奸"这个定性在村里被当成好消息来庆祝。他在同一个场景里完成了两件事：满足了情节上的交代，又嘲讽了所有等着看那行字的人，包括读者你。这个安排太准了，不像失手。</p>
 
   <p>承重的类比在生活里就有。一个人身上最重的标签，往往你永远看不到原文。你只能看到转述：档案里的一句定性、别人嘴里的一个说法、酒桌上的半截故事。你以为你了解一个人的"底细"，其实你手里从来只有关于底细的传闻。麦家把这个日常经验推到极限：连全知的读者都拿不到原文，你和村民的处境，本质上一样。读到最后你才发觉，这本书最大的圈套是把你也变成了村口猜字的人。你急着想知道那行字，和小瞎子扒开上校的裤腰，是同一种冲动的两个剂量。</p>
 

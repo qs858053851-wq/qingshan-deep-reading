@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>单向度的人 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,10 +381,49 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>单向度的人</h1>
-  <div class="author">赫伯特·马尔库塞　1964　刘继 译　发达工业社会意识形态研究</div>
-  <div class="lead">这本书要讲的事只有一句：控制人的方式已经从禁止变成了满足。它不追问你为什么不反抗，它追问一个更难的问题——你还想得出另一种活法吗。</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">单向度的人</div>
+    <div class="cover-sub">马尔库塞　1964　刘继 译　发达工业社会意识形态研究</div>
+    <div class="cover-meta">赫伯特 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先给一句能带走的：他说这个社会的厉害之处，在于它不用禁止你，它满足你。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么说人们的需要是假的</span>
+      <span class="toc-desc">全书最招人反感的一个说法是“虚假的需要”。凭什么你说我想要的东西是假的？这一层就来看他的证据和他自己捅的窟窿。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 十章书拆到底，三根线在牵</span>
+      <span class="toc-desc">第一层已经讲了这根线的命题，这里看他怎么把它落到具体的社会结构上。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：一句话是怎么让人想不下去的</span>
+      <span class="toc-desc">第四章讲语言。这一章最容易被跳过，可它把“单向度”从社会分析一直落到了你每天说的话上。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，把这本书问明白</span>
+      <span class="toc-desc">译者刘继给的解释可以直接拿来用：单向度的人，即是丧失否定、批判和超越能力的人；这样的人不仅不再有能力去追求，甚...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">他一八九八年生在柏林的犹太家庭，一九三三年离开德国，此后长期在美国生活工作，这本书写于一九六四年的美国。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 在草地上，和在汽车里</span>
+      <span class="toc-desc">第三章里有一段最刺人，讲的是一件违反直觉的事：有些自由是被放开的，而放开它，恰恰让控制变得更牢。</span>
+    </div>
+  </div>
+
+  <div class="lead">这本书要讲的事只有一句：控制人的方式已经从禁止变成了满足。它不追问你为什么不反抗，它追问一个更难的问题，你还想得出另一种活法吗。</div>
 </div>
 
 <div class="layer">
@@ -399,7 +479,7 @@
 
   <p>姿态上，他难读，而且是有意难读的。他相信被抹平的语言没法用来说被抹平这件事，所以他的句子刻意保持着别扭和张力。这本书读起来累，一部分原因在这儿。</p>
 
-  <p>还有一点值得先说清楚：<strong>他对当时的东西两边同时开火。</strong>书里既批判西方的消费社会，也批判苏联式的管理社会，理由是同一条——两边都不容许一个质的意义上的对立面存在。把这本书读成只骂一边，是最常见的误读。</p>
+  <p>还有一点值得先说清楚：<strong>他对当时的东西两边同时开火。</strong>书里既批判西方的消费社会，也批判苏联式的管理社会，理由是同一条，两边都不容许一个质的意义上的对立面存在。把这本书读成只骂一边，是最常见的误读。</p>
 </div>
 
 <div class="layer">
@@ -448,7 +528,7 @@
 
   <div class="sub">他没说、但必须成立的两条</div>
 
-  <p><strong>第一条：存在一个可以拿来对照的“更好”。</strong>要说这个社会整体上是非理性的，必须有一把不属于这个社会的尺子。这把尺子他从哪儿来？主要来自古典哲学传统——“现存的不可能是真实的”这一路的否定性理性。可这个传统本身也是历史的产物，凭什么它就不是另一种被塑造的需要？他没有回答。</p>
+  <p><strong>第一条：存在一个可以拿来对照的“更好”。</strong>要说这个社会整体上是非理性的，必须有一把不属于这个社会的尺子。这把尺子他从哪儿来？主要来自古典哲学传统，“现存的不可能是真实的”这一路的否定性理性。可这个传统本身也是历史的产物，凭什么它就不是另一种被塑造的需要？他没有回答。</p>
 
   <p><strong>第二条：能看穿的人存在。</strong>如果操纵真的彻底到本能层面，那么写这本书的他也应该被操纵了。他在书里没有交代自己为什么是例外。这是所有意识形态批判共同的难题，不是他一个人的。</p>
 
@@ -528,7 +608,7 @@
 
   <div class="sub">第二层 · 底下的机制：句法把张力省略掉了</div>
 
-  <p>往下一层看他的分析。正常的句子里，主词和谓词之间是有距离的。你说“这个人是好人”，主词“这个人”在谓词之外还剩下一些东西——他还有别的面，别的可能，别的没被这句话说尽的部分。<strong>正是这点剩余，让这句话可以被反驳、被补充、被追问。</strong></p>
+  <p>往下一层看他的分析。正常的句子里，主词和谓词之间是有距离的。你说“这个人是好人”，主词“这个人”在谓词之外还剩下一些东西，他还有别的面，别的可能，别的没被这句话说尽的部分。<strong>正是这点剩余，让这句话可以被反驳、被补充、被追问。</strong></p>
 
   <p>单向度的语言取消了这点剩余。主词被谓词完全吞掉，说完就没有然后了。他管这种语言叫一体化、功能化的语言，判词是：<strong>一种坚决地反批判、反辩证法的语言。</strong></p>
 
@@ -627,7 +707,7 @@
 
   <p>他一八九八年生在柏林的犹太家庭，一九三三年离开德国，此后长期在美国生活工作，这本书写于一九六四年的美国。</p>
 
-  <p>这个履历决定了他看事情的角度。他亲眼见过一个高度文明、教育普及、哲学发达的国家怎么在十几年里塌掉；然后他到了一个战后最富裕、最自由、商品最丰盛的社会，看到的却是另一种他同样不安的东西：人们过得很好，而且不想别的。<strong>他要回答的是同一个问题的两半——一个社会可以在很文明的时候变得很坏，也可以在很富裕的时候变得很空。</strong></p>
+  <p>这个履历决定了他看事情的角度。他亲眼见过一个高度文明、教育普及、哲学发达的国家怎么在十几年里塌掉；然后他到了一个战后最富裕、最自由、商品最丰盛的社会，看到的却是另一种他同样不安的东西：人们过得很好，而且不想别的。<strong>他要回答的是同一个问题的两半，一个社会可以在很文明的时候变得很坏，也可以在很富裕的时候变得很空。</strong></p>
 
   <p>所以这本书的敌人从来不是富裕本身。他在第九章特意说清楚：需要本身是历史的，从富裕社会解放不等于回到贫穷。他不要人们过苦日子，他要的是人们在过好日子的时候还想得起来问一句：这就是全部吗。</p>
 
@@ -639,7 +719,7 @@
 
   <div class="sub">同样的结构，在别处叫什么</div>
 
-  <p><strong>在公司里，它叫绩效指标。</strong>第二根线那条判据在这里最好用：不看有多少选项，看能选的是什么。年底填述职表，你可以自由地写你这一年做了什么、达成了哪些目标、明年打算冲什么。选择是真的，表格是敞开的。但那几栏的名目是别人定的，凡是不能被填进那几栏的努力，都不算数。一个人在这套表格里干上三五年，他的自我评价会慢慢长成表格的形状——不是有人逼他，是别的尺子他已经不熟了。这就是把一把尺子内化。</p>
+  <p><strong>在公司里，它叫绩效指标。</strong>第二根线那条判据在这里最好用：不看有多少选项，看能选的是什么。年底填述职表，你可以自由地写你这一年做了什么、达成了哪些目标、明年打算冲什么。选择是真的，表格是敞开的。但那几栏的名目是别人定的，凡是不能被填进那几栏的努力，都不算数。一个人在这套表格里干上三五年，他的自我评价会慢慢长成表格的形状，不是有人逼他，是别的尺子他已经不熟了。这就是把一把尺子内化。</p>
 
   <p><strong>在学校里，它叫分数。</strong>同一个结构。学生可以自由选择考哪所学校、报什么专业、参加哪些活动，选项年年在增加。但所有这些选择的价值最终都要换算成同一个数。换算得越顺畅，学生越难想象一种不必换算的学法。他讲的“事物与其功能相等同”，在这儿的版本是：一门课的意义等于它能加多少分。</p>
 
@@ -657,7 +737,7 @@
 
   <p>被说服的：“成就取消了前提”那五个字，我服。权利在被兑现的过程中失去锋刃，这个机制比任何阴谋论都更能解释我们眼前的很多事，而且它不需要假设有谁在幕后策划。</p>
 
-  <p>不服的两处。一是他对普通人的态度。他嘴上承认没有资格裁决，笔下却一直在裁决，这让整本书有一层俯视。二是他给的出路太虚。把希望寄给体制外的人，说他们“即使意识不是革命性的，反对也是革命性的”，这话在逻辑上是通的，在现实里是空的——它没有告诉任何一个具体的人该做什么。</p>
+  <p>不服的两处。一是他对普通人的态度。他嘴上承认没有资格裁决，笔下却一直在裁决，这让整本书有一层俯视。二是他给的出路太虚。把希望寄给体制外的人，说他们“即使意识不是革命性的，反对也是革命性的”，这话在逻辑上是通的，在现实里是空的，它没有告诉任何一个具体的人该做什么。</p>
 
   <p>读法上还有一句要说：这本书难读，但难读的地方分布很不均匀。第一章、第三章、第十章是全书的骨，值得慢读；第七章打语言分析哲学那一章，如果对英美哲学没兴趣，跳过不影响理解；第二章的政治分析时代感很强，当史料看即可。</p>
 </div>

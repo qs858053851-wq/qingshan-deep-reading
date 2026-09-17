@@ -1,23 +1,30 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>重口味心理学 · 深度解读</title><style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -74,6 +81,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -87,14 +105,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -103,7 +121,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -112,7 +130,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -122,7 +140,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -130,12 +148,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -151,7 +169,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -166,7 +183,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -261,9 +277,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -271,6 +286,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -323,13 +355,67 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
       padding-right: 20px;
     }
   }
-</style></head><body><main class="container"><header class="hero"><h1>重口味心理学</h1><div class="author">姚尧 · 一份带审查意识的阅读</div></header>
+</style></head><body><main class="container">  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">重口味心理学</div>
+    <div class="cover-sub">一份带审查意识的阅读</div>
+    <div class="cover-meta">姚尧 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 先把这本猎奇合集理清</span>
+      <span class="toc-desc">全书十六章，从双相障碍、解离、强迫、创伤、社交焦虑、抑郁、人格障碍讲到催眠、操纵和记忆宫殿。它靠名人故事、极端...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 哪些材料可用，哪些必须停下来</span>
+      <span class="toc-desc">强迫章节写一个人担心污染而反复确认和清洗。每次检查都会短暂降焦虑，大脑便学到“检查救了我”，下一次更难忍住。这...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 短期自救怎样变成长期困局</span>
+      <span class="toc-desc">第一根线是动作能立刻减轻一点痛苦。检查让污染焦虑下降，回避让社交恐惧暂时安静，解离让难以承受的经验离开当前意识...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 为什么越检查越不能放心</span>
+      <span class="toc-desc">侵入性想法很常见，想到不等于愿望，更不自动等于行动。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 六个问题，防止把科普读成诊断</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这本书最该被反驳的地方</span>
+      <span class="toc-desc">作者想用好奇替代恐惧，让读者知道怪异症状内部也有因果。这份动机值得保留。问题在于标题、名人诊断和极端案例又把患...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 压到不能再压</span>
+      <span class="toc-desc">一句话：理解症状，要同时看它救了什么，又夺走了什么。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 给症状命名，还没有解释一个人</span>
+      <span class="toc-desc">猎奇心理学最诱人的时刻，是一个陌生名词突然把混乱行为收进盒子：强迫、解离、躁狂、人格障碍。名字带来秩序感，读者...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这本书</span>
+      <span class="toc-desc">本书是大众心理读物，不是临床诊断手册；其中名人诊断、催眠、极端案例与病因解释的证据等级不一。本篇保留“症状可能...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">先把这本猎奇合集理清</h2><p>全书十六章，从双相障碍、解离、强迫、创伤、社交焦虑、抑郁、人格障碍讲到催眠、操纵和记忆宫殿。它靠名人故事、极端病例和强烈标题推进，没有一条严密论证，也把精神分析、行为治疗、神经递质和励志建议并排放在一起。可读性很强，证据等级很乱。</p><p>各章反复把一个难题摆到读者面前：某些行为明明让本人痛苦，也破坏工作与关系，为什么仍然难以停止？作者有时从学习过程解释，有时借创伤、防御或脑化学作答。不同理论不能随意拼接，但这个问题值得保留，它把注意从猎奇标签移向行为发生的处境。</p><p>这本书不能当诊疗手册。名人事后诊断、争议极大的“24个比利”、催眠恢复记忆、猛烈暴露练习和自杀表述都存在风险。侵入性念头不自动等于行动意图，症状有功能也不等于疾病值得浪漫化。以下解读只讨论书的解释框架，涉及自伤、自杀、创伤、躁狂、成瘾或持续功能受损时，应寻求专业评估。</p></section>
 <section class="layer"><div class="kicker">Layer 02</div><h2 class="layer-title">哪些材料可用，哪些必须停下来</h2><p>强迫章节写一个人担心污染而反复确认和清洗。每次检查都会短暂降焦虑，大脑便学到“检查救了我”，下一次更难忍住。这是负强化的清楚例子。书中后来出现涉及血液、孩子和高强度暴露的安排，缺少足够伦理与风险说明，绝不能当自助练习。</p><p>创伤章节用“碎花瓶”比喻安全、公平与幸免等基本信念破裂。恢复不等于把旧世界硬粘回原样，而是承认经验已经改变，再建立能容纳这段历史的生活。这个解释有启发，却不能替代创伤评估和治疗。</p><p>催眠案例中，来访者出现童年伤害、树叶和动物等混合画面，作者也承认其中可能有事实、后来见闻和象征。催眠会提高暗示性与主观确信，画面鲜明不等于历史精确。拿它证明“恢复了被压抑记忆”风险很大。</p><p>全书默认极端病例能照见普通心理，这会带来理解，也容易让人按一两个特征给自己或身边人贴诊断。大量故事缺少来源、诊断程序和随访；名人事后诊断尤其不可靠。可保留的是短期减痛怎样变成长期困局，不能保留的是猎奇标签、脑化学速成解释和危险操作。</p></section>
 <section class="layer"><div class="kicker">Layer 03</div><h2 class="layer-title">短期自救怎样变成长期困局</h2><p>第一根线是动作能立刻减轻一点痛苦。检查让污染焦虑下降，回避让社交恐惧暂时安静，解离让难以承受的经验离开当前意识。它们并非凭空出现。</p><p>第二根线是缓解会强化动作。下一次焦虑来时，人更快依赖检查与回避，少了学习其他应对的机会。白信封从普通物品变成污染信号，原先一次性的联想被每次清洗重复确认。</p><p>第三根线是生活越来越窄。为了不触发不适，可去的地方、可碰的东西、可维持的关系逐渐减少。困局的严重程度不能只看动作多怪，还要看痛苦、失控和功能受损。猎奇标签恰好会遮住这条真正有用的判断线。</p></section>

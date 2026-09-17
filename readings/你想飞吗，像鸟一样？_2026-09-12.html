@@ -5,25 +5,32 @@
   <meta charset="UTF-8">
   <title>你想飞吗，像鸟一样？ · 深度解读</title>
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -359,42 +400,42 @@
 <div class="toc">
   <h2>目 录</h2>
   <div class="toc-list">
-    <a href="#layer1" class="toc-item">
+    <div class="toc-item">
       <span class="toc-name">Layer 01 · 概念全景</span>
       <span class="toc-desc">重力的暴政与自私基因的突围：从尺度惩罚到气动工程进阶</span>
-    </a>
-    <a href="#layer2" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 02 · 论证肌理</span>
       <span class="toc-desc">基因账本上的代谢折旧与升力清算：三大微观与宏观实证</span>
-    </a>
-    <a href="#layer3" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 03 · 解释生成器</span>
       <span class="toc-desc">撬动天空的三根底层作用线：几何律、代谢折旧与功能跃迁</span>
-    </a>
-    <a href="#layer4" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 04 · 机制深钻</span>
       <span class="toc-desc">重力深井与自私基因的引力突围：四步下钻直达熵增对抗基岩</span>
-    </a>
-    <a href="#layer5" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 05 · 推演问答</span>
       <span class="toc-desc">顺着空气动力学走完道金斯的推理：七大递进力学与演化难题</span>
-    </a>
-    <a href="#layer6" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 06 · 审视与反思</span>
       <span class="toc-desc">跳出飞行图纸重审演化神学：自然神学祛魅、盲区与跨域映射</span>
-    </a>
-    <a href="#layer7" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
       <span class="toc-desc">把整本书的重力账本压到一张纸上：单页公式、核心提要与ASCII图</span>
-    </a>
-    <a href="#layer8" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 08 · 核心讲解引擎</span>
       <span class="toc-desc">半个翅膀的生存真相与连续阶梯的跃迁：前适应机制与局部峰值</span>
-    </a>
-    <a href="#layer9" class="toc-item">
+    </div>
+    <div class="toc-item">
       <span class="toc-name">Layer 09 · 终局定音</span>
       <span class="toc-desc">引力深井边缘的生命回响：大字卷尾金句与三维度事实边界考据</span>
-    </a>
+    </div>
   </div>
 </div>
 <div class="section" id="layer1">

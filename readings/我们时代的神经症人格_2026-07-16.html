@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我们时代的神经症人格 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">我们时代的<br>神经症人格</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">我们时代的神经症人格</div>
+    <div class="cover-sub">霍妮 著 · 冯川 译 · 原著 1937</div>
+    <div class="cover-meta">[美] 卡伦 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">一句话：神经症的发动机是焦虑，而焦虑的燃料主要来自文化，那些看似五花八门的病态（缠着要爱、拼命争权、疯狂自责、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">第一条腿：诊室。她的原始材料是长年精神分析实践里的病人观察。书里病例不多（她在序言里明说，堆病案会"冗长累赘"...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">十五章、几十种症状，全部挂在两根线上。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">还有一个更深的问题没解决。想要被爱、想赢、想有钱，人人都想，凭什么病人想就是病？如果答不好这个问题，整本书就成...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">表面依据是他偏离了大家的活法，但这个标准是文化定的：不求上进的姑娘在纽约是病人，在普韦布洛是常人。所以霍妮换了...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">两股力顶着她。第一股是学术憋屈：霍妮在柏林精神分析研究所时期就不服弗洛伊德的女性心理学（那套"阴茎嫉羡"的讲法...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：病人身上打成死结的那几股绳，每一股都是文化亲手递给他的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">书里第十章有个病例，我读完合上书还在想她。</span>
+    </div>
+  </div>
+
   <div class="meta">[美] 卡伦·霍妮 著 · 冯川 译 · 原著 1937</div>
   <div class="oneliner">弗洛伊德说你的病根在童年的本能里；霍妮说，先别急，看看你活的这个时代：它逼每个人参加一场比赛，又骂参赛的人不谦让。病，就是从这条裂缝里长出来的。</div>
 </div>
@@ -355,9 +436,9 @@
   <p>先说清作者的位置。卡伦·霍妮是德国出身的精神分析师，1932 年移居美国，这本 1937 年的书是她与弗洛伊德正统学派的第一次公开分岔。她在序言里把话挑明：童年经验重要，但它只是提供了条件，真正推动病人的是<strong>此刻实际存在的冲突</strong>；弗洛伊德看重的生物本能，在文化环境这个变量面前"立刻后退到背景的位置上"。她甚至预答了质疑，你这还算精神分析吗？她说：如果精神分析等于弗洛伊德的全套理论，那我这不算；如果精神分析的本质是考察无意识过程，那我这就算。</p>
 
   <h3>全书的走法</h3>
-  <p>十五章其实是四步棋。<strong>第一步（1–2 章）拆"正常"</strong>：谁算病人？标准全看文化。一个不求上进、拒绝加薪的姑娘在纽约是神经症，在普韦布洛印第安部落是正常人；一个声称见过幻象的印第安少年在部落里是蒙神眷顾，在曼哈顿会被送进诊所。既然"正常"由文化定，那"病"也只能对着文化来理解。她给神经症留了两个跨文化的鉴别特征：反应方式的<strong>固执</strong>（正常人看情况怀疑，病人无差别怀疑一切），以及<strong>潜能和实现之间的脱节</strong>（明明有条件快乐，却始终痛苦）。</p>
-  <p><strong>第二步（3–5 章）立地基</strong>：焦虑与恐惧的区分，焦虑-敌意的循环，直到全书的核心概念——基本焦虑（basic anxiety）：一种"在内心中不断增长的、到处蔓延渗透的孤独感，以及置身于一个敌对世界中的无能为力的绝望感"。它在童年缺乏真诚温暖的环境里凝固成性格底色，从此不需要任何现实刺激就常年在线。</p>
-  <p><strong>第三步（6–14 章）数防御工事</strong>，这是全书篇幅最大的部分。对抗基本焦虑主要有几条路：向人要爱（6–9 章，缠住别人换安全感）；向上要权（10–12 章，用权力、声望、财富把人推开来换安全感）；以及两条更隐蔽的路，病态犯罪感（13 章）和病态受苦（14 章，受虐狂问题）。注意她的排法：爱与权力是一枚硬币的两面，一个靠强化与人的接触求安全，一个靠放松与人的接触求安全，方向相反，动力相同。</p>
+  <p>十五章其实是四步棋。<strong>第一步（1，2 章）拆"正常"</strong>：谁算病人？标准全看文化。一个不求上进、拒绝加薪的姑娘在纽约是神经症，在普韦布洛印第安部落是正常人；一个声称见过幻象的印第安少年在部落里是蒙神眷顾，在曼哈顿会被送进诊所。既然"正常"由文化定，那"病"也只能对着文化来理解。她给神经症留了两个跨文化的鉴别特征：反应方式的<strong>固执</strong>（正常人看情况怀疑，病人无差别怀疑一切），以及<strong>潜能和实现之间的脱节</strong>（明明有条件快乐，却始终痛苦）。</p>
+  <p><strong>第二步（3，5 章）立地基</strong>：焦虑与恐惧的区分，焦虑-敌意的循环，直到全书的核心概念，基本焦虑（basic anxiety）：一种"在内心中不断增长的、到处蔓延渗透的孤独感，以及置身于一个敌对世界中的无能为力的绝望感"。它在童年缺乏真诚温暖的环境里凝固成性格底色，从此不需要任何现实刺激就常年在线。</p>
+  <p><strong>第三步（6，14 章）数防御工事</strong>，这是全书篇幅最大的部分。对抗基本焦虑主要有几条路：向人要爱（6，9 章，缠住别人换安全感）；向上要权（10，12 章，用权力、声望、财富把人推开来换安全感）；以及两条更隐蔽的路，病态犯罪感（13 章）和病态受苦（14 章，受虐狂问题）。注意她的排法：爱与权力是一枚硬币的两面，一个靠强化与人的接触求安全，一个靠放松与人的接触求安全，方向相反，动力相同。</p>
   <p><strong>第四步（15 章）收口到文化</strong>：既然每个病人的内心冲突高度雷同，那就该问文化里埋了什么。她点出现代文化的三大矛盾：竞争成功与友爱谦卑的矛盾、被广告吊起来的欲望与实际满足的矛盾、"你是自由的"这句承诺与实际处处受限的矛盾。神经症患者与正常人的差别只在程度：正常人扛着这些矛盾还能过，病人被压垮了。</p>
 
   <p>核心冲突一句话：这是一场焦虑和防御的军备竞赛：防御工事越修越高，人越活越窄，而工事本身又制造新的焦虑。书名里"我们时代"四个字是论点本身：病人身上的冲突，就是这个时代文化矛盾的私人版本。</p>
@@ -386,7 +467,7 @@
   <p>十五章、几十种症状，全部挂在两根线上。</p>
 
   <h3>第一根线：焦虑和敌意互相喂养，最后凝成人格的底盘</h3>
-  <p>机制是个闭合的圈：孩子在缺乏真诚温暖的环境里产生敌意 → 敌意不敢表达（表达了会失去仅有的依靠），只能压抑 → 压抑的敌意转成焦虑 → 焦虑让世界显得更危险，于是产生更多敌意。转几圈之后，这个循环不再需要外部输入，凝固成一种性格态度，霍妮起名叫基本焦虑。她给过一个政治类比：基本焦虑之于种种症状，就像一个国家对体制的潜在不满之于罢工、游行、骚乱——表面事件五花八门，可以由任何具体导火索点燃，但都从同一个背景里发源。这根线解释了神经症的两个鉴别特征为什么成立：反应固执，因为病人回应的从来不是眼前的情境，而是底盘上那个常年在线的敌对世界；潜能与实现脱节，因为他的大部分心力不在生活上，在防御上。</p>
+  <p>机制是个闭合的圈：孩子在缺乏真诚温暖的环境里产生敌意 → 敌意不敢表达（表达了会失去仅有的依靠），只能压抑 → 压抑的敌意转成焦虑 → 焦虑让世界显得更危险，于是产生更多敌意。转几圈之后，这个循环不再需要外部输入，凝固成一种性格态度，霍妮起名叫基本焦虑。她给过一个政治类比：基本焦虑之于种种症状，就像一个国家对体制的潜在不满之于罢工、游行、骚乱，表面事件五花八门，可以由任何具体导火索点燃，但都从同一个背景里发源。这根线解释了神经症的两个鉴别特征为什么成立：反应固执，因为病人回应的从来不是眼前的情境，而是底盘上那个常年在线的敌对世界；潜能与实现脱节，因为他的大部分心力不在生活上，在防御上。</p>
 
   <h3>第二根线：病人替文化扛下了它自己的矛盾</h3>
   <p>光有底盘还不够，还得问：为什么病态偏偏长成这几种形状（要爱、争权、自责、受苦），而不是别的？霍妮的回答是，形状由文化的裂缝决定。现代文化同时喊两句相反的话：去竞争、去赢、把别人挤开；要友爱、要谦卑、别自私。它用广告把欲望吊到天上，又让大多数人的实现停在地上。它承诺你是自由的、一切皆有可能，又在职业、婚姻、消遣上处处设限。健康人踩着这三条裂缝勉强走路，病人掉了进去。</p>
@@ -418,7 +499,7 @@
   </div>
 
   <div class="qa">
-    <div class="q">二问：病人身上那个核心的东西——焦虑——和普通的害怕是一回事吗？</div>
+    <div class="q">二问：病人身上那个核心的东西，焦虑，和普通的害怕是一回事吗？</div>
     <p>不是一回事。恐惧的危险在外面、看得见，焦虑的危险在里面、说不清。所以劝说对恐惧有用（"熊已经走了"），对焦虑彻底无效，因为病人回应的是他内心的处境，不是你指给他看的现实。</p>
   </div>
 
@@ -453,7 +534,7 @@
   <div class="layer-title">跳出这本书：她为什么非写不可，又漏了什么</div>
 
   <h3>非写不可</h3>
-  <p>两股力顶着她。第一股是学术憋屈：霍妮在柏林精神分析研究所时期就不服弗洛伊德的女性心理学（那套"阴茎嫉羡"的讲法，她在二十年代就公开顶过），但真正的决裂需要一个能替代生物学的解释框架。第二股是移民经验，1932 年她从柏林到芝加哥、再到纽约，等于亲身做了一场对照实验：同样的方法、同样的职业，病人内心冲突的形状却变了。文化这个变量，别人要靠人类学文献想象，她在诊室里直接看见了。这本书是她把这场私人对照实验写成理论的产物，也是她两年后被纽约精神分析研究所排挤出讲席的伏笔——书里那句"迂腐的、食而不化的危险"，正统派听得懂是在说谁。</p>
+  <p>两股力顶着她。第一股是学术憋屈：霍妮在柏林精神分析研究所时期就不服弗洛伊德的女性心理学（那套"阴茎嫉羡"的讲法，她在二十年代就公开顶过），但真正的决裂需要一个能替代生物学的解释框架。第二股是移民经验，1932 年她从柏林到芝加哥、再到纽约，等于亲身做了一场对照实验：同样的方法、同样的职业，病人内心冲突的形状却变了。文化这个变量，别人要靠人类学文献想象，她在诊室里直接看见了。这本书是她把这场私人对照实验写成理论的产物，也是她两年后被纽约精神分析研究所排挤出讲席的伏笔，书里那句"迂腐的、食而不化的危险"，正统派听得懂是在说谁。</p>
 
   <h3>漏了什么</h3>
   <p>四处。其一，文化诊断只有勾画：第十五章三大矛盾一共几页纸，她自己声明"我并非社会学家"，裂缝是谁挖的、能不能填，全书不答。其二，样本的阶级性：躺椅上是付得起分析费的都市中产，"我们时代"其实是"我们阶层的时代"。其三，诊断厚、药方薄：怎么治，这本书几乎不讲（她后来专门补了《自我分析》和《神经症与人的成长》）。其四，钟摆问题：她把生物因素"推到背景位置"，从今天看摆过了头，几十年后的双生子研究和精神药理学都表明，焦虑的易感性确有先天成分。她纠正了弗洛伊德的偏食，自己也偏了一边。</p>
@@ -466,7 +547,7 @@
   <p>另一件，带孩子、带团队时记住她那句判断：人能承受相当大的挫折，只要确信自己被爱、被公平对待。要紧的从来都只有真诚这一样。假的温暖比真的严厉更伤人，因为孩子"绝不会被任何虚伪的表示所欺骗"。</p>
 
   <h3>我的立场</h3>
-  <p>动力来源那把刀（力量还是虚弱）我完全买账，它把道德判断从心理诊断里剥了出去，八十多年不钝。文化病因论我买一半：作为对弗洛伊德泛生物主义的纠偏，漂亮；作为完整病因学，单薄——人不是文化的白纸，底盘上有先天的纹理。至于全书的姿态，我最敬重的是她的分寸：手里握着一个能解释一切的大框架，却处处标注边界、承认自己讲不了的部分。能解释一切的理论她见过（就是她要逃离的那个），所以她克制。</p>
+  <p>动力来源那把刀（力量还是虚弱）我完全买账，它把道德判断从心理诊断里剥了出去，八十多年不钝。文化病因论我买一半：作为对弗洛伊德泛生物主义的纠偏，漂亮；作为完整病因学，单薄，人不是文化的白纸，底盘上有先天的纹理。至于全书的姿态，我最敬重的是她的分寸：手里握着一个能解释一切的大框架，却处处标注边界、承认自己讲不了的部分。能解释一切的理论她见过（就是她要逃离的那个），所以她克制。</p>
 </div>
 
 <div class="layer">
@@ -511,11 +592,11 @@
 
   <p>然后，九岁，她突然变了一个人：在班上非拿第一名不可，不顾一切，不肯屈居任何人之后。原来要好的女孩，关系全都恶化了。</p>
 
-  <p>大人看到的是一个上进的孩子。成绩单漂亮，老师大概还表扬过这场"蜕变"。只有把霍妮的透镜架上去，这个故事才显出它真正的形状：野心是在爱的追求两次失败之后的几个星期里出现的。顺序就是证据。她要第一名，因为爱那条路走不通了；她把伙伴变成对手，因为亲密本身已经等于危险。那不是上进心，是一个八岁的人在自己的世界里试完了所有获得安全的办法之后，换的最后一条路——这条路不需要任何人点头，只需要把所有人甩在身后。</p>
+  <p>大人看到的是一个上进的孩子。成绩单漂亮，老师大概还表扬过这场"蜕变"。只有把霍妮的透镜架上去，这个故事才显出它真正的形状：野心是在爱的追求两次失败之后的几个星期里出现的。顺序就是证据。她要第一名，因为爱那条路走不通了；她把伙伴变成对手，因为亲密本身已经等于危险。那不是上进心，是一个八岁的人在自己的世界里试完了所有获得安全的办法之后，换的最后一条路，这条路不需要任何人点头，只需要把所有人甩在身后。</p>
 
-  <p>这个病例让我看清了霍妮那把刀最锋利的地方：<strong>同一张成绩单，可以是花开，也可以是结痂。</strong>从力量出发的第一名，是能力在寻找出口；从虚弱出发的第一名，是伤口在寻找绷带。外表完全一样，家长和老师根本分不出来，甚至本人也分不出来——她只觉得自己"想赢"，她不记得这股劲是哪天从哪个缺口里冒出来的。而两者的区别要到很多年后才结账：前者赢了会满足，输了会难过，然后继续生活；后者赢了只觉得松一口气，接着立刻需要下一场胜利，因为绷带会松，伤口一直在。</p>
+  <p>这个病例让我看清了霍妮那把刀最锋利的地方：<strong>同一张成绩单，可以是花开，也可以是结痂。</strong>从力量出发的第一名，是能力在寻找出口；从虚弱出发的第一名，是伤口在寻找绷带。外表完全一样，家长和老师根本分不出来，甚至本人也分不出来，她只觉得自己"想赢"，她不记得这股劲是哪天从哪个缺口里冒出来的。而两者的区别要到很多年后才结账：前者赢了会满足，输了会难过，然后继续生活；后者赢了只觉得松一口气，接着立刻需要下一场胜利，因为绷带会松，伤口一直在。</p>
 
-  <p>我们的语言里有一大堆词，专门用来把结痂夸成花：要强，上进，自驱力，不服输，别人家的孩子。霍妮这本书教的，是在鼓掌之前先问一句时间顺序：这股劲，是在什么之后长出来的？如果答案是在某次爱的失败之后，那么最不该做的事，就是为它鼓掌——掌声会把绷带焊在伤口上，让那个九岁的孩子到六十九岁还在抢第一名，还在纳闷为什么每一次赢，都只够撑到下一次比赛开始。</p>
+  <p>我们的语言里有一大堆词，专门用来把结痂夸成花：要强，上进，自驱力，不服输，别人家的孩子。霍妮这本书教的，是在鼓掌之前先问一句时间顺序：这股劲，是在什么之后长出来的？如果答案是在某次爱的失败之后，那么最不该做的事，就是为它鼓掌，掌声会把绷带焊在伤口上，让那个九岁的孩子到六十九岁还在抢第一名，还在纳闷为什么每一次赢，都只够撑到下一次比赛开始。</p>
 </div>
 
 <div class="factline">
@@ -524,7 +605,7 @@
 </div>
 
 <div class="finale">
-  <div class="line">看到一个人拼命想要什么，先别问他要的是什么，问他在怕什么——从力量出发的追求会停在满足，从恐惧出发的追求永远差一场胜利。</div>
+  <div class="line">看到一个人拼命想要什么，先别问他要的是什么，问他在怕什么，从力量出发的追求会停在满足，从恐惧出发的追求永远差一场胜利。</div>
   <div class="sign">青山 · 2026-07-16</div>
 </div>
 

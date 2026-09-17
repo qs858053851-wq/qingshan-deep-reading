@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>古代人的日常生活 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>古代人的日常生活</h1>
-  <div class="author">王磊（讲历史的王老师）　2019　江苏凤凰文艺出版社　柴米油盐里的真实历史</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">古代人的日常生活</div>
+    <div class="cover-sub">现代流行影视剧与穿越小说给大众灌输了一种极度浪漫化的古代幻觉：主角穿越到唐宋明清，住着雕梁画栋的大宅院，吃着珍馐美味，与才子佳人在上元灯节自由相会。中学历史教师王磊在《古代人的日常...</div>
+    <div class="cover-meta">王磊（讲历史的王老师）　2019　江苏凤凰文艺出版社　柴米油盐里的真实历史 · 解读主理：青山 · 日期：2026-09-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 撕掉古装剧美颜：一场充满刺鼻气味与制度管制的真实穿越</span>
+      <span class="toc-desc">现代流行影视剧与穿越小说给大众灌输了一种极度浪漫化的古代幻觉：主角穿越到唐宋明清，住着雕梁画栋的大宅院，吃着珍...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么说古代平民的生活极其严苛脆弱</span>
+      <span class="toc-desc">王磊没有采信野史演义，他引用的全部证据均来自二十四史正史、出土汉简唐牍、明清地方志、历代农书以及真实的宋明小说...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 塑造古代日常生活的三个底层生成器</span>
+      <span class="toc-desc">古代日常生活中九成以上的奇特习俗与不便，归根结底受制于农业时代的物质技术水平。没有廉价耐用的薄铁锅与植物榨油技...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着那盘平民餐桌一路追问到文明演进</span>
+      <span class="toc-desc">翻开先秦《诗经》、两汉《四民月令》乃至北魏《齐民要术》，古人的饮食做法来来回回只有炙（烤）、脍（生肉切片）、熬...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个趣味问题走完王老师的历史大课</span>
+      <span class="toc-desc">在以农耕立国的古代中国，耕牛是重要的农业生产资料，历代律法严禁私自宰杀耕牛，只有病死、老死的牛经官府报备后才能...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 从讲台走向大众：历史科普的清醒与温度</span>
+      <span class="toc-desc">王磊作为一名拥有十余年一线教学经验的沈阳市知名高中历史教师，在日常教学中发现学生们对死记硬背帝王将相年代大事极...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一页餐巾纸上的全书架构</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 宋代的铁锅与通宵的夜市：一口锅如何撬动整个市民文明</span>
+      <span class="toc-desc">在北宋都城东京开封府的御街两旁，夜幕刚刚降临。若是一位从唐代贞观年间穿越而来的长安市民站在街头，眼前的景象会让...</span>
+    </div>
+  </div>
+
   <div class="lead">穿越回古代不是当王爷，而是先要解决没手纸、没辣椒、没炒菜以及天黑就宵禁的生存硬难题。中学历史老师王磊用扎实史料，撕开古装剧的美颜滤镜。</div>
 </div>
 

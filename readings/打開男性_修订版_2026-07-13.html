@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>打開男性 · 深度解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,52 @@
 </head>
 <body>
 <div class="container">
-  <div class="hero">
-    <div class="book-title">打開男性</div>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">打開男性</div>
+    <div class="cover-sub">陽剛氣概的變奏</div>
+    <div class="cover-meta">青山 读 · 打開男性 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">这本书的题目就透着反骨：「打開男性」。男性要被「打开」来看，言下之意是，平时我们只是照着男性气概这套东西活，没...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">这本论文集的论证，要分两层看：一层是 Connell 的理论骨架，一层是各篇香港经验研究怎么撑起这个骨架。先把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 真正牵动全书的那几根线</span>
+      <span class="toc-desc">第一层看 Connell 怎么论证，这一层往底下钻：这本论文集千头万绪，真正牵动全书的，就那么几根线。把它们拎...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">第三层横着铺开四根线，这一层挑最深的那根线，男性气概是「做」出来的这根，往井里下探，一层一层往下，看能挖到多深...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">把全书论证一根一根抽出来，每根长成一个问题，把 Connell 这套推理顺着走一遍。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 作者为什么非编不可，又漏了什么</span>
+      <span class="toc-desc">黄结梅编这本书的那股劲儿，来自一个具体的盲点：香港性别研究长期偏重女性（女性主义做得厚），男性气概这一性别环节...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 餐巾纸压缩</span>
+      <span class="toc-desc">如果这本书只能留一个公式在餐巾纸上：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 身份靠「不像」来守</span>
+      <span class="toc-desc">打开这本《打開男性》，最先撞上的是一条戒律：男人不能像女人。Connell 借 Frank 和 Terry 的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇 Connell 霸权男性气概（hegemonic masculinity）理论框架、四种男性气概分类（霸...</span>
+    </div>
+  </div>
+
     <div class="subtitle">陽剛氣概的變奏</div>
     <div class="author-line">黃結梅 編</div>
     <div class="date-line">2026-07-06 初稿 · 2026-07-13 修订 · 深度解书</div>
@@ -363,7 +448,7 @@
     <p>最后是品牌化、消费型男性气概。社会学家 Frank（1991）和 Alexander（2003）提出「镜像身体」和「品牌化男性气概」，说男性能靠消费建立性别形象，David Bowie 就是例子。这是「新变奏」。</p>
     <h3>论证结构与写作姿态</h3>
     <p><strong>论证结构</strong>：论文集，编者用 Connell 框架做整合，把多个经验研究兜到一起，而非单一论证推进。</p>
-    <p><strong>写作姿态</strong>：学术性别研究，立场摆在台面上——批判男性气概的霸权等级，同情被压到边缘的变奏。书名那个「打开」是个动作，带着批判：打开给你看，这套东西怎么运作，谁吃肉谁挨打。</p>
+    <p><strong>写作姿态</strong>：学术性别研究，立场摆在台面上，批判男性气概的霸权等级，同情被压到边缘的变奏。书名那个「打开」是个动作，带着批判：打开给你看，这套东西怎么运作，谁吃肉谁挨打。</p>
   </div>
   <div class="layer">
     <div class="layer-num">第二层</div>
@@ -379,9 +464,9 @@
     <h3>关键证据（三个）</h3>
     <p>第一个是「No sissy stuff」。这条戒律最硬。男人最怕的，是被人说「像个娘们」。Frank 和 Terry 的访谈里，男孩反复说「我不能显得 gay」「我不能 effeminate」。这条恐惧驱动整个霸权再生产。</p>
     <p>第二个是 OB 午夜藍。香港这个民间社团专门给男性性工作者建互助网络，成员是劳工工作者、性/别研究学者和医生。男性性工作者是「边缘男性气概」的活样本：男人卖性，把性当劳动、把身体当商品，这跟霸权型「男人是性的主体、女人是客体」的设定直接冲突。鄧曉紅这篇把街头 hustlers、按摩院这些分类摆出来，让男性身体商品化这件事看得见。</p>
-    <p>第三个是 David Bowie。品牌化男性气概篇用他做案例——一个男人靠消费、造型、表演建立性别形象，「男人味」可以买、可以演，不必天生。Bowie 那种雌雄同体的舞台做派，恰恰说明男性气概能脱钩于生理男性。</p>
+    <p>第三个是 David Bowie。品牌化男性气概篇用他做案例，一个男人靠消费、造型、表演建立性别形象，「男人味」可以买、可以演，不必天生。Bowie 那种雌雄同体的舞台做派，恰恰说明男性气概能脱钩于生理男性。</p>
     <h3>隐形假设</h3>
-    <p>Connell 这套论证踩在几个没明说的前提上。一是男性气概是「实践」（doing）而非「属性」（being）——这个语言学转向是整个框架的地基，但实践和身份的边界其实模糊。二是存在一个相对稳定、被普遍尊崇的「霸权型」，可现实中尊崇的是不是单一模型，值得商榷。三是普通男性从「父权红利」中得益（共谋），这个「得益」在不同阶级、种族里差别巨大，可能把太多东西压成一个词。</p>
+    <p>Connell 这套论证踩在几个没明说的前提上。一是男性气概是「实践」（doing）而非「属性」（being），这个语言学转向是整个框架的地基，但实践和身份的边界其实模糊。二是存在一个相对稳定、被普遍尊崇的「霸权型」，可现实中尊崇的是不是单一模型，值得商榷。三是普通男性从「父权红利」中得益（共谋），这个「得益」在不同阶级、种族里差别巨大，可能把太多东西压成一个词。</p>
     <h3>边界条件</h3>
     <p>Connell 理论从西方社会提炼，搬到香港要打折扣。香港的「霸权男性气概」未必是白人中产异性恋那一套，更像是殖民遗存、广东父权、打工经济的新组合。书里各篇用香港本土经验去试探这个折扣：教育里的「男生危机」、男性性工作者的边缘处境、David Bowie 式消费男性。但论文集各篇深度参差，OCR 文本也让我读不全细节，这本的血肉，有几篇我只能看到骨架。</p>
   </div>
@@ -527,13 +612,13 @@
     <div class="layer-num">第八层</div>
     <h2 class="layer-title">身份靠「不像」来守</h2>
     <p>打开这本《打開男性》，最先撞上的是一条戒律：男人不能像女人。Connell 借 Frank 和 Terry 的研究把它命名为「No sissy stuff」。这条戒律看着简单，可顺着它往下追一步，会撞见一个反直觉的东西。</p>
-    <p>我们一般以为，男性气概是「要做什么」——要强、要硬、要主动、要能扛事，男人味是一串正面清单。可 Connell 把这条戒律翻过来看，男性气概的核心定义落在「不能做什么」上，「要做什么」是表面。一个男人是男人，靠的是他没碰那些「像女人」的东西，做了多少硬汉的事在其次。身份靠「不像」来守，不靠「像」来建。</p>
+    <p>我们一般以为，男性气概是「要做什么」，要强、要硬、要主动、要能扛事，男人味是一串正面清单。可 Connell 把这条戒律翻过来看，男性气概的核心定义落在「不能做什么」上，「要做什么」是表面。一个男人是男人，靠的是他没碰那些「像女人」的东西，做了多少硬汉的事在其次。身份靠「不像」来守，不靠「像」来建。</p>
     <p>为什么「不像」比「像」更基础？肯定性定义总说不清，你问「什么是男人」，正面列举（强、硬、主动、能扛事）永远列不全，每条都有例外：强的男人也会脆弱，硬的男人也会柔软，能扛事的男人也有扛不动的时候。可否定性定义（不像女人）一句话就到位，边界清晰，不用解释。身份建构贪恋否定性，因为否定性便宜、锐利、好操作，你只要说「不像」什么，身份就立住了。这是为什么所有身份都倾向靠「不像」守。可高效的代价是：靠「不像」守的身份，永远需要那个被贬低的对立面活着，男人需要「女人那边低」才能「这边高」，对立面一消失或一平起，身份就垮。这是为什么男性气概这么怕女性崛起、怕同性恋可见、怕跨性别出现，每一个「对立面模糊」的信号，都是这堵墙的地基在松动。所以守边界的人，本质上在守一个靠「对立面存在」才成立的东西，他离不开他贬低的那个对象。这是身份结构的寄生性：寄主死了，寄生者也活不成。这也是为什么真正的性别平等对很多男人像存在性威胁，利益可以让渡，可存在不能丢。</p>
     <p>这听起来像文字游戏，可它解释了一件本来解释不通的事：男性气概为什么这么防御。男人为什么对「像个娘们」的指控反应这么激烈？为什么健身文化里充斥着「别练成女团那种」的恐惧？为什么恐同和厌女总是手拉手出现？如果身份靠「做什么」建立，那不做就罢了，犯不着这么紧张。可身份靠「不做什么」守，「不做什么」的边界随时可能被突破，你今天温柔了一下，是不是就「像女人」了？边界一松，身份就晃。所以男人要不停守，健身、逞强、贬低「娘」的东西、跟 gay 划清界限，全是守边界。男人爱逞强，是身份的脆弱逼出来的防御，跟天性无关。</p>
     <p>身份为什么脆弱？因为男性气概是后天反复做出来的实践。建构论最锋利的一刀在这里：身份越脆弱，越要靠排斥来确认，排斥成了脆弱性的解药，可解药本身让脆弱性永远好不了。</p>
     <p>这个「靠不像来定义」的结构不只在男性气概里跑，民族、阶级、教派的身份都靠排斥他者确认（前面讲过）。男性气概只是其中一根，但因为它是「默认值」，最不显眼，也最难松动，你看不见男人在排斥「娘」，因为那被当成「男人的天性」。</p>
-    <p>顺着这根线往下追，被排斥的那个他者其实是身份的支撑——男人靠「不像女人」守，那「女人」是男性气概的地基，嘴上最贬低女人的男人在结构上最依赖女人（前面寄生性讲过）。厌女是男性气概的地基，恐同和厌女同源的根子在守同一根二元轴。</p>
-    <p>这堵墙里还有个位置最暧昧——共谋型男性，也就是多数普通男人。他们不亲自打人，不实践霸权，可他们守边界（不像女人），从霸权吃「不挨打」那份红利。他们不是恶人，也不是单纯的受害者，是被结构安排在一个舒适又脆弱的位置：舒适是因为有红利撑着，脆弱是因为一旦不符合霸权标准（变 gay、变柔弱、失业失势），就立刻从「共谋」滑到「从属」或「边缘」。这解释了为什么普通男人也焦虑——守边界的焦虑不分霸权还是从属，谁都怕滑下去。中产男性的焦虑和小老板的焦虑，底层男青年的焦虑和白领的焦虑，表面不同，底下是同一堵墙：怕自己不够「不像女人」，怕滑到墙的另一边。这堵墙把绝大多数男人困在「不敢不像」的位置上，他们吃着红利，也背着焦虑。</p>
+    <p>顺着这根线往下追，被排斥的那个他者其实是身份的支撑，男人靠「不像女人」守，那「女人」是男性气概的地基，嘴上最贬低女人的男人在结构上最依赖女人（前面寄生性讲过）。厌女是男性气概的地基，恐同和厌女同源的根子在守同一根二元轴。</p>
+    <p>这堵墙里还有个位置最暧昧，共谋型男性，也就是多数普通男人。他们不亲自打人，不实践霸权，可他们守边界（不像女人），从霸权吃「不挨打」那份红利。他们不是恶人，也不是单纯的受害者，是被结构安排在一个舒适又脆弱的位置：舒适是因为有红利撑着，脆弱是因为一旦不符合霸权标准（变 gay、变柔弱、失业失势），就立刻从「共谋」滑到「从属」或「边缘」。这解释了为什么普通男人也焦虑，守边界的焦虑不分霸权还是从属，谁都怕滑下去。中产男性的焦虑和小老板的焦虑，底层男青年的焦虑和白领的焦虑，表面不同，底下是同一堵墙：怕自己不够「不像女人」，怕滑到墙的另一边。这堵墙把绝大多数男人困在「不敢不像」的位置上，他们吃着红利，也背着焦虑。</p>
     <p>那 David Bowie 那种靠消费造出来的「男人味」算不算动得了这堵墙？论文集后半的「品牌化男性气概」提了这茬，男人能靠买对的衣服、做对的健身、化对的妆表演男人味，Bowie 雌雄同体证明生理男可以演非霸权男性气概。这看着像松动，「不像女人」的表演能脱钩生理、靠消费来造。可细想，这可能是另一回事。消费型男性气概把「不像女人」的表演商品化了：以前你得天生不像、靠血统和肌肉不像，现在你能买得起、演得出就行。「不像」的标准没变，只是实现的门槛从「天生」变成「有钱」。它未必动得了这堵墙，霸权可能只是换了个消费主义的壳，以前血统决定谁能演男性，现在消费力决定。这恰恰说明「靠不像守身份」这根线有多顽固：连看起来挑战它的新变奏，最后都被它收编成新的守边界方式。</p>
     <p>Connell 1995 年搭这套框架时，可能没预见到消费型这一层会这么快到来。但她的框架好在留了缝：建构论既承认是「做」出来的，就留了改写的可能。难点在于，「不做」的那条路靠个人意志走不通，一个男孩选择「不像女人」地活着，是因为整个社会在排练他，学校、同伴、媒体、父亲都在告诉他守边界。要松动它，得动到认知分类这层，让「男/女」这根二元轴不再那么理所当然。喊「男人也可以温柔」的口号解决不了它，口号撞的是表面，结构埋在底下。</p>
     <p>还有一层不能跳过：这套理论是 Connell 从西方社会提炼的，搬到香港要打折扣。香港的「霸权男性气概」是殖民遗存、广东父权、打工经济熬出来的混合，跟白人中产异性恋那套对不上，更像「养家的大男人」加「经济成功的精明男」。论文集各篇用香港本土经验试探这个折扣：教育里的「男生危机」、男性性工作者的边缘、Bowie 式消费。可这个混合具体长什么样，各篇深度参差，加上扫描版 OCR 让我读不全细节，是这套理论本土化的未竟之处。</p><p>这个本土化折扣关系到理论能不能扎根。Connell 的「霸权」是单一的支配型，可香港的「霸权」可能是个拼盘：殖民地的中环精英、广东的养家大男人、打工经济里的精明成功男，三种形象在不同场域各自称霸，没有一个能统一代表「香港霸权男性气概」。论文集各篇各自抓住一块，可没把这块拼盘拼起来。这是这本书的留白，也是 Connell 框架来华后的真问题：一个为西方单一霸权设计的理论，怎么处理一个霸权本身就是复数的城市。</p><p>诚实说一句，我写这一层基于 Connell 的公开理论加 OCR 能读到的片段，书里香港本土的细密经验，有不少我只看到了骨架。</p>
@@ -547,7 +632,7 @@
   </div>
   <div class="fact-boundary">
     <h4>事实边界</h4>
-    <p>本篇 Connell 霸权男性气概（hegemonic masculinity）理论框架、四种男性气概分类（霸权/从属/边缘/共谋）、「No sissy stuff」戒律、Frank（1991）与 Alexander（2003）的镜像身体与品牌化男性气概概念，属学界公开学术知识，非逐页摘自本书原文。书中香港本土经验——OB 午夜藍男性性工作者互助网络（鄧曉紅篇）、教育中男生议题、David Bowie 案例、引用周华山/李银河/刘达临/Kong 2011/Lau 2010 等中文同性恋研究——出自原书 OCR 文本可读片段。原书为繁体扫描版，OCR 噪点较重，部分章节细节未能读全，本篇对论文集各篇的具体论证着墨有限，结构性判断基于 Connell 理论加 OCR 可读片段综合而成。编者黄结梅的具体机构身份未核，以「性别研究学者」泛称。各篇作者中仅鄧曉紅（男性性工作者篇）能从 OCR 文本辨认，其余作者署名因 OCR 噪点未能逐一确认。</p>
+    <p>本篇 Connell 霸权男性气概（hegemonic masculinity）理论框架、四种男性气概分类（霸权/从属/边缘/共谋）、「No sissy stuff」戒律、Frank（1991）与 Alexander（2003）的镜像身体与品牌化男性气概概念，属学界公开学术知识，非逐页摘自本书原文。书中香港本土经验，OB 午夜藍男性性工作者互助网络（鄧曉紅篇）、教育中男生议题、David Bowie 案例、引用周华山/李银河/刘达临/Kong 2011/Lau 2010 等中文同性恋研究，出自原书 OCR 文本可读片段。原书为繁体扫描版，OCR 噪点较重，部分章节细节未能读全，本篇对论文集各篇的具体论证着墨有限，结构性判断基于 Connell 理论加 OCR 可读片段综合而成。编者黄结梅的具体机构身份未核，以「性别研究学者」泛称。各篇作者中仅鄧曉紅（男性性工作者篇）能从 OCR 文本辨认，其余作者署名因 OCR 噪点未能逐一确认。</p>
   </div>
   <div class="quote">
     <div class="q-text">他守的不是「像男人」，是「不像女人」。</div>

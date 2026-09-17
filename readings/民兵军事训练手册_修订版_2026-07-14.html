@@ -5,25 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>民兵军事训练手册｜标准修订版</title>
   <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,13 +380,52 @@
 </head>
 <body>
 <div class="container">
-  <header class="hero">
-    <div class="kicker">标准修订版 · 历史文献阅读</div>
-    <h1>民兵军事训练手册</h1>
-    <div class="meta">原稿日期：2026-05-31　｜　结构修订：2026-07-15</div>
-    <div class="summary"><strong>一句话定位：</strong>这是一份冷战初期面向基层民兵的综合训练教材。今天重读它，主要价值在于理解当时如何把国家安全目标翻译成基层组织、标准课程和重复训练，而非把其中的历史技术内容当作现实行动指南。</div>
-    <div class="boundary"><strong>阅读边界：</strong>本修订版只调整文档结构与阅读分析层级。涉及枪械、爆炸物、地雷、格斗及战术行动的原有操作性段落，均改为非操作性概述；不补充、不复述任何制作、改装、部署、瞄准、投掷、引爆或实战使用步骤。核化生内容也只保留历史认识框架；现实应急应以当地政府、消防、医疗和专业机构的最新指引为准。</div>
-  </header>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">民兵军事训练手册</div>
+    <div class="cover-sub">2026-05-31　｜　结构修订：2026-07-15</div>
+    <div class="cover-meta">原稿日期 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把各层的分工定清楚</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这本手册到底管什么</span>
+      <span class="toc-desc">它解决的不是某一个动作怎么学，而是一个更大的组织问题：怎样让来源不同、基础不同的普通人，在统一框架里接受基本军...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 作者凭什么认为必须这样训练</span>
+      <span class="toc-desc">手册的论证链并不复杂。第一步，编写者认定现代战争具有突然性，普通人可能在缺少准备的情况下直接面对危险。第二步，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 拆到底，是三根线在牵动全书</span>
+      <span class="toc-desc">教材不断拆分课程、规定顺序、统一称呼，本质上是在降低人与人之间的执行差。基层人员越多、来源越杂，单靠个人领会越...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 用六个问题读懂这类历史技术手册</span>
+      <span class="toc-desc">Q1：先看什么，而不是先看细节？</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">编写组面对的是一种明确焦虑：突发战争到来时，基层人员如果没有预先训练，组织就来不及从头教学。因此它努力把知识提...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一张餐巾纸留下什么</span>
+      <span class="toc-desc">一句话：这本手册把庞杂的军事知识变成基层可组织、可重复、可检查的课程体系；今天最值得研究的是这种组织方法及其历...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 一本手册，真正想训练的是什么</span>
+      <span class="toc-desc">翻开这类旧手册，最容易被数量庞大的科目吸引。章节一项接一项，仿佛学会得越多，人就越接近“训练合格”。可如果只把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 17</span>
+      <span class="toc-desc">真正可靠的训练，不是让人记住最多步骤，而是让组织在压力下仍知道何时照标准做、何时停止并交给专业判断。</span>
+    </div>
+  </div>
+
 
   <section class="layer">
     <div class="layer-num">修订施工图</div>
@@ -432,7 +512,7 @@
       <li><strong>健康管理：</strong>知道“要运动”只是原则。固定可执行的最低动作是标准化，针对出差、生病恢复和睡眠不足调整计划是场景化，医生、家人或训练伙伴提供监督与反馈是组织化。这里迁移的是训练结构，不是军事内容。</li>
       <li><strong>交易纪律：</strong>入场、止损和复盘需要统一检查表；趋势、震荡与重大消息日要分别测试；下单、风险控制和记录不能互相脱节。规则的价值不在写得多，而在压力下仍能被调用。</li>
     </ul>
-    <h3>给读者的具体动作</h3>
+    <h3>给青山先生的具体动作</h3>
     <ol>
       <li>下次修订民宿消防预案时，先把每条要求分别标成“统一动作、适用场景、协同岗位”；只写口号而没有这三项的，退回重写。</li>
       <li>每次演练后只追三个问题：哪个动作理解不一致，哪个场景没有覆盖，哪个岗位交接断了。答案直接进入下一版清单。</li>

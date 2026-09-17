@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>海与帝国：明清时代 · 九层解书修订版</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,48 @@
 <body>
 <div class="container">
 
-<section class="hero">
-  <div class="kicker">九层解书 · DEEP READING</div>
-  <h1>海与帝国：明清时代</h1>
-  <p class="sub">一个把中国史放进大海环抱的空间里重读的尝试。上田信用港口、白银、铜钱、海商与货物的流通，代替皇帝年表来讲十四至十九世纪的五百年，并追问同一套跨海交易体系，为什么在十六世纪带来商业扩张，又在十九世纪变成军舰与条约的不平等。</p>
-  <div class="meta">上田信 著 · 台湾商务印书馆出版 · 讲谈社「中国的历史」系列 · 本文本依指定繁体中文电子档整理 · 九层解书修订版 2026-08-14</div>
-</section>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">海与帝国：明清时代</div>
+    <div class="cover-sub">台湾商务印书馆出版 · 讲谈社「中国的历史」系列 · 本文本依指定繁体中文电子档整理 · 九层解书修订版 2026-08-14</div>
+    <div class="cover-meta">上田信 著 · 解读主理：青山 · 日期：2026-08-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 让没读过的人复述主线</span>
+      <span class="toc-desc">主线可以这样复述。十四世纪，元朝建立横跨欧亚的集中再分配机制，海运把南北物资连成一体，长江与沿海的航路像血管一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 证据、隐含前提与失效边界</span>
+      <span class="toc-desc">二〇〇三年三月，一支妈祖进香团出现在昆明的机场。昆明是内陆城市，不靠海，却迎来海洋信仰。这个个案让作者追问海洋...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三条独立的作用线</span>
+      <span class="toc-desc">从内陆帝国到东欧亚再到全球。明清史并不是在一个封闭国界里展开的。作者用「东欧亚」指称日本海、渤海、黄海、东海、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 白银为什么比年表更能解释历史</span>
+      <span class="toc-desc">白银作为货币进入税收、消费与贸易。明代的一条鞭法把赋役折银，白银成为财政骨干。它从日本、美洲与东南亚流入，又因...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个递进问答</span>
+      <span class="toc-desc">表面是明清两朝五百年的通史，实际上是交易体系史。作者用掠夺、互酬、纳贡、集中再分配、市场五种交易类型，把皇帝、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 作者在争论什么</span>
+      <span class="toc-desc">上田信是明清史学者，长期研究地域史与环境史。他提出「合散离集」来描述中国史周期的分合，合是机制稳定的阶段，散是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 关系的判断　海禁与走私互为表里</span>
+      <span class="toc-desc">官府的海禁制造了走私的空间，走私的利润又反过来吸引官府收税或镇压。官方互市与民间走私共享同一批港口、船只与商人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 从白银到军舰　交易体系如何把中国推上全球舞台</span>
+      <span class="toc-desc">同一个跨海机制，为什么在十六世纪带来商业扩张，在十九世纪却暴露为不平等与军事胁迫，这是理解近代中国的入口。上田...</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层</div>

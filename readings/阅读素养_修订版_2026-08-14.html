@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>阅读素养 · 九层解书修订版</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,12 +381,48 @@
 <body>
 <div class="container">
 
-<section class="hero">
-  <div class="kicker">九层解书 · DEEP READING</div>
-  <h1>阅读素养</h1>
-  <p class="sub">黄国珍用一连串真实的课堂、考卷与生活案例，把阅读从「多读就会懂」的直觉里拆出来，重新组装成可练习、可检验、可迁移的理解历程。从讯息到意义，这本书真正要教的是怎样负责任地思考。</p>
-  <div class="meta">黄国珍 著 · 亲子天下出版 · 全书题名《阅读素养：黄国珍的阅读理解课，从讯息到意义，带你读出深度思考力》 · 九层解书修订版 2026-08-14</div>
-</section>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">阅读素养</div>
+    <div class="cover-sub">亲子天下出版 · 全书题名《阅读素养：黄国珍的阅读理解课，从讯息到意义，带你读出深度思考力》 · 九层解书修订版 2026-08-14</div>
+    <div class="cover-meta">黄国珍 著 · 解读主理：青山 · 日期：2026-08-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 让没读过的人复述主线</span>
+      <span class="toc-desc">主线可以这样复述。作者先破除一个直觉，就是读得多自然读得懂。多读只提供接触机会，不自动生成整合与推论的能力，盲...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 证据、隐含前提与失效边界</span>
+      <span class="toc-desc">日本国立情报学研究所新井纪子团队研发的机器人 Torobo，从二〇一三年开始参加东京大学入学考试的模拟测验，二...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三条独立的作用线</span>
+      <span class="toc-desc">先准确撷取讯息，再广泛理解、发展解释、统整解释，最后省思评鉴并迁移到生活。这条线反对跳过证据直接谈感想，强调每...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 为什么知识多的人仍会误读</span>
+      <span class="toc-desc">误读不是不认识字，而是对意味深长的句子、说话者立场与情境暗示做出错误判断。Torobo 拥有庞大的知识库与逻辑...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个递进问答</span>
+      <span class="toc-desc">数量只提供接触机会，不自动生成整合、推论与评鉴的能力。理解需要过程练习，读得多而不练方法，只是在重复既有习惯。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 作者在争论什么</span>
+      <span class="toc-desc">黄国珍长期从事阅读教育现场工作，创办阅读理解教学体系，本书是理念与实践的总结。他曾协助大考中心推动素养导向命题...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 关系的判断　答案的光谱与判断的条件</span>
+      <span class="toc-desc">答案不是非对即错的开关，而是有光谱的。苹果甜度有客观数字，喜欢与否是主观偏好，两者不冲突。阿成老师的问题缺少前...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 谁有权决定「正确理解」</span>
+      <span class="toc-desc">一场考试争议把阅读理解推上审判席。诗人陈斐雯的〈养鸟须知〉进了会考题，本人却说不知道答案是哪一项；音乐评论家马...</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层</div>
@@ -384,7 +461,7 @@
   <p>网路上疯传一句话，说是印度诗人泰戈尔的作品，事实上它出自香港作家张小娴一九九七年出版的小说《荷包里的单人床》。张小娴亲口说过她解释了很多次，不知为何仍被误传成泰戈尔。作者自己也曾在社群上读过这句话并被打动，上网一查，不到一分钟就确认是误传。他从中看到的现象是，这个时代分享的速度比理解还快。这个案例把阅读素养放到资讯操弄的环境中，误读不只是个人的疏忽，也是公共环境的结构。</p>
 
   <h3>证据六　叶教授的咖啡厅故事</h3>
-  <p>一位朋友介绍一位教授给作者认识，约在咖啡厅。作者看到一位绑马尾、穿旧牛仔裤的中年男子，觉得不像教授，便把目光移开，期待另一位提公事包、戴眼镜的先生。结果朋友迎向的正是那位绑马尾的读者，他创办了团体自学机构「无界塾」。作者用这个故事说明，等待的人以先入为主的形象当判断依据，形成了认知盲点，把「人」当作完整文本来看时，只看外貌就会断章取义。作者用这个故事先说明误读如何发生，再引到画重点的盲点，两者是同一个问题的两个场景。</p>
+  <p>一位朋友介绍一位教授给作者认识，约在咖啡厅。作者看到一位绑马尾、穿旧牛仔裤的中年男子，觉得不像教授，便把目光移开，期待另一位提公事包、戴眼镜的先生。结果朋友迎向的正是那位绑马尾的先生，他创办了团体自学机构「无界塾」。作者用这个故事说明，等待的人以先入为主的形象当判断依据，形成了认知盲点，把「人」当作完整文本来看时，只看外貌就会断章取义。作者用这个故事先说明误读如何发生，再引到画重点的盲点，两者是同一个问题的两个场景。</p>
 
   <h3>隐含前提</h3>
   <p>作者相信理解不是天赋，而是可训练的过程；相信文本证据构成可共享的判断基础；相信承认不确定比给出确定但无据的答案更负责任。这三个前提贯穿全书，也是作者与放任式阅读观、机械式答题观同时拉开距离的原因。</p>

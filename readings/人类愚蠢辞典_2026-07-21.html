@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>人类愚蠢辞典 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>人类愚蠢辞典</h1>
-  <div class="author">皮耶尔乔治·奥迪弗雷迪 · 讽刺辞典 · 一部骂蠢的词条集，和一面照自己的镜子</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">人类愚蠢辞典</div>
+    <div class="cover-sub">奥迪弗雷迪 · 讽刺辞典 · 一部骂蠢的词条集，和一面照自己的镜子</div>
+    <div class="cover-meta">皮耶尔乔治 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这是本什么书，怎么用</span>
+      <span class="toc-desc">先说清这本书的性质。作者奥迪弗雷迪，意大利逻辑学家、科普作家，这本书按意大利文字母从A排到Z，两百多个词条，每...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他的四件祛魅工具</span>
+      <span class="toc-desc">奥迪弗雷迪骂了两百多条，手里的工具其实就四件。每件都配一个真实词条拆开看：怎么用，为什么有效，以及它的坑。坑比...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">四个因子就是第五层的四件工具，用法和坑都在那里。连乘的意思是：单用一件，对方总有接得住的退路；每件打掉的退路，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 骂蠢的快感，本身就值得怀疑</span>
+      <span class="toc-desc">先承认一件事：读这本书的快感是真的。矿泉水被他翻出营销史、算成十倍溢价是蠢，鼓掌跟猴子撞了动作是蠢，过安检、系...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层（改·功能扫描） ==================== -->
@@ -418,7 +482,7 @@
 
   <p>先承认一件事：读这本书的快感是真的。矿泉水被他翻出营销史、算成十倍溢价是蠢，鼓掌跟猴子撞了动作是蠢，过安检、系领带、吹空调都是蠢。每翻一条都想点头，蠢货满坑满谷，而你是清醒的少数。两百多条读下来，人会有点飘。问题就出在这个"飘"上。</p>
 
-  <p>把这本书和它的姊妹篇对着看，问题就现形了。西波拉的《人类愚蠢基本定律》讲的是结构：愚蠢与智商、地位、教育程度无关，在一切人群里按一个顽固的常数分布，换句话说，谁也逃不掉，聪明人只是蠢在更高级的地方。奥迪弗雷迪讲的是实例：两百多个蠢的标本，挨个钉在墙上。两本书说的"蠢"不全是一回事，一个讲损人不利己的行为，一个讲不假思索的习惯，但"人人有份"这一点足够用。合起来读，才有完整的图景：一本告诉你愚蠢是人人有份的常数，一本给你看别人蠢的快感。快感是真的，常数也是真的——那么写辞典的人和读辞典的人，凭什么以为自己站在这个常数外面？</p>
+  <p>把这本书和它的姊妹篇对着看，问题就现形了。西波拉的《人类愚蠢基本定律》讲的是结构：愚蠢与智商、地位、教育程度无关，在一切人群里按一个顽固的常数分布，换句话说，谁也逃不掉，聪明人只是蠢在更高级的地方。奥迪弗雷迪讲的是实例：两百多个蠢的标本，挨个钉在墙上。两本书说的"蠢"不全是一回事，一个讲损人不利己的行为，一个讲不假思索的习惯，但"人人有份"这一点足够用。合起来读，才有完整的图景：一本告诉你愚蠢是人人有份的常数，一本给你看别人蠢的快感。快感是真的，常数也是真的，那么写辞典的人和读辞典的人，凭什么以为自己站在这个常数外面？</p>
 
   <p>细看这本书的靶子，会发现一个共同点：都不在场。矿泉水公司不会还嘴，教宗不会还嘴，鼓掌的观众、系领带的人、过安检排队的人，都不会还嘴。骂蠢永远安全，因为蠢货的定义权握在骂的人手里。更妙的是奥迪弗雷迪自己在"阿西莫夫"条里写下的定义：愚蠢的人两种行事方法，要么让明智的人无法施展抱负，要么为害群之马铺平道路。拿他自己的定义量他自己的书：一本让聪明人从头点头到尾的书，算不算在为害群之马铺路？那匹马不在别处，是读者自己心里那股"我在分布之外"的笃定。</p>
 
@@ -426,7 +490,7 @@
 
   <p>这个反问有一半是对的，而且奥迪弗雷迪自己留了证据。佛陀那条，他的分寸其实很清楚：他明说过佛教的蠢话最少，只骂神话化这层壳。问题是这个分寸埋在第二百页，而爽感埋在每一页。再有，他的归谬术赢的都是字面账：用光速反驳"身体升天"，物理上无可辩驳，可大多数信徒信的从来不是字面，是意义。你把字面拆了，意义纹丝不动，还顺手关上了对话的门。矿泉水也是：十倍溢价买的不只是水，是"我对自己好一点"的仪式感。你可以说仪式感蠢，可人活在仪式感里。拆得掉错误，拆不掉人为什么需要那个错误。</p>
 
-  <p>所以这本书的正确读法，是把书转过来。每笑一次，就停半秒，问自己一句：这一条，我确定吗？我喝不喝矿泉水？我鼓不鼓掌？我有没有哪个"不能不信"的东西，押着我全部的体系？辞典的正确用法不是对号入座别人的蠢，是认领自己的。奥迪弗雷迪忘了编的那个词条，我们自己补上：读辞典的人——症状，边读边点头；病因，以为愚蠢按人群分布，而自己在分布之外；预后，读完这本书，一切照旧。</p>
+  <p>所以这本书的正确读法，是把书转过来。每笑一次，就停半秒，问自己一句：这一条，我确定吗？我喝不喝矿泉水？我鼓不鼓掌？我有没有哪个"不能不信"的东西，押着我全部的体系？辞典的正确用法不是对号入座别人的蠢，是认领自己的。奥迪弗雷迪忘了编的那个词条，我们自己补上：读辞典的人，症状，边读边点头；病因，以为愚蠢按人群分布，而自己在分布之外；预后，读完这本书，一切照旧。</p>
 </div>
 
 <!-- ==================== 事实边界 ==================== -->

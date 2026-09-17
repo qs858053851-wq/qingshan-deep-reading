@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>不可能的艺术 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,32 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>不可能的艺术</h1>
-  <div class="author">斯蒂芬·科特勒 · 巅峰表现入门（2021）</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">不可能的艺术</div>
+    <div class="cover-sub">科特勒 · 巅峰表现入门（2021）</div>
+    <div class="cover-meta">斯蒂芬 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">核心问题：完成"不可能"的人和普通人，差的到底是什么？科特勒的答案是四种可训练的技能，动机、学习、创造力、心...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">怎么做别找激情，先攒好奇心。列出让你隐隐发痒的几个题目，每天在它们的交叉点上玩 20-30 分钟。几个好奇心交...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">作者动机：科特勒自述二十多年、六十多处骨折的极限运动追访生涯，让他确信"不可能"的完成者并非天赋异类，只是把四...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">这本书封面卖的是"心流"，但通读下来，最值钱的一件货藏在第四部分不起眼的位置：挣扎是心流的第一阶段。算不上障碍...</span>
+    </div>
+  </div>
+
   <p class="intro">"心流研究集体"创始人科特勒的方法论总纲。他说的"不可能"分两种：所有人都认为做不到的（四分钟跑完一英里），和你认为自己做不到的（写完一本小说）。这本书的主张：把一生投给后一种，路上偶尔会撞上前一种。而这条路有配方，配方一共四味药。</p>
 </div>
 
@@ -350,7 +414,7 @@
   <div class="layer-num">第一层</div>
   <div class="layer-title">这本书到底在讲什么</div>
 
-  <p>核心问题：完成"不可能"的人和普通人，差的到底是什么？科特勒的答案是四种可训练的技能——动机、学习、创造力、心流——被专业地应用并放大。全书 23 章按这四部分排布，姿态是"入门手册"（primer）：讲每种技能的生物机制，然后给操作清单，口号是让生物机制为你服务而不是跟它对着干。开篇引威廉·詹姆斯垫底：人常在离自己极限很远的地方生活，缺的从来不在潜能，在发挥潜能的习惯。</p>
+  <p>核心问题：完成"不可能"的人和普通人，差的到底是什么？科特勒的答案是四种可训练的技能，动机、学习、创造力、心流，被专业地应用并放大。全书 23 章按这四部分排布，姿态是"入门手册"（primer）：讲每种技能的生物机制，然后给操作清单，口号是让生物机制为你服务而不是跟它对着干。开篇引威廉·詹姆斯垫底：人常在离自己极限很远的地方生活，缺的从来不在潜能，在发挥潜能的习惯。</p>
 
   <p>第一部分讲动机，给了一个五层配方：好奇心、激情、目标性、自主权、掌控力。次序有讲究：激情靠找是找不来的，得靠几个好奇心交叉培育出来；目标性（对他人有意义）负责让动力可持续；自主权和掌控力是两台放大器，自决理论的实验证据是底座：自主选择的动机全面胜过被强迫的动机。配套的目标体系分三档：一生尺度的"跨越式变革目标"、数年尺度的"高难目标"、几分钟尺度的"清晰目标"。纪律是日常注意力只放在清晰目标上，想着领奖台反而把人拉离手头的活。</p>
 
@@ -387,7 +451,7 @@
     <div class="q">Q3 学一个全新领域，第一本书该挑难的还是易的？</div>
     <div class="a">
       <p><span class="tag">怎么做</span>挑最畅销最好读的。五本书法的第一本，任务不在传授知识，在让你觉得这领域有意思、顺便混熟行话；然后一本比一本技术性强，读到专家级文献收尾。</p>
-      <p><span class="tag">为什么</span>学习的第一瓶颈是动机不是信息。先用易读的书造出兴奋和熟悉感，后面的硬书才啃得动——顺序反了，第一本就劝退。行话另有妙用：它是领域的门禁卡，听得懂"黑话"，专家才愿意跟你说真话。</p>
+      <p><span class="tag">为什么</span>学习的第一瓶颈是动机不是信息。先用易读的书造出兴奋和熟悉感，后面的硬书才啃得动，顺序反了，第一本就劝退。行话另有妙用：它是领域的门禁卡，听得懂"黑话"，专家才愿意跟你说真话。</p>
       <p><span class="tag">常见坑</span>读完第一本就以为入了门。第一本的定位明明白白：制造动机，不是真学习。</p>
     </div>
   </div>
@@ -397,7 +461,7 @@
     <div class="a">
       <p><span class="tag">怎么做</span>理解它的神经底子：心流态里前额叶部分"下线"（所谓短暂性前额叶功能减退，注意这在学界仍是假说），自我批评和时间感变弱，多巴胺与去甲肾上腺素同时在线，注意力和模式识别被推到峰值。</p>
       <p><span class="tag">为什么</span>契克森米哈几十年的研究给了现象学证据：心流态下人的表现和幸福感同时拉满，马斯洛早年叫它"巅峰体验"。科特勒的推进是工程化：既然状态有生理机制，就能靠触发器主动制造，而不是等它降临。</p>
-      <p><span class="tag">常见坑</span>心流中决策。前额叶下线意味着逻辑和长期规划变弱、还不自知——书里的原话是"别在心流中买衣服"：灵感留到事后清醒时再做落地规划。</p>
+      <p><span class="tag">常见坑</span>心流中决策。前额叶下线意味着逻辑和长期规划变弱、还不自知，书里的原话是"别在心流中买衣服"：灵感留到事后清醒时再做落地规划。</p>
     </div>
   </div>
 
@@ -430,7 +494,7 @@
 
   <p>跨域映射一条：四阶段心流循环和农事的结构完全对得上：挣扎是耕（最累、最看不到成果），释放是歇地，心流是长，恢复是养。都市工作文化的病恰好是只认"长"：要产出、要状态，把耕的难受当故障，把养的休息当偷懒。这本书最反潮流的一句话其实是"挣扎是必经入口"。在一个贩卖"轻松高效"的市场里，它承认了没有难受就没有心流。</p>
 
-  <p>行动触发：挑书里成本最低的两件事先跑两周——每天在好奇心交叉点上玩 25 分钟；把每日待办从愿望改写成清晰目标（动词、数量、时段齐全）。这两件不依赖任何"心流玄学"，就算全书的神经科学都打对折，它们也仍然成立。</p>
+  <p>行动触发：挑书里成本最低的两件事先跑两周，每天在好奇心交叉点上玩 25 分钟；把每日待办从愿望改写成清晰目标（动词、数量、时段齐全）。这两件不依赖任何"心流玄学"，就算全书的神经科学都打对折，它们也仍然成立。</p>
 
   <p>读者立场：这本书的骨架（动机-学习-创造力-心流的次序）比血肉（神经化学修辞）值钱。我信它的工程学，不全信它的科学：把它当训练手册用，别当论文集引。另外中文读者要知道：本书流通的中译是民间粗译（译者自陈仓促），术语和数字经过两道有损压缩，认真用的话关键章节值得对回英文原著。</p>
 </section>
@@ -475,7 +539,7 @@
 
 <section class="fact-boundary">
   <div class="fb-title">事实边界</div>
-  <p>本篇所引两种"不可能"之分、四技能框架、动机五要素与堆叠动机、三档目标体系、五本书法与专家访谈规矩、阅读回报率、22 个触发器与内部三件套、四阶段循环及"别在心流中买衣服"、詹姆斯与马斯洛引述、契克森米哈研究、自决理论与目标设定理论，均出自本书中译本的抽样 OCR 文本。所据中译为民间粗译且为扫描版，术语与数字或有出入，认真引用请核英文原著。"前额叶下线"在神经科学界仍属假说；"每秒 126 比特"等数字的原始研究证据等级有限；极限运动员案例存在幸存者偏差；本书与作者付费训练营存在商业关联——以上四条为解书者标注的证据等级提示。第八层"加载中"标签、冷水游泳与农事类比，是解书者的引申，非作者原文。</p>
+  <p>本篇所引两种"不可能"之分、四技能框架、动机五要素与堆叠动机、三档目标体系、五本书法与专家访谈规矩、阅读回报率、22 个触发器与内部三件套、四阶段循环及"别在心流中买衣服"、詹姆斯与马斯洛引述、契克森米哈研究、自决理论与目标设定理论，均出自本书中译本的抽样 OCR 文本。所据中译为民间粗译且为扫描版，术语与数字或有出入，认真引用请核英文原著。"前额叶下线"在神经科学界仍属假说；"每秒 126 比特"等数字的原始研究证据等级有限；极限运动员案例存在幸存者偏差；本书与作者付费训练营存在商业关联，以上四条为解书者标注的证据等级提示。第八层"加载中"标签、冷水游泳与农事类比，是解书者的引申，非作者原文。</p>
 </section>
 
 <section class="final-quote">

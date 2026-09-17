@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>基督教的本质 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,52 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · 全九层</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">基督教的本质</div>
+    <div class="cover-sub">费尔巴哈 著 &nbsp;·&nbsp; 荣震华 译 &nbsp;·&nbsp; 商务印书馆「汉译世界学术名著」</div>
+    <div class="cover-meta">路德维希 · 解读主理：青山 · 日期：2026-07-29 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">先把最容易走错的路堵上：这本书不问「上帝存不存在」。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">光有一个漂亮说法不算数。人把自己挂到天上，这话谁都能讲，讲完了别人问一句「你怎么知道」，就得拿东西出来。费尔巴...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三件事在起作用</span>
+      <span class="toc-desc">四百多页、二十八章、几十条教义。看着千头万绪，底下真正在使劲的东西没那么多。我把它拧了拧，剩三根线。三根都在的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层</span>
+      <span class="toc-desc">上一层是横着看，看有几根线。这一层竖着挖，看最深的那根能挖多深。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书</span>
+      <span class="toc-desc">下面七问，一问接一问往前拱。每问先给结论，再讲怎么想到的，最后交代什么情况下这条会失灵。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">有件事得先说清楚：费尔巴哈不是从外面攻打教堂的人。他是从里面走出来的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 压到不能再压</span>
+      <span class="toc-desc">四百多页，压成一个式子、一句话、一张图。式子里的三个因子，就是第三层那三根线，不多不少。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 这一点，前头一直按着没说</span>
+      <span class="toc-desc">这本书 1841 年出版。三年后，一个叫施蒂纳的中学教师出了一本书，用费尔巴哈自己的刀，把费尔巴哈捅了个对穿。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇依据商务印书馆荣震华译本的扫描件 OCR 文本写成，非逐页精读，取样约占全书三分之一，章节骨架已全部核对。</span>
+    </div>
+  </div>
+
   <h1>基督教的本质</h1>
   <div class="author">路德维希·费尔巴哈 著 &nbsp;·&nbsp; 荣震华 译 &nbsp;·&nbsp; 商务印书馆「汉译世界学术名著」</div>
   <div class="verdict">一本 1841 年的书，用四百多页反复做同一个动作：把人们献给天上的东西，一件一件搬回地上。它没有证明上帝不存在，它做了一件更麻烦的事。</div>
@@ -354,7 +439,7 @@
 
   <p>先把最容易走错的路堵上：这本书不问「上帝存不存在」。</p>
 
-  <p>你要是揣着这个问题进去，会读得非常别扭，因为费尔巴哈从头到尾没打算证明什么东西不存在。他问的是另一个问题，一个更难回答、也更有意思的问题：<strong>人为什么非造一个上帝不可？而且为什么恰恰造出了这一个——基督教的这一个？</strong></p>
+  <p>你要是揣着这个问题进去，会读得非常别扭，因为费尔巴哈从头到尾没打算证明什么东西不存在。他问的是另一个问题，一个更难回答、也更有意思的问题：<strong>人为什么非造一个上帝不可？而且为什么恰恰造出了这一个，基督教的这一个？</strong></p>
 
   <p>他的答案，一句话：</p>
 
@@ -390,7 +475,7 @@
 
   <h3>他在跟谁说话</h3>
 
-  <p>不是跟无神论者——无神论者不需要读这本书。也不完全是跟哲学家，虽然他顺手清算了黑格尔。他是在跟信徒说话，姿态相当奇怪：一边像个揭穿骗局的人，一边又像在替宗教说好话。</p>
+  <p>不是跟无神论者，无神论者不需要读这本书。也不完全是跟哲学家，虽然他顺手清算了黑格尔。他是在跟信徒说话，姿态相当奇怪：一边像个揭穿骗局的人，一边又像在替宗教说好话。</p>
 
   <p>他反复强调：我说宗教的内容是人，这不是贬低。你们把最好的东西寄了出去，我只是把收件地址改回来。</p>
 
@@ -510,7 +595,7 @@
 
   <p>第二根线负责提供动力。</p>
 
-  <p>人的本质，在费尔巴哈那儿就是前面那三样无边的东西——会想、能定、有情，哪一样在概念上都没有边。可承载它们的是一个具体的、会累会怯懦会算了吧的人。</p>
+  <p>人的本质，在费尔巴哈那儿就是前面那三样无边的东西，会想、能定、有情，哪一样在概念上都没有边。可承载它们的是一个具体的、会累会怯懦会算了吧的人。</p>
 
   <p>这个落差本身就是难受的。</p>
 
@@ -715,7 +800,7 @@
 
   <p>一个父亲这辈子没考上大学，心里那个「本该成为的自己」一直在。他不会说出来，多半自己也不清楚它在。可孩子一上学，那个东西就找到了落脚处：孩子的分数成了他的分数，孩子的学校成了他的学校，孩子考砸了他比孩子还疼。</p>
 
-  <p>费尔巴哈那套动作在这儿一步不差：把自己够不着的那截端出去，安在一个具体的位格上，然后仰望它、供养它、为它活着。连最要紧的那一条也对上了——<strong>他真心觉得自己是在为孩子好，看不见那是自己的未竟之愿</strong>。认不出对面是自己，这是整套机制的开关。</p>
+  <p>费尔巴哈那套动作在这儿一步不差：把自己够不着的那截端出去，安在一个具体的位格上，然后仰望它、供养它、为它活着。连最要紧的那一条也对上了，<strong>他真心觉得自己是在为孩子好，看不见那是自己的未竟之愿</strong>。认不出对面是自己，这是整套机制的开关。</p>
 
   <p>还是那个跷跷板：孩子被举得越高，父亲自己的人生就越空，越是只剩下「我是他爸」这一个身份。</p>
 

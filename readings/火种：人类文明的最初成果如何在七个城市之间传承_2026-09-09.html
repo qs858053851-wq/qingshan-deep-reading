@@ -14,25 +14,32 @@
 <meta name="keywords" content="火种,维奥莱特·莫勒,欧几里得,托勒密,盖伦,巴格达,智慧宫,托莱多,萨勒诺,威尼斯,翻译运动,深度解读,青山">
 <meta name="generator" content="Kami">
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -89,6 +96,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -102,14 +120,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -118,7 +136,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -127,7 +145,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -137,7 +155,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -145,12 +163,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -166,7 +184,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -181,7 +198,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -276,9 +292,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -286,6 +301,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -338,6 +370,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -372,39 +413,39 @@
 <div class="toc">
   <h2>目录 · 导读索引</h2>
   <div class="toc-item">
-    <a href="#layer1">第 01 层 · 这本书写了什么</a>
+    <span>第 01 层 · 这本书写了什么</div>
     <span class="toc-desc">三部核心原典、七座庇护之城与一千年的手稿流亡</span>
   </div>
   <div class="toc-item">
-    <a href="#layer2">第 02 层 · 作者凭什么这么说</a>
+    <span>第 02 层 · 作者凭什么这么说</div>
     <span class="toc-desc">手稿遗存考据、纸张技术跃迁与跨宗教赞助账目</span>
   </div>
   <div class="toc-item">
-    <a href="#layer3">第 03 层 · 真正在起作用的几件事</a>
+    <span>第 03 层 · 真正在起作用的几件事</div>
     <span class="toc-desc">四根历史生存线构成的手稿自救网络</span>
   </div>
   <div class="toc-item">
-    <a href="#layer4">第 04 层 · 顺着最深的那根线往下问</a>
+    <span>第 04 层 · 顺着最深的那根线往下问</div>
     <span class="toc-desc">为什么异教实用工具能够击穿正统神学壁垒</span>
   </div>
   <div class="toc-item">
-    <a href="#layer5">第 05 层 · 顺着问题走完作者的推理</a>
+    <span>第 05 层 · 顺着问题走完作者的推理</div>
     <span class="toc-desc">关于手稿流变、翻译机制与认知重塑的七个递进审问</span>
   </div>
   <div class="toc-item">
-    <a href="#layer6">第 06 层 · 跳出这本书再看一次</a>
+    <span>第 06 层 · 跳出这本书再看一次</div>
     <span class="toc-desc">西方中心史观的破除、修道院神话与现代开源知识映射</span>
   </div>
   <div class="toc-item">
-    <a href="#layer7">第 07 层 · 把整本书压到一张纸上</a>
+    <span>第 07 层 · 把整本书压到一张纸上</div>
     <span class="toc-desc">知识播迁动力学公式、定音判断与地中海流动状态机</span>
   </div>
   <div class="toc-item">
-    <a href="#layer8">第 08 层 · 把最值钱的一点写透</a>
+    <span>第 08 层 · 把最值钱的一点写透</div>
     <span class="toc-desc">刮削羊皮纸的修道院与巴格达造纸厂的救赎时刻</span>
   </div>
   <div class="toc-item">
-    <a href="#layer9">第 09 层 · 留下一句话与事实考证</a>
+    <span>第 09 层 · 留下一句话与事实考证</div>
     <span class="toc-desc">卷尾定音金句、版本源流考据与学术争议边界</span>
   </div>
 </div>

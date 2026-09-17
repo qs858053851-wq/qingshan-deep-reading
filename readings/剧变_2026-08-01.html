@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>剧变 · 九层解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>剧变</h1>
-  <div class="author">贾雷德·戴蒙德　Upheaval, 2019　人类社会与国家危机的转折点</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">剧变</div>
+    <div class="cover-sub">戴蒙德　Upheaval, 2019　人类社会与国家危机的转折点</div>
+    <div class="cover-meta">贾雷德 · 解读主理：青山 · 日期：2026-08-01 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">一九四二年，波士顿椰林夜总会失火，四百九十二人死亡。幸存者和死者家属的心理创伤，逼出了现代危机治疗这门手艺。戴...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么把诊所里的清单搬到国家身上</span>
+      <span class="toc-desc">这是这本书最大的赌注，也是它最容易被攻击的地方。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 十一章书拆到底，三根线在牵</span>
+      <span class="toc-desc">这一根藏在第一章，容易被当成过渡句读过去，其实是全书的地基。他写道：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往下挖：为什么偏偏是这一天</span>
+      <span class="toc-desc">危机治疗师在第一次会谈时，除了找出问题、划清界限，还会问一个问题。戴蒙德把它单独拎出来讲：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 六个问题，把这本书问明白</span>
+      <span class="toc-desc">第一层那张表最右一栏就是他的自我标注，七条直接对应、两条抽象对应、三条只有隐含相似，哪几处对不上他都写在了明面...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能用在哪儿</span>
+      <span class="toc-desc">这是他的第三个大问题。《枪炮》问不同大陆为什么发展得不一样，《崩溃》问社会为什么会垮，这一本问的是：垮之前那一...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留下一个式子、一句话、一张图</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 当他把这张清单抬到全世界头上</span>
+      <span class="toc-desc">全书倒数第二章，戴蒙德把那十二个因素拿去量整个世界。这一章的结构做得漂亮，读起来也最沉。</span>
+    </div>
+  </div>
+
   <div class="lead">他做了一件很大胆的事：把心理诊所处理个人崩溃的那张清单，搬到国家身上，然后拿七个国家去验。更难得的是，他自己标出了这个类比在哪几处焊不上。</div>
 </div>
 
@@ -438,7 +518,7 @@
 
   <p>他的答案是，成功的国家自我评估需要两个缺一不可的元素：<strong>一个是愿意直面痛苦的真相，另一个是知识储备。</strong></p>
 
-  <p>明治那批人两样都有：他们承认了打不过，也真的派人出去看、去学。宪法学德国，海军学英国，民法初稿学法国，一八七九年的教育改革学美国。一九三〇年代那批青年军官只有第一样——他们不缺勇气，也不缺牺牲的意愿，缺的是对外部世界真实力量对比的了解。</p>
+  <p>明治那批人两样都有：他们承认了打不过，也真的派人出去看、去学。宪法学德国，海军学英国，民法初稿学法国，一八七九年的教育改革学美国。一九三〇年代那批青年军官只有第一样，他们不缺勇气，也不缺牺牲的意愿，缺的是对外部世界真实力量对比的了解。</p>
 
   <p>这一条把一个含混的品质拆成了两个可以分别检查的零件，是我从这本书里拿走的第一样东西。</p>
 
@@ -536,7 +616,7 @@
 
   <p>接着往下。问题既然一直都在，为什么不能趁它还小的时候就改，非要等一个触发器？</p>
 
-  <p>因为维持现状是有说法的。每一种不改变的状态，都配着一套解释它为什么合理的话——我们的传统就是这样、现在改动静太大、再看看、别人也是这么过的。这套说法只要还成立，任何人提出改变都会显得是他有问题，而不是现状有问题。</p>
+  <p>因为维持现状是有说法的。每一种不改变的状态，都配着一套解释它为什么合理的话，我们的传统就是这样、现在改动静太大、再看看、别人也是这么过的。这套说法只要还成立，任何人提出改变都会显得是他有问题，而不是现状有问题。</p>
 
   <p>触发器的作用，就是让这套说法一次性讲不下去。<strong>它没带来任何新知识，它只是让一句话再也说不出口。</strong>此后同样的事实还是那些事实，但已经没人能用旧的说法把它们盖住了。</p>
 
@@ -546,7 +626,7 @@
 
   <p><strong>改变发不发生，不由问题有多严重决定，由那套“不必改”的说法什么时候垮掉决定。</strong></p>
 
-  <p>这句话有点冷，但它解释了大量看上去反常的事：为什么一个明摆着的问题可以拖十年，然后在某个不相干的小事之后三个月内解决；为什么讲道理往往没用，而一次事故立刻见效；也为什么很多真正重要的问题永远解决不了——它们不会制造事故。</p>
+  <p>这句话有点冷，但它解释了大量看上去反常的事：为什么一个明摆着的问题可以拖十年，然后在某个不相干的小事之后三个月内解决；为什么讲道理往往没用，而一次事故立刻见效；也为什么很多真正重要的问题永远解决不了，它们不会制造事故。</p>
 
   <p>这一条管的已经不只是国家。凡是需要多人点头才能动的事，都是这个形状。一个部门积弊多年，讲了无数次没人动；来了一次外部检查，一周内全部整改。道理一直没变，变的是那句“我们一直都这么干”还能不能说出口。</p>
 
@@ -564,14 +644,14 @@
     <p class="a-lead">有硬套的成分，但他把焊缝松动的地方全标出来了，这个做法本身值得学。</p>
     <p>第一层那张表最右一栏就是他的自我标注，七条直接对应、两条抽象对应、三条只有隐含相似，哪几处对不上他都写在了明面上。</p>
     <p><strong>作者在第一章就交代自己类比的断裂处，这在类比型写作里很少见。</strong>比起替他找漏洞，更值得学的是这个动作：跨域搬运时，先声明哪几个零件对不上。</p>
-    <p class="a-edge">当然，标出来不等于修好了。那三条“隐含相似”恰恰是最重的三条——国家认同、灵活性、核心价值观，全书七个案例的胜负手多半落在这三条上。承认这三处焊得最松，却仍然把全书的重量压在上面，这是这本书结构上的一个真问题。</p>
+    <p class="a-edge">当然，标出来不等于修好了。那三条“隐含相似”恰恰是最重的三条，国家认同、灵活性、核心价值观，全书七个案例的胜负手多半落在这三条上。承认这三处焊得最松，却仍然把全书的重量压在上面，这是这本书结构上的一个真问题。</p>
   </div>
 
   <div class="qa">
     <div class="q">Q2　“选择性变革”听起来像常识，它到底难在哪儿？</div>
     <p class="a-lead">难在划线的位置只能事后验证，而且划错线的代价极高。</p>
-    <p>道理谁都懂：该改的改，该留的留。真到跟前，两种失败都很常见——什么都想改的，会因为动摇了赖以维系的东西而散架；什么都不肯改的，会被现实碾过去。<strong>关键是你有没有能力判断哪一部分是承重的。</strong></p>
-    <p>明治日本判对了：天皇、文字、儒家道德是承重的，军制、法律、教育不是。他还提到一个很有意思的细节，有些变革必须被包装成“被发明的传统”才能被接受——<strong>换新东西的时候，得让它看起来像是老东西。</strong></p>
+    <p>道理谁都懂：该改的改，该留的留。真到跟前，两种失败都很常见，什么都想改的，会因为动摇了赖以维系的东西而散架；什么都不肯改的，会被现实碾过去。<strong>关键是你有没有能力判断哪一部分是承重的。</strong></p>
+    <p>明治日本判对了：天皇、文字、儒家道德是承重的，军制、法律、教育不是。他还提到一个很有意思的细节，有些变革必须被包装成“被发明的传统”才能被接受，<strong>换新东西的时候，得让它看起来像是老东西。</strong></p>
     <p class="a-edge">这一条对任何组织变革都适用，也解释了为什么外来的改革者失败率高：他们看得清哪些地方低效，看不清哪些地方是承重墙。</p>
   </div>
 
@@ -615,7 +695,7 @@
 
   <p>这是他的第三个大问题。《枪炮》问不同大陆为什么发展得不一样，《崩溃》问社会为什么会垮，这一本问的是：垮之前那一刻，什么决定了走向。</p>
 
-  <p>他自己的入口很私人。第一章里他写了二十一岁那年的科研危机：他在实验室里做不出结果，怀疑自己选错了路，几乎放弃科学。这段个人经历是整本书的种子——<strong>他真正想问的是，一个人（或一个国家）在“我完了”那个时刻之后，还能靠什么把自己捡起来。</strong></p>
+  <p>他自己的入口很私人。第一章里他写了二十一岁那年的科研危机：他在实验室里做不出结果，怀疑自己选错了路，几乎放弃科学。这段个人经历是整本书的种子，<strong>他真正想问的是，一个人（或一个国家）在“我完了”那个时刻之后，还能靠什么把自己捡起来。</strong></p>
 
   <p>他借来的那份清单也有出处：他的妻子是临床心理学家，做过危机治疗，那份十二因素的临床经验清单是从这条线来的。这本书某种意义上是把家里餐桌上的专业，搬到了他自己的专业里。</p>
 
@@ -645,7 +725,7 @@
 
   <p>不服的两处。一是第五层说的那三条只有隐含相似的因素，国家认同、灵活性、核心价值观，他标注了对不上，却没有去解决。二是论证密度，第五层最后一问已经跟他前两本比过；落到读的时候就成了一件麻烦事：你得随时分清哪一句是研究结论，哪一句是他的印象。</p>
 
-  <p>还有一句必须说的：第二层那条日本材料的短板，是我对这本书最具体的保留，阅读那两章时可以把可信度打个折。</p>
+  <p>还有一句必须说的：第二层那条日本材料的短板，是我对这本书最具体的保留，先生读那两章时可以把可信度打个折。</p>
 
   <p>读法建议：第一章（框架）必读，芬兰和明治日本两章是最好的两个案例，德国那章的代际节律有意思，智利和印尼两章沉重但重要，当代日本和美国那三章时效性强、可以快读。结语里他的自我批评那几页别跳，那是全书最诚实的地方。</p>
 </div>
@@ -695,7 +775,7 @@
   <div class="essay">
   <p>全书倒数第二章，戴蒙德把那十二个因素拿去量整个世界。这一章的结构做得漂亮，读起来也最沉。</p>
 
-  <p>议题是四个：核武器、气候变化、资源枯竭、全球不平等。这四样跟前面七个国家的危机有一个根本区别——<strong>它们没法由任何一个国家单独解决。</strong>所以要处理它们，需要的是一个全球层面的危机应对。</p>
+  <p>议题是四个：核武器、气候变化、资源枯竭、全球不平等。这四样跟前面七个国家的危机有一个根本区别，<strong>它们没法由任何一个国家单独解决。</strong>所以要处理它们，需要的是一个全球层面的危机应对。</p>
 
   <p>于是他一条一条地算。结果是这样的：</p>
 
@@ -745,7 +825,7 @@
 
   <p>这就是戴蒙德给全球问题开的方子，也是这一层最值得带走的东西：<strong>当一件事在大尺度上缺的是共识、认同和担责，把尺度做得更大通常不解决问题；得反过来找一个足够小的单位，小到那几样东西天然就在，先在那里做成一次。</strong></p>
 
-  <p>他在结语里引了一句更老的话来说这件事的另一面：受大国威胁的小国应时刻保持警惕，做多手准备，制订多个应对方案，并且实事求是地评估这些方案。他接着补了一句——虽然这个教训我们都懂，甚至觉得已经不值一提，但不幸的是它常常被忽略。</p>
+  <p>他在结语里引了一句更老的话来说这件事的另一面：受大国威胁的小国应时刻保持警惕，做多手准备，制订多个应对方案，并且实事求是地评估这些方案。他接着补了一句，虽然这个教训我们都懂，甚至觉得已经不值一提，但不幸的是它常常被忽略。</p>
 
   <p>这也是这整本书的性格：<strong>它讲的道理没有一条是新的，它做的事是把这些道理排成一份清单，让人没法再假装自己已经想过了。</strong></p>
   </div>
@@ -755,13 +835,13 @@
   <h4>事实边界</h4>
   <p>本篇引文与案例均出自贾雷德·戴蒙德《剧变：人类社会与国家危机的转折点》中译本（原著 2019 年出版）。“选择性变革”与“选择性改变”在中译本里指的是同一个词（selective change），本篇按语境择用。</p>
   <p><strong>本次阅读的覆盖情况：</strong>我通过原文索引读了全书的章节骨架、第一章全部方法论段落、七国各章的“危机框架”判决段、全球章与结语，<strong>未逐字通读全书</strong>。各国章节里大量的叙事史实段落我没有细读，本篇也因此没有复述具体史实细节。</p>
-  <p><strong>一处技术性提醒：</strong>我读的这份文本里，第一章的两张表（个人危机 12 因素、国家危机 12 因素）是图片，未转成文字。本篇第一层那张对照表，是从正文段落逐条整理的，<strong>不是原书表格的原样转录</strong>，条目的措辞与排序可能与原表有出入，若要引用请翻原书。</p>
+  <p><strong>一处技术性提醒：</strong>我读的这份文本里，第一章的两张表（个人危机 12 因素、国家危机 12 因素）是图片，未转成文字。本篇第一层那张对照表，是从正文段落逐条整理的，<strong>不是原书表格的原样转录</strong>，条目的措辞与排序可能与原表有出入，先生若要引用请翻原书。</p>
   <p><strong>作者自陈的局限（这些都在原书里，不是外部批评）：</strong>样本七国、非随机、五个发达国家、无非洲国家；全书为叙述性推理，无量化、无显著性检验，他原打算做定量分析后放弃；文献研究不是这本书的基础；七国中没有一个在实施恰当的选择性变革后遭遇明显失败（幸存者偏差）；他不懂日语、二十多年前只短暂访问过日本，而全书用了两章写日本。</p>
   <p>德国那组“二十一到二十三年”的代际间隔、各国十二因素的记分结果、全球章的人口与碳排比例数字，均转引自原书，我未回核原始数据。第三层的三根线、第四层的下钻、第六层关于作者盲点的判断，以及第八层用村路作类比，都是我的分析，不是原书写的。</p>
 </div>
 
 <div class="gold">
-  <div class="line">先弄清楚哪一部分还是好的——这句话既是危机治疗的第一步，也是七个国家活下来的全部秘密。</div>
+  <div class="line">先弄清楚哪一部分还是好的，这句话既是危机治疗的第一步，也是七个国家活下来的全部秘密。</div>
   <div class="sign">青山 · 2026-08-01</div>
 </div>
 

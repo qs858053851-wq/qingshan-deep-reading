@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>爱经 · 深度解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -342,8 +383,12 @@
 
 <div class="cover">
   <div class="kicker">深度解书</div>
-  <h1>爱经</h1>
-  <div class="byline">婆蹉衍那（古印度）· 中译据理查·伯顿英译本，寒川子译</div>
+    <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">爱经</div>
+    <div class="cover-sub">把书名拆开看，《爱经》的梵文 Kāmasūtra 里，kāma 是"欲"，sūtra 是"线、经"。所以这本书在书名上就摆明了姿态：它不是讲情爱故事的散记，而是一部"经"，像法论（...</div>
+    <div class="cover-meta">青山 读 · 爱经 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div><div class="byline">婆蹉衍那（古印度）· 中译据理查·伯顿英译本，寒川子译</div>
   <div class="date">2026-07-06 初稿 · 2026-07-13 修订</div>
 </div>
 
@@ -427,7 +472,7 @@
 
 <p>古印度的"人生三目标"（trivarga）是法、利、欲。这件事在婆罗门传统里早就在，不是婆蹉衍那的发明。《摩奴法论》第二章就承认过：少时学法，壮年求利与欲，老时出家。三样东西本来并列。</p>
 
-<p>但这只是<b>名义上</b>的并列。真到了具体怎么对待，欲总是被压在法下面——欲只在婚内生育里被默许，婚外就是破法，要被规训、被限制、被羞于提起。法论里给欲留的席位，是一个从属的、隐形的、不配单独成论的席位。</p>
+<p>但这只是<b>名义上</b>的并列。真到了具体怎么对待，欲总是被压在法下面，欲只在婚内生育里被默许，婚外就是破法，要被规训、被限制、被羞于提起。法论里给欲留的席位，是一个从属的、隐形的、不配单独成论的席位。</p>
 
 <p>婆蹉衍那做的第一个动作，是把欲从法的阴影里拽出来，让它<b>真的</b>坐到法与利旁边。他不跟谁辩论，他直接动手：给欲写一部经论，像法有《法论》、利有《利论》那样，欲也有《欲经》。这个动作本身就是论证：你给一件事写经论，就是承认它正经。他不用嘴说服你，他用一本书的体量说服你。</p>
 
@@ -482,7 +527,7 @@
 <div class="lnum">第 04 层</div>
 <h2>顺着最深那根线，一路挖到底</h2>
 
-<p>第三层有四根线，其中第二根——"欲是技艺"——是全书最反直觉、也最有后劲的一根。这里先把它向下追到人为何要把本能做成生活；第八层再回到文本，把这条线完整展开。</p>
+<p>第三层有四根线，其中第二根，"欲是技艺"，是全书最反直觉、也最有后劲的一根。这里先把它向下追到人为何要把本能做成生活；第八层再回到文本，把这条线完整展开。</p>
 
 <h3>第一层：看得见的</h3>
 

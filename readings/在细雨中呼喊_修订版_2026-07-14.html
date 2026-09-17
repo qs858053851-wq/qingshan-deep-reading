@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>在细雨中呼喊 —— 九层解书（修订版）</title>
+<title>在细雨中呼喊 ， 九层解书（修订版）</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,44 @@
 </head>
 <body>
 <div class="container">
-<div class="hero">
-<div class="kicker">九层解书 · 叙事型长篇</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">在细雨中呼喊</div>
+    <div class="cover-sub">著　｜　青山深度阅读 · 06-10 初稿 · 07-14 修订</div>
+    <div class="cover-meta">余华 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 骨架扫描</span>
+      <span class="toc-desc">这本书没有一条笔直向前的故事线。成年后的孙光林回望童年与少年，记忆不按钟表列队，而按疼痛、羞耻与牵挂的重量浮现...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 血肉解剖</span>
+      <span class="toc-desc">叙事型小说没有显眼的论证链，却有证据的轻重与情感的递进。这一层只检验：全书的核心判断，是否被具体人物与事件托住...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 叙事结构分析，全书本体</span>
+      <span class="toc-desc">本层是全篇的结构本体。后面的餐巾纸只压缩这里，不另造一套结论。《在细雨中呼喊》之所以必须这样讲，是因为它的形式...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 灵魂提取，超越作者</span>
+      <span class="toc-desc">《在细雨中呼喊》写于余华创作从先锋短篇转向长篇叙事的阶段。由作品内部可以合理推断，他关心的不只是外部暴力，也包...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 餐巾纸压缩</span>
+      <span class="toc-desc">一个没被好好看见的孩子，长大后用回忆把自己重新看了一遍：叙述不能改变已经发生的事，却能阻止经历与经历过的人一起...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 可传播短文，一个人在亲人中间死去</span>
+      <span class="toc-desc">有一段，我读完很多年都忘不掉。一个少年，清晨醒来，发现自己动不了。他的脑子里有根血管破了。他还有意识，能听见，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 金句</span>
+      <span class="toc-desc">读完合上书，最该被你记住的，不是任何一个人的死，而是这句你大概率正在经历、却从没说破的事实，</span>
+    </div>
+  </div>
+
 <h1>在细雨中呼喊</h1>
 <div class="author">余华 · 著　｜　青山深度阅读 · 06-10 初稿 · 07-14 修订</div>
 </div>
@@ -384,10 +461,10 @@
 <h4><strong>母题原型：第一声呼喊</strong></h4>
 <p>开篇雨夜中的呼喊，是后续人物命运的母题原型。它先给出“喊与不应”的声音关系，人物故事随后成为不同变奏。这个书名不是剧情摘要，而是一幅压缩图：声音正在发出，背景正在吸收它。至于这幅图如何长成全书结构，交给第三层说明。</p>
 </section>
-<section class="layer "><div class="lnum">第三层</div><h2>叙事结构分析——全书本体</h2>
+<section class="layer "><div class="lnum">第三层</div><h2>叙事结构分析，全书本体</h2>
 <p>本层是全篇的结构本体。后面的餐巾纸只压缩这里，不另造一套结论。《在细雨中呼喊》之所以必须这样讲，是因为它的形式本身就在执行主题。</p>
 <h4><strong>核心公式：被抛弃 → 旁观 → 回忆／叙述 → 确认存在</strong></h4>
-<p><strong>被抛弃</strong>改变了孙光林与家庭的关系；<strong>旁观</strong>使他人在其中却保有外部距离；<strong>回忆／叙述</strong>让散乱经历被重新选择、排列和命名；最终得到的不是改写过去，而是<strong>确认存在</strong>——那些人和事没有因无人回应而彻底消失。</p>
+<p><strong>被抛弃</strong>改变了孙光林与家庭的关系；<strong>旁观</strong>使他人在其中却保有外部距离；<strong>回忆／叙述</strong>让散乱经历被重新选择、排列和命名；最终得到的不是改写过去，而是<strong>确认存在</strong>，那些人和事没有因无人回应而彻底消失。</p>
 <p>这条线是叙事动力，不是心理学诊断，也不是关于所有创伤者的普遍公式。它只解释这部小说如何从人物处境走到叙述动作，再从叙述动作抵达意义。</p>
 <h4><strong>核心张力：呼喊 ↔ 细雨＝想被看见 ↔ 被日常淹没</strong></h4>
 <p>“呼喊”代表人试图被听见、被承认；“细雨”代表均匀、持续、几乎不引人注意的背景力量。人物以沉默、胡闹、小伎俩或回忆发声，家庭惯性、生存压力与日常秩序则不断把信号降为背景。这里不是前后因果，而是贯穿全书的对抗轴。</p>
@@ -404,14 +481,14 @@
 <h4><strong>结构结论：内容是被抛弃，形式是不肯遗忘</strong></h4>
 <p>过去无法被修正，叙述却拒绝让它无声消失。于是形式与内容形成反向用力：人物不断被生活抛下，小说不断把他们捡回语言。全书的意义，不只藏在“写了什么”，也藏在“为什么必须由回忆来写”。</p>
 </section>
-<section class="layer "><div class="lnum">第六层</div><h2>灵魂提取——超越作者</h2>
+<section class="layer "><div class="lnum">第六层</div><h2>灵魂提取，超越作者</h2>
 <h4><strong>作者动机：一种有边界的推断</strong></h4>
 <p>《在细雨中呼喊》写于余华创作从先锋短篇转向长篇叙事的阶段。由作品内部可以合理推断，他关心的不只是外部暴力，也包括“人如何回望自己的来处”。但孙光林不等同于余华本人，小说也不能直接当作作者自传。更稳妥的说法是：作品把一个未被看见的孩子置于叙述中心，让“回忆”成为抵抗遗忘的形式。</p>
 <h4><strong>作者盲点：女性声音被压在男性叙事之后</strong></h4>
 <p>小说围绕父子链条展开，母亲、李秀英、冯玉青等女性更多作为被观察者出现，较少拥有持续的内在视角。这未必否定作品的真实，却限定了它的视野：全书听见了许多男性的呼喊，没有同等展开女性如何经验同一个家庭与时代。</p>
 <h4><strong>跨域映射：四个不同场景，同一结构的四种用法</strong></h4>
 <p><strong>交易｜复盘不是改写盈亏，而是保存决策证据。</strong> 对应“回忆／叙述 → 确认存在”。一笔交易结束后，把入场依据、风险假设、执行偏差与当时可见信息分开记录，能把“输赢感受”还原为可复查过程。边界是：事后叙事容易合理化，行情数据与原始记录必须优先于记忆。</p>
-<p><strong>民宿｜沉默不等于满意，异常才是被日常吞掉的信号。</strong> 对应“呼喊 ↔ 细雨”。客人未投诉，可能是满意，也可能是已经放弃表达。入住、首夜、离店三个触点中的异常——反复询问、突然沉默、提前离店——适合被记录和确认，而不是先猜测心理。</p>
+<p><strong>民宿｜沉默不等于满意，异常才是被日常吞掉的信号。</strong> 对应“呼喊 ↔ 细雨”。客人未投诉，可能是满意，也可能是已经放弃表达。入住、首夜、离店三个触点中的异常，反复询问、突然沉默、提前离店，适合被记录和确认，而不是先猜测心理。</p>
 <p><strong>乡村｜口述史把个人旧事变成可传承的公共记忆。</strong> 对应“旁观 → 回忆／叙述”。村庄更新若只保留新建筑，容易留下空间、丢掉来处。老人讲述的地名、手艺、迁徙与家族故事，经多方互证、标注讲述者和时间后，才能从单一记忆变成有事实边界的地方档案。</p>
 <p><strong>健康｜建立个人基线，才能听见身体的异常。</strong> 对应“背景中的信号”。睡眠、静息心率、疼痛、情绪和食欲长期存在时，很容易被当成背景；简短记录有助于发现持续变化。它只能提供就医线索，不能替代诊断；急性或明显异常应直接寻求专业医疗帮助。</p>
 <h4><strong>为什么今天仍值得读</strong></h4>
@@ -440,7 +517,7 @@
                       │
                    确认存在</pre>
 </section>
-<section class="layer "><div class="lnum">第八层</div><h2>可传播短文——一个人在亲人中间死去</h2>
+<section class="layer "><div class="lnum">第八层</div><h2>可传播短文，一个人在亲人中间死去</h2>
 <p>有一段，我读完很多年都忘不掉。一个少年，清晨醒来，发现自己动不了。他的脑子里有根血管破了。他还有意识，能听见，能看见，只是身体不听使唤，喊不出声。然后这一天像平常一样开始了：他的父亲起床，从他床边走过去；他的哥哥起床，洗脸、刷牙，也从他床边走过去；一家人吃饭、说话、出门，做着每一个普通早晨都会做的事。没有一个人停下来看他一眼。他就在这一片再正常不过的家庭日常里，一点一点地死掉了。</p>
 <p>最初的反应很容易是愤怒：家人怎么会连一个正在死去的孩子都看不见？可他们并非蓄意害他，只是在过一个普通早晨。真正令人发冷的地方正在这里：悲剧没有以恶人的面孔出现，它借用了日常的秩序。最深的孤独不发生在荒岛上，而可能发生在最熟悉的人中间。</p>
 <p>距离近，从不自动保证一个人被看见。越是天天在一起，越容易彼此成为背景：因为熟悉，所以默认无事；因为默认无事，所以不再细看。苏宇死在这个“默认”里。</p>
@@ -450,19 +527,19 @@
 <p>有一个能承重的类比：家里那台一直在响的冰箱。它二十四小时发出低低的嗡鸣。刚搬进去时听得见，过不了多久，大脑便把它划进背景。它仍在响，耳朵仍在接收，只是知觉不再处理。直到某天声音消失，人们才突然意识到：原来它一直在那里。</p>
 <p>最亲近的人，也可能被这样过滤。不是因为不爱，而是“始终都在”很容易被大脑翻译成“不必关注”。苏宇那个早晨的可怕，不只在于异常信号没有被识别，更在于一个人的存在早已熟悉到近乎透明。</p>
 <p>这里藏着全书最反直觉的一层：许多关系里最稀缺的未必是解决问题的能力，而是<strong>注意力</strong>。不是替对方完成什么，只是让一个已被过滤成背景的人重新进入知觉。它看似微小，却需要对抗“反正没事”的自动判断。</p>
-<p>现在再看书名，《在细雨中呼喊》——细雨均匀、温和、无处不在，不像暴雨那样惊动人，却能持续压低声音。日常正像这场细雨。呼喊则是某个生命试图从背景里显形。全书的悲伤，被压缩在这个画面里：声音正在发出，而环境的惯性正在把它变得听不见。</p>
+<p>现在再看书名，《在细雨中呼喊》，细雨均匀、温和、无处不在，不像暴雨那样惊动人，却能持续压低声音。日常正像这场细雨。呼喊则是某个生命试图从背景里显形。全书的悲伤，被压缩在这个画面里：声音正在发出，而环境的惯性正在把它变得听不见。</p>
 <p>小说仍留下了一点微光。孙光林把苏宇、祖父、父亲和自己的童年重新讲述一遍，构成一次迟到的看见。写作不能让死者复活，也不能补发当年的照料；它能做的是让“曾经存在”不被彻底抹掉。</p>
 <p>还需要防住一个误读：一个人不会因为偶尔少被看一眼就必然崩塌，文学也不能替代医学或心理诊断。苏宇的遭遇是极端事件，它把“忽视可能造成不可逆后果”推到最大尺寸。把镜头拉回日常，能成立的只是更克制的判断：长期不被感知，会让一个人在关系中只剩功能，声音越来越小。</p>
 <p>由此再看孙广才，复杂感便取代了单一憎恶。一个从未被认真看见的人，往往也缺少看见别人的能力；麻木与抛弃可能在关系中重复。理解这条链，不是替任何伤害开脱，而是确认它并非只能继续。<strong>叙述把链条照亮，而看见，给中断留下可能。</strong></p>
 </section>
 <section class="layer "><div class="lnum">第九层</div><h2>金句</h2>
-<p>读完合上书，最该被你记住的，不是任何一个人的死，而是这句你大概率正在经历、却从没说破的事实——</p>
-<p>最深的孤独不在荒岛上，在饭桌对面——你被当成了背景，而背景从不需要被听见。</p>
+<p>读完合上书，最该被你记住的，不是任何一个人的死，而是这句你大概率正在经历、却从没说破的事实，</p>
+<p>最深的孤独不在荒岛上，在饭桌对面，你被当成了背景，而背景从不需要被听见。</p>
 <p>青山 · 06-10 初稿 · 07-14 修订</p>
 </section>
 <div class="golden">
 <div class="g-label">封印这本书的一句话</div>
-<div class="g-text">最深的孤独不在荒岛上，在饭桌对面——你被当成了背景，而背景从不需要被听见。</div>
+<div class="g-text">最深的孤独不在荒岛上，在饭桌对面，你被当成了背景，而背景从不需要被听见。</div>
 <div class="g-sign">青山 · 06-10 初稿 · 07-14 修订</div>
 </div>
 <footer>青山 · 深度阅读　｜　06-10 初稿 · 07-14 修订</footer>

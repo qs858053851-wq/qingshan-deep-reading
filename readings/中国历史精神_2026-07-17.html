@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中国历史精神 —— 解书</title>
+<title>中国历史精神 ， 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>中国历史精神</h1>
-  <div class="author">钱穆 · 一九五一年春台北高级军官组讲演，附一九六三、一九七一年讲稿四篇</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">中国历史精神</div>
+    <div class="cover-sub">一个五十岁的史家，对着军人交底：我研究历史四十年，就为回答小时候一个问题</div>
+    <div class="cover-meta">钱穆 · 一九五一年春台北高级军官组讲演，附一九六三、一九七一年讲稿四篇 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先交代这本书的分量从哪来。一九五一年，钱穆五十六岁，刚在香港办起新亚书院，被请到台北，给"国防部"高级军官组连...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这本书的论证方式很特别：钱穆不跟你打书斋里的引证仗，他用的是"大案例对比法"：拿中西两件同级的大事摆在一起，让...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">七讲加四篇，政治、经济、国防、教育、地理、道德、文学、艺术、首都、兵制……看着包罗万象，底下就两根线。用这两根...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">两根线里更深的是第一根："历史是生命"。这六个字听着像比喻，钱穆是当本体论来用的。往下挖</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">这本书是钱穆一生学问的"初心版"。他晚年著作等身，但驱使他读历史的那个动机，一九五一年这场讲演说得最白："要证...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">历史是命：过去没有过去，五千年活在今天每个人身上，所以打不倒。打倒历史等于消灭自己的记忆。人在担道：制度会坏、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">前面七层，有一处我一直按着没展开：钱穆这个人，嘴上最硬的是史家功夫，心里最软的是一个乞丐和一个通译。这本书九讲...</span>
+    </div>
+  </div>
+
   <div class="tagline">一个五十岁的史家，对着军人交底：我研究历史四十年，就为回答小时候一个问题</div>
 </div>
 
@@ -402,7 +478,7 @@
 
   <h3>隐形假设：中国历史材料本身能自证</h3>
 
-  <p>全书藏着一个没有明说的赌注：<strong>只要材料足够长足够真，历史自己会说话。</strong>钱穆反复攻击黑格尔马克思，说他们的病是"材料太短、哲学先行"；但他自己的方法，从五千年材料里归纳出"一统是常态""道德精神是主轴"——同样是一次筛选。他筛进来的是府兵制、科举、诸葛亮、武训；筛出去的是文字狱、屠杀、饥饿的农民。他当然知道这些（他自己就说"没有一种政治十全十美"），但他的归纳方向决定了：他要找的是"能再兴的原因"，所以材料里能支撑复兴的部分被放大，能支撑停滞的部分被处理成"病态""失常"。这个假设必须点破：他说的"历史精神"，是从中国历史里提炼出来的酵母，不是中国历史的全部成分。</p>
+  <p>全书藏着一个没有明说的赌注：<strong>只要材料足够长足够真，历史自己会说话。</strong>钱穆反复攻击黑格尔马克思，说他们的病是"材料太短、哲学先行"；但他自己的方法，从五千年材料里归纳出"一统是常态""道德精神是主轴"，同样是一次筛选。他筛进来的是府兵制、科举、诸葛亮、武训；筛出去的是文字狱、屠杀、饥饿的农民。他当然知道这些（他自己就说"没有一种政治十全十美"），但他的归纳方向决定了：他要找的是"能再兴的原因"，所以材料里能支撑复兴的部分被放大，能支撑停滞的部分被处理成"病态""失常"。这个假设必须点破：他说的"历史精神"，是从中国历史里提炼出来的酵母，不是中国历史的全部成分。</p>
 
   <h3>边界条件</h3>
 
@@ -416,7 +492,7 @@
 
   <p>七讲加四篇，政治、经济、国防、教育、地理、道德、文学、艺术、首都、兵制……看着包罗万象，底下就两根线。用这两根线，每一讲都能推回来。</p>
 
-  <h3>第一根线：历史就是生命——过去没有过去</h3>
+  <h3>第一根线：历史就是生命，过去没有过去</h3>
 
   <p>这是第一讲就立下的总纲，也是全书的方法论地基：历史不是躺在那里的死材料，历史是我们自己的生命，"从过去透过现在而直达将来"。所以，台湾被日本统治五十年，这段历史"仍然存在到今天"；你不了解五千年，就不能了解今天的中国；一个睡了三年的病人，拿起今天的报纸十句九不懂，不懂字，是不懂历史。</p>
 
@@ -547,7 +623,7 @@
 
   <p>历史是命：过去没有过去，五千年活在今天每个人身上，所以打不倒。打倒历史等于消灭自己的记忆。人在担道：制度会坏、财富会竭、军队会溃，最后靠人，靠几个"行己有耻"的人把种子背过冬天。两个因子缺一不可：只信历史是命，是博物馆心态，等着祖先保佑；只信人定胜天，是无根之木，忘了自己从哪来。钱穆的配方是：知道自己背着五千年，然后自己动手。</p>
 
-  <p>一句话：五千年翻来覆去只讲一件事——东西都靠不住，人靠得住。</p>
+  <p>一句话：五千年翻来覆去只讲一件事，东西都靠不住，人靠得住。</p>
 
   <div class="ascii">        过去（五千年）
               │ 没有真过去
@@ -592,7 +668,7 @@
 
   <p>我把这一层再往近拉一步。我们自己这辈子，大概率碰不上亡国，但一定会碰上自己的"明亡那年"：一个经营十年的东西没了，一个以为靠得住的关系塌了，一场病下来，前面的计划全作废。那种时刻，制度帮不上（公司会倒），钱帮不上（钱会贬），关系帮不上（人会走）。能帮你站着的，只剩一个问题：我是个什么样的人，这事垮了之后，我还是不是。钱穆给的答案朴素得近乎笨：是。只要"行己有耻"还在，人就在；人在，东西就能再做出来。晚明那批人没了天下，没丢自己，所以天下后来又有了。这不是鸡汤，这是他对五千年衰亡史做的一次成本核算：每次绝处翻盘的原始资本，盘点到最后都不是物，是人。</p>
 
-  <p>所以这本书最后教你读历史的那个读法，其实也是教你过日子的那个过法：别只数自己有什么，数一数自己是什么。有的东西，职位、存款、门路、健康，都是"有"，都会被拿走；"是什么"，你的不肯、你的耻、你被吴凤硌一下的那颗心——拿不走。项羽把刘邦的一切都打没了，没打掉刘邦那个人，所以垓下一仗翻过来的是刘邦；把武训的一切都拿走，他还是武训，所以一百年后钱穆还在讲他。</p>
+  <p>所以这本书最后教你读历史的那个读法，其实也是教你过日子的那个过法：别只数自己有什么，数一数自己是什么。有的东西，职位、存款、门路、健康，都是"有"，都会被拿走；"是什么"，你的不肯、你的耻、你被吴凤硌一下的那颗心，拿不走。项羽把刘邦的一切都打没了，没打掉刘邦那个人，所以垓下一仗翻过来的是刘邦；把武训的一切都拿走，他还是武训，所以一百年后钱穆还在讲他。</p>
 
   <p>一九五一年，台北，一个刚丢了大陆、连家当都只剩一箱子书的老头，对着一群刚丢了江山的军官，讲一个乞丐和一个通译。他没有讲怎么反攻。他讲怎么站着。这一讲，七十五年还没过时。</p>
   </div>

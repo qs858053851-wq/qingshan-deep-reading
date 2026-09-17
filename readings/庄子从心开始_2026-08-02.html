@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>庄子，从心开始 · 解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">青山 · 解书 · 2026-08-02</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">庄子，从心开始</div>
+    <div class="cover-sub">台大《庄子》课讲录：在乱世里放松身心的学问</div>
+    <div class="cover-meta">蔡璧名 · 解读主理：青山 · 日期：2026-08-02 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">把《庄子》内七篇里的前三篇（逍遥游、齐物论、养生主）逐字逐句讲透，教你一门「在乱世里、逆境中仍能放松身心的学问...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这本书拆到底，就四件事在起作用</span>
+      <span class="toc-desc">三篇经典、几十段寓言，看着眼花。但拆到底，庄子教的无非四件事，一件比一件贴近你自己的身体。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 顺着「把注意力收回自身」这根线，一路挖到底</span>
+      <span class="toc-desc">庄子说了一大堆话，落到最实的动作只有一个：把注意力收回自身。这句听起来像养生的陈词滥调，但它底下藏着一整条能挖...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着八个问题，把庄子的工夫走一遍</span>
+      <span class="toc-desc">结论：不是。庄子教的是「乘御之力」，在惊涛骇浪间存活、无伤的本事，不是躲开浪头。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">蔡璧名讲庄子的十八轮课，背后站着一个几乎死过一次的人。她在书里只轻轻提了几句（「像生病以后的我」「从鬼门关前回...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 一顿饭的功夫，把这本书收进口袋</span>
+      <span class="toc-desc">庄子不是让你逃，是让你把灯收回来。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 你的心，被偷走了</span>
+      <span class="toc-desc">晚上十一点，你躺在床上，明明累了一天，手却停不下来：短视频滑了一条又一条，明明知道没意思，就是放不下。你心里清...</span>
+    </div>
+  </div>
+
   <h1>庄子，从心开始</h1>
   <div class="author">蔡璧名 · 台大《庄子》课讲录：在乱世里放松身心的学问</div>
 </div>
@@ -354,7 +431,7 @@
   <p>把《庄子》内七篇里的前三篇（逍遥游、齐物论、养生主）逐字逐句讲透，教你一门「在乱世里、逆境中仍能放松身心的学问」。</p>
   <p>回答：庄子不是逃避现实的哲学，是一套「乘御之力」：在人生的惊涛骇浪间存活、无伤的本事。蔡璧名是台大中文系教授，也是练太极拳几十年的身体实践者。她发现《庄子》里藏着一整套「身体的技术」和「心的工夫」：缘督以为经（脊柱中正的站姿），和太极的顶头悬是同一个东西；其神凝（注意力收回自身），是让心不烦不乱不痛的第一要务。这本书是她 2014 年台大《庄子》专书课的课堂讲录，讲了三件事：姿势、意识、感情。</p>
 
-  <h3>这本书是怎么长出来的</h3>
+  <h3>创作源起与现实背景</h3>
   <p>蔡璧名在台大讲《庄子》讲了十八轮，从 2007 年到 2016 年。听课的人有文学院、法学院、医学院的，有十八岁的新生，也有来旁听的家庭主妇和外地旅客。她为什么讲《庄子》讲得这么起劲？因为她自己经历过重病，她说「像生病以后的我」，从鬼门关前回来，才发现庄子教的东西是真的能救命：把注意力收回自身，心就可以不烦、不乱、不痛。</p>
   <p>书的结构是逐字逐句的课堂讲录：〈逍遥游〉分三章、〈齐物论〉分五章、〈养生主〉分五章，每章下按长度分小节。每篇之后还有「体验古典」单元：把经典变成可以练习的动作，像陶渊明、李白、苏东坡那样，让《庄子》跟生命结合，而不只是纸上的学问。</p>
 
@@ -363,7 +440,7 @@
   <p><strong>意识：把注意力收回自身。</strong>〈逍遥游〉说大鹏飞在「北冥」：冥，就是看不清楚。蔡璧名说：你生活中有没有在追求一种很难量化、很难被聚光灯照到的东西？那叫「冥」。庄子要你把心的探照灯从向外（名位、比较、iPhone）调转向内，「其神凝」，念虑止住，心静定下来。她举太极的例子：打拳时脑子里什么都别想，最容易察觉自己的执着在哪里。</p>
   <p><strong>感情：深情而不滞于情。</strong>〈养生主〉说「为善无近名」：善于养生的人，不因长寿而召来名声；庄子谈感情的态度是「相濡以沫，不如相忘于江湖」：不是无情，是不让情变成牵挂和搅扰。可以深爱，但不被爱捆住。</p>
 
-  <h3>写作姿态</h3>
+  <h3>叙述视角与专业底色</h3>
   <p>一位大病过后、练拳多年的女老师，在课堂上对着你说话：她把庄子讲得像聊天（「如果我说今天遇到一位男同学，台下同学根本懒得抬头；如果我说遇到金城武，大家马上抬头了，庄子的寓言就是金城武」），但每个字都落在工夫上。她不端着学术架子，也不把庄子讲成心灵鸡汤：她要的是你练。</p>
 </div>
 
@@ -491,7 +568,7 @@
   <h2 class="layer-title">跳出这本书，它还能怎么用</h2>
 
   <h3>作者为什么非写不可</h3>
-  <p>蔡璧名讲庄子的十八轮课，背后站着一个几乎死过一次的人。她在书里只轻轻提了几句（「像生病以后的我」「从鬼门关前回来」），但那些句子是这本书的真正的发动机：她生病以后才第一次真正听懂的，是能在病榻上撑住她的庄子，不是论文里的那一个。她发现「把注意力收回自身，心就可以不烦、不乱、不痛」——这话她验证过：是身体的技术，不是文学修辞。她写这本书，是想把庄子从「国学」里救出来，她见过太多人把庄子读成玄谈、读成考试题，而庄子本来是一套可以练的工夫，像太极拳一样，练了就有用。她说「半部《论语》治天下，半部《庄子》治身心」：她相信庄子治的正是现代人最缺的东西。</p>
+  <p>蔡璧名讲庄子的十八轮课，背后站着一个几乎死过一次的人。她在书里只轻轻提了几句（「像生病以后的我」「从鬼门关前回来」），但那些句子是这本书的真正的发动机：她生病以后才第一次真正听懂的，是能在病榻上撑住她的庄子，不是论文里的那一个。她发现「把注意力收回自身，心就可以不烦、不乱、不痛」，这话她验证过：是身体的技术，不是文学修辞。她写这本书，是想把庄子从「国学」里救出来，她见过太多人把庄子读成玄谈、读成考试题，而庄子本来是一套可以练的工夫，像太极拳一样，练了就有用。她说「半部《论语》治天下，半部《庄子》治身心」：她相信庄子治的正是现代人最缺的东西。</p>
 
   <h3>作者没看到什么</h3>
   <p>第一，这本书默认读者「愿意练」，她把「体验古典」设计得很实用，但课堂之外，有多少人真的会每天站桩三分钟？庄子工夫的最大门槛，是坚持，不是理解，而书里没有处理「为什么你练不起来」这个问题（懒、病、环境，各有各的原因）。第二，她用自己的生命经验（大病、太极）来解庄子，这让解读极有说服力，但也框住了庄子：「缘督以为经」解成站姿，是她练拳练出来的洞见，可庄子未必只指身体；把庄子完全收编进「身体技术」，会不会窄化了庄子？她没有讨论这个风险。第三，对「庄子是个人主义吗」这个问题，她基本回避，庄子的「游」和「无何有之乡」，跟社会参与、公共责任怎么兼容？她在课堂上带过一句「不做也不妨」，但没有正面处理。</p>

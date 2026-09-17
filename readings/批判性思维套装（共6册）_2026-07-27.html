@@ -1,24 +1,31 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>批判性思维套装（共6册） · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -75,6 +82,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -88,14 +106,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -104,7 +122,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -113,7 +131,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -123,7 +141,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -131,12 +149,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -152,7 +170,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -167,7 +184,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -262,9 +278,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -272,6 +287,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -324,6 +356,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -331,7 +372,52 @@
     }
   }
 </style></head><body><main class="container">
-<header class="hero"><h1>批判性思维套装（共6册）</h1><div class="author">六种路径 · 从学习、论证到自我回审</div></header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">批判性思维套装（共6册）</div>
+    <div class="cover-sub">从学习、论证到自我回审</div>
+    <div class="cover-meta">六种路径 · 解读主理：青山 · 日期：2026-07-27 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 先把六本书分开</span>
+      <span class="toc-desc">这套书由六位作者的独立著作组成，共同处理一组相邻问题。《如何高效学习》讲知识怎样形成连接；《逻辑思维简易入门》...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 六本书怎样让判断落地</span>
+      <span class="toc-desc">《逻辑思维简易入门》要求找出结论指示词，列出前提，把省略的条件补出来，再问前提真假以及支持力度。《学会提问》继...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 贯通六本书的三种能力</span>
+      <span class="toc-desc">第一种是准确重述。忠实原则要求先把对方最强的理由说到他愿意点头，防止把异议者改造成容易击倒的稻草人；它也迫使我...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · “我有理由”为什么还不够</span>
+      <span class="toc-desc">一句“这个政策会促进公平”先要知道公平指什么、政策怎样作用、衡量多久。脱离结论范围和关键概念，理由只能制造一种...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 七问走完一轮判断</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 套装的高明处与危险处</span>
+      <span class="toc-desc">六本书共同反对被第一反应牵走，却各自保留专长。最实用的读法是按当前失败点选书：知识连不起来看学习法，论证拆不开...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 全套只剩一个公式</span>
+      <span class="toc-desc">一句话：把观点做成别人能复查、证据能推翻、自己也愿意修改的东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 怀疑也是有限资源，要先决定用在哪里</span>
+      <span class="toc-desc">六本书提供了大量检查项，可人的时间和注意有限。若每条消息、每次选择都完整审问，批判性思维会把行动耗尽。更深的能...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 一句话封印这套书</span>
+      <span class="toc-desc">六册作者与证据体系不同。《如何高效学习》明确把整体性学习称为个人假说；“十二个月学完MIT课程”属作者自述。《...</span>
+    </div>
+  </div>
+
 <section class="layer"><div class="kicker">Layer 01</div><h2 class="layer-title">先把六本书分开</h2>
 <p>这套书由六位作者的独立著作组成，共同处理一组相邻问题。《如何高效学习》讲知识怎样形成连接；《逻辑思维简易入门》讲前提、结论、归纳与演绎；《思考的艺术》讲从界定问题到生成、评价和实施方案；《学会提问》提供审查他人论证的清单；《专注力》处理选择与执行；《批判性思维工具》把标准转向思考者自己。</p>
 <p>合起来看，它们覆盖一条完整工作链：获取信息，辨清论题，准确重述对方，补出隐含前提，检查证据与替代原因，生成多个方案，再把时间给最重要的一项，最后回头审查自己的自利和盲区。</p>

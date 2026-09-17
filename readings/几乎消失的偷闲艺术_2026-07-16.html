@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>几乎消失的偷闲艺术 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">几乎消失的<br>偷闲艺术</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">几乎消失的偷闲艺术</div>
+    <div class="cover-sub">拉费里埃 著 · 黄凌霞 潘博 译 · 原著 2014</div>
+    <div class="cover-meta">[加拿大] 达尼 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先交代它的形状，因为形状就是宣言。这本书没有章法可循：几百个碎片，长的两三页，短的干脆是分行的诗，写午睡、写坐...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这类书最容易写砸：慢生活文学十本有九本是布道，靠形容词堆一种你消费不起的岁月静好。拉费里埃避开的办法值得单独看...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">全书埋得最深的一句话在午睡那篇里。他回忆小时候被迫午睡、长大后为上课上班而睡，然后写道："人们总是为了一个主人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">书名先出卖了他："几乎消失"四个字是挽歌的语气。2014 年他写这本书时刚当选院士，功成名就，本可以写回忆录，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">一句话版本：闲，说到底是所有权的易手。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">全书几百个碎片里，有一个场景被他放在"慢生活赞"的结尾压轴，我认为那就是整本书的心脏。</span>
+    </div>
+  </div>
+
   <div class="meta">[加拿大] 达尼·拉费里埃 著 · 黄凌霞 潘博 译 · 原著 2014</div>
   <div class="oneliner">一个从独裁国家逃出来的海地人，在零下三十度的蒙特利尔睡午觉、看蚂蚁、换咖啡馆，然后写下这本书告诉你：慢，从来都轮不到别人来批准。</div>
 </div>
@@ -361,7 +434,7 @@
   <p><strong>死亡。</strong>星星的死亡、欢笑与死亡、时间的迷宫。他写人类在时间的森林里摆白色卵石，指望原路返回，"殊不知，历险一开始，我们就已经迷失了"。死亡在这本书里不阴沉，是让闲暇变贵重的那道底光。</p>
   <p><strong>流亡与回归。</strong>北方之爱与南方之爱，零下四十五度的蒙特利尔与二月热浪的太子港。书的后段他回到阔别三十五年的祖国当文学奖评委，住进年轻时只敢仰望的奥洛夫松酒店，房门上写着别人的名字。"我只是变了阶层。我走到了能走到的最远的地方。世界的尽头。"</p>
 
-  <p>核心的张力一句话：这是一个被暴力剥夺过时间的人，用最温柔的文体，谈一件其实很凶的事——把生活的所有权拿回来。</p>
+  <p>核心的张力一句话：这是一个被暴力剥夺过时间的人，用最温柔的文体，谈一件其实很凶的事，把生活的所有权拿回来。</p>
 </div>
 
 <div class="layer">
@@ -464,7 +537,7 @@
 </div>
 
 <div class="finale">
-  <div class="line">"偷闲"最诚实的是那个"偷"字——它承认你的时间，平时登记在别人名下。</div>
+  <div class="line">"偷闲"最诚实的是那个"偷"字，它承认你的时间，平时登记在别人名下。</div>
   <div class="sign">青山 · 2026-07-16</div>
 </div>
 

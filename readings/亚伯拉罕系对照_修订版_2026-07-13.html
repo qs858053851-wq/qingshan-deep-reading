@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>两本书里的亚伯拉罕信仰 · 对照阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -338,14 +379,52 @@
 </style>
 </head>
 <body>
-<header class="hero">
-<div class="container">
-<div class="kicker">对照阅读 · 青山</div>
-<h1>两本书里的亚伯拉罕信仰</h1>
-<div class="author">《犹太教的本质》×《古兰经故事》</div>
-<div class="meta">解读于 2026-07-10</div>
-</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">两本书里的亚伯拉罕信仰</div>
+    <div class="cover-sub">解读于 2026-07-10</div>
+    <div class="cover-meta">《犹太教的本质》×《古兰经故事》 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 01 · 为什么把这两本书放在一起读</span>
+      <span class="toc-desc">利奥·拜克的《犹太教的本质》和艾哈迈德·雅西尔·法鲁克编的《古兰经故事》，看起来是两类完全不同的书：一本是二十...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 共同的地基：一神、伦理、反对偶像</span>
+      <span class="toc-desc">两本书最底层的共识，可以用三个词概括：一神、伦理、反偶像。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03 · 分歧之一：上帝通过什么与人建立关系</span>
+      <span class="toc-desc">拜克的答案是"诫命"。上帝通过托拉与人建立关系，托拉并非外加的束缚，而是"教导"。人愈认识上帝的诫律，愈意识到...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 分歧之二：顺从的两种讲法</span>
+      <span class="toc-desc">"顺从"是这两本书共同的高频词，但讲的不是同一个东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 05 · 分歧之三：罪、赎罪与中保</span>
+      <span class="toc-desc">拜克在《犹太教的本质》里有一个非常硬的论断："他必须自恕其罪，无人可以取代……他与上帝之间没有他人，没有调解人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 分歧之四：先知链的终点在哪里</span>
+      <span class="toc-desc">这是两本书最根本的分歧，也是犹太教与伊斯兰教最不可调和的分歧之一。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07 · 分歧之五：民族与普世</span>
+      <span class="toc-desc">拜克的《犹太教的本质》里有一个关键词：选民。犹太教是上帝与以色列民族之间的盟约。这个盟约赋予以色列人特殊责任，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 给今天的读者：对照阅读能带走什么</span>
+      <span class="toc-desc">把这两本书放在一起读，最大的收获是打破一个常见误解：以为亚伯拉罕信仰三家大同小异，差别只在仪式和名称。事实上，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09 · 封口一句话</span>
+      <span class="toc-desc">对照阅读到最后，两本书像两面镜子相对：一面照出犹太教如何把上帝的诫命守成一个需要世代解释的民族盟约，一面照出伊...</span>
+    </div>
+  </div>
+
 <main class="container">
 
 <section>
@@ -356,7 +435,7 @@
 
 <p>所谓亚伯拉罕信仰，通常指从亚伯拉罕/易卜拉欣这条线延伸出来的三个传统：犹太教、基督教、伊斯兰教。三家都认同一位上帝、一位始祖、一组先知，但对这位上帝如何与人建立关系、人应当如何回应、先知的链条在哪里结束，给出了不同答案。拜克的书代表犹太教在现代性压力下的自我辩护；《古兰经故事》代表伊斯兰教用叙事方式讲出自己的先知谱系和信仰内核。把这两本书并置，目的在于看清楚同一个源头怎样在不同历史处境里长出不同的形态。</p>
 
-<p>这两本书的另一个共同点是它们都在"被误解"中写作。拜克写《犹太教的本质》，直接回应的是新教神学家哈纳克对犹太教的贬低：犹太教被说成僵化律法、没有福音自由。法鲁克和袁松月编译《古兰经故事》，虽然没有明确的论敌，但书的潜在语境是向汉语读者介绍伊斯兰——在一个对伊斯兰充满陌生感甚至偏见的环境里，用故事建立理解。两本书都在做翻译工作：拜克把犹太教翻译成现代欧洲人能听懂的概念；编译者把古兰经叙事翻译成中文读者能进入的情节。</p>
+<p>这两本书的另一个共同点是它们都在"被误解"中写作。拜克写《犹太教的本质》，直接回应的是新教神学家哈纳克对犹太教的贬低：犹太教被说成僵化律法、没有福音自由。法鲁克和袁松月编译《古兰经故事》，虽然没有明确的论敌，但书的潜在语境是向汉语读者介绍伊斯兰，在一个对伊斯兰充满陌生感甚至偏见的环境里，用故事建立理解。两本书都在做翻译工作：拜克把犹太教翻译成现代欧洲人能听懂的概念；编译者把古兰经叙事翻译成中文读者能进入的情节。</p>
 
 <p>读这两本书的对照，最有意思的地方不在找相同或找不同，而在看它们怎么处理同一个核心张力：人是通过诫命/律法接近上帝，还是通过某种更直接的启示？犹太教和伊斯兰教都高度强调诫命与顺从，但两者对"顺从"的理解、对"诫命"的来源、对先知链条终点的认定，都有微妙而关键的差别。这些差别，正是亚伯拉罕信仰内部最持久的争论点。</p>
 
@@ -517,7 +596,7 @@
 
 <p>第十个可以带走的认识是：对照阅读最终会反过来照见读者自己。你站在哪个位置看待这两本书，决定了你看到什么。如果你是基督教背景，你会注意到犹太教和伊斯兰教如何共同拒绝你的核心教义；如果你是无神论背景，你会惊讶于两本书如何在"服从"中发现自由；如果你是东方宗教背景，你会看到亚伯拉罕信仰对"一神"和"历史"的坚持与佛教的循环时间观多么不同。每一次对照，都是一次自我定位。</p>
 
-<p>第十一个可以带走的认识是：不要把"古老"和"过时"混为一谈。拜克对自由的重新定义、古兰经对顺从的坚持，都是针对各自时代问题的回应。这些问题——人如何面对权威、自由与约束如何平衡、个体如何承担道德责任——并没有因为时代变迁而消失。读古老文本的价值，不在于照搬答案，而在于学习它们如何提出问题。</p>
+<p>第十一个可以带走的认识是：不要把"古老"和"过时"混为一谈。拜克对自由的重新定义、古兰经对顺从的坚持，都是针对各自时代问题的回应。这些问题，人如何面对权威、自由与约束如何平衡、个体如何承担道德责任，并没有因为时代变迁而消失。读古老文本的价值，不在于照搬答案，而在于学习它们如何提出问题。</p>
 
 </section>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>超越生死：李连杰寻找李连杰 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="layer-no">深度解读</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">超越生死</div>
+    <div class="cover-sub">自传 · 宗萨钦哲仁波切、慈诚罗珠堪布、咏给明就仁波切作序</div>
+    <div class="cover-meta">李连杰 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04</span>
+      <span class="toc-desc">先说清楚这本书是什么：李连杰把 1997 年到 2022 年这二十五年的学佛历程，按他自己的分法切成"小我七年...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 07</span>
+      <span class="toc-desc">这本书的核心主张翻成一句话：名、利、权、情解决不了生、老、病、死，能解决的只有修行。一个身价以亿计的人说"钱没...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10</span>
+      <span class="toc-desc">把二十五年的叙事拆开看结构，推动故事往前走的从来不是他的努力，是死亡的逼近。数一数就知道：2000 年母亲走，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 13</span>
+      <span class="toc-desc">有意思的是，这本书差点不存在。李连杰自述本来不愿写回忆录，理由是佛家那句"过去心不可得"，翻旧账跟他的修行方向...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16</span>
+      <span class="toc-desc">如果只能留一句话：寻找李连杰，其实是卸下李连杰。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 19</span>
+      <span class="toc-desc">现在把前面按下不表的那句话摆出来。2011 年，壹基金刚刚拿到独立注册，这是中国民间公益史上的一件大事；玉树救...</span>
+    </div>
+  </div>
+
   <div class="booktitle">超越生死<br>李连杰寻找李连杰</div>
   <div class="meta">李连杰 · 自传 · 宗萨钦哲仁波切、慈诚罗珠堪布、咏给明就仁波切作序</div>
   <div class="oneline">这不是一本明星回忆录，是一份修行报告：一个把名、利、权、情全部拿满的人，发现这四样东西一样也挡不住生老病死，于是用二十五年一层层卸掉"李连杰"这副壳。</div>
@@ -353,11 +426,11 @@
 
   <p>先说清楚这本书是什么：李连杰把 1997 年到 2022 年这二十五年的学佛历程，按他自己的分法切成"小我七年、大我七年、无我七年，外加四年闭关"，逐段交代给读者。武打片只是背景板，主线从头到尾只有一个问题：人怎么才能不怕死。全书是他的第一人称回忆和体悟，下面的故事都按"他自述"来读。</p>
 
-  <div class="marker">1963–1982 · 一个穷孩子练成了全国冠军</div>
+  <div class="marker">1963，1982 · 一个穷孩子练成了全国冠军</div>
   <p>李连杰 1963 年生在北京，两岁丧父，家里穷，上面还有两个姐姐两个哥哥。八岁被挑进武术学校，政府管吃管住，每天练八小时。十一岁起代表中国去了四十多个国家表演，连拿五年全国武术大赛冠军。十七八岁拍《少林寺》，片酬一天一块钱，演那个少年武僧觉远。电影轰动整个亚洲，他一夜之间成了"功夫皇帝"。有个细节他记了一辈子：拍戏时国清寺的方丈问他，你与佛有缘，要不要出家？他当时只当玩笑。另一个细节更拧巴：为了摆脱运动员身份，他"日夜执着地希望受伤"，后来练习中真的重伤，拿到三级残废证明，如愿退役。一个用受伤来换自由的人，后来用了半辈子琢磨"我到底是谁"，这个开头几乎是个预言。</p>
 
-  <div class="marker">1982–1997 · 名利拿满，安全感为零</div>
-  <p>之后的十几年是标准的成功叙事：香港拍片、赚到第一桶金、金庸给他取字"阳中"、道士给过道号"天缘"。名字越攒越多——觉远、天缘、阳中、Jet Li——钱也越攒越多，但他自述那些年最真实的感受是没有安全感。他后来把这段的账算得很清楚：跟全球富豪比过之后发现，痛苦"只有数字规模的不同，没有程度上的差别"，那攀比的尽头在哪里？名、利、权、情四样东西，他都摸到过头部水平，可四样加起来，对"生、老、病、死"一分钱都使不上。这句账是全书的地基，后面所有转折都从这里长出来。</p>
+  <div class="marker">1982，1997 · 名利拿满，安全感为零</div>
+  <p>之后的十几年是标准的成功叙事：香港拍片、赚到第一桶金、金庸给他取字"阳中"、道士给过道号"天缘"。名字越攒越多，觉远、天缘、阳中、Jet Li，钱也越攒越多，但他自述那些年最真实的感受是没有安全感。他后来把这段的账算得很清楚：跟全球富豪比过之后发现，痛苦"只有数字规模的不同，没有程度上的差别"，那攀比的尽头在哪里？名、利、权、情四样东西，他都摸到过头部水平，可四样加起来，对"生、老、病、死"一分钱都使不上。这句账是全书的地基，后面所有转折都从这里长出来。</p>
 
   <div class="marker">1997 · 转折年：一个藏医、一颗痣、一通电话</div>
   <p>1997 年亚洲金融风暴，他的财务和心态都在晃。经朋友引荐，他见了一位会看病的西藏活佛，罗贡桑仁波切，这成了他第一位上师。仁波切送了他佛像，还说了一句奇怪的话：把鼻子上的痣点掉，就会去美国拍电影。他自述点痣当天就接到好莱坞的电话，当晚飞美国拍《致命武器 4》。这个巧合信不信随你，书里他自己也说"觉得这个西藏活佛医生真是奇怪"，我们照实转述，不替它作证。真正要紧的是第二年：1998 年他在台湾正式皈依藏传佛教，拿到第一个法名"沃珠多杰"，成就金刚。名字清单上从此开始出现另一个系统的名字。</p>
@@ -368,13 +441,13 @@
   <div class="marker">2004.12.26 · 海啸：全书最大的转折点</div>
   <p>2004 年圣诞节假期，他带全家在马尔代夫度假。12 月 26 日上午，南亚大海啸扑进四季酒店。他自述当时抱着女儿在水里，海水一路涨到嘴边，那个瞬间脑子里只闪出两个字：观音。人最后活下来了，全家无恙。当天夜里他在黑掉的酒店里打坐，想明白了一件事："无常说到就到，人的生死如此脆弱，就在呼吸之间。我不能再等了。"他原本的人生计划是六十岁退休后再专心做公益和修行，海啸把这张时间表直接作废。回来之后他开始筹办壹基金。一场没死成的死，催生了中国后来最有名的民间公益基金会之一，这是这本书里因果链最清晰的一环。</p>
 
-  <div class="marker">2005–2010 · 大我七年：一边做公益，一边挨摔</div>
+  <div class="marker">2005，2010 · 大我七年：一边做公益，一边挨摔</div>
   <p>2005 年，通中文的慈诚罗珠堪布到上海开始系统教他，这位宁玛派的佛学博士后来成了他的大圆满根本上师。同年他拍《霍元甲》从八尺高台摔下来伤了脏腑；伤还没好利索，又跑去四川亚青寺求大圆满灌顶，结果突发高山症，半夜命悬一线地往山下撤，法没求成。一年之内三次贴着死亡过（海啸、摔伤、高山症）。公益这条线则越跑越快：2008 年汶川、2010 年玉树，他抱着病亲赴灾区，在玉树的帐篷里见过十几具遗体、看千僧焚化亡者。也是 2010 年，他查出甲状腺亢进，最初一度疑癌。2011 年初，壹基金获批独立注册，"李连杰"三个字从此不再挂在基金会名字里。他自述这是有意为之：这件事必须离开他才能长久。</p>
 
-  <div class="marker">2011–2017 · 无我起步：连公益也被判了"不算数"</div>
-  <p>就在公益做得最风光的时候，他的上师给了他一记闷棍——原话和来龙去脉留到第八层专门讲，这里只说结果：他从那一年起把重心从基金会转回蒲团，开始老老实实修大圆满的加行。这几年他同时在跟甲亢缠斗，放射性碘治疗加到十个单位才压住，代价是甲状腺功能终身低下，天天吃药。外界那几年流传"李连杰残了""快死了"的照片和传言，他自述倒不太在意：身体确实在痛，但心可以不苦。2014 年起他每年夏天进藏闭关，堪布每天来回四小时亲自考核，这个节奏持续了五年。2016 年，他终于从扬唐仁波切处得到大圆满灌顶，得法名"五门离世"。</p>
+  <div class="marker">2011，2017 · 无我起步：连公益也被判了"不算数"</div>
+  <p>就在公益做得最风光的时候，他的上师给了他一记闷棍，原话和来龙去脉留到第八层专门讲，这里只说结果：他从那一年起把重心从基金会转回蒲团，开始老老实实修大圆满的加行。这几年他同时在跟甲亢缠斗，放射性碘治疗加到十个单位才压住，代价是甲状腺功能终身低下，天天吃药。外界那几年流传"李连杰残了""快死了"的照片和传言，他自述倒不太在意：身体确实在痛，但心可以不苦。2014 年起他每年夏天进藏闭关，堪布每天来回四小时亲自考核，这个节奏持续了五年。2016 年，他终于从扬唐仁波切处得到大圆满灌顶，得法名"五门离世"。</p>
 
-  <div class="marker">2018–2022 · 闭关与告别</div>
+  <div class="marker">2018，2022 · 闭关与告别</div>
   <p>2018 年他第一次进拉萨朝圣，同年开始长期闭关。也是从这几年起，他一个接一个地送别自己的上师：2018 年，第一位上师罗贡桑仁波切在他告别后第七天圆寂；2019 年，索甲仁波切圆寂，李连杰自述是他"最后传授大圆满法门的关门弟子"。2020 年新冠来了，别人被疫情困住，他顺势做了"有史以来最长的闭关"，一关两年多。2022 年，他陪患忧郁症的小女儿在欧美求法，父女同在明就仁波切座下皈依，他拿到第四个法名"莲花智慧"；据书中说法，女儿的忧郁症在九个月学法后大幅好转。这一年他还和宗萨仁波切在新加坡公开对谈《心经》。壹基金那边，据书中口径，到 2022 年底累计超过 82 亿人次捐赠、36 亿善款。</p>
 
   <h3>幕间：他的师父们</h3>
@@ -448,7 +521,7 @@
 
   <p>有意思的是，这本书差点不存在。李连杰自述本来不愿写回忆录，理由是佛家那句"过去心不可得"，翻旧账跟他的修行方向相反。推他动笔的是明就仁波切：你这二十五年的路，对还在路上的人有用。所以这本书的定位从一开始就不是"我的一生"，是"我的路书"，自序落款选在莲花生大士的纪念日，精神坐标摆的是密勒日巴，那位一生认错、一生苦修的西藏行者。他引过密勒日巴一句让人愣住的话：你们比我勇敢多了，敢生生世世继续轮回；我是因为害怕，才这么用功修行啊。把精进说成害怕，这个坐标选得很诚实，也给全书定了调：他落笔时的身份，是一个怕死怕了二十五年的人，而非什么成就者。</p>
 
-  <p>更外圈的动机，宗萨仁波切在序里替他说破了。宗萨最庆幸的一件事居然是李连杰没有出家，附录对谈里他当面说：请你继续保持这个样子，让更多人得以接触佛法。三篇推荐序共享同一个判断：这个人的价值不在袈裟里，在他站的位置上——一个全世界都认识的俗人，用世俗的身份给佛法当摆渡人，比多一个僧人有用得多。《少林寺》当年在喜马拉雅山区给年轻僧人带去"勇敢的佛教形象"，四十年后这本书做的是同一件事的反向：给不信佛的现代人一个体面的入口。</p>
+  <p>更外圈的动机，宗萨仁波切在序里替他说破了。宗萨最庆幸的一件事居然是李连杰没有出家，附录对谈里他当面说：请你继续保持这个样子，让更多人得以接触佛法。三篇推荐序共享同一个判断：这个人的价值不在袈裟里，在他站的位置上，一个全世界都认识的俗人，用世俗的身份给佛法当摆渡人，比多一个僧人有用得多。《少林寺》当年在喜马拉雅山区给年轻僧人带去"勇敢的佛教形象"，四十年后这本书做的是同一件事的反向：给不信佛的现代人一个体面的入口。</p>
 
   <h3>他没写透的（这是我的读法，非他自述）</h3>
 
@@ -468,7 +541,7 @@
 
   <p>第二件，落在进新领域的姿势上。下次认真学一门新东西（一个新领域、一门新手艺），学李连杰交学费的方式：把已有的聪明和资历留在门外，允许自己从"什么都不懂的人"做起。他用五天才认输，普通人通常用五年，因为没有堪布当面拒收我们的履历。</p>
 
-  <p>第三件，落在身体上。下次生病或疼痛缠身时，试试圣严法师那笔账的记法：痛几分，苦几分，分开打分。痛的分数交给医生，苦的分数自己看着——它是信号之外自己续写的部分，续多续少，确实有得商量。这个小练习不需要信仰，亲测门槛为零。</p>
+  <p>第三件，落在身体上。下次生病或疼痛缠身时，试试圣严法师那笔账的记法：痛几分，苦几分，分开打分。痛的分数交给医生，苦的分数自己看着，它是信号之外自己续写的部分，续多续少，确实有得商量。这个小练习不需要信仰，亲测门槛为零。</p>
 </div>
 
 <div class="layer">
@@ -532,7 +605,7 @@
 </div>
 
 <div class="finale">
-  <div class="sentence">他这辈子最难缠的对手，是"李连杰"这三个字——赢遍天下用了二十五年，认输又用了二十五年。</div>
+  <div class="sentence">他这辈子最难缠的对手，是"李连杰"这三个字，赢遍天下用了二十五年，认输又用了二十五年。</div>
   <div class="sign">青山 · 2026-07-15</div>
 </div>
 

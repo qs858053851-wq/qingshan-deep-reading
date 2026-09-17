@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>克莱因壶 · 青山解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,13 +381,48 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="hero-kicker">青山解书</div>
-  <h1 class="hero-title">克莱因壶</h1>
-  <div class="hero-author">冈岛二人 著 · 张舟 译 · 化学工业出版社</div>
-  <div class="hero-meta">1989 年 · 日本 · 科幻推理长篇</div>
-  <p class="hero-lede">一台能把人的全部感觉接入虚拟世界的装置，一份两百万日元的游戏改编合同，一个突然消失的女孩。这本书写于 1989 年，比《黑客帝国》早了十年，它问的不是"虚拟世界能不能做出来"，而是：做出来之后，"我在这里"这四个字还靠什么站住。</p>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">克莱因壶</div>
+    <div class="cover-sub">故事从一份著作权使用契约书开始。上杉彰彦，一个二十五岁、毕业一年多还没找到正经工作的年轻人，把自己投给出版社征文比赛的游戏书原作《脑部症候群》，卖给了伊普西隆研发公司，作价两百万日...</div>
+    <div class="cover-meta">青山 读 · 克莱因壶 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">故事从一份著作权使用契约书开始。上杉彰彦，一个二十五岁、毕业一年多还没找到正经工作的年轻人，把自己投给出版社征...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这套"让人分不清里外"的把戏，是怎么搭起来的</span>
+      <span class="toc-desc">推理小说的论证链不靠论文，靠线索。这本书的论证是：先在现实里给你立一根"假亦真"的标杆，再让标杆一根一根被人从...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，这本书就靠两个装置在转</span>
+      <span class="toc-desc">表面上看，这本书的零件多到数不清：间谍游戏、失踪少女、假车祸、商业间谍说、CIA、人体实验流言、外星技术猜测…...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层里更深的那根线，是第二个装置：人只在"亲身经历"这一处给真实上锁。拿它当井口，往下钻。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 七个问题，串起整本书</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者为什么非写不可。先说清楚，小说作者不会出来交代动机，以下是从文本和时代里读出来的推测。冈岛二人这个组合，1...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 压到一张餐巾纸上</span>
+      <span class="toc-desc">一句话：一台能完整伪造感觉的机器，先是毁了一个女孩，再让唯一想救她的人从此分不清自己是醒着还是被写着。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 合上书，最想跟你讲的那件事</span>
+      <span class="toc-desc">前面几层，有一件事我一直按着没展开：箱型车。现在可以讲了。</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层</div>
@@ -427,7 +503,7 @@
   <h2 class="layer-title">拆到底，这本书就靠两个装置在转</h2>
   <p>表面上看，这本书的零件多到数不清：间谍游戏、失踪少女、假车祸、商业间谍说、CIA、人体实验流言、外星技术猜测……一层叠一层。但拆到底，真正在牵动全书的只有两个装置，一个硬的，一个软的。所有的悬念、恐惧和哲思，都是这两个装置啮合出来的。</p>
   <p><strong>第一个装置：感觉是可以被整条伪造的。</strong>这是书里的工程设定，不是比喻。K1 手套证明了局部可行，K2 把它推到全身：视觉、听觉、触觉、温度、疼痛、平衡感，全部是写进来的信号。这个装置决定了全书一切悬疑的生成方式：所有"不可能的矛盾"，答案都是同一句话，你经历的那部分不是现实。耳环消失、名片消失、七美不存在、箱型车没有开出来、一个小时等于六天，每一个谜面都长在这块地基上。拿掉这个装置，书就塌成普通的绑架案。</p>
-  <p>用第一个装置，几乎能推出全书全部情节机关：假车祸（伪造的"突发事件"）、梨纱的辞职电话（伪造的"本人意愿"）、毒气电梯后的"醒来"（伪造的"脱险"）、解说篇里那句"我还在壶内"（伪造被识破之后，识破本身也可能是伪造的一部分）。反过来，书里也确实找不到哪个关键转折是不靠它的——检验过关。</p>
+  <p>用第一个装置，几乎能推出全书全部情节机关：假车祸（伪造的"突发事件"）、梨纱的辞职电话（伪造的"本人意愿"）、毒气电梯后的"醒来"（伪造的"脱险"）、解说篇里那句"我还在壶内"（伪造被识破之后，识破本身也可能是伪造的一部分）。反过来，书里也确实找不到哪个关键转折是不靠它的，检验过关。</p>
   <p><strong>第二个装置：人对真实的信任，只在"亲身经历"这一处上锁。</strong>这是软装置，是这本书比同类"虚拟世界"故事深的那一寸。注意上杉每次的判断依据：他信梨纱回过家，因为"我亲眼看见她背着包"；他不信七美，因为"我亲自去了涩谷"；他最后崩溃，是因为"亲身"这条路本身塌了。书里每个人都把亲身经历当成终审法院，而克莱因壶做的生意，恰恰就是向这家法院批量供应伪证。梨纱为什么崩溃得最快？因为她是最投入的玩家，在壶里杀人、被杀、被拷打，她比谁都"亲"。越信任感觉的人，在壶里陷得越深。</p>
   <p>两个装置的啮合方式是这样的：第一个装置负责制造"以假乱真"，第二个装置负责保证"以假乱真"必然生效，因为人手头没有比亲身经历更高的验证手段。一个造伪证，一个保证伪证必被采信。</p>
   <p>验证一下这两根线够不够。<strong>生成性</strong>：用它们能推出全书主要设计，包括那个开放式结局。浴缸边的刀片之所以是"最后一招"，正是因为它是唯一一件壶伪造不了后果的事（壶内割腕出游戏，壶外割腕出人命，两种后果通向两个世界，这是数据库覆盖不到的分叉）。<strong>独立性</strong>：有真案例。耳环与名片事件里，第一个装置正常运作（壶造出了完整的涩谷街头），但第二个装置出了缝（实物不在数据库里），于是假象败露；反过来，毒气电梯醒来那场戏里，第一个装置换了主人（贵美子声称一切是游戏剧情），第二个装置照常被采信（上杉几乎接受了"七美是角色"），假象就成立。一根变一根不变，结果立刻不同。<strong>预测力</strong>也能推：书里没有写、但现实中成立的现象：为什么 VR 时代的人看屏幕上的惨状无动于衷、对"沉浸式体验"却会上瘾？因为人对信息的采信从来不由内容真假决定，由它到没到过"亲身经历"这一层决定。</p>
@@ -441,7 +517,7 @@
   <p>最上面一层，看得见摸得着的，是<strong>恐惧</strong>。上杉的恐惧不是"梨纱死了"，他到最后也不能确定；他的恐惧是"我再也无法确定任何事"。这种恐惧他很熟，你我其实并不熟：我们默认自己脚下的地是实的。</p>
   <p>往下钻一层，恐惧底下是<strong>机制</strong>：人判断真假的流程，从来是先信后查。一条信息进来，如果它裹着"我亲眼看见、亲手摸到"的外衣，就直接入库存档，不送审；只有它跟库存打架时，才调出来对质。七美说梨纱没回过家，上杉的第一反应是"你骗人"，因为"梨纱回家了"是他亲历库存里的货。这个机制平时高效且安全，它省掉了对每一片光影都开庭审问的成本。克莱因壶的全部恐怖，就在于它是第一个能伪造"亲历外衣"本身的东西。以前伪证只能伪造内容，现在能伪造渠道。</p>
   <p>再往下，机制底下是<strong>道理</strong>：人为什么把亲历设为免审通道？因为演化史上它没有对手。五感接入的那个世界，几十万年来只有一个供应商：物理现实，它不撒谎，也不接定制。在这个独家供应的环境里，"感觉到的就是有的"是零风险假设，省下的每一次怀疑都是赚的。于是这条假设被压进了最底层，压成了"直觉"，压成了人不加检查就使用的东西。换句话说：人对真实的信任，一份从未遇到违约方的长期合同，不是检验出来的结论。壶做的事，不过是成为第二个供应商。</p>
-  <p>最底下那层，不能再问的地方，是<strong>基岩</strong>：意识没有直通现实的端口。你看见这句话，靠的是视网膜上的电信号；你摸到桌子，靠的是皮肤下的神经脉冲。从光子到"我看见"之间，隔着的全是信号转换，意识从头到尾住在信号的这头，从没碰过信号那头的东西。所谓"我在真实世界里"，真正的意思只是"我的信号来源稳定、自洽、可重复"，仅此而已。克莱因壶没有制造一个新的哲学问题，它是把这条一直存在、但一直被稳定供应商掩盖着的缝隙，做成了产品。镜子那一段上杉已经替我们把话说到位了：谁也看不见自己的眼睛，你只能从镜子里看——那你凭什么说，你在镜子外面？</p>
+  <p>最底下那层，不能再问的地方，是<strong>基岩</strong>：意识没有直通现实的端口。你看见这句话，靠的是视网膜上的电信号；你摸到桌子，靠的是皮肤下的神经脉冲。从光子到"我看见"之间，隔着的全是信号转换，意识从头到尾住在信号的这头，从没碰过信号那头的东西。所谓"我在真实世界里"，真正的意思只是"我的信号来源稳定、自洽、可重复"，仅此而已。克莱因壶没有制造一个新的哲学问题，它是把这条一直存在、但一直被稳定供应商掩盖着的缝隙，做成了产品。镜子那一段上杉已经替我们把话说到位了：谁也看不见自己的眼睛，你只能从镜子里看，那你凭什么说，你在镜子外面？</p>
   <p>钻到这里，这块基岩上站着的东西就都连起来了：这本书写的不是 1989 年的一台幻想机器，是意识自古以来的居住条件。壶只是把条件从"默认安全"改成了"有人运营"。</p>
 </section>
 
@@ -503,7 +579,7 @@
   <div class="layer-num">第六层</div>
   <h2 class="layer-title">跳出这本书，它还能怎么用</h2>
   <p><strong>作者为什么非写不可。</strong>先说清楚，小说作者不会出来交代动机，以下是从文本和时代里读出来的推测。冈岛二人这个组合，1989 年正处在散伙前夜，《克莱因壶》是两人合作末期、主要由井上泉完成的作品，发表后不久组合就解散了。再看材料的选择：1987、88 年，拉尼尔的 VPL 公司刚把"虚拟现实"这个词和数据手套一起端给全世界，日本还没几个人听过。一个以绑架推理成名的作家，在最末一本书里不写绑架，写一个"人被关进感觉里"的故事。我读到的是：他看见了一个当时还没人觉得要紧的东西。别人看到的是新玩具，他看到的是新牢房。这股"趁现在没人当回事，先把警告写下来"的冲动，和书里百濑埋警告程序是同一个路数，很难不让人觉得，百濑身上就有作者的影子。</p>
-  <p><strong>作者没看到什么。</strong>最显眼的一块：书对"加害者"的动机几乎没写。伊普西隆为什么做到这一步、笹森贵美子何以能看着梨纱崩溃还说"出了点差错"，书里只有"公司""DDST"这种组织级的黑洞，没有一张具体的人的脸。结果是恶的机制写透了，恶的人心绕开了。另一块盲点在读者这头：作者默认了"分清里外是人的刚需"，但梨纱这个人物其实已经反驳了他——她在壶里杀人杀得开心，被问到害不害怕时说"这个毕竟只是游戏嘛"。人并不总是想知道自己在哪一侧。很多时候，壶里比较舒服。这本书写了分不清的痛苦，没写不想分清的快乐，而这后一种，正是后来三十年真正大规模发生的事。</p>
+  <p><strong>作者没看到什么。</strong>最显眼的一块：书对"加害者"的动机几乎没写。伊普西隆为什么做到这一步、笹森贵美子何以能看着梨纱崩溃还说"出了点差错"，书里只有"公司""DDST"这种组织级的黑洞，没有一张具体的人的脸。结果是恶的机制写透了，恶的人心绕开了。另一块盲点在读者这头：作者默认了"分清里外是人的刚需"，但梨纱这个人物其实已经反驳了他，她在壶里杀人杀得开心，被问到害不害怕时说"这个毕竟只是游戏嘛"。人并不总是想知道自己在哪一侧。很多时候，壶里比较舒服。这本书写了分不清的痛苦，没写不想分清的快乐，而这后一种，正是后来三十年真正大规模发生的事。</p>
   <p><strong>这套东西放到别处，还是同一回事。</strong></p>
   <p>放到算法推荐上。你在短视频里"亲身"看到的乌克兰、淄博、某个你从没去过的县城，全是剪辑过的信号。可因为你持续泡在里面，它们在你脑中的存档方式，和"我去过"几乎没有分别。克莱因壶和推荐流是同一种东西的两代产品：都是向"亲历通道"直供内容，只是一个造假到毫末，一个只挑有利的真。壶需要一台几亿日元的机器才能做到的事，现在一块手机屏幕每天都在廉价地做，只不过它伪造的不是"感觉"，是"见识"。</p>
   <p>放到审讯室里。书里七美和上杉对质那场戏，两个诚实的人，记忆完全冲突，谁也没撒谎，这种场面现代审讯和调解里天天上演。办案的人都知道，目击者的"我亲眼看见"是最不可靠又最难撼动的证据。这本书等于把这条司法常识从"记忆会出错"抬到"记忆可以被制造"，而对策没变：别信单人的亲历，去找数据库之外的东西，耳环、名片、门框上的钥匙。物证不知道版本，人知道。</p>

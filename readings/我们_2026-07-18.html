@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我们 · 青山解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,13 +381,40 @@
 <body>
 <div class="container">
 
-<header class="hero">
-  <div class="hero-kicker">青山解书</div>
-  <h1 class="hero-title">我们</h1>
-  <div class="hero-author">尤金·扎米亚金 著 · 王莒光 译 · 北京理工大学出版社</div>
-  <div class="hero-meta">1920 年 · 俄国 · 长篇小说（反乌托邦三部曲源头）</div>
-  <p class="hero-lede">一座玻璃城里，所有人用号码相称，按时间表生活，用玫瑰券做爱。一个工程师爱上了一个不该爱的女人，长出了"灵魂"这种病。这本书比《1984》早二十八年，比《美丽新世界》早十二年。奥威尔说，这是焚书年代里少有的文学奇品。</p>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">我们</div>
+    <div class="cover-sub">故事发生在二十六世纪的一统王国。叙述者 D-503 是"统一号"宇宙飞船的总设计师，一个彻头彻尾的好公民。他写这本笔记，是要献给飞船将要征服的外星读者，向他们展示一统王国数学般完美...</div>
+    <div class="cover-meta">青山 读 · 我们 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这本书讲一遍</span>
+      <span class="toc-desc">故事发生在二十六世纪的一统王国。叙述者 D-503 是"统一号"宇宙飞船的总设计师，一个彻头彻尾的好公民。他写...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 这套"幸福机器"，是怎么一块一块搭起来的</span>
+      <span class="toc-desc">反乌托邦小说也是论证。扎米亚金搭的是这样一条链：前提一，人受苦的根源是欲望、嫉妒和意外（爱的痛苦、选择的痛苦、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，这本书就立在两根柱子上</span>
+      <span class="toc-desc">《我们》的零件比《克莱因壶》还多：玻璃城、时间表、玫瑰券、古屋、大祭、统一号、靡菲、手术、气钟罩……但拆到底，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者为什么非写不可。这次是可靠的传记事实加文本证据：扎米亚金 1906 年被沙皇政府投入监狱，1922 年又被...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 压到一张餐巾纸上</span>
+      <span class="toc-desc">一句话：一座玻璃城里最幸福的人，在爱上一个女人后长出了"灵魂"，又被一种叫"手术"的东西治好，从此他确信理性必...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 合上书，最想跟你讲的那件事</span>
+      <span class="toc-desc">前面几层，我一直按着一件事没展开：幻想切除术。现在可以说了。</span>
+    </div>
+  </div>
+
 
 <section class="layer">
   <div class="layer-num">第一层</div>
@@ -411,7 +479,7 @@
 <section class="layer">
   <div class="layer-num">第六层</div>
   <h2 class="layer-title">跳出这本书，它还能怎么用</h2>
-  <p><strong>作者为什么非写不可。</strong>这次是可靠的传记事实加文本证据：扎米亚金 1906 年被沙皇政府投入监狱，1922 年又被布尔什维克投入同一所监狱的同一条走廊。奥威尔说得准：他针对的是当时的工业文明本身，不是某一个政权——他对"机器"进行了深入的研究：人类不假思索地把这个魔鬼从瓶子里放出来，却再也无法关回去。书里那股劲，是一个在两种"新"里都坐过牢的人，对一个许诺"最终答案"的世界的回答：没有最终的数。革命是无穷的。</p>
+  <p><strong>作者为什么非写不可。</strong>这次是可靠的传记事实加文本证据：扎米亚金 1906 年被沙皇政府投入监狱，1922 年又被布尔什维克投入同一所监狱的同一条走廊。奥威尔说得准：他针对的是当时的工业文明本身，不是某一个政权，他对"机器"进行了深入的研究：人类不假思索地把这个魔鬼从瓶子里放出来，却再也无法关回去。书里那股劲，是一个在两种"新"里都坐过牢的人，对一个许诺"最终答案"的世界的回答：没有最终的数。革命是无穷的。</p>
   <p><strong>作者没看到什么。</strong>最大的盲区，是"灵魂"的成色。书里灵魂基本是好的，爱、怜悯、渴望、做梦，而现实中灵魂的另外一面（狂热、愚昧、残忍、平庸之恶）几乎没有着墨。I-330 的革命也写得浪漫，靡菲几乎只是自由和生命力的象征，没有看到革命成功之后会怎样。扎米亚金知道这一点（他借 I-330 之口说"我们也会老，也会衰落"），但他没有处理：颠覆了一个"最终"之后，下一个"最终"从哪里来？第二个盲区是技术的中立性。书里机器和理性基本是恶的工具，但正是数学和工程给了 D-503 最初的全部意义和尊严，这个矛盾他没有真正展开：理性本身是不是也有一种不被王国收编的、属于自己的诚实？</p>
   <p><strong>这套东西放到别处，还是同一回事。</strong>放到算法时代：玻璃城和玫瑰券的逻辑，今天叫"数据透明"和"精准匹配"。你没有被迫放下窗帘，你是主动把窗帘拆了：你的每一次点击、停留、点赞，都在替护卫局做记录，而你得到的回报是"算得准"的舒适。书里那句"慈爱的枷锁"，是今天的默认设置。放到医学和心理健康领域：幻想切除术是全书最恐怖的设定，也是离现实最近的。当一个人说"我和你们想的不一样"，把他诊断成病、给他吃药、让他"恢复正常"，这条线在 20 世纪的精神病学史里真实发生过，在"矫正治疗"里发生过，在每一次把"不合群"病理化的日常里小规模地发生。扎米亚金 1920 年就写出了这个机制的完整逻辑：当"为你好"可以越过你的同意，它就再也停不下来。</p>
   <p><strong>读完之后可以怎么用。</strong>一条判断和一条自测。判断：当一个制度（公司、社群、国家、平台）向你承诺"最终答案""从此之后""完美无瑕"时，先问一句：它的"幻想切除术"在哪里？它打算用什么方式处理那些"想的不一样"的人，是辩论，还是宣布他们病了？自测：当你感到一种"明镜般清楚明了"的愉悦，信息推送得越来越准、世界越来越顺着你、对立的声音越来越少，警惕舒适，不是痛苦。那条警戒线不在你感到压迫的地方，在你感到彻底舒服的地方。</p>

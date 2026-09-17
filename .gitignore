@@ -27,3 +27,9 @@ __pycache__/
 # Local preview and audit output
 .preview/
 .audit/
+
+# PDF 典藏版：785 个约 993 MB，不随站点发布。
+# 加上正文（31 MB）与字体（7.5 MB）会压到 GitHub Pages 的 1 GB 上限。
+# 文件仍在本地 pdf/，改由独立分支或对象存储承载；
+# 首页 index.html 里的 PDF_BASE 填上基地址即可恢复下载入口。
+pdf/

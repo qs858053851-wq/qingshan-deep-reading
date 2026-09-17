@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>叫魂：1768年中国妖术大恐慌 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -359,42 +400,42 @@
   <div class="toc">
     <h2>目 录</h2>
     <div class="toc-list">
-      <a href="#layer01" class="toc-item">
+      <div class="toc-item">
         <span class="toc-name">Layer 01 · 论证全景</span>
         <span class="toc-desc">单一神话的发现、启程启蒙归来三幕剧与心灵觉醒地图</span>
-      </a>
-      <a href="#layer02" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 02 · 核心论据</span>
         <span class="toc-desc">俄狄浦斯弑父解谜、佛陀降魔成道与因纽特萨满潜海试炼</span>
-      </a>
-      <a href="#layer03" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 03 · 核心引擎</span>
         <span class="toc-desc">单一神话的驱动机制与三重硬核检验</span>
-      </a>
-      <a href="#layer04" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 04 · 深层追问</span>
         <span class="toc-desc">从影视叙事套路到灵魂直面死亡虚无的终极追问</span>
-      </a>
-      <a href="#layer05" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 05 · 推演问答</span>
         <span class="toc-desc">女性英雄之路、鲸鱼之腹隐喻与现代荒原困境的硬核审问</span>
-      </a>
-      <a href="#layer06" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 06 · 破界审视</span>
         <span class="toc-desc">萨拉·劳伦斯学院的哲人、创业破局者的至暗时刻与当代表态</span>
-      </a>
-      <a href="#layer07" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
         <span class="toc-desc">一张纸看透坎贝尔单一神话三幕剧与荣格潜意识映射</span>
-      </a>
-      <a href="#layer08" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 08 · 讲解引擎</span>
         <span class="toc-desc">用一个四十岁互联网总监遭遇裁员破局的过程讲透千面英雄的心灵炼金术</span>
-      </a>
-      <a href="#layer09" class="toc-item">
+      </div>
+      <div class="toc-item">
         <span class="toc-name">Layer 09 · 终局定音</span>
         <span class="toc-desc">单一神话的永恒回响、文献版本谱系与学术边界</span>
-      </a>
+      </div>
     </div>
   </div>
 

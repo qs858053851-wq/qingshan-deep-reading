@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>思考的框架 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,36 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">思考的框架</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">思考的框架</div>
+    <div class="cover-sub">帕里什 著 · 原著 2019（The Great Mental Models 卷一）</div>
+    <div class="cover-meta">[加拿大] 沙恩 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">一句话：决策质量取决于盲点多少，而消除盲点最省力的办法，是随身带一小套来自不同学科的思考工具，遇事换着镜头看。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这本书的论证方式是"模型 + 历史案例"，每个模型配两三个真实故事当验证。成色最好的几个值得单独看。二阶思维配...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">书里九个模型平铺排列，各章独立。但按使用顺序重新装配，它们其实是一条流水线。遇到一个要紧的决定，按顺序过一遍：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">一句话版本：聪明不可学，装备可以配；先认下自己看不全，再多备几副眼镜。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">九个模型里排第一的那个，出身最古怪。1931 年，波兰裔学者阿尔弗雷德·科日布斯基在一篇数学物理论文里写下一句...</span>
+    </div>
+  </div>
+
   <div class="meta">[加拿大] 沙恩·帕里什 著 · 原著 2019（The Great Mental Models 卷一）</div>
   <div class="oneliner">九个思维模型，没有一个是作者发明的，芒格、费曼、达尔文早就在用。这本书做的事像把散落在各个学科的瑞士军刀收进一个刀鞘：你未必更聪明，但从此不会赤手空拳。</div>
 </div>
@@ -384,7 +453,7 @@
 
   <div class="qa">
     <div class="q">第一道：这事在我能力圈里吗？（能力圈）</div>
-    <p>圈内，直接用经验判断，快而准；圈外，要么补课，要么借专家，要么退出。书里给的鉴别法很扎心：驱动你的是自尊心还是真实能力？靠自尊心撑起来的"我懂"，就是盲点本尊。边界处最危险——真正的高手未必圈大，只是对圈的边线在哪里从不撒谎。</p>
+    <p>圈内，直接用经验判断，快而准；圈外，要么补课，要么借专家，要么退出。书里给的鉴别法很扎心：驱动你的是自尊心还是真实能力？靠自尊心撑起来的"我懂"，就是盲点本尊。边界处最危险，真正的高手未必圈大，只是对圈的边线在哪里从不撒谎。</p>
   </div>
 
   <div class="qa">
@@ -426,7 +495,7 @@
 
   <div class="napkin">
     <div class="formula">决策质量 ＝ 工具的多样性 × 对边界的诚实</div>
-    <div class="note">工具多样性：九个模型来自九个学科，一个镜头看不见的，换一个就看见了；<br>边界诚实：能力圈、地图之戒、可证伪性，全是同一件事——知道工具在哪里失灵。<br>只有第一项是收藏家；只有第二项是怀疑论者；相乘才是决策者。</div>
+    <div class="note">工具多样性：九个模型来自九个学科，一个镜头看不见的，换一个就看见了；<br>边界诚实：能力圈、地图之戒、可证伪性，全是同一件事，知道工具在哪里失灵。<br>只有第一项是收藏家；只有第二项是怀疑论者；相乘才是决策者。</div>
   </div>
 
   <p>一句话版本：聪明不可学，装备可以配；先认下自己看不全，再多备几副眼镜。</p>

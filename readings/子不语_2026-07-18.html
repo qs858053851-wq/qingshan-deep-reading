@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>子不语 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>子不语</h1>
-  <div class="author">[清] 袁枚 著 · 志怪笔记二十四卷 · 约一百九十篇</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">子不语</div>
+    <div class="cover-sub">一个不信鬼的人，写了半辈子鬼。书名取自《论语》「子不语怪力乱神」：孔子不谈的那四样，这本书全谈了。</div>
+    <div class="cover-meta">[清] 袁枚 著 · 志怪笔记二十四卷 · 约一百九十篇 · 解读主理：青山 · 日期：2026-07-18 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">《子不语》是袁枚晚年陆陆续续攒下的故事集，前后写了二十多年，正集二十四卷，后来还有续集。每一篇都很短，长的一两...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">讲鬼故事的书满坑满谷，凭什么袁枚的读起来格外当真？不靠写得玄，靠一套很实的写法。拆开来，他手里有三样硬东西。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">一百九十篇故事，题材杂、长短不一、没头没尾，看着是一盘散沙。但通读下来，真正在底下牵着这盘沙的，就两根线。这两...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">先说在前面：袁枚没打算让人这么分析他。这是本闲书，他自己定位就是「以妄驱庸」，拿荒唐解闷。所以这一层里谈动机、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">把这本书压到一张餐巾纸上，长这样：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">前面几层，有一篇故事我一直按着没提，留到最后单独说。它不吓人，不好笑，讲的是个骗局，全文没有一个鬼。但我觉得它...</span>
+    </div>
+  </div>
+
   <div class="tagline">一个不信鬼的人，写了半辈子鬼。书名取自《论语》「子不语怪力乱神」：孔子不谈的那四样，这本书全谈了。</div>
 </div>
 
@@ -359,7 +431,7 @@
 
   <div class="marker">故事一 · 活人下阴间告状</div>
 
-  <p>四川酆都县，相传人鬼交界。县里有口井，每年百姓要烧三千金的纸钱投进去，叫「纳阴司钱粮」，谁敢省这笔钱，城里就闹瘟疫。清初来了个知县叫刘纲，一听就火了，要禁。众人说，你要禁可以，得先跟鬼神讲明白。刘纲说鬼神在哪，人说井底下就是。他就让人拿长绳把自己缒下去了——这一下就是阴间。底下别有天地，城郭宫室跟阳世一样，人映着太阳没有影子。鬼们听说阳间的官亲自下来替百姓请命，都夸他是贤令，领他去见包阎罗。包公下阶相迎，好言好语，说这事其实早有人借鬼神名义骗钱，你来得正好。正说着，红光自天而降，伏魔大帝关云长驾到。关老爷问起人间事，随行的幕客李诜是个憨直人，张口就问：玄德公现在何处？关羽当场变色，拂袖而去。包公吓得大惊，说这人必被雷劈，我给你盖个玉印保他全尸吧。果然，李诜一出井口就中风死了，雷火绕棺烧了三天，只有背上盖印那一块完好。</p>
+  <p>四川酆都县，相传人鬼交界。县里有口井，每年百姓要烧三千金的纸钱投进去，叫「纳阴司钱粮」，谁敢省这笔钱，城里就闹瘟疫。清初来了个知县叫刘纲，一听就火了，要禁。众人说，你要禁可以，得先跟鬼神讲明白。刘纲说鬼神在哪，人说井底下就是。他就让人拿长绳把自己缒下去了，这一下就是阴间。底下别有天地，城郭宫室跟阳世一样，人映着太阳没有影子。鬼们听说阳间的官亲自下来替百姓请命，都夸他是贤令，领他去见包阎罗。包公下阶相迎，好言好语，说这事其实早有人借鬼神名义骗钱，你来得正好。正说着，红光自天而降，伏魔大帝关云长驾到。关老爷问起人间事，随行的幕客李诜是个憨直人，张口就问：玄德公现在何处？关羽当场变色，拂袖而去。包公吓得大惊，说这人必被雷劈，我给你盖个玉印保他全尸吧。果然，李诜一出井口就中风死了，雷火绕棺烧了三天，只有背上盖印那一块完好。</p>
 
   <p>这个故事讲了一件事：在袁枚的阴间里，清官是能走后门的，神明是讲人情的，而说错一句话的代价是雷劈。阴间也有自己的衙门，有人情，有忌讳，有面子。</p>
 
@@ -394,7 +466,7 @@
   <h3>第三样：神鬼身上全是人间毛病</h3>
   <p>这是最根本的一样。袁枚的神鬼没有一个是纯粹的「异类」：雷公会被人骗，被骗后被泼一身尿，坠在田里「苦吼三日」；地藏王殿前收门包；土地神清廉到挨饿；关羽听见人问「玄德公何在」会当场变脸。这些神鬼的每一处「怪」，都能在人间找到对应：雷公是被愚民架起来的执法者，门包是衙门陋规，挨饿的清官是真清官的下场，关羽的变脸是权臣忌讳。读者读的时候，代入的从来不是「鬼」，而是自己见过的人和事。信，就是这么来的。</p>
 
-  <div class="quote">「吾累雷公，吾累雷公！」为设醮超度之，始去。<div class="src">——《雷公被绐》。骗雷公去劈仇家的愚民，见雷公狼狈坠田，说的是「我们害苦了雷公」，不是「我们错了」。</div></div>
+  <div class="quote">「吾累雷公，吾累雷公！」为设醮超度之，始去。<div class="src">，《雷公被绐》。骗雷公去劈仇家的愚民，见雷公狼狈坠田，说的是「我们害苦了雷公」，不是「我们错了」。</div></div>
 
   <h3>这套写法踩着一个隐形假设</h3>
   <p>袁枚通篇都在用一个没说出口的前提：<strong>人间的秩序是唯一真实的秩序，连阴间都得照它运行。</strong>这个假设他从不论证，直接拿来用：阴间有官场、有考绩、有门包、有忌讳，全都是阳间那套。这是这本书最有力也最可疑的地方。有力在于，它让每个怪谈都落地；可疑在于，它先验地否定了「另一个世界可能有别种规则」，在袁枚笔下，鬼永远只能是人的影子。这个假设成立，书就成立；它要是松了，全书就塌成一堆文人戏笔。袁枚自己未必在乎，他要的本就不是建立什么，他要的是「以妄驱庸，以骇起惰」，拿荒唐驱赶平庸。</p>

@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>撒哈拉的故事 —— 九层解书（修订版）</title>
+<title>撒哈拉的故事 ， 九层解书（修订版）</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,8 +380,12 @@
 </head>
 <body>
 <div class="container">
-<div class="hero">
-<div class="label">深度阅读 · 九层解书</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">撒哈拉的故事</div>
+    <div class="cover-sub">06-13 初稿 · 07-14 修订</div>
+    <div class="cover-meta">三毛（陈平）著 · 解读主理：青山 · 日期：2026-07-14 · 典藏长交付</div>
+  </div>
 <h1>撒哈拉的故事</h1>
 <div class="author">三毛（陈平）著</div>
 <div class="sub">一个东方女子，把世界上最荒凉的地方活成了自己的家，也在那里见证了荒凉如何吞噬人。</div>
@@ -349,7 +394,7 @@
 
 <h2>内容摘要</h2>
 <p><strong>核心主题：</strong>一个东方女子，把世界上最荒凉的地方活成了自己的家，也在那里见证了荒凉如何吞噬人。</p>
-<p><strong>核心观点：</strong>流浪不是逃离，是一个人主动选择把“别处”过成“此处”——撒哈拉不是背景，是三毛拿来安放自由与爱的容器；当现实的血与暴力涌进来，她笔下的诗意才显出真正的重量。</p>
+<p><strong>核心观点：</strong>流浪不是逃离，是一个人主动选择把“别处”过成“此处”，撒哈拉不是背景，是三毛拿来安放自由与爱的容器；当现实的血与暴力涌进来，她笔下的诗意才显出真正的重量。</p>
 <p class="note"><strong>事实边界：</strong>下文涉及人物、事件与对白时，以《撒哈拉的故事》的文学叙述为分析对象；作品中的个别人物塑造、事件因果和细节，不直接等同于可独立核验的历史记录。时代背景只用于说明阅读语境。</p>
 <hr>
 
@@ -370,7 +415,7 @@
 <p>《荒山之夜》等篇章把危险从背景推到眼前：自然、陌生人和认知差异都可能突然夺走控制感。三毛仍能靠判断和行动脱险，但她能处理的，主要还是自己身边这一小圈生活。更大的结构性命运，已经在远处逼近。</p>
 
 <div class="marker">1975 前后 · 秩序崩塌</div>
-<p>后部的《沙巴军曹》《哑奴》《哭泣的骆驼》连续压低全书重心：仇恨、奴役、政治混乱与群体暴力进入叙事。此前能把破屋变成家的那双手，到了这里再也改变不了事件的走向。至于高潮如何落下，留到第八层完整展开；在此只确认它的结构功能——三毛由造梦者退到见证者，全书也由生活喜剧转为苦难证词。</p>
+<p>后部的《沙巴军曹》《哑奴》《哭泣的骆驼》连续压低全书重心：仇恨、奴役、政治混乱与群体暴力进入叙事。此前能把破屋变成家的那双手，到了这里再也改变不了事件的走向。至于高潮如何落下，留到第八层完整展开；在此只确认它的结构功能，三毛由造梦者退到见证者，全书也由生活喜剧转为苦难证词。</p>
 <p>结局没有团圆。诗意的沙漠生活，最终被政治、仇恨和人性之恶碾碎。三毛笔下那个亲手造起来的“罗马”，连同它的美与残酷，一起沉进了撒哈拉的风沙里。</p>
 
 <h3>这本书在说什么</h3>
@@ -407,7 +452,7 @@
 <p>推动这本书的不是连续情节，而是三毛身上两股始终较劲的力。</p>
 <p>第一股是<strong>自由</strong>。她在开篇立得很清楚：“我极不愿在婚后失去独立的人格和内心的自由”，要“我行我素，要不然不结婚”。这股劲让她敢从一张杂志照片出发，真的奔向荒漠。自由是她的出发点。</p>
 <p>第二股是<strong>爱</strong>。包括对荷西的爱、对这片土地莫名的乡愁，以及对受难者压不住的悲悯。爱让她留下，也让她不断卷入别人的命运。</p>
-<p>两股劲大部分时候彼此成全：自由让她来，爱让她留。到了后半部，它们却被现实撕开——爱驱使她靠近受难者，外来者的位置又让她终究只能成为无力的旁观者。这道裂口，是全书最深的痛。</p>
+<p>两股劲大部分时候彼此成全：自由让她来，爱让她留。到了后半部，它们却被现实撕开，爱驱使她靠近受难者，外来者的位置又让她终究只能成为无力的旁观者。这道裂口，是全书最深的痛。</p>
 
 <h3>核心张力：把荒凉活成天堂的执拗</h3>
 <p>全书最根本的矛盾，是<strong>浪漫意志与残酷现实的对峙</strong>。</p>
@@ -431,7 +476,7 @@
 <p class="note"><strong>点火条件：</strong>当制度、战争或群体暴力越过个人可控边界，浪漫意志不再能“改造”，人物才从造梦者转为见证者。点火条件只解释转折，不另立一条主题。</p>
 
 <h3>历史逻辑：个人意志的尺度</h3>
-<p>三毛证明了：人在自己的生活半径内，可以选择怎样住、怎样爱、怎样赋予日常意义。她也承认：面对制度、时代与他人的命运，个人能力有清晰边界。把两面放在一起，才是本书的冷静之处——个人意志在小世界里可以是国王，在时代洪流面前却可能只是尘埃。</p>
+<p>三毛证明了：人在自己的生活半径内，可以选择怎样住、怎样爱、怎样赋予日常意义。她也承认：面对制度、时代与他人的命运，个人能力有清晰边界。把两面放在一起，才是本书的冷静之处，个人意志在小世界里可以是国王，在时代洪流面前却可能只是尘埃。</p>
 
 <h3>叙事暗线：自由女性与被处置者</h3>
 <p>三毛能选择丈夫、住处与去留；她身边另一些女性却被婚姻、身份和群体规则处置。作品没有把这组对照写成论说文，但故事的排列让它自然浮现：三毛越自由，周围人的不自由越刺目。这里只辨认暗线，不提前展开第八层的高潮场景。</p>
@@ -440,9 +485,9 @@
 <p>前半部的喜剧与后半部的悲剧共享同一片现实：匮乏、规则差异、文化隔膜。在日常中，它们能被幽默暂时包裹；在暴力中，它们则显出锋利的一面。读者先爱上这个地方，后来才无法轻易把它的苦难当作陌生人的新闻。</p>
 <hr>
 
-<h2>第六层：灵魂提取——超越作者</h2>
+<h2>第六层：灵魂提取，超越作者</h2>
 <h3>作者动机：不写不行的那股劲</h3>
-<p>前半部像是在回应所有把她的向往当笑话的人：她要用活出来的事实证明，自己不是在表演远方。后半部则出现更重的动机——一些人若无人记下，就会从公共记忆里消失。三毛的笔从生活记录变成打捞：至少让“他们曾经活过、爱过、受过苦”留下痕迹。</p>
+<p>前半部像是在回应所有把她的向往当笑话的人：她要用活出来的事实证明，自己不是在表演远方。后半部则出现更重的动机，一些人若无人记下，就会从公共记忆里消失。三毛的笔从生活记录变成打捞：至少让“他们曾经活过、爱过、受过苦”留下痕迹。</p>
 
 <h3>作者盲点</h3>
 <p>三毛始终带着“可以离开者”的位置。她能把匮乏审美化，是因为匮乏并未完全剥夺她的选择；当地人未必拥有同样条件。这个盲点不是判决作品无效，而是提醒读者：她提供的是珍贵的一束目光，不是撒哈拉唯一的目光。</p>
@@ -485,7 +530,7 @@
 <hr>
 
 <h2>第八层：可传播短文</h2>
-<p>人们读《撒哈拉的故事》，记住的多半是前半本：三毛用棺材板做家具，用旧轮胎做椅子，把骆驼头骨摆上书架，硬是从一片废墟里造出了“全沙漠最美的家”。这一段太迷人了，迷人到几乎所有人都把它当成全书的主题——一个浪漫的女子，把苦日子过成了诗。</p>
+<p>人们读《撒哈拉的故事》，记住的多半是前半本：三毛用棺材板做家具，用旧轮胎做椅子，把骆驼头骨摆上书架，硬是从一片废墟里造出了“全沙漠最美的家”。这一段太迷人了，迷人到几乎所有人都把它当成全书的主题，一个浪漫的女子，把苦日子过成了诗。</p>
 <p>可如果真的读到最后，会发现三毛明明可以把故事停在她坐进轮胎椅“像一个君王”的时刻，那将是一个完美、闭合、人人都爱的结尾。她没有。她偏偏把《沙巴军曹》《哑奴》《哭泣的骆驼》压在后面，让死亡、奴役与暴力闯进已经造好的家。她亲手造起那座“罗马”，又拒绝假装罗马不会倒塌。</p>
 <p>大多数人以为这是一本关于“如何把生活过成诗”的书。如果只剩这句话，它反而会骗人：仿佛只要有爱、有意志、有审美，就能战胜所有困境。三毛在后半部写出的，恰恰是这套信念的边界。</p>
 <p>人改造环境的能力，和人改造命运的能力，是两件完全不同的事。</p>
@@ -503,7 +548,7 @@
 <hr>
 
 <h2>第九层：金句收尾</h2>
-<p>合上书，你会发现三毛真正给的不是远方，是一种眼睛的训练——同样一片荒漠，有人看见绝望，她看见可以做梦的空白。</p>
+<p>合上书，你会发现三毛真正给的不是远方，是一种眼睛的训练，同样一片荒漠，有人看见绝望，她看见可以做梦的空白。</p>
 <p>这不是一本教你逃向远方的书，是一本教你在远方扎根、又在扎根处学会松手的书。</p>
 <hr>
 
@@ -515,20 +560,20 @@
 <h3>关键洞察</h3>
 <p>改造环境和改造命运是两件不同的事。前者可以靠行动推进，后者常受制于远大于个人的力量。三毛的诚实，就在于她没有拿前者的成功掩盖后者的边界。</p>
 <p>家不是被找到的，是被造出来的。决定一个空间是不是“家”的，不只在条件，也在人是否愿意往里倾注生活和情感。</p>
-<p>明知一切会被时间冲走，仍认真去堆一座注定消失的城堡——意义在堆的过程里，不在城堡能否永久留下。</p>
+<p>明知一切会被时间冲走，仍认真去堆一座注定消失的城堡，意义在堆的过程里，不在城堡能否永久留下。</p>
 
 <h3>最终启示</h3>
 <blockquote>这不是一本教你逃向远方的书，是一本教你在远方扎根、又在扎根处学会松手的书。</blockquote>
 <hr>
 <p><strong>结语：</strong></p>
-<p>读《撒哈拉的故事》，年轻时读到的是浪漫——原来日子可以这样过。年纪渐长再读，读到的是诚实——原来三毛从没骗过我们，她把沙漠的美和恶、个人的能与不能，都摆在了同一本书里。她用前半部告诉你怎么把生活活成诗，又用后半部提醒你诗救不了别人的命。这两者之间的张力，就是这本书过了五十年仍然有人读的原因。它不只是一个传奇女子的异国见闻，它是一面镜子，照出每个读者心里那个问题：明知潮水会来，你还敢不敢，认真地堆一座城堡。</p>
-<p>这本书 1976 年在台湾出版，此后几十年里，它让“撒哈拉”成了整整几代华人心中“远方”的代名词，也让无数年轻人第一次相信：生活原来可以由自己来定义，不必活成别人期待的样子。它的影响早已超出文学，成了一种生活态度的图腾。但图腾化也带来误读——太多人只记住了浪漫的三毛，忘了诚实的三毛、痛过的三毛。真正读懂这本书的人会明白：三毛留给我们的，不是一张逃往远方的机票，是一种无论身在何处都能把日子郑重活下去的能力，以及一份明知会失去仍然全心去爱的勇气。</p>
+<p>读《撒哈拉的故事》，年轻时读到的是浪漫，原来日子可以这样过。年纪渐长再读，读到的是诚实，原来三毛从没骗过我们，她把沙漠的美和恶、个人的能与不能，都摆在了同一本书里。她用前半部告诉你怎么把生活活成诗，又用后半部提醒你诗救不了别人的命。这两者之间的张力，就是这本书过了五十年仍然有人读的原因。它不只是一个传奇女子的异国见闻，它是一面镜子，照出每个读者心里那个问题：明知潮水会来，你还敢不敢，认真地堆一座城堡。</p>
+<p>这本书 1976 年在台湾出版，此后几十年里，它让“撒哈拉”成了整整几代华人心中“远方”的代名词，也让无数年轻人第一次相信：生活原来可以由自己来定义，不必活成别人期待的样子。它的影响早已超出文学，成了一种生活态度的图腾。但图腾化也带来误读，太多人只记住了浪漫的三毛，忘了诚实的三毛、痛过的三毛。真正读懂这本书的人会明白：三毛留给我们的，不是一张逃往远方的机票，是一种无论身在何处都能把日子郑重活下去的能力，以及一份明知会失去仍然全心去爱的勇气。</p>
 <hr>
 
 <h2>灵魂三问自检</h2>
 <p><strong>作者“不写不行”的那股劲是什么？</strong> 是替那些可能被遗忘的人，把“他们活过、爱过、受过苦”的事实从风沙里打捞出来。</p>
 <p><strong>这本书最独占的 move 是什么？</strong> 把同一个撒哈拉的“可爱”与“吃人”咬合在一起：先让读者爱上它，再让读者无法回避它的苦难。</p>
-<p><strong>如果只能带走一句话？</strong> “那几步路竟似一世纪的长，好似永远也挤不到了。”——它写的是一个人想救另一个人，却被更大的力量隔在几步之外。</p>
+<p><strong>如果只能带走一句话？</strong> “那几步路竟似一世纪的长，好似永远也挤不到了。”，它写的是一个人想救另一个人，却被更大的力量隔在几步之外。</p>
 <footer>
 <span>青山 · 深度阅读</span>
 <span>06-13 初稿 · 07-14 修订</span>

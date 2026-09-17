@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>希腊史：迄至公元前322年 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,44 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>希腊史：迄至公元前322年</h1>
-  <div class="meta">N.G.L. 哈蒙德 · 商务印书馆 2016 朱龙华译本 · 青山深度阅读</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">希腊史：迄至公元前322年</div>
+    <div class="cover-sub">商务印书馆 2016 朱龙华译本 · 青山深度阅读</div>
+    <div class="cover-meta">N.G.L. 哈蒙德 · 解读主理：青山 · 日期：2026-07-17 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这一千年的故事讲一遍</span>
+      <span class="toc-desc">哈蒙德这本书，1116 页，从克里特岛的宫殿讲到亚历山大死在巴比伦，跨度一千多年。它不是故事书，是剑桥出身的考...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么讲</span>
+      <span class="toc-desc">叙事型的"凭什么"问的是两件事：材料靠不靠得住，判词站不站得住。哈蒙德的材料底盘是三样：考古（他自己就是发掘者...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 这一千年，被三股劲拧着走</span>
+      <span class="toc-desc">通史不是论文，哈蒙德没有给一个中心论点。但他的叙事里反复出现三股劲，整个一千年的兴衰都被这三股劲拧着走。下面是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">作者为什么非写不可。哈蒙德一辈子在希腊北部和马其顿做考古，他眼里主流的希腊史有个系统的偏心：以雅典为中心、以民...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 一张餐巾纸说完这本书</span>
+      <span class="toc-desc">一句话：希腊人发明了城邦这种活法，靠它挡住过世界帝国，却因为它内含的一对死结（自由与联合不可兼得），在内耗两百...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 最值钱的那一点：希腊人自己造出了埋葬城邦的武器</span>
+      <span class="toc-desc">公元前371年，留克特拉平原，底比斯人伊巴密浓达做了一件希腊战争史上没人做过的事：他不按规矩排队对撞，把左翼纵...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇基于商务印书馆 2016 年朱龙华译本扫描版 OCR 全文（约 200 万字符），关键事实均以短片段在原文...</span>
+    </div>
+  </div>
+
 </div>
 
 <div class="layer">
@@ -438,11 +514,11 @@
 
   <p><strong>作者为什么非写不可。</strong>哈蒙德一辈子在希腊北部和马其顿做考古，他眼里主流的希腊史有个系统的偏心：以雅典为中心、以民主为正典、以马其顿为蛮族反派、以公元前四世纪为衰落时代。这本书是他用材料扳偏心的总和。所以你会看到一连串反着来的判词：在他的笔下，德摩斯梯尼成了误国的演说家，腓力成了清醒的建设者，亚历山大神化自己出于真诚信仰，前四世纪一片"浩荡奔流"。读这本书要始终记得：这是一位马其顿考古学家写的希腊史，它的价值恰恰在偏心提供的新视角，风险也在偏心。</p>
 
-  <p><strong>作者没看到什么。</strong>两个盲点要诚实指出。其一，他的框架里普通人是沉默的：奴隶、妇女、外邦人、被屠城的米洛斯人和底比斯人，在政治军事史的骨架里只是背景数字——米洛斯屠城他记了"对希腊世界不啻一声警钟"，然后就翻页了。其二，他对自己的反事实缺乏节制："亚历山大再活三十年"这种假设不可证伪，漂亮但没有证据价值，而他用它收尾，等于给全书的价值判断加了一个无法检验的砝码。我的表态：他的德摩斯梯尼翻案我不敢全接——判定一个战时政治家"希求侥幸"，是事后知道结果的奢侈；德摩斯梯尼错在输了，可主和派对了也未必是因为看得远，可能只是押中了。</p>
+  <p><strong>作者没看到什么。</strong>两个盲点要诚实指出。其一，他的框架里普通人是沉默的：奴隶、妇女、外邦人、被屠城的米洛斯人和底比斯人，在政治军事史的骨架里只是背景数字，米洛斯屠城他记了"对希腊世界不啻一声警钟"，然后就翻页了。其二，他对自己的反事实缺乏节制："亚历山大再活三十年"这种假设不可证伪，漂亮但没有证据价值，而他用它收尾，等于给全书的价值判断加了一个无法检验的砝码。我的表态：他的德摩斯梯尼翻案我不敢全接，判定一个战时政治家"希求侥幸"，是事后知道结果的奢侈；德摩斯梯尼错在输了，可主和派对了也未必是因为看得远，可能只是押中了。</p>
 
-  <p><strong>放到别的领域，是同一回事吗。</strong>挑两个结构对得上的。第一个是产业竞争。城邦的"双重不能"（不能领导也不能被领导）活脱脱是某些行业的卡特尔困境：每家都希望别人守规矩自己例外，联盟谈了无数轮，每轮都死于成员各怀私心，最后行业被体系外的玩家（新技术的、跨界的）整体收编。第二个是组织里的"斯巴达陷阱"：一套制度解决创立期问题越成功，就越难应对环境变化——吕库古体制让斯巴达早熟四百年，也让它留克特拉战败后拒绝改革。早期答案即晚期枷锁，这在公司、在个人技能结构上都成立。对不上的（比如硬套到家庭关系）就不写了。</p>
+  <p><strong>放到别的领域，是同一回事吗。</strong>挑两个结构对得上的。第一个是产业竞争。城邦的"双重不能"（不能领导也不能被领导）活脱脱是某些行业的卡特尔困境：每家都希望别人守规矩自己例外，联盟谈了无数轮，每轮都死于成员各怀私心，最后行业被体系外的玩家（新技术的、跨界的）整体收编。第二个是组织里的"斯巴达陷阱"：一套制度解决创立期问题越成功，就越难应对环境变化，吕库古体制让斯巴达早熟四百年，也让它留克特拉战败后拒绝改革。早期答案即晚期枷锁，这在公司、在个人技能结构上都成立。对不上的（比如硬套到家庭关系）就不写了。</p>
 
-  <p><strong>读完该做什么不同的事。</strong>一个具体动作：下次评估任何一个"联盟""合作框架""行业自律"（新闻里的、工作里的），先问两个问题——它有没有强制性的金库或武力？成员里有没有一个愿意义务承担成本的霸主？两个都没有，那它大概率是前362年那个联盟的翻版，开完会就散。同样的问题也适用于审视自己所在的组织：它的繁荣，账单寄给了谁？雅典民主那个版本的答案（账单寄给帝国）一旦撤销，繁荣能撑多久，西西里远征就是答案。</p>
+  <p><strong>读完该做什么不同的事。</strong>一个具体动作：下次评估任何一个"联盟""合作框架""行业自律"（新闻里的、工作里的），先问两个问题，它有没有强制性的金库或武力？成员里有没有一个愿意义务承担成本的霸主？两个都没有，那它大概率是前362年那个联盟的翻版，开完会就散。同样的问题也适用于审视自己所在的组织：它的繁荣，账单寄给了谁？雅典民主那个版本的答案（账单寄给帝国）一旦撤销，繁荣能撑多久，西西里远征就是答案。</p>
 </div>
 
 <div class="layer">
@@ -479,7 +555,7 @@
 
   <p>这里要攻一次这个核。有人会说：那底比斯不创新呢？不创新，留克特拉就赢不了，斯巴达的霸权继续，希腊照样没有出路。创新是生存必需，问题不在创新，在于创新守不住。这一攻让核更硬了一层：城邦世界的悲剧恰恰是，它有能力产生一流的创新，却没有能力把创新变成自己的门槛。守不住的原因很简单：城邦太多了。五十个城邦各自为战，任何一邦的突破都是公开课，任何一个外国君主都能旁听。马其顿不需要发明任何东西，它只需要做全班最认真的学生。它没有城邦的包袱，学完了还有资源把学来的东西放大十倍。反过来，底比斯发明了斜击阵，却只有底比斯一个邦用得起；它的发明再伟大，也只是给自己续了九年霸权，然后连人带发明一起被历史收走。</p>
 
-  <p>这个结构，今天的商业世界天天在重演，只是主角换了名字。一家小公司在某个细分技术上做出突破，活下来靠的是大公司没看懂；大公司一旦看懂，不需要自己发明，派团队来"交流"、来"学习"、来谈"合作"，三年之后，一个放大十倍的版本出现在大公司的产品线里。小公司当年的处境就是底比斯的处境：创新是你的，规模是他的。甚至"人质"这个角色都有现代版：大公司派到小供应商那里驻场的工程师、从小公司挖走的研发主管——他们都是军营里那个认真听课的腓力。我们习惯把创新当护城河讲，希腊人这本书说的是另一回事：创新只是入场券，护城河是能把创新放大并守住的那个体系。城邦败亡的密码，从来不是缺创新，是缺体系。</p>
+  <p>这个结构，今天的商业世界天天在重演，只是主角换了名字。一家小公司在某个细分技术上做出突破，活下来靠的是大公司没看懂；大公司一旦看懂，不需要自己发明，派团队来"交流"、来"学习"、来谈"合作"，三年之后，一个放大十倍的版本出现在大公司的产品线里。小公司当年的处境就是底比斯的处境：创新是你的，规模是他的。甚至"人质"这个角色都有现代版：大公司派到小供应商那里驻场的工程师、从小公司挖走的研发主管，他们都是军营里那个认真听课的腓力。我们习惯把创新当护城河讲，希腊人这本书说的是另一回事：创新只是入场券，护城河是能把创新放大并守住的那个体系。城邦败亡的密码，从来不是缺创新，是缺体系。</p>
 
   <p>回到那个十五岁的人质。腓力在底比斯的三年，名义上是囚徒生涯，实际上是他一生最划算的留学。他后来做的一切：分化敌人、各个收买、军制改革、联盟包装，都能在那三年里找到课目。历史最会开这种玩笑：它把最重要的一课，安排在最不像课堂的地方。底比斯人以为自己看住了一个王子，其实他们养大了一个终结者。而今天的每个行业、每个组织里，都坐着几个这样的人质。认出他们，比发明下一个斜击阵要紧。</p>
 
@@ -494,7 +570,7 @@
 
 <div class="truth">
   <div class="t">事实边界</div>
-  <p>本篇基于商务印书馆 2016 年朱龙华译本扫描版 OCR 全文（约 200 万字符），关键事实均以短片段在原文中定位核实。几处口径说明：人名地名从译本（萨拉密斯、派罗斯、恰龙尼亚、伊巴密依达、亚基比德等），与今通行译名有出入处本篇随书不随俗。数字口径：卫城储备 9700 塔连特为哈蒙德所采，学界有 8000、10000、约 5000 诸说；提洛同盟首年贡金 460 塔连特亦有异说；亚历山大死期，哈蒙德作前 323 年 6 月 13 日，今通行 6 月 10 或 11 日。底比斯屠城"由希腊联盟议事会投票决定"是哈蒙德版本，与通行叙事不同，本篇已就地标注。第三层"三股劲"是顺着书中材料的读法，非作者自命的框架；第八层的商业类比是本书之外的发挥。米诺斯—迈锡尼段考古纪年为哈蒙德口径，与最新研究或有出入。</p>
+  <p>本篇基于商务印书馆 2016 年朱龙华译本扫描版 OCR 全文（约 200 万字符），关键事实均以短片段在原文中定位核实。几处口径说明：人名地名从译本（萨拉密斯、派罗斯、恰龙尼亚、伊巴密依达、亚基比德等），与今通行译名有出入处本篇随书不随俗。数字口径：卫城储备 9700 塔连特为哈蒙德所采，学界有 8000、10000、约 5000 诸说；提洛同盟首年贡金 460 塔连特亦有异说；亚历山大死期，哈蒙德作前 323 年 6 月 13 日，今通行 6 月 10 或 11 日。底比斯屠城"由希腊联盟议事会投票决定"是哈蒙德版本，与通行叙事不同，本篇已就地标注。第三层"三股劲"是顺着书中材料的读法，非作者自命的框架；第八层的商业类比是本书之外的发挥。米诺斯，迈锡尼段考古纪年为哈蒙德口径，与最新研究或有出入。</p>
 </div>
 
 <div class="quote-block">

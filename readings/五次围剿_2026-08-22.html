@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>五次围剿 · 九层解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -339,12 +380,52 @@
 </head>
 <body>
 <div class="container">
-<header class="hero">
-<div class="kicker">九层解书 · 战争史</div>
-<h1>五次围剿</h1>
-<div class="sub">国军五次围剿红军战役始末。五场战役表面上围绕赣南苏区展开，真正决定结果的却是情报、补给、派系关系与政治动员怎样改变军队的用法。</div>
-<div class="meta"><b>王逸之 著</b>　·　扫描版全文 OCR　·　2026-08-22</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">五次围剿</div>
+    <div class="cover-sub">扫描版全文 OCR　·　2026-08-22</div>
+    <div class="cover-meta">王逸之 著 · 解读主理：青山 · 日期：2026-08-22 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 五场仗怎样改写了两党的位置</span>
+      <span class="toc-desc">北伐结束后，南京政府名义上统一中国，地方军队仍保留各自的指挥系统和利益范围。蒋介石先后处理蒋桂战争、中原大战等...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者怎样证明自己的判断</span>
+      <span class="toc-desc">第一次围剿时，国军在纸面上占优，部队却分路进入赣南。张辉瓒第十八师向龙冈推进后，同相邻部队失去有效照应。红军隐...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 反复决定结果的四股力量</span>
+      <span class="toc-desc">国军前四次围剿常从外线分进，红军在内线选择接触点。龙冈的第十八师、第二次围剿中的孤立纵队、第四次围剿中的第五十...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 为什么占领苏区仍没有结束战争</span>
+      <span class="toc-desc">红军和中共中央在瑞金建立政权，组织却不依赖一座城市才能存在。干部、通信关系和军队主力可以移动。国军进入瑞金时接...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题走完全书的推理</span>
+      <span class="toc-desc">优势分散在整个战区，红军把主力集中到一个接触点。国军各路要守交通、护补给，还要防范外围苏区，抵达时间也不一致。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 离开作战地图再看一次</span>
+      <span class="toc-desc">王逸之在前言中说明，年轻读者已经很少知道五次围剿的具体过程，他希望用国军档案和战史研究重新整理这段历史。这项工...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 把五场战役压到一张纸上</span>
+      <span class="toc-desc">任何一项接近零，账面优势都可能在接触点上消失。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 第五次围剿赢到哪里为止</span>
+      <span class="toc-desc">这件事对本书的核心解释构成了压力。作者把第五次围剿的进展归功于国军学习。前三次分路急进，部队一再被红军各个击破...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 留下一句话</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 <section class="layer" id="layer-1">
 <div class="layer-num">第一层</div>
 <h2 class="layer-title">五场仗怎样改写了两党的位置</h2>

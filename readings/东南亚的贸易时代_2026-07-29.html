@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>东南亚的贸易时代（第一卷）· 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,10 +381,54 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">深度解读 · 汉译学术名著</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">东南亚的贸易时代（第一卷）</div>
+    <div class="cover-sub">瑞德（Anthony Reid）著 · 吴小安、孙来臣译 · 商务印书馆 · 副标题：季风吹拂下的土地 1450，1680</div>
+    <div class="cover-meta">安东尼 · 解读主理：青山 · 日期：2026-07-29 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 先把这片土地和这个时代讲一遍</span>
+      <span class="toc-desc">这本书讲的是 1450 到 1680 年这二百三十年里的东南亚。作者安东尼·瑞德给这个时段起了个名字，叫"贸易...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么说</span>
+      <span class="toc-desc">瑞德这本书的核心论点一句话能说完：在 1450 到 1680 年这几百年里，塑造东南亚社会的，是贸易及其长出来...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这几件事在牵动那片地方</span>
+      <span class="toc-desc">瑞德这本五百页的大书，抖一抖底下真正起作用的就四件事。这四件彼此不能替代，去掉哪一件，都有一片解释不了。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 往井底再钻一层：妇女地位为什么立得住</span>
+      <span class="toc-desc">第三层说贸易塑造社会。这一层顺着最深的那条往下钻：为什么偏偏是妇女的地位立得住？这事儿看着反常，跟当时世界的多...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 八个问题，串起这片土地的逻辑</span>
+      <span class="toc-desc"></span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书：他为什么非写不可，又漏了什么</span>
+      <span class="toc-desc">瑞德是东南亚史学家。他这代人写东南亚，最痛的一件事是：这片地方老被写成别人的边缘。印度化的边缘、中国化的边缘、...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 压在一张餐巾纸上</span>
+      <span class="toc-desc">如果把这本书只能留下一个公式，是这个：</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 妇女地位那件事，到底是怎么立起来的</span>
+      <span class="toc-desc">前面几层我把妇女地位的证据一条条摆出来，按下不表的那件事，到这里该讲了。瑞德全书最值得跟人讲的，是东南亚贸易时...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc">本篇依据商务印书馆吴小安、孙来臣译本（汉译学术名著丛书）的扫描件 OCR 文本写成，非逐页精读。取样覆盖第一卷...</span>
+    </div>
+  </div>
+
   <h1>东南亚的贸易时代（第一卷）</h1>
-  <div class="author">安东尼·瑞德（Anthony Reid）著 · 吴小安、孙来臣译 · 商务印书馆 · 副标题：季风吹拂下的土地 1450—1680</div>
+  <div class="author">安东尼·瑞德（Anthony Reid）著 · 吴小安、孙来臣译 · 商务印书馆 · 副标题：季风吹拂下的土地 1450，1680</div>
   <div class="verdict">他把镜头从宫廷和宗教挪开，对准五百年前那片土地上的人怎么吃饭、怎么穿衣、怎么娶妻、怎么赶集。看完你会同意他：塑造那片地方的，从来不在哪一个神或哪一个王手里，在季风、船、市场里。</div>
 </div>
 
@@ -450,7 +535,7 @@
   <p>这条线讲东南亚和外面进来的东西的关系。印度教、佛教、伊斯兰教、基督教、儒教，加上中国商人文化和欧洲公司，一样样进来。但瑞德强调一个现象：这些东西进来后，是被东南亚原有的社会逻辑吸收改造了，并非反过来覆盖。伊斯兰法典的儿子双份继承没执行，儒教的男权家长制在越南实际生活里没人理，基督教传教士对彩礼的鄙视被当地人当耳旁风。这条线能推出一个反直觉的结论：东南亚的文化多元，不是被外来文明塑造的。它用自己的逻辑接住了外来文明。验证看那些"写了但没执行"的法典，那是东南亚逻辑扛住外来逻辑的痕迹。</p>
 
   <p>四根线合起来，能把全书大部分现象推回来：第一条给了位置，第二条定了劳动力的价，第三条把贸易繁荣翻译成社会形态，第四条说明了外来文化怎么进了这个形态又没改它的底色。去掉第一条，解释不了为什么是这几个城市；去掉第二条，解释不了妇女为什么下田、奴隶为什么有市场；去掉第三条，全书论点没了；去掉第四条，解释不了为什么来了那么多外来文明，东南亚还保持了它自己的样子。四条都立得住。</p>
-  <p>诚实标一句：第三条是瑞德自己明说的论点，其余三条是我从他五百页细节里抽出来的骨架。他未必会这么编号，但这四条线确实是支撑这本书的四根柱子。其中第三条和第四条有点张力——贸易塑造社会（第三条）强调经济基础，外来文化被吸收（第四条）说明文化上层建筑有韧性，不完全被经济决定。瑞德全书在这两条之间走钢丝，没完全缝合，这个缝他自己也没填死。</p>
+  <p>诚实标一句：第三条是瑞德自己明说的论点，其余三条是我从他五百页细节里抽出来的骨架。他未必会这么编号，但这四条线确实是支撑这本书的四根柱子。其中第三条和第四条有点张力，贸易塑造社会（第三条）强调经济基础，外来文化被吸收（第四条）说明文化上层建筑有韧性，不完全被经济决定。瑞德全书在这两条之间走钢丝，没完全缝合，这个缝他自己也没填死。</p>
 </div>
 
 <!-- 第四层 -->
@@ -626,7 +711,7 @@
   <h4>事实边界</h4>
   <p>本篇依据商务印书馆吴小安、孙来臣译本（汉译学术名著丛书）的扫描件 OCR 文本写成，非逐页精读。取样覆盖第一卷导论、自然福祉、物质文化、社会组织、节庆和娱乐五章的正文段落，章节骨架与核心论点已全部核对。</p>
   <p>OCR 有系统性错字（如"逻他"应为"巽他"，"柬埔塞"为"柬埔寨"，"逮罗"为"暹罗"），正文所引原文均经上下文校订。原书引文（如导论季风描述、社会组织妇女地位诸条、彩礼与财产习俗）均出自 OCR 文本并对照常识校改，页码因 OCR 不可信故一概未标。</p>
-  <p>属于本书内容的：全部引文与习俗记载、章节结构、瑞德"贸易塑造社会"的论点、从物质生活而非宫廷政治入手的方法论。属于公认史地常识、非本书内容的：1450—1680 的时段划分、1511 年马六甲陷落、十七世纪小冰期与荷兰东印度公司垄断、越南北部儒教化——这几项凭公开常识写成，细节建议另核。</p>
+  <p>属于本书内容的：全部引文与习俗记载、章节结构、瑞德"贸易塑造社会"的论点、从物质生活而非宫廷政治入手的方法论。属于公认史地常识、非本书内容的：1450，1680 的时段划分、1511 年马六甲陷落、十七世纪小冰期与荷兰东印度公司垄断、越南北部儒教化，这几项凭公开常识写成，细节建议另核。</p>
   <p>属于我个人判断、非作者观点的：第三层四根线的编号与提炼、第四层五步下钻的基岩结论、第六层两个跨域映射与两条对本书的评价、第八层"港口过秤大嫂"类比与攻核的反向验证、第九层金句的措辞。瑞德自己未必会把"稀缺环节决定话语权"提炼成基岩规律，这是我顺着他的证据往下钻的一步。</p>
 </div>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>宗萨仁波切文集 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="book-title">宗萨仁波切文集</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">宗萨仁波切文集</div>
+    <div class="cover-sub">十一部著作与开示合编</div>
+    <div class="cover-meta">宗萨蒋扬钦哲仁波切 · 解读主理：青山 · 日期：2026-07-15 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">先说作者是谁。宗萨蒋扬钦哲仁波切，1961 年生于不丹，藏传佛教萨迦派喇嘛，第三世钦哲传承的主要持有人。七岁被...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">「佛教徒的身份由见地决定，与行为无关」，这话听着痛快，但得看他怎么论证。整条论证链拆开来是这样的：你的一切行为...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">一万三千页的文集，十一本书，几十篇讲稿，题目从素食讲到人工智能，从朝圣讲到琼瑶。但把每个论点顺藤摸瓜往回捋，最...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">三根线是横着看。现在选最深的那口井竖着钻下去：人为什么苦？宗萨给的答案一层比一层深，每往下一层，脚下就更空一点...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">算，但「苦」在这里是个技术词，指「不可靠」，而非「难受」。他的推理：一切情绪都建立在「对象会照我的版本延续」这...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">先说那股不写不行的劲儿从哪来。《上师也喝酒》前言的第一个例子给得极准：西藏颂钵。这个东西在西藏从来不曾存在，是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：佛教不是一套让你变好的行为，是四个可以检验的看法；接受它们你就是佛教徒，哪怕你从不烧香。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">读宗萨的书，有个问题会越读越大：这个人为什么总在骂自己人？一个靠佛教安身立命的转世活佛，书里挨骂最多的偏偏是佛...</span>
+    </div>
+  </div>
+
   <div class="author">宗萨蒋扬钦哲仁波切 · 十一部著作与开示合编</div>
   <div class="intro">一个不丹喇嘛，用二十多年时间反复对现代人说同一件事：你以为佛教是祥和、吃素、打坐、正能量，这些全是外衣。佛教只是四个见地。最麻烦的听众也并非怀疑者：急着把佛法变成心灵按摩的信徒才更难办。这套文集收了他最重要的十一本书和几十篇讲稿，本篇解读以《正见》为脊柱，把整套思想拆开来看。</div>
 </div>
@@ -412,11 +493,11 @@
 
   <p>第二层，叫「摇鼓」。母亲用小摇鼓分散哭闹婴儿的注意力，大人的摇鼓是海边别墅、提早退休、好名声，最好还能上金氏世界纪录。摇鼓的功能只有一个：在我们瞥见真相（比如生日蜡烛其实在提醒你离死近了一年）的瞬间，把视线引开。分心必须不间断，因为无常的证据不间断。宗萨顺手给了一幅日常速写：我们在影城排队等一部烂电影开演，急着赶回家看直播节目，坐着看广告、等待，此生的光阴就这样一格一格走掉。摇鼓收的费用看着是钱，实际收走的是整段整段的清醒时间。至于瞥见真相为什么那么痛，痛到需要一套终身分心工程来遮着，原因埋在更深一层。</p>
 
-  <p>第三层，是「保卫战」。痛的直接来源是期待和恐惧：期待事物照我的版本延续，恐惧它不照。而期待和恐惧有一个共同的雇主，就是自我那种「坚固感加不安全感」的古怪配方。说古怪，是因为坚固和不安全按理矛盾：真坚固就不必惶惶不可终日。这个矛盾恰恰是线索——自我需要一刻不停地确认自己，正说明它对自己的存在没有底。谁会没底？只有假货没底。往下，就到了井里最冷的一层。</p>
+  <p>第三层，是「保卫战」。痛的直接来源是期待和恐惧：期待事物照我的版本延续，恐惧它不照。而期待和恐惧有一个共同的雇主，就是自我那种「坚固感加不安全感」的古怪配方。说古怪，是因为坚固和不安全按理矛盾：真坚固就不必惶惶不可终日。这个矛盾恰恰是线索，自我需要一刻不停地确认自己，正说明它对自己的存在没有底。谁会没底？只有假货没底。往下，就到了井里最冷的一层。</p>
 
   <p>第四层，「误认」。《正见》里那个例子：杰克在昏暗的房间里看见一条蛇盘在墙角，吓得半死。开灯一看，那是一条阿玛尼领带。此后杰克的全部痛苦，从心跳加速到不敢回家，成因都真实存在吗？痛苦是真感受，但痛苦的对象从头到尾没存在过。宗萨用这个例子说的不是安慰话，他是在下定义：无明就是把领带看成蛇，自我就是那条蛇，而我们此生的绝大部分精力，花在了给蛇喂食、替蛇搬家、为蛇买保险上。悉达多的目标由此变得非常精确：既然痛苦之因从来没有真实存在过，那就不必消灭蛇，只需要开灯。</p>
 
-  <p>井底还有最后一块石头，敲上去的声音有点吓人：谁来开灯？你会发现，那个惊叫「有蛇」的，和后来举着灯找蛇的，是同一颗心。误认没有一个起点可以追溯，也没有一个作案者可以归罪，它不需要理由，就像做梦不需要先申请。所以这条路在最深处翻转了一下：解脱不可能靠自我去完成，因为自我正是要被看穿的那个；《见地与修道》里说，我们宣称要追求的成佛，从自我的角度看是彻底的失败。修行的一切努力，最终是让一场误认自己松开，而努力者本人就是误认的一部分。这块基岩没法再往下敲了——不能靠继续问「为什么」凿穿，只能靠亲眼看。这也解释了为什么佛教走到最深处必然从哲学变成修持：井钻到底，剩下的路不归逻辑管。</p>
+  <p>井底还有最后一块石头，敲上去的声音有点吓人：谁来开灯？你会发现，那个惊叫「有蛇」的，和后来举着灯找蛇的，是同一颗心。误认没有一个起点可以追溯，也没有一个作案者可以归罪，它不需要理由，就像做梦不需要先申请。所以这条路在最深处翻转了一下：解脱不可能靠自我去完成，因为自我正是要被看穿的那个；《见地与修道》里说，我们宣称要追求的成佛，从自我的角度看是彻底的失败。修行的一切努力，最终是让一场误认自己松开，而努力者本人就是误认的一部分。这块基岩没法再往下敲了，不能靠继续问「为什么」凿穿，只能靠亲眼看。这也解释了为什么佛教走到最深处必然从哲学变成修持：井钻到底，剩下的路不归逻辑管。</p>
 <div class="layer">
   <div class="layer-no">第五层</div>
   <div class="layer-title">七个问题，把他的推理走一遍</div>
@@ -496,7 +577,7 @@
 
   <p>读宗萨的书，有个问题会越读越大：这个人为什么总在骂自己人？一个靠佛教安身立命的转世活佛，书里挨骂最多的偏偏是佛教徒。讲禅修，他骂在加德满都住了三十年的佛法浪人，说他们的心和刚到时一样僵硬，还背着世俗垃圾以修行者之名伪装。琼瑶自杀，各方请他表态，大家等着听一句悲悯的安慰，他却先对准了动机本身：一切所谓好的动机背后都藏着私心，私心非常狡猾，它总会让你确信自己的动机是好的。这话听着几乎刻薄。可他接着举的例子让你笑不出来：美国政府轰炸老挝，自称动机是把人类从共产主义里拯救出来；马克思写《资本论》，自称动机是把人类从财阀统治里拯救出来。两个自认高尚的动机，加起来动荡了一个世纪。你以为他在评论时事，其实他在演示一个贯穿全部十一本书的机制。那篇讲稿里还有个容易被漏掉的细节：有人主张生命像一台咖啡机，旧了破了就扔进垃圾堆，他说对佛教徒而言生命复杂得多，因为心像一块海绵，会吸收并保留各种倾向，结束生命这个动作本身就可能成为一种习气，像抓挠长了疹子的皮肤，有满足感，但挠下去皮肤就好不了。连「结束」都能变成一种被保留的习惯，这个观察和后面要说的机制是同一块料。</p>
 
-  <p>这个机制在《佛教的见地与修道》里有一段完整的解剖，我读整套文集，认为这一段是真正的心脏。他说：自我几乎能够将任何事物都转为己用，甚至应该摧毁自我的老师和教法也被利用了。然后是一串越看越冷的清单——自我能天花乱坠地谈「无我」，把无我当成自己的装饰；它因为表现谦卑而生起骄傲；为了感觉优越而表现慈悲；教授佛法是为了显得学富五车。最妙的是最后一条：当面临严重威胁时，自我会很有技巧地穿上敌人的制服，比如出家，比如闭长关，然后利用闭关这段时间舔拭伤口，出关之后变得更强壮、更狡猾。</p>
+  <p>这个机制在《佛教的见地与修道》里有一段完整的解剖，我读整套文集，认为这一段是真正的心脏。他说：自我几乎能够将任何事物都转为己用，甚至应该摧毁自我的老师和教法也被利用了。然后是一串越看越冷的清单，自我能天花乱坠地谈「无我」，把无我当成自己的装饰；它因为表现谦卑而生起骄傲；为了感觉优越而表现慈悲；教授佛法是为了显得学富五车。最妙的是最后一条：当面临严重威胁时，自我会很有技巧地穿上敌人的制服，比如出家，比如闭长关，然后利用闭关这段时间舔拭伤口，出关之后变得更强壮、更狡猾。</p>
 
   <p>把这段话读透，很多事情会同时改变颜色。它说的其实是：解药会被病吃掉。任何用来对治自我的东西，只要固定下来、可以持有、能够展示，就会被自我收编成新的装备。谦卑变成谦卑的表演，慈悲变成道德优越感的原料，连「看破红尘」都能变成一种身份，比劳力士更稀缺的身份。病人吞下药片，消化掉的却是药片的疗效，剩下的糖衣拿去做了勋章。</p>
 

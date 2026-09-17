@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>历史的温度3 · 青山深度阅读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,9 +381,40 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <h1>历史的温度3</h1>
-  <div class="author">张玮 · 历史故事集 · 第三册：时代、国家、人性</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">历史的温度3</div>
+    <div class="cover-sub">历史故事集 · 第三册：时代、国家、人性</div>
+    <div class="cover-meta">张玮 · 解读主理：青山 · 日期：2026-07-21 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 数字最硬的一册</span>
+      <span class="toc-desc">第三册出版前的2018年，张玮告别了职场，"馒头说"从睡前三小时的副业变成了全职。自序里有两件事值得记住：一是...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 他凭什么这么讲</span>
+      <span class="toc-desc">第三册的信用，建立在一样新东西上：可核验的数字链。证据一，数字带口径。火力对比不是一句"日军占优"，是"北洋打...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 三根新梁：数字、对面、系统</span>
+      <span class="toc-desc">第一册立骨架，第二册加梁，第三册又换了三根承重的。换梁的原因：这一册写到了更大的失败和更大的灾难，光靠"把人放...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 跳出这本书，再看它一眼</span>
+      <span class="toc-desc">先说动机。这一册是张玮全职写作的第一年，动机结构变了：以前是睡前三小时，读者等更新；现在是职业身份，产量、销量...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 如果只能留下一张餐巾纸</span>
+      <span class="toc-desc">三个因子对应第三层的三根梁：数字翻案（火力三倍、装备对比表、伦琴值，翻案不靠情理靠可核验的数字链）；双方都是人...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 失败需要一张脸</span>
+      <span class="toc-desc">第三册里最大的三场失败，失败后都长出了一张脸。甲午战败，脸是丁汝昌，"窝囊"两个字骂了一百多年；广州陷落，脸是...</span>
+    </div>
+  </div>
+
 </div>
 
 <!-- ==================== 第一层 ==================== -->
@@ -350,7 +422,7 @@
   <div class="layer-num">Layer 01</div>
   <h2 class="layer-title">数字最硬的一册</h2>
 
-  <p>第三册出版前的2018年，张玮告别了职场，"馒头说"从睡前三小时的副业变成了全职。自序里有两件事值得记住：一是他为涨价向读者道歉，50元以下按了两本，第三本顶不住纸张成本涨到58元；二是39篇的分类是编辑硬分的——时代、国家、人性。他在这一年完成身份转换，这一册的数字也给得最硬：火力倍数、装备对比表、伦琴值，一桩桩全有出处。</p>
+  <p>第三册出版前的2018年，张玮告别了职场，"馒头说"从睡前三小时的副业变成了全职。自序里有两件事值得记住：一是他为涨价向读者道歉，50元以下按了两本，第三本顶不住纸张成本涨到58元；二是39篇的分类是编辑硬分的，时代、国家、人性。他在这一年完成身份转换，这一册的数字也给得最硬：火力倍数、装备对比表、伦琴值，一桩桩全有出处。</p>
 
   <div class="marker">上篇 大变局时代 · 丁汝昌：一个"窝囊"形象的拆解</div>
 
@@ -376,7 +448,7 @@
 
   <p>第三册的信用，建立在一样新东西上：可核验的数字链。证据一，数字带口径。火力对比不是一句"日军占优"，是"北洋打一发，日本打六发"，还注明出自当时英国人的测算；长津湖的差距直接给一张逐项的对比表：432门榴弹炮对12门山炮，1600部电台对数十部，7000辆汽车对45辆。证据二，回忆带姓名。长津湖的冻伤细节，每一条都标着回忆者的职务姓名：二十军五十九师一七六团一营机炮连指导员陈兰风、二十七军七十九师二三五团三连指导员邹世勇，美方那边是下士摩尔豪森。证据三，传说他当场就核。网上流传的悲剧版本，他查完外文信源，没实据就不收。</p>
 
-  <p>底下压着的隐形假设：读者愿意看双方。这一册大量篇幅给了对手——史密斯的烦躁、日本海军对丁汝昌的敬意、美国士兵的战壕一问。他赌的是读者的胸怀：写对手的痛苦和敬意，不会被当成替谁说话。这个赌在第三册下得最大。</p>
+  <p>底下压着的隐形假设：读者愿意看双方。这一册大量篇幅给了对手，史密斯的烦躁、日本海军对丁汝昌的敬意、美国士兵的战壕一问。他赌的是读者的胸怀：写对手的痛苦和敬意，不会被当成替谁说话。这个赌在第三册下得最大。</p>
 
   <p>边界两条。一条老边界在扩大：下篇外国名人那十几篇是编译级材料，他的案头功夫在那里使不上，这条第六层展开。另一条是结构性的：39篇靠编辑"排排坐分果果"分成时代、国家、人性三类，他自己承认是硬分的，所以这一册的"主题"约束力有限，三大类只是货架，构不成论证。</p>
 </div>
@@ -406,9 +478,9 @@
 
   <p>盲点两处。一处是老边界的扩大：下篇十六篇大半是外国名人题材，达·芬奇、梵高、戴安娜、切·格瓦拉，这类"名人的另一面"史料门槛低、编译材料多，张玮的案头功夫在这里使不上劲，独家性明显不如上篇中篇，个别标题已经开始往猎奇文体滑，"一位女明星的神秘死亡"这种题，和他自己反对的震惊体只差半步。另一处在中篇：以国家之名这个门类，国家叙事和个人命运的权衡，偶尔还是往国家侧滑，长津湖写得对等是个例外，通例还谈不上。</p>
 
-  <p>表个态。我最买账的是切尔诺贝利章末那个不起眼的核查：谢尔比斯基"自杀说"是读者最想听到的版本——罪人伏法，苍天有眼——他偏要去查，查完照实写。对自己故事的圆满性下手，这是写作者最贵的自律。最不买账的是下篇的组织方式：十六篇名人故事码在一起，篇与篇之间没有对话，读久了像翻一本高质量的人物杂志，好看，但记不住自己读到了什么。货架式分类的代价，在这里露出来了。</p>
+  <p>表个态。我最买账的是切尔诺贝利章末那个不起眼的核查：谢尔比斯基"自杀说"是读者最想听到的版本，罪人伏法，苍天有眼，他偏要去查，查完照实写。对自己故事的圆满性下手，这是写作者最贵的自律。最不买账的是下篇的组织方式：十六篇名人故事码在一起，篇与篇之间没有对话，读久了像翻一本高质量的人物杂志，好看，但记不住自己读到了什么。货架式分类的代价，在这里露出来了。</p>
 
-  <p>这套"系统和个人分开算账"的眼光，搬到今天处处能用。公司出了大事故，先开掉的那个副总，常常是丁汝昌：他有责任，但不该背走全部的账。球队连败，教练下课，球员照拿工资，也是一个结构。反过来，切尔诺贝利教的是另一端：系统藏起自己的脸时——把标准提高十倍、把数字砍掉九成——个人的英勇就会被挪去给系统遮羞，50万清理人的牺牲是真的，那份牺牲被利用来推迟真相，也是真的。</p>
+  <p>这套"系统和个人分开算账"的眼光，搬到今天处处能用。公司出了大事故，先开掉的那个副总，常常是丁汝昌：他有责任，但不该背走全部的账。球队连败，教练下课，球员照拿工资，也是一个结构。反过来，切尔诺贝利教的是另一端：系统藏起自己的脸时，把标准提高十倍、把数字砍掉九成，个人的英勇就会被挪去给系统遮羞，50万清理人的牺牲是真的，那份牺牲被利用来推迟真相，也是真的。</p>
 
   <p>读完能做的那件不同的事，具体到下一次就能用：刷到"都是某某的错"式热搜，先别急着骂，问一句：这个人的责任边界在哪，系统的账算了吗？多数时候你会发现，那张脸只是最容易被看见的部分，账本上真正大的数字，写在看不见的地方。问这句话不需要更多知识，只需要忍住十秒钟不转发。</p>
 </div>
@@ -443,7 +515,7 @@
 
   <p>第三册里最大的三场失败，失败后都长出了一张脸。甲午战败，脸是丁汝昌，"窝囊"两个字骂了一百多年；广州陷落，脸是叶名琛，"不战不和不守，不死不降不走"，十二个字够一个总督遗臭万年；切尔诺贝利，苏联官方给出的脸是"操作失误"，值班的工程师担下了人类历史上最严重的核事故。三张脸有一个共同点：都比它们背后的那本账小得多。</p>
 
-  <p>系统的账最后总要落到一张脸上，因为它没法讲。航速差几节，射速差几倍，炸药差一代，军费挪去修了园子，舰队七年没添新舰——这本账一页一页算下去，算完没有一个可以恨的对象，只有一堆回不去的决策。脸就省事：脸能装愤怒，装羞耻，装"我们本来能赢"的不甘心。骂一个丁汝昌，比承认从买炮到练兵全面落后，便宜得多。集体的情绪需要一个容器，脸是现成的。</p>
+  <p>系统的账最后总要落到一张脸上，因为它没法讲。航速差几节，射速差几倍，炸药差一代，军费挪去修了园子，舰队七年没添新舰，这本账一页一页算下去，算完没有一个可以恨的对象，只有一堆回不去的决策。脸就省事：脸能装愤怒，装羞耻，装"我们本来能赢"的不甘心。骂一个丁汝昌，比承认从买炮到练兵全面落后，便宜得多。集体的情绪需要一个容器，脸是现成的。</p>
 
   <p>等等，这话说满了：责任人就没有责任吗？</p>
 

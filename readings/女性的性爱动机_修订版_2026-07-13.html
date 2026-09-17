@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>女性的性爱动机 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,13 +381,52 @@
 <body>
 <div class="container">
 
-<header class="hero">
-<div class="kicker">青山 · 深度阅读</div>
-<h1>女性的性爱动机</h1>
-<div class="sub">从寻求刺激到企图报复 · 梅斯顿 &amp; 巴斯</div>
-<div class="meta"><strong>Cindy M. Meston &amp; David M. Buss</strong>　Why Women Have Sex（2009）　实证性心理学 · 论证型 · 全九层　2026-07-06 初稿 · 2026-07-13 修订</div>
-<div class="oneline">女人为什么做爱？两位科学家数出了 237 个理由，从"我想接近上帝"到"我想传染给他性病"。这个数字本身，就是对"不言自明"的反驳。</div>
-</header>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">女性的性爱动机</div>
+    <div class="cover-sub">论证型 · 全九层　2026-07-06 初稿 · 2026-07-13 修订</div>
+    <div class="cover-meta">Cindy M. Meston &amp; David M. Buss 　Why Women Have Sex（2009）　实证性心理学 · 解读主理：青山 · 日期：2026-07-13 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 02 · 这本书到底在讲什么</span>
+      <span class="toc-desc">大多数人，包括很多科学家，都觉得"女人为什么做爱"是个用不着问的问题：为了快乐，为了爱，为了生孩子，就这三样。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 04 · 作者凭什么这么说</span>
+      <span class="toc-desc">"237 个动机"听着像个噱头。凭什么信它？得把作者的推理和证据摆出来，一根根看。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06 · 拆到底，就这三件事在起作用</span>
+      <span class="toc-desc">这本书十一章、237 个动机，看着千头万绪。但你把它摊开反复掂，底下真正在起作用的就三件事。三件事互相咬合，把...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 08 · 顺着最深那根线，一路挖到底</span>
+      <span class="toc-desc">第三层我们横着摊出了三根线。现在换一个动作，挑最深的那根，竖着往下钻，一层一层，一直钻到不能再问为止。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 10 · 九个问题，串起整本书的逻辑</span>
+      <span class="toc-desc">结论：因为预设答案会把看不见的动机全筛掉，237 这个数字本身就是问法改变的产物。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12 · 跳出这本书，它还能怎么用</span>
+      <span class="toc-desc">梅斯顿运营的是德克萨斯大学的女性性心理生理学实验室，她每天面对的是真实的女性样本：被误导的、被欺骗的、不知道自...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 14 · 如果只能留一张餐巾纸</span>
+      <span class="toc-desc">一句话：女人为什么做爱，答案从来不止一条，是一座从"想接近上帝"到"想传染给他性病"的完整光谱，这座光谱，是几...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 16 · 知道爱是激素，是给了你动手的余地</span>
+      <span class="toc-desc">前面那个田鼠实验，专情的草原田鼠和滥情的草甸地鼠基因 99% 相似，差别只在催产素受体和奖赏中心的连接，第一次...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18 · 一句话封印这本书</span>
+      <span class="toc-desc"></span>
+    </div>
+  </div>
+
 
 <section class="layer" style="border-bottom:1px solid var(--black);">
 <div class="layer-num">第一层</div>
@@ -628,7 +708,7 @@
 
 <div class="quotebox">
 <div class="final">合上这本书，你问女人的方式变了：不是"她为什么这样"，是"她哪一格旋钮，被什么处境拧到了"。</div>
-<div class="sign">—— 读《女性的性爱动机》　2026-07-06 初稿 · 2026-07-13 修订</div>
+<div class="sign">， 读《女性的性爱动机》　2026-07-06 初稿 · 2026-07-13 修订</div>
 </div>
 </section>
 

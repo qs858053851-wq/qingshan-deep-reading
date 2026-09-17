@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>存在与时间 · 深度解读</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="booktitle">存在与时间</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">存在与时间</div>
+    <div class="cover-sub">海德格尔 著 · 陈嘉映 王庆节 译 · 原著 1927</div>
+    <div class="cover-meta">[德] 马丁 · 解读主理：青山 · 日期：2026-07-16 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">卷首题词引柏拉图《智者篇》：我们用"存在着"这个词的时候，自以为懂它的意思，"现在却感到困惑不安"。海德格尔的...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">这本书几乎没有三段论。它的方法是现象学，师承胡塞尔（书就题献给他），口号是"面向事情本身"：不从理论出发推演，...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">全书的破坏性工作系于一个诊断：从古希腊起，哲学谈"存在"时心里默认的样板，一直是现成的东西：摆在眼前、可以打量...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">全书最容易被当成趣闻略过的段落，恰恰是它的地基。工匠用锤子钉钉子，海德格尔在这幅最不哲学的画面上，凿穿了近代...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">海德格尔的答案：多半轮不到你，是常人。趣味是常人的趣味，判断是常人的判断，连愤怒都是跟着常人愤怒。常人的三件手...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">先把事实钉牢：原计划两部各三篇，实际只出版了第一部前两篇，三分之一。缺的恰恰是标题许诺的那半："时间与存在"。...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：人不是在时间里过日子的物件，人就是时间打开自己的方式。问题只在，打开它的是你，还是常人。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">全书写得最像文学的地方，是关于畏的那几行。畏袭来时，"进行威胁的东西不能在附近范围之内从一个确定的方向临近而来...</span>
+    </div>
+  </div>
+
   <div class="meta">[德] 马丁·海德格尔 著 · 陈嘉映 王庆节 译 · 原著 1927</div>
   <div class="oneliner">一本只写完三分之一的书，成了二十世纪影响最大的哲学著作。它问的问题小学生都会被问懵："你说桌子'存在'、你自己'存在'，这个'存在'到底是什么意思？"</div>
 </div>
@@ -373,7 +454,7 @@
   <p>这本书几乎没有三段论。它的方法是现象学，师承胡塞尔（书就题献给他），口号是"面向事情本身"：不从理论出发推演，只做一件事，描述：把平时视而不见的东西描述到你自己看见为止。所以全书的证据既非数据也非文献，而是<strong>你自己的日常经验</strong>：他描述用锤子的出神、描述电车上的让座、描述"大家都这么说"的舆论引力，赌的是你读到时会说"对，就是这样"。这种写法的验证标准很特别：它不能被实验证伪，只能被你的生活印证或不印证。</p>
 
   <h3>三个反复使用的论证策略</h3>
-  <p><strong>第一，从日常入手，把"高级"的拉下来。</strong>起点永远是"首先与通常"的平均日常。哲学史上尊贵的东西（认识、判断、理论）被他一一证明为日常操劳的衍生样式：先有用锤子，才有"关于锤子的知识"；先有活在世界里，才有"主体认识客体"这道题。近代认识论的整栋大楼，被他从地基处标注为二楼。<strong>第二，靠"失灵"让隐身者显形。</strong>世界平时透明如空气，锤子坏了那一刻，整张"为了作什么"的指引网突然可见；独处反过来证明人本质上是共在（"独在是共在的一种残缺样式"）。他惯用这条否定通道：一样东西藏得越深，越要到它断裂处去堵它。<strong>第三，公开承认循环。</strong>要问存在，先得对存在有模糊领会。这不是逻辑毛病，是人的结构——用他自己的话说，要紧的不是躲开循环，而是以正确的方式进入循环。</p>
+  <p><strong>第一，从日常入手，把"高级"的拉下来。</strong>起点永远是"首先与通常"的平均日常。哲学史上尊贵的东西（认识、判断、理论）被他一一证明为日常操劳的衍生样式：先有用锤子，才有"关于锤子的知识"；先有活在世界里，才有"主体认识客体"这道题。近代认识论的整栋大楼，被他从地基处标注为二楼。<strong>第二，靠"失灵"让隐身者显形。</strong>世界平时透明如空气，锤子坏了那一刻，整张"为了作什么"的指引网突然可见；独处反过来证明人本质上是共在（"独在是共在的一种残缺样式"）。他惯用这条否定通道：一样东西藏得越深，越要到它断裂处去堵它。<strong>第三，公开承认循环。</strong>要问存在，先得对存在有模糊领会。这不是逻辑毛病，是人的结构，用他自己的话说，要紧的不是躲开循环，而是以正确的方式进入循环。</p>
 
   <h3>软肋也要摆出来</h3>
   <p>两条。其一，术语的自我供血：他靠德语构词法铸造概念（上手状态、现身情态、绽出），论证力有时依附于词感。换一种语言，一些"显然"就不显然了，中译者需要整段注释来解释一个词的词义链，就是这个问题的影子。其二，修辞溢出立场：他两次声明"常人""沉沦"不含贬义，可行文用的是"独裁""磨平""压住"这类词。中性的声明和灼热的修辞之间有真实的张力，读者容易被后者带走，把结构分析读成大众社会批判。这个张力后面还要用到。</p>
@@ -396,7 +477,7 @@
   <div class="layer-num">第四层</div>
   <div class="layer-title">往井底再钻：锤子坏了，世界才显形</div>
 
-  <p>全书最容易被当成趣闻略过的段落，恰恰是它的地基。工匠用锤子钉钉子——海德格尔在这幅最不哲学的画面上，凿穿了近代哲学的地板。一层层钻下去。</p>
+  <p>全书最容易被当成趣闻略过的段落，恰恰是它的地基。工匠用锤子钉钉子，海德格尔在这幅最不哲学的画面上，凿穿了近代哲学的地板。一层层钻下去。</p>
 
   <p><strong>第一层：用得越顺手，锤子越"消失"。</strong>原文："对锤子这物越少瞠目凝视，用它用的越起劲，对它的关系也就变得越源始。"熟练的木匠干活时心里没有锤子，锤子"抽身而去"，融进了动作。这种存在方式叫<strong>上手状态</strong>。对照的另一种叫现成状态：把锤子摆在眼前打量，多重、什么材质、什么形状。注意顺序：先有用，后有看。看，是用被打断之后才出现的姿态。</p>
 
@@ -438,7 +519,7 @@
 
   <div class="qa">
     <div class="q">六问：绕了一大圈，"时间"到底怎么回答"存在"？</div>
-    <p>全书的收束：操心的三个环节各配一个时间维度——筹划朝向将来，被抛来自曾在，沉沦困于当前。所以"时间性不存在，而是'到时'"：人不占用时间，人就是时间展开的方式，而且"源始而本真的时间性是从本真的将来到时的"。钟表上那条均质的现在之流，是这个源始时间被拉平后的产物。至于从此在的时间性到"一般存在的意义"那最后一跃，书在这里停笔了，只留下问号。</p>
+    <p>全书的收束：操心的三个环节各配一个时间维度，筹划朝向将来，被抛来自曾在，沉沦困于当前。所以"时间性不存在，而是'到时'"：人不占用时间，人就是时间展开的方式，而且"源始而本真的时间性是从本真的将来到时的"。钟表上那条均质的现在之流，是这个源始时间被拉平后的产物。至于从此在的时间性到"一般存在的意义"那最后一跃，书在这里停笔了，只留下问号。</p>
   </div>
 </div>
 
@@ -450,10 +531,10 @@
   <p>先把事实钉牢：原计划两部各三篇，实际只出版了第一部前两篇，三分之一。缺的恰恰是标题许诺的那半："时间与存在"。1953 年第七版，海德格尔删去"第一部"字样，亲口宣布"第二部将不再补续，否则就必须把第一部重新写过"。这算不上拖延症，而是承认此路不通：从人的时间性出发去逼问一般存在的意义，这条路他后来自己放弃了，三十年代起掉头走向语言、艺术、泰然任之，所谓"转向"。所以读这本书要守一条纪律：书里论证到位的是"操心的意义是时间性"；至于"存在的意义是时间"，那是没写出来的许诺。一部半途而废的书成了世纪之书，这件事的教益比任何体系都大：<strong>问题提对了，比答案写完更有生产力。</strong></p>
 
   <h3>绕不开的阴影</h3>
-  <p>1933 年，本书出版六年后，海德格尔出任弗莱堡大学校长并加入纳粹党。这些都发生在书外，《存在与时间》的文本没有一句政治纲领，但争论从未停止：书里那套"本真性—决断"的语汇，与他后来的政治选择之间有没有内在通道？两边的论证都摆一下。指控方说：一种只讲"决断的姿态"而不讲"决断的内容"的哲学，本身就是空白支票，签给谁全看时运。辩护方说：书里的决心明明是"向着最本己的罪责存在"的个体化运动，方向与交出自己给集体狂热恰好相反，是他本人背叛了自己的书。我不裁决这桩公案，只提醒一件事：它至少证明了深刻与清醒是两种才能，一个能看穿常人独裁的头脑，轮到自己做政治判断时照样可以一头栽进最坏的"常人"里。读他的书，不必替他洗，也不必因人废言，但要带着这个疙瘩读。</p>
+  <p>1933 年，本书出版六年后，海德格尔出任弗莱堡大学校长并加入纳粹党。这些都发生在书外，《存在与时间》的文本没有一句政治纲领，但争论从未停止：书里那套"本真性，决断"的语汇，与他后来的政治选择之间有没有内在通道？两边的论证都摆一下。指控方说：一种只讲"决断的姿态"而不讲"决断的内容"的哲学，本身就是空白支票，签给谁全看时运。辩护方说：书里的决心明明是"向着最本己的罪责存在"的个体化运动，方向与交出自己给集体狂热恰好相反，是他本人背叛了自己的书。我不裁决这桩公案，只提醒一件事：它至少证明了深刻与清醒是两种才能，一个能看穿常人独裁的头脑，轮到自己做政治判断时照样可以一头栽进最坏的"常人"里。读他的书，不必替他洗，也不必因人废言，但要带着这个疙瘩读。</p>
 
   <h3>这套眼光在别处</h3>
-  <p>常人的分析写于 1927 年，用在今天的信息环境上严丝合缝到吓人。"常人对文学艺术怎样阅读怎样判断，我们就怎样阅读怎样判断"——把常人换成算法推荐与热搜，句子照样成立，而且今天的常人第一次有了工程实现：推送系统就是自动化的平均状态，实时"看守着任何挤上前来的例外"。还有时间那一根线：读书的时间是有厚度的（由"为何而读"组织，三种绽出俱全），刷信息流的时间是均质现在的序列（一条接一条，无曾在无将来）。同样一小时，两种到时。海德格尔没见过手机，但他把手机时代的病理提前写完了。</p>
+  <p>常人的分析写于 1927 年，用在今天的信息环境上严丝合缝到吓人。"常人对文学艺术怎样阅读怎样判断，我们就怎样阅读怎样判断"，把常人换成算法推荐与热搜，句子照样成立，而且今天的常人第一次有了工程实现：推送系统就是自动化的平均状态，实时"看守着任何挤上前来的例外"。还有时间那一根线：读书的时间是有厚度的（由"为何而读"组织，三种绽出俱全），刷信息流的时间是均质现在的序列（一条接一条，无曾在无将来）。同样一小时，两种到时。海德格尔没见过手机，但他把手机时代的病理提前写完了。</p>
 
   <h3>读完可以做的两件事</h3>
   <p>一件：做一次"锤子测试"。挑一样你完全依赖却从不注意的东西（网络、某个人、健康），趁它还没坏，主动想象它断掉一天。那张平时透明的指引网会显形，你会第一次看清自己真实的依赖结构。另一件：抓一句自己嘴里的"大家都"。下次说出"大家都这么办""一般人都会"时停一秒，问：这个"大家"具体是谁？多数时候答案是查无此人。那一秒，你摸到了常人的边界，也就是自己的边界。</p>
@@ -490,7 +571,7 @@
   <div class="layer-num">第八层</div>
   <div class="layer-title">"本来也没什么"</div>
 
-  <p>全书写得最像文学的地方，是关于畏的那几行。畏袭来时，"进行威胁的东西不能在附近范围之内从一个确定的方向临近而来，它已经在'此'——然而又在无何有之乡；它这么近，以致它紧压而使人窒息——然而又在无何有之乡"。等它退潮，人松一口气，说出那句日常的咒语："本来也没什么。"</p>
+  <p>全书写得最像文学的地方，是关于畏的那几行。畏袭来时，"进行威胁的东西不能在附近范围之内从一个确定的方向临近而来，它已经在'此'，然而又在无何有之乡；它这么近，以致它紧压而使人窒息，然而又在无何有之乡"。等它退潮，人松一口气，说出那句日常的咒语："本来也没什么。"</p>
 
   <p>海德格尔在这句口头禅前停了下来，像考古学家停在一块不起眼的陶片前。他说这话"事实上就在存在者层次上说中了本来是什么的那个东西"：畏之所畏，正是这个"没什么"。这句安抚说得没错，甚至说得精确：刚才让你窒息的确实不是任何一样东西，账单也好、体检报告也好、那条没回的消息也好，都够不上。那些是怕的对象，怕可以对付：还钱、复查、发消息。畏对付不了，因为它没有对象。它是承载所有对象的那张底布本身松动了一下。你瞥见的是：这套让每件事各就各位的意义秩序，本身悬在空中，没有地基，全靠大家一起不去看它才显得结实。</p>
 
@@ -506,7 +587,7 @@
   引文（柏拉图题词、此在定义、锤子与上手状态、用具整体、失灵三样式、常人独裁与卸责、畏与"无何有之乡"、"本来也没什么"、死亡三重定义、先行与期待之别、良知呼声、决心定义、时间性"到时"与绽出、"独在是共在的残缺样式"）皆出自陈嘉映、王庆节译本（中文修订第二版）原文精读，行号已核；txt 系 pdftotext 提取有个别破字，引文按通行译本文字校正。残篇事实（原计划六分之二、1953 年第七版序言宣布不补续）出自书内纲目与序言。海德格尔 1933 年校长任职与入党、与胡塞尔的师徒关系及决裂、后期"转向"，为书外公开思想史事实；"本真性语汇与政治选择"之争按争议呈现，未下裁决。与克尔凯郭尔、中阴教法的并置为我的延伸判断，非本书文本。"沉沦""常人"不含道德贬义为海氏原文明文声明。</div>
 
 <div class="finale">
-  <div class="line">深夜那阵说不出名堂的空落，是全天唯一没被常人排班的时段——别急着说"本来也没什么"，那个"没什么"，是你自己的房间。</div>
+  <div class="line">深夜那阵说不出名堂的空落，是全天唯一没被常人排班的时段，别急着说"本来也没什么"，那个"没什么"，是你自己的房间。</div>
   <div class="sign">青山 · 2026-07-16</div>
 </div>
 

@@ -5,25 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>美的历程 · 解书</title>
 <style>
-  @font-face {
+    @font-face {
     font-family: "KingHwaOldSong";
-    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "KingHwaOldSong Bold";
-    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
     font-weight: 700;
+    font-display: swap;
   }
   @font-face {
     font-family: "Huiwen-mincho";
-    src: local("Huiwen-mincho"), local("汇文明朝体");
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
     font-weight: 400;
+    font-display: swap;
   }
   @font-face {
     font-family: "FZBoYaFangKanSongK";
     src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
     font-weight: 400;
+    font-display: swap;
   }
 
   @page {
@@ -80,6 +87,17 @@
       max-width: 100% !important;
       margin: 0 !important;
       padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    .cover {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
+    }
+    .toc {
+      min-height: 75vh;
+      border-bottom: 1.2pt solid var(--border);
     }
   }
 
@@ -93,14 +111,14 @@
     orphans: 3;
   }
 
-  /* Cover & Hero */
-  .cover, .hero, .cover-hero {
+  .cover {
     padding-top: 10mm;
     padding-bottom: 24pt;
     margin-bottom: 32pt;
     border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
   }
-  .cover-eyebrow, .kicker {
+  .cover-eyebrow {
     font-family: var(--title-font);
     font-size: 11pt;
     color: var(--brand);
@@ -109,7 +127,7 @@
     margin-bottom: 18pt;
     text-transform: uppercase;
   }
-  .cover-title, .hero h1 {
+  .cover-title {
     font-family: var(--title-font);
     font-size: 34pt;
     font-weight: 700;
@@ -118,7 +136,7 @@
     letter-spacing: 1.5pt;
     margin-bottom: 18pt;
   }
-  .cover-sub, .tagline, .subtitle {
+  .cover-sub {
     font-family: var(--serif);
     font-size: 13.5pt;
     color: var(--dark-warm);
@@ -128,7 +146,7 @@
     padding-left: 14pt;
     border-left: 2.5pt solid var(--brand);
   }
-  .cover-meta, .author, .meta {
+  .cover-meta {
     font-family: var(--serif);
     font-size: 10.5pt;
     color: var(--stone);
@@ -136,12 +154,12 @@
     margin-top: 14pt;
   }
 
-  /* TOC */
   .toc {
     padding-top: 10mm;
     margin-bottom: 24pt;
     padding-bottom: 20pt;
     border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
   }
   .toc h2 {
     font-family: var(--title-font);
@@ -157,7 +175,6 @@
     align-items: baseline;
     padding: 8pt 0;
     border-bottom: 0.4pt dashed var(--border);
-    text-decoration: none;
     color: var(--dark-warm);
   }
   .toc-name {
@@ -172,7 +189,6 @@
     flex: 1;
   }
 
-  /* Layers & Sections */
   .section, .layer {
     padding-top: 14mm;
     margin-bottom: 18mm;
@@ -267,9 +283,8 @@
     font-size: 14pt;
     font-weight: 700;
     color: var(--brand);
-    margin: 12pt 0;
+    margin-bottom: 12pt;
     letter-spacing: 1pt;
-    line-height: 1.6;
   }
   .napkin-core {
     font-size: 12pt;
@@ -277,6 +292,23 @@
     text-align: center;
     color: var(--near-black);
     margin-bottom: 14pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
   }
 
   .ascii-box, pre {
@@ -329,6 +361,15 @@
     color: var(--stone);
   }
 
+  footer {
+    margin-top: 32pt;
+    padding-top: 16pt;
+    border-top: 0.6pt solid var(--border);
+    font-size: 10pt;
+    color: var(--stone);
+    text-align: center;
+  }
+
   @media screen and (max-width: 640px) {
     body {
       padding-left: 20px;
@@ -340,8 +381,48 @@
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="kicker">解书 · 2026-07-31</div>
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">美的历程</div>
+    <div class="cover-sub">这本书的核心问题，一句话：中国人的美感是从哪来的。李泽厚的回答也是一句话：每个时代的艺术，都是那个时代社会生活的沉淀物：时代变了，美就跟着变；而变过的每一层都没有消失，一层压一层地...</div>
+    <div class="cover-meta">李泽厚 · 1981 · 解读主理：青山 · 日期：2026-07-31 · 典藏长交付</div>
+  </div>
+  <div class="toc">
+    <h2>目 录</h2>
+    <div class="toc-item">
+      <span class="toc-name">Layer 03</span>
+      <span class="toc-desc">这本书的核心问题，一句话：中国人的美感是从哪来的。李泽厚的回答也是一句话：每个时代的艺术，都是那个时代社会生活...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 06</span>
+      <span class="toc-desc">把李泽厚的论证链抽出来，其实就四步：社会生活变了（生产方式、战争、王朝兴衰）→ 人的心境和时代精神跟着变 → ...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 09</span>
+      <span class="toc-desc">十章、八千年、几十种艺术门类，看着千头万绪，底下其实只有三根线。全书任何一章，都是这三根线的某种组合。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 12</span>
+      <span class="toc-desc">三根线里最深的是第二根。顺着它往下挖，每一锹都能再问一句"那为什么"。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 15</span>
+      <span class="toc-desc">结论：差在来历。"好看"是当下的感官反应，"有意味"是形式里存着已经忘掉的内容。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 18</span>
+      <span class="toc-desc">这本书 1981 年出版，成稿于此前几年。那是一个刚刚从"美是资产阶级趣味"的年代里走出来的时刻，一整代人被告...</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 21</span>
+      <span class="toc-desc">一句话版本：中国人觉得什么美，是八千年生活一层层压出来的，不是天生，也不是任何人规定的。</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-name">Layer 24</span>
+      <span class="toc-desc">第一层里我按下没讲的那件事，现在可以讲了。</span>
+    </div>
+  </div>
+
   <h1>美的历程</h1>
   <div class="author">李泽厚 · 1981</div>
   <p class="intro">一本两百来页的小书，从新石器时代的彩陶盆一路讲到《红楼梦》，八千年走完。它想回答的问题只有一个：中国人觉得什么东西美、为什么觉得美，这件事有没有一条讲得通的来路。</p>
@@ -369,7 +450,7 @@
   <p>然后是全书的转折点：人的觉醒。汉帝国崩塌，神学目的论跟着垮台，人第一次发现自己会死，而且死得很快。《古诗十九首》反反复复只咏叹一件事："生年不满百，常怀千岁忧""人生忽如寄，寿无金石固"。表面看这是颓废，李泽厚说恰恰相反：正因为发现生命短促可贵，人才第一次把眼光从神和教条那里收回来，看自己。人醒了，"文的自觉"跟着来：文章不再只是载道工具,写字不再只是记录，书法、诗、人物品藻都成了独立的审美对象。曹丕说文章是"经国之大业，不朽之盛事"，写作本身第一次成了值得托付生命的事。</p>
 
   <div class="marker">南北朝到盛唐 · 从佛窟到李白</div>
-  <p>接下来两站是一对镜像。佛陀世容：战乱几百年，人间是真正的悲惨世界，于是石窟里的佛越修越平静——人把现实里得不到的安慰，全部搬到了洞窟的墙上，割肉贸鸽、舍身饲虎，用自虐式的牺牲故事安顿绝望。而到了盛唐，国力鼎盛，边塞和科举给了寒门子弟出路，艺术一下子从洞窟里走出来晒太阳：李白的诗、张旭的狂草、"忽如一夜春风来，千树万树梨花开"。李泽厚叫它"盛唐之音"，本质是一种少年气——对世界毫无戒备的、扩张期文明特有的高兴。随后杜诗、颜字、韩文把这股奔放的劲儿收进规范，立成后世千年的楷模。</p>
+  <p>接下来两站是一对镜像。佛陀世容：战乱几百年，人间是真正的悲惨世界，于是石窟里的佛越修越平静，人把现实里得不到的安慰，全部搬到了洞窟的墙上，割肉贸鸽、舍身饲虎，用自虐式的牺牲故事安顿绝望。而到了盛唐，国力鼎盛，边塞和科举给了寒门子弟出路，艺术一下子从洞窟里走出来晒太阳：李白的诗、张旭的狂草、"忽如一夜春风来，千树万树梨花开"。李泽厚叫它"盛唐之音"，本质是一种少年气，对世界毫无戒备的、扩张期文明特有的高兴。随后杜诗、颜字、韩文把这股奔放的劲儿收进规范，立成后世千年的楷模。</p>
 
   <div class="marker">中晚唐到宋元 · 往内心走</div>
   <p>安史之乱后，方向掉头：从向外的开拓转成向内的品味。韵外之致，诗不再拼气象，改拼余味。苏轼成了标志性人物：他把人生空漠之感带进了文艺，做官也行、贬谪也行、"也无风雨也无晴"。山水画在宋元登顶，李泽厚拿王国维的词分了两段：北宋的"无我之境"，画家把自己藏起来，画一座完整的、可游可居的大山；元代的"有我之境"，倪瓒们把山水画成自己心绪的投影，几棵枯树一片空亭，画的全是自己。</p>
@@ -505,13 +586,13 @@
 
   <h3>换个领域，同一回事</h3>
   <p>积淀这个思路，在语言里看得最清楚。你说"事情黄了"，从不需要想为什么是黄不是绿；说"上任""下野"，也不会想到方位词里藏着几千年的尊卑秩序。词的本义早被忘干净了，可它们照样管着你怎么说话。一门语言就是一座活的积淀库，每个人张嘴就在使用自己根本不知道的历史。书法审美和这个同构：内容蒸发，形式接管。</p>
-  <p>再看一个完全不同的地方：一碗老卤。做卤味的人家有一锅老汤，每天往里添新料，滋味一层压一层，几十年下来，今天扔进去的任何东西捞出来都带着这锅汤的底味。你尝到的从来不只是今天的料，是几十年的累积在给今天的料调味。中国人看一幅新的水墨画觉得"对"或者"不对"，用的就是这样一锅汤——八千年的老卤在舌头上替你做判断。</p>
+  <p>再看一个完全不同的地方：一碗老卤。做卤味的人家有一锅老汤，每天往里添新料，滋味一层压一层，几十年下来，今天扔进去的任何东西捞出来都带着这锅汤的底味。你尝到的从来不只是今天的料，是几十年的累积在给今天的料调味。中国人看一幅新的水墨画觉得"对"或者"不对"，用的就是这样一锅汤，八千年的老卤在舌头上替你做判断。</p>
 
   <h3>读完这本书，可以做什么</h3>
   <p>给三个具体的动作。第一，下次进博物馆，在任何一件让你觉得"美"的古物前，多问一句：它当年是干什么用的？答案几乎总会改变你看它的方式，青铜器是杀俘祭祖的礼器，唐三彩是陪葬的明器，知道用途之后再看，"意味"就从形式里浮出来了。第二，下次觉得某样东西"高级"（留白、对仗、做旧），试着说出这个感觉的来路，说不出来路的"高级感"，多半是被谁家的营销积淀了三五年，而它冒充的是三千年。第三，读诗读画论时碰见"气韵""意境"这类大词，用这本书的办法把它放回具体时代里问一句：谁、在什么处境下、需要这个词？大词立刻会变小、变清楚。</p>
 
   <h3>我的立场</h3>
-  <p>表个态：这本书最好的部分是魏晋、盛唐、宋元三章，写得又准又动人；最弱的是明清一章，明显在赶路，市民文艺几段有敷衍之感，浪漫、感伤、批判三段式的划分也嫌整齐得过分。至于全书的马克思主义框架，我被"积淀"说服了，但没有被"最终决定"说服——第二层已经说过，那条无限绕弯的因果链没法证伪。我的读法是：把框架当脚手架看，楼盖好了，脚手架其实可以拆，"积淀"自己站得住，不需要"经济基础"来扶。</p>
+  <p>表个态：这本书最好的部分是魏晋、盛唐、宋元三章，写得又准又动人；最弱的是明清一章，明显在赶路，市民文艺几段有敷衍之感，浪漫、感伤、批判三段式的划分也嫌整齐得过分。至于全书的马克思主义框架，我被"积淀"说服了，但没有被"最终决定"说服，第二层已经说过，那条无限绕弯的因果链没法证伪。我的读法是：把框架当脚手架看，楼盖好了，脚手架其实可以拆，"积淀"自己站得住，不需要"经济基础"来扶。</p>
 </div>
 
 <div class="layer">
