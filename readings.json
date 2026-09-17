@@ -1,14 +1,14 @@
 {
   "updated": "2026-09-17",
-  "count": 757,
-  "htmlCount": 752,
-  "markdownCount": 755,
+  "count": 767,
+  "htmlCount": 762,
+  "markdownCount": 765,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
     "健康与生活": 5,
-    "其他阅读": 86,
-    "历史与文明": 135,
+    "其他阅读": 95,
+    "历史与文明": 136,
     "古典文献与国学": 9,
     "哲学与思想": 48,
     "宗教与灵性": 59,
@@ -25,6 +25,96 @@
     "诗歌与词赋": 11
   },
   "entries": [
+    {
+      "title": "饥饿的盛世",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E9%A5%A5%E9%A5%BF%E7%9A%84%E7%9B%9B%E4%B8%96_2026-09-17.html",
+      "markdown": "markdown/%E9%A5%A5%E9%A5%BF%E7%9A%84%E7%9B%9B%E4%B8%96_2026-09-17.md",
+      "htmlBytes": 21747,
+      "markdownBytes": 11273
+    },
+    {
+      "title": "精英的傲慢",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E7%B2%BE%E8%8B%B1%E7%9A%84%E5%82%B2%E6%85%A2_2026-09-17.html",
+      "markdown": "markdown/%E7%B2%BE%E8%8B%B1%E7%9A%84%E5%82%B2%E6%85%A2_2026-09-17.md",
+      "htmlBytes": 21274,
+      "markdownBytes": 10800
+    },
+    {
+      "title": "礼物的流动",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E7%A4%BC%E7%89%A9%E7%9A%84%E6%B5%81%E5%8A%A8_2026-09-17.html",
+      "markdown": "markdown/%E7%A4%BC%E7%89%A9%E7%9A%84%E6%B5%81%E5%8A%A8_2026-09-17.md",
+      "htmlBytes": 20893,
+      "markdownBytes": 10495
+    },
+    {
+      "title": "碌碌有为",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E7%A2%8C%E7%A2%8C%E6%9C%89%E4%B8%BA_2026-09-17.html",
+      "markdown": "markdown/%E7%A2%8C%E7%A2%8C%E6%9C%89%E4%B8%BA_2026-09-17.md",
+      "htmlBytes": 22706,
+      "markdownBytes": 12099
+    },
+    {
+      "title": "盲眼钟表匠",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E7%9B%B2%E7%9C%BC%E9%92%9F%E8%A1%A8%E5%8C%A0_2026-09-17.html",
+      "markdown": "markdown/%E7%9B%B2%E7%9C%BC%E9%92%9F%E8%A1%A8%E5%8C%A0_2026-09-17.md",
+      "htmlBytes": 21691,
+      "markdownBytes": 11241
+    },
+    {
+      "title": "洪业",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E6%B4%AA%E4%B8%9A_2026-09-17.html",
+      "markdown": "markdown/%E6%B4%AA%E4%B8%9A_2026-09-17.md",
+      "htmlBytes": 22413,
+      "markdownBytes": 11825
+    },
+    {
+      "title": "楚亡",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E6%A5%9A%E4%BA%A1_2026-09-17.html",
+      "markdown": "markdown/%E6%A5%9A%E4%BA%A1_2026-09-17.md",
+      "htmlBytes": 21588,
+      "markdownBytes": 11112
+    },
+    {
+      "title": "曾国藩的正面与侧面",
+      "date": "2026-09-17",
+      "category": "历史与文明",
+      "html": "readings/%E6%9B%BE%E5%9B%BD%E8%97%A9%E7%9A%84%E6%AD%A3%E9%9D%A2%E4%B8%8E%E4%BE%A7%E9%9D%A2_2026-09-17.html",
+      "markdown": "markdown/%E6%9B%BE%E5%9B%BD%E8%97%A9%E7%9A%84%E6%AD%A3%E9%9D%A2%E4%B8%8E%E4%BE%A7%E9%9D%A2_2026-09-17.md",
+      "htmlBytes": 21770,
+      "markdownBytes": 11379
+    },
+    {
+      "title": "昨日的世界",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E6%98%A8%E6%97%A5%E7%9A%84%E4%B8%96%E7%95%8C_2026-09-17.html",
+      "markdown": "markdown/%E6%98%A8%E6%97%A5%E7%9A%84%E4%B8%96%E7%95%8C_2026-09-17.md",
+      "htmlBytes": 21112,
+      "markdownBytes": 10670
+    },
+    {
+      "title": "县中的孩子",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E5%8E%BF%E4%B8%AD%E7%9A%84%E5%AD%A9%E5%AD%90_2026-09-17.html",
+      "markdown": "markdown/%E5%8E%BF%E4%B8%AD%E7%9A%84%E5%AD%A9%E5%AD%90_2026-09-17.md",
+      "htmlBytes": 21064,
+      "markdownBytes": 10682
+    },
     {
       "title": "黑客与画家",
       "date": "2026-09-16",
