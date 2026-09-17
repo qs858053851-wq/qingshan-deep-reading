@@ -1,22 +1,22 @@
 {
   "updated": "2026-09-17",
-  "count": 777,
-  "htmlCount": 772,
-  "markdownCount": 775,
+  "count": 787,
+  "htmlCount": 782,
+  "markdownCount": 785,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
     "健康与生活": 5,
-    "其他阅读": 99,
-    "历史与文明": 139,
+    "其他阅读": 103,
+    "历史与文明": 140,
     "古典文献与国学": 9,
-    "哲学与思想": 48,
+    "哲学与思想": 51,
     "宗教与灵性": 59,
     "实用与技能": 12,
-    "心理学与自我": 42,
+    "心理学与自我": 43,
     "性文化与身体": 21,
     "文学与小说": 117,
-    "社会与政治": 81,
+    "社会与政治": 82,
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
@@ -53,6 +53,33 @@
       "markdownBytes": 12945
     },
     {
+      "title": "走出唯一真理观",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E8%B5%B0%E5%87%BA%E5%94%AF%E4%B8%80%E7%9C%9F%E7%90%86%E8%A7%82_2026-09-17.html",
+      "markdown": "markdown/%E8%B5%B0%E5%87%BA%E5%94%AF%E4%B8%80%E7%9C%9F%E7%90%86%E8%A7%82_2026-09-17.md",
+      "htmlBytes": 21469,
+      "markdownBytes": 11146
+    },
+    {
+      "title": "艾希曼在耶路撒冷",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E8%89%BE%E5%B8%8C%E6%9B%BC%E5%9C%A8%E8%80%B6%E8%B7%AF%E6%92%92%E5%86%B7_2026-09-17.html",
+      "markdown": "markdown/%E8%89%BE%E5%B8%8C%E6%9B%BC%E5%9C%A8%E8%80%B6%E8%B7%AF%E6%92%92%E5%86%B7_2026-09-17.md",
+      "htmlBytes": 22693,
+      "markdownBytes": 12213
+    },
+    {
+      "title": "自我决定的孤独",
+      "date": "2026-09-17",
+      "category": "心理学与自我",
+      "html": "readings/%E8%87%AA%E6%88%91%E5%86%B3%E5%AE%9A%E7%9A%84%E5%AD%A4%E7%8B%AC_2026-09-17.html",
+      "markdown": "markdown/%E8%87%AA%E6%88%91%E5%86%B3%E5%AE%9A%E7%9A%84%E5%AD%A4%E7%8B%AC_2026-09-17.md",
+      "htmlBytes": 22266,
+      "markdownBytes": 11852
+    },
+    {
       "title": "纳瓦尔宝典",
       "date": "2026-09-17",
       "category": "其他阅读",
@@ -69,6 +96,15 @@
       "markdown": "markdown/%E7%B2%BE%E8%8B%B1%E7%9A%84%E5%82%B2%E6%85%A2_2026-09-17.md",
       "htmlBytes": 21274,
       "markdownBytes": 10800
+    },
+    {
+      "title": "福柯的生死爱欲",
+      "date": "2026-09-17",
+      "category": "哲学与思想",
+      "html": "readings/%E7%A6%8F%E6%9F%AF%E7%9A%84%E7%94%9F%E6%AD%BB%E7%88%B1%E6%AC%B2_2026-09-17.html",
+      "markdown": "markdown/%E7%A6%8F%E6%9F%AF%E7%9A%84%E7%94%9F%E6%AD%BB%E7%88%B1%E6%AC%B2_2026-09-17.md",
+      "htmlBytes": 22441,
+      "markdownBytes": 11880
     },
     {
       "title": "礼物的流动",
@@ -107,6 +143,15 @@
       "markdownBytes": 12547
     },
     {
+      "title": "现代性与大屠杀",
+      "date": "2026-09-17",
+      "category": "历史与文明",
+      "html": "readings/%E7%8E%B0%E4%BB%A3%E6%80%A7%E4%B8%8E%E5%A4%A7%E5%B1%A0%E6%9D%80_2026-09-17.html",
+      "markdown": "markdown/%E7%8E%B0%E4%BB%A3%E6%80%A7%E4%B8%8E%E5%A4%A7%E5%B1%A0%E6%9D%80_2026-09-17.md",
+      "htmlBytes": 21938,
+      "markdownBytes": 11462
+    },
+    {
       "title": "深渊上的火",
       "date": "2026-09-17",
       "category": "文学与小说",
@@ -123,6 +168,15 @@
       "markdown": "markdown/%E6%B4%AA%E4%B8%9A_2026-09-17.md",
       "htmlBytes": 22413,
       "markdownBytes": 11825
+    },
+    {
+      "title": "正义的可能",
+      "date": "2026-09-17",
+      "category": "社会与政治",
+      "html": "readings/%E6%AD%A3%E4%B9%89%E7%9A%84%E5%8F%AF%E8%83%BD_2026-09-17.html",
+      "markdown": "markdown/%E6%AD%A3%E4%B9%89%E7%9A%84%E5%8F%AF%E8%83%BD_2026-09-17.md",
+      "htmlBytes": 22417,
+      "markdownBytes": 11881
     },
     {
       "title": "楚亡",
@@ -170,6 +224,24 @@
       "markdownBytes": 12183
     },
     {
+      "title": "打开：周濂的100堂西方哲学课",
+      "date": "2026-09-17",
+      "category": "哲学与思想",
+      "html": "readings/%E6%89%93%E5%BC%80%EF%BC%9A%E5%91%A8%E6%BF%82%E7%9A%84100%E5%A0%82%E8%A5%BF%E6%96%B9%E5%93%B2%E5%AD%A6%E8%AF%BE_2026-09-17.html",
+      "markdown": "markdown/%E6%89%93%E5%BC%80%EF%BC%9A%E5%91%A8%E6%BF%82%E7%9A%84100%E5%A0%82%E8%A5%BF%E6%96%B9%E5%93%B2%E5%AD%A6%E8%AF%BE_2026-09-17.md",
+      "htmlBytes": 22712,
+      "markdownBytes": 12284
+    },
+    {
+      "title": "大问题：简明哲学导论",
+      "date": "2026-09-17",
+      "category": "哲学与思想",
+      "html": "readings/%E5%A4%A7%E9%97%AE%E9%A2%98%EF%BC%9A%E7%AE%80%E6%98%8E%E5%93%B2%E5%AD%A6%E5%AF%BC%E8%AE%BA_2026-09-17.html",
+      "markdown": "markdown/%E5%A4%A7%E9%97%AE%E9%A2%98%EF%BC%9A%E7%AE%80%E6%98%8E%E5%93%B2%E5%AD%A6%E5%AF%BC%E8%AE%BA_2026-09-17.md",
+      "htmlBytes": 21980,
+      "markdownBytes": 11578
+    },
+    {
       "title": "大衰退",
       "date": "2026-09-17",
       "category": "其他阅读",
@@ -195,6 +267,24 @@
       "markdown": "markdown/%E5%8E%BF%E4%B8%AD%E7%9A%84%E5%AD%A9%E5%AD%90_2026-09-17.md",
       "htmlBytes": 21064,
       "markdownBytes": 10682
+    },
+    {
+      "title": "何为良好生活",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E4%BD%95%E4%B8%BA%E8%89%AF%E5%A5%BD%E7%94%9F%E6%B4%BB_2026-09-17.html",
+      "markdown": "markdown/%E4%BD%95%E4%B8%BA%E8%89%AF%E5%A5%BD%E7%94%9F%E6%B4%BB_2026-09-17.md",
+      "htmlBytes": 21145,
+      "markdownBytes": 10766
+    },
+    {
+      "title": "人的境况",
+      "date": "2026-09-17",
+      "category": "其他阅读",
+      "html": "readings/%E4%BA%BA%E7%9A%84%E5%A2%83%E5%86%B5_2026-09-17.html",
+      "markdown": "markdown/%E4%BA%BA%E7%9A%84%E5%A2%83%E5%86%B5_2026-09-17.md",
+      "htmlBytes": 22931,
+      "markdownBytes": 12397
     },
     {
       "title": "中国大历史",

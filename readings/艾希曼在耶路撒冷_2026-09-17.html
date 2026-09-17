@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>艾希曼在耶路撒冷 · 深度解读</title>
+<style>
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  .cover {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
+  }
+  .cover-eyebrow {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  .section {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1 {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
+
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 12pt;
+    letter-spacing: 1pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+</style>
+</head>
+<body>
+
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">艾希曼在耶路撒冷</div>
+    <div class="cover-sub">平庸的恶与思考的责任：纳粹官僚审判、体制盲从与现代极权机器下的道德瓦解</div>
+    <div class="cover-meta">汉娜·阿伦特 著 · 广西师范大学出版社 · 理想国译丛 M034 · 二十世纪政治哲学与伦理学惊世奠基巨著 · 解读日期：2026-09-17 · 典藏长交付</div>
+  </div>
+
+  <div class="toc">
+    <h2>目 录</h2>
+    <a class="toc-item" href="#layer01">
+      <span class="toc-name">Layer 01 · 论证全景</span>
+      <span class="toc-desc">穿透世纪审判的法庭戏剧，直面极权机器中最骇人听闻的恶魔真相：平庸之恶</span>
+    </a>
+    <a class="toc-item" href="#layer02">
+      <span class="toc-name">Layer 02 · 核心论据</span>
+      <span class="toc-desc">官僚语言掩饰、完全丧失思考能力与犹太人委员会合作悲剧的实证铁证</span>
+    </a>
+    <a class="toc-item" href="#layer03">
+      <span class="toc-name">Layer 03 · 机制解剖</span>
+      <span class="toc-desc">科层分工隔离、技术理性主导与良知社会化外包的三大动力学齿轮</span>
+    </a>
+    <a class="toc-item" href="#layer04">
+      <span class="toc-name">Layer 04 · 终极下钻</span>
+      <span class="toc-desc">从思维缺席到恶的蔓延：极权统治摧毁人类存在本质的终极审判</span>
+    </a>
+    <a class="toc-item" href="#layer05">
+      <span class="toc-name">Layer 05 · 衍生推演</span>
+      <span class="toc-desc">六大核心推演：从职场合规到公民抗命的良知自卫实战</span>
+    </a>
+    <a class="toc-item" href="#layer06">
+      <span class="toc-name">Layer 06 · 破界审视</span>
+      <span class="toc-desc">辨析阿伦特视角的历史争议与理论普适性，保持学术严谨</span>
+    </a>
+    <a class="toc-item" href="#layer07">
+      <span class="toc-name">Layer 07 · 餐巾纸仪表盘</span>
+      <span class="toc-desc">平庸之恶官僚运转与个体道德坍塌拓扑模型</span>
+    </a>
+    <a class="toc-item" href="#layer08">
+      <span class="toc-name">Layer 08 · 讲解引擎</span>
+      <span class="toc-desc">最值钱的一个问题：如果一个火车调度员每天只是极其认真、极其专业地在办公室里安排列车时刻表，确保每一趟列车准点发车，但他明知道这些列车装满无辜百姓开往毒气室，他有罪吗？</span>
+    </a>
+    <a class="toc-item" href="#layer09">
+      <span class="toc-name">Layer 09 · 终局定音</span>
+      <span class="toc-desc">在极权的废墟之上，永远擦亮独立思考的精神火炬</span>
+    </a>
+  </div>
+
+  <div class="section" id="layer01">
+    <div class="layer-tag">Layer 01 · 论证全景</div>
+    <h1>穿透世纪审判的法庭戏剧，直面极权机器中最骇人听闻的恶魔真相：平庸之恶</h1>
+    <p>二十世纪最伟大的政治哲学家汉娜·阿伦特在这部震撼全球的思想经典中，以其无与伦比的洞察力记录了1961年耶路撒冷对纳粹战犯阿道夫·艾希曼的历史性审判。艾希曼作为纳粹驱逐与屠杀数百万犹太人最终方案的核心协调官，在战后被以色列摩萨德特工从阿根廷秘密抓捕并送上法庭。全世界原本期待看到的是一个面目狰狞、嗜血残暴、满脑子反犹狂热的恶魔狂徒。</p>
+    <p>然而阿伦特在法庭上观察到的真实艾希曼，却让所有人不寒而栗：他身材平庸、言谈乏味、毫无任何戏剧性的恶魔特质，甚至连狂热的反犹思想都没有。他是一个极其守规矩、按部就班、渴望在体制内晋升的模范官僚。他杀人非出于仇恨，为出于对上级命令的盲目顺从与对制度程序的冰冷执行。阿伦特由此提出了震动整个人类思想界的划时代概念：平庸的恶。</p>
+    <p>这部著作深刻揭示了现代官僚体制与极权统治如何通过剥夺个体的思考能力，让最普通的常人变为灭绝人性的杀人机器，成为反思现代文明道德危机不可逾越的丰碑。</p>
+  </div>
+
+  <div class="section" id="layer02">
+    <div class="layer-tag">Layer 02 · 核心论据</div>
+    <h1>官僚语言掩饰、完全丧失思考能力与犹太人委员会合作悲剧的实证铁证</h1>
+    <p>全书的第一个坚实庭审与历史实证是纳粹体制对语言规则的系统改造，即｜纳粹官僚公文语言规则与用最终方案疏散劳动替换血腥屠杀｜。阿伦特查阅了成千上万页审讯记录发现，艾希曼在公文与日常交谈中极度依赖成套的陈词滥调与官僚黑话。在纳粹文件中，屠杀被篡改为最终方案，驱逐被称为疏散，枪决被美化为特别处置。这套虚伪的制度语言彻底阻断了官僚与现实血腥后果之间的认知联结，让艾希曼等人在签字调动运尸列车时，只觉得自己正在高效完成一项复杂的物流调度任务。</p>
+    <p>第二个核心实证是艾希曼在法庭上展现出的完全无力独立思考，即｜艾希曼完全无法站在他人立场思考与用康德道德律为屠杀效忠辩护｜。当法官追问其良知时，艾希曼居然得意洋洋地宣称自己一辈子遵守康德的定言命令，将服从国家元首的命令视为至高无上的道德义务。阿伦特指出，艾希曼最致命的特征并非邪恶，为思维的彻底缺席。他完全没有能力站在被害者的立场去想象他人的痛苦，他的心智被体制的套话与升迁的算计完全填满，变成了一具丧失反思功能的制度机械木偶。</p>
+    <p>第三个极具争议的冷酷历史实证聚焦于被害者内部的体制化卷入，即｜各占领区犹太人委员会为了两害相权协助编制遣送名单悲剧｜。阿伦特冒着被同胞唾骂的巨大风险指出，纳粹在推行大屠杀时，精巧地利用了各犹太社区内部的自治委员会。委员会的领袖们幻想通过配合登记、妥协交涉来换取部分人的幸存，结果客观上极大地降低了纳粹的行政与镇压成本，反被纳粹一步步诱导着亲手编出了开往奥斯威辛的死亡列车名单，暴露了极权统治对人性尊严最彻底的毁灭在于让被害者也沦为体制杀戮的齿轮。</p>
+  </div>
+
+  <div class="section" id="layer03">
+    <div class="layer-tag">Layer 03 · 机制解剖</div>
+    <h1>科层分工隔离、技术理性主导与良知社会化外包的三大动力学齿轮</h1>
+    <p>阿伦特穿透大屠杀的历史迷雾，精准提炼出制造平庸之恶的三大制度齿轮。</p>
+    <p>第一齿轮是现代科层制的超细分工与道德距离拉长。在流水线式的现代行政系统中，每个人都只负责庞大链条上极小的一环：有人负责制定时刻表，有人负责采购铁丝网，有人负责打字盖章。没有任何一个人需要直接面对集中营毒气室里的惨叫与尸臭。这种专业化分工把具体的杀戮行为抽象化为无害的数据操作，极大地拉长了行为者与杀人后果之间的心理距离，让个体的罪恶感彻底稀释消散。</p>
+    <p>第二齿轮是工具理性压倒价值理性的全面异化。在艾希曼眼中，最高的美德是效率、执行力与组织忠诚。至于这项任务本身是否正义、是否符合人道，根本不在他的考核指标之内。只要能够准时把车皮调配到位、让运输损耗率降到最低，他就认为自己是一个称职敬业的优秀公务员。工具理性的狂飙让现代人成为了最冷血的无脑执行者。</p>
+    <p>第三齿轮是良知认同的社会化彻底外包。在极权社会中，国家垄断了一切价值的定义权，颠倒了人类最基本的道德常识。当全社会都在高呼元首万岁、当法律正式规定屠杀犹太人合法而保护犹太人违法时，那些缺乏独立判断能力的平庸之辈便彻底放弃了内心的审判法庭，将良知完全托付给体制的权威指令。盲从取代了思考，平庸铸就了浩劫。</p>
+  </div>
+
+  <div class="section" id="layer04">
+    <div class="layer-tag">Layer 04 · 终极下钻</div>
+    <h1>从思维缺席到恶的蔓延：极权统治摧毁人类存在本质的终极审判</h1>
+    <p>顺着汉娜·阿伦特对平庸之恶的层层剖析，我们直面了现代文明最深邃的恐惧深渊。</p>
+    <p>第一步追问粉碎了恶魔必定面目可憎的传统神话。从莎士比亚的理查三世到宗教史诗中的撒旦，传统文化总把行恶者描绘成内心充满狂怒、怨恨与扭曲野心的非凡怪物。然而阿伦特让我们看清：现代工业社会最巨大的灾难，往往是由数以百万计面目平庸、遵纪守法、按时交税、晚上回家亲吻妻儿的正常人一手造成的。只要他们停止了思考，体制就能把他们组装成最致命的灭绝武器。</p>
+    <p>第二步揭示了思考作为一种存在自卫武器的绝对重要性。阿伦特强调，思考非专业哲学家在书斋里的抽象消遣，为每个人作为人保持道德底线的终极能力。思考是在内心深处展开的一场自我与自我的真诚对话。当一个人开始思考时，他便无法忍受自己变成一个与杀人犯同流合污的卑劣之徒，内心的对话构成了拒绝盲从体制恶行的最后防线。</p>
+    <p>第三步确立了人类不可推卸的个体责任原则。在耶路撒冷的法庭上，艾希曼反复为自己辩解：我只是螺丝钉，换作别人也会这么做。审判长与阿伦特给出了掷地有声的回答：法庭审判的非体制，为是站在这里的一个活生生的人！在道德与法律的法庭前，没有人可以靠声称自己是螺丝钉而免罪。当你选择成为恶行齿轮的那一刻起，你就是杀人凶手！</p>
+  </div>
+
+  <div class="section" id="layer05">
+    <div class="layer-tag">Layer 05 · 衍生推演</div>
+    <h1>六大核心推演：从职场合规到公民抗命的良知自卫实战</h1>
+    <p>推演一，职场中面对明显违反职业伦理的指令如何自处？坚决拒绝只要老板吩咐我就盲目执行的工具人思维，对违背法律底线与商业良知的造假、侵权行为保持警惕，守住职业尊严的第一道闸门。</p>
+    <p>推演二，如何防范组织内部黑话对自身心智的钝化？警惕那些将降本裁员美化为组织优化、将剥削加班美化为福报奋斗的虚伪公关套话，用清晰具体的大白话直面事实本质，不被语言迷魂汤蒙蔽双眼。</p>
+    <p>推演三，企业流程设计中如何避免科层制道德冷漠？打破过度割裂的黑盒流程，让技术人员与管理人员能够直面其产品与算法对真实用户的负面影响，建立伦理风险的一票否决机制。</p>
+    <p>推演四，面对狂热的集体舆论狂潮如何保持清醒？当全网都在一边倒地对某个人或群体进行猎巫网暴时，坚决不参与廉价的道德狂欢，退后一步独立查验事实证据，警惕被群体情绪裹挟沦为平庸的施暴者。</p>
+    <p>推演五，如何培养个体的同理心与道德想象力？多阅读优秀的文学作品与历史记录，主动接触不同阶层、不同背景人们的真实生活困境，训练自己站在受害者的鞋子里感知世界的能力。</p>
+    <p>推演六，面对不义体制的威逼利诱如何守住最后防线？即便无力公开推翻庞然大物，至少可以选择消极怠工、选择不执行恶行、选择悄悄把枪口抬高一厘米，正如阿伦特所言：在面对极端恶行时，不作恶本身就是最伟大的抵抗。</p>
+  </div>
+
+  <div class="section" id="layer06">
+    <div class="layer-tag">Layer 06 · 破界审视</div>
+    <h1>辨析阿伦特视角的历史争议与理论普适性，保持学术严谨</h1>
+    <p>阿伦特的平庸之恶论断极具穿透力，但近年来的史料挖掘也对其提出了必要的补充与修正。</p>
+    <p>第一重审视在于，后来解密的阿根廷录音表明，艾希曼在私下谈话中表现出了比法庭上更强烈的纳粹狂热与种族主义意识形态认同。艾希曼在法庭上有意表演并放大了自己的小官僚平庸形象以求保命，阿伦特可能在一定程度上低估了他主观恶意的深度。</p>
+    <p>第二重反思关乎对犹太人委员会的历史评价。阿伦特对犹太领袖妥协的严厉批评在战后引发了巨大的情感创伤与公愤。历史学家指出，在纳粹极度残暴的信息封锁与暴力威慑下，许多犹太领袖是在完全不知晓毒气室真相的绝望处境中试图救人，将其简单定性为体制合谋略显苛刻。</p>
+    <p>第三重审视强调，尽管艾希曼个体可能并非完全平庸，但阿伦特所提炼出的平庸之恶概念与现代制度异化模型本身，依然具有极其深刻的普遍社会学与哲学真理性，对警惕现代官僚暴政具有永恒的警示价值。</p>
+  </div>
+
+  <div class="section" id="layer07">
+    <div class="layer-tag">Layer 07 · 餐巾纸仪表盘</div>
+    <h1>平庸之恶官僚运转与个体道德坍塌拓扑模型</h1>
+    <div class="napkin">
+      <div class="napkin-formula">平庸之恶爆发强度公式：极权灾难能级 = [科层分工原子化程度 × 工具理性狂热度] / (个体独立思考能力 × 公民抗命勇气)。当个体思考能力归零且良知完全外包给体制权威时，制度化的暴行便如洪水般决堤。</div>
+      <div class="napkin-caption">这张餐巾纸图表记录了汉娜·阿伦特留给人类文明最沉重的警钟：恶魔不一定长着獠牙，它最可怕的化身就是那个拒绝思考的你自己。</div>
+    </div>
+  </div>
+
+  <div class="section" id="layer08">
+    <div class="layer-tag">Layer 08 · 讲解引擎</div>
+    <h1>最值钱的一个问题：如果一个火车调度员每天只是极其认真、极其专业地在办公室里安排列车时刻表，确保每一趟列车准点发车，但他明知道这些列车装满无辜百姓开往毒气室，他有罪吗？</h1>
+    <p>这就是汉娜·阿伦特逼迫全人类必须直面的灵魂拷问，也是审判艾希曼最核心的逻辑死结。</p>
+    <p>在传统的观念里，杀人凶手必须是亲自扣动扳机的人，或者亲自把毒气罐倒入通气孔的人。那个坐在几百公里外舒适办公室里、戴着眼镜喝着咖啡核对车皮数据的调度员，手里连一把手枪都没有，他甚至一辈子连一只鸡都没杀过。</p>
+    <p>如果按照现代企业的考核标准，他简直是一个无可挑剔的模范员工：工作从不迟到早退，报表做得工工整整，调度效率行业第一。</p>
+    <p>然而阿伦特撕开了这层虚伪的温情脉脉：在现代工业化的大屠杀中，这种螺丝钉式的专业高效，恰恰是整台杀人绞肉机能够平稳运转的最核心机件！</p>
+    <p>没有前线的持枪宪兵，纳粹顶多只能在村庄里零星屠杀；但有了成千上万个像艾希曼这样高智商、高效率却完全停止道德思考的齿轮，六百万人的工业化灭绝才得以在短短几年内完成！</p>
+    <p>这个调度员的根本罪过，就在于他为了自己微不足道的职业前途，主动掐死了内心作为人的基本思考能力。他假装自己只是一枚无辜的齿轮，但人类非齿轮！只要你还是一个有心智的人，你就永远拥有在罪恶面前停下来的道德选择。</p>
+  </div>
+
+  <div class="section" id="layer09">
+    <div class="layer-tag">Layer 09 · 终局定音</div>
+    <h1>在极权的废墟之上，永远擦亮独立思考的精神火炬</h1>
+    <p>合上《艾希曼在耶路撒冷》，刺骨的寒意久久无法散去。汉娜·阿伦特以近乎冷酷的理性，替人类文明揭开了一道最深、最溃烂的伤口，粉碎了我们将罪恶轻易推给少数狂魔的侥幸心理。</p>
+    <p>平庸之恶从来没有随着第三帝国的覆灭而远去，它如幽灵般潜伏在现代社会的每一个办公室、每一个算法系统与每一次集体狂热之中。保持思考的清醒，拒绝成为冷血体制的盲从齿轮，在任何时候都敢于用良知叩问权威，这是阿伦特用鲜血铸就的思想勋章，也是我们在黑暗中守护人性光辉的永恒铠甲。</p>
+  </div>
+
+</body>
+</html>
