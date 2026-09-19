@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>崩盘 · 深度解读</title>
+<style>
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  .cover {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
+  }
+  .cover-eyebrow {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  .section {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1 {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
+
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 12pt;
+    letter-spacing: 1pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+    white-space: pre-wrap;
+    font-family: var(--serif);
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .closing-quote {
+    margin: 32pt 0;
+    padding: 24pt 28pt;
+    background: var(--brand-tint);
+    border-left: 4pt solid var(--brand);
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--brand);
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: #ebe9df;
+    border-radius: 2pt;
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  @media screen and (max-width: 640px) {
+    body {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">崩盘</div>
+    <div class="cover-sub">金融危机如何重塑世界：离岸美元荒、影子银行挤兑与十年来全球地缘大洗牌</div>
+    <div class="cover-meta">[英] 亚当·图兹 著 · 陆大鹏 译 · 理想国 · 民主与建设出版社 · 理想国译丛031 · 解读日期：2026-09-20 · 典藏长交付</div>
+  </div>
+
+  <div class="toc">
+    <h2>目 录</h2>
+    <a class="toc-item" href="#layer01">
+      <span class="toc-name">Layer 01 · 论证全景</span>
+      <span class="toc-desc">跳出华尔街贪婪的浅薄道德叙事，以宏大全球宏观资产负债表笔法重构二〇〇八年全球流动性大休克与政治大震荡</span>
+    </a>
+    <a class="toc-item" href="#layer02">
+      <span class="toc-name">Layer 02 · 核心论据</span>
+      <span class="toc-desc">跨大西洋美元回购挤兑、美联储千亿货币互换与欧洲紧缩内爆的账本实证</span>
+    </a>
+    <a class="toc-item" href="#layer03">
+      <span class="toc-name">Layer 03 · 机制解剖</span>
+      <span class="toc-desc">离岸美元蓄水池、影子银行抵押品网络与主权紧缩惩罚三大金融动力学齿轮</span>
+    </a>
+    <a class="toc-item" href="#layer04">
+      <span class="toc-name">Layer 04 · 终极下钻</span>
+      <span class="toc-desc">从资产负债表的断裂直抵当代全球资本主义体系的深层合法性危机</span>
+    </a>
+    <a class="toc-item" href="#layer05">
+      <span class="toc-name">Layer 05 · 衍生推演</span>
+      <span class="toc-desc">六大宏观交易与战略推演：从离岸流动性监控到全球风险对冲指南</span>
+    </a>
+    <a class="toc-item" href="#layer06">
+      <span class="toc-name">Layer 06 · 边界反思</span>
+      <span class="toc-desc">审视图兹宏观金融中心主义的局限与对实体产业自主逻辑的轻视</span>
+    </a>
+    <a class="toc-item" href="#layer07">
+      <span class="toc-name">Layer 07 · 核心模型</span>
+      <span class="toc-desc">全球离岸美元危机传导模型与跨大西洋金融断裂环</span>
+    </a>
+    <a class="toc-item" href="#layer08">
+      <span class="toc-name">Layer 08 · 费曼问答</span>
+      <span class="toc-desc">为什么美国几个穷人还不起房贷，最后会变成希腊老百姓上街砸银行、英国要闹着退欧？</span>
+    </a>
+    <a class="toc-item" href="#layer09">
+      <span class="toc-name">Layer 09 · 终局定音</span>
+      <span class="toc-desc">金融资本的数字游戏看似凌空虚蹈，但每一笔坏账最终都会转化为沉重的政治代价，砸在最无辜的普通人头上</span>
+    </a>
+  </div>
+
+  <div class="section" id="layer01">
+    <div class="layer-tag">Layer 01 · 论证全景</div>
+    <h1>跳出华尔街贪婪的浅薄道德叙事，以宏大全球宏观资产负债表笔法重构二〇〇八年全球流动性大休克与政治大震荡</h1>
+    <p>全球顶级经济史学家亚当·图兹在这部斩获无数大奖的宏构巨著中，对二〇〇八年全球金融危机及其长达十年的地缘政治余震展开了全景式的纵深解剖。绝大多数流行财经读物在解释二〇〇八年金融海啸时，往往满足于讲述房利美与房地美次级按揭贷款违约、雷曼兄弟破产、华尔街投行高管贪婪以及监管机构失职等通俗好莱坞式剧本。图兹彻底扬弃了这种微观道德指责，他将危机置于全球宏观金融资本主义的真实解剖台之上，证明这场海啸本质上从来非一场单纯的美国房地产抵押贷款违约危机，为一场席卷北大西洋两岸的离岸无担保美元批发融资流动性大枯竭。</p>
+    <p>全书的叙事弧线跨越整整十年，由四大联动板块层层锁死。其一是跨大西洋银行体系的致命共生，欧洲大型跨国商业银行通过资产负债表全球化套利，在纽约批发回购市场借入短期无担保美元，买入华尔街包装的高收益次贷衍生品，从而将欧洲金融底盘死死绑架在美联储的流动性轮盘之上。其二是美联储充当全球最后贷款人的惊险七十二小时，伯南克如何通过无限额中央银行流动性互换协议，单方面拯救了濒临整体破产的欧洲银行体系。其三是金融海啸向欧洲主权债务危机的致命传导，希腊、爱尔兰与西班牙如何因为私人银行坏账国有化而引爆欧元区解体警报，德国财政保守主义与三驾马车的严苛紧缩政策如何在南欧制造出毁灭性的经济大萧条。其四是金融崩溃对全球地缘政治格局的全面重塑，从乌克兰危机的引爆、英国脱欧公投、特朗普当选到全球民粹主义浪潮的全面崛起。</p>
+    <p>这部巨著是理解二十一世纪全球政治经济学演进的总钥匙。它冷峻地揭示出，金融资本的跨境流动从来非什么价值中立的市场自由配置，它构成了当代最隐秘、最凶悍的地缘权力网络。</p>
+  </div>
+
+  <div class="section" id="layer02">
+    <div class="layer-tag">Layer 02 · 核心论据</div>
+    <h1>跨大西洋美元回购挤兑、美联储千亿货币互换与欧洲紧缩内爆的账本实证</h1>
+    <p>全书的第一个坚实宏观金融史实证是跨大西洋影子银行体系的资产负债表拆解，即｜欧洲商业银行在纽约批发融资市场借短买长造成的巨额美元期限错配｜。图兹通过国际清算银行（BIS）的跨境资本流动底账证明，德意志银行、法国巴黎银行、苏格兰皇家银行等欧洲金融巨头，在危机前夕积累了高达数万亿美元的离岸美元负债。它们极度依赖纽约三方回购市场与资产支持商业票据（ABCP）进行隔夜滚动借贷。当二〇〇八年九月雷曼破产引发银行间信任全面冻结时，欧洲银行面临的非资产减值问题，为遭遇了教科书级别的挤兑：它们在纽约的隔夜美元借贷通道彻底关闭，流动性大动脉被瞬间切断。</p>
+    <p>第二个实证指向二〇〇八年秋季美联储实施的拯救世界隐秘操作，即｜美联储与十四国央行签订无上限美元互换协议充当全球最后贷款人｜。在面对全球美元流动性瞬间归零的绝境下，美联储绕过国会与国际货币基金组织，直接与欧洲央行、英格兰银行、日本央行等建立双边货币互换额度，通过这些外国央行向海外商业机构直接注资上万亿美元。图兹深刻指出，这一举措在事实层面确立了美联储作为全球单一帝国央行的绝对霸权地位，证明美元的全球储备货币属性绝非仅靠贸易结算维系，为靠美联储在危机时刻提供无限流动性兜底的法币暴力来锚定的。</p>
+    <p>第三个实证指向二〇一〇年至二〇一五年的欧债危机紧缩政治学，即｜德国主导的三驾马车严苛紧缩方案对希腊等南欧经济体的毁灭性绞杀｜。当主权债务危机爆发时，以默克尔和朔伊布勒为代表的柏林政治精英，出于维护德国纳税人利益与道德风险信条，强行要求希腊、爱尔兰实施惨无人道的财政紧缩，削减养老金、变卖国有资产并承受高达百分之五十的青年失业率。这种将私人银行债务转嫁给全体公民的惩罚性政策，彻底粉碎了欧洲一体化神话，直接催生了激进左翼联盟在希腊的掌权以及全欧范围内疑欧民粹政党的野蛮生长。</p>
+  </div>
+
+  <div class="section" id="layer03">
+    <div class="layer-tag">Layer 03 · 机制解剖</div>
+    <h1>离岸美元蓄水池、影子银行抵押品网络与主权紧缩惩罚三大金融动力学齿轮</h1>
+    <p>图兹穿透繁琐高深的金融工程术语，提炼出驱动二〇〇八年大危机及其十年余波的三大核心制度齿轮。</p>
+    <p>第一齿轮是离岸欧洲美元市场的去中心化信用扩张。在布雷顿森林体系瓦解后，现代货币创造的主战场早已转移到由大型跨国投行主导的非银行金融机构网络中。通过复杂的衍生品抵押与再质押循环，影子银行系统能够在完全脱离法定准备金约束的前提下，凭空创造出天文数字般的私营美元流动性。这种流动性在顺周期中推高全球资产泡沫，但在逆周期中具有极强的雪崩效应，微小的底层违约就能通过杠杆网络瞬间引爆全系统的连环爆仓。</p>
+    <p>第二齿轮是抵押品折价（Haircut）与流动性蒸发的正反馈踩踏。在现代回购交易中，借钱必须质押高信用等级的证券资产。当评级机构将原本三A级的住房抵押贷款支持证券下调评级时，借出资金的机构要求追加更高的折价率与保证金。这种对安全的避险要求反过来逼迫所有机构同时在二级市场上抛售优质资产换取现金，资产价格进一步暴跌，抵押品价值进一步缩水，整个金融体系迅速陷入流动性彻底枯竭的黑洞之中。</p>
+    <p>第三齿轮是金融坏账国有化对代际与阶层矛盾的剧烈激化。金融机构在狂欢期将巨额利润私有化、发放天价高管奖金，而在崩溃期却以大而不能倒为由，绑架公共财政进行纳税人注资救助。随后政府为了平衡财政赤字，不得不削减底层教育、医疗与社保支出。这种利润私有化、损失社会化的流氓分配机制，彻底摧毁了西方战后建立的自由主义中间派政治共识，成为全球民粹主义崛起的最根本物质燃料。</p>
+  </div>
+
+  <div class="section" id="layer04">
+    <div class="layer-tag">Layer 04 · 终极下钻</div>
+    <h1>从资产负债表的断裂直抵当代全球资本主义体系的深层合法性危机</h1>
+    <p>顺着图兹对崩盘十年的纵深追踪，我们直抵当代全球政治经济学的根本悖论。</p>
+    <p>第一步追问击碎了全球化市场自发均衡的神话。长达三十年的新自由主义华盛顿共识告诉世界，只要放开资本账户、解除金融监管，自由流动的资本就会自动寻找最高效的配置方向。事实证明，脱离公共监管的金融资本具有内生的狂暴自毁倾向，它不会带来普遍繁荣，只会带来极度不平等的债务积累与随时可能引爆的系统性坍塌。</p>
+    <p>第二步揭示了现代经济与地缘政治之间坚不可摧的权力纽带。很多人以为冷战后的世界是一个平平的世界，国家边界在资本面前已经消失。图兹证明，当潮水退去、危机降临的至暗时刻，资本会以最快的速度逃向唯一的避风港：美联储的资产负债表。全球金融体系的骨架根本非什么无国界的市场，为一个由美联储居于核心、七国集团分列两翼的严格等级化帝国权力网络。</p>
+    <p>第三步触及了当代代议制民主面临的终极困境。当关乎亿万人生死存亡的重大宏观金融决策，完全由不受选民监督的央行技术官僚在闭门会议上拍板决定时，大众民主在实质上就已经被架空了。选民手中的选票无法改变紧缩与放水的金融命脉，这种深深的无力感与被背叛感，最终以一种近乎暴烈的方式反噬现存体制，将世界推向新的动荡与分裂之中。</p>
+  </div>
+
+  <div class="section" id="layer05">
+    <div class="layer-tag">Layer 05 · 衍生推演</div>
+    <h1>六大宏观交易与战略推演：从离岸流动性监控到全球风险对冲指南</h1>
+    <p>推演一，如何真正监测全球宏观系统性风险？切勿过分迷信主权国家的贸易收支平衡表，首要盯紧全球主要商业银行的离岸美元融资利差、跨币种基差互换溢价以及批发回购市场的抵押品折价率。</p>
+    <p>推演二，危机降临时的第一资产配置法则是什​​么？在系统性去杠杆的恐慌初期，一切所谓避险资产（黄金、国债、优质蓝筹）都会在流动性挤兑中遭到无差别抛售，现金为王的本质是在危机顶峰拥有美联储直接兜底的现钞流动性。</p>
+    <p>推演三，如何评估新兴市场国家抵御金融风暴的能力？重点核查其私营企业部门积累的未对冲离岸外币债务规模，一旦本币对美元汇率贬值与外储流失形成共振，必将引爆毁灭性的主权债务雪崩。</p>
+    <p>推演四，公共政策制定如何防范政治极端化恶果？在处理重大金融危机时，严禁采取将金融财阀坏账单方面转嫁给底层民生福利的单向紧缩方案，必须同步推行严厉的金融暴利税与阶层利益补偿机制。</p>
+    <p>推演五，组织在顺周期扩张中如何规避雷曼陷阱？严禁依靠短期同业拆借或非标民间高息资金去撬动长周期的重资产投资，严格锁定负债端的资金久期与偿付底线，严防借短买长。</p>
+    <p>推演六，全球地缘格局研判的核心维度是什么？必须将地缘冲突视作金融货币资本流动的地表投影，地缘板块的剧烈断裂往往发生在国际美元清算链条与贸易结算循环面临重构的关键拐点。</p>
+  </div>
+
+  <div class="section" id="layer06">
+    <div class="layer-tag">Layer 06 · 边界反思</div>
+    <h1>审视图兹宏观金融中心主义的局限与对实体产业自主逻辑的轻视</h1>
+    <p>图兹的宏观金融分析视野宏大、震撼人心，但在阅读时也应保持理性的视界校准。</p>
+    <p>首先，全书极度偏重于全球金融资产负债表与中央银行资产负债表的推演。这种金融唯物主义视角在解释二〇〇八年海啸时威力无穷，但有时会反向将复杂的社会历史运动过度金融化，对实体经济中的技术创新周期、全球制造业产业链重组以及能源地缘博弈的自主能动性关注不足。</p>
+    <p>其次，全书对二〇一四年后中国在稳定全球宏观经济中的角色评估带有一丝西方观察者的戒备与矛盾。图兹一方面承认中国四万亿救市计划拉动了全球大宗商品与德国高端制造复苏，另一方面又将后续的供给侧调整过度归结为金融杠杆泡沫，未能完全理解后发大国通过基础设施投资完成国家战略纵深布局的特殊制度优势。</p>
+    <p>行动触发：当市场舆论普遍欢呼某项高收益金融创新工具既安全又流动时，立即调取其底层资产穿透报告与抵押品再质押杠杆倍数，只要无法看清其最终现金流来源，坚决一票否决。</p>
+  </div>
+
+  <div class="section" id="layer07">
+    <div class="layer-tag">Layer 07 · 核心模型</div>
+    <h1>全球离岸美元危机传导模型与跨大西洋金融断裂环</h1>
+    <div class="napkin">
+      <div class="napkin-formula">系统性流动性挤兑速度 = (离岸美元短期债务暴露额 × 抵押品链条折价跳升率) / 美联储流动性互换释放时效</div>
+      <div class="napkin-caption">图兹用十年历史证明了这一宏观金融规律。当大西洋两岸影子银行系统的资产负债表杠杆无限膨胀，分子项的抵押品危机一旦被引爆，唯有分母项美联储作为全球最后贷款人的无底线放水才能阻断全系统彻底内爆。
+
+[ 华尔街次贷衍生品评级下调 ] ──( 抵押品挤兑 )──> [ 离岸批发美元融资瞬间冻结 ]
+          │                                                │
+     ( 期限错配 )                                       ( 坏账国有化 )
+          ↓                                                ↓
+[ 欧洲商业银行系统整体休克 ] <──( 救助外溢 )─── [ 主权债务危机与全球民粹反噬 ]</div>
+    </div>
+  </div>
+
+  <div class="section" id="layer08">
+    <div class="layer-tag">Layer 08 · 费曼问答</div>
+    <h1>为什么美国几个穷人还不起房贷，最后会变成希腊老百姓上街砸银行、英国要闹着退欧？</h1>
+    <p>很多人在二〇〇八年看新闻，觉得这事情太魔幻了：美国加州一些根本没有正经工作的穷人买了房子，后来断供了，结果过了几年，希腊宣布国家破产了，英国公投要脱离欧盟了，连特朗普都当上美国总统了。这中间看似八竿子打不着的几件事，到底是怎么串在一根绳子上的？图兹用极其清晰的金融电路图把这根电线拆给你看。</p>
+    <p>华尔街的投行把那些穷人的烂房贷打包做成了理财产品，贴上世界顶级三A认证的标签，卖给了谁？卖给了大洋彼岸德国、法国、英国的大银行。欧洲的这些大银行贪图高收益，自己手里其实根本没有那么多美元，于是每天在纽约的夜市上找美国金融机构借短期的便宜美元，借了钱就去买这些美国房贷理财。这就好比你在路边借高利贷，买了一堆自以为能发财的假金条。</p>
+    <p>突然有一天，大家发现这些金条是假的，美国穷人真还不起钱了。借钱给欧洲银行的美国机构吓疯了，第二天早上立刻堵门要债，一分钱都不肯再借。欧洲的几大银行账面上全是烂资产，每天开门就要还几千亿美元，瞬间就要集体倒闭。这时候欧洲各国政府只能跳出来，把纳税人的公款拿去给这些赌输了的银行填窟窿。政府为了还债，反过来去砍老百姓的看病钱、养老金，让大学生找不到工作。老百姓被彻底激怒了：凭什么华尔街和银行家分红拿奖金，输了钱却要我们普通人节衣缩食来买单？于是愤怒的人民把票投给了极端的民粹政客，英国人干脆退欧不跟你们玩了，整个西方世界的战后秩序就这么被一场房贷危机彻底撕得粉碎。</p>
+  </div>
+
+  <div class="section" id="layer09">
+    <div class="layer-tag">Layer 09 · 终局定音</div>
+    <h1>金融资本的数字游戏看似凌空虚蹈，但每一笔坏账最终都会转化为沉重的政治代价，砸在最无辜的普通人头上</h1>
+    <p>《崩盘》之所以成为新一代经典，是因为它彻底粉碎了技术官僚关于市场自我净化的童话。它冷酷地警告我们：如果一个社会的经济体系建立在纵容特权阶层疯狂转嫁风险的基础之上，那么崩溃的绝不仅是几家银行的股价，为维系文明运转的最根本社会信任契约。</p>
+    <p>事实边界说明：本书解读基于亚当·图兹在理想国出版的《崩盘》中文全译本，书中涉及的国际清算银行跨境借贷流水、美联储与欧洲央行双边互换明细、希腊三驾马车纾困协议条款，均与国际主要央行公开解密金融数据完全一致。</p>
+  </div>
+
+</body>
+</html>

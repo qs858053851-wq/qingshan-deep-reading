@@ -1,14 +1,14 @@
 {
-  "updated": "2026-09-19",
-  "count": 809,
-  "htmlCount": 804,
-  "markdownCount": 807,
+  "updated": "2026-09-20",
+  "count": 819,
+  "htmlCount": 814,
+  "markdownCount": 817,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
     "健康与生活": 5,
-    "其他阅读": 111,
-    "历史与文明": 147,
+    "其他阅读": 119,
+    "历史与文明": 149,
     "古典文献与国学": 9,
     "哲学与思想": 52,
     "宗教与灵性": 59,
@@ -25,6 +25,96 @@
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "骄傲之塔",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E9%AA%84%E5%82%B2%E4%B9%8B%E5%A1%94_2026-09-20.html",
+      "markdown": "markdown/%E9%AA%84%E5%82%B2%E4%B9%8B%E5%A1%94_2026-09-20.md",
+      "htmlBytes": 23584,
+      "markdownBytes": 12224
+    },
+    {
+      "title": "毁灭的代价",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E6%AF%81%E7%81%AD%E7%9A%84%E4%BB%A3%E4%BB%B7_2026-09-20.html",
+      "markdown": "markdown/%E6%AF%81%E7%81%AD%E7%9A%84%E4%BB%A3%E4%BB%B7_2026-09-20.md",
+      "htmlBytes": 25128,
+      "markdownBytes": 13765
+    },
+    {
+      "title": "欧洲之门",
+      "date": "2026-09-20",
+      "category": "历史与文明",
+      "html": "readings/%E6%AC%A7%E6%B4%B2%E4%B9%8B%E9%97%A8_2026-09-20.html",
+      "markdown": "markdown/%E6%AC%A7%E6%B4%B2%E4%B9%8B%E9%97%A8_2026-09-20.md",
+      "htmlBytes": 25654,
+      "markdownBytes": 14139
+    },
+    {
+      "title": "崩盘",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E5%B4%A9%E7%9B%98_2026-09-20.html",
+      "markdown": "markdown/%E5%B4%A9%E7%9B%98_2026-09-20.md",
+      "htmlBytes": 25605,
+      "markdownBytes": 14013
+    },
+    {
+      "title": "大萧条时期的中国",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E5%A4%A7%E8%90%A7%E6%9D%A1%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-09-20.html",
+      "markdown": "markdown/%E5%A4%A7%E8%90%A7%E6%9D%A1%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-09-20.md",
+      "htmlBytes": 25899,
+      "markdownBytes": 14368
+    },
+    {
+      "title": "回归故里",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E5%9B%9E%E5%BD%92%E6%95%85%E9%87%8C_2026-09-20.html",
+      "markdown": "markdown/%E5%9B%9E%E5%BD%92%E6%95%85%E9%87%8C_2026-09-20.md",
+      "htmlBytes": 26389,
+      "markdownBytes": 14656
+    },
+    {
+      "title": "和平结束和平",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.html",
+      "markdown": "markdown/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.md",
+      "htmlBytes": 23820,
+      "markdownBytes": 12504
+    },
+    {
+      "title": "古拉格之恋",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E5%8F%A4%E6%8B%89%E6%A0%BC%E4%B9%8B%E6%81%8B_2026-09-20.html",
+      "markdown": "markdown/%E5%8F%A4%E6%8B%89%E6%A0%BC%E4%B9%8B%E6%81%8B_2026-09-20.md",
+      "htmlBytes": 24153,
+      "markdownBytes": 12739
+    },
+    {
+      "title": "伯罗奔尼撒战争",
+      "date": "2026-09-20",
+      "category": "历史与文明",
+      "html": "readings/%E4%BC%AF%E7%BD%97%E5%A5%94%E5%B0%BC%E6%92%92%E6%88%98%E4%BA%89_2026-09-20.html",
+      "markdown": "markdown/%E4%BC%AF%E7%BD%97%E5%A5%94%E5%B0%BC%E6%92%92%E6%88%98%E4%BA%89_2026-09-20.md",
+      "htmlBytes": 23765,
+      "markdownBytes": 12505
+    },
+    {
+      "title": "东西街",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%9C%E8%A5%BF%E8%A1%97_2026-09-20.html",
+      "markdown": "markdown/%E4%B8%9C%E8%A5%BF%E8%A1%97_2026-09-20.md",
+      "htmlBytes": 24534,
+      "markdownBytes": 13049
+    },
     {
       "title": "资本之都",
       "date": "2026-09-19",

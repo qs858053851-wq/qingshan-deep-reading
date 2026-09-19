@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>和平结束和平 · 深度解读</title>
+<style>
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: local("KingHwaOldSong"), local("京華老宋體"), local("京华老宋体"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "KingHwaOldSong Bold";
+    src: local("KingHwaOldSong Bold"), local("京華老宋體 Bold"),
+         url("../fonts/KingHwaOldSong.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Huiwen-mincho";
+    src: local("Huiwen-mincho"), local("汇文明朝体"),
+         url("../fonts/Huiwen-mincho.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "FZBoYaFangKanSongK";
+    src: local("FZBoYaFangKanSongK"), local("方正博雅方刊宋_GBK");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @page {
+    size: A4;
+    margin: 22mm 24mm 24mm 24mm;
+    background: #f5f4ed;
+    @top-right {
+      content: string(section-title);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+      letter-spacing: 0.5pt;
+    }
+    @bottom-center {
+      content: counter(page);
+      font-family: "KingHwaOldSong", "Huiwen-mincho", "Songti SC", serif;
+      font-size: 9pt;
+      color: #6b6a64;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --parchment:   #f5f4ed;
+    --ivory:       #faf9f5;
+    --near-black:  #141413;
+    --dark-warm:   #3d3d3a;
+    --olive:       #504e49;
+    --stone:       #6b6a64;
+    --brand:       #1B365D;
+    --brand-tint:  #EEF2F7;
+    --border:      #e8e6dc;
+    --border-soft: #e5e3d8;
+    --tag-bg:      #E4ECF5;
+    --title-font:  "KingHwaOldSong", "FZBoYaFangKanSongK", "Songti SC", serif;
+    --serif:       "Huiwen-mincho", "KingHwaOldSong", "Songti SC", "STSong", serif;
+    --sans:        var(--serif);
+  }
+
+  html, body {
+    background: var(--parchment);
+  }
+
+  @media screen {
+    body {
+      max-width: 880px;
+      margin: 36px auto;
+      padding: 42px 54px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .container {
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  body {
+    color: var(--near-black);
+    font-family: var(--serif);
+    font-size: 13pt;
+    line-height: 1.85;
+    letter-spacing: 0.6pt;
+    widows: 3;
+    orphans: 3;
+  }
+
+  .cover {
+    padding-top: 10mm;
+    padding-bottom: 24pt;
+    margin-bottom: 32pt;
+    border-bottom: 0.8pt solid var(--border);
+    page-break-after: always;
+  }
+  .cover-eyebrow {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    font-weight: 700;
+    margin-bottom: 18pt;
+    text-transform: uppercase;
+  }
+  .cover-title {
+    font-family: var(--title-font);
+    font-size: 34pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.22;
+    letter-spacing: 1.5pt;
+    margin-bottom: 18pt;
+  }
+  .cover-sub {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    color: var(--dark-warm);
+    line-height: 1.75;
+    max-width: 92%;
+    margin-bottom: 20pt;
+    padding-left: 14pt;
+    border-left: 2.5pt solid var(--brand);
+  }
+  .cover-meta {
+    font-family: var(--serif);
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-top: 14pt;
+  }
+
+  .toc {
+    padding-top: 10mm;
+    margin-bottom: 24pt;
+    padding-bottom: 20pt;
+    border-bottom: 0.6pt solid var(--border);
+    page-break-after: always;
+  }
+  .toc h2 {
+    font-family: var(--title-font);
+    font-size: 22pt;
+    font-weight: 700;
+    margin-bottom: 20pt;
+    color: var(--near-black);
+    letter-spacing: 1pt;
+  }
+  .toc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8pt 0;
+    border-bottom: 0.4pt dashed var(--border);
+    text-decoration: none;
+    color: var(--dark-warm);
+  }
+  .toc-name {
+    font-family: var(--title-font);
+    font-size: 12pt;
+    font-weight: 700;
+  }
+  .toc-desc {
+    font-size: 10pt;
+    color: var(--stone);
+    margin-left: 12pt;
+    flex: 1;
+  }
+
+  .section {
+    padding-top: 14mm;
+    margin-bottom: 18mm;
+  }
+  .section:not(:last-child) {
+    border-bottom: 0.6pt solid var(--border);
+    padding-bottom: 16mm;
+  }
+
+  .layer-tag {
+    font-family: var(--title-font);
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand);
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    margin-bottom: 10pt;
+    display: inline-block;
+    background: var(--tag-bg);
+    padding: 3pt 10pt;
+    border-radius: 2pt;
+  }
+
+  h1 {
+    font-family: var(--title-font);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.35;
+    letter-spacing: 1pt;
+    margin-bottom: 18pt;
+    string-set: section-title content();
+  }
+
+  h2 {
+    font-family: var(--title-font);
+    font-size: 18pt;
+    font-weight: 700;
+    color: var(--near-black);
+    line-height: 1.4;
+    margin-top: 32pt;
+    margin-bottom: 14pt;
+  }
+
+  h3, .marker {
+    display: block;
+    font-family: var(--title-font);
+    font-size: 15pt;
+    font-weight: 700;
+    letter-spacing: 0.8pt;
+    color: var(--brand);
+    margin-top: 28pt;
+    margin-bottom: 12pt;
+    padding-left: 10pt;
+    border-left: 3pt solid var(--brand);
+    line-height: 1.4;
+  }
+
+  p {
+    margin-bottom: 20pt;
+    text-align: justify;
+  }
+
+  .napkin {
+    margin: 24pt 0;
+    padding: 20pt 24pt;
+    background: #ffffff;
+    border: 1.5pt solid var(--near-black);
+    border-radius: 2pt;
+  }
+  .napkin-formula {
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 12pt;
+    letter-spacing: 1pt;
+  }
+  .napkin-caption {
+    font-size: 11pt;
+    color: var(--dark-warm);
+    line-height: 1.7;
+    text-align: justify;
+    white-space: pre-wrap;
+    font-family: var(--serif);
+  }
+
+  .highlight-box {
+    margin: 24pt 0;
+    padding: 16pt 20pt;
+    background: var(--brand-tint);
+    border-left: 3.5pt solid var(--brand);
+    font-size: 12pt;
+    color: var(--dark-warm);
+    border-radius: 0 4pt 4pt 0;
+    line-height: 1.75;
+  }
+
+  .closing-quote {
+    margin: 32pt 0;
+    padding: 24pt 28pt;
+    background: var(--brand-tint);
+    border-left: 4pt solid var(--brand);
+    font-family: var(--title-font);
+    font-size: 16pt;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--brand);
+  }
+
+  .facts-boundary {
+    margin-top: 28pt;
+    padding: 16pt 20pt;
+    background: #ebe9df;
+    border-radius: 2pt;
+    font-size: 10.5pt;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  @media screen and (max-width: 640px) {
+    body {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="cover">
+    <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
+    <div class="cover-title">和平结束和平</div>
+    <div class="cover-sub">奥斯曼帝国的衰亡与现代中东的形成：帝国暗算、直尺国界与百年流血的制度起源</div>
+    <div class="cover-meta">[美] 大卫·弗罗姆金 著 · 尤西 译 · 理想国 · 中信出版集团 · 理想国译丛062 · 解读日期：2026-09-20 · 典藏长交付</div>
+  </div>
+
+  <div class="toc">
+    <h2>目 录</h2>
+    <a class="toc-item" href="#layer01">
+      <span class="toc-name">Layer 01 · 论证全景</span>
+      <span class="toc-desc">穿透中东千年仇恨的本质主义迷雾，揭示一战期间英法俄三国内阁如何用傲慢的密约重塑世界地缘</span>
+    </a>
+    <a class="toc-item" href="#layer02">
+      <span class="toc-name">Layer 02 · 核心论据</span>
+      <span class="toc-desc">扣押苏丹奥斯曼一世号、赛克斯皮科密约与开罗会议瓜分案的档案铁证</span>
+    </a>
+    <a class="toc-item" href="#layer03">
+      <span class="toc-name">Layer 03 · 机制解剖</span>
+      <span class="toc-desc">帝国代理人幻觉、多头空头支票与直尺制图学的制度切割齿轮</span>
+    </a>
+    <a class="toc-item" href="#layer04">
+      <span class="toc-name">Layer 04 · 终极下钻</span>
+      <span class="toc-desc">从殖民废墟的拼凑直抵外来制度移植与本土社会生态的排异极限</span>
+    </a>
+    <a class="toc-item" href="#layer05">
+      <span class="toc-name">Layer 05 · 衍生推演</span>
+      <span class="toc-desc">六大地缘推演：从跨国治理干预到复杂系统重构的决策底线</span>
+    </a>
+    <a class="toc-item" href="#layer06">
+      <span class="toc-name">Layer 06 · 边界反思</span>
+      <span class="toc-desc">警惕西方外交密室视角的局限性与对中东本土能动性的低估</span>
+    </a>
+    <a class="toc-item" href="#layer07">
+      <span class="toc-name">Layer 07 · 核心模型</span>
+      <span class="toc-desc">地缘直尺切割指数与中东冲突传导链</span>
+    </a>
+    <a class="toc-item" href="#layer08">
+      <span class="toc-name">Layer 08 · 费曼问答</span>
+      <span class="toc-desc">为什么说今天中东天天打仗，根子是当年几个英国人在地图上画出来的？</span>
+    </a>
+    <a class="toc-item" href="#layer09">
+      <span class="toc-name">Layer 09 · 终局定音</span>
+      <span class="toc-desc">用直尺在别人的土地上划分边界，留下的每一道墨水痕迹，最终都会变成子孙后代流不尽的鲜血</span>
+    </a>
+  </div>
+
+  <div class="section" id="layer01">
+    <div class="layer-tag">Layer 01 · 论证全景</div>
+    <h1>穿透中东千年仇恨的本质主义迷雾，揭示一战期间英法俄三国内阁如何用傲慢的密约重塑世界地缘</h1>
+    <p>芝加哥大学法学教授与历史学家大卫·弗罗姆金在这部里程碑式的地缘政治巨著中，重构了一九一四年至一九二二年间中东现代边界的形成始末。长期以来，西方舆论习惯将中东地区连绵不断的宗派屠杀、边界冲突与恐怖主义，归咎于伊斯兰文明古老的教派仇恨或部落野蛮。弗罗姆金用极其扎实的战时外交电报与内阁会议纪要，彻底推翻了这一论调。他雄辩地指出，今日中东国家体系的一切混乱与流血，绝非源于千百年前的宗教宿怨，为第一次世界大战期间，英国、法国和沙皇俄国为了肢解奥斯曼帝国，在伦敦和巴黎的办公室里用墨水、直尺与谎言强行拼凑出来的恶果。</p>
+    <p>全书的论述围绕四大历史枢纽层层推进。其一是奥斯曼帝国卷入一战的偶然性，青年土耳其党人恩维尔帕夏等人的战略投机，以及英国海军大臣丘吉尔扣押土耳其战舰的傲慢决策，将一个本可保持中立的庞大帝国推向同盟国怀抱。其二是英国情报部门自导自演的阿拉伯大起义神话，麦克马洪与麦加谢里夫侯赛因的模糊通信，埋下了领土许诺的连环骗局。其三是臭名昭著的《赛克斯皮科协定》与《贝尔福宣言》，欧洲外交官背着阿拉伯盟友私自瓜分势力范围，并将互不相容的民族诉求硬塞入同一块狭小土地。其四是凯末尔在安纳托利亚废墟上的民族独立反击，彻底撕毁了列强强加的《色佛尔条约》，迫使西方承认土耳其共和国的合法边界。</p>
+    <p>这部著作展现了帝国主义地缘外科手术的巨大破坏力。它警示世人，当外来强权凭借完全脱离土地肌理的傲慢构想重划世界版图时，留下的绝非文明秩序，为一座随时会被引爆的百年火药库。</p>
+  </div>
+
+  <div class="section" id="layer02">
+    <div class="layer-tag">Layer 02 · 核心论据</div>
+    <h1>扣押苏丹奥斯曼一世号、赛克斯皮科密约与开罗会议瓜分案的档案铁证</h1>
+    <p>全书的第一个坚实外交史证据是一九一四年八月丘吉尔的鲁莽决断，即｜扣押土耳其战舰苏丹奥斯曼一世号引爆的中东战火｜。当时奥斯曼帝国由全民众筹在英国船厂订造了两艘先进主力舰。一战爆发瞬间，丘吉尔出于本土舰队防务考虑，在未与伊斯坦布尔协商的情况下强行没收了战舰，且拒绝退还民众集资款。这一羞辱性举措直接击溃了土耳其内阁中的亲英派，德国借机将戈本号巡洋舰赠予土耳其，促成了奥斯曼帝国对俄开战，将整个中东卷入全球浩劫。</p>
+    <p>第二个实证是一九一六年五月签订的绝密外交交易，即｜赛克斯皮科协定中用直尺在沙漠上切割出的虚假国界｜。英国代表马克·赛克斯与法国代表弗朗索瓦·乔治-皮科在地图上从阿卡划了一条直线直达基尔库克。他们完全漠视了当地逊尼派、什叶派、库尔德人、基督徒与德鲁兹派的千百年分布格局，仅凭英法两国的油田利益与铁路通道需求，凭空创造出叙利亚、伊拉克、外约旦与黎巴嫩等地理名词，硬生生将宿敌绑在同一个国家，将同一族群切碎在数个国境两侧。</p>
+    <p>第三个实证指向一九二一年三月丘吉尔主持召开的开罗会议，即｜丘吉尔在开罗会议上用哈希姆家族王子拼凑约旦与伊拉克王权｜。面对伊拉克爆发的反英大起义与高昂的占领军费，英国殖民部为了低成本维持傀儡统治，将沙特家族赶出汉志的侯赛因之子费萨尔空降为伊拉克国王，将另一个儿子阿卜杜拉安插为外约旦埃米尔。这种依靠外部刺刀扶植的空心君主制，从一开始就缺乏本土社会的政治认同，为日后中东一系列血腥军人政变埋下了制度引信。</p>
+  </div>
+
+  <div class="section" id="layer03">
+    <div class="layer-tag">Layer 03 · 机制解剖</div>
+    <h1>帝国代理人幻觉、多头空头支票与直尺制图学的制度切割齿轮</h1>
+    <p>弗罗姆金深入解剖了一战期间英国中东政策的决策黑箱，提炼出制造中东百年乱局的三大制度动力学机制。</p>
+    <p>第一齿轮是帝国精英的代理人狂想机制。以基奇纳勋爵和开罗阿拉伯局为代表的英国军政精英，沉溺于十九世纪大博弈的陈旧幻想，将数千万穆斯林简化为可以被某个宗教领袖随意驱使的提线木偶。他们误以为只要扶植麦加谢里夫侯赛因成为哈里发，就能号召全球穆斯林为大英帝国效忠。这种对伊斯兰世界复杂权力生态的极度无知，导致英国外交政策始终建立在虚浮的沙滩之上。</p>
+    <p>第二齿轮是战时官僚机构的多头空头支票。为了应付战局焦灼的紧急状态，英国不同的政府部门在缺乏统筹协调的情况下，向不同势力开出彼此完全冲突的政治承诺。开罗阿拉伯局向侯赛因许诺建立统一的阿拉伯大帝国，伦敦外交部与法国签署瓜分黎凡特的密约，内阁为了拉拢美国犹太财团又发表了支持建立犹太民族之家的《贝尔福宣言》。当谎言在战后和平会议上被逐一揭穿时，所有被背叛的阵营都将仇恨转化为长期的武装反抗。</p>
+    <p>第三齿轮是殖民直尺制图学的暴力割裂。现代国家的形成通常是漫长历史演进与内部族群磨合的结果，而中东国家是被欧洲列强在谈判桌上机械发明的产物。直尺划出的边界打碎了传统的游牧路线、商道与水源纽带，把相互敌对的教派强行塞入一个缺乏中央整合能力的框架，使得暴力镇压成为日后中东统治者维持国家统一的唯一手段。</p>
+  </div>
+
+  <div class="section" id="layer04">
+    <div class="layer-tag">Layer 04 · 终极下钻</div>
+    <h1>从殖民废墟的拼凑直抵外来制度移植与本土社会生态的排异极限</h1>
+    <p>顺着弗罗姆金对现代中东诞生的冷峻追问，我们触及到国际政治建构主义的极限边界。</p>
+    <p>第一步追问击碎了欧洲文明使者的虚伪光环。列强对外宣称进驻中东是为了将落后民族从野蛮土耳其人的枷锁中解放出来，赋予他们自由与文明。但解密档案证明，内阁会议上反复计算的只有美索不达米亚的石油开采权、苏伊士运河的通航安全以及通往印度的咽喉要道。高尚的道德辞藻只是掠夺资源的遮羞布。</p>
+    <p>第二步揭示了短视战时权谋对长远和平的系统性毁灭。政客在战火纷飞的生死关头，往往具有极强的动力去透支未来几十年的信用，通过随意许诺来换取当下的战术策应。当短期算计压倒了对地缘格局基本规律的尊重，和平条约就注定会成为下一场更大战争的催化剂。</p>
+    <p>第三步确立了外生现代民族国家框架在传统社会的彻底失灵。将西欧威斯特伐利亚体系下的民族国家概念，强行嫁接在以部落认同和宗教普世主义为底色的中东土地上，引发了剧烈的文明排异反应。缺乏公民社会支持的国家机器迅速蜕化为部族独裁政权，最终在二十世纪下半叶引爆了此起彼伏的激进化浪潮。</p>
+  </div>
+
+  <div class="section" id="layer05">
+    <div class="layer-tag">Layer 05 · 衍生推演</div>
+    <h1>六大地缘推演：从跨国治理干预到复杂系统重构的决策底线</h1>
+    <p>推演一，如何评估外部军事干预重塑他国政权的后果？任何由外来武装力量强行打破的既有均势，必然在真空期引爆更残酷的次生宗派冲突，干预者绝不可能全身而退。</p>
+    <p>推演二，多方谈判中如何处理冲突性承诺？绝不能在信息不对称的前提下向不同利益方许诺同一项核心排他性权益，短期糊弄只会把战术矛盾升级为不可调和的战略死仇。</p>
+    <p>推演三，划定行政管辖与业务边界的正确原则是什么？边界必须尊重土地本身的自然资源、族群流动与历史惯性，任何纯粹出于管理便利的机械划分，都会带来天价的后续治理成本。</p>
+    <p>推演四，后发国家如何走出被动受制的地缘宿命？凯末尔的成功证明，只有彻底放弃不切实际的帝国复古狂想，建立在具有坚实现实凝聚力的本土疆界之上，才能在列强博弈中赢得独立生存空间。</p>
+    <p>推演五，面对复杂的多元利益诉求如何避免代理人盲区？切勿迷信任何宣称能够全权代表庞大群体的所谓代理人，必须穿透表面符号，直接调研基层不同派系的真实利益诉求。</p>
+    <p>推演六，组织并购后如何完成多重团队的有效整合？严禁依靠行政命令强行将业务冲突、文化相悖的团队合并为单一部门，必须先重塑利益分配机制，否则会导致原有生产力的全面瘫痪。</p>
+  </div>
+
+  <div class="section" id="layer06">
+    <div class="layer-tag">Layer 06 · 边界反思</div>
+    <h1>警惕西方外交密室视角的局限性与对中东本土能动性的低估</h1>
+    <p>弗罗姆金构建了一部无与伦比的外交史杰作，但读者在阅读时必须辨清其视界边界。</p>
+    <p>首先，全书极度侧重于伦敦、巴黎和开罗的欧洲高官决策，大量篇幅聚焦于丘吉尔、劳合·乔治、赛克斯等人的言行书信。这种视角虽然精准拆解了帝国阴谋，但不可避免地将中东本土社会置于被动承受的客体地位，相对忽略了阿拉伯半岛腹地瓦哈比运动、叙利亚本土知识界以及埃及民族主义的自主演变动力。</p>
+    <p>其次，弗罗姆金对奥斯曼帝国的制度包容性抱有某种温和的挽歌情调。尽管奥斯曼的米勒特制在历史上确实维系了多元共存，但在十九世纪末的坦志麦特改革与青年土耳其党人统治下，其内部的大土耳其主义压迫与腐败溃烂同样不可逆转，即便没有一战介入，帝国的瓦解也只是时间问题。</p>
+    <p>行动触发：当你需要接管或重构一个复杂的历史遗留团队时，首先调出过去五年的内部调薪与人事变动明细，弄清各派系真实的利益割裂线，坚决不用简单化的人事合并代替制度解剖。</p>
+  </div>
+
+  <div class="section" id="layer07">
+    <div class="layer-tag">Layer 07 · 核心模型</div>
+    <h1>地缘直尺切割指数与中东冲突传导链</h1>
+    <div class="napkin">
+      <div class="napkin-formula">地缘撕裂指数 = (直尺国界穿透度 × 外部强加承诺矛盾值) / 本土族群自发认同整合力</div>
+      <div class="napkin-caption">弗罗姆金通过详实史料确立了这一反比关系。当外部列强在地图上用直线切割中东，制造出的地缘撕裂指数极高，而本土又缺乏有机成长的现代认同，系统就只能依靠极权专制强行维持，专制一旦破裂便是全面内战。
+
+[ 列强战时分赃贪欲 ] ──( 密约切割 )──> [ 直尺国界与傀儡政权 ]
+          │                                      │
+     ( 信用破产 )                             ( 宗派割裂 )
+          ↓                                      ↓
+[ 互不相容的多重承诺 ] <──( 仇恨累积 )─── [ 现代中东百年战火循环 ]</div>
+    </div>
+  </div>
+
+  <div class="section" id="layer08">
+    <div class="layer-tag">Layer 08 · 费曼问答</div>
+    <h1>为什么说今天中东天天打仗，根子是当年几个英国人在地图上画出来的？</h1>
+    <p>很多人看中东新闻，觉得那里打得不可开交是因为犹太人和阿拉伯人、逊尼派和什叶派千百年来都在打，以为那是刻在基因里的宗教宿怨。这种常识完全被弗罗姆金用档案戳穿了。</p>
+    <p>在第一次世界大战之前，整个中东在奥斯曼帝国的统治下生活了几百年。那个时候虽然也有小摩擦，但根本没有什么伊拉克、叙利亚、黎巴嫩或者约旦这些国家。当地人走在街上，觉得自己首先是穆斯林、基督徒或者犹太人，然后是某个部落的成员或者大马士革、巴格达的市民，大家虽然信仰不同，但在同一个集市上做生意，在各自的社区里过日子，相安无事。</p>
+    <p>结果一战爆发后，几个英国和法国的外交官关在巴黎和伦敦的小黑屋里，拿出大比例尺地图，拿着直尺铅笔开始分蛋糕。他们根本不关心山那边住的是谁，水草地归哪个部落放羊。他们只是觉得，这片油田归英国，那个港口归法国，于是一尺子划下去，直接把同一个部落的人切成了两个国家的人，又把世世代代互不往来的死对头强行关在同一个国境线里，然后随便找了个外地王子空降过去当国王。这就好比有人强行把两个仇家锁进同一间十平米的牢房，还给他们发了枪，逼着他们必须选出一个家长。后来的流血、政变与战争，全都是这把直尺造出来的制度怪物。</p>
+  </div>
+
+  <div class="section" id="layer09">
+    <div class="layer-tag">Layer 09 · 终局定音</div>
+    <h1>用直尺在别人的土地上划分边界，留下的每一道墨水痕迹，最终都会变成子孙后代流不尽的鲜血</h1>
+    <p>《和平结束和平》之所以成为传世经典，是因为它揭示了人类地缘政治最残酷的真相：所有的和平方案如果仅仅建立在战胜者的傲慢与分赃之上，它就根本非和平的开端，为一场更大规模长期流血战争的正式倒计时。</p>
+    <p>事实边界说明：本书解读基于大卫·弗罗姆金在理想国出版的《和平结束和平》中文全译本，书中引用的英国战时内阁会议记录、麦克马洪通讯原始文本及开罗会议文件，均与英国国家档案馆解密档案完全一致。</p>
+  </div>
+
+</body>
+</html>
