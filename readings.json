@@ -1,22 +1,22 @@
 {
   "updated": "2026-09-20",
-  "count": 829,
-  "htmlCount": 824,
-  "markdownCount": 827,
+  "count": 839,
+  "htmlCount": 834,
+  "markdownCount": 837,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
     "健康与生活": 5,
-    "其他阅读": 126,
+    "其他阅读": 132,
     "历史与文明": 150,
     "古典文献与国学": 9,
-    "哲学与思想": 52,
+    "哲学与思想": 54,
     "宗教与灵性": 59,
     "实用与技能": 12,
     "心理学与自我": 44,
     "性文化与身体": 23,
     "文学与小说": 117,
-    "社会与政治": 86,
+    "社会与政治": 88,
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
@@ -53,6 +53,15 @@
       "markdownBytes": 12675
     },
     {
+      "title": "野心时代",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E9%87%8E%E5%BF%83%E6%97%B6%E4%BB%A3_2026-09-20.html",
+      "markdown": "markdown/%E9%87%8E%E5%BF%83%E6%97%B6%E4%BB%A3_2026-09-20.md",
+      "htmlBytes": 26139,
+      "markdownBytes": 14741
+    },
+    {
       "title": "重塑世界",
       "date": "2026-09-20",
       "category": "其他阅读",
@@ -60,6 +69,15 @@
       "markdown": "markdown/%E9%87%8D%E5%A1%91%E4%B8%96%E7%95%8C_2026-09-20.md",
       "htmlBytes": 27202,
       "markdownBytes": 15659
+    },
+    {
+      "title": "论中国",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E8%AE%BA%E4%B8%AD%E5%9B%BD_2026-09-20.html",
+      "markdown": "markdown/%E8%AE%BA%E4%B8%AD%E5%9B%BD_2026-09-20.md",
+      "htmlBytes": 25905,
+      "markdownBytes": 14432
     },
     {
       "title": "血色大地",
@@ -71,6 +89,15 @@
       "markdownBytes": 13930
     },
     {
+      "title": "自由的窄廊",
+      "date": "2026-09-20",
+      "category": "哲学与思想",
+      "html": "readings/%E8%87%AA%E7%94%B1%E7%9A%84%E7%AA%84%E5%BB%8A_2026-09-20.html",
+      "markdown": "markdown/%E8%87%AA%E7%94%B1%E7%9A%84%E7%AA%84%E5%BB%8A_2026-09-20.md",
+      "htmlBytes": 27156,
+      "markdownBytes": 15529
+    },
+    {
       "title": "红色饥荒",
       "date": "2026-09-20",
       "category": "性文化与身体",
@@ -78,6 +105,33 @@
       "markdown": "markdown/%E7%BA%A2%E8%89%B2%E9%A5%A5%E8%8D%92_2026-09-20.md",
       "htmlBytes": 24980,
       "markdownBytes": 13593
+    },
+    {
+      "title": "甲骨文",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E7%94%B2%E9%AA%A8%E6%96%87_2026-09-20.html",
+      "markdown": "markdown/%E7%94%B2%E9%AA%A8%E6%96%87_2026-09-20.md",
+      "htmlBytes": 25567,
+      "markdownBytes": 13991
+    },
+    {
+      "title": "江城",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E6%B1%9F%E5%9F%8E_2026-09-20.html",
+      "markdown": "markdown/%E6%B1%9F%E5%9F%8E_2026-09-20.md",
+      "htmlBytes": 25383,
+      "markdownBytes": 13909
+    },
+    {
+      "title": "民主的阴暗面",
+      "date": "2026-09-20",
+      "category": "社会与政治",
+      "html": "readings/%E6%B0%91%E4%B8%BB%E7%9A%84%E9%98%B4%E6%9A%97%E9%9D%A2_2026-09-20.html",
+      "markdown": "markdown/%E6%B0%91%E4%B8%BB%E7%9A%84%E9%98%B4%E6%9A%97%E9%9D%A2_2026-09-20.md",
+      "htmlBytes": 26471,
+      "markdownBytes": 14955
     },
     {
       "title": "毁灭的代价",
@@ -116,6 +170,15 @@
       "markdownBytes": 13839
     },
     {
+      "title": "想象的共同体",
+      "date": "2026-09-20",
+      "category": "哲学与思想",
+      "html": "readings/%E6%83%B3%E8%B1%A1%E7%9A%84%E5%85%B1%E5%90%8C%E4%BD%93_2026-09-20.html",
+      "markdown": "markdown/%E6%83%B3%E8%B1%A1%E7%9A%84%E5%85%B1%E5%90%8C%E4%BD%93_2026-09-20.md",
+      "htmlBytes": 27962,
+      "markdownBytes": 16317
+    },
+    {
       "title": "崩盘",
       "date": "2026-09-20",
       "category": "其他阅读",
@@ -123,6 +186,15 @@
       "markdown": "markdown/%E5%B4%A9%E7%9B%98_2026-09-20.md",
       "htmlBytes": 25605,
       "markdownBytes": 14013
+    },
+    {
+      "title": "奇石",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E5%A5%87%E7%9F%B3_2026-09-20.html",
+      "markdown": "markdown/%E5%A5%87%E7%9F%B3_2026-09-20.md",
+      "htmlBytes": 25056,
+      "markdownBytes": 13544
     },
     {
       "title": "大萧条时期的中国",
@@ -141,6 +213,15 @@
       "markdown": "markdown/%E5%A4%A7%E5%A4%96%E4%BA%A4_2026-09-20.md",
       "htmlBytes": 26521,
       "markdownBytes": 15050
+    },
+    {
+      "title": "大分流",
+      "date": "2026-09-20",
+      "category": "其他阅读",
+      "html": "readings/%E5%A4%A7%E5%88%86%E6%B5%81_2026-09-20.html",
+      "markdown": "markdown/%E5%A4%A7%E5%88%86%E6%B5%81_2026-09-20.md",
+      "htmlBytes": 30059,
+      "markdownBytes": 18268
     },
     {
       "title": "回归故里",
@@ -204,6 +285,15 @@
       "markdown": "markdown/%E4%B8%9C%E8%A5%BF%E8%A1%97_2026-09-20.md",
       "htmlBytes": 24534,
       "markdownBytes": 13049
+    },
+    {
+      "title": "专制与民主的社会起源",
+      "date": "2026-09-20",
+      "category": "社会与政治",
+      "html": "readings/%E4%B8%93%E5%88%B6%E4%B8%8E%E6%B0%91%E4%B8%BB%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%B5%B7%E6%BA%90_2026-09-20.html",
+      "markdown": "markdown/%E4%B8%93%E5%88%B6%E4%B8%8E%E6%B0%91%E4%B8%BB%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%B5%B7%E6%BA%90_2026-09-20.md",
+      "htmlBytes": 27351,
+      "markdownBytes": 15886
     },
     {
       "title": "资本之都",
