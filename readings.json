@@ -116,6 +116,15 @@
       "markdownBytes": 12327
     },
     {
+      "title": "毁灭的代价",
+      "date": "2026-09-21",
+      "category": "其他阅读",
+      "html": "readings/%E6%AF%81%E7%81%AD%E7%9A%84%E4%BB%A3%E4%BB%B7_2026-09-21.html",
+      "markdown": "markdown/%E6%AF%81%E7%81%AD%E7%9A%84%E4%BB%A3%E4%BB%B7_2026-09-21.md",
+      "htmlBytes": 59200,
+      "markdownBytes": 42446
+    },
+    {
       "title": "柏林 一九四五年陷落",
       "date": "2026-09-21",
       "category": "其他阅读",
@@ -395,15 +404,6 @@
       "markdownBytes": 14955
     },
     {
-      "title": "毁灭的代价",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E6%AF%81%E7%81%AD%E7%9A%84%E4%BB%A3%E4%BB%B7_2026-09-20.html",
-      "markdown": "markdown/%E6%AF%81%E7%81%AD%E7%9A%84%E4%BB%A3%E4%BB%B7_2026-09-20.md",
-      "htmlBytes": 25128,
-      "markdownBytes": 13765
-    },
-    {
       "title": "残酷大陆",
       "date": "2026-09-20",
       "category": "其他阅读",
@@ -526,8 +526,8 @@
       "category": "其他阅读",
       "html": "readings/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.html",
       "markdown": "markdown/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.md",
-      "htmlBytes": 23820,
-      "markdownBytes": 12504
+      "htmlBytes": 54587,
+      "markdownBytes": 37723
     },
     {
       "title": "切尔诺贝利的祭祷",
