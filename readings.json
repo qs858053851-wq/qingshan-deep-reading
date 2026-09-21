@@ -85,7 +85,7 @@
       "category": "社会与政治",
       "html": "readings/%E8%BA%AB%E4%BB%BD%E6%94%BF%E6%B2%BB_2026-09-21.html",
       "markdown": "markdown/%E8%BA%AB%E4%BB%BD%E6%94%BF%E6%B2%BB_2026-09-21.md",
-      "htmlBytes": 56674,
+      "htmlBytes": 56667,
       "markdownBytes": 40074
     },
     {
@@ -150,6 +150,15 @@
       "markdown": "markdown/%E6%9F%8F%E6%9E%97_%E4%B8%80%E4%B9%9D%E5%9B%9B%E4%BA%94%E5%B9%B4%E9%99%B7%E8%90%BD_2026-09-21.md",
       "htmlBytes": 51320,
       "markdownBytes": 36346
+    },
+    {
+      "title": "战争中没有女性",
+      "date": "2026-09-21",
+      "category": "历史与文明",
+      "html": "readings/%E6%88%98%E4%BA%89%E4%B8%AD%E6%B2%A1%E6%9C%89%E5%A5%B3%E6%80%A7_2026-09-21.html",
+      "markdown": "markdown/%E6%88%98%E4%BA%89%E4%B8%AD%E6%B2%A1%E6%9C%89%E5%A5%B3%E6%80%A7_2026-09-21.md",
+      "htmlBytes": 56726,
+      "markdownBytes": 39693
     },
     {
       "title": "弃长安",
@@ -283,7 +292,7 @@
       "category": "社会与政治",
       "html": "readings/%E9%9D%A9%E5%91%BD%E4%B9%8B%E5%A4%8F_2026-09-20.html",
       "markdown": "markdown/%E9%9D%A9%E5%91%BD%E4%B9%8B%E5%A4%8F_2026-09-20.md",
-      "htmlBytes": 51193,
+      "htmlBytes": 53292,
       "markdownBytes": 34296
     },
     {
@@ -310,8 +319,8 @@
       "category": "其他阅读",
       "html": "readings/%E9%93%81%E5%B9%95%E9%99%8D%E4%B8%B4_2026-09-20.html",
       "markdown": "markdown/%E9%93%81%E5%B9%95%E9%99%8D%E4%B8%B4_2026-09-20.md",
-      "htmlBytes": 24028,
-      "markdownBytes": 12675
+      "htmlBytes": 53441,
+      "markdownBytes": 35788
     },
     {
       "title": "野心时代",
@@ -409,7 +418,7 @@
       "category": "其他阅读",
       "html": "readings/%E6%AE%8B%E9%85%B7%E5%A4%A7%E9%99%86_2026-09-20.html",
       "markdown": "markdown/%E6%AE%8B%E9%85%B7%E5%A4%A7%E9%99%86_2026-09-20.md",
-      "htmlBytes": 52716,
+      "htmlBytes": 55077,
       "markdownBytes": 36304
     },
     {
@@ -418,7 +427,7 @@
       "category": "历史与文明",
       "html": "readings/%E6%AC%A7%E6%B4%B2%E4%B9%8B%E9%97%A8_2026-09-20.html",
       "markdown": "markdown/%E6%AC%A7%E6%B4%B2%E4%B9%8B%E9%97%A8_2026-09-20.md",
-      "htmlBytes": 53099,
+      "htmlBytes": 55527,
       "markdownBytes": 36273
     },
     {
@@ -438,15 +447,6 @@
       "markdown": "markdown/%E6%9C%80%E5%90%8E%E7%9A%84%E8%AF%81%E4%BA%BA_2026-09-20.md",
       "htmlBytes": 25014,
       "markdownBytes": 13471
-    },
-    {
-      "title": "战争中没有女性",
-      "date": "2026-09-20",
-      "category": "历史与文明",
-      "html": "readings/%E6%88%98%E4%BA%89%E4%B8%AD%E6%B2%A1%E6%9C%89%E5%A5%B3%E6%80%A7_2026-09-20.html",
-      "markdown": "markdown/%E6%88%98%E4%BA%89%E4%B8%AD%E6%B2%A1%E6%9C%89%E5%A5%B3%E6%80%A7_2026-09-20.md",
-      "htmlBytes": 25346,
-      "markdownBytes": 13839
     },
     {
       "title": "想象的共同体",
@@ -490,7 +490,7 @@
       "category": "历史与文明",
       "html": "readings/%E5%A4%A7%E6%B4%8B%E4%B9%8B%E9%97%B4_2026-09-20.html",
       "markdown": "markdown/%E5%A4%A7%E6%B4%8B%E4%B9%8B%E9%97%B4_2026-09-20.md",
-      "htmlBytes": 52252,
+      "htmlBytes": 53307,
       "markdownBytes": 35646
     },
     {
@@ -526,7 +526,7 @@
       "category": "其他阅读",
       "html": "readings/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.html",
       "markdown": "markdown/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.md",
-      "htmlBytes": 54587,
+      "htmlBytes": 55765,
       "markdownBytes": 37723
     },
     {
@@ -553,7 +553,7 @@
       "category": "历史与文明",
       "html": "readings/%E4%BC%AF%E7%BD%97%E5%A5%94%E5%B0%BC%E6%92%92%E6%88%98%E4%BA%89_2026-09-20.html",
       "markdown": "markdown/%E4%BC%AF%E7%BD%97%E5%A5%94%E5%B0%BC%E6%92%92%E6%88%98%E4%BA%89_2026-09-20.md",
-      "htmlBytes": 51805,
+      "htmlBytes": 52959,
       "markdownBytes": 35386
     },
     {
