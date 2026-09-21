@@ -89,6 +89,15 @@
       "markdownBytes": 40074
     },
     {
+      "title": "血色大地",
+      "date": "2026-09-21",
+      "category": "性文化与身体",
+      "html": "readings/%E8%A1%80%E8%89%B2%E5%A4%A7%E5%9C%B0_2026-09-21.html",
+      "markdown": "markdown/%E8%A1%80%E8%89%B2%E5%A4%A7%E5%9C%B0_2026-09-21.md",
+      "htmlBytes": 57597,
+      "markdownBytes": 40642
+    },
+    {
       "title": "统治 基督教如何改变世界",
       "date": "2026-09-21",
       "category": "宗教与灵性",
@@ -332,15 +341,6 @@
       "markdownBytes": 14432
     },
     {
-      "title": "血色大地",
-      "date": "2026-09-20",
-      "category": "性文化与身体",
-      "html": "readings/%E8%A1%80%E8%89%B2%E5%A4%A7%E5%9C%B0_2026-09-20.html",
-      "markdown": "markdown/%E8%A1%80%E8%89%B2%E5%A4%A7%E5%9C%B0_2026-09-20.md",
-      "htmlBytes": 25273,
-      "markdownBytes": 13930
-    },
-    {
       "title": "自由的窄廊",
       "date": "2026-09-20",
       "category": "哲学与思想",
@@ -490,8 +490,8 @@
       "category": "历史与文明",
       "html": "readings/%E5%A4%A7%E6%B4%8B%E4%B9%8B%E9%97%B4_2026-09-20.html",
       "markdown": "markdown/%E5%A4%A7%E6%B4%8B%E4%B9%8B%E9%97%B4_2026-09-20.md",
-      "htmlBytes": 25702,
-      "markdownBytes": 14252
+      "htmlBytes": 52252,
+      "markdownBytes": 35646
     },
     {
       "title": "大外交",
