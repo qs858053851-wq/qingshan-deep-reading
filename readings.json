@@ -35,6 +35,15 @@
       "markdownBytes": 41721
     },
     {
+      "title": "黑土",
+      "date": "2026-09-21",
+      "category": "其他阅读",
+      "html": "readings/%E9%BB%91%E5%9C%9F_2026-09-21.html",
+      "markdown": "markdown/%E9%BB%91%E5%9C%9F_2026-09-21.md",
+      "htmlBytes": 58258,
+      "markdownBytes": 41270
+    },
+    {
       "title": "鱼翅与花椒",
       "date": "2026-09-21",
       "category": "其他阅读",
@@ -251,15 +260,6 @@
       "markdownBytes": 13502
     },
     {
-      "title": "黑土",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E9%BB%91%E5%9C%9F_2026-09-20.html",
-      "markdown": "markdown/%E9%BB%91%E5%9C%9F_2026-09-20.md",
-      "htmlBytes": 25253,
-      "markdownBytes": 13776
-    },
-    {
       "title": "骄傲之塔",
       "date": "2026-09-20",
       "category": "其他阅读",
@@ -274,8 +274,8 @@
       "category": "社会与政治",
       "html": "readings/%E9%9D%A9%E5%91%BD%E4%B9%8B%E5%A4%8F_2026-09-20.html",
       "markdown": "markdown/%E9%9D%A9%E5%91%BD%E4%B9%8B%E5%A4%8F_2026-09-20.md",
-      "htmlBytes": 25653,
-      "markdownBytes": 14095
+      "htmlBytes": 51193,
+      "markdownBytes": 34296
     },
     {
       "title": "雅典的胜利",
