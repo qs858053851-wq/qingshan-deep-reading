@@ -170,6 +170,15 @@
       "markdownBytes": 13253
     },
     {
+      "title": "崩盘",
+      "date": "2026-09-21",
+      "category": "其他阅读",
+      "html": "readings/%E5%B4%A9%E7%9B%98_2026-09-21.html",
+      "markdown": "markdown/%E5%B4%A9%E7%9B%98_2026-09-21.md",
+      "htmlBytes": 59538,
+      "markdownBytes": 42056
+    },
+    {
       "title": "大分裂",
       "date": "2026-09-21",
       "category": "其他阅读",
@@ -293,7 +302,7 @@
       "html": "readings/%E9%9D%A9%E5%91%BD%E4%B9%8B%E5%A4%8F_2026-09-20.html",
       "markdown": "markdown/%E9%9D%A9%E5%91%BD%E4%B9%8B%E5%A4%8F_2026-09-20.md",
       "htmlBytes": 53292,
-      "markdownBytes": 34296
+      "markdownBytes": 36357
     },
     {
       "title": "雅典的胜利",
@@ -320,7 +329,7 @@
       "html": "readings/%E9%93%81%E5%B9%95%E9%99%8D%E4%B8%B4_2026-09-20.html",
       "markdown": "markdown/%E9%93%81%E5%B9%95%E9%99%8D%E4%B8%B4_2026-09-20.md",
       "htmlBytes": 53441,
-      "markdownBytes": 35788
+      "markdownBytes": 36843
     },
     {
       "title": "野心时代",
@@ -419,7 +428,7 @@
       "html": "readings/%E6%AE%8B%E9%85%B7%E5%A4%A7%E9%99%86_2026-09-20.html",
       "markdown": "markdown/%E6%AE%8B%E9%85%B7%E5%A4%A7%E9%99%86_2026-09-20.md",
       "htmlBytes": 55077,
-      "markdownBytes": 36304
+      "markdownBytes": 38604
     },
     {
       "title": "欧洲之门",
@@ -428,7 +437,7 @@
       "html": "readings/%E6%AC%A7%E6%B4%B2%E4%B9%8B%E9%97%A8_2026-09-20.html",
       "markdown": "markdown/%E6%AC%A7%E6%B4%B2%E4%B9%8B%E9%97%A8_2026-09-20.md",
       "htmlBytes": 55527,
-      "markdownBytes": 36273
+      "markdownBytes": 38640
     },
     {
       "title": "最底层的十亿人",
@@ -458,15 +467,6 @@
       "markdownBytes": 16317
     },
     {
-      "title": "崩盘",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E5%B4%A9%E7%9B%98_2026-09-20.html",
-      "markdown": "markdown/%E5%B4%A9%E7%9B%98_2026-09-20.md",
-      "htmlBytes": 25605,
-      "markdownBytes": 14013
-    },
-    {
       "title": "奇石",
       "date": "2026-09-20",
       "category": "其他阅读",
@@ -490,8 +490,8 @@
       "category": "历史与文明",
       "html": "readings/%E5%A4%A7%E6%B4%8B%E4%B9%8B%E9%97%B4_2026-09-20.html",
       "markdown": "markdown/%E5%A4%A7%E6%B4%8B%E4%B9%8B%E9%97%B4_2026-09-20.md",
-      "htmlBytes": 53307,
-      "markdownBytes": 35646
+      "htmlBytes": 54094,
+      "markdownBytes": 37450
     },
     {
       "title": "大外交",
@@ -527,7 +527,7 @@
       "html": "readings/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.html",
       "markdown": "markdown/%E5%92%8C%E5%B9%B3%E7%BB%93%E6%9D%9F%E5%92%8C%E5%B9%B3_2026-09-20.md",
       "htmlBytes": 55765,
-      "markdownBytes": 37723
+      "markdownBytes": 38874
     },
     {
       "title": "切尔诺贝利的祭祷",
@@ -554,7 +554,7 @@
       "html": "readings/%E4%BC%AF%E7%BD%97%E5%A5%94%E5%B0%BC%E6%92%92%E6%88%98%E4%BA%89_2026-09-20.html",
       "markdown": "markdown/%E4%BC%AF%E7%BD%97%E5%A5%94%E5%B0%BC%E6%92%92%E6%88%98%E4%BA%89_2026-09-20.md",
       "htmlBytes": 52959,
-      "markdownBytes": 35386
+      "markdownBytes": 36513
     },
     {
       "title": "二手时间",
