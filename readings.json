@@ -26,6 +26,240 @@
   },
   "entries": [
     {
+      "title": "零年 1945 现代世界诞生的时刻",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E9%9B%B6%E5%B9%B4_1945_%E7%8E%B0%E4%BB%A3%E4%B8%96%E7%95%8C%E8%AF%9E%E7%94%9F%E7%9A%84%E6%97%B6%E5%88%BB_2026-09-23.html",
+      "markdown": "markdown/%E9%9B%B6%E5%B9%B4_1945_%E7%8E%B0%E4%BB%A3%E4%B8%96%E7%95%8C%E8%AF%9E%E7%94%9F%E7%9A%84%E6%97%B6%E5%88%BB_2026-09-23.md",
+      "htmlBytes": 66244,
+      "markdownBytes": 50909
+    },
+    {
+      "title": "资本之都",
+      "date": "2026-09-23",
+      "category": "经济与商业",
+      "html": "readings/%E8%B5%84%E6%9C%AC%E4%B9%8B%E9%83%BD_2026-09-23.html",
+      "markdown": "markdown/%E8%B5%84%E6%9C%AC%E4%B9%8B%E9%83%BD_2026-09-23.md",
+      "htmlBytes": 66669,
+      "markdownBytes": 51334
+    },
+    {
+      "title": "袍哥",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E8%A2%8D%E5%93%A5_2026-09-23.html",
+      "markdown": "markdown/%E8%A2%8D%E5%93%A5_2026-09-23.md",
+      "htmlBytes": 66322,
+      "markdownBytes": 50829
+    },
+    {
+      "title": "苏联的最后一天",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E8%8B%8F%E8%81%94%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9_2026-09-23.html",
+      "markdown": "markdown/%E8%8B%8F%E8%81%94%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9_2026-09-23.md",
+      "htmlBytes": 65748,
+      "markdownBytes": 50501
+    },
+    {
+      "title": "罪孽的报应 德国和日本的战争记忆",
+      "date": "2026-09-23",
+      "category": "心理学与自我",
+      "html": "readings/%E7%BD%AA%E5%AD%BD%E7%9A%84%E6%8A%A5%E5%BA%94_%E5%BE%B7%E5%9B%BD%E5%92%8C%E6%97%A5%E6%9C%AC%E7%9A%84%E6%88%98%E4%BA%89%E8%AE%B0%E5%BF%86_2026-09-23.html",
+      "markdown": "markdown/%E7%BD%AA%E5%AD%BD%E7%9A%84%E6%8A%A5%E5%BA%94_%E5%BE%B7%E5%9B%BD%E5%92%8C%E6%97%A5%E6%9C%AC%E7%9A%84%E6%88%98%E4%BA%89%E8%AE%B0%E5%BF%86_2026-09-23.md",
+      "htmlBytes": 65604,
+      "markdownBytes": 51147
+    },
+    {
+      "title": "漫漫自由路 曼德拉自传",
+      "date": "2026-09-23",
+      "category": "哲学与思想",
+      "html": "readings/%E6%BC%AB%E6%BC%AB%E8%87%AA%E7%94%B1%E8%B7%AF_%E6%9B%BC%E5%BE%B7%E6%8B%89%E8%87%AA%E4%BC%A0_2026-09-23.html",
+      "markdown": "markdown/%E6%BC%AB%E6%BC%AB%E8%87%AA%E7%94%B1%E8%B7%AF_%E6%9B%BC%E5%BE%B7%E6%8B%89%E8%87%AA%E4%BC%A0_2026-09-23.md",
+      "htmlBytes": 66382,
+      "markdownBytes": 51036
+    },
+    {
+      "title": "活着回来的男人 一个普通日本兵的二战及战后生命史",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E6%B4%BB%E7%9D%80%E5%9B%9E%E6%9D%A5%E7%9A%84%E7%94%B7%E4%BA%BA_%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%E6%97%A5%E6%9C%AC%E5%85%B5%E7%9A%84%E4%BA%8C%E6%88%98%E5%8F%8A%E6%88%98%E5%90%8E%E7%94%9F%E5%91%BD%E5%8F%B2_2026-09-23.html",
+      "markdown": "markdown/%E6%B4%BB%E7%9D%80%E5%9B%9E%E6%9D%A5%E7%9A%84%E7%94%B7%E4%BA%BA_%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%E6%97%A5%E6%9C%AC%E5%85%B5%E7%9A%84%E4%BA%8C%E6%88%98%E5%8F%8A%E6%88%98%E5%90%8E%E7%94%9F%E5%91%BD%E5%8F%B2_2026-09-23.md",
+      "htmlBytes": 66541,
+      "markdownBytes": 51497
+    },
+    {
+      "title": "明治天皇",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E6%98%8E%E6%B2%BB%E5%A4%A9%E7%9A%87_2026-09-23.html",
+      "markdown": "markdown/%E6%98%8E%E6%B2%BB%E5%A4%A9%E7%9A%87_2026-09-23.md",
+      "htmlBytes": 66064,
+      "markdownBytes": 50739
+    },
+    {
+      "title": "日本之镜",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E6%97%A5%E6%9C%AC%E4%B9%8B%E9%95%9C_2026-09-23.html",
+      "markdown": "markdown/%E6%97%A5%E6%9C%AC%E4%B9%8B%E9%95%9C_2026-09-23.md",
+      "htmlBytes": 65922,
+      "markdownBytes": 50712
+    },
+    {
+      "title": "教宗与墨索里尼",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E6%95%99%E5%AE%97%E4%B8%8E%E5%A2%A8%E7%B4%A2%E9%87%8C%E5%B0%BC_2026-09-23.html",
+      "markdown": "markdown/%E6%95%99%E5%AE%97%E4%B8%8E%E5%A2%A8%E7%B4%A2%E9%87%8C%E5%B0%BC_2026-09-23.md",
+      "htmlBytes": 66045,
+      "markdownBytes": 50799
+    },
+    {
+      "title": "想象的共同体",
+      "date": "2026-09-23",
+      "category": "哲学与思想",
+      "html": "readings/%E6%83%B3%E8%B1%A1%E7%9A%84%E5%85%B1%E5%90%8C%E4%BD%93_2026-09-23.html",
+      "markdown": "markdown/%E6%83%B3%E8%B1%A1%E7%9A%84%E5%85%B1%E5%90%8C%E4%BD%93_2026-09-23.md",
+      "htmlBytes": 67025,
+      "markdownBytes": 51510
+    },
+    {
+      "title": "娜塔莎之舞",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%A8%9C%E5%A1%94%E8%8E%8E%E4%B9%8B%E8%88%9E_2026-09-23.html",
+      "markdown": "markdown/%E5%A8%9C%E5%A1%94%E8%8E%8E%E4%B9%8B%E8%88%9E_2026-09-23.md",
+      "htmlBytes": 68635,
+      "markdownBytes": 53341
+    },
+    {
+      "title": "奇石",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%A5%87%E7%9F%B3_2026-09-23.html",
+      "markdown": "markdown/%E5%A5%87%E7%9F%B3_2026-09-23.md",
+      "htmlBytes": 65942,
+      "markdownBytes": 50370
+    },
+    {
+      "title": "大萧条时期的中国",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%A4%A7%E8%90%A7%E6%9D%A1%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-09-23.html",
+      "markdown": "markdown/%E5%A4%A7%E8%90%A7%E6%9D%A1%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-09-23.md",
+      "htmlBytes": 65894,
+      "markdownBytes": 50309
+    },
+    {
+      "title": "大外交",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%A4%A7%E5%A4%96%E4%BA%A4_2026-09-23.html",
+      "markdown": "markdown/%E5%A4%A7%E5%A4%96%E4%BA%A4_2026-09-23.md",
+      "htmlBytes": 65729,
+      "markdownBytes": 50322
+    },
+    {
+      "title": "大分流",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%A4%A7%E5%88%86%E6%B5%81_2026-09-23.html",
+      "markdown": "markdown/%E5%A4%A7%E5%88%86%E6%B5%81_2026-09-23.md",
+      "htmlBytes": 65808,
+      "markdownBytes": 50300
+    },
+    {
+      "title": "回访历史",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E5%9B%9E%E8%AE%BF%E5%8E%86%E5%8F%B2_2026-09-23.html",
+      "markdown": "markdown/%E5%9B%9E%E8%AE%BF%E5%8E%86%E5%8F%B2_2026-09-23.md",
+      "htmlBytes": 66272,
+      "markdownBytes": 50617
+    },
+    {
+      "title": "回归故里",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%9B%9E%E5%BD%92%E6%95%85%E9%87%8C_2026-09-23.html",
+      "markdown": "markdown/%E5%9B%9E%E5%BD%92%E6%95%85%E9%87%8C_2026-09-23.md",
+      "htmlBytes": 66059,
+      "markdownBytes": 50544
+    },
+    {
+      "title": "创造日本：1853-1964",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%88%9B%E9%80%A0%E6%97%A5%E6%9C%AC%EF%BC%9A1853-1964_2026-09-23.html",
+      "markdown": "markdown/%E5%88%9B%E9%80%A0%E6%97%A5%E6%9C%AC%EF%BC%9A1853-1964_2026-09-23.md",
+      "htmlBytes": 65972,
+      "markdownBytes": 50451
+    },
+    {
+      "title": "切尔诺贝利的祭祷",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E7%9A%84%E7%A5%AD%E7%A5%B7_2026-09-23.html",
+      "markdown": "markdown/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E7%9A%84%E7%A5%AD%E7%A5%B7_2026-09-23.md",
+      "htmlBytes": 66076,
+      "markdownBytes": 50634
+    },
+    {
+      "title": "切尔诺贝利 一部悲剧史",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9_%E4%B8%80%E9%83%A8%E6%82%B2%E5%89%A7%E5%8F%B2_2026-09-23.html",
+      "markdown": "markdown/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9_%E4%B8%80%E9%83%A8%E6%82%B2%E5%89%A7%E5%8F%B2_2026-09-23.md",
+      "htmlBytes": 67393,
+      "markdownBytes": 51990
+    },
+    {
+      "title": "二手时间",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E4%BA%8C%E6%89%8B%E6%97%B6%E9%97%B4_2026-09-23.html",
+      "markdown": "markdown/%E4%BA%8C%E6%89%8B%E6%97%B6%E9%97%B4_2026-09-23.md",
+      "htmlBytes": 67694,
+      "markdownBytes": 52239
+    },
+    {
+      "title": "事实即颠覆",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E4%BA%8B%E5%AE%9E%E5%8D%B3%E9%A2%A0%E8%A6%86_2026-09-23.html",
+      "markdown": "markdown/%E4%BA%8B%E5%AE%9E%E5%8D%B3%E9%A2%A0%E8%A6%86_2026-09-23.md",
+      "htmlBytes": 66043,
+      "markdownBytes": 50520
+    },
+    {
+      "title": "东西街",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%9C%E8%A5%BF%E8%A1%97_2026-09-23.html",
+      "markdown": "markdown/%E4%B8%9C%E8%A5%BF%E8%A1%97_2026-09-23.md",
+      "htmlBytes": 66973,
+      "markdownBytes": 51456
+    },
+    {
+      "title": "专制与民主的社会起源",
+      "date": "2026-09-23",
+      "category": "社会与政治",
+      "html": "readings/%E4%B8%93%E5%88%B6%E4%B8%8E%E6%B0%91%E4%B8%BB%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%B5%B7%E6%BA%90_2026-09-23.html",
+      "markdown": "markdown/%E4%B8%93%E5%88%B6%E4%B8%8E%E6%B0%91%E4%B8%BB%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%B5%B7%E6%BA%90_2026-09-23.md",
+      "htmlBytes": 66671,
+      "markdownBytes": 51034
+    },
+    {
+      "title": "不敢懈怠：曼德拉的总统岁月",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%8D%E6%95%A2%E6%87%88%E6%80%A0%EF%BC%9A%E6%9B%BC%E5%BE%B7%E6%8B%89%E7%9A%84%E6%80%BB%E7%BB%9F%E5%B2%81%E6%9C%88_2026-09-23.html",
+      "markdown": "markdown/%E4%B8%8D%E6%95%A2%E6%87%88%E6%80%A0%EF%BC%9A%E6%9B%BC%E5%BE%B7%E6%8B%89%E7%9A%84%E6%80%BB%E7%BB%9F%E5%B2%81%E6%9C%88_2026-09-23.md",
+      "htmlBytes": 65834,
+      "markdownBytes": 50473
+    },
+    {
       "title": "鼠疫与人",
       "date": "2026-09-22",
       "category": "文学与小说",
@@ -1646,33 +1880,6 @@
       "markdownBytes": 13471
     },
     {
-      "title": "想象的共同体",
-      "date": "2026-09-20",
-      "category": "哲学与思想",
-      "html": "readings/%E6%83%B3%E8%B1%A1%E7%9A%84%E5%85%B1%E5%90%8C%E4%BD%93_2026-09-20.html",
-      "markdown": "markdown/%E6%83%B3%E8%B1%A1%E7%9A%84%E5%85%B1%E5%90%8C%E4%BD%93_2026-09-20.md",
-      "htmlBytes": 27962,
-      "markdownBytes": 16317
-    },
-    {
-      "title": "奇石",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E5%A5%87%E7%9F%B3_2026-09-20.html",
-      "markdown": "markdown/%E5%A5%87%E7%9F%B3_2026-09-20.md",
-      "htmlBytes": 25056,
-      "markdownBytes": 13544
-    },
-    {
-      "title": "大萧条时期的中国",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E5%A4%A7%E8%90%A7%E6%9D%A1%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-09-20.html",
-      "markdown": "markdown/%E5%A4%A7%E8%90%A7%E6%9D%A1%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-09-20.md",
-      "htmlBytes": 25899,
-      "markdownBytes": 14368
-    },
-    {
       "title": "大洋之间",
       "date": "2026-09-20",
       "category": "历史与文明",
@@ -1680,33 +1887,6 @@
       "markdown": "markdown/%E5%A4%A7%E6%B4%8B%E4%B9%8B%E9%97%B4_2026-09-20.md",
       "htmlBytes": 54094,
       "markdownBytes": 37450
-    },
-    {
-      "title": "大外交",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E5%A4%A7%E5%A4%96%E4%BA%A4_2026-09-20.html",
-      "markdown": "markdown/%E5%A4%A7%E5%A4%96%E4%BA%A4_2026-09-20.md",
-      "htmlBytes": 26521,
-      "markdownBytes": 15050
-    },
-    {
-      "title": "大分流",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E5%A4%A7%E5%88%86%E6%B5%81_2026-09-20.html",
-      "markdown": "markdown/%E5%A4%A7%E5%88%86%E6%B5%81_2026-09-20.md",
-      "htmlBytes": 30059,
-      "markdownBytes": 18268
-    },
-    {
-      "title": "回归故里",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E5%9B%9E%E5%BD%92%E6%95%85%E9%87%8C_2026-09-20.html",
-      "markdown": "markdown/%E5%9B%9E%E5%BD%92%E6%95%85%E9%87%8C_2026-09-20.md",
-      "htmlBytes": 26389,
-      "markdownBytes": 14656
     },
     {
       "title": "和平结束和平",
@@ -1718,24 +1898,6 @@
       "markdownBytes": 38874
     },
     {
-      "title": "切尔诺贝利的祭祷",
-      "date": "2026-09-20",
-      "category": "历史与文明",
-      "html": "readings/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E7%9A%84%E7%A5%AD%E7%A5%B7_2026-09-20.html",
-      "markdown": "markdown/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9%E7%9A%84%E7%A5%AD%E7%A5%B7_2026-09-20.md",
-      "htmlBytes": 25175,
-      "markdownBytes": 13743
-    },
-    {
-      "title": "切尔诺贝利 一部悲剧史",
-      "date": "2026-09-20",
-      "category": "历史与文明",
-      "html": "readings/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9_%E4%B8%80%E9%83%A8%E6%82%B2%E5%89%A7%E5%8F%B2_2026-09-20.html",
-      "markdown": "markdown/%E5%88%87%E5%B0%94%E8%AF%BA%E8%B4%9D%E5%88%A9_%E4%B8%80%E9%83%A8%E6%82%B2%E5%89%A7%E5%8F%B2_2026-09-20.md",
-      "htmlBytes": 25020,
-      "markdownBytes": 13625
-    },
-    {
       "title": "伯罗奔尼撒战争",
       "date": "2026-09-20",
       "category": "历史与文明",
@@ -1743,168 +1905,6 @@
       "markdown": "markdown/%E4%BC%AF%E7%BD%97%E5%A5%94%E5%B0%BC%E6%92%92%E6%88%98%E4%BA%89_2026-09-20.md",
       "htmlBytes": 52959,
       "markdownBytes": 36513
-    },
-    {
-      "title": "二手时间",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E4%BA%8C%E6%89%8B%E6%97%B6%E9%97%B4_2026-09-20.html",
-      "markdown": "markdown/%E4%BA%8C%E6%89%8B%E6%97%B6%E9%97%B4_2026-09-20.md",
-      "htmlBytes": 25887,
-      "markdownBytes": 14383
-    },
-    {
-      "title": "东西街",
-      "date": "2026-09-20",
-      "category": "其他阅读",
-      "html": "readings/%E4%B8%9C%E8%A5%BF%E8%A1%97_2026-09-20.html",
-      "markdown": "markdown/%E4%B8%9C%E8%A5%BF%E8%A1%97_2026-09-20.md",
-      "htmlBytes": 24534,
-      "markdownBytes": 13049
-    },
-    {
-      "title": "专制与民主的社会起源",
-      "date": "2026-09-20",
-      "category": "社会与政治",
-      "html": "readings/%E4%B8%93%E5%88%B6%E4%B8%8E%E6%B0%91%E4%B8%BB%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%B5%B7%E6%BA%90_2026-09-20.html",
-      "markdown": "markdown/%E4%B8%93%E5%88%B6%E4%B8%8E%E6%B0%91%E4%B8%BB%E7%9A%84%E7%A4%BE%E4%BC%9A%E8%B5%B7%E6%BA%90_2026-09-20.md",
-      "htmlBytes": 27351,
-      "markdownBytes": 15886
-    },
-    {
-      "title": "资本之都",
-      "date": "2026-09-19",
-      "category": "经济与商业",
-      "html": "readings/%E8%B5%84%E6%9C%AC%E4%B9%8B%E9%83%BD_2026-09-19.html",
-      "markdown": "markdown/%E8%B5%84%E6%9C%AC%E4%B9%8B%E9%83%BD_2026-09-19.md",
-      "htmlBytes": 24140,
-      "markdownBytes": 12679
-    },
-    {
-      "title": "苏联的最后一天",
-      "date": "2026-09-19",
-      "category": "历史与文明",
-      "html": "readings/%E8%8B%8F%E8%81%94%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9_2026-09-19.html",
-      "markdown": "markdown/%E8%8B%8F%E8%81%94%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9_2026-09-19.md",
-      "htmlBytes": 25896,
-      "markdownBytes": 14345
-    },
-    {
-      "title": "明治天皇",
-      "date": "2026-09-19",
-      "category": "其他阅读",
-      "html": "readings/%E6%98%8E%E6%B2%BB%E5%A4%A9%E7%9A%87_2026-09-19.html",
-      "markdown": "markdown/%E6%98%8E%E6%B2%BB%E5%A4%A9%E7%9A%87_2026-09-19.md",
-      "htmlBytes": 23568,
-      "markdownBytes": 11953
-    },
-    {
-      "title": "日本之镜",
-      "date": "2026-09-19",
-      "category": "其他阅读",
-      "html": "readings/%E6%97%A5%E6%9C%AC%E4%B9%8B%E9%95%9C_2026-09-19.html",
-      "markdown": "markdown/%E6%97%A5%E6%9C%AC%E4%B9%8B%E9%95%9C_2026-09-19.md",
-      "htmlBytes": 23237,
-      "markdownBytes": 11844
-    },
-    {
-      "title": "教宗与墨索里尼",
-      "date": "2026-09-19",
-      "category": "其他阅读",
-      "html": "readings/%E6%95%99%E5%AE%97%E4%B8%8E%E5%A2%A8%E7%B4%A2%E9%87%8C%E5%B0%BC_2026-09-19.html",
-      "markdown": "markdown/%E6%95%99%E5%AE%97%E4%B8%8E%E5%A2%A8%E7%B4%A2%E9%87%8C%E5%B0%BC_2026-09-19.md",
-      "htmlBytes": 24039,
-      "markdownBytes": 12477
-    },
-    {
-      "title": "娜塔莎之舞",
-      "date": "2026-09-19",
-      "category": "其他阅读",
-      "html": "readings/%E5%A8%9C%E5%A1%94%E8%8E%8E%E4%B9%8B%E8%88%9E_2026-09-19.html",
-      "markdown": "markdown/%E5%A8%9C%E5%A1%94%E8%8E%8E%E4%B9%8B%E8%88%9E_2026-09-19.md",
-      "htmlBytes": 22811,
-      "markdownBytes": 11551
-    },
-    {
-      "title": "回访历史",
-      "date": "2026-09-19",
-      "category": "历史与文明",
-      "html": "readings/%E5%9B%9E%E8%AE%BF%E5%8E%86%E5%8F%B2_2026-09-19.html",
-      "markdown": "markdown/%E5%9B%9E%E8%AE%BF%E5%8E%86%E5%8F%B2_2026-09-19.md",
-      "htmlBytes": 23271,
-      "markdownBytes": 11809
-    },
-    {
-      "title": "创造日本：1853-1964",
-      "date": "2026-09-19",
-      "category": "其他阅读",
-      "html": "readings/%E5%88%9B%E9%80%A0%E6%97%A5%E6%9C%AC%EF%BC%9A1853-1964_2026-09-19.html",
-      "markdown": "markdown/%E5%88%9B%E9%80%A0%E6%97%A5%E6%9C%AC%EF%BC%9A1853-1964_2026-09-19.md",
-      "htmlBytes": 22176,
-      "markdownBytes": 10817
-    },
-    {
-      "title": "事实即颠覆",
-      "date": "2026-09-19",
-      "category": "其他阅读",
-      "html": "readings/%E4%BA%8B%E5%AE%9E%E5%8D%B3%E9%A2%A0%E8%A6%86_2026-09-19.html",
-      "markdown": "markdown/%E4%BA%8B%E5%AE%9E%E5%8D%B3%E9%A2%A0%E8%A6%86_2026-09-19.md",
-      "htmlBytes": 21786,
-      "markdownBytes": 10534
-    },
-    {
-      "title": "不敢懈怠：曼德拉的总统岁月",
-      "date": "2026-09-19",
-      "category": "其他阅读",
-      "html": "readings/%E4%B8%8D%E6%95%A2%E6%87%88%E6%80%A0%EF%BC%9A%E6%9B%BC%E5%BE%B7%E6%8B%89%E7%9A%84%E6%80%BB%E7%BB%9F%E5%B2%81%E6%9C%88_2026-09-19.html",
-      "markdown": "markdown/%E4%B8%8D%E6%95%A2%E6%87%88%E6%80%A0%EF%BC%9A%E6%9B%BC%E5%BE%B7%E6%8B%89%E7%9A%84%E6%80%BB%E7%BB%9F%E5%B2%81%E6%9C%88_2026-09-19.md",
-      "htmlBytes": 24673,
-      "markdownBytes": 13334
-    },
-    {
-      "title": "零年 1945 现代世界诞生的时刻",
-      "date": "2026-09-18",
-      "category": "历史与文明",
-      "html": "readings/%E9%9B%B6%E5%B9%B4_1945_%E7%8E%B0%E4%BB%A3%E4%B8%96%E7%95%8C%E8%AF%9E%E7%94%9F%E7%9A%84%E6%97%B6%E5%88%BB_2026-09-18.html",
-      "markdown": "markdown/%E9%9B%B6%E5%B9%B4_1945_%E7%8E%B0%E4%BB%A3%E4%B8%96%E7%95%8C%E8%AF%9E%E7%94%9F%E7%9A%84%E6%97%B6%E5%88%BB_2026-09-18.md",
-      "htmlBytes": 20486,
-      "markdownBytes": 9684
-    },
-    {
-      "title": "袍哥",
-      "date": "2026-09-18",
-      "category": "其他阅读",
-      "html": "readings/%E8%A2%8D%E5%93%A5_2026-09-18.html",
-      "markdown": "markdown/%E8%A2%8D%E5%93%A5_2026-09-18.md",
-      "htmlBytes": 27490,
-      "markdownBytes": 14066
-    },
-    {
-      "title": "罪孽的报应 德国和日本的战争记忆",
-      "date": "2026-09-18",
-      "category": "心理学与自我",
-      "html": "readings/%E7%BD%AA%E5%AD%BD%E7%9A%84%E6%8A%A5%E5%BA%94_%E5%BE%B7%E5%9B%BD%E5%92%8C%E6%97%A5%E6%9C%AC%E7%9A%84%E6%88%98%E4%BA%89%E8%AE%B0%E5%BF%86_2026-09-18.html",
-      "markdown": "markdown/%E7%BD%AA%E5%AD%BD%E7%9A%84%E6%8A%A5%E5%BA%94_%E5%BE%B7%E5%9B%BD%E5%92%8C%E6%97%A5%E6%9C%AC%E7%9A%84%E6%88%98%E4%BA%89%E8%AE%B0%E5%BF%86_2026-09-18.md",
-      "htmlBytes": 21274,
-      "markdownBytes": 10553
-    },
-    {
-      "title": "漫漫自由路 曼德拉自传",
-      "date": "2026-09-18",
-      "category": "哲学与思想",
-      "html": "readings/%E6%BC%AB%E6%BC%AB%E8%87%AA%E7%94%B1%E8%B7%AF_%E6%9B%BC%E5%BE%B7%E6%8B%89%E8%87%AA%E4%BC%A0_2026-09-18.html",
-      "markdown": "markdown/%E6%BC%AB%E6%BC%AB%E8%87%AA%E7%94%B1%E8%B7%AF_%E6%9B%BC%E5%BE%B7%E6%8B%89%E8%87%AA%E4%BC%A0_2026-09-18.md",
-      "htmlBytes": 21072,
-      "markdownBytes": 10277
-    },
-    {
-      "title": "活着回来的男人 一个普通日本兵的二战及战后生命史",
-      "date": "2026-09-18",
-      "category": "历史与文明",
-      "html": "readings/%E6%B4%BB%E7%9D%80%E5%9B%9E%E6%9D%A5%E7%9A%84%E7%94%B7%E4%BA%BA_%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%E6%97%A5%E6%9C%AC%E5%85%B5%E7%9A%84%E4%BA%8C%E6%88%98%E5%8F%8A%E6%88%98%E5%90%8E%E7%94%9F%E5%91%BD%E5%8F%B2_2026-09-18.html",
-      "markdown": "markdown/%E6%B4%BB%E7%9D%80%E5%9B%9E%E6%9D%A5%E7%9A%84%E7%94%B7%E4%BA%BA_%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%E6%97%A5%E6%9C%AC%E5%85%B5%E7%9A%84%E4%BA%8C%E6%88%98%E5%8F%8A%E6%88%98%E5%90%8E%E7%94%9F%E5%91%BD%E5%8F%B2_2026-09-18.md",
-      "htmlBytes": 21616,
-      "markdownBytes": 10893
     },
     {
       "title": "鼠疫",
