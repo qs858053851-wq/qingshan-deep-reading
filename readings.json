@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-22",
-  "count": 871,
-  "htmlCount": 866,
-  "markdownCount": 869,
+  "count": 872,
+  "htmlCount": 867,
+  "markdownCount": 870,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -20,7 +20,7 @@
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
-    "经济与商业": 41,
+    "经济与商业": 42,
     "艺术与文化": 18,
     "诗歌与词赋": 12
   },
@@ -69,6 +69,15 @@
       "markdown": "markdown/%E5%8D%A2%E6%AF%94%E5%AD%94%E6%B2%B3_2026-09-22.md",
       "htmlBytes": 64097,
       "markdownBytes": 50401
+    },
+    {
+      "title": "制造消费者",
+      "date": "2026-09-22",
+      "category": "经济与商业",
+      "html": "readings/%E5%88%B6%E9%80%A0%E6%B6%88%E8%B4%B9%E8%80%85_2026-09-22.html",
+      "markdown": "markdown/%E5%88%B6%E9%80%A0%E6%B6%88%E8%B4%B9%E8%80%85_2026-09-22.md",
+      "htmlBytes": 73525,
+      "markdownBytes": 59041
     },
     {
       "title": "从黎明到衰落",
