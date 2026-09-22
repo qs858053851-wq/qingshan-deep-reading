@@ -1,14 +1,14 @@
 {
   "updated": "2026-09-22",
-  "count": 877,
-  "htmlCount": 872,
-  "markdownCount": 875,
+  "count": 883,
+  "htmlCount": 878,
+  "markdownCount": 881,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
     "健康与生活": 5,
-    "其他阅读": 144,
-    "历史与文明": 163,
+    "其他阅读": 147,
+    "历史与文明": 164,
     "古典文献与国学": 9,
     "哲学与思想": 54,
     "宗教与灵性": 60,
@@ -16,7 +16,7 @@
     "心理学与自我": 45,
     "性文化与身体": 25,
     "文学与小说": 117,
-    "社会与政治": 93,
+    "社会与政治": 95,
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 16,
@@ -42,6 +42,15 @@
       "markdown": "markdown/%E9%94%99%E4%B8%8D%E5%9C%A8%E6%88%91_2026-09-22.md",
       "htmlBytes": 78736,
       "markdownBytes": 65500
+    },
+    {
+      "title": "金翼",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E9%87%91%E7%BF%BC_2026-09-22.html",
+      "markdown": "markdown/%E9%87%91%E7%BF%BC_2026-09-22.md",
+      "htmlBytes": 86243,
+      "markdownBytes": 72312
     },
     {
       "title": "统治 基督教如何改变世界",
@@ -161,6 +170,24 @@
       "markdownBytes": 59041
     },
     {
+      "title": "制造汉武帝",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E5%88%B6%E9%80%A0%E6%B1%89%E6%AD%A6%E5%B8%9D_2026-09-22.html",
+      "markdown": "markdown/%E5%88%B6%E9%80%A0%E6%B1%89%E6%AD%A6%E5%B8%9D_2026-09-22.md",
+      "htmlBytes": 77331,
+      "markdownBytes": 63006
+    },
+    {
+      "title": "信息简史",
+      "date": "2026-09-22",
+      "category": "历史与文明",
+      "html": "readings/%E4%BF%A1%E6%81%AF%E7%AE%80%E5%8F%B2_2026-09-22.html",
+      "markdown": "markdown/%E4%BF%A1%E6%81%AF%E7%AE%80%E5%8F%B2_2026-09-22.md",
+      "htmlBytes": 75945,
+      "markdownBytes": 61157
+    },
+    {
       "title": "传统十论",
       "date": "2026-09-22",
       "category": "传记与回忆录",
@@ -188,6 +215,24 @@
       "markdownBytes": 46488
     },
     {
+      "title": "人类网络",
+      "date": "2026-09-22",
+      "category": "社会与政治",
+      "html": "readings/%E4%BA%BA%E7%B1%BB%E7%BD%91%E7%BB%9C_2026-09-22.html",
+      "markdown": "markdown/%E4%BA%BA%E7%B1%BB%E7%BD%91%E7%BB%9C_2026-09-22.md",
+      "htmlBytes": 94853,
+      "markdownBytes": 79345
+    },
+    {
+      "title": "人有人的用处",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E4%BA%BA%E6%9C%89%E4%BA%BA%E7%9A%84%E7%94%A8%E5%A4%84_2026-09-22.html",
+      "markdown": "markdown/%E4%BA%BA%E6%9C%89%E4%BA%BA%E7%9A%84%E7%94%A8%E5%A4%84_2026-09-22.md",
+      "htmlBytes": 66293,
+      "markdownBytes": 51718
+    },
+    {
       "title": "交易心理分析",
       "date": "2026-09-22",
       "category": "经济与商业",
@@ -213,6 +258,15 @@
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E5%AE%98%E5%83%9A%E6%94%BF%E6%B2%BB%E7%A0%94%E7%A9%B6_2026-09-22.md",
       "htmlBytes": 77954,
       "markdownBytes": 65055
+    },
+    {
+      "title": "中国国家治理的制度逻辑",
+      "date": "2026-09-22",
+      "category": "社会与政治",
+      "html": "readings/%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E6%B2%BB%E7%90%86%E7%9A%84%E5%88%B6%E5%BA%A6%E9%80%BB%E8%BE%91_2026-09-22.html",
+      "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E5%9B%BD%E5%AE%B6%E6%B2%BB%E7%90%86%E7%9A%84%E5%88%B6%E5%BA%A6%E9%80%BB%E8%BE%91_2026-09-22.md",
+      "htmlBytes": 82704,
+      "markdownBytes": 68322
     },
     {
       "title": "鼠线",

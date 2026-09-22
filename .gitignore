@@ -1,3 +1,7 @@
+# 深度阅读写作工作区：底本全文与写作中间产物，不随站点发布
+_sources/
+_build/
+
 # macOS
 .DS_Store
 .AppleDouble
