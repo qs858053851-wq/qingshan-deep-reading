@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-22",
-  "count": 872,
-  "htmlCount": 867,
-  "markdownCount": 870,
+  "count": 873,
+  "htmlCount": 868,
+  "markdownCount": 871,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -20,7 +20,7 @@
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
-    "经济与商业": 42,
+    "经济与商业": 43,
     "艺术与文化": 18,
     "诗歌与词赋": 12
   },
@@ -60,6 +60,15 @@
       "markdown": "markdown/%E5%A4%A7%E5%88%86%E8%A3%82_2026-09-22.md",
       "htmlBytes": 67876,
       "markdownBytes": 53803
+    },
+    {
+      "title": "坏血",
+      "date": "2026-09-22",
+      "category": "经济与商业",
+      "html": "readings/%E5%9D%8F%E8%A1%80_2026-09-22.html",
+      "markdown": "markdown/%E5%9D%8F%E8%A1%80_2026-09-22.md",
+      "htmlBytes": 75139,
+      "markdownBytes": 60517
     },
     {
       "title": "卢比孔河",
