@@ -1,27 +1,27 @@
 {
   "updated": "2026-09-22",
-  "count": 930,
-  "htmlCount": 925,
-  "markdownCount": 928,
+  "count": 942,
+  "htmlCount": 937,
+  "markdownCount": 940,
   "categories": {
     "人类学与民族志": 17,
-    "传记与回忆录": 13,
+    "传记与回忆录": 14,
     "健康与生活": 6,
-    "其他阅读": 172,
-    "历史与文明": 166,
+    "其他阅读": 178,
+    "历史与文明": 167,
     "古典文献与国学": 9,
     "哲学与思想": 55,
     "宗教与灵性": 60,
     "实用与技能": 12,
-    "心理学与自我": 46,
+    "心理学与自我": 47,
     "性文化与身体": 25,
     "文学与小说": 119,
-    "社会与政治": 97,
+    "社会与政治": 98,
     "神话与民俗": 12,
     "科幻与悬疑": 20,
     "科普与科学": 18,
-    "经济与商业": 51,
-    "艺术与文化": 19,
+    "经济与商业": 52,
+    "艺术与文化": 20,
     "诗歌与词赋": 13
   },
   "entries": [
@@ -134,6 +134,24 @@
       "markdownBytes": 72312
     },
     {
+      "title": "逃避统治的艺术",
+      "date": "2026-09-22",
+      "category": "艺术与文化",
+      "html": "readings/%E9%80%83%E9%81%BF%E7%BB%9F%E6%B2%BB%E7%9A%84%E8%89%BA%E6%9C%AF_2026-09-22.html",
+      "markdown": "markdown/%E9%80%83%E9%81%BF%E7%BB%9F%E6%B2%BB%E7%9A%84%E8%89%BA%E6%9C%AF_2026-09-22.md",
+      "htmlBytes": 62045,
+      "markdownBytes": 44936
+    },
+    {
+      "title": "追寻记忆的痕迹",
+      "date": "2026-09-22",
+      "category": "心理学与自我",
+      "html": "readings/%E8%BF%BD%E5%AF%BB%E8%AE%B0%E5%BF%86%E7%9A%84%E7%97%95%E8%BF%B9_2026-09-22.html",
+      "markdown": "markdown/%E8%BF%BD%E5%AF%BB%E8%AE%B0%E5%BF%86%E7%9A%84%E7%97%95%E8%BF%B9_2026-09-22.md",
+      "htmlBytes": 61890,
+      "markdownBytes": 45281
+    },
+    {
       "title": "迷人的材料",
       "date": "2026-09-22",
       "category": "科普与科学",
@@ -141,6 +159,69 @@
       "markdown": "markdown/%E8%BF%B7%E4%BA%BA%E7%9A%84%E6%9D%90%E6%96%99_2026-09-22.md",
       "htmlBytes": 71152,
       "markdownBytes": 56126
+    },
+    {
+      "title": "跨越边界的社区",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E8%B7%A8%E8%B6%8A%E8%BE%B9%E7%95%8C%E7%9A%84%E7%A4%BE%E5%8C%BA_2026-09-22.html",
+      "markdown": "markdown/%E8%B7%A8%E8%B6%8A%E8%BE%B9%E7%95%8C%E7%9A%84%E7%A4%BE%E5%8C%BA_2026-09-22.md",
+      "htmlBytes": 60359,
+      "markdownBytes": 43336
+    },
+    {
+      "title": "起源：万物大历史",
+      "date": "2026-09-22",
+      "category": "历史与文明",
+      "html": "readings/%E8%B5%B7%E6%BA%90%EF%BC%9A%E4%B8%87%E7%89%A9%E5%A4%A7%E5%8E%86%E5%8F%B2_2026-09-22.html",
+      "markdown": "markdown/%E8%B5%B7%E6%BA%90%EF%BC%9A%E4%B8%87%E7%89%A9%E5%A4%A7%E5%8E%86%E5%8F%B2_2026-09-22.md",
+      "htmlBytes": 58287,
+      "markdownBytes": 41301
+    },
+    {
+      "title": "财富的起源",
+      "date": "2026-09-22",
+      "category": "经济与商业",
+      "html": "readings/%E8%B4%A2%E5%AF%8C%E7%9A%84%E8%B5%B7%E6%BA%90_2026-09-22.html",
+      "markdown": "markdown/%E8%B4%A2%E5%AF%8C%E7%9A%84%E8%B5%B7%E6%BA%90_2026-09-22.md",
+      "htmlBytes": 60965,
+      "markdownBytes": 43698
+    },
+    {
+      "title": "规模",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E8%A7%84%E6%A8%A1_2026-09-22.html",
+      "markdown": "markdown/%E8%A7%84%E6%A8%A1_2026-09-22.md",
+      "htmlBytes": 62675,
+      "markdownBytes": 45649
+    },
+    {
+      "title": "表象与本质",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E8%A1%A8%E8%B1%A1%E4%B8%8E%E6%9C%AC%E8%B4%A8_2026-09-22.html",
+      "markdown": "markdown/%E8%A1%A8%E8%B1%A1%E4%B8%8E%E6%9C%AC%E8%B4%A8_2026-09-22.md",
+      "htmlBytes": 58110,
+      "markdownBytes": 41053
+    },
+    {
+      "title": "街角社会",
+      "date": "2026-09-22",
+      "category": "社会与政治",
+      "html": "readings/%E8%A1%97%E8%A7%92%E7%A4%BE%E4%BC%9A_2026-09-22.html",
+      "markdown": "markdown/%E8%A1%97%E8%A7%92%E7%A4%BE%E4%BC%9A_2026-09-22.md",
+      "htmlBytes": 57503,
+      "markdownBytes": 40474
+    },
+    {
+      "title": "血酬定律",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E8%A1%80%E9%85%AC%E5%AE%9A%E5%BE%8B_2026-09-22.html",
+      "markdown": "markdown/%E8%A1%80%E9%85%AC%E5%AE%9A%E5%BE%8B_2026-09-22.md",
+      "htmlBytes": 54439,
+      "markdownBytes": 37950
     },
     {
       "title": "芯片战争",
@@ -152,13 +233,40 @@
       "markdownBytes": 61463
     },
     {
+      "title": "能量与文明",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E8%83%BD%E9%87%8F%E4%B8%8E%E6%96%87%E6%98%8E_2026-09-22.html",
+      "markdown": "markdown/%E8%83%BD%E9%87%8F%E4%B8%8E%E6%96%87%E6%98%8E_2026-09-22.md",
+      "htmlBytes": 58815,
+      "markdownBytes": 41779
+    },
+    {
+      "title": "股票大作手回忆录",
+      "date": "2026-09-22",
+      "category": "传记与回忆录",
+      "html": "readings/%E8%82%A1%E7%A5%A8%E5%A4%A7%E4%BD%9C%E6%89%8B%E5%9B%9E%E5%BF%86%E5%BD%95_2026-09-22.html",
+      "markdown": "markdown/%E8%82%A1%E7%A5%A8%E5%A4%A7%E4%BD%9C%E6%89%8B%E5%9B%9E%E5%BF%86%E5%BD%95_2026-09-22.md",
+      "htmlBytes": 54573,
+      "markdownBytes": 38060
+    },
+    {
+      "title": "美国大城市的死与生",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E7%BE%8E%E5%9B%BD%E5%A4%A7%E5%9F%8E%E5%B8%82%E7%9A%84%E6%AD%BB%E4%B8%8E%E7%94%9F_2026-09-22.html",
+      "markdown": "markdown/%E7%BE%8E%E5%9B%BD%E5%A4%A7%E5%9F%8E%E5%B8%82%E7%9A%84%E6%AD%BB%E4%B8%8E%E7%94%9F_2026-09-22.md",
+      "htmlBytes": 56736,
+      "markdownBytes": 40262
+    },
+    {
       "title": "置身事内",
       "date": "2026-09-22",
       "category": "其他阅读",
       "html": "readings/%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85_2026-09-22.html",
       "markdown": "markdown/%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85_2026-09-22.md",
-      "htmlBytes": 50789,
-      "markdownBytes": 35451
+      "htmlBytes": 55513,
+      "markdownBytes": 40068
     },
     {
       "title": "罗马的命运",
