@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "count": 855,
   "htmlCount": 850,
   "markdownCount": 853,
@@ -521,6 +521,15 @@
       "markdownBytes": 54191
     },
     {
+      "title": "晚清七十年",
+      "date": "2026-09-22",
+      "category": "历史与文明",
+      "html": "readings/%E6%99%9A%E6%B8%85%E4%B8%83%E5%8D%81%E5%B9%B4_2026-09-22.html",
+      "markdown": "markdown/%E6%99%9A%E6%B8%85%E4%B8%83%E5%8D%81%E5%B9%B4_2026-09-22.md",
+      "htmlBytes": 67959,
+      "markdownBytes": 50608
+    },
+    {
       "title": "昨日的世界",
       "date": "2026-09-22",
       "category": "其他阅读",
@@ -584,6 +593,24 @@
       "markdownBytes": 40152
     },
     {
+      "title": "我的阿勒泰",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E6%88%91%E7%9A%84%E9%98%BF%E5%8B%92%E6%B3%B0_2026-09-22.html",
+      "markdown": "markdown/%E6%88%91%E7%9A%84%E9%98%BF%E5%8B%92%E6%B3%B0_2026-09-22.md",
+      "htmlBytes": 67969,
+      "markdownBytes": 50734
+    },
+    {
+      "title": "怪诞行为学",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E6%80%AA%E8%AF%9E%E8%A1%8C%E4%B8%BA%E5%AD%A6_2026-09-22.html",
+      "markdown": "markdown/%E6%80%AA%E8%AF%9E%E8%A1%8C%E4%B8%BA%E5%AD%A6_2026-09-22.md",
+      "htmlBytes": 68947,
+      "markdownBytes": 51658
+    },
+    {
       "title": "怪诞人群",
       "date": "2026-09-22",
       "category": "其他阅读",
@@ -591,6 +618,15 @@
       "markdown": "markdown/%E6%80%AA%E8%AF%9E%E4%BA%BA%E7%BE%A4_2026-09-22.md",
       "htmlBytes": 73327,
       "markdownBytes": 57023
+    },
+    {
+      "title": "忽必烈的挑战：蒙古帝国与世界历史的大转向",
+      "date": "2026-09-22",
+      "category": "历史与文明",
+      "html": "readings/%E5%BF%BD%E5%BF%85%E7%83%88%E7%9A%84%E6%8C%91%E6%88%98%EF%BC%9A%E8%92%99%E5%8F%A4%E5%B8%9D%E5%9B%BD%E4%B8%8E%E4%B8%96%E7%95%8C%E5%8E%86%E5%8F%B2%E7%9A%84%E5%A4%A7%E8%BD%AC%E5%90%91_2026-09-22.html",
+      "markdown": "markdown/%E5%BF%BD%E5%BF%85%E7%83%88%E7%9A%84%E6%8C%91%E6%88%98%EF%BC%9A%E8%92%99%E5%8F%A4%E5%B8%9D%E5%9B%BD%E4%B8%8E%E4%B8%96%E7%95%8C%E5%8E%86%E5%8F%B2%E7%9A%84%E5%A4%A7%E8%BD%AC%E5%90%91_2026-09-22.md",
+      "htmlBytes": 69014,
+      "markdownBytes": 52669
     },
     {
       "title": "微观动机与宏观行为",
@@ -611,6 +647,15 @@
       "markdownBytes": 51805
     },
     {
+      "title": "异类",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E5%BC%82%E7%B1%BB_2026-09-22.html",
+      "markdown": "markdown/%E5%BC%82%E7%B1%BB_2026-09-22.md",
+      "htmlBytes": 68612,
+      "markdownBytes": 51029
+    },
+    {
       "title": "建筑模式语言",
       "date": "2026-09-22",
       "category": "艺术与文化",
@@ -627,6 +672,15 @@
       "markdown": "markdown/%E5%B9%B3%E9%9D%A2%E5%9B%BD_2026-09-22.md",
       "htmlBytes": 74614,
       "markdownBytes": 58603
+    },
+    {
+      "title": "屠猫狂欢：法国文化史钩沉",
+      "date": "2026-09-22",
+      "category": "历史与文明",
+      "html": "readings/%E5%B1%A0%E7%8C%AB%E7%8B%82%E6%AC%A2%EF%BC%9A%E6%B3%95%E5%9B%BD%E6%96%87%E5%8C%96%E5%8F%B2%E9%92%A9%E6%B2%89_2026-09-22.html",
+      "markdown": "markdown/%E5%B1%A0%E7%8C%AB%E7%8B%82%E6%AC%A2%EF%BC%9A%E6%B3%95%E5%9B%BD%E6%96%87%E5%8C%96%E5%8F%B2%E9%92%A9%E6%B2%89_2026-09-22.md",
+      "htmlBytes": 68778,
+      "markdownBytes": 50873
     },
     {
       "title": "寻路中国",
@@ -656,6 +710,15 @@
       "markdownBytes": 63492
     },
     {
+      "title": "奶酪与蛆虫：一个16世纪磨坊主的宇宙",
+      "date": "2026-09-22",
+      "category": "历史与文明",
+      "html": "readings/%E5%A5%B6%E9%85%AA%E4%B8%8E%E8%9B%86%E8%99%AB%EF%BC%9A%E4%B8%80%E4%B8%AA16%E4%B8%96%E7%BA%AA%E7%A3%A8%E5%9D%8A%E4%B8%BB%E7%9A%84%E5%AE%87%E5%AE%99_2026-09-22.html",
+      "markdown": "markdown/%E5%A5%B6%E9%85%AA%E4%B8%8E%E8%9B%86%E8%99%AB%EF%BC%9A%E4%B8%80%E4%B8%AA16%E4%B8%96%E7%BA%AA%E7%A3%A8%E5%9D%8A%E4%B8%BB%E7%9A%84%E5%AE%87%E5%AE%99_2026-09-22.md",
+      "htmlBytes": 69182,
+      "markdownBytes": 51456
+    },
+    {
       "title": "失控",
       "date": "2026-09-22",
       "category": "其他阅读",
@@ -663,6 +726,15 @@
       "markdown": "markdown/%E5%A4%B1%E6%8E%A7_2026-09-22.md",
       "htmlBytes": 71635,
       "markdownBytes": 55311
+    },
+    {
+      "title": "太白金星有点烦",
+      "date": "2026-09-22",
+      "category": "历史与文明",
+      "html": "readings/%E5%A4%AA%E7%99%BD%E9%87%91%E6%98%9F%E6%9C%89%E7%82%B9%E7%83%A6_2026-09-22.html",
+      "markdown": "markdown/%E5%A4%AA%E7%99%BD%E9%87%91%E6%98%9F%E6%9C%89%E7%82%B9%E7%83%A6_2026-09-22.md",
+      "htmlBytes": 68892,
+      "markdownBytes": 51427
     },
     {
       "title": "大问题：简明哲学导论",
@@ -1833,78 +1905,6 @@
       "markdown": "markdown/%E6%9B%BE%E5%9B%BD%E8%97%A9%E7%9A%84%E6%AD%A3%E9%9D%A2%E4%B8%8E%E4%BE%A7%E9%9D%A2_2026-09-17.md",
       "htmlBytes": 23901,
       "markdownBytes": 11379
-    },
-    {
-      "title": "晚清七十年",
-      "date": "2026-09-16",
-      "category": "历史与文明",
-      "html": "readings/%E6%99%9A%E6%B8%85%E4%B8%83%E5%8D%81%E5%B9%B4_2026-09-16.html",
-      "markdown": "markdown/%E6%99%9A%E6%B8%85%E4%B8%83%E5%8D%81%E5%B9%B4_2026-09-16.md",
-      "htmlBytes": 23920,
-      "markdownBytes": 11949
-    },
-    {
-      "title": "我的阿勒泰",
-      "date": "2026-09-16",
-      "category": "其他阅读",
-      "html": "readings/%E6%88%91%E7%9A%84%E9%98%BF%E5%8B%92%E6%B3%B0_2026-09-16.html",
-      "markdown": "markdown/%E6%88%91%E7%9A%84%E9%98%BF%E5%8B%92%E6%B3%B0_2026-09-16.md",
-      "htmlBytes": 25068,
-      "markdownBytes": 12554
-    },
-    {
-      "title": "怪诞行为学",
-      "date": "2026-09-16",
-      "category": "其他阅读",
-      "html": "readings/%E6%80%AA%E8%AF%9E%E8%A1%8C%E4%B8%BA%E5%AD%A6_2026-09-16.html",
-      "markdown": "markdown/%E6%80%AA%E8%AF%9E%E8%A1%8C%E4%B8%BA%E5%AD%A6_2026-09-16.md",
-      "htmlBytes": 25687,
-      "markdownBytes": 13226
-    },
-    {
-      "title": "忽必烈的挑战：蒙古帝国与世界历史的大转向",
-      "date": "2026-09-16",
-      "category": "历史与文明",
-      "html": "readings/%E5%BF%BD%E5%BF%85%E7%83%88%E7%9A%84%E6%8C%91%E6%88%98%EF%BC%9A%E8%92%99%E5%8F%A4%E5%B8%9D%E5%9B%BD%E4%B8%8E%E4%B8%96%E7%95%8C%E5%8E%86%E5%8F%B2%E7%9A%84%E5%A4%A7%E8%BD%AC%E5%90%91_2026-09-16.html",
-      "markdown": "markdown/%E5%BF%BD%E5%BF%85%E7%83%88%E7%9A%84%E6%8C%91%E6%88%98%EF%BC%9A%E8%92%99%E5%8F%A4%E5%B8%9D%E5%9B%BD%E4%B8%8E%E4%B8%96%E7%95%8C%E5%8E%86%E5%8F%B2%E7%9A%84%E5%A4%A7%E8%BD%AC%E5%90%91_2026-09-16.md",
-      "htmlBytes": 24945,
-      "markdownBytes": 13187
-    },
-    {
-      "title": "异类",
-      "date": "2026-09-16",
-      "category": "其他阅读",
-      "html": "readings/%E5%BC%82%E7%B1%BB_2026-09-16.html",
-      "markdown": "markdown/%E5%BC%82%E7%B1%BB_2026-09-16.md",
-      "htmlBytes": 25613,
-      "markdownBytes": 13095
-    },
-    {
-      "title": "屠猫狂欢：法国文化史钩沉",
-      "date": "2026-09-16",
-      "category": "历史与文明",
-      "html": "readings/%E5%B1%A0%E7%8C%AB%E7%8B%82%E6%AC%A2%EF%BC%9A%E6%B3%95%E5%9B%BD%E6%96%87%E5%8C%96%E5%8F%B2%E9%92%A9%E6%B2%89_2026-09-16.html",
-      "markdown": "markdown/%E5%B1%A0%E7%8C%AB%E7%8B%82%E6%AC%A2%EF%BC%9A%E6%B3%95%E5%9B%BD%E6%96%87%E5%8C%96%E5%8F%B2%E9%92%A9%E6%B2%89_2026-09-16.md",
-      "htmlBytes": 25029,
-      "markdownBytes": 13107
-    },
-    {
-      "title": "奶酪与蛆虫：一个16世纪磨坊主的宇宙",
-      "date": "2026-09-16",
-      "category": "历史与文明",
-      "html": "readings/%E5%A5%B6%E9%85%AA%E4%B8%8E%E8%9B%86%E8%99%AB%EF%BC%9A%E4%B8%80%E4%B8%AA16%E4%B8%96%E7%BA%AA%E7%A3%A8%E5%9D%8A%E4%B8%BB%E7%9A%84%E5%AE%87%E5%AE%99_2026-09-16.html",
-      "markdown": "markdown/%E5%A5%B6%E9%85%AA%E4%B8%8E%E8%9B%86%E8%99%AB%EF%BC%9A%E4%B8%80%E4%B8%AA16%E4%B8%96%E7%BA%AA%E7%A3%A8%E5%9D%8A%E4%B8%BB%E7%9A%84%E5%AE%87%E5%AE%99_2026-09-16.md",
-      "htmlBytes": 24556,
-      "markdownBytes": 12717
-    },
-    {
-      "title": "太白金星有点烦",
-      "date": "2026-09-16",
-      "category": "历史与文明",
-      "html": "readings/%E5%A4%AA%E7%99%BD%E9%87%91%E6%98%9F%E6%9C%89%E7%82%B9%E7%83%A6_2026-09-16.html",
-      "markdown": "markdown/%E5%A4%AA%E7%99%BD%E9%87%91%E6%98%9F%E6%9C%89%E7%82%B9%E7%83%A6_2026-09-16.md",
-      "htmlBytes": 23497,
-      "markdownBytes": 11598
     },
     {
       "title": "鼠疫",
