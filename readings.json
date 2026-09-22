@@ -1,30 +1,48 @@
 {
   "updated": "2026-09-22",
-  "count": 878,
-  "htmlCount": 873,
-  "markdownCount": 876,
+  "count": 884,
+  "htmlCount": 879,
+  "markdownCount": 880,
   "categories": {
     "人类学与民族志": 16,
-    "传记与回忆录": 14,
+    "传记与回忆录": 15,
     "健康与生活": 5,
-    "其他阅读": 143,
+    "其他阅读": 146,
     "历史与文明": 163,
     "古典文献与国学": 9,
     "哲学与思想": 54,
     "宗教与灵性": 60,
     "实用与技能": 12,
-    "心理学与自我": 45,
+    "心理学与自我": 46,
     "性文化与身体": 25,
     "文学与小说": 117,
     "社会与政治": 94,
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
-    "经济与商业": 45,
+    "经济与商业": 46,
     "艺术与文化": 18,
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "错把妻子当帽子",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E9%94%99%E6%8A%8A%E5%A6%BB%E5%AD%90%E5%BD%93%E5%B8%BD%E5%AD%90_2026-09-22.html",
+      "markdown": "markdown/%E9%94%99%E6%8A%8A%E5%A6%BB%E5%AD%90%E5%BD%93%E5%B8%BD%E5%AD%90_2026-09-22.md",
+      "htmlBytes": 74560,
+      "markdownBytes": 60241
+    },
+    {
+      "title": "错不在我",
+      "date": "2026-09-22",
+      "category": "心理学与自我",
+      "html": "readings/%E9%94%99%E4%B8%8D%E5%9C%A8%E6%88%91_2026-09-22.html",
+      "markdown": null,
+      "htmlBytes": 78748,
+      "markdownBytes": 0
+    },
     {
       "title": "统治 基督教如何改变世界",
       "date": "2026-09-22",
@@ -71,6 +89,24 @@
       "markdownBytes": 63792
     },
     {
+      "title": "宋代中国的改革",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E5%AE%8B%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%9A%84%E6%94%B9%E9%9D%A9_2026-09-22.html",
+      "markdown": "markdown/%E5%AE%8B%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%9A%84%E6%94%B9%E9%9D%A9_2026-09-22.md",
+      "htmlBytes": 77155,
+      "markdownBytes": 63390
+    },
+    {
+      "title": "大空头",
+      "date": "2026-09-22",
+      "category": "经济与商业",
+      "html": "readings/%E5%A4%A7%E7%A9%BA%E5%A4%B4_2026-09-22.html",
+      "markdown": "markdown/%E5%A4%A7%E7%A9%BA%E5%A4%B4_2026-09-22.md",
+      "htmlBytes": 74191,
+      "markdownBytes": 59512
+    },
+    {
       "title": "大分裂",
       "date": "2026-09-22",
       "category": "其他阅读",
@@ -112,8 +148,17 @@
       "category": "传记与回忆录",
       "html": "readings/%E4%BC%A0%E7%BB%9F%E5%8D%81%E8%AE%BA_2026-09-22.html",
       "markdown": "markdown/%E4%BC%A0%E7%BB%9F%E5%8D%81%E8%AE%BA_2026-09-22.md",
-      "htmlBytes": 80406,
+      "htmlBytes": 80078,
       "markdownBytes": 66939
+    },
+    {
+      "title": "传习录",
+      "date": "2026-09-22",
+      "category": "传记与回忆录",
+      "html": "readings/%E4%BC%A0%E4%B9%A0%E5%BD%95_2026-09-22.html",
+      "markdown": "markdown/%E4%BC%A0%E4%B9%A0%E5%BD%95_2026-09-22.md",
+      "htmlBytes": 69646,
+      "markdownBytes": 56201
     },
     {
       "title": "从黎明到衰落",
@@ -134,13 +179,22 @@
       "markdownBytes": 60201
     },
     {
+      "title": "乡村建设理论",
+      "date": "2026-09-22",
+      "category": "其他阅读",
+      "html": "readings/%E4%B9%A1%E6%9D%91%E5%BB%BA%E8%AE%BE%E7%90%86%E8%AE%BA_2026-09-22.html",
+      "markdown": null,
+      "htmlBytes": 66888,
+      "markdownBytes": 0
+    },
+    {
       "title": "中国官僚政治研究",
       "date": "2026-09-22",
       "category": "社会与政治",
       "html": "readings/%E4%B8%AD%E5%9B%BD%E5%AE%98%E5%83%9A%E6%94%BF%E6%B2%BB%E7%A0%94%E7%A9%B6_2026-09-22.html",
       "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E5%AE%98%E5%83%9A%E6%94%BF%E6%B2%BB%E7%A0%94%E7%A9%B6_2026-09-22.md",
-      "htmlBytes": 78038,
-      "markdownBytes": 64829
+      "htmlBytes": 78026,
+      "markdownBytes": 65022
     },
     {
       "title": "鼠线",
