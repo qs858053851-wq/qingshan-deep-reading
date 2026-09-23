@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-23",
-  "count": 855,
-  "htmlCount": 850,
-  "markdownCount": 853,
+  "count": 856,
+  "htmlCount": 851,
+  "markdownCount": 854,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -16,7 +16,7 @@
     "心理学与自我": 44,
     "性文化与身体": 25,
     "文学与小说": 116,
-    "社会与政治": 92,
+    "社会与政治": 93,
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
@@ -267,6 +267,15 @@
       "markdown": "markdown/%E6%9C%80%E5%90%8E%E7%9A%84%E8%AF%81%E4%BA%BA_2026-09-23.md",
       "htmlBytes": 70895,
       "markdownBytes": 54361
+    },
+    {
+      "title": "暴力与社会秩序",
+      "date": "2026-09-23",
+      "category": "社会与政治",
+      "html": "readings/%E6%9A%B4%E5%8A%9B%E4%B8%8E%E7%A4%BE%E4%BC%9A%E7%A7%A9%E5%BA%8F_2026-09-23.html",
+      "markdown": "markdown/%E6%9A%B4%E5%8A%9B%E4%B8%8E%E7%A4%BE%E4%BC%9A%E7%A7%A9%E5%BA%8F_2026-09-23.md",
+      "htmlBytes": 72525,
+      "markdownBytes": 55975
     },
     {
       "title": "明治天皇",
