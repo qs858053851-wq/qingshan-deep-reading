@@ -1,13 +1,13 @@
 {
   "updated": "2026-09-23",
-  "count": 857,
-  "htmlCount": 852,
-  "markdownCount": 855,
+  "count": 858,
+  "htmlCount": 853,
+  "markdownCount": 856,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
     "健康与生活": 5,
-    "其他阅读": 141,
+    "其他阅读": 142,
     "历史与文明": 159,
     "古典文献与国学": 9,
     "哲学与思想": 50,
@@ -141,6 +141,15 @@
       "markdown": "markdown/%E8%A2%8D%E5%93%A5_2026-09-23.md",
       "htmlBytes": 66322,
       "markdownBytes": 50829
+    },
+    {
+      "title": "蒙塔尤",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E8%92%99%E5%A1%94%E5%B0%A4_2026-09-23.html",
+      "markdown": "markdown/%E8%92%99%E5%A1%94%E5%B0%A4_2026-09-23.md",
+      "htmlBytes": 70757,
+      "markdownBytes": 53916
     },
     {
       "title": "苏联的最后一天",
