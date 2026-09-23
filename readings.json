@@ -1,26 +1,26 @@
 {
   "updated": "2026-09-23",
-  "count": 865,
-  "htmlCount": 860,
-  "markdownCount": 863,
+  "count": 875,
+  "htmlCount": 870,
+  "markdownCount": 873,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
     "健康与生活": 5,
-    "其他阅读": 143,
-    "历史与文明": 160,
+    "其他阅读": 146,
+    "历史与文明": 162,
     "古典文献与国学": 9,
     "哲学与思想": 51,
     "宗教与灵性": 60,
     "实用与技能": 12,
     "心理学与自我": 45,
-    "性文化与身体": 25,
+    "性文化与身体": 26,
     "文学与小说": 116,
-    "社会与政治": 95,
-    "神话与民俗": 12,
+    "社会与政治": 97,
+    "神话与民俗": 13,
     "科幻与悬疑": 19,
     "科普与科学": 15,
-    "经济与商业": 38,
+    "经济与商业": 39,
     "艺术与文化": 19,
     "诗歌与词赋": 12
   },
@@ -152,6 +152,15 @@
       "markdownBytes": 54144
     },
     {
+      "title": "西西弗神话",
+      "date": "2026-09-23",
+      "category": "神话与民俗",
+      "html": "readings/%E8%A5%BF%E8%A5%BF%E5%BC%97%E7%A5%9E%E8%AF%9D_2026-09-23.html",
+      "markdown": "markdown/%E8%A5%BF%E8%A5%BF%E5%BC%97%E7%A5%9E%E8%AF%9D_2026-09-23.md",
+      "htmlBytes": 73963,
+      "markdownBytes": 56851
+    },
+    {
       "title": "袍哥",
       "date": "2026-09-23",
       "category": "其他阅读",
@@ -215,6 +224,15 @@
       "markdownBytes": 54065
     },
     {
+      "title": "经济与社会（第一卷）",
+      "date": "2026-09-23",
+      "category": "经济与商业",
+      "html": "readings/%E7%BB%8F%E6%B5%8E%E4%B8%8E%E7%A4%BE%E4%BC%9A%EF%BC%88%E7%AC%AC%E4%B8%80%E5%8D%B7%EF%BC%89_2026-09-23.html",
+      "markdown": "markdown/%E7%BB%8F%E6%B5%8E%E4%B8%8E%E7%A4%BE%E4%BC%9A%EF%BC%88%E7%AC%AC%E4%B8%80%E5%8D%B7%EF%BC%89_2026-09-23.md",
+      "htmlBytes": 73297,
+      "markdownBytes": 56036
+    },
+    {
       "title": "红色饥荒",
       "date": "2026-09-23",
       "category": "性文化与身体",
@@ -222,6 +240,24 @@
       "markdown": "markdown/%E7%BA%A2%E8%89%B2%E9%A5%A5%E8%8D%92_2026-09-23.md",
       "htmlBytes": 68400,
       "markdownBytes": 51899
+    },
+    {
+      "title": "第二性（第一卷）",
+      "date": "2026-09-23",
+      "category": "性文化与身体",
+      "html": "readings/%E7%AC%AC%E4%BA%8C%E6%80%A7%EF%BC%88%E7%AC%AC%E4%B8%80%E5%8D%B7%EF%BC%89_2026-09-23.html",
+      "markdown": "markdown/%E7%AC%AC%E4%BA%8C%E6%80%A7%EF%BC%88%E7%AC%AC%E4%B8%80%E5%8D%B7%EF%BC%89_2026-09-23.md",
+      "htmlBytes": 73601,
+      "markdownBytes": 57206
+    },
+    {
+      "title": "私人生活史（第一卷）",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E7%A7%81%E4%BA%BA%E7%94%9F%E6%B4%BB%E5%8F%B2%EF%BC%88%E7%AC%AC%E4%B8%80%E5%8D%B7%EF%BC%89_2026-09-23.html",
+      "markdown": "markdown/%E7%A7%81%E4%BA%BA%E7%94%9F%E6%B4%BB%E5%8F%B2%EF%BC%88%E7%AC%AC%E4%B8%80%E5%8D%B7%EF%BC%89_2026-09-23.md",
+      "htmlBytes": 73549,
+      "markdownBytes": 56666
     },
     {
       "title": "社会分工论",
@@ -285,6 +321,15 @@
       "markdown": "markdown/%E6%B4%BB%E7%9D%80%E5%9B%9E%E6%9D%A5%E7%9A%84%E7%94%B7%E4%BA%BA_%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%E6%97%A5%E6%9C%AC%E5%85%B5%E7%9A%84%E4%BA%8C%E6%88%98%E5%8F%8A%E6%88%98%E5%90%8E%E7%94%9F%E5%91%BD%E5%8F%B2_2026-09-23.md",
       "htmlBytes": 66541,
       "markdownBytes": 51497
+    },
+    {
+      "title": "法国大革命讲稿",
+      "date": "2026-09-23",
+      "category": "社会与政治",
+      "html": "readings/%E6%B3%95%E5%9B%BD%E5%A4%A7%E9%9D%A9%E5%91%BD%E8%AE%B2%E7%A8%BF_2026-09-23.html",
+      "markdown": "markdown/%E6%B3%95%E5%9B%BD%E5%A4%A7%E9%9D%A9%E5%91%BD%E8%AE%B2%E7%A8%BF_2026-09-23.md",
+      "htmlBytes": 73068,
+      "markdownBytes": 56277
     },
     {
       "title": "江城",
@@ -368,6 +413,15 @@
       "markdownBytes": 50799
     },
     {
+      "title": "政府论（下篇）",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E6%94%BF%E5%BA%9C%E8%AE%BA%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89_2026-09-23.html",
+      "markdown": "markdown/%E6%94%BF%E5%BA%9C%E8%AE%BA%EF%BC%88%E4%B8%8B%E7%AF%87%EF%BC%89_2026-09-23.md",
+      "htmlBytes": 73282,
+      "markdownBytes": 56919
+    },
+    {
       "title": "支配与抵抗艺术",
       "date": "2026-09-23",
       "category": "艺术与文化",
@@ -375,6 +429,15 @@
       "markdown": "markdown/%E6%94%AF%E9%85%8D%E4%B8%8E%E6%8A%B5%E6%8A%97%E8%89%BA%E6%9C%AF_2026-09-23.md",
       "htmlBytes": 70622,
       "markdownBytes": 54188
+    },
+    {
+      "title": "战争论",
+      "date": "2026-09-23",
+      "category": "历史与文明",
+      "html": "readings/%E6%88%98%E4%BA%89%E8%AE%BA_2026-09-23.html",
+      "markdown": "markdown/%E6%88%98%E4%BA%89%E8%AE%BA_2026-09-23.md",
+      "htmlBytes": 69330,
+      "markdownBytes": 54094
     },
     {
       "title": "想象的共同体",
@@ -402,6 +465,15 @@
       "markdown": "markdown/%E5%BC%80%E6%94%BE%E7%A4%BE%E4%BC%9A%E5%8F%8A%E5%85%B6%E6%95%8C%E4%BA%BA_2026-09-23.md",
       "htmlBytes": 72678,
       "markdownBytes": 56005
+    },
+    {
+      "title": "学术与政治",
+      "date": "2026-09-23",
+      "category": "社会与政治",
+      "html": "readings/%E5%AD%A6%E6%9C%AF%E4%B8%8E%E6%94%BF%E6%B2%BB_2026-09-23.html",
+      "markdown": "markdown/%E5%AD%A6%E6%9C%AF%E4%B8%8E%E6%94%BF%E6%B2%BB_2026-09-23.md",
+      "htmlBytes": 74288,
+      "markdownBytes": 56653
     },
     {
       "title": "娜塔莎之舞",
@@ -476,6 +548,15 @@
       "markdownBytes": 52254
     },
     {
+      "title": "反抗者",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E5%8F%8D%E6%8A%97%E8%80%85_2026-09-23.html",
+      "markdown": "markdown/%E5%8F%8D%E6%8A%97%E8%80%85_2026-09-23.md",
+      "htmlBytes": 73330,
+      "markdownBytes": 57342
+    },
+    {
       "title": "创造日本：1853-1964",
       "date": "2026-09-23",
       "category": "其他阅读",
@@ -519,6 +600,15 @@
       "markdown": "markdown/%E4%BF%84%E5%9B%BD%E6%80%9D%E6%83%B3%E5%AE%B6_2026-09-23.md",
       "htmlBytes": 66915,
       "markdownBytes": 52864
+    },
+    {
+      "title": "代议制政府",
+      "date": "2026-09-23",
+      "category": "其他阅读",
+      "html": "readings/%E4%BB%A3%E8%AE%AE%E5%88%B6%E6%94%BF%E5%BA%9C_2026-09-23.html",
+      "markdown": "markdown/%E4%BB%A3%E8%AE%AE%E5%88%B6%E6%94%BF%E5%BA%9C_2026-09-23.md",
+      "htmlBytes": 69791,
+      "markdownBytes": 54065
     },
     {
       "title": "二手时间",
