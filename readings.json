@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-23",
-  "count": 859,
-  "htmlCount": 854,
-  "markdownCount": 857,
+  "count": 860,
+  "htmlCount": 855,
+  "markdownCount": 858,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -13,7 +13,7 @@
     "哲学与思想": 50,
     "宗教与灵性": 60,
     "实用与技能": 12,
-    "心理学与自我": 44,
+    "心理学与自我": 45,
     "性文化与身体": 25,
     "文学与小说": 116,
     "社会与政治": 94,
@@ -303,6 +303,15 @@
       "markdown": "markdown/%E6%97%A5%E6%9C%AC%E4%B9%8B%E9%95%9C_2026-09-23.md",
       "htmlBytes": 65922,
       "markdownBytes": 50712
+    },
+    {
+      "title": "日常生活中的自我呈现",
+      "date": "2026-09-23",
+      "category": "心理学与自我",
+      "html": "readings/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E8%87%AA%E6%88%91%E5%91%88%E7%8E%B0_2026-09-23.html",
+      "markdown": "markdown/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB%E4%B8%AD%E7%9A%84%E8%87%AA%E6%88%91%E5%91%88%E7%8E%B0_2026-09-23.md",
+      "htmlBytes": 69148,
+      "markdownBytes": 53217
     },
     {
       "title": "教宗与墨索里尼",
