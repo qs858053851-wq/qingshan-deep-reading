@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-23",
-  "count": 864,
-  "htmlCount": 859,
-  "markdownCount": 862,
+  "count": 865,
+  "htmlCount": 860,
+  "markdownCount": 863,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -20,7 +20,7 @@
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
-    "经济与商业": 37,
+    "经济与商业": 38,
     "艺术与文化": 19,
     "诗歌与词赋": 12
   },
@@ -123,6 +123,15 @@
       "markdown": "markdown/%E8%B5%84%E6%9C%AC%E4%B9%8B%E9%83%BD_2026-09-23.md",
       "htmlBytes": 66669,
       "markdownBytes": 51334
+    },
+    {
+      "title": "资本主义与自由",
+      "date": "2026-09-23",
+      "category": "经济与商业",
+      "html": "readings/%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E8%87%AA%E7%94%B1_2026-09-23.html",
+      "markdown": "markdown/%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E4%B8%8E%E8%87%AA%E7%94%B1_2026-09-23.md",
+      "htmlBytes": 71540,
+      "markdownBytes": 55433
     },
     {
       "title": "论自由",
