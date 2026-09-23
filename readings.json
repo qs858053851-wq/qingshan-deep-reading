@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-23",
-  "count": 858,
-  "htmlCount": 853,
-  "markdownCount": 856,
+  "count": 859,
+  "htmlCount": 854,
+  "markdownCount": 857,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -16,7 +16,7 @@
     "心理学与自我": 44,
     "性文化与身体": 25,
     "文学与小说": 116,
-    "社会与政治": 93,
+    "社会与政治": 94,
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
@@ -339,6 +339,15 @@
       "markdown": "markdown/%E5%BC%83%E9%95%BF%E5%AE%89_2026-09-23.md",
       "htmlBytes": 66880,
       "markdownBytes": 52463
+    },
+    {
+      "title": "开放社会及其敌人",
+      "date": "2026-09-23",
+      "category": "社会与政治",
+      "html": "readings/%E5%BC%80%E6%94%BE%E7%A4%BE%E4%BC%9A%E5%8F%8A%E5%85%B6%E6%95%8C%E4%BA%BA_2026-09-23.html",
+      "markdown": "markdown/%E5%BC%80%E6%94%BE%E7%A4%BE%E4%BC%9A%E5%8F%8A%E5%85%B6%E6%95%8C%E4%BA%BA_2026-09-23.md",
+      "htmlBytes": 72678,
+      "markdownBytes": 56005
     },
     {
       "title": "娜塔莎之舞",
