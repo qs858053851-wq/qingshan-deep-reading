@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-23",
-  "count": 856,
-  "htmlCount": 851,
-  "markdownCount": 854,
+  "count": 857,
+  "htmlCount": 852,
+  "markdownCount": 855,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -21,7 +21,7 @@
     "科幻与悬疑": 19,
     "科普与科学": 15,
     "经济与商业": 37,
-    "艺术与文化": 18,
+    "艺术与文化": 19,
     "诗歌与词赋": 12
   },
   "entries": [
@@ -303,6 +303,15 @@
       "markdown": "markdown/%E6%95%99%E5%AE%97%E4%B8%8E%E5%A2%A8%E7%B4%A2%E9%87%8C%E5%B0%BC_2026-09-23.md",
       "htmlBytes": 66045,
       "markdownBytes": 50799
+    },
+    {
+      "title": "支配与抵抗艺术",
+      "date": "2026-09-23",
+      "category": "艺术与文化",
+      "html": "readings/%E6%94%AF%E9%85%8D%E4%B8%8E%E6%8A%B5%E6%8A%97%E8%89%BA%E6%9C%AF_2026-09-23.html",
+      "markdown": "markdown/%E6%94%AF%E9%85%8D%E4%B8%8E%E6%8A%B5%E6%8A%97%E8%89%BA%E6%9C%AF_2026-09-23.md",
+      "htmlBytes": 70622,
+      "markdownBytes": 54188
     },
     {
       "title": "想象的共同体",
