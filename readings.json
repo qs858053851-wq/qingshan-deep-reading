@@ -1,8 +1,8 @@
 {
   "updated": "2026-09-23",
-  "count": 861,
-  "htmlCount": 856,
-  "markdownCount": 859,
+  "count": 862,
+  "htmlCount": 857,
+  "markdownCount": 860,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 13,
@@ -16,7 +16,7 @@
     "心理学与自我": 45,
     "性文化与身体": 25,
     "文学与小说": 116,
-    "社会与政治": 94,
+    "社会与政治": 95,
     "神话与民俗": 12,
     "科幻与悬疑": 19,
     "科普与科学": 15,
@@ -195,6 +195,15 @@
       "markdown": "markdown/%E7%BA%A2%E8%89%B2%E9%A5%A5%E8%8D%92_2026-09-23.md",
       "htmlBytes": 68400,
       "markdownBytes": 51899
+    },
+    {
+      "title": "社会分工论",
+      "date": "2026-09-23",
+      "category": "社会与政治",
+      "html": "readings/%E7%A4%BE%E4%BC%9A%E5%88%86%E5%B7%A5%E8%AE%BA_2026-09-23.html",
+      "markdown": "markdown/%E7%A4%BE%E4%BC%9A%E5%88%86%E5%B7%A5%E8%AE%BA_2026-09-23.md",
+      "htmlBytes": 72681,
+      "markdownBytes": 55778
     },
     {
       "title": "看不见的女性",
