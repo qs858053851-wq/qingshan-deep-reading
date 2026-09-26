@@ -1,14 +1,14 @@
 {
   "updated": "2026-09-26",
-  "count": 905,
-  "htmlCount": 900,
-  "markdownCount": 903,
+  "count": 915,
+  "htmlCount": 910,
+  "markdownCount": 913,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
     "其他阅读": 167,
-    "历史与文明": 166,
+    "历史与文明": 176,
     "古典文献与国学": 9,
     "哲学与思想": 51,
     "宗教与灵性": 60,
@@ -26,6 +26,24 @@
   },
   "entries": [
     {
+      "title": "风倒梧桐记",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E9%A3%8E%E5%80%92%E6%A2%A7%E6%A1%90%E8%AE%B0_2026-09-26.html",
+      "markdown": "markdown/%E9%A3%8E%E5%80%92%E6%A2%A7%E6%A1%90%E8%AE%B0_2026-09-26.md",
+      "htmlBytes": 71276,
+      "markdownBytes": 36363
+    },
+    {
+      "title": "阅世编",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E9%98%85%E4%B8%96%E7%BC%96_2026-09-26.html",
+      "markdown": "markdown/%E9%98%85%E4%B8%96%E7%BC%96_2026-09-26.md",
+      "htmlBytes": 70806,
+      "markdownBytes": 36250
+    },
+    {
       "title": "豫变纪略",
       "date": "2026-09-26",
       "category": "其他阅读",
@@ -35,6 +53,33 @@
       "markdownBytes": 31785
     },
     {
+      "title": "西征随笔",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E8%A5%BF%E5%BE%81%E9%9A%8F%E7%AC%94_2026-09-26.html",
+      "markdown": "markdown/%E8%A5%BF%E5%BE%81%E9%9A%8F%E7%AC%94_2026-09-26.md",
+      "htmlBytes": 71721,
+      "markdownBytes": 36716
+    },
+    {
+      "title": "行在阳秋",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E8%A1%8C%E5%9C%A8%E9%98%B3%E7%A7%8B_2026-09-26.html",
+      "markdown": "markdown/%E8%A1%8C%E5%9C%A8%E9%98%B3%E7%A7%8B_2026-09-26.md",
+      "htmlBytes": 71050,
+      "markdownBytes": 37243
+    },
+    {
+      "title": "研堂见闻杂录",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E7%A0%94%E5%A0%82%E8%A7%81%E9%97%BB%E6%9D%82%E5%BD%95_2026-09-26.html",
+      "markdown": "markdown/%E7%A0%94%E5%A0%82%E8%A7%81%E9%97%BB%E6%9D%82%E5%BD%95_2026-09-26.md",
+      "htmlBytes": 70965,
+      "markdownBytes": 38857
+    },
+    {
       "title": "甲申沧州纪事",
       "date": "2026-09-26",
       "category": "其他阅读",
@@ -42,6 +87,15 @@
       "markdown": "markdown/%E7%94%B2%E7%94%B3%E6%B2%A7%E5%B7%9E%E7%BA%AA%E4%BA%8B_2026-09-26.md",
       "htmlBytes": 70985,
       "markdownBytes": 31505
+    },
+    {
+      "title": "狩缅纪事",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E7%8B%A9%E7%BC%85%E7%BA%AA%E4%BA%8B_2026-09-26.html",
+      "markdown": "markdown/%E7%8B%A9%E7%BC%85%E7%BA%AA%E4%BA%8B_2026-09-26.md",
+      "htmlBytes": 71461,
+      "markdownBytes": 37432
     },
     {
       "title": "杨监笔记",
@@ -62,6 +116,24 @@
       "markdownBytes": 29867
     },
     {
+      "title": "拳乱闻见录",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E6%8B%B3%E4%B9%B1%E9%97%BB%E8%A7%81%E5%BD%95_2026-09-26.html",
+      "markdown": "markdown/%E6%8B%B3%E4%B9%B1%E9%97%BB%E8%A7%81%E5%BD%95_2026-09-26.md",
+      "htmlBytes": 70960,
+      "markdownBytes": 35501
+    },
+    {
+      "title": "所知录",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E6%89%80%E7%9F%A5%E5%BD%95_2026-09-26.html",
+      "markdown": "markdown/%E6%89%80%E7%9F%A5%E5%BD%95_2026-09-26.md",
+      "htmlBytes": 70989,
+      "markdownBytes": 41313
+    },
+    {
       "title": "庚子西狩丛谈",
       "date": "2026-09-26",
       "category": "其他阅读",
@@ -69,6 +141,15 @@
       "markdown": "markdown/%E5%BA%9A%E5%AD%90%E8%A5%BF%E7%8B%A9%E4%B8%9B%E8%B0%88_2026-09-26.md",
       "htmlBytes": 70646,
       "markdownBytes": 33265
+    },
+    {
+      "title": "天津拳匪变乱纪事",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E5%A4%A9%E6%B4%A5%E6%8B%B3%E5%8C%AA%E5%8F%98%E4%B9%B1%E7%BA%AA%E4%BA%8B_2026-09-26.html",
+      "markdown": "markdown/%E5%A4%A9%E6%B4%A5%E6%8B%B3%E5%8C%AA%E5%8F%98%E4%B9%B1%E7%BA%AA%E4%BA%8B_2026-09-26.md",
+      "htmlBytes": 71007,
+      "markdownBytes": 37345
     },
     {
       "title": "圣教入川记",
@@ -96,6 +177,15 @@
       "markdown": "markdown/%E5%8E%86%E5%B9%B4%E8%AE%B0_2026-09-26.md",
       "htmlBytes": 69914,
       "markdownBytes": 34959
+    },
+    {
+      "title": "全吴纪略",
+      "date": "2026-09-26",
+      "category": "历史与文明",
+      "html": "readings/%E5%85%A8%E5%90%B4%E7%BA%AA%E7%95%A5_2026-09-26.html",
+      "markdown": "markdown/%E5%85%A8%E5%90%B4%E7%BA%AA%E7%95%A5_2026-09-26.md",
+      "htmlBytes": 71368,
+      "markdownBytes": 37896
     },
     {
       "title": "丙寅北行日谱",
