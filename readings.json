@@ -1,30 +1,300 @@
 {
-  "updated": "2026-09-23",
-  "count": 875,
-  "htmlCount": 870,
-  "markdownCount": 873,
+  "updated": "2026-09-26",
+  "count": 905,
+  "htmlCount": 900,
+  "markdownCount": 903,
   "categories": {
     "人类学与民族志": 16,
-    "传记与回忆录": 13,
+    "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 146,
-    "历史与文明": 162,
+    "其他阅读": 167,
+    "历史与文明": 166,
     "古典文献与国学": 9,
     "哲学与思想": 51,
     "宗教与灵性": 60,
     "实用与技能": 12,
-    "心理学与自我": 45,
+    "心理学与自我": 46,
     "性文化与身体": 26,
     "文学与小说": 116,
-    "社会与政治": 97,
+    "社会与政治": 98,
     "神话与民俗": 13,
     "科幻与悬疑": 19,
     "科普与科学": 15,
-    "经济与商业": 39,
-    "艺术与文化": 19,
+    "经济与商业": 40,
+    "艺术与文化": 20,
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "豫变纪略",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E8%B1%AB%E5%8F%98%E7%BA%AA%E7%95%A5_2026-09-26.html",
+      "markdown": "markdown/%E8%B1%AB%E5%8F%98%E7%BA%AA%E7%95%A5_2026-09-26.md",
+      "htmlBytes": 70354,
+      "markdownBytes": 31785
+    },
+    {
+      "title": "甲申沧州纪事",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E7%94%B2%E7%94%B3%E6%B2%A7%E5%B7%9E%E7%BA%AA%E4%BA%8B_2026-09-26.html",
+      "markdown": "markdown/%E7%94%B2%E7%94%B3%E6%B2%A7%E5%B7%9E%E7%BA%AA%E4%BA%8B_2026-09-26.md",
+      "htmlBytes": 70985,
+      "markdownBytes": 31505
+    },
+    {
+      "title": "杨监笔记",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E6%9D%A8%E7%9B%91%E7%AC%94%E8%AE%B0_2026-09-26.html",
+      "markdown": "markdown/%E6%9D%A8%E7%9B%91%E7%AC%94%E8%AE%B0_2026-09-26.md",
+      "htmlBytes": 70383,
+      "markdownBytes": 31287
+    },
+    {
+      "title": "杜骗新书",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E6%9D%9C%E9%AA%97%E6%96%B0%E4%B9%A6_2026-09-26.html",
+      "markdown": "markdown/%E6%9D%9C%E9%AA%97%E6%96%B0%E4%B9%A6_2026-09-26.md",
+      "htmlBytes": 70680,
+      "markdownBytes": 29867
+    },
+    {
+      "title": "庚子西狩丛谈",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E5%BA%9A%E5%AD%90%E8%A5%BF%E7%8B%A9%E4%B8%9B%E8%B0%88_2026-09-26.html",
+      "markdown": "markdown/%E5%BA%9A%E5%AD%90%E8%A5%BF%E7%8B%A9%E4%B8%9B%E8%B0%88_2026-09-26.md",
+      "htmlBytes": 70646,
+      "markdownBytes": 33265
+    },
+    {
+      "title": "圣教入川记",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E5%9C%A3%E6%95%99%E5%85%A5%E5%B7%9D%E8%AE%B0_2026-09-26.html",
+      "markdown": "markdown/%E5%9C%A3%E6%95%99%E5%85%A5%E5%B7%9D%E8%AE%B0_2026-09-26.md",
+      "htmlBytes": 70610,
+      "markdownBytes": 32163
+    },
+    {
+      "title": "叶天寥自撰年谱",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E5%8F%B6%E5%A4%A9%E5%AF%A5%E8%87%AA%E6%92%B0%E5%B9%B4%E8%B0%B1_2026-09-26.html",
+      "markdown": "markdown/%E5%8F%B6%E5%A4%A9%E5%AF%A5%E8%87%AA%E6%92%B0%E5%B9%B4%E8%B0%B1_2026-09-26.md",
+      "htmlBytes": 69899,
+      "markdownBytes": 29769
+    },
+    {
+      "title": "历年记",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E5%8E%86%E5%B9%B4%E8%AE%B0_2026-09-26.html",
+      "markdown": "markdown/%E5%8E%86%E5%B9%B4%E8%AE%B0_2026-09-26.md",
+      "htmlBytes": 69914,
+      "markdownBytes": 34959
+    },
+    {
+      "title": "丙寅北行日谱",
+      "date": "2026-09-26",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%99%E5%AF%85%E5%8C%97%E8%A1%8C%E6%97%A5%E8%B0%B1_2026-09-26.html",
+      "markdown": "markdown/%E4%B8%99%E5%AF%85%E5%8C%97%E8%A1%8C%E6%97%A5%E8%B0%B1_2026-09-26.md",
+      "htmlBytes": 70544,
+      "markdownBytes": 29336
+    },
+    {
+      "title": "丁未传信录",
+      "date": "2026-09-26",
+      "category": "传记与回忆录",
+      "html": "readings/%E4%B8%81%E6%9C%AA%E4%BC%A0%E4%BF%A1%E5%BD%95_2026-09-26.html",
+      "markdown": "markdown/%E4%B8%81%E6%9C%AA%E4%BC%A0%E4%BF%A1%E5%BD%95_2026-09-26.md",
+      "htmlBytes": 71229,
+      "markdownBytes": 32655
+    },
+    {
+      "title": "鳕鱼，一部改变世界的海鱼历史",
+      "date": "2026-09-24",
+      "category": "历史与文明",
+      "html": "readings/%E9%B3%95%E9%B1%BC%EF%BC%8C%E4%B8%80%E9%83%A8%E6%94%B9%E5%8F%98%E4%B8%96%E7%95%8C%E7%9A%84%E6%B5%B7%E9%B1%BC%E5%8E%86%E5%8F%B2_2026-09-24.html",
+      "markdown": "markdown/%E9%B3%95%E9%B1%BC%EF%BC%8C%E4%B8%80%E9%83%A8%E6%94%B9%E5%8F%98%E4%B8%96%E7%95%8C%E7%9A%84%E6%B5%B7%E9%B1%BC%E5%8E%86%E5%8F%B2_2026-09-24.md",
+      "htmlBytes": 71432,
+      "markdownBytes": 54247
+    },
+    {
+      "title": "香料传奇，一部诱惑的历史",
+      "date": "2026-09-24",
+      "category": "历史与文明",
+      "html": "readings/%E9%A6%99%E6%96%99%E4%BC%A0%E5%A5%87%EF%BC%8C%E4%B8%80%E9%83%A8%E8%AF%B1%E6%83%91%E7%9A%84%E5%8E%86%E5%8F%B2_2026-09-24.html",
+      "markdown": "markdown/%E9%A6%99%E6%96%99%E4%BC%A0%E5%A5%87%EF%BC%8C%E4%B8%80%E9%83%A8%E8%AF%B1%E6%83%91%E7%9A%84%E5%8E%86%E5%8F%B2_2026-09-24.md",
+      "htmlBytes": 71595,
+      "markdownBytes": 54383
+    },
+    {
+      "title": "过于喧嚣的孤独",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E8%BF%87%E4%BA%8E%E5%96%A7%E5%9A%A3%E7%9A%84%E5%AD%A4%E7%8B%AC_2026-09-24.html",
+      "markdown": "markdown/%E8%BF%87%E4%BA%8E%E5%96%A7%E5%9A%A3%E7%9A%84%E5%AD%A4%E7%8B%AC_2026-09-24.md",
+      "htmlBytes": 71282,
+      "markdownBytes": 54870
+    },
+    {
+      "title": "设计心理学",
+      "date": "2026-09-24",
+      "category": "心理学与自我",
+      "html": "readings/%E8%AE%BE%E8%AE%A1%E5%BF%83%E7%90%86%E5%AD%A6_2026-09-24.html",
+      "markdown": "markdown/%E8%AE%BE%E8%AE%A1%E5%BF%83%E7%90%86%E5%AD%A6_2026-09-24.md",
+      "htmlBytes": 70217,
+      "markdownBytes": 55290
+    },
+    {
+      "title": "观看之道",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E8%A7%82%E7%9C%8B%E4%B9%8B%E9%81%93_2026-09-24.html",
+      "markdown": "markdown/%E8%A7%82%E7%9C%8B%E4%B9%8B%E9%81%93_2026-09-24.md",
+      "htmlBytes": 70881,
+      "markdownBytes": 55176
+    },
+    {
+      "title": "莫斯科绅士",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E8%8E%AB%E6%96%AF%E7%A7%91%E7%BB%85%E5%A3%AB_2026-09-24.html",
+      "markdown": "markdown/%E8%8E%AB%E6%96%AF%E7%A7%91%E7%BB%85%E5%A3%AB_2026-09-24.md",
+      "htmlBytes": 72186,
+      "markdownBytes": 55639
+    },
+    {
+      "title": "茶之书",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E8%8C%B6%E4%B9%8B%E4%B9%A6_2026-09-24.html",
+      "markdown": "markdown/%E8%8C%B6%E4%B9%8B%E4%B9%A6_2026-09-24.md",
+      "htmlBytes": 70986,
+      "markdownBytes": 53926
+    },
+    {
+      "title": "第六次大灭绝，非自然历史",
+      "date": "2026-09-24",
+      "category": "历史与文明",
+      "html": "readings/%E7%AC%AC%E5%85%AD%E6%AC%A1%E5%A4%A7%E7%81%AD%E7%BB%9D%EF%BC%8C%E9%9D%9E%E8%87%AA%E7%84%B6%E5%8E%86%E5%8F%B2_2026-09-24.html",
+      "markdown": "markdown/%E7%AC%AC%E5%85%AD%E6%AC%A1%E5%A4%A7%E7%81%AD%E7%BB%9D%EF%BC%8C%E9%9D%9E%E8%87%AA%E7%84%B6%E5%8E%86%E5%8F%B2_2026-09-24.md",
+      "htmlBytes": 72105,
+      "markdownBytes": 54673
+    },
+    {
+      "title": "章鱼的心灵",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E7%AB%A0%E9%B1%BC%E7%9A%84%E5%BF%83%E7%81%B5_2026-09-24.html",
+      "markdown": "markdown/%E7%AB%A0%E9%B1%BC%E7%9A%84%E5%BF%83%E7%81%B5_2026-09-24.md",
+      "htmlBytes": 71160,
+      "markdownBytes": 55751
+    },
+    {
+      "title": "盐，一部世界历史",
+      "date": "2026-09-24",
+      "category": "历史与文明",
+      "html": "readings/%E7%9B%90%EF%BC%8C%E4%B8%80%E9%83%A8%E4%B8%96%E7%95%8C%E5%8E%86%E5%8F%B2_2026-09-24.html",
+      "markdown": "markdown/%E7%9B%90%EF%BC%8C%E4%B8%80%E9%83%A8%E4%B8%96%E7%95%8C%E5%8E%86%E5%8F%B2_2026-09-24.md",
+      "htmlBytes": 69916,
+      "markdownBytes": 54274
+    },
+    {
+      "title": "甜与权力",
+      "date": "2026-09-24",
+      "category": "社会与政治",
+      "html": "readings/%E7%94%9C%E4%B8%8E%E6%9D%83%E5%8A%9B_2026-09-24.html",
+      "markdown": "markdown/%E7%94%9C%E4%B8%8E%E6%9D%83%E5%8A%9B_2026-09-24.md",
+      "htmlBytes": 70992,
+      "markdownBytes": 55190
+    },
+    {
+      "title": "流动的盛宴",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E6%B5%81%E5%8A%A8%E7%9A%84%E7%9B%9B%E5%AE%B4_2026-09-24.html",
+      "markdown": "markdown/%E6%B5%81%E5%8A%A8%E7%9A%84%E7%9B%9B%E5%AE%B4_2026-09-24.md",
+      "htmlBytes": 71312,
+      "markdownBytes": 54985
+    },
+    {
+      "title": "树木的秘密语言",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E6%A0%91%E6%9C%A8%E7%9A%84%E7%A7%98%E5%AF%86%E8%AF%AD%E8%A8%80_2026-09-24.html",
+      "markdown": "markdown/%E6%A0%91%E6%9C%A8%E7%9A%84%E7%A7%98%E5%AF%86%E8%AF%AD%E8%A8%80_2026-09-24.md",
+      "htmlBytes": 70021,
+      "markdownBytes": 53479
+    },
+    {
+      "title": "查令十字街84号",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E6%9F%A5%E4%BB%A4%E5%8D%81%E5%AD%97%E8%A1%9784%E5%8F%B7_2026-09-24.html",
+      "markdown": "markdown/%E6%9F%A5%E4%BB%A4%E5%8D%81%E5%AD%97%E8%A1%9784%E5%8F%B7_2026-09-24.md",
+      "htmlBytes": 70242,
+      "markdownBytes": 54191
+    },
+    {
+      "title": "杂食者的两难",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E6%9D%82%E9%A3%9F%E8%80%85%E7%9A%84%E4%B8%A4%E9%9A%BE_2026-09-24.html",
+      "markdown": "markdown/%E6%9D%82%E9%A3%9F%E8%80%85%E7%9A%84%E4%B8%A4%E9%9A%BE_2026-09-24.md",
+      "htmlBytes": 70173,
+      "markdownBytes": 54193
+    },
+    {
+      "title": "末日松茸，资本主义废墟上的共生可能",
+      "date": "2026-09-24",
+      "category": "经济与商业",
+      "html": "readings/%E6%9C%AB%E6%97%A5%E6%9D%BE%E8%8C%B8%EF%BC%8C%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E5%BA%9F%E5%A2%9F%E4%B8%8A%E7%9A%84%E5%85%B1%E7%94%9F%E5%8F%AF%E8%83%BD_2026-09-24.html",
+      "markdown": "markdown/%E6%9C%AB%E6%97%A5%E6%9D%BE%E8%8C%B8%EF%BC%8C%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E5%BA%9F%E5%A2%9F%E4%B8%8A%E7%9A%84%E5%85%B1%E7%94%9F%E5%8F%AF%E8%83%BD_2026-09-24.md",
+      "htmlBytes": 70639,
+      "markdownBytes": 54659
+    },
+    {
+      "title": "感官的隐秘世界",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E6%84%9F%E5%AE%98%E7%9A%84%E9%9A%90%E7%A7%98%E4%B8%96%E7%95%8C_2026-09-24.html",
+      "markdown": "markdown/%E6%84%9F%E5%AE%98%E7%9A%84%E9%9A%90%E7%A7%98%E4%B8%96%E7%95%8C_2026-09-24.md",
+      "htmlBytes": 70109,
+      "markdownBytes": 54157
+    },
+    {
+      "title": "山月记",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E5%B1%B1%E6%9C%88%E8%AE%B0_2026-09-24.html",
+      "markdown": "markdown/%E5%B1%B1%E6%9C%88%E8%AE%B0_2026-09-24.md",
+      "htmlBytes": 70732,
+      "markdownBytes": 54300
+    },
+    {
+      "title": "小城畸人",
+      "date": "2026-09-24",
+      "category": "其他阅读",
+      "html": "readings/%E5%B0%8F%E5%9F%8E%E7%95%B8%E4%BA%BA_2026-09-24.html",
+      "markdown": "markdown/%E5%B0%8F%E5%9F%8E%E7%95%B8%E4%BA%BA_2026-09-24.md",
+      "htmlBytes": 70887,
+      "markdownBytes": 54503
+    },
+    {
+      "title": "体验建筑",
+      "date": "2026-09-24",
+      "category": "艺术与文化",
+      "html": "readings/%E4%BD%93%E9%AA%8C%E5%BB%BA%E7%AD%91_2026-09-24.html",
+      "markdown": "markdown/%E4%BD%93%E9%AA%8C%E5%BB%BA%E7%AD%91_2026-09-24.md",
+      "htmlBytes": 73221,
+      "markdownBytes": 56783
+    },
     {
       "title": "齐默尔曼电报",
       "date": "2026-09-23",
