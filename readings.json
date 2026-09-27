@@ -1,30 +1,120 @@
 {
-  "updated": "2026-09-27",
-  "count": 925,
-  "htmlCount": 920,
-  "markdownCount": 923,
+  "updated": "2026-09-28",
+  "count": 935,
+  "htmlCount": 930,
+  "markdownCount": 933,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 177,
+    "其他阅读": 181,
     "历史与文明": 176,
     "古典文献与国学": 9,
-    "哲学与思想": 51,
+    "哲学与思想": 52,
     "宗教与灵性": 60,
     "实用与技能": 12,
     "心理学与自我": 46,
     "性文化与身体": 26,
     "文学与小说": 116,
-    "社会与政治": 98,
+    "社会与政治": 101,
     "神话与民俗": 13,
     "科幻与悬疑": 19,
-    "科普与科学": 15,
-    "经济与商业": 40,
+    "科普与科学": 16,
+    "经济与商业": 41,
     "艺术与文化": 20,
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "资本主义的文化矛盾",
+      "date": "2026-09-28",
+      "category": "经济与商业",
+      "html": "readings/%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E7%9A%84%E6%96%87%E5%8C%96%E7%9F%9B%E7%9B%BE_2026-09-28.html",
+      "markdown": "markdown/%E8%B5%84%E6%9C%AC%E4%B8%BB%E4%B9%89%E7%9A%84%E6%96%87%E5%8C%96%E7%9F%9B%E7%9B%BE_2026-09-28.md",
+      "htmlBytes": 48075,
+      "markdownBytes": 34770
+    },
+    {
+      "title": "童年的消逝",
+      "date": "2026-09-28",
+      "category": "其他阅读",
+      "html": "readings/%E7%AB%A5%E5%B9%B4%E7%9A%84%E6%B6%88%E9%80%9D_2026-09-28.html",
+      "markdown": "markdown/%E7%AB%A5%E5%B9%B4%E7%9A%84%E6%B6%88%E9%80%9D_2026-09-28.md",
+      "htmlBytes": 47650,
+      "markdownBytes": 34384
+    },
+    {
+      "title": "社会学的想象力",
+      "date": "2026-09-28",
+      "category": "哲学与思想",
+      "html": "readings/%E7%A4%BE%E4%BC%9A%E5%AD%A6%E7%9A%84%E6%83%B3%E8%B1%A1%E5%8A%9B_2026-09-28.html",
+      "markdown": "markdown/%E7%A4%BE%E4%BC%9A%E5%AD%A6%E7%9A%84%E6%83%B3%E8%B1%A1%E5%8A%9B_2026-09-28.md",
+      "htmlBytes": 47595,
+      "markdownBytes": 35354
+    },
+    {
+      "title": "消费社会",
+      "date": "2026-09-28",
+      "category": "社会与政治",
+      "html": "readings/%E6%B6%88%E8%B4%B9%E7%A4%BE%E4%BC%9A_2026-09-28.html",
+      "markdown": "markdown/%E6%B6%88%E8%B4%B9%E7%A4%BE%E4%BC%9A_2026-09-28.md",
+      "htmlBytes": 49111,
+      "markdownBytes": 35359
+    },
+    {
+      "title": "正义论",
+      "date": "2026-09-28",
+      "category": "社会与政治",
+      "html": "readings/%E6%AD%A3%E4%B9%89%E8%AE%BA_2026-09-28.html",
+      "markdown": "markdown/%E6%AD%A3%E4%B9%89%E8%AE%BA_2026-09-28.md",
+      "htmlBytes": 50362,
+      "markdownBytes": 36673
+    },
+    {
+      "title": "权力精英",
+      "date": "2026-09-28",
+      "category": "社会与政治",
+      "html": "readings/%E6%9D%83%E5%8A%9B%E7%B2%BE%E8%8B%B1_2026-09-28.html",
+      "markdown": "markdown/%E6%9D%83%E5%8A%9B%E7%B2%BE%E8%8B%B1_2026-09-28.md",
+      "htmlBytes": 47389,
+      "markdownBytes": 34920
+    },
+    {
+      "title": "技术垄断",
+      "date": "2026-09-28",
+      "category": "科普与科学",
+      "html": "readings/%E6%8A%80%E6%9C%AF%E5%9E%84%E6%96%AD_2026-09-28.html",
+      "markdown": "markdown/%E6%8A%80%E6%9C%AF%E5%9E%84%E6%96%AD_2026-09-28.md",
+      "htmlBytes": 48688,
+      "markdownBytes": 35008
+    },
+    {
+      "title": "娱乐至死",
+      "date": "2026-09-28",
+      "category": "其他阅读",
+      "html": "readings/%E5%A8%B1%E4%B9%90%E8%87%B3%E6%AD%BB_2026-09-28.html",
+      "markdown": "markdown/%E5%A8%B1%E4%B9%90%E8%87%B3%E6%AD%BB_2026-09-28.md",
+      "htmlBytes": 48993,
+      "markdownBytes": 35773
+    },
+    {
+      "title": "区隔",
+      "date": "2026-09-28",
+      "category": "其他阅读",
+      "html": "readings/%E5%8C%BA%E9%9A%94_2026-09-28.html",
+      "markdown": "markdown/%E5%8C%BA%E9%9A%94_2026-09-28.md",
+      "htmlBytes": 49264,
+      "markdownBytes": 36570
+    },
+    {
+      "title": "制造同意",
+      "date": "2026-09-28",
+      "category": "其他阅读",
+      "html": "readings/%E5%88%B6%E9%80%A0%E5%90%8C%E6%84%8F_2026-09-28.html",
+      "markdown": "markdown/%E5%88%B6%E9%80%A0%E5%90%8C%E6%84%8F_2026-09-28.md",
+      "htmlBytes": 52206,
+      "markdownBytes": 39166
+    },
     {
       "title": "荒野生存",
       "date": "2026-09-27",
