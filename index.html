@@ -1,1657 +1,832 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="青山的十分钟书房：先用十分钟辨认一本书，再决定是否把更长的时间交给它。777部深度阅读与思想测绘档案。">
-  <meta name="theme-color" content="#FAF8F5">
-  <meta property="og:title" content="青山的十分钟书房">
-  <meta property="og:description" content="一份持续生长的深度阅读与思想测绘档案。">
-  <title>青山的十分钟书房 · 深度阅读档案</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="青山的十分钟书房：先用十分钟辨认一本书，再决定是否把更长的时间交给它。">
+<title>青山的十分钟书房 · 深度阅读档案</title>
+<style>
+  /* ============ 纸墨书卷 · 与读本同源的封面与目录 ============
+     定位：把网站从「产品落地页」改回「书刊的封面与目录页」。
+     与读本同源的纸墨语言，功能完全保留，仅重做界面皮肤与版式。
+  ================================================== */
+  @font-face {
+    font-family: "KingHwaOldSong";
+    src: url("fonts/KingHwaOldSong.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "HuiwenMincho";
+    src: url("fonts/Huiwen-mincho.woff2") format("woff2");
+    font-display: swap;
+  }
 
-    :root {
-      --bg: #FAF8F5;
-      --paper: #FFFFFF;
-      --ink: #1F1E1B;
-      --ink-soft: #42403B;
-      --accent: #D96B43;
-      --accent-hover: #C2562E;
-      --accent-bg: #FBF0E9;
-      --muted: #78756F;
-      --border: #E8E4DB;
-      --border-subtle: #F0EDE6;
-      --shadow-sm: 0 1px 2px rgba(31, 30, 27, 0.04), 0 1px 3px rgba(31, 30, 27, 0.03);
-      --shadow-md: 0 4px 12px rgba(31, 30, 27, 0.05), 0 1px 3px rgba(31, 30, 27, 0.03);
-      --shadow-lg: 0 10px 25px -3px rgba(31, 30, 27, 0.07), 0 4px 6px -2px rgba(31, 30, 27, 0.03);
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
-      --font-serif: 'Newsreader', "STSong", "Songti SC", "Noto Serif SC", Georgia, serif;
-      --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, Consolas, monospace;
-    }
+  :root {
+    --paper: #f5f4ed;        /* 羊皮纸暖底（与读本一致） */
+    --paper-raised: #fcfaf3; /* 略亮的纸面（检索面板） */
+    --ink: #252219;          /* 暖黑 */
+    --ink-2: #57534a;        /* 次级墨色 */
+    --muted: #8d8779;        /* 淡墨 */
+    --line: #ddd6c5;         /* 栏线 */
+    --line-strong: #c7bfab;
+    --blue: #1B365D;         /* 墨水蓝 · 主色 */
+    --blue-soft: #e7ecf4;
+    --seal: #a63b2c;         /* 朱磦印泥 · 极少量点睛 */
+    --seal-soft: #f3e3de;
+    --f-title: "KingHwaOldSong", "STSong", "Songti SC", "Noto Serif SC", serif;
+    --f-serif: "HuiwenMincho", "STSong", "Songti SC", serif;
+    --f-ui: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", sans-serif;
+    --f-num: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      color: var(--ink);
-      background-color: var(--bg);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-    }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    color: var(--ink);
+    background-color: var(--paper);
+    /* 极淡的纸纹颗粒 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+    font-family: var(--f-ui);
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  button, input { font: inherit; color: inherit; background: none; border: none; }
+  button { cursor: pointer; }
+  ::selection { background: rgba(27,54,93,0.16); }
 
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; color: inherit; }
+  .shell { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 640px) { .shell { padding: 0 22px; } }
 
-    .shell {
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    @media (max-width: 640px) {
-      .shell { padding: 0 20px; }
-    }
+  /* ============ 顶栏 · 一线刊头 ============ */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,244,237,0.94);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .shell {
+    min-height: 62px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .seal {
+    width: 26px; height: 26px; border-radius: 4px;
+    background: var(--seal); color: #f7f2ea;
+    font-family: var(--f-title); font-size: 15px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 1px 2px rgba(90,30,20,0.25);
+  }
+  .brand-name { font-family: var(--f-title); font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+  .brand-sub { font-size: 11px; color: var(--muted); letter-spacing: 2px; margin-left: 2px; }
+  .topnav { display: flex; align-items: center; gap: 26px; font-size: 13px; color: var(--ink-2); }
+  .topnav a { padding: 3px 0; border-bottom: 1px solid transparent; transition: color .15s, border-color .15s; }
+  .topnav a:hover { color: var(--blue); border-bottom-color: var(--blue); }
+  .nav-progress { font-family: var(--f-num); font-size: 11.5px; color: var(--muted); cursor: pointer; }
+  .nav-progress:hover { color: var(--blue); }
+  .nav-progress b { color: var(--blue); font-weight: 700; }
+  @media (max-width: 760px) { .topnav a, .brand-sub { display: none; } }
 
-    /* 顶部导航条 (Claude Minimalist Header) */
-    .site-nav-bar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 248, 245, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.2s;
-    }
-    .site-nav-bar .shell {
-      min-height: 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .brand-logo {
-      width: 22px;
-      height: 22px;
-      border-radius: 5px;
-      background: var(--accent);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .brand-title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      color: var(--ink);
-    }
-    .brand-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--muted);
-      background: var(--border-subtle);
-      padding: 2px 8px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--muted);
-    }
-    .nav-links a {
-      transition: color 0.15s;
-    }
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+  /* ============ 卷首 · 刊名与题辞 ============ */
+  .masthead { padding: 96px 0 0; text-align: center; }
+  .masthead-kicker {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: 12px; letter-spacing: 4px; color: var(--muted);
+  }
+  .masthead-kicker::before, .masthead-kicker::after {
+    content: ""; width: 46px; height: 1px; background: var(--line-strong);
+  }
+  .masthead h1 {
+    font-family: var(--f-title);
+    font-size: clamp(40px, 5.6vw, 64px);
+    font-weight: 700; line-height: 1.35; letter-spacing: 2px;
+    margin: 34px auto 26px; max-width: 880px;
+    text-wrap: balance;
+  }
+  .masthead h1 .accent { color: var(--blue); }
+  .masthead .dek {
+    font-size: 15.5px; line-height: 2.05; color: var(--ink-2);
+    max-width: 620px; margin: 0 auto;
+  }
 
-    /* ============================================================
-       Hero 卷首区 (Claude Intellectual & Warm Studio Hero)
-    ============================================================ */
-    .hero-section {
-      padding: 88px 0 72px;
-      text-align: center;
-      position: relative;
-    }
-    .hero-pill-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--paper);
-      border: 1px solid var(--border);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-      margin-bottom: 28px;
-      box-shadow: var(--shadow-sm);
-    }
-    .hero-pill-badge span.sparkle {
-      color: var(--accent);
-      font-size: 14px;
-    }
-    .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(40px, 5.2vw, 64px);
-      font-weight: 500;
-      line-height: 1.22;
-      letter-spacing: -1px;
-      color: var(--ink);
-      max-width: 900px;
-      margin: 0 auto 24px;
-      text-wrap: balance;
-    }
-    .hero-title em {
-      font-style: italic;
-      color: var(--accent);
-      font-family: var(--font-serif);
-      padding: 0 4px;
-    }
-    .hero-desc {
-      font-size: 17px;
-      line-height: 1.85;
-      color: var(--ink-soft);
-      max-width: 680px;
-      margin: 0 auto 40px;
-    }
+  /* 统计栏线 */
+  .statline {
+    margin: 52px auto 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    display: flex; justify-content: center;
+  }
+  .statline .stat {
+    padding: 14px 44px; text-align: center;
+    border-left: 1px solid var(--line);
+    font-size: 12.5px; color: var(--muted); letter-spacing: 1px;
+  }
+  .statline .stat:first-child { border-left: none; }
+  .statline .stat b {
+    display: block; font-family: var(--f-title);
+    font-size: 21px; color: var(--ink); letter-spacing: 1px; margin-bottom: 1px;
+  }
+  .statline .stat b .unit { font-size: 12px; color: var(--muted); margin-left: 3px; }
+  @media (max-width: 640px) {
+    .masthead { padding: 64px 0 0; }
+    .statline .stat { padding: 12px 18px; }
+  }
 
-    /* 优雅的 Claude 搜索/漫游卡片 (The Studio Explorer Input) */
-    .explorer-card {
-      max-width: 740px;
-      margin: 0 auto;
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 8px 12px 14px;
-      box-shadow: var(--shadow-md);
-      transition: box-shadow 0.2s, border-color 0.2s;
-    }
-    .explorer-card:focus-within {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(217, 107, 67, 0.15), var(--shadow-lg);
-    }
-    .search-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 4px 6px;
-    }
-    .search-icon {
-      color: var(--muted);
-      font-size: 17px;
-    }
-    .search-input {
-      flex: 1;
-      border: none;
-      background: transparent;
-      outline: none;
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--ink);
-      padding: 8px 0;
-    }
-    .search-input::placeholder {
-      color: #9C9992;
-      font-weight: 400;
-    }
-    .btn-secondary-pill {
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 9px 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(217, 107, 67, 0.2);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s;
-    }
-    .btn-secondary-pill:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+  /* ============ 检索台 · 划线式 ============ */
+  .searchdesk { max-width: 720px; margin: 46px auto 0; padding-bottom: 92px; }
+  .searchline {
+    display: flex; align-items: baseline; gap: 14px;
+    border-bottom: 1.5px solid var(--line-strong);
+    padding: 10px 2px 12px;
+    transition: border-color .2s;
+  }
+  .searchline:focus-within { border-bottom-color: var(--blue); }
+  .searchline .prompt-mark { font-family: var(--f-title); font-size: 19px; color: var(--blue); }
+  .searchline input {
+    flex: 1; outline: none; font-size: 16.5px; color: var(--ink);
+    font-family: var(--f-ui); padding: 2px 0;
+  }
+  .searchline input::placeholder { color: #a39d8e; }
+  .btn-fan {
+    font-family: var(--f-title); font-size: 13.5px; letter-spacing: 2px;
+    color: var(--seal); border: 1px solid var(--seal); border-radius: 4px;
+    padding: 7px 18px 8px; transition: all .18s; white-space: nowrap;
+    background: rgba(166,59,44,0.03);
+  }
+  .btn-fan:hover { background: var(--seal); color: #f7f2ea; }
+  .quickseek {
+    margin-top: 16px; font-size: 12.5px; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 6px 4px; justify-content: center;
+  }
+  .quickseek button {
+    color: var(--ink-2); font-size: 12.5px; padding: 2px 6px;
+    border-bottom: 1px dotted var(--line-strong); transition: all .15s;
+  }
+  .quickseek button:hover { color: var(--blue); border-bottom-color: var(--blue); }
 
-    .quick-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 10px 6px 4px;
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 6px;
-      font-size: 12px;
-    }
-    .quick-tag-label {
-      color: var(--muted);
-      font-weight: 500;
-      padding: 3px 0;
-    }
-    .quick-tag {
-      background: var(--bg);
-      color: var(--ink-soft);
-      padding: 3px 10px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 500;
-      transition: all 0.15s;
-    }
-    .quick-tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--paper);
-    }
+  /* ============ 卷首语 ============ */
+  .letter {
+    border-top: 1px solid var(--line);
+    padding: 84px 0;
+  }
+  .letter-inner { max-width: 640px; margin: 0 auto; }
+  .letter-kicker {
+    text-align: center; font-size: 11.5px; letter-spacing: 4px;
+    color: var(--muted); margin-bottom: 30px;
+  }
+  .letter h2 {
+    font-family: var(--f-title); font-size: 29px; line-height: 1.5;
+    letter-spacing: 1px; text-align: center; margin-bottom: 34px;
+  }
+  .letter p {
+    font-family: var(--f-serif);
+    font-size: 16px; line-height: 2.1; color: var(--ink-2);
+    margin-bottom: 22px; text-align: justify;
+  }
+  .letter p.lead-p::first-letter {
+    font-family: var(--f-title); font-size: 2.1em; color: var(--blue);
+  }
+  .letter .sign { text-align: right; font-family: var(--f-title); color: var(--muted); font-size: 14px; letter-spacing: 1px; }
 
-    /* ============================================================
-       发刊卷首语 (Letter from the Studio)
-    ============================================================ */
-    .studio-letter {
-      padding: 64px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--paper);
-    }
-    .letter-grid {
-      display: grid;
-      grid-template-columns: 240px minmax(0, 1fr);
-      gap: 52px;
-    }
-    .letter-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .letter-kicker {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-    .letter-heading-side {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .letter-body h2 {
-      font-family: var(--font-serif);
-      font-size: 30px;
-      font-weight: 500;
-      line-height: 1.35;
-      letter-spacing: -0.5px;
-      margin-bottom: 20px;
-      color: var(--ink);
-    }
-    .letter-body p {
-      font-size: 16px;
-      line-height: 1.9;
-      color: var(--ink-soft);
-      margin-bottom: 16px;
-    }
-    .letter-signature {
-      margin-top: 28px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--muted);
-    }
+  /* ============ 节标题通式 ============ */
+  .sec { padding: 76px 0 84px; border-top: 1px solid var(--line); }
+  .sec-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 44px; gap: 20px; flex-wrap: wrap;
+  }
+  .sec-head h2 {
+    font-family: var(--f-title); font-size: 27px; letter-spacing: 2px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .sec-head h2::before {
+    content: ""; width: 22px; height: 1px; background: var(--seal);
+    display: inline-block; transform: translateY(-5px);
+  }
+  .sec-head .sec-note { font-size: 12.5px; color: var(--muted); letter-spacing: 1px; }
 
-    /* ============================================================
-       本期新读 (Recent Readings Feature)
-    ============================================================ */
-    .section-wrap {
-      padding: 72px 0 80px;
-    }
-    .section-title-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 14px;
-    }
-    .section-title-bar h2 {
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--ink);
-    }
-    .section-subtitle {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-    }
+  /* ============ 本期新读 ============ */
+  .recent-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(300px,0.85fr); gap: 56px; }
+  .lead-piece { border-top: 3px double var(--ink); padding-top: 26px; }
+  .lead-kicker { font-size: 11.5px; letter-spacing: 3px; color: var(--seal); margin-bottom: 18px; }
+  .lead-title {
+    font-family: var(--f-title); font-size: 40px; font-weight: 700;
+    line-height: 1.35; letter-spacing: 1px; margin-bottom: 18px;
+  }
+  .lead-title a:hover { color: var(--blue); }
+  .lead-meta { font-size: 13px; color: var(--muted); margin-bottom: 30px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .lead-meta .dot::before { content: "·"; margin-right: 8px; }
+  .lead-go {
+    display: inline-block; font-family: var(--f-title); font-size: 15px; letter-spacing: 2px;
+    color: var(--blue); border-bottom: 1px solid var(--blue); padding-bottom: 3px;
+    transition: all .15s;
+  }
+  .lead-go:hover { color: var(--seal); border-bottom-color: var(--seal); }
+  .recent-list { display: flex; flex-direction: column; }
+  .recent-row {
+    display: grid; grid-template-columns: 40px 1fr auto; gap: 16px; align-items: baseline;
+    padding: 15px 4px; border-bottom: 1px solid var(--line); transition: background .15s;
+  }
+  .recent-row:first-child { border-top: 1px solid var(--line); }
+  .recent-row:hover { background: rgba(27,54,93,0.035); }
+  .recent-idx { font-family: var(--f-num); font-size: 11.5px; color: var(--muted); }
+  .recent-row:hover .recent-idx { color: var(--seal); }
+  .recent-name { font-family: var(--f-title); font-size: 16.5px; letter-spacing: 0.5px; line-height: 1.5; }
+  .recent-cat { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  @media (max-width: 880px) { .recent-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-    .recent-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
-      gap: 32px;
-    }
-    .lead-book-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 380px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s;
-    }
-    .lead-book-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent);
-    }
-    .lead-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-bg);
-      padding: 3px 10px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      letter-spacing: 0.5px;
-    }
-    .lead-book-title {
-      font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 600;
-      line-height: 1.25;
-      letter-spacing: -0.5px;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-    .lead-book-meta {
-      font-size: 13px;
-      color: var(--muted);
-      display: flex;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-    .lead-action-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
-      padding: 8px 18px;
-      background: var(--accent-bg);
-      border-radius: 20px;
-      border: 1px solid rgba(217, 107, 67, 0.2);
-      align-self: flex-start;
-      transition: all 0.15s;
-    }
-    .lead-action-btn:hover {
-      background: var(--accent);
-      color: #fff;
-    }
+  /* ============ 架目十八 · 目录式 ============ */
+  .shelfboard { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 48px; }
+  .shelf-row {
+    display: flex; align-items: baseline; gap: 14px;
+    padding: 13px 6px; border-bottom: 1px solid var(--line);
+    cursor: pointer; transition: background .15s;
+    position: relative;
+  }
+  .shelf-row:hover { background: rgba(27,54,93,0.035); }
+  .shelf-row .s-cn { font-family: var(--f-title); font-size: 13px; color: var(--seal); min-width: 34px; }
+  .shelf-row .s-name { font-family: var(--f-title); font-size: 17.5px; letter-spacing: 1px; flex: 1; }
+  .shelf-row .s-count { font-family: var(--f-num); font-size: 11.5px; color: var(--muted); }
+  .shelf-row .s-go {
+    font-size: 12px; color: var(--blue); opacity: 0; transition: opacity .15s; white-space: nowrap;
+  }
+  .shelf-row:hover .s-go { opacity: 1; }
+  .shelf-row.active { background: var(--blue-soft); border-bottom-color: var(--blue); }
+  .shelf-row.active .s-name { color: var(--blue); }
+  .shelf-row.active .s-go { opacity: 1; }
+  @media (max-width: 880px) { .shelfboard { grid-template-columns: repeat(2, 1fr); column-gap: 32px; } }
+  @media (max-width: 560px) { .shelfboard { grid-template-columns: 1fr; } }
 
-    .recent-cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .sub-book-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 20px;
-      display: grid;
-      grid-template-columns: 36px 1fr auto;
-      gap: 14px;
-      align-items: center;
-      transition: all 0.15s;
-      box-shadow: var(--shadow-sm);
-    }
-    .sub-book-card:hover {
-      border-color: var(--accent);
-      transform: translateX(3px);
-      box-shadow: var(--shadow-md);
-    }
-    .sub-book-card:hover .sub-book-title {
-      color: var(--accent);
-    }
-    .sub-index {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .sub-book-title {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.4;
-      color: var(--ink);
-      transition: color 0.15s;
-    }
-    .sub-book-meta {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 3px;
-      display: block;
-    }
-    .sub-arrow {
-      color: var(--muted);
-      font-size: 14px;
-    }
+  /* ============ 总目 · 书目长卷 ============ */
+  .ledger-tools {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 14px; flex-wrap: wrap; margin-bottom: 34px; font-size: 13px; color: var(--muted);
+  }
+  .ledger-tools .cur-shelf { color: var(--ink); font-family: var(--f-title); font-size: 16px; letter-spacing: 1px; }
+  .ledger-tools .cur-shelf::before { content: "▪ "; color: var(--seal); }
+  .readpills { display: inline-flex; gap: 2px; border: 1px solid var(--line); border-radius: 3px; padding: 2px; }
+  .readpills button {
+    font-size: 12px; padding: 4px 13px; border-radius: 2px; color: var(--muted); transition: all .15s;
+  }
+  .readpills button .n { font-family: var(--f-num); font-size: 10.5px; margin-left: 4px; }
+  .readpills button.on { background: var(--blue); color: #f5f4ed; }
+  .tools-right { display: flex; align-items: center; gap: 16px; }
+  .link-btn { font-size: 12.5px; color: var(--blue); border-bottom: 1px dotted var(--blue); padding-bottom: 1px; }
+  .link-btn:hover { color: var(--seal); border-bottom-color: var(--seal); }
+  .link-plain { font-size: 12.5px; color: var(--muted); }
+  .link-plain:hover { color: var(--blue); }
 
-    /* ============================================================
-       十八架书 (The 18 Curated Shelves)
-    ============================================================ */
-    .shelves-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .shelf-item-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 106px;
-      cursor: pointer;
-      transition: all 0.15s;
-      box-shadow: var(--shadow-sm);
-      text-align: left;
-    }
-    .shelf-item-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-    .shelf-item-card.active {
-      background: var(--ink);
-      color: #fff;
-      border-color: var(--ink);
-      box-shadow: var(--shadow-md);
-    }
-    .shelf-top-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 500;
-    }
-    .shelf-num {
-      color: var(--accent);
-    }
-    .shelf-item-card.active .shelf-num {
-      color: #FFAA88;
-    }
-    .shelf-item-count {
-      color: var(--muted);
-    }
-    .shelf-item-card.active .shelf-item-count {
-      color: rgba(255, 255, 255, 0.65);
-    }
-    .shelf-card-title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      margin-top: 10px;
-    }
+  .month-block { margin-bottom: 46px; }
+  .month-head {
+    display: flex; align-items: baseline; gap: 16px; margin-bottom: 6px;
+    border-bottom: 1.5px solid var(--ink); padding-bottom: 10px;
+  }
+  .month-head .m-name { font-family: var(--f-title); font-size: 18px; letter-spacing: 2px; }
+  .month-head .m-count { font-size: 12px; color: var(--muted); }
 
-    /* ============================================================
-       全部书目档案库 (Complete Reading Ledger)
-    ============================================================ */
-    .catalogue-wrap {
-      padding: 72px 0 100px;
-      border-top: 1px solid var(--border);
-    }
-    .ledger-filter-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--muted);
-    }
-    .active-shelf-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--ink);
-    }
+  .book-row {
+    display: grid; grid-template-columns: 46px minmax(0,1fr) 110px 92px auto;
+    gap: 16px; align-items: baseline;
+    padding: 11px 6px; border-bottom: 1px solid var(--line);
+    transition: background .15s;
+  }
+  .book-row:hover { background: rgba(27,54,93,0.035); }
+  .b-idx { font-family: var(--f-num); font-size: 11px; color: var(--muted); }
+  .b-title { font-family: var(--f-title); font-size: 16.5px; letter-spacing: 0.5px; line-height: 1.5; }
+  .b-title a:hover { color: var(--blue); }
+  .b-read-mark { font-size: 10.5px; color: var(--seal); margin-left: 8px; white-space: nowrap; }
+  .b-cat { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .b-date { font-family: var(--f-num); font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+  .b-ops { display: flex; gap: 14px; align-items: baseline; opacity: .45; transition: opacity .15s; white-space: nowrap; }
+  .book-row:hover .b-ops { opacity: 1; }
+  .b-ops a, .b-ops button { font-size: 12px; color: var(--ink-2); padding: 0; transition: color .15s; }
+  .b-ops a:hover, .b-ops button:hover { color: var(--blue); }
+  .b-ops .op-read.is-read { color: var(--seal); }
 
-    .ledger-container {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-    }
-    .ledger-entry-row {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr) 132px 104px 232px;
-      gap: 16px;
-      align-items: center;
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border-subtle);
-      transition: background 0.15s;
-    }
-    .ledger-entry-row:last-child {
-      border-bottom: none;
-    }
-    .ledger-entry-row:hover {
-      background: var(--bg);
-    }
-    .ledger-entry-row:hover .ledger-entry-title {
-      color: var(--accent);
-    }
-    .ledger-idx {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-    }
-    .ledger-entry-title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
-      color: var(--ink);
-      line-height: 1.4;
-      transition: color 0.15s;
-    }
-    .ledger-entry-cat {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--muted);
-    }
-    .ledger-entry-date {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .ledger-entry-actions {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-    .btn-pill-sm {
-      padding: 4px 12px;
-      font-size: 11px;
-      font-weight: 600;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--ink);
-      transition: all 0.15s;
-    }
-    .btn-pill-sm:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
+  .more-wrap { text-align: center; margin-top: 44px; }
+  .btn-more {
+    font-family: var(--f-title); font-size: 14px; letter-spacing: 3px;
+    border: 1px solid var(--line-strong); border-radius: 3px;
+    padding: 12px 46px; color: var(--ink-2); transition: all .18s;
+    background: var(--paper-raised);
+  }
+  .btn-more:hover { border-color: var(--blue); color: var(--blue); }
+  .btn-more[hidden] { display: none; }
+  @media (max-width: 880px) {
+    .book-row { grid-template-columns: 34px minmax(0,1fr) auto; }
+    .b-cat, .b-date { display: none; }
+  }
 
-    .load-more-btn {
-      display: block;
-      width: 100%;
-      margin-top: 20px;
-      padding: 14px 0;
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--ink);
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.15s;
-    }
-    .load-more-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      box-shadow: var(--shadow-md);
-    }
-    .load-more-btn[hidden] { display: none; }
+  /* ============ 读者公约 ============ */
+  .pledge {
+    background: var(--blue); color: #eceadf;
+    padding: 80px 0; margin-top: 40px;
+  }
+  .pledge-kicker { font-size: 11.5px; letter-spacing: 4px; color: #b9c6da; text-align: center; margin-bottom: 26px; }
+  .pledge h2 {
+    font-family: var(--f-title); font-size: 30px; letter-spacing: 2px;
+    text-align: center; margin-bottom: 54px; color: #f5f4ed;
+  }
+  .pledge-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 44px; max-width: 980px; margin: 0 auto; }
+  .pledge-item { border-top: 1px solid rgba(236,234,223,0.25); padding-top: 22px; }
+  .pledge-item .p-no { font-family: var(--f-title); font-size: 14px; color: #d8a08f; letter-spacing: 3px; margin-bottom: 10px; }
+  .pledge-item h3 { font-family: var(--f-title); font-size: 18px; letter-spacing: 1px; margin-bottom: 12px; color: #f5f4ed; }
+  .pledge-item p { font-size: 13.5px; line-height: 2; color: rgba(236,234,223,0.78); text-align: justify; }
+  @media (max-width: 760px) { .pledge-cols { grid-template-columns: 1fr; gap: 30px; } }
 
-    /* ============================================================
-       读者公约 (Claude Mindful Principles Section)
-    ============================================================ */
-    .principles-box {
-      padding: 88px 0;
-      background: #191816;
-      color: #FAF8F5;
-      border-radius: 24px;
-      margin: 40px 0;
-    }
-    .principles-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    .principles-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .principles-heading {
-      font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 500;
-      line-height: 1.3;
-      margin-bottom: 48px;
-    }
-    .principles-3col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
-    }
-    .principle-item {
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: 24px;
-    }
-    .principle-item h3 {
-      font-size: 19px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #FAF8F5;
-    }
-    .principle-item p {
-      font-size: 14px;
-      line-height: 1.85;
-      color: rgba(250, 248, 245, 0.7);
-    }
+  /* ============ 页脚 ============ */
+  .site-foot { padding: 60px 0 72px; }
+  .foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; font-size: 12.5px; color: var(--muted); line-height: 2; }
+  .foot-grid .f-name { font-family: var(--f-title); font-size: 16px; color: var(--ink); letter-spacing: 1px; margin-bottom: 8px; }
+  .foot-grid a { color: var(--ink-2); border-bottom: 1px dotted var(--line-strong); }
+  .foot-grid a:hover { color: var(--blue); border-bottom-color: var(--blue); }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr; gap: 24px; } }
 
-    /* 页脚 (Quiet Studio Footer) */
-    .site-footer {
-      padding: 64px 0 80px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 40px;
-    }
-    .footer-brand-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .footer-links a {
-      color: var(--ink-soft);
-      border-bottom: 1px dotted var(--border);
-      transition: color 0.15s;
-    }
-    .footer-links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
+  /* ============ 同步弹匣 · 重皮 ============ */
+  .sync-backdrop {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(37,34,25,0.5); backdrop-filter: blur(3px);
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .sync-backdrop[hidden] { display: none !important; }
+  .sync-card {
+    background: var(--paper-raised); border: 1px solid var(--line-strong);
+    border-radius: 6px; max-width: 540px; width: 100%;
+    padding: 30px 34px; box-shadow: 0 18px 50px rgba(37,34,25,0.25);
+  }
+  .sync-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; }
+  .sync-head h3 { font-family: var(--f-title); font-size: 21px; letter-spacing: 2px; }
+  .sync-head button { font-size: 22px; color: var(--muted); line-height: 1; }
+  .sync-head button:hover { color: var(--seal); }
+  .sync-desc { font-size: 13px; line-height: 1.9; color: var(--ink-2); margin-bottom: 14px; }
+  .sync-stat { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .sync-ta {
+    width: 100%; border: 1px solid var(--line-strong); background: var(--paper);
+    border-radius: 4px; padding: 10px 12px; font-family: var(--f-num); font-size: 11px;
+    resize: vertical; box-sizing: border-box; margin-bottom: 16px; outline: none;
+  }
+  .sync-ta:focus { border-color: var(--blue); }
+  .sync-ops { display: flex; gap: 10px; flex-wrap: wrap; }
+  .sync-ops button {
+    font-size: 12.5px; padding: 7px 16px; border: 1px solid var(--line-strong);
+    border-radius: 3px; color: var(--ink-2); transition: all .15s; background: var(--paper);
+  }
+  .sync-ops button:hover { border-color: var(--blue); color: var(--blue); }
+  .sync-ops button.primary { background: var(--blue); border-color: var(--blue); color: #f5f4ed; }
+  .sync-ops button.primary:hover { background: #24466f; }
+  .sync-ops button.danger { color: var(--seal); margin-left: auto; }
+  .sync-ops button.danger:hover { border-color: var(--seal); }
+  .sync-fb { margin-top: 12px; font-size: 12px; font-weight: 600; min-height: 18px; color: var(--blue); }
 
-    /* 响应式断点 */
-    @media (max-width: 900px) {
-      .recent-layout { grid-template-columns: 1fr; }
-      .letter-grid { grid-template-columns: 1fr; gap: 20px; }
-      .shelves-grid { grid-template-columns: repeat(2, 1fr); }
-      .principles-3col { grid-template-columns: 1fr; gap: 28px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-      .ledger-entry-row { grid-template-columns: 44px minmax(0, 1fr) auto; }
-      .ledger-entry-cat, .ledger-entry-date { display: none; }
-    }
-
-    @media (max-width: 640px) {
-      .site-nav-bar .shell { min-height: 58px; }
-      .nav-links { display: none; }
-      .hero-section { padding: 56px 0 48px; }
-      .hero-title { font-size: 32px; }
-      .hero-desc { font-size: 15px; }
-      .shelves-grid { grid-template-columns: 1fr; }
-      .ledger-entry-row { grid-template-columns: 32px minmax(0, 1fr); gap: 10px; padding: 14px 16px; }
-      .ledger-entry-title { font-size: 16px; }
-      .ledger-entry-actions { grid-column: 2; justify-content: flex-start; margin-top: -4px; }
-      .principles-box { border-radius: 16px; padding: 56px 0; }
-    }
-  
-    /* Read progress in header */
-    .read-progress-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-family: var(--font-mono);
-      background: var(--paper);
-      border: 1px solid var(--border);
-      padding: 3px 10px;
-      border-radius: 14px;
-      color: var(--ink-soft);
-      box-shadow: var(--shadow-sm);
-    }
-    .read-progress-chip .chip-label {
-      color: var(--muted);
-    }
-    .read-progress-chip .chip-num {
-      color: #1B365D;
-      font-weight: 700;
-    }
-    .chip-bar {
-      width: 44px;
-      height: 6px;
-      background: rgba(0,0,0,0.06);
-      border-radius: 3px;
-      overflow: hidden;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .chip-bar-fill {
-      height: 100%;
-      width: 0%;
-      background: #1B365D;
-      border-radius: 3px;
-      transition: width 0.3s ease;
-    }
-    .chip-percent {
-      color: var(--muted);
-      font-size: 10px;
-    }
-
-    /* Read Status Filter Pills in Ledger */
-    .read-status-filters {
-      display: inline-flex;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 2px;
-      gap: 2px;
-      margin-left: 12px;
-    }
-    .read-filter-pill {
-      background: transparent;
-      border: none;
-      padding: 4px 12px;
-      border-radius: 16px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.15s;
-    }
-    .read-filter-pill .pill-count {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      opacity: 0.8;
-      background: rgba(0,0,0,0.05);
-      padding: 1px 6px;
-      border-radius: 10px;
-    }
-    .read-filter-pill:hover {
-      color: var(--ink);
-    }
-    .read-filter-pill.active {
-      background: #1B365D;
-      color: #ffffff;
-    }
-    .read-filter-pill.active .pill-count {
-      background: rgba(255,255,255,0.2);
-      color: #ffffff;
-    }
-
-    /* Read Toggle Button in Ledger Rows */
-    .btn-read-toggle {
-      padding: 4px 8px;
-      font-size: 11px;
-      font-weight: 600;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--paper);
-      color: var(--muted);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.15s;
-      white-space: nowrap;
-    }
-    .btn-read-toggle:hover {
-      border-color: #1B365D;
-      color: #1B365D;
-      background: rgba(27, 54, 93, 0.04);
-    }
-    .btn-read-toggle.is-read {
-      background: #E8EEF5;
-      color: #1B365D;
-      border-color: rgba(27, 54, 93, 0.35);
-      font-weight: 700;
-    }
-    .btn-read-toggle.is-read:hover {
-      background: #FDE8E8;
-      color: #C53030;
-      border-color: rgba(197, 48, 48, 0.3);
-    }
-
-    .badge-read-tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 700;
-      color: #1B365D;
-      background: #E4ECF5;
-      padding: 1px 6px;
-      border-radius: 4px;
-      margin-left: 8px;
-      vertical-align: middle;
-      letter-spacing: 0.3px;
-    }
-
-    .ledger-entry-row.is-read-row {
-      background: rgba(245, 244, 237, 0.4);
-    }
-    .ledger-entry-row.is-read-row .ledger-entry-title {
-      color: var(--dark-warm);
-    }
-
-    .btn-sync-action {
-      background: transparent;
-      border: 1px solid var(--border);
-      padding: 4px 12px;
-      border-radius: 14px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--ink-soft);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.15s;
-    }
-    .btn-sync-action:hover {
-      border-color: #1B365D;
-      color: #1B365D;
-      background: var(--paper);
-    }
-
-    /* Sync Modal */
-    .sync-modal-backdrop {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(20, 20, 19, 0.55);
-      backdrop-filter: blur(4px);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .sync-modal-backdrop[hidden] { display: none !important; }
-    .sync-modal-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      max-width: 540px;
-      width: 100%;
-      padding: 28px 32px;
-      box-shadow: var(--shadow-lg);
-    }
-    .sync-modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    .sync-modal-header h3 {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      color: var(--ink);
-    }
-    .sync-modal-close {
-      background: transparent;
-      border: none;
-      font-size: 24px;
-      line-height: 1;
-      color: var(--muted);
-      cursor: pointer;
-    }
-    .sync-modal-desc {
-      font-size: 13.5px;
-      line-height: 1.7;
-      color: var(--ink-soft);
-      margin-bottom: 14px;
-    }
-    .sync-stat-line {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-    .sync-textarea {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      border-radius: 10px;
-      padding: 10px 12px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--ink);
-      resize: vertical;
-      box-sizing: border-box;
-      margin-bottom: 16px;
-      outline: none;
-    }
-    .sync-textarea:focus {
-      border-color: #1B365D;
-    }
-    .sync-actions-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .btn-sync-op {
-      padding: 8px 16px;
-      font-size: 12.5px;
-      font-weight: 600;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: var(--bg);
-      color: var(--ink);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .btn-sync-op:hover {
-      background: #eee;
-    }
-    .btn-sync-op.primary {
-      background: #1B365D;
-      color: #fff;
-      border-color: #1B365D;
-    }
-    .btn-sync-op.primary:hover {
-      background: #2c5282;
-    }
-    .btn-sync-op.danger {
-      color: #c53030;
-      margin-left: auto;
-    }
-    .btn-sync-op.danger:hover {
-      background: #FDE8E8;
-    }
-    .sync-feedback {
-      margin-top: 12px;
-      font-size: 12px;
-      font-weight: 600;
-      min-height: 18px;
-    }
-
-    /* Mobile adjustments for ledger */
-    @media (max-width: 768px) {
-      .read-progress-chip { display: none; }
-      .ledger-filter-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .read-status-filters {
-        margin-left: 0;
-        margin-top: 6px;
-      }
-      .btn-sync-action {
-        padding: 3px 8px;
-        font-size: 11px;
-      }
-    }
-
-
-    .read-toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%) translateY(40px);
-      background: #1B365D;
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-      opacity: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 10000;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    .read-toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
+  /* toast */
+  .toast {
+    position: fixed; bottom: 34px; left: 50%;
+    transform: translateX(-50%) translateY(40px);
+    background: var(--ink); color: var(--paper);
+    font-size: 13.5px; letter-spacing: 1px;
+    padding: 11px 26px; border-radius: 3px;
+    box-shadow: 0 8px 24px rgba(37,34,25,0.28);
+    opacity: 0; transition: all .3s cubic-bezier(0.16,1,0.3,1);
+    z-index: 10000; pointer-events: none; white-space: nowrap;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
 
-  <!-- 顶部极简导航条 -->
-  <header class="site-nav-bar">
+<!-- 顶栏 -->
+<header class="topbar">
+  <div class="shell">
+    <div class="brand">
+      <span class="seal">青</span>
+      <a class="brand-name" href="#top">青山的十分钟书房</a>
+      <span class="brand-sub">深度阅读档案</span>
+    </div>
+    <nav class="topnav">
+      <a href="#recent">新读</a>
+      <a href="#shelves">架目</a>
+      <a href="#catalogue">总目</a>
+      <a href="README.md">关于</a>
+      <span class="nav-progress" id="navProgress" title="已读进度 · 点击备份或同步">已读 <b id="navRead">0</b> / <span id="navTotal">0</span></span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 卷首 -->
+  <section class="masthead">
     <div class="shell">
-      <div class="brand-wrap">
-        <div class="brand-logo">青</div>
-        <a class="brand-title" href="#top">青山的十分钟书房</a>
-        <span class="brand-badge" id="navBadge">777 篇在架</span>
-        <div class="read-progress-chip" id="readProgressChip" title="阅读进度统计">
-          <span class="chip-label">已读</span>
-          <strong class="chip-num" id="chipRead">0</strong>/<span id="chipTotal">777</span>
-          <div class="chip-bar"><div class="chip-bar-fill" id="chipBarFill"></div></div>
-          <span class="chip-percent" id="chipPercent">0%</span>
+      <div class="masthead-kicker">开放阅读档案 · 始于二〇二六年五月</div>
+      <h1>在决定读完以前，<br>先和一本书<span class="accent">坐十分钟</span>。</h1>
+      <p class="dek">面对一本陌生的书，人们常常困在腰封和推荐语的虚词里。这里没有速食摘要，只有不妥协的长交付解书——拆解作者在回答什么、论证立在何处、制度的代价何在。</p>
+      <div class="statline" id="statline">
+        <div class="stat"><b id="stCount">—<span class="unit">部</span></b>在架典藏</div>
+        <div class="stat"><b>拾捌<span class="unit">架</span></b>分类归架</div>
+        <div class="stat"><b id="stLatest">—</b>最新续入</div>
+      </div>
+      <!-- 检索台 -->
+      <div class="searchdesk">
+        <div class="searchline">
+          <span class="prompt-mark">寻</span>
+          <input id="search" type="search" placeholder="题名、架位或主题，如：西域、突厥、制度、博弈……" autocomplete="off">
+          <button class="btn-fan" id="randomBtn" type="button">随手翻一册</button>
+        </div>
+        <div class="quickseek">
+          <span>试试</span>
+          <button data-tag="大唐西域记">《大唐西域记》</button>
+          <button data-tag="中亚文明史">《中亚文明史》</button>
+          <button data-tag="金帐汗国">《金帐汗国》</button>
+          <button data-tag="历史与文明">历史与文明</button>
+          <button data-tag="社会与政治">社会与政治</button>
+          <button data-tag="哲学与思想">哲学与思想</button>
         </div>
       </div>
-      <nav class="nav-links" aria-label="书房导航">
-        <a href="#recent">本期新读</a>
-        <a href="#shelves">十八架书</a>
-        <a href="#catalogue">全部书目</a>
-        <a href="README.md">关于档案</a>
-      </nav>
     </div>
-  </header>
+  </section>
 
-  <main id="top">
-    <!-- Hero 卷首区 (Claude Intellectual & Warm Studio Hero) -->
-    <section class="hero-section">
-      <div class="shell">
-        <div class="hero-pill-badge">
-          <span class="sparkle">✦</span>
-          <span>开放阅读档案 · 777 部思想与历史测绘</span>
-        </div>
-        <h1 class="hero-title">
-          在决定读完以前，<br>
-          先和一本书<em>坐十分钟</em>。
-        </h1>
-        <p class="hero-desc">
-          面对一本陌生的书，人们常常困在腰封和推荐语的虚词里。这里没有速食摘要，只有不妥协的长交付解书：拆解作者在回答什么、论证立在何处、制度的代价何在。
-        </p>
-
-        <!-- Claude 风格的智性探索搜索卡 -->
-        <div class="explorer-card">
-          <div class="search-row">
-            <span class="search-icon">🔍</span>
-            <input id="search" class="search-input" type="search" placeholder="输入书名、作者或探索主题（如：西域、突厥、拜火教、制度、博弈、经济）……" autocomplete="off">
-            <button class="btn-secondary-pill" id="randomHero" type="button">✦ 随手翻一本</button>
-          </div>
-          <div class="quick-tags">
-            <span class="quick-tag-label">快捷探寻：</span>
-            <button class="quick-tag" type="button" data-tag="大唐西域记">《大唐西域记》</button>
-            <button class="quick-tag" type="button" data-tag="中亚文明史">《中亚文明史》</button>
-            <button class="quick-tag" type="button" data-tag="金帐汗国">《金帐汗国》</button>
-            <button class="quick-tag" type="button" data-tag="历史与文明">历史与文明</button>
-            <button class="quick-tag" type="button" data-tag="社会与政治">社会与政治</button>
-            <button class="quick-tag" type="button" data-tag="哲学与思想">哲学与思想</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 发刊说明 (Studio Letter) -->
-    <section class="studio-letter">
-      <div class="shell">
-        <div class="letter-grid">
-          <div class="letter-meta">
-            <span class="letter-kicker">ISSUE NOTE // 01</span>
-            <span class="letter-heading-side">为什么是十分钟？</span>
-          </div>
-          <div class="letter-body">
-            <h2>我不是想把一本书缩短，只是想先认出它的骨架。</h2>
-            <p>
-              面对一本厚重大书，我常常不知道该不该交出一周的时间。封面和推荐语习惯把每本书都说得无比重要，可人的生命与精力终归有限，真正值得慢读的书，只能靠自己去辨认。
-            </p>
-            <p>
-              所以我先做一次足够扎实的深读：拆解它的核心问题、论证链条、制度逻辑与时代盲点。十分钟读完这份长解读，不等于读完原书；它只是帮我们诚实地作出下一步选择：带着一个更清晰的问题回到原著，还是坦然放下它。
-            </p>
-            <p>
-              书读得多了，这些冷峻的骨架与火花不该只留给自己。于是把它们整齐码放出来，给同样站在书架前犹豫的人。
-            </p>
-            <div class="letter-signature">── 青山 · 记于书房</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 本期新读 (Recent Readings) -->
-    <section class="section-wrap" id="recent">
-      <div class="shell">
-        <div class="section-title-bar">
-          <h2>本期新读</h2>
-          <span class="section-subtitle">RECENT ADDITIONS // 沿时间线往回走的阅读脚印</span>
-        </div>
-        <div class="recent-layout">
-          <article class="lead-book-card" id="leadStory">
-            <div>
-              <span class="lead-badge">✦ 最新相遇 · RECENT ENTRY</span>
-              <h3 class="lead-book-title">正在翻开最新书卷……</h3>
-              <div class="lead-book-meta"><span>书房标本库开启中</span></div>
-            </div>
-          </article>
-          <div class="recent-cards-list" id="latestList" aria-label="近期阅读列表"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 十八架书 (Eighteen Curated Shelves) -->
-    <section class="section-wrap" id="shelves" style="background: var(--paper); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-      <div class="shell">
-        <div class="section-title-bar">
-          <h2>十八架书</h2>
-          <span class="section-subtitle">EIGHTEEN SHELVES // 分类是寻找的路标，不是思想的边界</span>
-        </div>
-        <div class="shelves-grid" id="shelfGrid" aria-label="分类书架网格"></div>
-      </div>
-    </section>
-
-    <!-- 全部书目档案库 (Complete Reading Ledger) -->
-    <section class="catalogue-wrap" id="catalogue">
-      <div class="shell">
-        <div class="section-title-bar">
-          <h2>全部书目</h2>
-          <span class="section-subtitle">COMPLETE CATALOGUE // 七百五十七部思想与历史的实测档案</span>
-        </div>
-
-        <div class="ledger-filter-row">
-          <div style="display:flex; align-items:center; flex-wrap:wrap; gap:8px;">
-            <span>当前架位：</span>
-            <span class="active-shelf-title" id="activeShelf">全部书目</span>
-            <div class="read-status-filters" id="readFilterGroup">
-              <button type="button" class="read-filter-pill active" data-read-filter="all">全部 <span class="pill-count" id="countAll">0</span></button>
-              <button type="button" class="read-filter-pill" data-read-filter="unread">未读 <span class="pill-count" id="countUnread">0</span></button>
-              <button type="button" class="read-filter-pill" data-read-filter="read">已读 <span class="pill-count" id="countRead">0</span></button>
-            </div>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-            <span id="resultCount">正在整理书目……</span>
-            <button id="showAll" type="button" style="background:transparent; border:none; color:var(--accent); font-weight:600; cursor:pointer;">重置全部</button>
-            <button id="syncModalBtn" type="button" class="btn-sync-action" title="备份或导入已读记录">☁ 备份/同步</button>
-          </div>
-        </div>
-
-        <div class="ledger-container">
-          <div id="bookList" aria-label="阅读编目表"></div>
-        </div>
-        <button class="load-more-btn" id="loadMore" type="button" hidden>加载更多书目 ↓</button>
-      </div>
-    </section>
-
-    <!-- 读者公约 (Claude Mindful Principles Section) -->
+  <!-- 卷首语 -->
+  <section class="letter">
     <div class="shell">
-      <section class="principles-box">
-        <div class="principles-inner">
-          <div class="principles-tag">EDITORIAL PLEDGE // 读者公约</div>
-          <h2 class="principles-heading">关于这些解读，我想诚实三件事</h2>
-          <div class="principles-3col">
-            <article class="principle-item">
-              <h3>一、它不是原书</h3>
-              <p>长解读是一扇推开的门，不是绕过原著的捷径。最好的结果，是让你带着一个更刁钻、更有力的问题回到原书本身。</p>
-            </article>
-            <article class="principle-item">
-              <h3>二、它不是定论</h3>
-              <p>这里记录的是具体的证据链、权力逻辑、制度代价与个人的审视偏爱。今天确信的判断，明天仍可能因新材料而深刻改写。</p>
-            </article>
-            <article class="principle-item">
-              <h3>三、人与工具的诚实分工</h3>
-              <p>机器协助拉平海量文献与检索材料；选什么书、追问什么本质、保留哪些锋芒与落笔的全部责任，始终归于青山。</p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- 页脚 -->
-  <footer class="site-footer">
-    <div class="shell footer-grid">
-      <div>
-        <div class="footer-brand-name">青山的十分钟书房</div>
-        <p>一份持续生长的私人阅读档案。书会继续进来，旧稿也会继续迭代更新。</p>
-      </div>
-      <div class="footer-links">
-        <span>快速通道</span><br>
-        <a href="README.md">关于书房档案</a> · <a href="CONTRIBUTING.md">勘误与讨论</a><br>
-        <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0 知识共享</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 源码库</a>
-      </div>
-      <div>
-        <span>阅读提醒</span><br>
-        <p>部分内容涉及战争、政治、宗教冲突与历史创伤。忠实记录不代表认同，请读者按自身处境审慎阅读。</p>
+      <div class="letter-inner">
+        <div class="letter-kicker">卷 首 语</div>
+        <h2>我不是想把一本书缩短，<br>只是想先认出它的骨架。</h2>
+        <p class="lead-p">面对一本厚重大书，我常常不知道该不该交出一周的时间。封面和推荐语习惯把每本书都说得无比重要，可人的生命与精力终归有限，真正值得慢读的书，只能靠自己去辨认。</p>
+        <p>所以我先做一次足够扎实的深读：拆解它的核心问题、论证链条、制度逻辑与时代盲点。十分钟读完这份长解读，不等于读完原书；它只是帮我们诚实地作出下一步选择——带着一个更清晰的问题回到原著，还是坦然放下它。</p>
+        <p>书读得多了，这些冷峻的骨架与火花不该只留给自己。于是把它们整齐码放出来，给同样站在书架前犹豫的人。</p>
+        <div class="sign">—— 青山 · 记于书房</div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-(() => {
-      const SHELF_ORDER = [
-        '文学与小说', '历史与文明', '社会与政治', '人类学与民族志', '宗教与灵性', '哲学与思想',
-        '经济与商业', '心理学与自我', '科幻与悬疑', '性文化与身体', '艺术与文化', '实用与技能',
-        '神话与民俗', '科普与科学', '传记与回忆录', '健康与生活', '古典文献与国学', '诗歌与词赋'
-      ];
-      const pageSize = 50;
-      let entries = [];
-      let categories = {};
-      let selected = '全部书目';
-      let visible = pageSize;
-
-      const bookList = document.querySelector('#bookList');
-      const search = document.querySelector('#search');
-      const resultCount = document.querySelector('#resultCount');
-      const activeShelf = document.querySelector('#activeShelf');
-      const loadMore = document.querySelector('#loadMore');
-      const shelfGrid = document.querySelector('#shelfGrid');
-
-      const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
-      })[char]);
-
-      function formatDate(value) {
-        const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
-        return match ? `${match[1]}.${match[2]}.${match[3]}` : value;
-      }
-
-      // PDF 典藏版的存放基地址，注意结尾要带斜杠。留空表示暂未随站点发布：
-      // 785 个 PDF 约 993 MB，加上正文与字体正好压到 GitHub Pages 的 1 GB 上限。
-      // 以后把 PDF 放到别处（独立分支、对象存储）时，在这里填上基地址，
-      // 例如 'https://example.com/qingshan/'，首页的「PDF 典藏」按钮会自动恢复。
-      const PDF_BASE = '';
-
-      function preferredLink(entry) { return entry.html || (PDF_BASE && entry.pdf) || '#'; }
-
-      const STORAGE_KEY = 'qingshan_read_books';
-      let readFilter = 'all'; // 'all', 'unread', 'read'
-
-      function getReadShelf() {
-        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; }
-      }
-
-      function saveReadShelf(shelf) {
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(shelf)); } catch(e) {}
-        updateReadStats();
-      }
-
-      function isBookRead(title) {
-        const shelf = getReadShelf();
-        return !!shelf[title];
-      }
-
-      function toggleRead(title) {
-        const shelf = getReadShelf();
-        if (shelf[title]) {
-          delete shelf[title];
-        } else {
-          const today = new Date().toISOString().slice(0, 10);
-          shelf[title] = { date: today, time: Date.now() };
-        }
-        saveReadShelf(shelf);
-        renderCatalogue();
-        renderLatest();
-      }
-
-      function updateReadStats() {
-        const shelf = getReadShelf();
-        const total = entries.length || 777;
-        let readCount = 0;
-        for (const entry of entries) {
-          if (shelf[entry.title]) readCount++;
-        }
-        const unreadCount = Math.max(0, total - readCount);
-        const pct = total ? Math.round((readCount / total) * 100) : 0;
-
-        const chipRead = document.querySelector('#chipRead');
-        const chipTotal = document.querySelector('#chipTotal');
-        const chipBarFill = document.querySelector('#chipBarFill');
-        const chipPercent = document.querySelector('#chipPercent');
-        if (chipRead) chipRead.textContent = readCount;
-        if (chipTotal) chipTotal.textContent = total;
-        if (chipBarFill) chipBarFill.style.width = pct + '%';
-        if (chipPercent) chipPercent.textContent = pct + '%';
-
-        const cAll = document.querySelector('#countAll');
-        const cUnread = document.querySelector('#countUnread');
-        const cRead = document.querySelector('#countRead');
-        if (cAll) cAll.textContent = total;
-        if (cUnread) cUnread.textContent = unreadCount;
-        if (cRead) cRead.textContent = readCount;
-
-        const mCount = document.querySelector('#modalReadCount');
-        if (mCount) mCount.textContent = readCount;
-      }
-
-      function filteredEntries() {
-        const query = search.value.trim().toLocaleLowerCase('zh-CN');
-        const shelf = getReadShelf();
-        return entries.filter(entry => {
-          const inShelf = selected === '全部书目' || entry.category === selected;
-          const haystack = (entry.title + " " + entry.category + " " + entry.date).toLocaleLowerCase('zh-CN');
-          const matchesSearch = !query || haystack.includes(query);
-          if (!inShelf || !matchesSearch) return false;
-
-          const isRead = !!shelf[entry.title];
-          if (readFilter === 'read') return isRead;
-          if (readFilter === 'unread') return !isRead;
-          return true;
-        });
-      }
-
-      function renderLatest() {
-        const lead = entries[0];
-        if (!lead) return;
-        document.querySelector('#leadStory').innerHTML = `
-          <div>
-            <span class="lead-badge">✦ 最新相遇 · RECENT ENTRY</span>
-            <h3 class="lead-book-title">${escapeHtml(lead.title)}</h3>
-            <div class="lead-book-meta">
-              <span>分类：${escapeHtml(lead.category)}</span>
-              <time>入架时间：${escapeHtml(formatDate(lead.date))}</time>
-            </div>
-          </div>
-          <a class="lead-action-btn" href="${escapeHtml(preferredLink(lead))}">走进这篇深度解读 →</a>`;
-
-        document.querySelector('#latestList').innerHTML = entries.slice(1, 7).map((entry, index) => `
-          <a class="sub-book-card" href="${escapeHtml(preferredLink(entry))}">
-            <span class="sub-index">${String(index + 2).padStart(2, '0')}</span>
-            <span>
-              <span class="sub-book-title">${escapeHtml(entry.title)}</span>
-              <span class="sub-book-meta">${escapeHtml(entry.category)} · ${escapeHtml(formatDate(entry.date))}</span>
-            </span>
-            <span class="sub-arrow">→</span>
-          </a>`).join('');
-      }
-
-      function renderShelves() {
-        const names = SHELF_ORDER.filter(name => categories[name]).concat(
-          Object.keys(categories).filter(name => !SHELF_ORDER.includes(name))
-        );
-        shelfGrid.innerHTML = names.map((name, index) => `
-          <button class="shelf-item-card" type="button" data-category="${escapeHtml(name)}" aria-pressed="false">
-            <div class="shelf-top-line">
-              <span class="shelf-num">${String(index + 1).padStart(2, '0')}</span>
-              <span class="shelf-item-count">${categories[name]} 本</span>
-            </div>
-            <span class="shelf-card-title">${escapeHtml(name)}</span>
-          </button>`).join('');
-      }
-
-      function renderCatalogue() {
-        const filtered = filteredEntries();
-        const shown = filtered.slice(0, visible);
-        activeShelf.textContent = selected;
-        resultCount.textContent = `${filtered.length} 本解读在架`;
-        document.querySelectorAll('.shelf-item-card').forEach(button => {
-          const active = button.dataset.category === selected;
-          button.classList.toggle('active', active);
-          button.setAttribute('aria-pressed', String(active));
-        });
-
-        if (!shown.length) {
-          bookList.innerHTML = '<div style="padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px;">这一架上暂无匹配书目，请更换检索词或点击“重置全部”。</div>';
-        } else {
-          bookList.innerHTML = shown.map((entry, index) => {
-            const links = [];
-            if (entry.html) links.push(`<a class="btn-pill-sm" href="${escapeHtml(entry.html)}">网页</a>`);
-            if (entry.pdf && PDF_BASE) links.push(`<a class="btn-pill-sm" href="${escapeHtml(PDF_BASE + entry.pdf)}">PDF 典藏</a>`);
-            const isRead = isBookRead(entry.title);
-            return '<article class="ledger-entry-row ' + (isRead ? 'is-read-row' : '') + '">' +
-              '<span class="ledger-idx">' + String(index + 1).padStart(3, '0') + '</span>' +
-              '<div style="display:flex; align-items:baseline; gap:8px; min-width:0;">' +
-                '<a class="ledger-entry-title" href="' + escapeHtml(preferredLink(entry)) + '">' + escapeHtml(entry.title) + '</a>' +
-                (isRead ? '<span class="badge-read-tag">✓ 已读</span>' : '') +
-              '</div>' +
-              '<span class="ledger-entry-cat">' + escapeHtml(entry.category) + '</span>' +
-              '<time class="ledger-entry-date">' + escapeHtml(formatDate(entry.date)) + '</time>' +
-              '<span class="ledger-entry-actions">' +
-                '<button type="button" class="btn-read-toggle ' + (isRead ? 'is-read' : '') + '" data-title="' + escapeHtml(entry.title) + '" title="' + (isRead ? '已读 · 点击取消' : '点击标记已读') + '">' +
-                  (isRead ? '✓ 已读' : '○ 标记已读') +
-                '</button>' +
-                links.join('') +
-              '</span>' +
-            '</article>';
-          }).join('');
-        }
-        loadMore.hidden = visible >= filtered.length;
-      }
-
-      function selectShelf(name) {
-        selected = name;
-        visible = pageSize;
-        renderCatalogue();
-      }
-
-      function pickRandom() {
-        if (!entries.length) return;
-        const target = entries[Math.floor(Math.random() * entries.length)];
-        window.location.href = preferredLink(target);
-      }
-
-      search.addEventListener('input', () => {
-        visible = pageSize;
-        renderCatalogue();
-      });
-
-      document.querySelector('#showAll').addEventListener('click', () => {
-        search.value = '';
-        selectShelf('全部书目');
-      });
-
-      document.querySelector('#randomHero').addEventListener('click', pickRandom);
-
-      document.querySelectorAll('.quick-tag').forEach(tag => {
-        tag.addEventListener('click', () => {
-          const val = tag.dataset.tag;
-          if (SHELF_ORDER.includes(val)) {
-            selectShelf(val);
-          } else {
-            search.value = val;
-            selected = '全部书目';
-            visible = pageSize;
-            renderCatalogue();
-          }
-          document.querySelector('#catalogue').scrollIntoView({ behavior: 'smooth' });
-        });
-      });
-
-      shelfGrid.addEventListener('click', event => {
-        const button = event.target.closest('.shelf-item-card');
-        if (!button) return;
-        const name = button.dataset.category;
-        selectShelf(selected === name ? '全部书目' : name);
-      });
-
-      
-      bookList.addEventListener('click', event => {
-        const toggleBtn = event.target.closest('.btn-read-toggle');
-        if (!toggleBtn) return;
-        event.preventDefault();
-        event.stopPropagation();
-        const title = toggleBtn.dataset.title;
-        if (title) toggleRead(title);
-      });
-
-      const readFilterGroup = document.querySelector('#readFilterGroup');
-      if (readFilterGroup) {
-        readFilterGroup.addEventListener('click', event => {
-          const btn = event.target.closest('.read-filter-pill');
-          if (!btn) return;
-          readFilterGroup.querySelectorAll('.read-filter-pill').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          readFilter = btn.dataset.readFilter || 'all';
-          visible = pageSize;
-          renderCatalogue();
-        });
-      }
-
-      // Sync & Backup Modal
-      const syncModal = document.querySelector('#syncModal');
-      const syncModalBtn = document.querySelector('#syncModalBtn');
-      const closeSyncModal = document.querySelector('#closeSyncModal');
-      const syncDataArea = document.querySelector('#syncDataArea');
-      const copySyncData = document.querySelector('#copySyncData');
-      const importSyncData = document.querySelector('#importSyncData');
-      const clearSyncData = document.querySelector('#clearSyncData');
-      const syncFeedback = document.querySelector('#syncFeedback');
-
-      function showSyncModal() {
-        if (!syncModal) return;
-        const shelf = getReadShelf();
-        syncDataArea.value = JSON.stringify(shelf, null, 2);
-        updateReadStats();
-        syncFeedback.textContent = '';
-        syncModal.hidden = false;
-      }
-
-      function hideSyncModal() {
-        if (syncModal) syncModal.hidden = true;
-      }
-
-      if (syncModalBtn) syncModalBtn.addEventListener('click', showSyncModal);
-      if (closeSyncModal) closeSyncModal.addEventListener('click', hideSyncModal);
-      if (syncModal) {
-        syncModal.addEventListener('click', event => {
-          if (event.target === syncModal) hideSyncModal();
-        });
-      }
-
-      if (copySyncData) {
-        copySyncData.addEventListener('click', () => {
-          syncDataArea.select();
-          navigator.clipboard.writeText(syncDataArea.value)
-            .then(() => {
-              syncFeedback.style.color = '#2c7a7b';
-              syncFeedback.textContent = '✓ 已复制到剪贴板，可在手机或其他设备上粘贴导入！';
-            })
-            .catch(() => {
-              syncFeedback.style.color = '#c53030';
-              syncFeedback.textContent = '复制失败，请手动全选上方框中文本复制。';
-            });
-        });
-      }
-
-      if (importSyncData) {
-        importSyncData.addEventListener('click', () => {
-          try {
-            const parsed = JSON.parse(syncDataArea.value.trim());
-            if (typeof parsed !== 'object' || parsed === null) throw new Error();
-            const current = getReadShelf();
-            const merged = Object.assign({}, current, parsed);
-            saveReadShelf(merged);
-            renderCatalogue();
-            renderLatest();
-            syncFeedback.style.color = '#2c7a7b';
-            syncFeedback.textContent = '✓ 导入成功！当前已读总数：' + Object.keys(merged).length + ' 本。';
-          } catch(e) {
-            syncFeedback.style.color = '#c53030';
-            syncFeedback.textContent = '导入失败：请确保粘贴的是合法的已读数据 JSON 文本。';
-          }
-        });
-      }
-
-      if (clearSyncData) {
-        clearSyncData.addEventListener('click', () => {
-          if (confirm('确定要清空当前设备上的所有已读记录吗？')) {
-            saveReadShelf({});
-            syncDataArea.value = '{}';
-            renderCatalogue();
-            renderLatest();
-            syncFeedback.style.color = '#c53030';
-            syncFeedback.textContent = '已清空当前设备上的阅读记录。';
-          }
-        });
-      }
-
-      loadMore.addEventListener('click', () => {
-        visible += pageSize;
-        renderCatalogue();
-      });
-
-      fetch('readings.json')
-        .then(res => res.json())
-        .then(data => {
-          entries = data.entries || [];
-          categories = data.categories || {};
-          const total = data.count || entries.length;
-          document.querySelector('#navBadge').textContent = `${total} 篇在架`;
-          renderLatest();
-          renderShelves();
-
-          // Handle mark_read query parameter
-          const urlParams = new URLSearchParams(window.location.search);
-          const markReadTitle = urlParams.get('mark_read');
-          if (markReadTitle) {
-            const shelf = getReadShelf();
-            if (!shelf[markReadTitle]) {
-              const today = new Date().toISOString().slice(0, 10);
-              shelf[markReadTitle] = { date: today, time: Date.now() };
-              saveReadShelf(shelf);
-            }
-            const toast = document.createElement('div');
-            toast.className = 'read-toast';
-            toast.innerHTML = '✓ 已为您将《' + escapeHtml(markReadTitle) + '》标记为已读！';
-            document.body.appendChild(toast);
-            setTimeout(() => { toast.classList.add('show'); }, 100);
-            setTimeout(() => {
-              toast.classList.remove('show');
-              setTimeout(() => toast.remove(), 400);
-            }, 3500);
-            window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
-          }
-
-          updateReadStats();
-          renderCatalogue();
-        })
-        .catch(() => {
-          resultCount.textContent = '书目加载受阻，请稍后刷新。';
-        });
-    })();
-  </script>
-
-  <!-- 备份与同步弹窗 -->
-  <div id="syncModal" class="sync-modal-backdrop" hidden>
-    <div class="sync-modal-card">
-      <div class="sync-modal-header">
-        <h3>☁ 阅读记录备份与同步</h3>
-        <button type="button" id="closeSyncModal" class="sync-modal-close">&times;</button>
+  <!-- 本期新读 -->
+  <section class="sec" id="recent">
+    <div class="shell">
+      <div class="sec-head">
+        <h2>本期新读</h2>
+        <span class="sec-note">沿时间线往回走的阅读脚印</span>
       </div>
-      <div class="sync-modal-body">
-        <p class="sync-modal-desc">
-          已读状态保存在当前设备的浏览器缓存（localStorage）中。你可以通过下方代码，将阅读进度快速导出或同步至其他设备：
-        </p>
-        <div class="sync-stat-line">
-          当前已标记已读：<strong id="modalReadCount" style="color:var(--accent);">0</strong> 本书目
-        </div>
-        <textarea id="syncDataArea" class="sync-textarea" rows="4" placeholder="在此粘贴导出的已读记录代码进行导入……"></textarea>
-        <div class="sync-actions-row">
-          <button type="button" id="copySyncData" class="btn-sync-op">复制导出代码</button>
-          <button type="button" id="importSyncData" class="btn-sync-op primary">从上方代码导入</button>
-          <button type="button" id="clearSyncData" class="btn-sync-op danger">清空全部已读</button>
-        </div>
-        <div id="syncFeedback" class="sync-feedback"></div>
+      <div class="recent-grid">
+        <article class="lead-piece" id="leadPiece"></article>
+        <div class="recent-list" id="recentList"></div>
       </div>
+    </div>
+  </section>
+
+  <!-- 架目十八 -->
+  <section class="sec" id="shelves">
+    <div class="shell">
+      <div class="sec-head">
+        <h2>架目十八</h2>
+        <span class="sec-note">分类是寻找的路标，不是思想的边界</span>
+      </div>
+      <div class="shelfboard" id="shelfBoard"></div>
+    </div>
+  </section>
+
+  <!-- 总目 -->
+  <section class="sec" id="catalogue">
+    <div class="shell">
+      <div class="sec-head">
+        <h2>总目</h2>
+        <span class="sec-note" id="resultCount">正在整理书目……</span>
+      </div>
+      <div class="ledger-tools">
+        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+          <span class="cur-shelf" id="curShelf">全部书目</span>
+          <span class="readpills" id="readPills">
+            <button class="on" data-f="all">全部<span class="n" id="cAll">0</span></button>
+            <button data-f="unread">未读<span class="n" id="cUnread">0</span></button>
+            <button data-f="read">已读<span class="n" id="cRead">0</span></button>
+          </span>
+        </div>
+        <div class="tools-right">
+          <button class="link-plain" id="resetBtn" type="button">重置</button>
+          <button class="link-btn" id="syncBtn" type="button">备份 / 同步已读</button>
+        </div>
+      </div>
+      <div id="ledger"></div>
+      <div class="more-wrap"><button class="btn-more" id="loadMore" type="button" hidden>续览余册</button></div>
+    </div>
+  </section>
+
+  <!-- 读者公约 -->
+  <section class="pledge">
+    <div class="shell">
+      <div class="pledge-kicker">读 者 公 约</div>
+      <h2>关于这些解读，我想诚实三件事</h2>
+      <div class="pledge-cols">
+        <article class="pledge-item">
+          <div class="p-no">其一</div>
+          <h3>它不是原书</h3>
+          <p>长解读是一扇推开的门，不是绕过原著的捷径。最好的结果，是让你带着一个更刁钻、更有力的问题回到原书本身。</p>
+        </article>
+        <article class="pledge-item">
+          <div class="p-no">其二</div>
+          <h3>它不是定论</h3>
+          <p>这里记录的是具体的证据链、权力逻辑、制度代价与个人的审视偏爱。今天确信的判断，明天仍可能因新材料而深刻改写。</p>
+        </article>
+        <article class="pledge-item">
+          <div class="p-no">其三</div>
+          <h3>人与工具的诚实分工</h3>
+          <p>机器协助拉平海量文献与检索材料；选什么书、追问什么本质、保留哪些锋芒与落笔的全部责任，始终归于青山。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="shell foot-grid">
+    <div>
+      <div class="f-name">青山的十分钟书房</div>
+      <p>一份持续生长的私人阅读档案。书会继续进来，旧稿也会继续迭代更新。</p>
+    </div>
+    <div>
+      <p>
+        <a href="README.md">关于书房档案</a><br>
+        <a href="CONTRIBUTING.md">勘误与讨论</a><br>
+        <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 源码库</a>
+      </p>
+    </div>
+    <div>
+      <p>部分内容涉及战争、政治、宗教冲突与历史创伤。忠实记录不代表认同，请读者按自身处境审慎阅读。</p>
     </div>
   </div>
+</footer>
 
+<!-- 同步弹匣 -->
+<div class="sync-backdrop" id="syncBackdrop" hidden>
+  <div class="sync-card">
+    <div class="sync-head">
+      <h3>备份与同步已读</h3>
+      <button id="syncClose" type="button" title="关闭">×</button>
+    </div>
+    <p class="sync-desc">已读状态保存在当前设备的浏览器缓存中。你可以把下方编码复制到其他设备导入，阅读进度即可随身带走。</p>
+    <div class="sync-stat" id="syncStat"></div>
+    <textarea class="sync-ta" id="syncTa" rows="5" spellcheck="false"></textarea>
+    <div class="sync-ops">
+      <button class="primary" id="syncCopy" type="button">复制编码</button>
+      <button id="syncImport" type="button">导入编码</button>
+      <button class="danger" id="syncClear" type="button">清空已读</button>
+    </div>
+    <div class="sync-fb" id="syncFb"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+  "use strict";
+  const SHELF_ORDER = [
+    '文学与小说','历史与文明','社会与政治','人类学与民族志','宗教与灵性','哲学与思想',
+    '经济与商业','心理学与自我','科幻与悬疑','性文化与身体','艺术与文化','实用与技能',
+    '神话与民俗','科普与科学','传记与回忆录','健康与生活','古典文献与国学','诗歌与词赋'
+  ];
+  const CN = ['壹','贰','叁','肆','伍','陆','柒','捌','玖','拾','拾壹','拾贰','拾叁','拾肆','拾伍','拾陆','拾柒','拾捌','附'];
+  const CN_NUM = ['〇','一','二','三','四','五','六','七','八','九'];
+  const STORAGE_KEY = 'qingshan_read_books';
+  const PAGE = 60;
+
+  let ENTRIES = [];
+  const counts = {};
+  let shelves = [];
+
+  const state = { shelf: '全部书目', query: '', readFilter: 'all', visible: PAGE };
+  const $ = s => document.querySelector(s);
+  const esc = v => String(v).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+
+  /* 已读存储（沿用旧键，进度不丢） */
+  const readStore = {
+    get() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; } },
+    set(s) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch(e) {} },
+    isRead(t) { return !!this.get()[t]; },
+    toggle(t) { const s = this.get(); s[t] ? delete s[t] : (s[t] = { date: new Date().toISOString().slice(0, 10), time: Date.now() }); this.set(s); },
+    clear() { this.set({}); },
+    count() { return Object.keys(this.get()).length; }
+  };
+
+  const cnNum = n => String(n).split('').map(d => CN_NUM[+d]).join('');
+  const monthName = ym => { const [y, m] = ym.split('-'); return cnNum(y) + '年' + cnNum(+m) + '月'; };
+
+  /* ---------- 数据装载：与旧版同一通道 ---------- */
+  fetch('readings.json')
+    .then(res => res.json())
+    .then(data => {
+      ENTRIES = (data.entries || [])
+        .map(e => ({ title: e.title, date: e.date, category: e.category, html: e.html }))
+        .sort((a, b) => b.date.localeCompare(a.date));
+      ENTRIES.forEach(e => { counts[e.category] = (counts[e.category] || 0) + 1; });
+      shelves = SHELF_ORDER.filter(s => counts[s]);
+      if (counts['其他阅读']) shelves.push('其他阅读');
+      boot();
+
+      /* 阅读页带回来的已读回执 */
+      const markReadTitle = new URLSearchParams(window.location.search).get('mark_read');
+      if (markReadTitle) {
+        if (!readStore.isRead(markReadTitle)) readStore.toggle(markReadTitle);
+        renderLedger();
+        toast('已为您将《' + markReadTitle + '》记为已读');
+        window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+      }
+    })
+    .catch(() => { $('#resultCount').textContent = '书目加载受阻，请稍后刷新。'; });
+
+  function boot() {
+  /* ---------- 卷首统计 ---------- */
+  $('#stCount').innerHTML = ENTRIES.length + '<span class="unit">部</span>';
+  $('#stLatest').textContent = ENTRIES[0].date.slice(5).replace('-', '/');
+  $('#navTotal').textContent = ENTRIES.length;
+
+  /* ---------- 本期新读 ---------- */
+  const lead = ENTRIES[0];
+  $('#leadPiece').innerHTML =
+    '<div class="lead-kicker">最新相遇 · ' + esc(lead.date) + '</div>' +
+    '<h3 class="lead-title"><a href="' + esc(lead.html) + '">' + esc(lead.title) + '</a></h3>' +
+    '<div class="lead-meta"><span>' + esc(lead.category) + '</span><span class="dot">' + esc(lead.date) + '</span></div>' +
+    '<a class="lead-go" href="' + esc(lead.html) + '">展读全文 →</a>';
+  $('#recentList').innerHTML = ENTRIES.slice(1, 7).map((e, i) =>
+    '<a class="recent-row" href="' + esc(e.html) + '">' +
+      '<span class="recent-idx">' + String(i + 2).padStart(2, '0') + '</span>' +
+      '<span class="recent-name">' + esc(e.title) + '</span>' +
+      '<span class="recent-cat">' + esc(e.category) + '</span>' +
+    '</a>').join('');
+
+  /* ---------- 架目 ---------- */
+  renderShelves();
+  renderLedger();
+  }
+
+  function renderShelves() {
+    $('#shelfBoard').innerHTML = shelves.map((s, i) =>
+      '<div class="shelf-row' + (state.shelf === s ? ' active' : '') + '" data-shelf="' + esc(s) + '">' +
+        '<span class="s-cn">' + CN[i] + '</span>' +
+        '<span class="s-name">' + esc(s) + '</span>' +
+        '<span class="s-count">' + counts[s] + ' 部</span>' +
+        '<span class="s-go">入架 →</span>' +
+      '</div>').join('');
+  }
+  $('#shelfBoard').addEventListener('click', ev => {
+    const row = ev.target.closest('.shelf-row');
+    if (!row) return;
+    const s = row.dataset.shelf;
+    state.shelf = (state.shelf === s) ? '全部书目' : s;
+    state.visible = PAGE;
+    renderShelves(); renderLedger();
+    document.querySelector('#catalogue').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  /* ---------- 总目 ---------- */
+  function filtered() {
+    const q = state.query.trim().toLowerCase();
+    return ENTRIES.filter(e => {
+      if (state.shelf !== '全部书目' && e.category !== state.shelf) return false;
+      if (state.readFilter === 'read' && !readStore.isRead(e.title)) return false;
+      if (state.readFilter === 'unread' && readStore.isRead(e.title)) return false;
+      if (q && !(e.title.toLowerCase().includes(q) || e.category.toLowerCase().includes(q))) return false;
+      return true;
+    });
+  }
+
+  function renderLedger() {
+    const list = filtered();
+    const show = list.slice(0, state.visible);
+    $('#curShelf').textContent = state.shelf;
+    $('#resultCount').textContent = '寻得 ' + list.length + ' 部';
+
+    /* 已读计数 */
+    const readTotal = readStore.count();
+    $('#cAll').textContent = ENTRIES.length;
+    $('#cRead').textContent = readTotal;
+    $('#cUnread').textContent = Math.max(0, ENTRIES.length - readTotal);
+    $('#navRead').textContent = readTotal;
+
+    /* 按月分卷：部数按完整筛选结果计，不受分页影响 */
+    const fullCounts = {};
+    list.forEach(e => { const ym = e.date.slice(0, 7); fullCounts[ym] = (fullCounts[ym] || 0) + 1; });
+    const groups = [];
+    const byMonth = {};
+    show.forEach(e => {
+      const ym = e.date.slice(0, 7);
+      if (!byMonth[ym]) { byMonth[ym] = []; groups.push(ym); }
+      byMonth[ym].push(e);
+    });
+
+    let idx = 0;
+    $('#ledger').innerHTML = groups.map(ym => {
+      const rows = byMonth[ym].map(e => {
+        idx++;
+        const read = readStore.isRead(e.title);
+        return '<div class="book-row">' +
+          '<span class="b-idx">' + String(idx).padStart(3, '0') + '</span>' +
+          '<span class="b-title"><a href="' + esc(e.html) + '">' + esc(e.title) + '</a>' +
+            (read ? '<span class="b-read-mark">已读</span>' : '') + '</span>' +
+          '<span class="b-cat">' + esc(e.category) + '</span>' +
+          '<span class="b-date">' + esc(e.date) + '</span>' +
+          '<span class="b-ops">' +
+            '<a href="' + esc(e.html) + '">展读</a>' +
+            '<button class="op-read' + (read ? ' is-read' : '') + '" data-title="' + esc(e.title) + '" type="button">' + (read ? '取消已读' : '记为已读') + '</button>' +
+          '</span>' +
+        '</div>';
+      }).join('');
+      return '<div class="month-block">' +
+        '<div class="month-head"><span class="m-name">' + monthName(ym) + '</span><span class="m-count">凡 ' + fullCounts[ym] + ' 部</span></div>' +
+        rows + '</div>';
+    }).join('');
+
+    $('#loadMore').hidden = state.visible >= list.length;
+  }
+
+  $('#loadMore').addEventListener('click', () => { state.visible += PAGE; renderLedger(); });
+  $('#resetBtn').addEventListener('click', () => {
+    state.shelf = '全部书目'; state.query = ''; state.readFilter = 'all'; state.visible = PAGE;
+    $('#search').value = '';
+    document.querySelectorAll('#readPills button').forEach(b => b.classList.toggle('on', b.dataset.f === 'all'));
+    renderShelves(); renderLedger();
+  });
+
+  let t;
+  $('#search').addEventListener('input', ev => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      state.query = ev.target.value; state.visible = PAGE;
+      renderLedger();
+      if (state.query.trim()) $('#catalogue').scrollIntoView({ behavior: 'smooth' });
+    }, 160);
+  });
+  document.querySelectorAll('.quickseek button').forEach(b =>
+    b.addEventListener('click', () => {
+      $('#search').value = b.dataset.tag;
+      state.query = b.dataset.tag; state.visible = PAGE;
+      renderLedger();
+      $('#catalogue').scrollIntoView({ behavior: 'smooth' });
+    }));
+
+  $('#readPills').addEventListener('click', ev => {
+    const b = ev.target.closest('button'); if (!b) return;
+    state.readFilter = b.dataset.f; state.visible = PAGE;
+    document.querySelectorAll('#readPills button').forEach(x => x.classList.toggle('on', x === b));
+    renderLedger();
+  });
+
+  $('#ledger').addEventListener('click', ev => {
+    const b = ev.target.closest('.op-read'); if (!b) return;
+    readStore.toggle(b.dataset.title);
+    renderLedger();
+    toast(readStore.isRead(b.dataset.title) ? '已记入已读' : '已取消已读');
+  });
+
+  $('#randomBtn').addEventListener('click', () => {
+    const e = ENTRIES[Math.floor(Math.random() * ENTRIES.length)];
+    window.location.href = e.html;
+  });
+
+  /* ---------- toast ---------- */
+  let toastTimer;
+  function toast(msg) {
+    const el = $('#toast');
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+  }
+
+  /* ---------- 同步弹匣 ---------- */
+  const bd = $('#syncBackdrop');
+  const openSync = () => {
+    const data = readStore.get();
+    $('#syncStat').textContent = '本机已读 ' + Object.keys(data).length + ' 部 / 共 ' + ENTRIES.length + ' 部';
+    $('#syncTa').value = JSON.stringify(data);
+    $('#syncFb').textContent = '';
+    bd.hidden = false;
+  };
+  $('#syncBtn').addEventListener('click', openSync);
+  $('#navProgress').addEventListener('click', openSync);
+  $('#syncClose').addEventListener('click', () => bd.hidden = true);
+  bd.addEventListener('click', ev => { if (ev.target === bd) bd.hidden = true; });
+  $('#syncCopy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText($('#syncTa').value); $('#syncFb').textContent = '已复制，去另一台设备粘贴导入即可。'; }
+    catch(e) { $('#syncFb').textContent = '复制失败，请手动全选复制。'; }
+  });
+  $('#syncImport').addEventListener('click', () => {
+    try {
+      const raw = $('#syncTa').value.trim();
+      let data;
+      try { data = JSON.parse(raw); }
+      catch(e) { data = JSON.parse(decodeURIComponent(escape(atob(raw)))); }
+      if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error();
+      const merged = Object.assign(readStore.get(), data);
+      readStore.set(merged); renderLedger();
+      $('#syncStat').textContent = '本机已读 ' + Object.keys(merged).length + ' 部 / 共 ' + ENTRIES.length + ' 部';
+      $('#syncFb').textContent = '导入完成。';
+    } catch(e) { $('#syncFb').textContent = '编码无法识别，请检查后重试。'; }
+  });
+  $('#syncClear').addEventListener('click', () => {
+    if (!confirm('确定清空本机的全部已读记录？')) return;
+    readStore.clear(); renderLedger();
+    $('#syncStat').textContent = '本机已读 0 部 / 共 ' + ENTRIES.length + ' 部';
+    $('#syncFb').textContent = '已清空。';
+  });
+})();
+</script>
 </body>
 </html>
