@@ -42,13 +42,13 @@ python3 scripts/reader_nav.py --check   #    复检：「需要更新 0 篇」�
 |---|---|---|
 | `??` | `readings/{新书}.html` | 新增公开稿 |
 | `??` | `markdown/{新书}.md` | 新增 MD 底本 |
-| `??` | `pdf/{新书}.pdf` | 新增 PDF |
 | `M` | `readings.json` | 索引自动更新 |
 | `M` | `SANITIZATION.md` | 脱敏报告自动更新 |
 | `M` | `.font-charset.txt`、`fonts/*.woff2` | 仅当新书引入了新字符 |
 | `M` | `sitemap.xml` | 第 4 步自动更新 |
 
 - **既有 `readings/*.html` 出现 `M` = 事故信号。** 逐文件 `git diff` 核对；非先生点单的版式改动一律退回（`git checkout -- <文件>`），查清来源再继续。
+- `pdf/` 整个目录被 `.gitignore` 排除，PDF 不进公开仓库。
 - **禁止 `git add -A` / `git add .`**。逐路径 add，只加白名单内的文件。
 - `index.html` 只在先生批准网站改版时才动，与日常入库无关。
 
