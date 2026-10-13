@@ -311,8 +311,38 @@
     }
   }
 </style>
-</head>
+
+<!-- qs-roomnav:style:start -->
+<style data-qs="roomnav">
+  .qs-roomnav { max-width: 880px; margin: 0 auto; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font: 400 13px/1.6 "KingHwaOldSong", "Songti SC", "STSong", serif; letter-spacing: 1px;
+    color: #6b6a64; }
+  .qs-roomnav a { color: #1B365D; text-decoration: none; border-bottom: 1px solid transparent;
+    transition: border-color .15s, color .15s; }
+  .qs-roomnav a:hover { border-bottom-color: #1B365D; }
+  .qs-roomnav-top { padding: 0 0 18px; margin-bottom: 26px; border-bottom: 1px solid #e8e6dc; }
+  .qs-roomnav-end { padding: 26px 0 0; margin-top: 40px; border-top: 1px solid #e8e6dc; }
+  .qs-roomnav-end .qs-done { color: #a63b2c; border: 1px solid #a63b2c; border-radius: 4px;
+    padding: 6px 16px; }
+  .qs-roomnav-end .qs-done:hover { background: #a63b2c; color: #f5f4ed; }
+  /* 卡片式模板（.container 带 60px 70px 内边距）：导航与卡片内正文对齐 */
+  .qs-roomnav.qs-card { max-width: 860px; padding-left: 71px; padding-right: 71px; }
+  .qs-roomnav-top.qs-card { border-bottom: 0; margin-bottom: 14px; }
+  .qs-roomnav-end.qs-card { border-top: 0; margin-top: 18px; }
+  @media screen and (max-width: 640px) {
+    .qs-roomnav.qs-card { padding-left: 20px; padding-right: 20px; }
+  }
+  @media print { .qs-roomnav { display: none !important; } }
+</style>
+<!-- qs-roomnav:style:end --></head>
 <body>
+<!-- qs-roomnav:top:start -->
+<nav class="qs-roomnav qs-roomnav-top qs-card" aria-label="书房导航">
+  <a href="../index.html#catalogue">← 青山的十分钟书房</a>
+  <a href="../index.html?mark_read=%E8%A5%BF%E5%BE%81%E9%9A%8F%E7%AC%94#catalogue" title="把《西征随笔》记为已读并回到书房">记为已读</a>
+</nav>
+<!-- qs-roomnav:top:end -->
 <div class="container">
   <div class="header">
     <div class="book-tag">青山 · 深度阅读 · 九层长交付</div>
@@ -553,5 +583,11 @@ Literary_Inquisition_Risk = (Autocratic_Paranoia × Imperial_Information_Penetra
   </div>
   </div>
 </div>
-</body>
+
+<!-- qs-roomnav:end:start -->
+<nav class="qs-roomnav qs-roomnav-end qs-card" aria-label="读完以后">
+  <span>读完《西征随笔》了？</span>
+  <span><a href="../index.html#catalogue">回书房</a>&emsp;<a class="qs-done" href="../index.html?mark_read=%E8%A5%BF%E5%BE%81%E9%9A%8F%E7%AC%94#catalogue">记为已读，回书房</a></span>
+</nav>
+<!-- qs-roomnav:end:end --></body>
 </html>

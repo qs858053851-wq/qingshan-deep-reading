@@ -17,7 +17,7 @@
 
 发现问题的正确姿势：**先只读诊断，把证据摆给先生，改动等先生点单。禁止「顺手修好」。**
 
-## 二、入库构建链：三步一体，缺一不可
+## 二、入库构建链：四步一体，缺一不可
 
 新书从私人原稿进公开仓库，唯一合法顺序：
 
@@ -25,9 +25,12 @@
 python3 scripts/build_archive.py        # 1. 脱敏生成/更新公开稿（会删掉 @font-face 的 url()）
 python3 scripts/build_fonts.py          # 2. 重建字体子集，把 ../fonts/ 引用补回公开稿
 python3 scripts/build_fonts.py --check  # 3. 体检：丢失字数必须为 0
+python3 scripts/reader_nav.py           # 4. 注入「回书房 / 记为已读」、修目录蓝链与错标题、更新 sitemap.xml
+python3 scripts/reader_nav.py --check   #    复检：「需要更新 0 篇」「sitemap 无变化」
 ```
 
-- **只跑第 1 步 = 全库公开稿失去网页字体**（2026-09-28 事故：896 篇掉字体，10-06 才发现修复）。三步必须连着跑，中间不提交、不推送。
+- **只跑第 1 步 = 全库公开稿失去网页字体**（2026-09-28 事故：896 篇掉字体，10-06 才发现修复）。四步必须连着跑，中间不提交、不推送。
+- 第 4 步的注入块包在 `<!-- qs-roomnav:… -->` 标记里，可逆、幂等；`build_archive.py` 重生成读本会冲掉它，所以第 4 步不能省。注入块属于 2026-10-13 先生点单的导航，不算版式改动。
 - `build_fonts.py` 会扫描全部 `readings/*.html` 做幂等改写，正常结果是「改写 0 篇」。**改写数大于 0 时停下来逐篇 `git diff`**，确认只是 `@font-face` 引用补回，不是版式变化。
 - `build_archive.py` 需要仓库外的私人脱敏规则文件，缺失时构建主动停止——这是设计，不是故障，不要去"修"它。
 
@@ -43,6 +46,7 @@ python3 scripts/build_fonts.py --check  # 3. 体检：丢失字数必须为 0
 | `M` | `readings.json` | 索引自动更新 |
 | `M` | `SANITIZATION.md` | 脱敏报告自动更新 |
 | `M` | `.font-charset.txt`、`fonts/*.woff2` | 仅当新书引入了新字符 |
+| `M` | `sitemap.xml` | 第 4 步自动更新 |
 
 - **既有 `readings/*.html` 出现 `M` = 事故信号。** 逐文件 `git diff` 核对；非先生点单的版式改动一律退回（`git checkout -- <文件>`），查清来源再继续。
 - **禁止 `git add -A` / `git add .`**。逐路径 add，只加白名单内的文件。

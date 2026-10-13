@@ -370,7 +370,37 @@
       padding-right: 20px;
     }
   }
-</style></head><body><div class="container">  <div class="cover">
+</style>
+<!-- qs-roomnav:style:start -->
+<style data-qs="roomnav">
+  .qs-roomnav { max-width: 880px; margin: 0 auto; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font: 400 13px/1.6 "KingHwaOldSong", "Songti SC", "STSong", serif; letter-spacing: 1px;
+    color: #6b6a64; }
+  .qs-roomnav a { color: #1B365D; text-decoration: none; border-bottom: 1px solid transparent;
+    transition: border-color .15s, color .15s; }
+  .qs-roomnav a:hover { border-bottom-color: #1B365D; }
+  .qs-roomnav-top { padding: 0 0 18px; margin-bottom: 26px; border-bottom: 1px solid #e8e6dc; }
+  .qs-roomnav-end { padding: 26px 0 0; margin-top: 40px; border-top: 1px solid #e8e6dc; }
+  .qs-roomnav-end .qs-done { color: #a63b2c; border: 1px solid #a63b2c; border-radius: 4px;
+    padding: 6px 16px; }
+  .qs-roomnav-end .qs-done:hover { background: #a63b2c; color: #f5f4ed; }
+  /* 卡片式模板（.container 带 60px 70px 内边距）：导航与卡片内正文对齐 */
+  .qs-roomnav.qs-card { max-width: 860px; padding-left: 71px; padding-right: 71px; }
+  .qs-roomnav-top.qs-card { border-bottom: 0; margin-bottom: 14px; }
+  .qs-roomnav-end.qs-card { border-top: 0; margin-top: 18px; }
+  @media screen and (max-width: 640px) {
+    .qs-roomnav.qs-card { padding-left: 20px; padding-right: 20px; }
+  }
+  @media print { .qs-roomnav { display: none !important; } }
+</style>
+<!-- qs-roomnav:style:end --></head><body>
+<!-- qs-roomnav:top:start -->
+<nav class="qs-roomnav qs-roomnav-top" aria-label="书房导航">
+  <a href="../index.html#catalogue">← 青山的十分钟书房</a>
+  <a href="../index.html?mark_read=%E5%8C%97%E6%AC%A7%E4%BC%97%E7%A5%9E#catalogue" title="把《北欧众神》记为已读并回到书房">记为已读</a>
+</nav>
+<!-- qs-roomnav:top:end --><div class="container">  <div class="cover">
     <div class="cover-eyebrow">QINGSHAN DEEP READING ARCHIVE · 典藏文献</div>
     <div class="cover-title">北欧众神</div>
     <div class="cover-sub">盖曼 Neil Gaiman 著 　·　现代神话重述　·　修订版 2026-08-14</div>
@@ -451,5 +481,11 @@
 <p>这段判断不宽恕所有危险，也不要求共同体等到伤害发生才行动。芬里尔确实可能造成灾难，巴德尔确实已经遇害，末日的威胁确实存在。边界在于，保护措施需要说明目的和期限，惩罚需要区分已经发生的行为与尚未发生的预测。神话中的神没有做到这一点，因此他们既害怕未来，也参与了未来的形成。</p>
 <p>盖曼让故事在新世界停住，是把判断交还给读者。你可以把它读成宿命悲剧，也可以读成关于共同体责任的故事。第一种读法看见结局的不可逃避，第二种读法看见人物怎样走到结局。两种读法都由书中材料支撑，任何一种单独覆盖全书都会留下空白。现代重述的作用，也许正是让这些空白重新变成问题。</p></div></section><section class="layer" id="layer-9"><div class="layer-num">第9层</div><h2 class="layer-title">留下一句话</h2><div class="quote-final"><div class="q">“世界会结束，故事仍会要求你在结束以前作出选择。”</div><div class="sign">北欧众神 · 九层解书<br>基于尼尔·盖曼《北欧众神》的现代重述</div></div></section><section class="facts"><h3>事实边界</h3><p class="">盖曼文本指本书的现代叙事、章节编排、语气和人物动机呈现。古诺斯材料指《诗体埃达》《散文埃达》中与奥丁、巴德尔、索尔和诸神黄昏相关的故事资源，本文未把不同版本合并为唯一原典。本文判断指关于预防、关系、代价和预言的解释，属于阅读推论，不能当作古代信仰的直接证词。原始文本依据用户提供的本地纯文本版本，材料核对依据 material_batch_1.md 与 rebuild_baseline.md。</p></section><footer><span>北欧众神 · 修订版 2026-08-14</span><span>青山深度阅读</span></footer></div>
 
-</body>
+
+<!-- qs-roomnav:end:start -->
+<nav class="qs-roomnav qs-roomnav-end" aria-label="读完以后">
+  <span>读完《北欧众神》了？</span>
+  <span><a href="../index.html#catalogue">回书房</a>&emsp;<a class="qs-done" href="../index.html?mark_read=%E5%8C%97%E6%AC%A7%E4%BC%97%E7%A5%9E#catalogue">记为已读，回书房</a></span>
+</nav>
+<!-- qs-roomnav:end:end --></body>
 </html>
