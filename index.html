@@ -145,6 +145,7 @@
   .searchline input {
     flex: 1; outline: none; font-size: 16.5px; color: var(--ink);
     font-family: var(--f-ui); padding: 2px 0;
+    min-width: 0;
   }
   .searchline input::placeholder { color: #a39d8e; }
   .btn-fan {
@@ -387,6 +388,7 @@
     box-shadow: 0 8px 24px rgba(37,34,25,0.28);
     opacity: 0; transition: all .3s cubic-bezier(0.16,1,0.3,1);
     z-index: 10000; pointer-events: none; white-space: nowrap;
+    max-width: calc(100vw - 32px); overflow: hidden; text-overflow: ellipsis;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 </style>
@@ -405,7 +407,7 @@
       <a href="#recent">新读</a>
       <a href="#shelves">架目</a>
       <a href="#catalogue">总目</a>
-      <a href="README.md">关于</a>
+      <a href="https://github.com/qs858053851-wq/qingshan-deep-reading#readme">关于</a>
       <span class="nav-progress" id="navProgress" title="已读进度 · 点击备份或同步">已读 <b id="navRead">0</b> / <span id="navTotal">0</span></span>
     </nav>
   </div>
@@ -543,9 +545,9 @@
     </div>
     <div>
       <p>
-        <a href="README.md">关于书房档案</a><br>
-        <a href="CONTRIBUTING.md">勘误与讨论</a><br>
-        <a href="LICENSE.zh-CN.md">CC BY-NC-SA 4.0</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 源码库</a>
+        <a href="https://github.com/qs858053851-wq/qingshan-deep-reading#readme">关于书房档案</a><br>
+        <a href="https://github.com/qs858053851-wq/qingshan-deep-reading/blob/main/CONTRIBUTING.md">勘误与讨论</a><br>
+        <a href="https://github.com/qs858053851-wq/qingshan-deep-reading/blob/main/LICENSE.zh-CN.md">CC BY-NC-SA 4.0</a> · <a href="https://github.com/qs858053851-wq/qingshan-deep-reading">GitHub 源码库</a>
       </p>
     </div>
     <div>
@@ -607,14 +609,16 @@
   };
 
   const cnNum = n => String(n).split('').map(d => CN_NUM[+d]).join('');
-  const monthName = ym => { const [y, m] = ym.split('-'); return cnNum(y) + '年' + cnNum(+m) + '月'; };
+  const CN_MON = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
+  const monthName = ym => { const [y, m] = ym.split('-'); return cnNum(y) + '年' + CN_MON[+m] + '月'; };
 
   /* ---------- 数据装载：与旧版同一通道 ---------- */
   fetch('readings.json')
     .then(res => res.json())
     .then(data => {
       ENTRIES = (data.entries || [])
-        .map(e => ({ title: e.title, date: e.date, category: e.category, html: e.html }))
+        .map(e => ({ title: e.title, date: e.date, category: e.category, hasHtml: !!e.html,
+                     html: e.html || (e.markdown ? 'https://github.com/qs858053851-wq/qingshan-deep-reading/blob/main/' + e.markdown : '#') }))
         .sort((a, b) => b.date.localeCompare(a.date));
       ENTRIES.forEach(e => { counts[e.category] = (counts[e.category] || 0) + 1; });
       shelves = SHELF_ORDER.filter(s => counts[s]);
@@ -695,7 +699,8 @@
     $('#resultCount').textContent = '寻得 ' + list.length + ' 部';
 
     /* 已读计数 */
-    const readTotal = readStore.count();
+    const readMap = readStore.get();
+    const readTotal = ENTRIES.filter(e => readMap[e.title]).length;
     $('#cAll').textContent = ENTRIES.length;
     $('#cRead').textContent = readTotal;
     $('#cUnread').textContent = Math.max(0, ENTRIES.length - readTotal);
@@ -777,7 +782,8 @@
   });
 
   $('#randomBtn').addEventListener('click', () => {
-    const e = ENTRIES[Math.floor(Math.random() * ENTRIES.length)];
+    const pool = ENTRIES.filter(x => x.hasHtml);
+    const e = pool[Math.floor(Math.random() * pool.length)];
     window.location.href = e.html;
   });
 
