@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="青山的十分钟书房：先用十分钟辨认一本书，再决定是否把更长的时间交给它。">
 <title>青山的十分钟书房 · 深度阅读档案</title>
+<link rel="canonical" href="https://qs858053851-wq.github.io/qingshan-deep-reading/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="青山的十分钟书房">
+<meta property="og:title" content="青山的十分钟书房 · 深度阅读档案">
+<meta property="og:description" content="先用十分钟辨认一本书，再决定是否把更长的时间交给它。历史、文学、哲学、社会科学的长篇解读，开放阅读。">
+<meta property="og:url" content="https://qs858053851-wq.github.io/qingshan-deep-reading/">
+<meta property="og:image" content="https://qs858053851-wq.github.io/qingshan-deep-reading/assets/reading-room.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   /* ============ 纸墨书卷 · 与读本同源的封面与目录 ============
      定位：把网站从「产品落地页」改回「书刊的封面与目录页」。
@@ -104,7 +112,7 @@
     margin: 34px auto 26px; max-width: 880px;
     text-wrap: balance;
   }
-  .masthead h1 .accent { color: var(--blue); }
+  .masthead h1 .accent { color: var(--blue); white-space: nowrap; }
   .masthead .dek {
     font-size: 15.5px; line-height: 2.05; color: var(--ink-2);
     max-width: 620px; margin: 0 auto;
@@ -130,7 +138,10 @@
   @media (max-width: 640px) {
     .masthead { padding: 64px 0 0; }
     .statline .stat { padding: 12px 18px; }
+    .masthead-kicker { letter-spacing: 2px; gap: 10px; }
+    .masthead-kicker::before, .masthead-kicker::after { width: 22px; }
   }
+  @media (hover: none) { .b-ops { opacity: 1; } }
 
   /* ============ 检索台 · 划线式 ============ */
   .searchdesk { max-width: 720px; margin: 46px auto 0; padding-bottom: 92px; }
@@ -754,9 +765,10 @@
   $('#search').addEventListener('input', ev => {
     clearTimeout(t);
     t = setTimeout(() => {
+      const wasEmpty = !state.query.trim();
       state.query = ev.target.value; state.visible = PAGE;
       renderLedger();
-      if (state.query.trim()) $('#catalogue').scrollIntoView({ behavior: 'smooth' });
+      if (wasEmpty && state.query.trim()) $('#catalogue').scrollIntoView({ behavior: 'smooth' });
     }, 160);
   });
   document.querySelectorAll('.quickseek button').forEach(b =>
