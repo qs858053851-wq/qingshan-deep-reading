@@ -12,7 +12,7 @@
 - 仅有 HTML 的条目：2
 - 仅有 Markdown 的条目：5
 - 安全扫描：通过
-- 内容指纹：`sha256:ef880f3ca2c622beb26ad6d1317d3f07b0230dd3526abdfc5882d36d74bf0cfa`
+- 内容指纹：`sha256:f4bd602ff3a1f2b540c4d6c6cce95bcdc3aea706b6c0c14ff9243a83091e10a3`
 
 ## 清理原则
 
