@@ -1,14 +1,14 @@
 {
-  "updated": "2026-10-13",
-  "count": 935,
-  "htmlCount": 930,
-  "markdownCount": 933,
+  "updated": "2026-10-19",
+  "count": 945,
+  "htmlCount": 940,
+  "markdownCount": 943,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 181,
-    "历史与文明": 176,
+    "其他阅读": 185,
+    "历史与文明": 177,
     "古典文献与国学": 9,
     "哲学与思想": 52,
     "宗教与灵性": 60,
@@ -16,15 +16,105 @@
     "心理学与自我": 46,
     "性文化与身体": 26,
     "文学与小说": 116,
-    "社会与政治": 101,
-    "神话与民俗": 13,
+    "社会与政治": 102,
+    "神话与民俗": 14,
     "科幻与悬疑": 19,
-    "科普与科学": 16,
-    "经济与商业": 41,
+    "科普与科学": 17,
+    "经济与商业": 43,
     "艺术与文化": 20,
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "阿赞德人的巫术、神谕和魔法",
+      "date": "2026-10-19",
+      "category": "神话与民俗",
+      "html": "readings/%E9%98%BF%E8%B5%9E%E5%BE%B7%E4%BA%BA%E7%9A%84%E5%B7%AB%E6%9C%AF%E3%80%81%E7%A5%9E%E8%B0%95%E5%92%8C%E9%AD%94%E6%B3%95_2026-10-19.html",
+      "markdown": "markdown/%E9%98%BF%E8%B5%9E%E5%BE%B7%E4%BA%BA%E7%9A%84%E5%B7%AB%E6%9C%AF%E3%80%81%E7%A5%9E%E8%B0%95%E5%92%8C%E9%AD%94%E6%B3%95_2026-10-19.md",
+      "htmlBytes": 52260,
+      "markdownBytes": 40212
+    },
+    {
+      "title": "钻石、黄金与战争",
+      "date": "2026-10-19",
+      "category": "历史与文明",
+      "html": "readings/%E9%92%BB%E7%9F%B3%E3%80%81%E9%BB%84%E9%87%91%E4%B8%8E%E6%88%98%E4%BA%89_2026-10-19.html",
+      "markdown": "markdown/%E9%92%BB%E7%9F%B3%E3%80%81%E9%BB%84%E9%87%91%E4%B8%8E%E6%88%98%E4%BA%89_2026-10-19.md",
+      "htmlBytes": 61548,
+      "markdownBytes": 47173
+    },
+    {
+      "title": "民族国家与经济政策",
+      "date": "2026-10-19",
+      "category": "经济与商业",
+      "html": "readings/%E6%B0%91%E6%97%8F%E5%9B%BD%E5%AE%B6%E4%B8%8E%E7%BB%8F%E6%B5%8E%E6%94%BF%E7%AD%96_2026-10-19.html",
+      "markdown": "markdown/%E6%B0%91%E6%97%8F%E5%9B%BD%E5%AE%B6%E4%B8%8E%E7%BB%8F%E6%B5%8E%E6%94%BF%E7%AD%96_2026-10-19.md",
+      "htmlBytes": 58793,
+      "markdownBytes": 46231
+    },
+    {
+      "title": "把自己作为方法：与项飙谈话",
+      "date": "2026-10-19",
+      "category": "科普与科学",
+      "html": "readings/%E6%8A%8A%E8%87%AA%E5%B7%B1%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%EF%BC%9A%E4%B8%8E%E9%A1%B9%E9%A3%99%E8%B0%88%E8%AF%9D_2026-10-19.html",
+      "markdown": "markdown/%E6%8A%8A%E8%87%AA%E5%B7%B1%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%EF%BC%9A%E4%B8%8E%E9%A1%B9%E9%A3%99%E8%B0%88%E8%AF%9D_2026-10-19.md",
+      "htmlBytes": 53727,
+      "markdownBytes": 41139
+    },
+    {
+      "title": "你的灯亮着吗？发现问题的真正所在",
+      "date": "2026-10-19",
+      "category": "其他阅读",
+      "html": "readings/%E4%BD%A0%E7%9A%84%E7%81%AF%E4%BA%AE%E7%9D%80%E5%90%97%EF%BC%9F%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98%E7%9A%84%E7%9C%9F%E6%AD%A3%E6%89%80%E5%9C%A8_2026-10-19.html",
+      "markdown": "markdown/%E4%BD%A0%E7%9A%84%E7%81%AF%E4%BA%AE%E7%9D%80%E5%90%97%EF%BC%9F%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98%E7%9A%84%E7%9C%9F%E6%AD%A3%E6%89%80%E5%9C%A8_2026-10-19.md",
+      "htmlBytes": 60313,
+      "markdownBytes": 47976
+    },
+    {
+      "title": "为什么中国人勤劳而不富有",
+      "date": "2026-10-19",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%8B%A4%E5%8A%B3%E8%80%8C%E4%B8%8D%E5%AF%8C%E6%9C%89_2026-10-19.html",
+      "markdown": "markdown/%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%8B%A4%E5%8A%B3%E8%80%8C%E4%B8%8D%E5%AF%8C%E6%9C%89_2026-10-19.md",
+      "htmlBytes": 61445,
+      "markdownBytes": 48129
+    },
+    {
+      "title": "中国文化要义",
+      "date": "2026-10-19",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%AD%E5%9B%BD%E6%96%87%E5%8C%96%E8%A6%81%E4%B9%89_2026-10-19.html",
+      "markdown": "markdown/%E4%B8%AD%E5%9B%BD%E6%96%87%E5%8C%96%E8%A6%81%E4%B9%89_2026-10-19.md",
+      "htmlBytes": 55458,
+      "markdownBytes": 43004
+    },
+    {
+      "title": "个人主义与经济秩序",
+      "date": "2026-10-19",
+      "category": "经济与商业",
+      "html": "readings/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E4%B9%89%E4%B8%8E%E7%BB%8F%E6%B5%8E%E7%A7%A9%E5%BA%8F_2026-10-19.html",
+      "markdown": "markdown/%E4%B8%AA%E4%BA%BA%E4%B8%BB%E4%B9%89%E4%B8%8E%E7%BB%8F%E6%B5%8E%E7%A7%A9%E5%BA%8F_2026-10-19.md",
+      "htmlBytes": 56242,
+      "markdownBytes": 44233
+    },
+    {
+      "title": "一个村庄里的中国",
+      "date": "2026-10-19",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%80%E4%B8%AA%E6%9D%91%E5%BA%84%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-10-19.html",
+      "markdown": "markdown/%E4%B8%80%E4%B8%AA%E6%9D%91%E5%BA%84%E9%87%8C%E7%9A%84%E4%B8%AD%E5%9B%BD_2026-10-19.md",
+      "htmlBytes": 52796,
+      "markdownBytes": 40622
+    },
+    {
+      "title": "18世纪中国的官僚制度与荒政",
+      "date": "2026-10-19",
+      "category": "社会与政治",
+      "html": "readings/18%E4%B8%96%E7%BA%AA%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%AE%98%E5%83%9A%E5%88%B6%E5%BA%A6%E4%B8%8E%E8%8D%92%E6%94%BF_2026-10-19.html",
+      "markdown": "markdown/18%E4%B8%96%E7%BA%AA%E4%B8%AD%E5%9B%BD%E7%9A%84%E5%AE%98%E5%83%9A%E5%88%B6%E5%BA%A6%E4%B8%8E%E8%8D%92%E6%94%BF_2026-10-19.md",
+      "htmlBytes": 48236,
+      "markdownBytes": 36484
+    },
     {
       "title": "资本主义的文化矛盾",
       "date": "2026-09-28",
