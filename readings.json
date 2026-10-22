@@ -1,13 +1,13 @@
 {
-  "updated": "2026-10-19",
-  "count": 945,
-  "htmlCount": 940,
-  "markdownCount": 943,
+  "updated": "2026-10-22",
+  "count": 950,
+  "htmlCount": 945,
+  "markdownCount": 948,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 185,
+    "其他阅读": 188,
     "历史与文明": 177,
     "古典文献与国学": 9,
     "哲学与思想": 52,
@@ -15,16 +15,61 @@
     "实用与技能": 12,
     "心理学与自我": 46,
     "性文化与身体": 26,
-    "文学与小说": 116,
+    "文学与小说": 117,
     "社会与政治": 102,
     "神话与民俗": 14,
     "科幻与悬疑": 19,
     "科普与科学": 17,
     "经济与商业": 43,
-    "艺术与文化": 20,
+    "艺术与文化": 21,
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "路西法效应",
+      "date": "2026-10-22",
+      "category": "其他阅读",
+      "html": "readings/%E8%B7%AF%E8%A5%BF%E6%B3%95%E6%95%88%E5%BA%94_2026-10-22.html",
+      "markdown": "markdown/%E8%B7%AF%E8%A5%BF%E6%B3%95%E6%95%88%E5%BA%94_2026-10-22.md",
+      "htmlBytes": 55843,
+      "markdownBytes": 42193
+    },
+    {
+      "title": "被统治的艺术",
+      "date": "2026-10-22",
+      "category": "艺术与文化",
+      "html": "readings/%E8%A2%AB%E7%BB%9F%E6%B2%BB%E7%9A%84%E8%89%BA%E6%9C%AF_2026-10-22.html",
+      "markdown": "markdown/%E8%A2%AB%E7%BB%9F%E6%B2%BB%E7%9A%84%E8%89%BA%E6%9C%AF_2026-10-22.md",
+      "htmlBytes": 58961,
+      "markdownBytes": 45377
+    },
+    {
+      "title": "策略思维",
+      "date": "2026-10-22",
+      "category": "其他阅读",
+      "html": "readings/%E7%AD%96%E7%95%A5%E6%80%9D%E7%BB%B4_2026-10-22.html",
+      "markdown": "markdown/%E7%AD%96%E7%95%A5%E6%80%9D%E7%BB%B4_2026-10-22.md",
+      "htmlBytes": 63601,
+      "markdownBytes": 49763
+    },
+    {
+      "title": "白鹿原",
+      "date": "2026-10-22",
+      "category": "文学与小说",
+      "html": "readings/%E7%99%BD%E9%B9%BF%E5%8E%9F_2026-10-22.html",
+      "markdown": "markdown/%E7%99%BD%E9%B9%BF%E5%8E%9F_2026-10-22.md",
+      "htmlBytes": 55391,
+      "markdownBytes": 42113
+    },
+    {
+      "title": "洞穴奇案",
+      "date": "2026-10-22",
+      "category": "其他阅读",
+      "html": "readings/%E6%B4%9E%E7%A9%B4%E5%A5%87%E6%A1%88_2026-10-22.html",
+      "markdown": "markdown/%E6%B4%9E%E7%A9%B4%E5%A5%87%E6%A1%88_2026-10-22.md",
+      "htmlBytes": 74383,
+      "markdownBytes": 60064
+    },
     {
       "title": "阿赞德人的巫术、神谕和魔法",
       "date": "2026-10-19",
