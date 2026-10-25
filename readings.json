@@ -1,14 +1,14 @@
 {
-  "updated": "2026-10-22",
-  "count": 950,
-  "htmlCount": 945,
-  "markdownCount": 948,
+  "updated": "2026-10-25",
+  "count": 955,
+  "htmlCount": 950,
+  "markdownCount": 953,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 188,
-    "历史与文明": 177,
+    "其他阅读": 191,
+    "历史与文明": 178,
     "古典文献与国学": 9,
     "哲学与思想": 52,
     "宗教与灵性": 60,
@@ -16,7 +16,7 @@
     "心理学与自我": 46,
     "性文化与身体": 26,
     "文学与小说": 117,
-    "社会与政治": 102,
+    "社会与政治": 103,
     "神话与民俗": 14,
     "科幻与悬疑": 19,
     "科普与科学": 17,
@@ -25,6 +25,51 @@
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "红雨",
+      "date": "2026-10-25",
+      "category": "其他阅读",
+      "html": "readings/%E7%BA%A2%E9%9B%A8_2026-10-25.html",
+      "markdown": "markdown/%E7%BA%A2%E9%9B%A8_2026-10-25.md",
+      "htmlBytes": 52970,
+      "markdownBytes": 40637
+    },
+    {
+      "title": "海洋帝国",
+      "date": "2026-10-25",
+      "category": "历史与文明",
+      "html": "readings/%E6%B5%B7%E6%B4%8B%E5%B8%9D%E5%9B%BD_2026-10-25.html",
+      "markdown": "markdown/%E6%B5%B7%E6%B4%8B%E5%B8%9D%E5%9B%BD_2026-10-25.md",
+      "htmlBytes": 57548,
+      "markdownBytes": 45161
+    },
+    {
+      "title": "忧郁的热带",
+      "date": "2026-10-25",
+      "category": "其他阅读",
+      "html": "readings/%E5%BF%A7%E9%83%81%E7%9A%84%E7%83%AD%E5%B8%A6_2026-10-25.html",
+      "markdown": "markdown/%E5%BF%A7%E9%83%81%E7%9A%84%E7%83%AD%E5%B8%A6_2026-10-25.md",
+      "htmlBytes": 58527,
+      "markdownBytes": 45893
+    },
+    {
+      "title": "国家的视角",
+      "date": "2026-10-25",
+      "category": "社会与政治",
+      "html": "readings/%E5%9B%BD%E5%AE%B6%E7%9A%84%E8%A7%86%E8%A7%92_2026-10-25.html",
+      "markdown": "markdown/%E5%9B%BD%E5%AE%B6%E7%9A%84%E8%A7%86%E8%A7%92_2026-10-25.md",
+      "htmlBytes": 60255,
+      "markdownBytes": 47107
+    },
+    {
+      "title": "众病之王",
+      "date": "2026-10-25",
+      "category": "其他阅读",
+      "html": "readings/%E4%BC%97%E7%97%85%E4%B9%8B%E7%8E%8B_2026-10-25.html",
+      "markdown": "markdown/%E4%BC%97%E7%97%85%E4%B9%8B%E7%8E%8B_2026-10-25.md",
+      "htmlBytes": 59054,
+      "markdownBytes": 46198
+    },
     {
       "title": "路西法效应",
       "date": "2026-10-22",
