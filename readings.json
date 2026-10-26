@@ -1,13 +1,13 @@
 {
-  "updated": "2026-10-25",
-  "count": 955,
-  "htmlCount": 950,
-  "markdownCount": 953,
+  "updated": "2026-10-26",
+  "count": 960,
+  "htmlCount": 955,
+  "markdownCount": 958,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 191,
+    "其他阅读": 195,
     "历史与文明": 178,
     "古典文献与国学": 9,
     "哲学与思想": 52,
@@ -19,12 +19,57 @@
     "社会与政治": 103,
     "神话与民俗": 14,
     "科幻与悬疑": 19,
-    "科普与科学": 17,
+    "科普与科学": 18,
     "经济与商业": 43,
     "艺术与文化": 21,
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "野蛮大陆",
+      "date": "2026-10-26",
+      "category": "其他阅读",
+      "html": "readings/%E9%87%8E%E8%9B%AE%E5%A4%A7%E9%99%86_2026-10-26.html",
+      "markdown": "markdown/%E9%87%8E%E8%9B%AE%E5%A4%A7%E9%99%86_2026-10-26.md",
+      "htmlBytes": 56241,
+      "markdownBytes": 43347
+    },
+    {
+      "title": "费马大定理",
+      "date": "2026-10-26",
+      "category": "科普与科学",
+      "html": "readings/%E8%B4%B9%E9%A9%AC%E5%A4%A7%E5%AE%9A%E7%90%86_2026-10-26.html",
+      "markdown": "markdown/%E8%B4%B9%E9%A9%AC%E5%A4%A7%E5%AE%9A%E7%90%86_2026-10-26.md",
+      "htmlBytes": 56435,
+      "markdownBytes": 44057
+    },
+    {
+      "title": "被抹去的一家",
+      "date": "2026-10-26",
+      "category": "其他阅读",
+      "html": "readings/%E8%A2%AB%E6%8A%B9%E5%8E%BB%E7%9A%84%E4%B8%80%E5%AE%B6_2026-10-26.html",
+      "markdown": "markdown/%E8%A2%AB%E6%8A%B9%E5%8E%BB%E7%9A%84%E4%B8%80%E5%AE%B6_2026-10-26.md",
+      "htmlBytes": 49929,
+      "markdownBytes": 37951
+    },
+    {
+      "title": "沉默的钢钉",
+      "date": "2026-10-26",
+      "category": "其他阅读",
+      "html": "readings/%E6%B2%89%E9%BB%98%E7%9A%84%E9%92%A2%E9%92%89_2026-10-26.html",
+      "markdown": "markdown/%E6%B2%89%E9%BB%98%E7%9A%84%E9%92%A2%E9%92%89_2026-10-26.md",
+      "htmlBytes": 56250,
+      "markdownBytes": 42785
+    },
+    {
+      "title": "堆芯熔毁",
+      "date": "2026-10-26",
+      "category": "其他阅读",
+      "html": "readings/%E5%A0%86%E8%8A%AF%E7%86%94%E6%AF%81_2026-10-26.html",
+      "markdown": "markdown/%E5%A0%86%E8%8A%AF%E7%86%94%E6%AF%81_2026-10-26.md",
+      "htmlBytes": 51238,
+      "markdownBytes": 38913
+    },
     {
       "title": "红雨",
       "date": "2026-10-25",
