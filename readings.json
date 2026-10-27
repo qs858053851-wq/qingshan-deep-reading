@@ -1,19 +1,19 @@
 {
   "updated": "2026-10-27",
-  "count": 965,
-  "htmlCount": 960,
-  "markdownCount": 963,
+  "count": 970,
+  "htmlCount": 965,
+  "markdownCount": 968,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 198,
+    "其他阅读": 201,
     "历史与文明": 178,
     "古典文献与国学": 9,
     "哲学与思想": 53,
     "宗教与灵性": 60,
     "实用与技能": 12,
-    "心理学与自我": 47,
+    "心理学与自我": 49,
     "性文化与身体": 26,
     "文学与小说": 117,
     "社会与政治": 103,
@@ -26,6 +26,15 @@
   },
   "entries": [
     {
+      "title": "这才是心理学：看穿伪心理学的本质",
+      "date": "2026-10-27",
+      "category": "心理学与自我",
+      "html": "readings/%E8%BF%99%E6%89%8D%E6%98%AF%E5%BF%83%E7%90%86%E5%AD%A6%EF%BC%9A%E7%9C%8B%E7%A9%BF%E4%BC%AA%E5%BF%83%E7%90%86%E5%AD%A6%E7%9A%84%E6%9C%AC%E8%B4%A8_2026-10-27.html",
+      "markdown": "markdown/%E8%BF%99%E6%89%8D%E6%98%AF%E5%BF%83%E7%90%86%E5%AD%A6%EF%BC%9A%E7%9C%8B%E7%A9%BF%E4%BC%AA%E5%BF%83%E7%90%86%E5%AD%A6%E7%9A%84%E6%9C%AC%E8%B4%A8_2026-10-27.md",
+      "htmlBytes": 64234,
+      "markdownBytes": 52365
+    },
+    {
       "title": "精神疾病与心理学",
       "date": "2026-10-27",
       "category": "心理学与自我",
@@ -33,6 +42,33 @@
       "markdown": "markdown/%E7%B2%BE%E7%A5%9E%E7%96%BE%E7%97%85%E4%B8%8E%E5%BF%83%E7%90%86%E5%AD%A6_2026-10-27.md",
       "htmlBytes": 56041,
       "markdownBytes": 43103
+    },
+    {
+      "title": "白鲸",
+      "date": "2026-10-27",
+      "category": "其他阅读",
+      "html": "readings/%E7%99%BD%E9%B2%B8_2026-10-27.html",
+      "markdown": "markdown/%E7%99%BD%E9%B2%B8_2026-10-27.md",
+      "htmlBytes": 60707,
+      "markdownBytes": 47065
+    },
+    {
+      "title": "玫瑰的名字",
+      "date": "2026-10-27",
+      "category": "其他阅读",
+      "html": "readings/%E7%8E%AB%E7%91%B0%E7%9A%84%E5%90%8D%E5%AD%97_2026-10-27.html",
+      "markdown": "markdown/%E7%8E%AB%E7%91%B0%E7%9A%84%E5%90%8D%E5%AD%97_2026-10-27.md",
+      "htmlBytes": 62536,
+      "markdownBytes": 48899
+    },
+    {
+      "title": "爱的艺术",
+      "date": "2026-10-27",
+      "category": "心理学与自我",
+      "html": "readings/%E7%88%B1%E7%9A%84%E8%89%BA%E6%9C%AF_2026-10-27.html",
+      "markdown": "markdown/%E7%88%B1%E7%9A%84%E8%89%BA%E6%9C%AF_2026-10-27.md",
+      "htmlBytes": 56068,
+      "markdownBytes": 42888
     },
     {
       "title": "庄子，从心开始",
@@ -51,6 +87,15 @@
       "markdown": "markdown/%E5%B0%A4%E5%88%A9%E8%A5%BF%E6%96%AF_2026-10-27.md",
       "htmlBytes": 66838,
       "markdownBytes": 55071
+    },
+    {
+      "title": "奇点临近",
+      "date": "2026-10-27",
+      "category": "其他阅读",
+      "html": "readings/%E5%A5%87%E7%82%B9%E4%B8%B4%E8%BF%91_2026-10-27.html",
+      "markdown": "markdown/%E5%A5%87%E7%82%B9%E4%B8%B4%E8%BF%91_2026-10-27.md",
+      "htmlBytes": 64443,
+      "markdownBytes": 50258
     },
     {
       "title": "先知之后",
