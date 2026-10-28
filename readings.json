@@ -1,13 +1,13 @@
 {
-  "updated": "2026-10-27",
-  "count": 970,
-  "htmlCount": 965,
-  "markdownCount": 968,
+  "updated": "2026-10-28",
+  "count": 975,
+  "htmlCount": 970,
+  "markdownCount": 973,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 201,
+    "其他阅读": 205,
     "历史与文明": 178,
     "古典文献与国学": 9,
     "哲学与思想": 53,
@@ -16,7 +16,7 @@
     "心理学与自我": 49,
     "性文化与身体": 26,
     "文学与小说": 117,
-    "社会与政治": 103,
+    "社会与政治": 104,
     "神话与民俗": 14,
     "科幻与悬疑": 19,
     "科普与科学": 18,
@@ -25,6 +25,51 @@
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "殿军",
+      "date": "2026-10-28",
+      "category": "其他阅读",
+      "html": "readings/%E6%AE%BF%E5%86%9B_2026-10-28.html",
+      "markdown": "markdown/%E6%AE%BF%E5%86%9B_2026-10-28.md",
+      "htmlBytes": 54416,
+      "markdownBytes": 41648
+    },
+    {
+      "title": "暴君",
+      "date": "2026-10-28",
+      "category": "其他阅读",
+      "html": "readings/%E6%9A%B4%E5%90%9B_2026-10-28.html",
+      "markdown": "markdown/%E6%9A%B4%E5%90%9B_2026-10-28.md",
+      "htmlBytes": 60977,
+      "markdownBytes": 47871
+    },
+    {
+      "title": "可操作的民主",
+      "date": "2026-10-28",
+      "category": "社会与政治",
+      "html": "readings/%E5%8F%AF%E6%93%8D%E4%BD%9C%E7%9A%84%E6%B0%91%E4%B8%BB_2026-10-28.html",
+      "markdown": "markdown/%E5%8F%AF%E6%93%8D%E4%BD%9C%E7%9A%84%E6%B0%91%E4%B8%BB_2026-10-28.md",
+      "htmlBytes": 54227,
+      "markdownBytes": 41125
+    },
+    {
+      "title": "但问旗民",
+      "date": "2026-10-28",
+      "category": "其他阅读",
+      "html": "readings/%E4%BD%86%E9%97%AE%E6%97%97%E6%B0%91_2026-10-28.html",
+      "markdown": "markdown/%E4%BD%86%E9%97%AE%E6%97%97%E6%B0%91_2026-10-28.md",
+      "htmlBytes": 58644,
+      "markdownBytes": 43285
+    },
+    {
+      "title": "一桩事先张扬的凶杀案",
+      "date": "2026-10-28",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%80%E6%A1%A9%E4%BA%8B%E5%85%88%E5%BC%A0%E6%89%AC%E7%9A%84%E5%87%B6%E6%9D%80%E6%A1%88_2026-10-28.html",
+      "markdown": "markdown/%E4%B8%80%E6%A1%A9%E4%BA%8B%E5%85%88%E5%BC%A0%E6%89%AC%E7%9A%84%E5%87%B6%E6%9D%80%E6%A1%88_2026-10-28.md",
+      "htmlBytes": 58734,
+      "markdownBytes": 46683
+    },
     {
       "title": "这才是心理学：看穿伪心理学的本质",
       "date": "2026-10-27",
