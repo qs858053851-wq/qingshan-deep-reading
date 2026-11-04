@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-28",
-  "count": 975,
-  "htmlCount": 970,
+  "updated": "2026-11-04",
+  "count": 980,
+  "htmlCount": 975,
   "markdownCount": 973,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 205,
+    "其他阅读": 207,
     "历史与文明": 178,
     "古典文献与国学": 9,
-    "哲学与思想": 53,
+    "哲学与思想": 54,
     "宗教与灵性": 60,
     "实用与技能": 12,
     "心理学与自我": 49,
@@ -18,13 +18,58 @@
     "文学与小说": 117,
     "社会与政治": 104,
     "神话与民俗": 14,
-    "科幻与悬疑": 19,
-    "科普与科学": 18,
+    "科幻与悬疑": 20,
+    "科普与科学": 19,
     "经济与商业": 43,
     "艺术与文化": 21,
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "茶叶与鸦片",
+      "date": "2026-11-04",
+      "category": "其他阅读",
+      "html": "readings/%E8%8C%B6%E5%8F%B6%E4%B8%8E%E9%B8%A6%E7%89%87_2026-11-04.html",
+      "markdown": null,
+      "htmlBytes": 66537,
+      "markdownBytes": 0
+    },
+    {
+      "title": "曹寅与康熙",
+      "date": "2026-11-04",
+      "category": "其他阅读",
+      "html": "readings/%E6%9B%B9%E5%AF%85%E4%B8%8E%E5%BA%B7%E7%86%99_2026-11-04.html",
+      "markdown": null,
+      "htmlBytes": 59267,
+      "markdownBytes": 0
+    },
+    {
+      "title": "当我们不再理解世界",
+      "date": "2026-11-04",
+      "category": "科幻与悬疑",
+      "html": "readings/%E5%BD%93%E6%88%91%E4%BB%AC%E4%B8%8D%E5%86%8D%E7%90%86%E8%A7%A3%E4%B8%96%E7%95%8C_2026-11-04.html",
+      "markdown": null,
+      "htmlBytes": 64406,
+      "markdownBytes": 0
+    },
+    {
+      "title": "当尼采哭泣",
+      "date": "2026-11-04",
+      "category": "哲学与思想",
+      "html": "readings/%E5%BD%93%E5%B0%BC%E9%87%87%E5%93%AD%E6%B3%A3_2026-11-04.html",
+      "markdown": null,
+      "htmlBytes": 57177,
+      "markdownBytes": 0
+    },
+    {
+      "title": "废除文科学部的冲击",
+      "date": "2026-11-04",
+      "category": "科普与科学",
+      "html": "readings/%E5%BA%9F%E9%99%A4%E6%96%87%E7%A7%91%E5%AD%A6%E9%83%A8%E7%9A%84%E5%86%B2%E5%87%BB_2026-11-04.html",
+      "markdown": null,
+      "htmlBytes": 58417,
+      "markdownBytes": 0
+    },
     {
       "title": "殿军",
       "date": "2026-10-28",
