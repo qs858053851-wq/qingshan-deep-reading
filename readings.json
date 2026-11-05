@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-04",
-  "count": 980,
-  "htmlCount": 975,
+  "updated": "2026-11-05",
+  "count": 981,
+  "htmlCount": 976,
   "markdownCount": 973,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 207,
+    "其他阅读": 208,
     "历史与文明": 178,
     "古典文献与国学": 9,
     "哲学与思想": 54,
@@ -25,6 +25,15 @@
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "玄鉴仙族",
+      "date": "2026-11-05",
+      "category": "其他阅读",
+      "html": "readings/%E7%8E%84%E9%89%B4%E4%BB%99%E6%97%8F_2026-11-05.html",
+      "markdown": null,
+      "htmlBytes": 53413,
+      "markdownBytes": 0
+    },
     {
       "title": "茶叶与鸦片",
       "date": "2026-11-04",
