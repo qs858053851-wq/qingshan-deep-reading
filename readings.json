@@ -1,16 +1,16 @@
 {
   "updated": "2026-11-06",
-  "count": 991,
-  "htmlCount": 986,
+  "count": 996,
+  "htmlCount": 991,
   "markdownCount": 973,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 213,
-    "历史与文明": 179,
+    "其他阅读": 216,
+    "历史与文明": 180,
     "古典文献与国学": 9,
-    "哲学与思想": 54,
+    "哲学与思想": 55,
     "宗教与灵性": 60,
     "实用与技能": 12,
     "心理学与自我": 49,
@@ -25,6 +25,24 @@
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "阿拉伯人的梦想宫殿",
+      "date": "2026-11-06",
+      "category": "其他阅读",
+      "html": "readings/%E9%98%BF%E6%8B%89%E4%BC%AF%E4%BA%BA%E7%9A%84%E6%A2%A6%E6%83%B3%E5%AE%AB%E6%AE%BF_2026-11-06.html",
+      "markdown": null,
+      "htmlBytes": 56204,
+      "markdownBytes": 0
+    },
+    {
+      "title": "道家哲学主干说",
+      "date": "2026-11-06",
+      "category": "哲学与思想",
+      "html": "readings/%E9%81%93%E5%AE%B6%E5%93%B2%E5%AD%A6%E4%B8%BB%E5%B9%B2%E8%AF%B4_2026-11-06.html",
+      "markdown": null,
+      "htmlBytes": 61374,
+      "markdownBytes": 0
+    },
     {
       "title": "缠足",
       "date": "2026-11-06",
@@ -53,6 +71,15 @@
       "markdownBytes": 0
     },
     {
+      "title": "德国与中华民国",
+      "date": "2026-11-06",
+      "category": "历史与文明",
+      "html": "readings/%E5%BE%B7%E5%9B%BD%E4%B8%8E%E4%B8%AD%E5%8D%8E%E6%B0%91%E5%9B%BD_2026-11-06.html",
+      "markdown": null,
+      "htmlBytes": 67909,
+      "markdownBytes": 0
+    },
+    {
       "title": "北宋士人师承与文学",
       "date": "2026-11-06",
       "category": "其他阅读",
@@ -62,12 +89,30 @@
       "markdownBytes": 0
     },
     {
+      "title": "初光",
+      "date": "2026-11-06",
+      "category": "其他阅读",
+      "html": "readings/%E5%88%9D%E5%85%89_2026-11-06.html",
+      "markdown": null,
+      "htmlBytes": 57412,
+      "markdownBytes": 0
+    },
+    {
       "title": "从民族国家拯救历史",
       "date": "2026-11-06",
       "category": "社会与政治",
       "html": "readings/%E4%BB%8E%E6%B0%91%E6%97%8F%E5%9B%BD%E5%AE%B6%E6%8B%AF%E6%95%91%E5%8E%86%E5%8F%B2_2026-11-06.html",
       "markdown": null,
       "htmlBytes": 69116,
+      "markdownBytes": 0
+    },
+    {
+      "title": "从中州到钱塘",
+      "date": "2026-11-06",
+      "category": "其他阅读",
+      "html": "readings/%E4%BB%8E%E4%B8%AD%E5%B7%9E%E5%88%B0%E9%92%B1%E5%A1%98_2026-11-06.html",
+      "markdown": null,
+      "htmlBytes": 61332,
       "markdownBytes": 0
     },
     {
