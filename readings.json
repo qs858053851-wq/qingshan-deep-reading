@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-06",
-  "count": 996,
-  "htmlCount": 991,
+  "updated": "2026-11-11",
+  "count": 1001,
+  "htmlCount": 996,
   "markdownCount": 973,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 216,
+    "其他阅读": 221,
     "历史与文明": 180,
     "古典文献与国学": 9,
     "哲学与思想": 55,
@@ -25,6 +25,51 @@
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "超越智商",
+      "date": "2026-11-11",
+      "category": "其他阅读",
+      "html": "readings/%E8%B6%85%E8%B6%8A%E6%99%BA%E5%95%86_2026-11-11.html",
+      "markdown": null,
+      "htmlBytes": 64234,
+      "markdownBytes": 0
+    },
+    {
+      "title": "第三种黑猩猩",
+      "date": "2026-11-11",
+      "category": "其他阅读",
+      "html": "readings/%E7%AC%AC%E4%B8%89%E7%A7%8D%E9%BB%91%E7%8C%A9%E7%8C%A9_2026-11-11.html",
+      "markdown": null,
+      "htmlBytes": 72131,
+      "markdownBytes": 0
+    },
+    {
+      "title": "大教堂与集市",
+      "date": "2026-11-11",
+      "category": "其他阅读",
+      "html": "readings/%E5%A4%A7%E6%95%99%E5%A0%82%E4%B8%8E%E9%9B%86%E5%B8%82_2026-11-11.html",
+      "markdown": null,
+      "htmlBytes": 67977,
+      "markdownBytes": 0
+    },
+    {
+      "title": "地狱里的希望",
+      "date": "2026-11-11",
+      "category": "其他阅读",
+      "html": "readings/%E5%9C%B0%E7%8B%B1%E9%87%8C%E7%9A%84%E5%B8%8C%E6%9C%9B_2026-11-11.html",
+      "markdown": null,
+      "htmlBytes": 60564,
+      "markdownBytes": 0
+    },
+    {
+      "title": "一万年的爆发",
+      "date": "2026-11-11",
+      "category": "其他阅读",
+      "html": "readings/%E4%B8%80%E4%B8%87%E5%B9%B4%E7%9A%84%E7%88%86%E5%8F%91_2026-11-11.html",
+      "markdown": null,
+      "htmlBytes": 69215,
+      "markdownBytes": 0
+    },
     {
       "title": "阿拉伯人的梦想宫殿",
       "date": "2026-11-06",
