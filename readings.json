@@ -1,13 +1,13 @@
 {
-  "updated": "2026-11-11",
-  "count": 1001,
-  "htmlCount": 996,
+  "updated": "2026-11-19",
+  "count": 1006,
+  "htmlCount": 1001,
   "markdownCount": 973,
   "categories": {
     "人类学与民族志": 16,
     "传记与回忆录": 14,
     "健康与生活": 5,
-    "其他阅读": 221,
+    "其他阅读": 225,
     "历史与文明": 180,
     "古典文献与国学": 9,
     "哲学与思想": 55,
@@ -16,7 +16,7 @@
     "心理学与自我": 49,
     "性文化与身体": 27,
     "文学与小说": 117,
-    "社会与政治": 105,
+    "社会与政治": 106,
     "神话与民俗": 14,
     "科幻与悬疑": 20,
     "科普与科学": 20,
@@ -25,6 +25,51 @@
     "诗歌与词赋": 12
   },
   "entries": [
+    {
+      "title": "自控力",
+      "date": "2026-11-19",
+      "category": "其他阅读",
+      "html": "readings/%E8%87%AA%E6%8E%A7%E5%8A%9B_2026-11-19.html",
+      "markdown": null,
+      "htmlBytes": 52541,
+      "markdownBytes": 0
+    },
+    {
+      "title": "猜想与反驳",
+      "date": "2026-11-19",
+      "category": "其他阅读",
+      "html": "readings/%E7%8C%9C%E6%83%B3%E4%B8%8E%E5%8F%8D%E9%A9%B3_2026-11-19.html",
+      "markdown": null,
+      "htmlBytes": 54988,
+      "markdownBytes": 0
+    },
+    {
+      "title": "洞见",
+      "date": "2026-11-19",
+      "category": "其他阅读",
+      "html": "readings/%E6%B4%9E%E8%A7%81_2026-11-19.html",
+      "markdown": null,
+      "htmlBytes": 53458,
+      "markdownBytes": 0
+    },
+    {
+      "title": "大众的反叛",
+      "date": "2026-11-19",
+      "category": "其他阅读",
+      "html": "readings/%E5%A4%A7%E4%BC%97%E7%9A%84%E5%8F%8D%E5%8F%9B_2026-11-19.html",
+      "markdown": null,
+      "htmlBytes": 67897,
+      "markdownBytes": 0
+    },
+    {
+      "title": "单身社会",
+      "date": "2026-11-19",
+      "category": "社会与政治",
+      "html": "readings/%E5%8D%95%E8%BA%AB%E7%A4%BE%E4%BC%9A_2026-11-19.html",
+      "markdown": null,
+      "htmlBytes": 53960,
+      "markdownBytes": 0
+    },
     {
       "title": "超越智商",
       "date": "2026-11-11",
